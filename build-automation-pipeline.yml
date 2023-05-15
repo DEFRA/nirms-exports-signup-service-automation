@@ -4,8 +4,6 @@ trigger:
 - feature/*
 - task/*
 
-pool:
-    name: 'DEFRA-TRD'
 
 steps:
 

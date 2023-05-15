@@ -1,8 +1,8 @@
 trigger:
-- master
-- dev
-- feature/*
-- task/*
+  batch: true
+  branches:
+    include:
+    - '*'
 
 
 steps:

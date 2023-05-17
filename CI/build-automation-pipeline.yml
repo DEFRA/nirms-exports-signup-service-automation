@@ -12,11 +12,10 @@ steps:
   - task: DotNetCoreCLI@2
     displayName: Restore for $(BuildConfiguration)
     inputs:
-      command: restore
+      command: 'restore'
       projects: '**/Defra.Trade.ReMos.AssuranceService.Tests.csproj'
       feedsToUse: 'config'
-      includeNuGetOrg: true
-      nugetConfigPath: 'nuget.config'
+      nugetConfigPath: 'Defra.Trade.ReMos.AssuranceService.Tests/nuget.config'
 
 
   - task: DotNetCoreCLI@2

@@ -1,5 +1,5 @@
 ﻿using BoDi;
-using Defra.GC.UI.Tests.Data.Users;
+using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;

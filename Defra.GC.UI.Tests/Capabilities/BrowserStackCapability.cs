@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
-namespace Defra.GC.UI.Tests.Capabilities
+namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
 {
     public class BrowserStackCapability : IDriverOptions
     {

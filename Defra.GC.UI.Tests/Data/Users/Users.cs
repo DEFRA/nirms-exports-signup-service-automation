@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System.Reflection;
 
 
-namespace Defra.GC.UI.Tests.Data.Users
+namespace Defra.Trade.ReMos.AssuranceService.Tests.Data.Users
 {
     public class User
     {

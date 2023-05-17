@@ -3,7 +3,7 @@ using Defra.GC.UI.Tests.Configuration;
 using System;
 using System.IO;
 
-namespace Defra.GC.UI.Tests.Tools
+namespace Defra.Trade.ReMos.AssuranceService.Tests.Tools
 {
     public interface IUrlBuilder
     {

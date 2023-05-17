@@ -1,11 +1,11 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
-using Defra.GC.UI.Tests.HelperMethods;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 
 
-namespace Defra.GC.UI.Tests.Pages
+namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
     public class SignInPage : ISignInPage
     {

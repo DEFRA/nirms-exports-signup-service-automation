@@ -15,7 +15,7 @@ steps:
       command: 'restore'
       projects: '**/Defra.Trade.ReMos.AssuranceService.Tests.csproj'
       feedsToUse: 'config'
-      nugetConfigPath: 'Defra.Trade.ReMos.AssuranceService.Tests/nuget.config'
+      nugetConfigPath: 'Defra.GC.UI.Tests/nuget.config'
 
 
   - task: DotNetCoreCLI@2

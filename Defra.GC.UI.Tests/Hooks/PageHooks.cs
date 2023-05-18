@@ -4,13 +4,13 @@ using Defra.GC.UI.Tests.Configuration;
 using TechTalk.SpecFlow;
 using Defra.GC.UI.Tests.Data.Users;
 using Defra.GC.UI.Tests.Pages;
+using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 
 namespace Defra.GC.UI.Tests.Hooks
 {
     [Binding]
     public class PageHooks
     {
-
         private readonly IObjectContainer _objectContainer;
 
         public PageHooks(IObjectContainer objectContainer) => _objectContainer = objectContainer;
@@ -20,16 +20,17 @@ namespace Defra.GC.UI.Tests.Hooks
         {
             BindAllPages();
         }
+
         private void BindAllPages()
         {
             // Objects
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<UserObject, IUserObject>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<UrlBuilder, IUrlBuilder>());
 
-            // Pages 
+            // Pages
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<SignInPage, ISignInPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessPage, IBusinessPage>());
         }
-
 
         private TU GetBaseWithContainer<T, TU>() where T : TU =>
         (TU)Activator.CreateInstance(typeof(T), _objectContainer);

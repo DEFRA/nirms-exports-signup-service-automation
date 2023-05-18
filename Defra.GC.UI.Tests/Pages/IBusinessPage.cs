@@ -12,6 +12,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterBusinessName();
 
+        public void EnterInvalidBusinessName();
+
         //public void ClickSignedOut();
 
         //public bool IsSignedOut();

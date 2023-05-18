@@ -47,5 +47,16 @@ namespace Defra.GC.UI.Tests.Steps
         public void ThenUserVerifysSucessfullyAdddedBusinessName()
         {
         }
+
+        [When(@"user enters invalid Business name")]
+        public void WhenUserEntersInvalidBusinessName()
+        {
+            BusinessPagetest.EnterInvalidBusinessName();
+        }
+
+        [Then(@"user verifies the invalid error message")]
+        public void ThenUserVerifiesTheInvalidErrorMessage()
+        {
+        }
     }
 }

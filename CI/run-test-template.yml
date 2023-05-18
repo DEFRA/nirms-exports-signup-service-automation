@@ -37,8 +37,8 @@ jobs:
       displayName: TestArtifact
       inputs:
         buildType: 'specific'
-        project: '57fadf93-268d-4f80-bc2e-5b7346c6942c'
-        pipeline: '2696'
+        project: '303b7da1-1c89-467e-9730-12849c222832'
+        pipeline: '3746'
         buildVersionToDownload: 'latestFromBranch'
         branchName: ${{ parameters.branchName }}
         downloadType: 'single'
@@ -82,7 +82,7 @@ jobs:
     
     - powershell: |
         Set-Location -Path "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests"
-        dotnet test "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/Defra.GC.UI.Tests.dll" --settings "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/testrun.runsettings" --filter "$(Where)" --logger:"trx;logfilename=${{ parameters.jobName }}.xml"
+        dotnet test "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/Defra.Trade.ReMos.AssuranceService.Tests.dll" --settings "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/testrun.runsettings" --filter "$(Where)" --logger:"trx;logfilename=${{ parameters.jobName }}.xml"
       displayName: 'Execute Tests'
       failOnStderr: true
       ignoreLASTEXITCODE: true

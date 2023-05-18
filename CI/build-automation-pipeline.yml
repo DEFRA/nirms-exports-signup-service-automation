@@ -1,22 +1,25 @@
 trigger:
-  batch: true
-  branches:
-    include:
-    - '*'
+- master
+- dev
+- feature/*
+- task/*
+- '*'
 
 pool:
     name: 'DEFRA-TRD'
-    
+
+variables:
+  BuildConfiguration: Release
+      
 steps:
 
   - task: DotNetCoreCLI@2
     displayName: Restore for $(BuildConfiguration)
     inputs:
-      command: restore
+      command: 'restore'
       projects: '**/Defra.Trade.ReMos.AssuranceService.Tests.csproj'
       feedsToUse: 'config'
-      includeNuGetOrg: true
-      nugetConfigPath: 'nuget.config'
+      nugetConfigPath: 'Defra.GC.UI.Tests/nuget.config'
 
 
   - task: DotNetCoreCLI@2

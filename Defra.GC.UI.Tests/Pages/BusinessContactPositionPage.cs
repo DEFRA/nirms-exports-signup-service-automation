@@ -16,6 +16,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
 
+        private IWebElement Backlink => _driver.FindElement(By.XPath("//a[contains(text(),'Back')]"));
         private IWebElement Positionlink => _driver.FindElement(By.XPath("//a[contains(text(),'Position')]"));
         private IWebElement Position=> _driver.FindElement(By.Id("contact-position"));
         private IWebElement SaveAndContinue => _driver.FindElement(By.Id("button-rbPositionSubmit"));

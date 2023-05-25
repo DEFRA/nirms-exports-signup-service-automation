@@ -8,81 +8,81 @@ using TechTalk.SpecFlow;
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
     [Binding]
-    public class ContactEmailAddressSteps
+    public class BusinessContactTelephoneNumberSteps
     {
         private readonly IObjectContainer _objectContainer;
         private readonly ScenarioContext _scenarioContext;
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
 
-        private IContactEmailAddressPage? contactEmailAddressPage => _objectContainer.IsRegistered<IContactEmailAddressPage>() ? _objectContainer.Resolve<IContactEmailAddressPage>() : null;
+        private IBusinessContactTelephoneNumberPage? contactTelephoneNumberPage => _objectContainer.IsRegistered<IBusinessContactTelephoneNumberPage>() ? _objectContainer.Resolve<IBusinessContactTelephoneNumberPage>() : null;
         private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
-        public ContactEmailAddressSteps(ScenarioContext context, IObjectContainer container)
+        public BusinessContactTelephoneNumberSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
             _objectContainer = container;
 
         }
 
-        [Then(@"navigate to contact email address page")]
-        public void ThenNavigateToContactEmailAddressPage()
+        [Then(@"navigate to contact telephone number page")]
+        public void ThenNavigateToContactTelephoneNumberPage()
         {
-            contactEmailAddressPage.NavigateToContactEmailAddressPage();
+            contactTelephoneNumberPage.NavigateToContactTelephoneNumberPage();
         }
 
-        [Then(@"enter email address '([^']*)'")]
-        public void ThenEnterEmailAddress(string emailAddress)
+        [Then(@"enter telephone number '([^']*)'")]
+        public void ThenEnterTelephoneNumber(string telephoneNumber)
         {
-            contactEmailAddressPage.EnterEmailAddress(emailAddress);
+            contactTelephoneNumberPage.EnterTelephoneNumber(telephoneNumber);
         }
 
         [Then(@"click on save and continue")]
         public void ThenClickOnSaveAndContinue()
         {
-            contactEmailAddressPage.ClickOnSaveAndContinue();
+            contactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         [Then(@"verify next page '([^']*)' is loaded")]
         public void ThenVerifyNextPageIsLoaded(string pageName)
         {
-            contactEmailAddressPage.VerifyNextPageIsLoaded(pageName);
+            contactTelephoneNumberPage.VerifyNextPageIsLoaded(pageName);
         }
 
-        [Then(@"verify error message on contact email address page")]
-        public void ThenVerifyErrorMessageOnContactEmailAddressPage()
+        [Then(@"verify error message on contact telephone number page")]
+        public void ThenVerifyErrorMessageOnContactTelephoneNumberPage()
         {
-            contactEmailAddressPage.VerifyErrorMessageOnContactEmailAddressPage();
+            contactTelephoneNumberPage.VerifyErrorMessageOnContactTelephoneNumberPage();
         }
 
         [Then(@"verify signUp task list page is loaded")]
         public void ThenVerifySignUpTaskListPageIsLoaded()
         {
-            contactEmailAddressPage.VerifySignUpTaskListPageIsLoaded();
+            contactTelephoneNumberPage.VerifySignUpTaskListPageIsLoaded();
         }
 
         [Then(@"click on back link")]
         public void ThenClickOnBackLink()
         {
-            contactEmailAddressPage.ClickOnBackLink();
+            contactTelephoneNumberPage.ClickOnBackLink();
         }
 
 
         [Then(@"navigate to task list page")]
         public void ThenNavigateToTaskListPage()
         {
-            contactEmailAddressPage.NavigateToTaskListPage();
+            contactTelephoneNumberPage.NavigateToTaskListPage();
         }
 
-        [Then(@"click on contact email address link")]
-        public void ThenClickOnContactEmailAddressLink()
+        [Then(@"click on contact telephone number link")]
+        public void ThenClickOnContactTelephoneNumberLink()
         {
-            contactEmailAddressPage.ClickOnContactEmailAddressLink();
+            contactTelephoneNumberPage.ClickOnContactTelephoneNumberLink();
         }
 
         [Then(@"click save and continue later")]
         public void ThenClickSaveAndContinueLater()
         {
-            contactEmailAddressPage.ClickSaveAndContinueLater();
+            contactTelephoneNumberPage.ClickSaveAndContinueLater();
         }
     }
 }

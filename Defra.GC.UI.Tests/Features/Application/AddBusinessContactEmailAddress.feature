@@ -1,5 +1,5 @@
 ﻿@Regression
-Feature: AddBusinessEmailAddress
+Feature: AddBusinessContactEmailAddress
 
 Add Contact Email address
 
@@ -48,8 +48,8 @@ Scenario: Verify back link on contact email address page
 	And   click on back link
 	And   verify signUp task list page is loaded
 	Examples: 
-	| logininfo | emailAddress |
-	| test      |              |
+	| logininfo |
+	| test      |
 
 
 Scenario: Verify save and continue later on contact email address page
@@ -60,5 +60,5 @@ Scenario: Verify save and continue later on contact email address page
 	And   click save and continue later
 	And   verify signUp task list page is loaded
 	Examples: 
-	| logininfo | emailAddress |
-	| test      |              |
+	| logininfo |
+	| test      |

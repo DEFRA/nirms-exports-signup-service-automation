@@ -6,21 +6,29 @@ using SeleniumExtras.WaitHelpers;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public class ContactEmailAddressPage : IContactEmailAddressPage
+    public class BusinessContactEmailAddressPage : IBusinessContactEmailAddressPage
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
 
         #region Page Objects
-        private By UserIdBy => By.Id("");
-        private By ContinueSelectorBy => By.XPath("//button[contains(text(),'Continue')]");
-        private By SignInConfirmBy => By.CssSelector("");
-        private By SignOutConfirmMessageBy => By.CssSelector("");
-        private By MenuButtonBy => By.CssSelector("");
 
+        private IWebElement Backlink => _driver.FindElement(By.XPath("//a[contains(text(),'Back')]"));
+        private IWebElement EmailAddresslink => _driver.FindElement(By.XPath("//a[contains(text(),'Email address')]"));
+        private IWebElement EmailAddress => _driver.FindElement(By.Id("email"));
+        private IWebElement SaveAndContinue => _driver.FindElement(By.XPath("//button[contains(text(),'Save and continue')]"));
+        private IWebElement SaveAndContinueLater => _driver.FindElement(By.XPath("//a[contains(text(),'Save and continue later')]"));
         #endregion
 
+        private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
+
+        public BusinessContactEmailAddressPage(IObjectContainer container)
+        {
+            _objectContainer = container;
+        }
+
         #region Page Methods
+
 
         public void ClickOnSaveAndContinue()
         { 

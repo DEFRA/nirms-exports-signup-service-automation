@@ -1,6 +1,6 @@
 ﻿namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public interface IContactEmailAddressPage
+    public interface IBusinessContactEmailAddressPage
     {
         public void ClickOnBackLink();
         public void ClickOnContactEmailAddressLink();

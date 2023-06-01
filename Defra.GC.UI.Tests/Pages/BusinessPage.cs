@@ -25,9 +25,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public IWebElement Businessname => _driver.WaitForElement(By.XPath("//a[normalize-space()='Business name']"));
         public IWebElement BusinessnameText => _driver.WaitForElement(By.XPath("//input[@id='business-name']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(.,'Save and continue')]"));
+        private IWebElement InvalidError => _driver.WaitForElement(By.XPath("//p[@id='Name_Error' and  not(self::span)]"));
+        private IWebElement BackLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Back']"));
 
         public void ClickonBusiness()
         {
+            _driver.Navigate().GoToUrl("https://dev-sign-up.trade.azure.defra.cloud/registration-tasklist");
             Businessname.Click();
         }
 
@@ -35,14 +38,37 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             BusinessnameText.SendKeys("Defra");
             SaveAndContinue.Click();
-            Thread.Sleep(21000);
         }
 
         public void EnterInvalidBusinessName()
         {
             BusinessnameText.SendKeys("£££*****");
             SaveAndContinue.Click();
-            Thread.Sleep(21000);
+        }
+
+        public string ValidateInvalidErrorMessage()
+        {
+            return InvalidError.Text;
+        }
+
+        public void WithoutBusinessName()
+        {
+            SaveAndContinue.Click();
+        }
+
+        public string WithoutBusinessNameValidation()
+        {
+            return InvalidError.Text;
+        }
+
+        public void ClickonBusinessBacklink()
+        {
+            BackLink.Click();
+        }
+
+        public string VerifyUserinTaskListPage()
+        {
+            return _driver.Url;
         }
     }
 }

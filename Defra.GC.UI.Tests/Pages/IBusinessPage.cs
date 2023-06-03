@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
     public interface IBusinessPage
     {
+        public void ClickOnRegisteredAddres();
+
+        public void ClickOnSaveAndContinuebuttonWithoutAddress();
+
+        public void ClickOnEligiblity();
+
+        public void SelectCountry();
+
+        public void EntertheAddress();
+
+        public string SelectWithoutCountryAndVerifyMessage();
+
         public void ClickonBusiness();
 
         public void EnterBusinessName();
@@ -23,6 +36,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickonBusinessBacklink();
 
         public string VerifyUserinTaskListPage();
+
+        public List<string> ErrorValidation();
 
         //public void ClickSignedOut();
 

@@ -22,31 +22,38 @@ Scenario Outline: Navigate to General Certificate Page and Address
 	| Key      | Value      |
 	| Adddress    | Enter address line 1.    |
 	| Town      | Enter a town or city.      |
-	| Postcosw      | Enter a post code.    |
+	| Postcode      | Enter a post code.    |
 
 
 
 	
-##
-###
-##	Scenario Outline: Navigate to General Certificate Page and missing  business name
-##	#Given that I navigate to the NI GC application
-##	#Then  sign in with valid credentials with logininfo '<logininfo>'
-##	When user is in Business details page
-##	Then user verifies the  error message for the missing field
-##	Then user verifies the "Enter your business name" error message
-##
-##	Examples: 
-##	| logininfo |
-##	| test      |
-##
-#	Scenario Outline: Navigate to General Certificate Page and back button on country page
-#	#Given that I navigate to the NI GC application
-#	#Then  sign in with valid credentials with logininfo '<logininfo>'
-#	When user is in country details page
-#	When user clicks back button
-#	Then user  navigates back to task list page
-#
-#	Examples: 
-#	| logininfo |
-#	| test      |
+	Scenario: Navigate to General Certificate Page and  Enter invalid data, Verify the error message
+	#Given that I navigate to the NI GC application
+	#Then  sign in with valid credentials with logininfo '<logininfo>'
+	When user navigates to registered address page
+	When user enters invalid address and click on save continue
+	Then user verifies invalid error message
+	| Key      | Value      |
+	| Adddress Line 1   | Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (').    |
+	| Town      | Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (').     |
+	| Postcode     | Enter a real postcode.|
+	
+
+	Scenario Outline: Navigate to General Certificate Page and back button on Address page
+	#Given that I navigate to the NI GC application
+	#Then  sign in with valid credentials with logininfo '<logininfo>'
+	When user navigates to registered address page
+	When user clicks back button
+	Then user  navigates back to task list page
+
+
+	Scenario Outline: Navigate to General Certificate Page and Clickiing save and continue button navigates back to tasklist page
+	#Given that I navigate to the NI GC application
+	#Then  sign in with valid credentials with logininfo '<logininfo>'
+	When user navigates to registered address page
+	When user clicks on Save and continue later link
+	
+
+	Examples: 
+	| logininfo |
+	| test      |

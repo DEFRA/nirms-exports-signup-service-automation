@@ -13,6 +13,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSaveAndContinuebuttonWithoutAddress();
 
+        public void EnterInvalidAddress();
+
         public void ClickOnEligiblity();
 
         public void SelectCountry();
@@ -34,6 +36,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void WithoutBusinessName();
 
         public void ClickonBusinessBacklink();
+
+        public void ClickonSaveContinuelaterlink();
 
         public string VerifyUserinTaskListPage();
 

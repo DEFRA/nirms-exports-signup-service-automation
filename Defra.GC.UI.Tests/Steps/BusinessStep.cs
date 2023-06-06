@@ -57,6 +57,18 @@ namespace Defra.GC.UI.Tests.Steps
             }
         }
 
+        [Then(@"user verifies invalid error message")]
+        public void ThenUserVerifiesInvalidErrorMessage(Table table)
+        {
+            List<string> errorlist = BusinessPagetest.ErrorValidation();
+            int i = 0;
+            foreach (TableRow row in table.Rows)
+            {
+                string value = row["Value"];
+                Assert.AreEqual(value, errorlist[i++]);
+            }
+        }
+
         [When(@"user is in country details page")]
         public void WhenUserIsInCountryDetailsPage()
         {
@@ -74,6 +86,12 @@ namespace Defra.GC.UI.Tests.Steps
         {
             BusinessPagetest.EntertheAddress();
             BusinessPagetest.VerifyUserinTaskListPage();
+        }
+
+        [When(@"user enters invalid address and click on save continue")]
+        public void WhenUserEntersInvalidAddressAndClickOnSaveContinue()
+        {
+            BusinessPagetest.EnterInvalidAddress();
         }
 
         [Then(@"user verifies the ""([^""]*)"" error message")]
@@ -122,6 +140,13 @@ namespace Defra.GC.UI.Tests.Steps
         public void WhenUserClicksBackButton()
         {
             BusinessPagetest.ClickonBusinessBacklink();
+        }
+
+        [When(@"user clicks on Save and continue later link")]
+        public void WhenUserClicksOnSaveAndContinueLaterLink()
+        {
+            BusinessPagetest.ClickonSaveContinuelaterlink();
+            BusinessPagetest.VerifyUserinTaskListPage();
         }
 
         [Then(@"user  navigates back to task list page")]

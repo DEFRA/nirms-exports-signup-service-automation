@@ -2,22 +2,23 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
     [Binding]
-    public class ContactEmailAddressSteps
+    public class BusinessContactEmailAddressSteps
     {
         private readonly IObjectContainer _objectContainer;
         private readonly ScenarioContext _scenarioContext;
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
 
-        private IContactEmailAddressPage? contactEmailAddressPage => _objectContainer.IsRegistered<IContactEmailAddressPage>() ? _objectContainer.Resolve<IContactEmailAddressPage>() : null;
+        private IBusinessContactEmailAddressPage? contactEmailAddressPage => _objectContainer.IsRegistered<IBusinessContactEmailAddressPage>() ? _objectContainer.Resolve<IBusinessContactEmailAddressPage>() : null;
         private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
-        public ContactEmailAddressSteps(ScenarioContext context, IObjectContainer container)
+        public BusinessContactEmailAddressSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
             _objectContainer = container;
@@ -36,53 +37,23 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactEmailAddressPage.EnterEmailAddress(emailAddress);
         }
 
-        [Then(@"click on save and continue")]
+        [Then(@"click on save and continue on contact email address page")]
         public void ThenClickOnSaveAndContinue()
         {
             contactEmailAddressPage.ClickOnSaveAndContinue();
         }
 
-        [Then(@"verify next page '([^']*)' is loaded")]
-        public void ThenVerifyNextPageIsLoaded(string pageName)
-        {
-            contactEmailAddressPage.VerifyNextPageIsLoaded(pageName);
-        }
 
-        [Then(@"verify error message on contact email address page")]
-        public void ThenVerifyErrorMessageOnContactEmailAddressPage()
+        [Then(@"verify error message '([^']*)' on contact email address page")]
+        public void ThenVerifyErrorMessageOnContactEmailAddressPage(string errorMessage)
         {
-            contactEmailAddressPage.VerifyErrorMessageOnContactEmailAddressPage();
-        }
-
-        [Then(@"verify signUp task list page is loaded")]
-        public void ThenVerifySignUpTaskListPageIsLoaded()
-        {
-            contactEmailAddressPage.VerifySignUpTaskListPageIsLoaded();
-        }
-
-        [Then(@"click on back link")]
-        public void ThenClickOnBackLink()
-        {
-            contactEmailAddressPage.ClickOnBackLink();
-        }
-
-
-        [Then(@"navigate to task list page")]
-        public void ThenNavigateToTaskListPage()
-        {
-            contactEmailAddressPage.NavigateToTaskListPage();
+            Assert.True(contactEmailAddressPage.VerifyErrorMessageOnContactEmailAddressPage(errorMessage), "contact email address error message not matching");
         }
 
         [Then(@"click on contact email address link")]
         public void ThenClickOnContactEmailAddressLink()
         {
             contactEmailAddressPage.ClickOnContactEmailAddressLink();
-        }
-
-        [Then(@"click save and continue later")]
-        public void ThenClickSaveAndContinueLater()
-        {
-            contactEmailAddressPage.ClickSaveAndContinueLater();
         }
     }
 }

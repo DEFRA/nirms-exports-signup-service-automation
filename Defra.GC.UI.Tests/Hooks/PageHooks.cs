@@ -28,6 +28,11 @@ namespace Defra.GC.UI.Tests.Hooks
 
             // Pages
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<SignInPage, ISignInPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessContactEmailAddressPage, IBusinessContactEmailAddressPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessContactNamePage, IBusinessContactNamePage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessContactPositionPage, IBusinessContactPositionPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessContactTelephoneNumberPage, IBusinessContactTelephoneNumberPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ApplicationPage, IApplicationPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessPage, IBusinessPage>());
         }
 

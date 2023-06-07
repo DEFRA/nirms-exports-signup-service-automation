@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddBusinessContactName - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddBusinessEmailAddress - Copy.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Add_BusinessName - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Add_Country - Copy.feature.cs" />
   </ItemGroup>
@@ -33,6 +38,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Features\Application\AddBusinessContactTelephoneNumber.feature.cs">
+      <DependentUpon>AddBusinessContactTelephoneNumber.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Features\Add_Country.feature.cs">
       <DependentUpon>Add_Country.feature</DependentUpon>
     </Compile>
@@ -54,6 +65,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\Application\AddBusinessContactPosition.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\Application\AddBusinessContactTelephoneNumber.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\Add_Address.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>

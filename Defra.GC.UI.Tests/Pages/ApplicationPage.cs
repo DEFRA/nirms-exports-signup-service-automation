@@ -19,6 +19,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #endregion
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
+        public ApplicationPage(IObjectContainer container)
+        {
+            _objectContainer = container;
+        }
 
         #region Page Methods
 

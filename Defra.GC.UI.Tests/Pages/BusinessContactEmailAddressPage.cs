@@ -15,7 +15,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
 
-        private IWebElement EmailAddresslink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Email address')]"));
+        private IWebElement EmailAddresslink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Email address')]"));
         private IWebElement EmailAddress => _driver.WaitForElement(By.Id("email"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
@@ -37,7 +37,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnContactEmailAddressLink()
         {
-            EmailAddresslink.Click();
+            _driver.ElementImplicitWait();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", EmailAddresslink);
         }
 
         public void EnterEmailAddress(string emailAddress)
@@ -47,7 +49,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void NavigateToContactEmailAddressPage()
         {
-            string url = UrlBuilder.Default().Add("registered-business-contact-name").Build();
+            string url = UrlBuilder.Default().Add("registered-business-contact-email").Build();
             _driver.Navigate().GoToUrl(url);
         }
 

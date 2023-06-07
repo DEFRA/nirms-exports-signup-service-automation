@@ -19,7 +19,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
 
-        private IWebElement Positionlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Position')]"));
+        private IWebElement Positionlink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Position')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.Id("button-rbPositionSubmit"));
         private IWebElement BusinessContactPosition => _driver.WaitForElement(By.Id("contact-position"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
@@ -57,7 +57,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnBusinessContactPositionLink()
         {
-            Positionlink.Click();
+            _driver.ElementImplicitWait();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", Positionlink);
         }
         #endregion
 

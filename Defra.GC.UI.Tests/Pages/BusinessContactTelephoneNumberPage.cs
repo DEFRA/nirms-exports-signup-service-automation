@@ -15,7 +15,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
 
-        private IWebElement TelephoneNumberlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Telephone number')]"));
+        private IWebElement TelephoneNumberlink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Telephone number')]"));
         private IWebElement Telephone => _driver.WaitForElement(By.Id("phone"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.Id("Phone_Error"));
@@ -38,7 +38,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnContactTelephoneNumberLink()
         {
-            TelephoneNumberlink.Click();
+            _driver.ElementImplicitWait();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", TelephoneNumberlink);
         }
 
         public void EnterTelephoneNumber(string telephoneNumber)
@@ -48,7 +50,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void NavigateToContactTelephoneNumberPage()
         {
-            string url = UrlBuilder.Default().Add("registered-business-contact-name").Build();
+            string url = UrlBuilder.Default().Add("registered-business-contact-phone").Build();
             _driver.Navigate().GoToUrl(url);
         }
 

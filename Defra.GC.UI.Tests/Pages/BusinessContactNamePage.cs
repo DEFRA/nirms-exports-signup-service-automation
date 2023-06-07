@@ -17,7 +17,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
         
         private IWebElement BusinessFullName => _driver.WaitForElement(By.Id("business-name"));
-        private IWebElement Fullnamelink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Full name')]"));
+        private IWebElement Fullnamelink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Full name')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.Id("button-rbCountrySubmit"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
@@ -56,7 +56,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnBusinessContactNameLink()
         {
-            Fullnamelink.Click();
+            _driver.ElementImplicitWait();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", Fullnamelink);
         }
         #endregion
 

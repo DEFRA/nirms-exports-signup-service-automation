@@ -20,9 +20,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Business name")]
+    [NUnit.Framework.DescriptionAttribute("country name")]
     [NUnit.Framework.CategoryAttribute("Regression")]
-    public partial class BusinessNameFeature
+    public partial class CountryNameFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -30,14 +30,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features
         private static string[] featureTags = new string[] {
                 "Regression"};
         
-#line 1 "Add_BusinessName.feature"
+#line 1 "Add_Country.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Business name", "Sign in to General Certificate Page and add businessname", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "country name", "Sign in to General Certificate Page and add country name", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,14 +76,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and Add business name")]
+        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and Add Country name")]
         [NUnit.Framework.TestCaseAttribute("test", null)]
-        public void NavigateToGeneralCertificatePageAndAddBusinessName(string logininfo, string[] exampleTags)
+        public void NavigateToGeneralCertificatePageAndAddCountryName(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and Add business name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and Add Country name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -95,27 +95,24 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
- testRunner.When("user is in Business details page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("user is in country details page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.When("user enters Business name and click on save continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 11
- testRunner.Then("user verifys sucessfully addded business name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("user selects country name and click on save continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and Add invalid characters business name")]
+        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and  do not select the country name")]
         [NUnit.Framework.TestCaseAttribute("logininfo", null)]
-        public void NavigateToGeneralCertificatePageAndAddInvalidCharactersBusinessName(string logininfo, string[] exampleTags)
+        public void NavigateToGeneralCertificatePageAndDoNotSelectTheCountryName(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and Add invalid characters business name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and  do not select the country name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 17
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -127,29 +124,25 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 20
- testRunner.When("user is in Business details page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("user is in country details page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 21
- testRunner.When("user enters invalid Business name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 22
- testRunner.Then("user verifies the \"Enter your business name using only letters, numbers, and spec" +
-                        "ial characters -_./()&\" error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("user verifies the \"Enter a country\" error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and missing  business name")]
+        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and back button on country page")]
         [NUnit.Framework.TestCaseAttribute("test", null)]
-        public void NavigateToGeneralCertificatePageAndMissingBusinessName(string logininfo, string[] exampleTags)
+        public void NavigateToGeneralCertificatePageAndBackButtonOnCountryPage(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and missing  business name", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 29
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and back button on country page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 39
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -159,45 +152,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 32
- testRunner.When("user is in Business details page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+ testRunner.When("user is in country details page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
- testRunner.Then("user verifies the  error message for the missing field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 34
- testRunner.Then("user verifies the \"Enter your business name\" error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and back button")]
-        [NUnit.Framework.TestCaseAttribute("test", null)]
-        public void NavigateToGeneralCertificatePageAndBackButton(string logininfo, string[] exampleTags)
-        {
-            string[] tagsOfScenario = exampleTags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("logininfo", logininfo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and back button", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 40
- this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 43
- testRunner.When("user is in Business details page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 44
  testRunner.When("user clicks back button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 45
+#line 44
  testRunner.Then("user  navigates back to task list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

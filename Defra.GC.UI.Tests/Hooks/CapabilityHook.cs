@@ -1,4 +1,4 @@
-﻿using Defra.GC.UI.Tests.Capabilities;
+﻿using Defra.Trade.ReMos.AssuranceService.Tests.Capabilities;
 using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using TechTalk.SpecFlow;

@@ -1,9 +1,8 @@
-﻿using Defra.GC.UI.Tests.Tools;
+﻿using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using TechTalk.SpecFlow;
-using Defra.GC.UI.Tests.Data.Users;
-using Defra.GC.UI.Tests.Pages;
+using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 
 namespace Defra.GC.UI.Tests.Hooks

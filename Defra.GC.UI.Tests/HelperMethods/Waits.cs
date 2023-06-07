@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace Defra.GC.UI.Tests.HelperMethods
+namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
 {
     internal static class Waits
     {

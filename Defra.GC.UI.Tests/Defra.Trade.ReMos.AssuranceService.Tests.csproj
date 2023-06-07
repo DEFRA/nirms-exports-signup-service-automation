@@ -64,4 +64,8 @@
     </SpecFlowFeatureFiles>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Application\" />
+  </ItemGroup>
+
 </Project>

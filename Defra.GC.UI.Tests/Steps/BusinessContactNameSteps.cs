@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -36,10 +37,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactNamePage.EnterBusinessContactName(ContactName);
         }
 
-        [Then(@"verify error message on business contact name page")]
-        public void ThenVerifyErrorMessageOnBusinessContactNamePage()
+        [Then(@"click on save and continue on contact full name page")]
+        public void ThenClickOnSaveAndContinue()
         {
-            contactNamePage.VerifyErrorMessageOnBusinessContactNamePage();
+            contactNamePage.ClickOnSaveAndContinue();
+        }
+
+        [Then(@"verify error message '([^']*)' on business contact name page")]
+        public void ThenVerifyErrorMessageOnBusinessContactNamePage(string errorMessage)
+        {
+            Assert.True(contactNamePage.VerifyErrorMessageOnBusinessContactNamePage(errorMessage), "Full Name error message not matching");
+
         }
 
         [Then(@"click on business contact name link")]

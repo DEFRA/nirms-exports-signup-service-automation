@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -36,53 +37,23 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactEmailAddressPage.EnterEmailAddress(emailAddress);
         }
 
-        [Then(@"click on save and continue")]
+        [Then(@"click on save and continue on contact email address page")]
         public void ThenClickOnSaveAndContinue()
         {
             contactEmailAddressPage.ClickOnSaveAndContinue();
         }
 
-        [Then(@"verify next page '([^']*)' is loaded")]
-        public void ThenVerifyNextPageIsLoaded(string pageName)
-        {
-            contactEmailAddressPage.VerifyNextPageIsLoaded(pageName);
-        }
 
-        [Then(@"verify error message on contact email address page")]
-        public void ThenVerifyErrorMessageOnContactEmailAddressPage()
+        [Then(@"verify error message '([^']*)' on contact email address page")]
+        public void ThenVerifyErrorMessageOnContactEmailAddressPage(string errorMessage)
         {
-            contactEmailAddressPage.VerifyErrorMessageOnContactEmailAddressPage();
-        }
-
-        [Then(@"verify signUp task list page is loaded")]
-        public void ThenVerifySignUpTaskListPageIsLoaded()
-        {
-            contactEmailAddressPage.VerifySignUpTaskListPageIsLoaded();
-        }
-
-        [Then(@"click on back link")]
-        public void ThenClickOnBackLink()
-        {
-            contactEmailAddressPage.ClickOnBackLink();
-        }
-
-
-        [Then(@"navigate to task list page")]
-        public void ThenNavigateToTaskListPage()
-        {
-            contactEmailAddressPage.NavigateToTaskListPage();
+            Assert.True(contactEmailAddressPage.VerifyErrorMessageOnContactEmailAddressPage(errorMessage), "contact email address error message not matching");
         }
 
         [Then(@"click on contact email address link")]
         public void ThenClickOnContactEmailAddressLink()
         {
             contactEmailAddressPage.ClickOnContactEmailAddressLink();
-        }
-
-        [Then(@"click save and continue later")]
-        public void ThenClickSaveAndContinueLater()
-        {
-            contactEmailAddressPage.ClickSaveAndContinueLater();
         }
     }
 }

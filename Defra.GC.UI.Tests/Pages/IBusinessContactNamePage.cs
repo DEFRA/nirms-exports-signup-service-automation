@@ -4,7 +4,8 @@
     {
         public void NavigateToBusinessContactNamePage();
         public void EnterBusinessContactName(string ContactName);
-        public void VerifyErrorMessageOnBusinessContactNamePage();
+        public bool VerifyErrorMessageOnBusinessContactNamePage(string errorMessage);
         public void ClickOnBusinessContactNameLink();
+        public void ClickOnSaveAndContinue();
     }
 }

@@ -8,12 +8,12 @@ Scenario: Add contact Telephone Number
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	Then  navigate to contact telephone number page
 	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue
+	And   click on save and continue on Contact Number page
 	And   verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | telephoneNumber  | nextPage |
-	| test      | test@test.com |          |
+	| test      | 01632 960 001    |          |
 
 
 Scenario: Verify error message for invalid contact Telephone Number
@@ -21,11 +21,11 @@ Scenario: Verify error message for invalid contact Telephone Number
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	Then  navigate to contact telephone number page
 	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue
-	And   verify error message on contact telephone number page
+	And   click on save and continue on Contact Number page
+	And   verify error message '<errorMessage>' on contact telephone number page
 	Examples: 
-	| logininfo | telephoneNumber      |
-	| test      | test£$@£test.com  |
+	| logininfo | telephoneNumber | errorMessage                                     |
+	| test      | abc123          | Enter a telephone number in the correct format   |
 
 
 Scenario: Verify error message for blank contact telephone number
@@ -33,11 +33,11 @@ Scenario: Verify error message for blank contact telephone number
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	Then  navigate to contact telephone number page
 	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue
-	And   verify error message on contact telephone number page
+	And   click on save and continue on Contact Number page
+	And   verify error message '<errorMessage>' on contact telephone number page
 	Examples: 
-	| logininfo | telephoneNumber |
-	| test      |              |
+	| logininfo | telephoneNumber | errorMessage                                  |
+	| test      |                 | Enter the phone number of the contact person  |
 
 
 Scenario: Verify back link on contact telephone number page

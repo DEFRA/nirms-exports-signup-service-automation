@@ -4,6 +4,7 @@ using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 using Defra.UI.Framework.Driver;
+using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -11,14 +12,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
+        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
+        
+        private IWebElement BusinessFullName => _driver.WaitForElement(By.Id("business-name"));
+        private IWebElement Fullnamelink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Full name')]"));
+        private IWebElement SaveAndContinue => _driver.WaitForElement(By.Id("button-rbCountrySubmit"));
+        private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
-        private IWebElement Backlink => _driver.FindElement(By.XPath("//a[contains(text(),'Back')]"));
-        private IWebElement Fullnamelink => _driver.FindElement(By.XPath("//a[contains(text(),'Full name')]"));
-        private IWebElement Fullname => _driver.FindElement(By.Id("business-name"));
-        private IWebElement SaveAndContinue => _driver.FindElement(By.Id("button-rbCountrySubmit"));
-        private IWebElement SaveAndContinueLater => _driver.FindElement(By.Id("button-rbCountrySave"));
 
         #endregion
 
@@ -32,23 +34,29 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Methods
 
         public void NavigateToBusinessContactNamePage()
-        { 
-        
+        {
+            string url = UrlBuilder.Default().Add("registered-business-contact-name").Build();
+            _driver.Navigate().GoToUrl(url);
         }
 
         public void EnterBusinessContactName(string ContactName)
-        { 
-        
+        {
+            BusinessFullName.SendKeys(ContactName);
         }
 
-        public void VerifyErrorMessageOnBusinessContactNamePage()
+        public bool VerifyErrorMessageOnBusinessContactNamePage(string errorMessage)
         {
+            return ErrorMessage.Text.Contains(errorMessage);
+        }
 
+        public void ClickOnSaveAndContinue()
+        {
+            SaveAndContinue.Click();
         }
 
         public void ClickOnBusinessContactNameLink()
-        { 
-        
+        {
+            Fullnamelink.Click();
         }
         #endregion
 

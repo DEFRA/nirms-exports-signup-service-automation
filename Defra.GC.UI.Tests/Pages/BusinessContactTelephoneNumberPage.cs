@@ -1,6 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 
@@ -10,14 +11,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
+        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
 
-        private IWebElement Backlink => _driver.FindElement(By.XPath("//a[contains(text(),'Back')]"));
-        private IWebElement TelephoneNumberlink => _driver.FindElement(By.XPath("//a[contains(text(),'Telephone number')]"));
-        private IWebElement Telephone => _driver.FindElement(By.Id("phone"));
-        private IWebElement SaveAndContinue => _driver.FindElement(By.XPath("//button[contains(text(),'Save and continue')]"));
-        private IWebElement SaveAndContinueLater => _driver.FindElement(By.XPath("//a[contains(text(),'Save and continue later')]"));
+        private IWebElement TelephoneNumberlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Telephone number')]"));
+        private IWebElement Telephone => _driver.WaitForElement(By.Id("phone"));
+        private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
+        private IWebElement ErrorMessage => _driver.WaitForElement(By.Id("Phone_Error"));
         #endregion
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -30,54 +31,32 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Methods
 
         public void ClickOnSaveAndContinue()
-        { 
-        
+        {
+            SaveAndContinue.Click();
         }
 
-        public void ClickOnBackLink()
-        { 
-        
-        }
 
         public void ClickOnContactTelephoneNumberLink()
-        { 
-        
-        }
-
-        public void ClickSaveAndContinueLater()
-        { 
-        
+        {
+            TelephoneNumberlink.Click();
         }
 
         public void EnterTelephoneNumber(string telephoneNumber)
-        { 
-        
+        {
+            Telephone.SendKeys(telephoneNumber);
         }
 
         public void NavigateToContactTelephoneNumberPage()
-        { 
-        
-        }
-
-        public void NavigateToTaskListPage()
-        { 
-        
-        }
-
-        public void VerifyErrorMessageOnContactTelephoneNumberPage()
         {
-        
+            string url = UrlBuilder.Default().Add("registered-business-contact-name").Build();
+            _driver.Navigate().GoToUrl(url);
         }
 
-        public void VerifyNextPageIsLoaded(string pageName)
-        { 
-        
+        public bool VerifyErrorMessageOnContactTelephoneNumberPage(string errorMessage)
+        {
+            return ErrorMessage.Text.Contains(errorMessage);
         }
 
-        public void VerifySignUpTaskListPageIsLoaded() 
-        { 
-        
-        }
         #endregion
 
     }

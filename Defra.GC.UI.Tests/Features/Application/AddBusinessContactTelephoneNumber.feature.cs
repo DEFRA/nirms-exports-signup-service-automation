@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add contact Telephone Number")]
-        [NUnit.Framework.TestCaseAttribute("test", "test@test.com", "", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "01632 960 001", "", null)]
         public void AddContactTelephoneNumber(string logininfo, string telephoneNumber, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -109,7 +109,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter telephone number \'{0}\'", telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue on Contact Number page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.And(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -120,13 +120,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for invalid contact Telephone Number")]
-        [NUnit.Framework.TestCaseAttribute("test", "test£$@£test.com", null)]
-        public void VerifyErrorMessageForInvalidContactTelephoneNumber(string logininfo, string telephoneNumber, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "abc123", "Enter a telephone number in the correct format", null)]
+        public void VerifyErrorMessageForInvalidContactTelephoneNumber(string logininfo, string telephoneNumber, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("telephoneNumber", telephoneNumber);
+            argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for invalid contact Telephone Number", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 19
 this.ScenarioInitialize(scenarioInfo);
@@ -151,10 +152,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter telephone number \'{0}\'", telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 24
- testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue on Contact Number page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 25
- testRunner.And("verify error message on contact telephone number page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("verify error message \'{0}\' on contact telephone number page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -162,13 +163,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for blank contact telephone number")]
-        [NUnit.Framework.TestCaseAttribute("test", "", null)]
-        public void VerifyErrorMessageForBlankContactTelephoneNumber(string logininfo, string telephoneNumber, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "", "Enter the phone number of the contact person", null)]
+        public void VerifyErrorMessageForBlankContactTelephoneNumber(string logininfo, string telephoneNumber, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("telephoneNumber", telephoneNumber);
+            argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for blank contact telephone number", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 31
 this.ScenarioInitialize(scenarioInfo);
@@ -193,10 +195,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter telephone number \'{0}\'", telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 36
- testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue on Contact Number page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 37
- testRunner.And("verify error message on contact telephone number page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("verify error message \'{0}\' on contact telephone number page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

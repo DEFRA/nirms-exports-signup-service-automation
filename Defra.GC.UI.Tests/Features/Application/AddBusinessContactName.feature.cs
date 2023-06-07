@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add business contact name")]
-        [NUnit.Framework.TestCaseAttribute("test", "", "", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "testName", "", null)]
         public void AddBusinessContactName(string logininfo, string contactName, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -109,7 +109,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter business contact name \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue on contact full name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.And(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -120,13 +120,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for invalid business contact name")]
-        [NUnit.Framework.TestCaseAttribute("test", "", null)]
-        public void VerifyErrorMessageForInvalidBusinessContactName(string logininfo, string contactName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "invalidTest%", "Name must only include letters, numbers, and special characters", null)]
+        public void VerifyErrorMessageForInvalidBusinessContactName(string logininfo, string contactName, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("contactName", contactName);
+            argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for invalid business contact name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 19
 this.ScenarioInitialize(scenarioInfo);
@@ -151,10 +152,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter business contact name \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 24
- testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue on contact full name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 25
- testRunner.And("verify error message on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("verify error message \'{0}\' on business contact name page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -162,13 +163,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for blank business contact name")]
-        [NUnit.Framework.TestCaseAttribute("test", "", null)]
-        public void VerifyErrorMessageForBlankBusinessContactName(string logininfo, string contactName, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "", "Enter a name.", null)]
+        public void VerifyErrorMessageForBlankBusinessContactName(string logininfo, string contactName, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("contactName", contactName);
+            argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for blank business contact name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 31
 this.ScenarioInitialize(scenarioInfo);
@@ -193,10 +195,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter business contact name \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 36
- testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue on contact full name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 37
- testRunner.And("verify error message on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("verify error message \'{0}\' on business contact name page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

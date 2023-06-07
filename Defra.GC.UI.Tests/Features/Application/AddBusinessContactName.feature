@@ -8,12 +8,12 @@ Scenario: Add business contact name
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	Then  navigate to business contact name page
 	And   enter business contact name '<contactName>'
-	And   click on save and continue
+	And   click on save and continue on contact full name page
 	And   verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | contactName   | nextPage |
-	| test      |               |          |
+	| test      | testName      |          |
 
 
 Scenario: Verify error message for invalid business contact name
@@ -21,11 +21,11 @@ Scenario: Verify error message for invalid business contact name
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	Then  navigate to business contact name page
 	And   enter business contact name '<contactName>'
-	And   click on save and continue
-	And   verify error message on business contact name page
+	And   click on save and continue on contact full name page
+	And   verify error message '<errorMessage>' on business contact name page 
 	Examples: 
-	| logininfo | contactName      |
-	| test      |                  |
+	| logininfo | contactName  | errorMessage                                                    |
+	| test      | invalidTest% | Name must only include letters, numbers, and special characters |
 
 
 Scenario: Verify error message for blank business contact name
@@ -33,11 +33,11 @@ Scenario: Verify error message for blank business contact name
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	Then  navigate to business contact name page
 	And   enter business contact name '<contactName>'
-	And   click on save and continue
-	And   verify error message on business contact name page
+	And   click on save and continue on contact full name page
+	And   verify error message '<errorMessage>' on business contact name page 
 	Examples: 
-	| logininfo | contactName |
-	| test      |              |
+	| logininfo | contactName | errorMessage  |
+	| test      |             | Enter a name. |
 
 
 Scenario: Verify back link on business contact name page

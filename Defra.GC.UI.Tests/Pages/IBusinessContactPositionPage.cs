@@ -4,7 +4,8 @@
     {
         public void NavigateToBusinessContactPositionPage();
         public void EnterBusinessContactPosition(string ContactPosition);
-        public void VerifyErrorMessageOnBusinessContactPositionPage();
+        public bool VerifyErrorMessageOnBusinessContactPositionPage(string errorMessage);
         public void ClickOnBusinessContactPositionLink();
+        public void ClickOnSaveAndContinue();
     }
 }

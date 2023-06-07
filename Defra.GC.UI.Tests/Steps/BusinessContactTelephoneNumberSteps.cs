@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -36,53 +37,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactTelephoneNumberPage.EnterTelephoneNumber(telephoneNumber);
         }
 
-        [Then(@"click on save and continue")]
+        [Then(@"click on save and continue on Contact Number page")]
         public void ThenClickOnSaveAndContinue()
         {
             contactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
-        [Then(@"verify next page '([^']*)' is loaded")]
-        public void ThenVerifyNextPageIsLoaded(string pageName)
+        [Then(@"verify error message '([^']*)' on contact telephone number page")]
+        public void ThenVerifyErrorMessageOnContactTelephoneNumberPage(string errorMessage)
         {
-            contactTelephoneNumberPage.VerifyNextPageIsLoaded(pageName);
-        }
-
-        [Then(@"verify error message on contact telephone number page")]
-        public void ThenVerifyErrorMessageOnContactTelephoneNumberPage()
-        {
-            contactTelephoneNumberPage.VerifyErrorMessageOnContactTelephoneNumberPage();
-        }
-
-        [Then(@"verify signUp task list page is loaded")]
-        public void ThenVerifySignUpTaskListPageIsLoaded()
-        {
-            contactTelephoneNumberPage.VerifySignUpTaskListPageIsLoaded();
-        }
-
-        [Then(@"click on back link")]
-        public void ThenClickOnBackLink()
-        {
-            contactTelephoneNumberPage.ClickOnBackLink();
-        }
-
-
-        [Then(@"navigate to task list page")]
-        public void ThenNavigateToTaskListPage()
-        {
-            contactTelephoneNumberPage.NavigateToTaskListPage();
+            Assert.True(contactTelephoneNumberPage.VerifyErrorMessageOnContactTelephoneNumberPage(errorMessage), "contact telephone number error message not matching");
         }
 
         [Then(@"click on contact telephone number link")]
         public void ThenClickOnContactTelephoneNumberLink()
         {
             contactTelephoneNumberPage.ClickOnContactTelephoneNumberLink();
-        }
-
-        [Then(@"click save and continue later")]
-        public void ThenClickSaveAndContinueLater()
-        {
-            contactTelephoneNumberPage.ClickSaveAndContinueLater();
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Data.Users
                     environment = "prd";
                 }
                 */
-                var filterList = environment.ToLower().Contains("assurance", StringComparison.CurrentCultureIgnoreCase)
+                var filterList = environment.ToLower().Contains("sign-up", StringComparison.CurrentCultureIgnoreCase)
                     ? usersList.FindAll(d => d.LoginInfo.Equals(info) && d.Environment.ToLower().Contains("test"))
                     : usersList.FindAll(d => d.LoginInfo.Equals(info) && d.Environment.ToLower().Contains(environment));
 

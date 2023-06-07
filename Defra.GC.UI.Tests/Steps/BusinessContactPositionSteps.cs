@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -36,10 +37,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactPositionPage.EnterBusinessContactPosition(ContactPosition);
         }
 
-        [Then(@"verify error message on business contact position page")]
-        public void ThenVerifyErrorMessageOnBusinessContactPositionPage()
+        [Then(@"click on save and continue on contact position page")]
+        public void ThenClickOnSaveAndContinue()
         {
-            contactPositionPage.VerifyErrorMessageOnBusinessContactPositionPage();
+            contactPositionPage.ClickOnSaveAndContinue();
+        }
+
+
+        [Then(@"verify error message '([^']*)' on business contact position page")]
+        public void ThenVerifyErrorMessageOnBusinessContactPositionPage(string errorMessage)
+        {
+            Assert.True(contactPositionPage.VerifyErrorMessageOnBusinessContactPositionPage(errorMessage), "contact position error message not matching");
+
         }
 
         [Then(@"click on business contact position link")]

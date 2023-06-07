@@ -1,6 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 
@@ -10,14 +11,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
+        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
 
-        private IWebElement Backlink => _driver.FindElement(By.XPath("//a[contains(text(),'Back')]"));
-        private IWebElement EmailAddresslink => _driver.FindElement(By.XPath("//a[contains(text(),'Email address')]"));
-        private IWebElement EmailAddress => _driver.FindElement(By.Id("email"));
-        private IWebElement SaveAndContinue => _driver.FindElement(By.XPath("//button[contains(text(),'Save and continue')]"));
-        private IWebElement SaveAndContinueLater => _driver.FindElement(By.XPath("//a[contains(text(),'Save and continue later')]"));
+        private IWebElement EmailAddresslink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Email address')]"));
+        private IWebElement EmailAddress => _driver.WaitForElement(By.Id("email"));
+        private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
+        private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         #endregion
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -29,55 +30,30 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Methods
 
-
         public void ClickOnSaveAndContinue()
-        { 
-        
-        }
-
-        public void ClickOnBackLink()
-        { 
-        
+        {
+            SaveAndContinue.Click();
         }
 
         public void ClickOnContactEmailAddressLink()
-        { 
-        
-        }
-
-        public void ClickSaveAndContinueLater()
-        { 
-        
+        {
+            EmailAddresslink.Click();
         }
 
         public void EnterEmailAddress(string emailAddress)
-        { 
-        
+        {
+            EmailAddress.SendKeys(emailAddress);
         }
 
         public void NavigateToContactEmailAddressPage()
-        { 
-        
-        }
-
-        public void NavigateToTaskListPage()
-        { 
-        
-        }
-
-        public void VerifyErrorMessageOnContactEmailAddressPage()
         {
-        
+            string url = UrlBuilder.Default().Add("registered-business-contact-name").Build();
+            _driver.Navigate().GoToUrl(url);
         }
 
-        public void VerifyNextPageIsLoaded(string pageName)
-        { 
-        
-        }
-
-        public void VerifySignUpTaskListPageIsLoaded() 
-        { 
-        
+        public bool VerifyErrorMessageOnContactEmailAddressPage(string errorMessage)
+        {
+            return ErrorMessage.Text.Contains(errorMessage);
         }
         #endregion
 

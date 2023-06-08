@@ -8,6 +8,7 @@ using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using static System.Net.Mime.MediaTypeNames;
 using Defra.UI.Framework.Driver;
 using System;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
@@ -110,6 +111,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         [Then(@"user verifies the ""([^""]*)"" error message for Business name")]
         public void ThenUserVerifiesTheErrorMessageForBusinessName(string p0)
         {
+            Thread.Sleep(2000);
             string error = BusinessPagetest.ValidateInvalidErrorMessage();
             StringAssert.Contains(p0, error);
         }

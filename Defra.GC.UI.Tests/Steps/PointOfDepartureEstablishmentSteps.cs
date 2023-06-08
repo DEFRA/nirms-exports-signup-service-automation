@@ -52,10 +52,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(pointOfDepartureEstablishmentPage.ClickOnAddTheEstablishmentAddressManuallyLink(), "Add establishment address page not loaded");
         }
 
-        [Then(@"Add GB point of Departure establishment address manually with fields '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
-        public void ThenAddGBPointOfDepartureEstablishmentAddressManuallyWithFields(string testName, string testAddress, string testCity, string testCode)
+        [Then(@"Add GB point of Departure establishment address manually with fields '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void ThenAddGBPointOfDepartureEstablishmentAddressManuallyWithFields(string testName, string testAddress, string testCity, string testCountry, string testCode)
         {
-            pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(testName, testAddress, testCity, testCode);
+            pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(testName, testAddress, testCity, testCountry, testCode);
         }
 
         [Then(@"verify error message '([^']*)' on Add a point of departure page")]

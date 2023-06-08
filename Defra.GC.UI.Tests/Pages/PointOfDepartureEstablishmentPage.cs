@@ -71,13 +71,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return PageHeading.Text.Contains("Add a point of departure");
         }
 
-        public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCode)
+        public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry,string testCode)
         {
             EstablishmentName.SendKeys(testName);
             EstablishmentAddr1.SendKeys(testAddress);
             EstablishmentAddr2.SendKeys(testAddress);
             EstablishmentCity.SendKeys(testCity);
-            EstablishmentCountry.SendKeys(testCity);
+            EstablishmentCountry.SendKeys(testCountry);
             Postcode.SendKeys(testCode);
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);

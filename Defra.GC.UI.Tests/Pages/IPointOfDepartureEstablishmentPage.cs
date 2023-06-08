@@ -12,7 +12,7 @@
 
         public bool ClickOnAddTheEstablishmentAddressManuallyLink();
 
-        public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCode);
+        public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry, string testCode);
 
         public bool VerifyErrorMessageOnAddAPointOfDeparture(string errorMessage);
     }

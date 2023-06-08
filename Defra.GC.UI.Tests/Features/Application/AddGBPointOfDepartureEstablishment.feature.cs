@@ -222,23 +222,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify error messages for GB point of Departure mandatory fields")]
-        [NUnit.Framework.TestCaseAttribute("test", "testcode", "", "testAddress1", "testCity", "testCode", "Enter establishment name", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "", "testCity", "testCode", "Enter address line 1", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "testAddress1", "", "testCode", "Enter a town or city", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "testAddress1", "testCity", "", "Enter a post code", null)]
-        public void VerifyErrorMessagesForGBPointOfDepartureMandatoryFields(string logininfo, string postcode, string establishmentName, string addressLine1, string city, string addrPostcode, string errorMessage, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify back link on enter establishment postcode page")]
+        [NUnit.Framework.TestCaseAttribute("test", null)]
+        public void VerifyBackLinkOnEnterEstablishmentPostcodePage(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
-            argumentsOfScenario.Add("postcode", postcode);
-            argumentsOfScenario.Add("EstablishmentName", establishmentName);
-            argumentsOfScenario.Add("AddressLine1", addressLine1);
-            argumentsOfScenario.Add("City", city);
-            argumentsOfScenario.Add("AddrPostcode", addrPostcode);
-            argumentsOfScenario.Add("errorMessage", errorMessage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error messages for GB point of Departure mandatory fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back link on enter establishment postcode page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 47
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -259,22 +250,172 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("click on points of departure link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 51
- testRunner.And(string.Format("enter Establishment postcode \'{0}\'", postcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 52
+ testRunner.And("verify signUp task list page is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify back link on select establishment address page")]
+        [NUnit.Framework.TestCaseAttribute("test", "testCode", "Add a point of departure", null)]
+        public void VerifyBackLinkOnSelectEstablishmentAddressPage(string logininfo, string postcode, string nextPage, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("logininfo", logininfo);
+            argumentsOfScenario.Add("postcode", postcode);
+            argumentsOfScenario.Add("nextPage", nextPage);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back link on select establishment address page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 58
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 59
+ testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 60
+ testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 61
+ testRunner.Then("click on points of departure link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 62
+ testRunner.And(string.Format("enter Establishment postcode \'{0}\'", postcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 63
  testRunner.And("verify Add a point of departure Page loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 64
+ testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 65
+ testRunner.And(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify back link on add establishment address page")]
+        [NUnit.Framework.TestCaseAttribute("test", "testCode", "Add a point of departure", null)]
+        public void VerifyBackLinkOnAddEstablishmentAddressPage(string logininfo, string postcode, string nextPage, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("logininfo", logininfo);
+            argumentsOfScenario.Add("postcode", postcode);
+            argumentsOfScenario.Add("nextPage", nextPage);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back link on add establishment address page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 71
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 72
+ testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 73
+ testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 74
+ testRunner.Then("click on points of departure link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 75
+ testRunner.And(string.Format("enter Establishment postcode \'{0}\'", postcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 76
+ testRunner.And("verify Add a point of departure Page loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 77
  testRunner.And("click on cannot find establishment link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 54
+#line 78
  testRunner.And("click on the add establishment address manually link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 55
- testRunner.And(string.Format("Add GB point of Departure establishment address manually with fields \'{0}\', \'{1}\'" +
-                            ", \'{2}\', \'{3}\'", establishmentName, addressLine1, city, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+ testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 80
+ testRunner.And(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify error messages for GB point of Departure mandatory fields")]
+        [NUnit.Framework.TestCaseAttribute("test", "testcode", "", "testAddress1", "testCity", "testCountry", "testCode", "Enter establishment name", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "", "testCity", "testCountry", "testCode", "Enter address line 1", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "testAddress1", "", "testCountry", "testCode", "Enter a town or city", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "testAddress1", "testCity", "testCountry", "", "Enter a post code", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName$%", "testAddress1", "testCity", "testCountry", "testCode", "Enter establishment name using only letters", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "testAddr%$", "testCity", "testCountry", "testCode", "Enter address line 1 using only letters, numbers", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "testAddress1", "testCity%$", "testCountry", "testCode", "Enter a town or city using only letters, numbers", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "testcode", "testName", "testAddress1", "testCity", "testCountry", "testCode$%", "Enter a real postcode.", null)]
+        public void VerifyErrorMessagesForGBPointOfDepartureMandatoryFields(string logininfo, string postcode, string establishmentName, string addressLine1, string city, string country, string addrPostcode, string errorMessage, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("logininfo", logininfo);
+            argumentsOfScenario.Add("postcode", postcode);
+            argumentsOfScenario.Add("EstablishmentName", establishmentName);
+            argumentsOfScenario.Add("AddressLine1", addressLine1);
+            argumentsOfScenario.Add("City", city);
+            argumentsOfScenario.Add("Country", country);
+            argumentsOfScenario.Add("AddrPostcode", addrPostcode);
+            argumentsOfScenario.Add("errorMessage", errorMessage);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error messages for GB point of Departure mandatory fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 86
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 87
+ testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 88
+ testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 89
+ testRunner.Then("click on points of departure link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 90
+ testRunner.And(string.Format("enter Establishment postcode \'{0}\'", postcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 91
+ testRunner.And("verify Add a point of departure Page loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 92
+ testRunner.And("click on cannot find establishment link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 93
+ testRunner.And("click on the add establishment address manually link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 94
+ testRunner.And(string.Format("Add GB point of Departure establishment address manually with fields \'{0}\', \'{1}\'" +
+                            ", \'{2}\', \'{3}\', \'{4}\'", establishmentName, addressLine1, city, country, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 95
  testRunner.And(string.Format("verify error message \'{0}\' on Add a point of departure page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

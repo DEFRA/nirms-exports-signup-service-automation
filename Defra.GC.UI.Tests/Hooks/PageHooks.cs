@@ -33,6 +33,7 @@ namespace Defra.GC.UI.Tests.Hooks
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessContactPositionPage, IBusinessContactPositionPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessContactTelephoneNumberPage, IBusinessContactTelephoneNumberPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ApplicationPage, IApplicationPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<PointOfDepartureEstablishmentPage, IPointOfDepartureEstablishmentPage>());
         }
 
 

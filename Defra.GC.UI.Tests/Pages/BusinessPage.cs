@@ -57,7 +57,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSaveAndContinuebuttonWithoutAddress()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
+            //((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
 
             _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SaveAndContinue)).Click();
         }

@@ -1,16 +1,8 @@
 ﻿using BoDi;
-using Defra.GC.UI.Tests.HelperMethods;
-using Defra.GC.UI.Tests.Pages;
 using Defra.UI.Framework.Driver;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using TechTalk.SpecFlow;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -49,9 +41,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement ErrorValidationAddress => _driver.WaitForElement(By.XPath("//li//a"));
 
-        private By Errors = By.XPath("//li//a");
+        private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
-        //
+        private By Errors = By.XPath("//li//a");
 
         public void ClickOnRegisteredAddres()
         {
@@ -95,6 +87,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return CountryError.Text;
         }
 
+        public bool VerifyErrorMessageOnBusinessNamePage(string errorMessage)
+
+        {
+            return ErrorMessage.Text.Contains(errorMessage);
+        }
+
         public void ClickonBusiness()
         {
             _driver.Navigate().GoToUrl("https://tstgcwebaw1001.azurewebsites.net/registration-tasklist");
@@ -136,6 +134,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public string WithoutBusinessNameValidation()
         {
+            SaveAndContinue.Click();
             return InvalidError.Text;
         }
 

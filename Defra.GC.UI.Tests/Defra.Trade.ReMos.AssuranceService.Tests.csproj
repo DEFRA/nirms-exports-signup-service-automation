@@ -44,7 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Features\Add_Country.feature.cs">
+    <Compile Update="Features\Application\Add_Country.feature.cs">
       <DependentUpon>Add_Country.feature</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -73,18 +73,14 @@
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
-    <SpecFlowFeatureFiles Update="Features\Add_Address.feature">
+    <SpecFlowFeatureFiles Update="Features\Application\Add_Address.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
-    <SpecFlowFeatureFiles Update="Features\Add_Country.feature">
+    <SpecFlowFeatureFiles Update="Features\Application\Add_Country.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Application\" />
   </ItemGroup>
 
 </Project>

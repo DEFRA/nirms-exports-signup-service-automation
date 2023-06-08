@@ -23,6 +23,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public string SelectWithoutCountryAndVerifyMessage();
 
+        public bool VerifyErrorMessageOnBusinessNamePage(string errorMessage);
+
         public void ClickonBusiness();
 
         public void EnterBusinessName();

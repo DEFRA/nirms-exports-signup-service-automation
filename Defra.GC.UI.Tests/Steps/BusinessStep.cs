@@ -1,16 +1,15 @@
 ﻿using BoDi;
-using Defra.GC.UI.Tests.Tools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
-using Defra.GC.UI.Tests.Pages;
-using Defra.GC.UI.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
+using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using static System.Net.Mime.MediaTypeNames;
 using Defra.UI.Framework.Driver;
 using System;
 
-namespace Defra.GC.UI.Tests.Steps
+namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
     [Binding]
     public class BusinessStep
@@ -88,7 +87,7 @@ namespace Defra.GC.UI.Tests.Steps
             BusinessPagetest.VerifyUserinTaskListPage();
         }
 
-        [When(@"user enters invalid address and click on save continue")]
+        [When(@"user enters invalid adderror message for Business nameress and click on save continue")]
         public void WhenUserEntersInvalidAddressAndClickOnSaveContinue()
         {
             BusinessPagetest.EnterInvalidAddress();
@@ -99,6 +98,26 @@ namespace Defra.GC.UI.Tests.Steps
         {
             string error = BusinessPagetest.SelectWithoutCountryAndVerifyMessage();
             StringAssert.Contains(p0, error);
+        }
+
+        [Then(@"user verifies the ""([^""]*)"" error message when user clicks on save button without Business name")]
+        public void ThenUserVerifiesTheErrorMessageWhenUserClicksOnSaveButtonWithoutBusinessName(string p0)
+        {
+            string error = BusinessPagetest.WithoutBusinessNameValidation();
+            StringAssert.Contains(p0, error);
+        }
+
+        [Then(@"user verifies the ""([^""]*)"" error message for Business name")]
+        public void ThenUserVerifiesTheErrorMessageForBusinessName(string p0)
+        {
+            string error = BusinessPagetest.ValidateInvalidErrorMessage();
+            StringAssert.Contains(p0, error);
+        }
+
+        [Then(@"verify error message '([^']*)' on  Business name page")]
+        public void ThenVerifyErrorMessageOnBusinessNamePage(string errorMessage)
+        {
+            Assert.True(BusinessPagetest.VerifyErrorMessageOnBusinessNamePage(errorMessage), "Business name error message not matching");
         }
 
         //[Then(@"user verifies the ""([^""]*)"" address error message")]

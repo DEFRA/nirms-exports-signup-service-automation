@@ -3,6 +3,8 @@ using Defra.UI.Framework.Driver;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using Microsoft.VisualBasic;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -42,12 +44,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ErrorValidationAddress => _driver.WaitForElement(By.XPath("//li//a"));
 
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
+        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         private By Errors = By.XPath("//li//a");
 
         public void ClickOnRegisteredAddres()
         {
-            _driver.Navigate().GoToUrl("https://tstgcwebaw1001.azurewebsites.net/registration-tasklist");
+            string url = UrlBuilder.Default().Add("registration-tasklist").Build();
+            _driver.Navigate().GoToUrl(url);
             Address.Click();
         }
 
@@ -60,7 +64,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnEligiblity()
         {
-            _driver.Navigate().GoToUrl("https://tstgcwebaw1001.azurewebsites.net/registration-tasklist");
+            string url = UrlBuilder.Default().Add("registration-tasklist").Build();
+            _driver.Navigate().GoToUrl(url);
             Eligiblity.Click();
         }
 
@@ -95,7 +100,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickonBusiness()
         {
-            _driver.Navigate().GoToUrl("https://tstgcwebaw1001.azurewebsites.net/registration-tasklist");
+            string url = UrlBuilder.Default().Add("registration-tasklist").Build();
+            _driver.Navigate().GoToUrl(url);
             Businessname.Click();
         }
 
@@ -152,7 +158,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public string VerifyUserinTaskListPage()
         {
-            Console.WriteLine("-------->", _driver.Url);
             return _driver.Url;
         }
 

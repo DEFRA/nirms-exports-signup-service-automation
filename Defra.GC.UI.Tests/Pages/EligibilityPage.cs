@@ -45,7 +45,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyEligibilityTaskStatus(string status)
         {
-            string stat = EligibilityStatus.Text;
             return EligibilityStatus.Text.Contains(status);
         }
         #endregion

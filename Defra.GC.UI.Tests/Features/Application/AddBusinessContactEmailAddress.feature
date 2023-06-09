@@ -32,7 +32,7 @@ Scenario: Verify error message for invalid contact email address
 
 	Examples: 
 	| logininfo | Country  |emailAddress     | errorMessage                                   |
-	| test      | England  |test£$@£test.com | Enter an email address in the correct format   |
+	| test      | England  |test£$@£         | Enter an email address in the correct format   |
 
 
 Scenario: Verify error message for blank contact email address

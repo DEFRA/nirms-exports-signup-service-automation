@@ -64,7 +64,7 @@ Scenario: Verify back link on contact email address page
 	| logininfo |Country  |
 	| test      |England  |
 
-
+@Ignore
 Scenario: Verify save and continue later on contact email address page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

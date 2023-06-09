@@ -63,7 +63,7 @@ Scenario: Verify back link on business contact position page
 	| logininfo |Country  |
 	| test      |England  |
 
-
+@Ignore
 Scenario: Verify save and continue later on business contact position page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

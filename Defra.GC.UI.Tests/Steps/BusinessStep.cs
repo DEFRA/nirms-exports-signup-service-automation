@@ -75,6 +75,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             BusinessPagetest.ClickOnEligiblity();
         }
 
+        [When(@"user clicks on Check eligibility link")]
+        public void WhenUserClicksOnCheckEligibilityLink()
+        {
+            BusinessPagetest.ClickOnEligiblity();
+        }
+
         [When(@"user selects country name and click on save continue")]
         public void WhenUserEntersCountryNameAndClickOnSaveContinue()
         {
@@ -111,7 +117,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         [Then(@"user verifies the ""([^""]*)"" error message for Business name")]
         public void ThenUserVerifiesTheErrorMessageForBusinessName(string p0)
         {
-            Thread.Sleep(2000);
             string error = BusinessPagetest.ValidateInvalidErrorMessage();
             StringAssert.Contains(p0, error);
         }

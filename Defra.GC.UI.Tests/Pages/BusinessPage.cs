@@ -5,6 +5,7 @@ using SeleniumExtras.WaitHelpers;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using Microsoft.VisualBasic;
+using System.Windows;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -57,9 +58,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSaveAndContinuebuttonWithoutAddress()
         {
-            //((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
-
-            _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SaveAndContinue)).Click();
+            _driver.ElementImplicitWait();
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
+            _driver.ElementImplicitWait();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
         public void ClickOnEligiblity()
@@ -82,8 +85,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             AddressPostcode.SendKeys("WV1 3EB");
 
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            Thread.Sleep(1000);
-            _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SaveAndContinue)).Click();
+            _driver.ElementImplicitWait();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
         public string SelectWithoutCountryAndVerifyMessage()
@@ -124,8 +128,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             Realpost.SendKeys("****");
 
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            Thread.Sleep(1000);
-            _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SaveAndContinue)).Click();
+            _driver.ElementImplicitWait();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
         public string ValidateInvalidErrorMessage()
@@ -152,7 +157,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickonSaveContinuelaterlink()
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            Thread.Sleep(10000);
+            _driver.ElementImplicitWait();
             _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SaveLater)).Click();
         }
 

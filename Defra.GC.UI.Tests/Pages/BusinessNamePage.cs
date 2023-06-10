@@ -9,11 +9,11 @@ using System.Windows;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public class BusinessPage : IBusinessPage
+    public class BusinessNamePage : IBusinessNamePage
     {
         public IObjectContainer _objectContainer;
 
-        public BusinessPage(IObjectContainer container)
+        public BusinessNamePage(IObjectContainer container)
         {
             _objectContainer = container;
         }
@@ -109,11 +109,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             Businessname.Click();
         }
 
-        //public void EnterBusinessName()
-        //{
-        //    BusinessnameText.SendKeys("Defra");
-        //    SaveAndContinue.Click();
-        //}
+        public void EnterBusinessName(string businessname)
+        {
+            BusinessnameText.SendKeys(businessname);
+        }
+
+        public void ClickOnSaveAndContinue()
+        {
+            SaveAndContinue.Click();
+        }
 
         public void EnterInvalidBusinessName()
         {

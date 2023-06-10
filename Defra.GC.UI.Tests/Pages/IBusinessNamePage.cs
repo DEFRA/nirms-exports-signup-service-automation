@@ -7,11 +7,13 @@ using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public interface IBusinessPage
+    public interface IBusinessNamePage
     {
         public void ClickOnRegisteredAddres();
 
-        public void ClickOnSaveAndContinuebuttonWithoutAddress();
+        public void ClickOnSaveAndContinue();
+
+        public void EnterBusinessName(string businessname);
 
         public void EnterInvalidAddress();
 
@@ -43,8 +45,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public List<string> ErrorValidation();
 
-        //  public void ClickSignedOut();
+        //public void ClickSignedOut();
 
-        //  public bool IsSignedOut();
+        //public bool IsSignedOut();
     }
 }

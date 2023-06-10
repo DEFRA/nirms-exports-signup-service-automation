@@ -30,7 +30,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         private static string[] featureTags = new string[] {
                 "Regression"};
         
-#line 1 "Add_Country.feature"
+#line 1 "AddBusinessCountry.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -76,14 +76,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and Add Country name")]
+        [NUnit.Framework.DescriptionAttribute("Add Country name")]
         [NUnit.Framework.TestCaseAttribute("test", null)]
-        public void NavigateToGeneralCertificatePageAndAddCountryName(string logininfo, string[] exampleTags)
+        public void AddCountryName(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and Add Country name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Country name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -111,14 +111,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and  do not select the country name")]
+        [NUnit.Framework.DescriptionAttribute("Verify error message for not selecting the country name")]
         [NUnit.Framework.TestCaseAttribute("test", null)]
-        public void NavigateToGeneralCertificatePageAndDoNotSelectTheCountryName(string logininfo, string[] exampleTags)
+        public void VerifyErrorMessageForNotSelectingTheCountryName(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and  do not select the country name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for not selecting the country name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 15
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -146,14 +146,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page and back button on country page")]
+        [NUnit.Framework.DescriptionAttribute("Verify back button on country page is going tasklist page")]
         [NUnit.Framework.TestCaseAttribute("test", null)]
-        public void NavigateToGeneralCertificatePageAndBackButtonOnCountryPage(string logininfo, string[] exampleTags)
+        public void VerifyBackButtonOnCountryPageIsGoingTasklistPage(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to General Certificate Page and back button on country page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back button on country page is going tasklist page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 24
  this.ScenarioInitialize(scenarioInfo);
 #line hidden

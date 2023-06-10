@@ -6,14 +6,15 @@ using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using Microsoft.VisualBasic;
 using System.Windows;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public class BusinessPage : IBusinessPage
+    public class BusinessAddressPage : IBusinessAddressPage
     {
         public IObjectContainer _objectContainer;
 
-        public BusinessPage(IObjectContainer container)
+        public BusinessAddressPage(IObjectContainer container)
         {
             _objectContainer = container;
         }
@@ -41,6 +42,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement AddressOne => _driver.WaitForElement(By.XPath("//input[@id='address-line-1']"));
         private IWebElement AddressTown => _driver.WaitForElement(By.XPath("//input[@id='address-city']"));
         private IWebElement AddressPostcode => _driver.WaitForElement(By.XPath("//input[@id='address-postcode']"));
+        private IWebElement AddressStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-address']"));
 
         private IWebElement ErrorValidationAddress => _driver.WaitForElement(By.XPath("//li//a"));
 
@@ -56,10 +58,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             Address.Click();
         }
 
-        public void ClickOnSaveAndContinuebuttonWithoutAddress()
+        public void EntertheAddressmanually(string add1, string town, string postcode)
         {
-            _driver.ElementImplicitWait();
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
+            AddressOne.SendKeys(add1);
+            AddressTown.SendKeys(town);
+            AddressPostcode.SendKeys(postcode);
+
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
             _driver.ElementImplicitWait();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
@@ -72,80 +77,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             Eligiblity.Click();
         }
 
-        public void SelectCountry()
-        {
-            CountryName.Click();
-            SaveAndContinue.Click();
-        }
-
-        public void EntertheAddress()
-        {
-            AddressOne.SendKeys("1");
-            AddressTown.SendKeys("London");
-            AddressPostcode.SendKeys("WV1 3EB");
-
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            _driver.ElementImplicitWait();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
-        }
-
-        public string SelectWithoutCountryAndVerifyMessage()
-        {
-            SaveAndContinue.Click();
-            return CountryError.Text;
-        }
-
-        public bool VerifyErrorMessageOnBusinessNamePage(string errorMessage)
-
-        {
-            return ErrorMessage.Text.Contains(errorMessage);
-        }
-
-        public void ClickonBusiness()
-        {
-            string url = UrlBuilder.Default().Add("registration-tasklist").Build();
-            _driver.Navigate().GoToUrl(url);
-            Businessname.Click();
-        }
-
-        //public void EnterBusinessName()
-        //{
-        //    BusinessnameText.SendKeys("Defra");
-        //    SaveAndContinue.Click();
-        //}
-
-        public void EnterInvalidBusinessName()
-        {
-            BusinessnameText.SendKeys("£££*****");
-            SaveAndContinue.Click();
-        }
-
-        public void EnterInvalidAddress()
-        {
-            AddressLine1.SendKeys("£££*****");
-            City.SendKeys("****");
-            Realpost.SendKeys("****");
-
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            _driver.ElementImplicitWait();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
-        }
-
         public string ValidateInvalidErrorMessage()
         {
-            return InvalidError.Text;
-        }
-
-        public void WithoutBusinessName()
-        {
-            SaveAndContinue.Click();
-        }
-
-        public string WithoutBusinessNameValidation()
-        {
-            SaveAndContinue.Click();
             return InvalidError.Text;
         }
 
@@ -154,16 +87,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             BackLink.Click();
         }
 
-        public void ClickonSaveContinuelaterlink()
-        {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            _driver.ElementImplicitWait();
-            _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SaveLater)).Click();
-        }
-
         public string VerifyUserinTaskListPage()
         {
             return _driver.Url;
+        }
+
+        public string VerifyAddressStatus()
+        {
+            return AddressStatus.Text;
         }
 
         public List<string> ErrorValidation()

@@ -63,7 +63,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             AddressOne.SendKeys(add1);
             AddressTown.SendKeys(town);
             AddressPostcode.SendKeys(postcode);
+        }
 
+        public void ClickOnSaveAndContinue()
+        {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
             _driver.ElementImplicitWait();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;

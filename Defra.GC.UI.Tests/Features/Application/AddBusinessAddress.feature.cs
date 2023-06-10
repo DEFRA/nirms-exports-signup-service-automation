@@ -110,6 +110,9 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("user enters manually all address fields  \'{0}\', \'{1}\',  \'{2}\'", addressLine1, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
+ testRunner.Then("click on save and continue on Address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 12
  testRunner.And("user verify the address status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -128,7 +131,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Town", town);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the error message when  user do not select the address fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 16
+#line 17
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -138,16 +141,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
+#line 18
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 18
+#line 19
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 20
  testRunner.When("user navigates to registered address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 21
  testRunner.And(string.Format("user enters manually all address fields  \'{0}\', \'{1}\',  \'{2}\'", addressLine1, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -162,7 +165,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table1.AddRow(new string[] {
                             "Postcode",
                             "Enter a post code."});
-#line 21
+#line 22
  testRunner.Then("user verifies address error message", ((string)(null)), table1, "Then ");
 #line hidden
             }
@@ -181,7 +184,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Town", town);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for invalid address data", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 31
+#line 32
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -191,16 +194,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 32
+#line 33
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 33
+#line 34
  testRunner.Then(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 34
+#line 35
  testRunner.When("user navigates to registered address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 35
+#line 36
  testRunner.And(string.Format("user enters manually all address fields  \'{0}\', \'{1}\',  \'{2}\'", addressLine1, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -217,7 +220,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table2.AddRow(new string[] {
                             "Postcode",
                             "Enter a real postcode."});
-#line 36
+#line 37
  testRunner.Then("user verifies invalid error message for address data", ((string)(null)), table2, "Then ");
 #line hidden
             }
@@ -233,7 +236,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back button is navigated to tasklist page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 46
+#line 47
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -243,19 +246,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 47
+#line 48
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 48
+#line 49
  testRunner.Then(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 49
+#line 50
  testRunner.When("user navigates to registered address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 50
+#line 51
  testRunner.When("user clicks back button Business address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 51
+#line 52
  testRunner.Then("user  navigates back to task list page from Address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

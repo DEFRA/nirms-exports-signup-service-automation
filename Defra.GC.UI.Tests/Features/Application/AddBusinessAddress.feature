@@ -8,6 +8,7 @@ Scenario Outline: Add Business Address
 	Then  sign in with valid credentials with logininfo '<logininfo>'
 	When user navigates to registered address page
 	And user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
+	Then click on save and continue on Address page
 	And user verify the address status
 	Examples: 
 	| logininfo |  AddressLine1 | Town     | AddrPostcode |

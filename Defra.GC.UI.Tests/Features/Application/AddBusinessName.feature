@@ -16,8 +16,8 @@ Scenario Outline:  Add business name
 	And  user verify the business status 'COMPLETED'
 
  Examples:  
-	| logininfo | Business name  | nextPage | Country |
-	| test      | DEFRA Business |          |    England     |
+	| logininfo | Business name  | nextPage | Country        |
+	| test      | DEFRA Business |          | England     |
 
 
 Scenario Outline: Verify error message for  invalid characters business name
@@ -32,8 +32,8 @@ Scenario Outline: Verify error message for  invalid characters business name
 	Then  user verifies the "Enter your business name using only letters, numbers, and special characters -_./()&" error message for Business name
 
     Examples:   
-	| logininfo | Business name | Country |
-	| test      | ************  |         |
+	| logininfo | Business name | Country        |
+	| test      | ************  | England       |
 
 Scenario Outline:  Verify error message for  blank business name
 	Given that I navigate to the NI GC application
@@ -46,8 +46,8 @@ Scenario Outline:  Verify error message for  blank business name
 	Then  user verifies the "Enter your business name" error message when user clicks on save button without Business name
 
     Examples:    
-	| logininfo | Business name | Country |
-	| test      |               |         |
+	| logininfo | Business name | Country        |
+	| test      |               | England    |
 
 Scenario Outline:  Verify user clicks on back button  and navigate 
 	Given that I navigate to the NI GC application
@@ -60,8 +60,8 @@ Scenario Outline:  Verify user clicks on back button  and navigate
 	Then  user  navigates back to task list page
 
 	Examples: 
-	| logininfo | Country |
-	| test      |         |
+	| logininfo | Country        |
+	| test      | England      |
 
 @ignore
 Scenario Outline:  Verify user clicks on save and continue later  and navigated to tasklist page 
@@ -75,5 +75,5 @@ Scenario Outline:  Verify user clicks on save and continue later  and navigated 
 	Then  user  navigates back to task list page
 
 	Examples: 
-	| logininfo | Country |
-	| test      |         |
+	| logininfo | Country        |
+	| test      | England      |

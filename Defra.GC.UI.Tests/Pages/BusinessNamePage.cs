@@ -38,7 +38,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement CountryName => _driver.WaitForElement(By.XPath("//label[normalize-space()='England']"));
         private IWebElement CountryError => _driver.WaitForElement(By.XPath("//p[@id='Country_Error']"));
         private IWebElement Address => _driver.WaitForElement(By.XPath(" //a[normalize-space()='Registered address']"));
-        private IWebElement AddressError => _driver.WaitForElement(By.XPath("//p[@id='LineOne_Error']"));
         private IWebElement AddressOne => _driver.WaitForElement(By.XPath("//input[@id='address-line-1']"));
         private IWebElement AddressTown => _driver.WaitForElement(By.XPath("//input[@id='address-city']"));
         private IWebElement AddressPostcode => _driver.WaitForElement(By.XPath("//input[@id='address-postcode']"));
@@ -53,8 +52,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnRegisteredAddres()
         {
-            string url = UrlBuilder.Default().Add("registration-tasklist").Build();
-            _driver.Navigate().GoToUrl(url);
             Address.Click();
         }
 
@@ -65,13 +62,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.ElementImplicitWait();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
-        }
-
-        public void ClickOnEligiblity()
-        {
-            string url = UrlBuilder.Default().Add("registration-tasklist").Build();
-            _driver.Navigate().GoToUrl(url);
-            Eligiblity.Click();
         }
 
         public void SelectCountry()
@@ -99,7 +89,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         }
 
         public bool VerifyErrorMessageOnBusinessNamePage(string errorMessage)
-
         {
             return ErrorMessage.Text.Contains(errorMessage);
         }

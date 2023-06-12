@@ -9,14 +9,14 @@ Scenario: Add contact email address
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>'
 	Then  Verify eligibility task status as 'COMPLETED'
-	And   navigate to contact email address page
+	And   click on contact email address link
 	And   enter email address '<emailAddress>'
 	And   click on save and continue on contact email address page
 	And   verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Country  |emailAddress  | nextPage |
-	| test      | England  |test@test.com |          |
+	| test      | England  |test@test.com | Sign up  |
 
 
 Scenario: Verify error message for invalid contact email address
@@ -25,7 +25,7 @@ Scenario: Verify error message for invalid contact email address
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>'
 	Then  Verify eligibility task status as 'COMPLETED'
-	Then  navigate to contact email address page
+	And   click on contact email address link
 	And   enter email address '<emailAddress>'
 	And   click on save and continue on contact email address page
 	And   verify error message '<errorMessage>' on contact email address page
@@ -41,7 +41,7 @@ Scenario: Verify error message for blank contact email address
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>'
 	Then  Verify eligibility task status as 'COMPLETED'
-	Then  navigate to contact email address page
+	And   click on contact email address link
 	And   enter email address '<emailAddress>'
 	And   click on save and continue on contact email address page
 	And   verify error message '<errorMessage>' on contact email address page

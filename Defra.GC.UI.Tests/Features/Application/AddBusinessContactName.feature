@@ -9,14 +9,14 @@ Scenario: Add business contact name
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>'
 	Then  Verify eligibility task status as 'COMPLETED'
-	Then  navigate to business contact name page
+	And   click on business contact name link
 	And   enter business contact name '<contactName>'
 	And   click on save and continue on contact full name page
 	And   verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Country  |contactName   | nextPage |
-	| test      | England  |testName      |          |
+	| test      | England  |testName      | Sign up  |
 
 
 Scenario: Verify error message for invalid business contact name
@@ -25,7 +25,7 @@ Scenario: Verify error message for invalid business contact name
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>'
 	Then  Verify eligibility task status as 'COMPLETED'
-	Then  navigate to business contact name page
+	And   click on business contact name link
 	And   enter business contact name '<contactName>'
 	And   click on save and continue on contact full name page
 	And   verify error message '<errorMessage>' on business contact name page 
@@ -40,7 +40,7 @@ Scenario: Verify error message for blank business contact name
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>'
 	Then  Verify eligibility task status as 'COMPLETED'
-	Then  navigate to business contact name page
+	And   click on business contact name link
 	And   enter business contact name '<contactName>'
 	And   click on save and continue on contact full name page
 	And   verify error message '<errorMessage>' on business contact name page 

@@ -22,8 +22,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
             {
                 throw new ElementNotVisibleException("Element is not visible");
             }
-
         }
+
         public static IReadOnlyCollection<IWebElement> WaitForElements(this IWebDriver driver, By elementBy, bool forceWait = false)
         {
             try
@@ -38,8 +38,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
             {
                 throw new ElementNotVisibleException("Element is not visible");
             }
-
         }
+
         public static TResult WaitForElementCondition<TResult>(this IWebDriver driver, Func<IWebDriver, TResult> condition)
         {
             try
@@ -74,7 +74,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
 
         public static void ElementImplicitWait(this IWebDriver driver)
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
         }
 
         public static IWebElement WaitForElementClickable(this IWebDriver driver, By elementBy)
@@ -103,8 +103,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
             {
                 throw new ElementNotVisibleException("Element is not visible");
             }
-
         }
     }
-
 }

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System.Reflection;
 
 
-namespace Defra.GC.UI.Tests.Data.Users
+namespace Defra.Trade.ReMos.AssuranceService.Tests.Data.Users
 {
     public class User
     {
@@ -50,7 +50,7 @@ namespace Defra.GC.UI.Tests.Data.Users
                     environment = "prd";
                 }
                 */
-                var filterList = environment.ToLower().Contains("assurance", StringComparison.CurrentCultureIgnoreCase)
+                var filterList = environment.ToLower().Contains("sign-up", StringComparison.CurrentCultureIgnoreCase)
                     ? usersList.FindAll(d => d.LoginInfo.Equals(info) && d.Environment.ToLower().Contains("test"))
                     : usersList.FindAll(d => d.LoginInfo.Equals(info) && d.Environment.ToLower().Contains(environment));
 

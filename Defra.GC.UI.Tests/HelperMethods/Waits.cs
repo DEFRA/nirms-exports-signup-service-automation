@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace Defra.GC.UI.Tests.HelperMethods
+namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
 {
     internal static class Waits
     {
@@ -74,7 +74,7 @@ namespace Defra.GC.UI.Tests.HelperMethods
 
         public static void ElementImplicitWait(this IWebDriver driver)
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
         }
 
         public static IWebElement WaitForElementClickable(this IWebDriver driver, By elementBy)

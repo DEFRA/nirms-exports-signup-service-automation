@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Defra.GC.UI.Tests.Capabilities
+namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
 {
     public interface IDriverOptions
     {

@@ -1,7 +1,7 @@
 ﻿using BoDi;
 using Defra.UI.Framework.Object;
 //using Defra.GC.UI.Test.Data.Application;
-using Defra.GC.UI.Tests.Capabilities;
+using Defra.Trade.ReMos.AssuranceService.Tests.Capabilities;
 using Defra.GC.UI.Tests.Configuration;
 using OpenQA.Selenium;
 using System.Reflection;

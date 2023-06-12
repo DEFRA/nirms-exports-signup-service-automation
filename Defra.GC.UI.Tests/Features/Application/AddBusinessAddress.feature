@@ -17,7 +17,7 @@ Scenario Outline: Add Business Address
 	| logininfo |  AddressLine1 | Town     | AddrPostcode |Country  |
 	| test      | testAddress1 | testCity | wd19 7pf     | England  |
 
-	Scenario Outline: Verify the error message when  user do not select the address fields
+Scenario Outline: Verify the error message when  user do not select the address fields
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task
@@ -36,7 +36,7 @@ Scenario Outline: Add Business Address
 	| test      |  |  |    | England  |
 
 	
-	Scenario: Verify error message for invalid address data
+Scenario: Verify error message for invalid address data
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task
@@ -54,7 +54,7 @@ Scenario Outline: Add Business Address
 	| logininfo |  AddressLine1 | Town     | AddrPostcode |Country  |
 	| test      | **** | ***** | *****     | England  |
 
-	Scenario Outline: Verify back button is navigated to tasklist page
+Scenario Outline: Verify back button is navigated to tasklist page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task
@@ -67,5 +67,16 @@ Scenario Outline: Add Business Address
 	| logininfo |Country  |
 	|	test      | England  |
 
-
-
+@ignore
+Scenario Outline:Verify save and continue later navigating to tasklist page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>'
+	Then  Verify eligibility task status as 'COMPLETED'
+	When user navigates to registered address page
+	When user clicks back button Business address page
+	Then user  navigates back to task list page from Address page
+		Examples: 
+	| logininfo |Country  |
+	|	test      | England  |

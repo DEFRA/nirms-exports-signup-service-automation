@@ -61,3 +61,18 @@ Scenario Outline:  Verify user clicks on back button  and navigate
 	Examples: 
 	| logininfo | Country |
 	| test      |         |
+
+@ignore
+Scenario Outline:  Verify user clicks on save and continue later  and navigated to tasklist page 
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>'
+	Then  Verify eligibility task status as 'COMPLETED'
+	When user is in Business details page
+	And user clicks on Save and continue later link
+	Then user  navigates back to task list page
+
+	Examples: 
+	| logininfo | Country |
+	| test      |         |

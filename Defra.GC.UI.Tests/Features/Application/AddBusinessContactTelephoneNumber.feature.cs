@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add contact Telephone Number")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "01632 960 001", "", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "01632 960 001", "Sign up", null)]
         public void AddContactTelephoneNumber(string logininfo, string country, string telephoneNumber, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -113,7 +113,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
- testRunner.Then("navigate to contact telephone number page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("click on contact telephone number link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
  testRunner.And(string.Format("enter telephone number \'{0}\'", telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -166,7 +166,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 28
- testRunner.Then("navigate to contact telephone number page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("click on contact telephone number link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 29
  testRunner.And(string.Format("enter telephone number \'{0}\'", telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -219,7 +219,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 43
- testRunner.Then("navigate to contact telephone number page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("click on contact telephone number link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 44
  testRunner.And(string.Format("enter telephone number \'{0}\'", telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -270,7 +270,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 58
- testRunner.Then("navigate to task list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("navigate to task list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 59
  testRunner.And("click on contact telephone number link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -328,7 +328,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 73
- testRunner.Then("navigate to task list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("navigate to task list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 74
  testRunner.And("click on contact telephone number link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

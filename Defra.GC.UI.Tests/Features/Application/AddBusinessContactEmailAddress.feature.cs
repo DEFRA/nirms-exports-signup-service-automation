@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add contact email address")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "test@test.com", "", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "test@test.com", "Sign up", null)]
         public void AddContactEmailAddress(string logininfo, string country, string emailAddress, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -113,7 +113,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
- testRunner.And("navigate to contact email address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on contact email address link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
  testRunner.And(string.Format("enter email address \'{0}\'", emailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -166,7 +166,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 28
- testRunner.Then("navigate to contact email address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("click on contact email address link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 29
  testRunner.And(string.Format("enter email address \'{0}\'", emailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -219,7 +219,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 44
- testRunner.Then("navigate to contact email address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("click on contact email address link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 45
  testRunner.And(string.Format("enter email address \'{0}\'", emailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

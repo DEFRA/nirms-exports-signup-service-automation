@@ -96,5 +96,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             BusinessNamePagetest.ClickOnSaveAndContinue();
         }
+
+        [Then(@"user verify the business status '([^']*)'")]
+        public void ThenUserVerifyTheBusinessStatus(string status)
+        {
+            Assert.True(BusinessNamePagetest.VerifyBusinessNameStatus(status), "Status is Invalid");
+        }
     }
 }

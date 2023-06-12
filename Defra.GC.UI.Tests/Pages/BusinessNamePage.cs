@@ -18,6 +18,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _objectContainer = container;
         }
 
+        #region Page Objects
+
         public IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
 
         public IWebElement Businessname => _driver.WaitForElement(By.XPath("//a[normalize-space()='Business name']"));
@@ -32,22 +34,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement BackLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Back']"));
         private IWebElement SaveLater => _driver.WaitForElement(By.XPath("(//a[normalize-space()='Save and continue later'])[1]"));
         private IWebElement Eligiblity => _driver.WaitForElement(By.XPath("//a[normalize-space()='Check eligibility']"));
-
+        private IWebElement BusinessStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-name']"));
         private IWebElement CountryName => _driver.WaitForElement(By.XPath("//label[normalize-space()='England']"));
         private IWebElement CountryError => _driver.WaitForElement(By.XPath("//p[@id='Country_Error']"));
         private IWebElement Address => _driver.WaitForElement(By.XPath(" //a[normalize-space()='Registered address']"));
         private IWebElement AddressError => _driver.WaitForElement(By.XPath("//p[@id='LineOne_Error']"));
-
         private IWebElement AddressOne => _driver.WaitForElement(By.XPath("//input[@id='address-line-1']"));
         private IWebElement AddressTown => _driver.WaitForElement(By.XPath("//input[@id='address-city']"));
         private IWebElement AddressPostcode => _driver.WaitForElement(By.XPath("//input[@id='address-postcode']"));
-
-        private IWebElement ErrorValidationAddress => _driver.WaitForElement(By.XPath("//li//a"));
-
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         private By Errors = By.XPath("//li//a");
+
+        #endregion Page Objects
+
+        #region Page Methods
 
         public void ClickOnRegisteredAddres()
         {
@@ -104,8 +106,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickonBusiness()
         {
-            string url = UrlBuilder.Default().Add("registration-tasklist").Build();
-            _driver.Navigate().GoToUrl(url);
             Businessname.Click();
         }
 
@@ -170,6 +170,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return _driver.Url;
         }
 
+        public bool VerifyBusinessNameStatus(string status)
+        {
+            return BusinessStatus.Text.Contains(status);
+        }
+
         public List<string> ErrorValidation()
         {
             IList<IWebElement> errors = _driver.FindElements(Errors);
@@ -181,5 +186,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             }
             return errorList;
         }
+
+        #endregion Page Methods
     }
 }

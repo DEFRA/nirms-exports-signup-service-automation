@@ -45,8 +45,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public List<string> ErrorValidation();
 
-        //public void ClickSignedOut();
-
-        //public bool IsSignedOut();
+        public bool VerifyBusinessNameStatus(string status);
     }
 }

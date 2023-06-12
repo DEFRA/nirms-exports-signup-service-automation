@@ -247,11 +247,11 @@ this.ScenarioInitialize(scenarioInfo);
                             "Value"});
                 table2.AddRow(new string[] {
                             "Adddress Line 1",
-                            "Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (\')" +
+                            "Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (\')" +
                                 "."});
                 table2.AddRow(new string[] {
                             "Town",
-                            "Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (\')" +
+                            "Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (\')" +
                                 "."});
                 table2.AddRow(new string[] {
                             "Postcode",

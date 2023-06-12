@@ -46,10 +46,10 @@ Scenario: Verify error message for invalid address data
 	And   user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
 	Then  click on save and continue on Address page
 	And   user verifies invalid error message for address data
-	| Key               | Value                                                                                 |
-	| Adddress Line 1   | Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (').    |
-	| Town              | Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (').    |
-	| Postcode          | Enter a real postcode.                                                                |	
+	| Key             | Value                                                                                |
+	| Adddress Line 1 | Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (').   |
+	| Town            | Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (').   |
+	| Postcode        | Enter a real postcode.                                                               |
 	Examples: 
 	| logininfo |  AddressLine1 | Town     | AddrPostcode | Country  |
 	| test      |  ****         | *****    | *****        | England  |

@@ -6,7 +6,7 @@ parameters:
     default: 'refs/heads/dev'
   - name: Environment
     type: string
-    default: 'https://tst-sign-up.trade.azure.defra.cloud/'
+    default: 'dev'
   - name: ApiEndpoint
     type: string
     default: 'dev'

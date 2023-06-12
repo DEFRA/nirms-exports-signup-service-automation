@@ -74,6 +74,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             List<string> errorlist = BusinessAddressPagetest.ErrorValidation();
             int i = 0;
+            _driver.ElementImplicitWait();
             foreach (TableRow row in table.Rows)
             {
                 string value = row["Value"];
@@ -97,6 +98,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenUserNavigatesBackToTaskListPageFromAddressPage()
         {
             BusinessAddressPagetest.VerifyUserinTaskListPage();
+        }
+
+        [Then(@"click on save and continue on Address page")]
+        public void ThenClickOnSaveAndContinueOnAddressPage()
+        {
+            BusinessAddressPagetest.ClickOnSaveAndContinue();
+        }
+
+        [Then(@"user verify the address status")]
+        public void ThenUserVerifyTheAddressStatus()
+        {
+            Assert.AreEqual(BusinessAddressPagetest.VerifyAddressStatus(), "COMPLETED");
         }
     }
 }

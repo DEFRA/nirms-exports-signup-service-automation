@@ -19,6 +19,7 @@ Scenario Outline: Add Business Address
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	When user navigates to registered address page
 	And user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
+	Then click on save and continue on Address page
 	Then user verifies address error message
 	| Key      | Value      |
 	| Adddress    | Enter address line 1.    |
@@ -34,12 +35,12 @@ Scenario Outline: Add Business Address
 	Then  sign in with valid credentials with logininfo '<logininfo>'
 	When user navigates to registered address page
 	And user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
+	Then click on save and continue on Address page
 	Then user verifies invalid error message for address data
 	| Key      | Value      |
 	| Adddress Line 1   | Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (').    |
 	| Town      | Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (').     |
-	| Postcode     | Enter a real postcode.|
-		
+	| Postcode     | Enter a real postcode.|	
 	Examples: 
 	| logininfo |  AddressLine1 | Town     | AddrPostcode |
 	| test      | **** | ***** | *****     |

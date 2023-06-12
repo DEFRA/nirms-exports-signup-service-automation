@@ -123,7 +123,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("click on save and continue on Address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 15
- testRunner.And("user verify the address status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("user verify the address status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -189,7 +189,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Postcode",
                             "Enter a post code."});
 #line 29
- testRunner.Then("user verifies address error message", ((string)(null)), table1, "Then ");
+ testRunner.And("user verifies address error message", ((string)(null)), table1, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -247,17 +247,17 @@ this.ScenarioInitialize(scenarioInfo);
                             "Value"});
                 table2.AddRow(new string[] {
                             "Adddress Line 1",
-                            "Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (\')" +
+                            "Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (\')" +
                                 "."});
                 table2.AddRow(new string[] {
                             "Town",
-                            "Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (\')" +
+                            "Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (\')" +
                                 "."});
                 table2.AddRow(new string[] {
                             "Postcode",
                             "Enter a real postcode."});
 #line 48
- testRunner.Then("user verifies invalid error message for address data", ((string)(null)), table2, "Then ");
+ testRunner.And("user verifies invalid error message for address data", ((string)(null)), table2, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -302,7 +302,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("user navigates to registered address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 64
- testRunner.When("user clicks back button Business address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("user clicks back button Business address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 65
  testRunner.Then("user  navigates back to task list page from Address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -357,7 +357,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("user navigates to registered address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 78
- testRunner.When("user clicks back button Business address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("user clicks back button Business address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 79
  testRunner.Then("user  navigates back to task list page from Address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

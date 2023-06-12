@@ -15,20 +15,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSaveAndContinue();
 
-        public void ClickOnEligiblity();
-
         public string ValidateInvalidErrorMessage();
 
         public void ClickonBusinessBacklink();
 
         public string VerifyUserinTaskListPage();
 
-        public string VerifyAddressStatus();
+        public bool VerifyAddressStatus(string status);
 
         public List<string> ErrorValidation();
-
-        //public void ClickSignedOut();
-
-        //public bool IsSignedOut();
     }
 }

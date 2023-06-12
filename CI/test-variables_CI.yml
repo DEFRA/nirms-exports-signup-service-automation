@@ -28,4 +28,5 @@ variables:
     value: 'TestCategory=Regression'
   ${{ if eq(parameters.jobNameParam, 'Pre') }}:
     value: 'TestCategory=Pre'
-  
+    ${{ if eq(parameters.jobNameParam, 'RunOnlyScenarios') }}:
+    value: 'TestCategory=RunOnly'

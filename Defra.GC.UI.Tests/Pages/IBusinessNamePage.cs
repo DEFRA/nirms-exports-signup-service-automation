@@ -17,8 +17,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterInvalidAddress();
 
-        public void ClickOnEligiblity();
-
         public void SelectCountry();
 
         public void EntertheAddress();

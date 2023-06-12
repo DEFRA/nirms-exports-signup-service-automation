@@ -20,9 +20,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Address")]
+    [NUnit.Framework.DescriptionAttribute("Business Registered Address")]
     [NUnit.Framework.CategoryAttribute("Regression")]
-    public partial class AddressFeature
+    public partial class BusinessRegisteredAddressFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -37,7 +37,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Application", "Address", "Sign in to General Certificate Page and add Address", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Application", "Business Registered Address", "Add Business Registered Address", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -130,7 +130,7 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the error message when  user do not select the address fields")]
+        [NUnit.Framework.DescriptionAttribute("Verify the error message when user do not select the address fields")]
         [NUnit.Framework.TestCaseAttribute("test", "", "", "", "England", null)]
         public void VerifyTheErrorMessageWhenUserDoNotSelectTheAddressFields(string logininfo, string addressLine1, string town, string addrPostcode, string country, string[] exampleTags)
         {
@@ -141,7 +141,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Town", town);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("Country", country);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the error message when  user do not select the address fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the error message when user do not select the address fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

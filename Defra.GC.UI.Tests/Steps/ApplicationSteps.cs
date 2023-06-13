@@ -1,7 +1,6 @@
 ﻿using BoDi;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
@@ -27,7 +26,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         [Then(@"verify next page '([^']*)' is loaded")]
         public void ThenVerifyNextPageIsLoaded(string pageName)
         {
-            applicationPage.VerifyNextPageIsLoaded(pageName);
+            Assert.True(applicationPage.VerifyNextPageIsLoaded(pageName), "Expected page not loaded");
         }
 
         [Then(@"click on back link")]

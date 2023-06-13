@@ -6,51 +6,46 @@ using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public class ApplicationPage : IApplicationPage
+    public class EligibilityPage : IEligibilityPage
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
-        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));
         private IWebElement Backlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back')]"));
         private IWebElement SaveAndContinueLater => _driver.WaitForElement(By.XPath("//a[contains(text(),'Save and continue later')]"));
         private IWebElement SignUPTaskPage => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));
+        private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
+        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
+        private IWebElement SelectCountry => _driver.WaitForElement(By.Id("radio-rbCountryEng"));
+        private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
+        private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("business-country"));
 
         #endregion
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
-        public ApplicationPage(IObjectContainer container)
+        public EligibilityPage(IObjectContainer container)
         {
             _objectContainer = container;
         }
 
         #region Page Methods
 
-        public bool VerifyNextPageIsLoaded(string pageName)
+        public bool ClickOnCheckEligibilityTask()
         {
-            return PageHeading.Text.Contains(pageName);
+            CheckEligibility.Click();
+            return PageHeading.Text.Contains("Which country is your business based in");
         }
 
-        public void ClickOnBackLink()
+        public void SelectCountryToCompleteEligibility(string country)
         {
-            Backlink.Click();
+            _driver.ClickRadioButton(country);
+            SaveAndContinue.Click();
         }
 
-        public void NavigateToTaskListPage()
+        public bool VerifyEligibilityTaskStatus(string status)
         {
-            string url = UrlBuilder.Default().Add("registration-tasklist").Build();
-            _driver.Navigate().GoToUrl(url);
-        }
-
-        public bool VerifySignUpTaskListPageIsLoaded()
-        {
-            return SignUPTaskPage.Text.Contains("Sign up for the Northern Ireland Retail Movement Scheme");
-        }
-
-        public void ClickSaveAndContinueLater()
-        {
-            SaveAndContinueLater.Click();
+            return EligibilityStatus.Text.Contains(status);
         }
         #endregion
 

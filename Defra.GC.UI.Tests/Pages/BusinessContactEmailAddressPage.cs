@@ -16,7 +16,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
 
         private IWebElement EmailAddresslink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Email address')]"));
-        private IWebElement EmailAddress => _driver.WaitForElement(By.Id("email"));
+        private IWebElement EmailAddress => _driver.WaitForElement(By.Id("business-email"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         #endregion

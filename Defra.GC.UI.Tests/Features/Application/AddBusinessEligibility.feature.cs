@@ -20,9 +20,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("country name")]
+    [NUnit.Framework.DescriptionAttribute("AddBusinessEligibility")]
     [NUnit.Framework.CategoryAttribute("Regression")]
-    public partial class CountryNameFeature
+    public partial class AddBusinessEligibilityFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -30,14 +30,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         private static string[] featureTags = new string[] {
                 "Regression"};
         
-#line 1 "AddBusinessCountry.feature"
+#line 1 "AddBusinessEligibility.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Application", "country name", "Sign in to General Certificate Page and add country name", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Application", "AddBusinessEligibility", "Complete Eligibility task", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,15 +76,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add Country name")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", null)]
-        public void AddCountryName(string logininfo, string country, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Complete eligibility task")]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", null)]
+        public void CompleteEligibilityTask(string logininfo, string country, string fBONumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Country", country);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Country name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("FBONumber", fBONumber);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Complete eligibility task", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -105,10 +106,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.And(string.Format("complete eligibility task with \'{0}\'", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.Then("Verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -151,13 +152,12 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back button on country page is going tasklist page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", null)]
-        public void VerifyBackButtonOnCountryPageIsGoingTasklistPage(string logininfo, string country, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", null)]
+        public void VerifyBackButtonOnCountryPageIsGoingTasklistPage(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
-            argumentsOfScenario.Add("Country", country);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back button on country page is going tasklist page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 27
 this.ScenarioInitialize(scenarioInfo);
@@ -179,12 +179,9 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 31
- testRunner.And(string.Format("complete eligibility task with \'{0}\'", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 32
  testRunner.When("user clicks back button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 32
  testRunner.Then("user  navigates back to task list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -194,8 +191,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify save and continue later navigating to tasklist page")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", null)]
-        public void VerifySaveAndContinueLaterNavigatingToTasklistPage(string logininfo, string country, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", null)]
+        public void VerifySaveAndContinueLaterNavigatingToTasklistPage(string logininfo, string country, string fBONumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "ignore"};
@@ -207,8 +204,9 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Country", country);
+            argumentsOfScenario.Add("FBONumber", fBONumber);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify save and continue later navigating to tasklist page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 40
+#line 39
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -218,22 +216,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 41
+#line 40
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 42
+#line 41
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 43
+#line 42
  testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 44
- testRunner.And(string.Format("complete eligibility task with \'{0}\'", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 45
+#line 44
  testRunner.And("user clicks on Save and continue later link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 46
+#line 45
  testRunner.Then("user  navigates back to task list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

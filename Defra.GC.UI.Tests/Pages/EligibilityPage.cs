@@ -21,6 +21,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SelectCountry => _driver.WaitForElement(By.Id("radio-rbCountryEng"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("business-country"));
+        private IWebElement FBORadioYes => _driver.WaitForElement(By.Id("radio-has-fbo"));
+        private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("fbo-number"));
+        private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
 
         #endregion
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -37,10 +40,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return PageHeading.Text.Contains("Which country is your business based in");
         }
 
-        public void SelectCountryToCompleteEligibility(string country)
+        public void SelectCountryToCompleteEligibility(string country, string FBONumber)
         {
             _driver.ClickRadioButton(country);
             SaveAndContinue.Click();
+            SelectFBONumberToCompleteEligibility(FBONumber);
+        }
+
+        public void SelectFBONumberToCompleteEligibility(string FBONumber)
+        {
+            _driver.ClickRadioButton("Yes");
+            FBONumberEle.SendKeys(FBONumber);
+            FBOContinue.Click();
         }
 
         public bool VerifyEligibilityTaskStatus(string status)

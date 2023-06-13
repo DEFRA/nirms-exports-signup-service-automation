@@ -29,13 +29,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         }
 
 
-        [When(@"complete eligibility task with '([^']*)'")]
-        public void WhenCompleteEligibilityTask(string country)
+        [When(@"complete eligibility task with '([^']*)', '([^']*)'")]
+        public void WhenCompleteEligibilityTask(string country, string FBONumber)
         {
-            eligibilityPage.SelectCountryToCompleteEligibility(country);
+            eligibilityPage.SelectCountryToCompleteEligibility(country, FBONumber);
         }
 
-        [Then(@"Verify eligibility task status as '([^']*)'")]
+        [Then(@"verify eligibility task status as '([^']*)'")]
         public void ThenVerifyEligibilityTaskStatus(String status)
         {
             Assert.True(eligibilityPage.VerifyEligibilityTaskStatus(status), "Eligibility not completed");

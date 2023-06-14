@@ -124,3 +124,90 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	| test      | England | testFBO   |testcode | testName          | testAddr%$   | testCity   | testCountry | testCode      | Enter address line 1 using only letters, numbers |
 	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity%$ | testCountry | testCode      | Enter a town or city using only letters, numbers |
 	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity   | testCountry | testCode$%    | Enter a real postcode.                           |
+
+Scenario: Add Another GB point of Departure establishment address
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on add another establishment address
+	And   enter Establishment postcode '<AddrPostcode2>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
+	And   add establishment email address 'test2@test.com'
+	Then  verify more than 1 establishment addresses added
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |testName2          | testAddress2 | testCity2 | testCountry2| testCode2     |
+
+Scenario: Finish adding GB point of Departure establishment address
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on I have finished adding points of departure
+	Then  verify signUp task list page is loaded
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |
+
+
+Scenario: Verify no establishment address listed after removing last address
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   remove establishment address '<EstablishmentName>'
+	Then  verify establishment address count '0'
+	And   verify search for establishment address page loaded
+
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |
+
+
+Scenario: Verify remaining establishment address listed after removing one address
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on add another establishment address
+	And   enter Establishment postcode '<AddrPostcode2>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
+	And   add establishment email address 'test2@test.com'
+	And   remove establishment address '<EstablishmentName>'
+	Then  verify establishment address count '1'
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |testName2          | testAddress2 | testCity2 | testCountry2| testCode2     |

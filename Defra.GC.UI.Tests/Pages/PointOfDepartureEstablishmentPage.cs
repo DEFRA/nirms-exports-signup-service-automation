@@ -16,19 +16,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement PageHeading1 => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
         private IWebElement PointOfDeparture => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Points of departure')]"));
-        private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='search-points-of-departure']"));
+        private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='Postcode']"));
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
         private IWebElement SelectAddresButton => _driver.WaitForElement(By.XPath("//button[contains(text(),'Select address')]"));
         private IWebElement CannotFindEstablishment => _driver.WaitForElement(By.XPath("//span[contains(text(),'Cannot find establishment')]"));
         private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add the establishment address manually')]"));
-        private IWebElement EstablishmentName => _driver.WaitForElement(By.Id("establishment-name"));
-        private IWebElement EstablishmentAddr1 => _driver.WaitForElement(By.Id("address-line-1"));
-        private IWebElement EstablishmentAddr2 => _driver.WaitForElement(By.Id("address-line-2"));
-        private IWebElement EstablishmentCity => _driver.WaitForElement(By.Id("address-city"));
-        private IWebElement EstablishmentCountry => _driver.WaitForElement(By.Id("address-country"));
-        private IWebElement Postcode => _driver.WaitForElement(By.Id("address-postcode"));
+        private IWebElement EstablishmentName => _driver.WaitForElement(By.Id("EstablishmentName"));
+        private IWebElement EstablishmentAddr1 => _driver.WaitForElement(By.Id("LineOne"));
+        private IWebElement EstablishmentAddr2 => _driver.WaitForElement(By.Id("LineTwo"));
+        private IWebElement EstablishmentCity => _driver.WaitForElement(By.Id("CityName"));
+        private IWebElement EstablishmentCountry => _driver.WaitForElement(By.Id("Country"));
+        private IWebElement Postcode => _driver.WaitForElement(By.Id("PostCode"));
         private IWebElement SaveAndContinue => _driver.WaitForElementClickable(By.XPath("//button[contains(text(),'Save and continue')]"));
+        private IWebElement EstablishmentEmailAddress => _driver.WaitForElement(By.Id("establishment-email"));
+        private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Continue')]"));
+        private By NumberOfEstablishments => By.XPath("//div[@class='govuk-summary-card']");
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
         #endregion
@@ -88,7 +91,50 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ErrorMessage.Text.Contains(errorMessage);
         }
 
+        public void AddEstablishmentEmailAddress(string emailAddress)
+        {
+            EstablishmentEmailAddress.SendKeys(emailAddress);
+            Continue.Click();
+        }
 
+        public void ClickOnAddAnotherEstablishmentAddress()
+        {
+            _driver.ClickRadioButton("Yes, add another point");
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
+        }
+
+        public void ClickOnIHaveFinishedAddingPointsOfDeparture()
+        {
+            _driver.ClickRadioButton("No, I have finished adding points");
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
+        }
+
+        public bool VerifyMoreThan1EstablishmentAddressesAdded()
+        {
+            int count = _driver.FindElements(NumberOfEstablishments).Count();
+            if (count > 1)
+                return true;
+            else
+                return false;
+        }
+
+        public void RemoveEstablishmentAddress(string establishmentAddress)
+        {
+            string RemoveEstablishment = "//h2[contains(text(),'" + establishmentAddress + "')]/..//a";
+            _driver.WaitForElement(By.XPath(RemoveEstablishment)).Click();
+        }
+
+        public int VerifyEstablishmentAddressCount()
+        {
+            return _driver.FindElements(NumberOfEstablishments).Count();
+        }
+
+        public bool VerifySearchForEstablishmentAddressPageLoaded()
+        {
+            return FindEstablishment.Displayed;
+        }
         #endregion
 
     }

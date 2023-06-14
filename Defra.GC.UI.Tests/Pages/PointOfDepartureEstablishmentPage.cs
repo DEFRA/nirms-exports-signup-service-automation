@@ -68,7 +68,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool ClickOnAddTheEstablishmentAddressManuallyLink()
         {
             AddEstablishmentManually.Click();
-            return PageHeading.Text.Contains("Add a point of departure");
+            return PageHeading.Text.Contains("Establishments");
         }
 
         public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry,string testCode)

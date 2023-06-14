@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace Defra.GC.UI.Tests.HelperMethods
+namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
 {
     internal static class Waits
     {
@@ -22,8 +22,8 @@ namespace Defra.GC.UI.Tests.HelperMethods
             {
                 throw new ElementNotVisibleException("Element is not visible");
             }
-
         }
+
         public static IReadOnlyCollection<IWebElement> WaitForElements(this IWebDriver driver, By elementBy, bool forceWait = false)
         {
             try
@@ -38,8 +38,8 @@ namespace Defra.GC.UI.Tests.HelperMethods
             {
                 throw new ElementNotVisibleException("Element is not visible");
             }
-
         }
+
         public static TResult WaitForElementCondition<TResult>(this IWebDriver driver, Func<IWebDriver, TResult> condition)
         {
             try
@@ -74,7 +74,7 @@ namespace Defra.GC.UI.Tests.HelperMethods
 
         public static void ElementImplicitWait(this IWebDriver driver)
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
         }
 
         public static IWebElement WaitForElementClickable(this IWebDriver driver, By elementBy)
@@ -103,8 +103,6 @@ namespace Defra.GC.UI.Tests.HelperMethods
             {
                 throw new ElementNotVisibleException("Element is not visible");
             }
-
         }
     }
-
 }

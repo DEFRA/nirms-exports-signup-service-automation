@@ -1,12 +1,12 @@
 ﻿using BoDi;
-using Defra.GC.UI.Tests.Tools;
+using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
-using Defra.GC.UI.Tests.Pages;
-using Defra.GC.UI.Tests.Data.Users;
+using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
+using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 
-namespace Defra.GC.UI.Tests.Steps
+namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
     [Binding]
     public class SigninSteps

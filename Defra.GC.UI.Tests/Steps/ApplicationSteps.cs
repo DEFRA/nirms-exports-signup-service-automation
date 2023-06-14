@@ -29,6 +29,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(applicationPage.VerifyNextPageIsLoaded(pageName), "Expected page not loaded");
         }
 
+        [When(@"click on back link")]
         [Then(@"click on back link")]
         public void ThenClickOnBackLink()
         {

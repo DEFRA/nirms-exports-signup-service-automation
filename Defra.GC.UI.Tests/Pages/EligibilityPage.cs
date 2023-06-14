@@ -22,7 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("business-country"));
         private IWebElement FBORadioYes => _driver.WaitForElement(By.Id("radio-has-fbo"));
-        private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("fbo-number"));
+        private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
 
         #endregion

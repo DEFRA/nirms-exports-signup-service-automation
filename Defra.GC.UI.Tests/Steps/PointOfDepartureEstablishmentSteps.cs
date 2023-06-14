@@ -1,5 +1,6 @@
 ﻿using BoDi;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
@@ -22,12 +23,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
+        [When(@"click on points of departure link")]
         [Then(@"click on points of departure link")]
         public void ThenClickOnPointsOfDepartureLink()
         {
             Assert.True(pointOfDepartureEstablishmentPage.ClickOnPointsOfDepartureLink(), "Point Of Departure Page not loaded");
         }
 
+        [When(@"enter Establishment postcode '([^']*)'")]
         [Then(@"enter Establishment postcode '([^']*)'")]
         public void ThenEnterEstablishmentPostcode(string postcode)
         {
@@ -40,25 +43,29 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(pointOfDepartureEstablishmentPage.VerifyAddAPointOfDeparturePage(), "Select Point Of Departure Page not loaded");
         }
 
+        [When(@"click on cannot find establishment link")]
         [Then(@"click on cannot find establishment link")]
         public void ThenClickOnCannotFindEstablishmentLink()
         {
             pointOfDepartureEstablishmentPage.ClickOnCannotFindEstablishmentLink();
         }
 
+        [When(@"click on the add establishment address manually link")]
         [Then(@"click on the add establishment address manually link")]
         public void ThenClickOnAddTheEstablishmentAddressManuallyLink()
         {
             Assert.True(pointOfDepartureEstablishmentPage.ClickOnAddTheEstablishmentAddressManuallyLink(), "Add establishment address page not loaded");
         }
 
-        [Then(@"Add GB point of Departure establishment address manually with fields '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
-        public void ThenAddGBPointOfDepartureEstablishmentAddressManuallyWithFields(string testName, string testAddress, string testCity, string testCountry, string testCode)
+        [When(@"add establishment address manually with fields '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        [Then(@"add establishment address manually with fields '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void ThenAddEstablishmentAddressManuallyWithFields(string testName, string testAddress, string testCity, string testCountry, string testCode)
         {
             pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(testName, testAddress, testCity, testCountry, testCode);
         }
 
-        [Then(@"verify error message '([^']*)' on Add a point of departure page")]
+
+        [Then(@"verify error message '([^']*)' on establishment page")]
         public void ThenVerifyErrorMessageOnAddAPointOfDeparturePage(string errorMessage)
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyErrorMessageOnAddAPointOfDeparture(errorMessage), "Invalid error on Establishment address page");

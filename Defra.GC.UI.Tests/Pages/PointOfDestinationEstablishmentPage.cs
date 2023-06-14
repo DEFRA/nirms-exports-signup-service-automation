@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public class PointOfDepartureEstablishmentPage : IPointOfDepartureEstablishmentPage
+    public class PointOfDestinationEstablishmentPage : IPointOfDestinationEstablishmentPage
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
@@ -16,7 +16,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement PageHeading1 => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
-        private IWebElement PointOfDeparture => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Points of departure')]"));
+        private IWebElement PointOfDestination => _driver.WaitForElementClickable(By.XPath("//a[normalize-space()='Points of destination (optional)']"));
         private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='search-points-of-departure']"));
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
@@ -36,18 +36,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
 
-        public PointOfDepartureEstablishmentPage(IObjectContainer container)
+        public PointOfDestinationEstablishmentPage(IObjectContainer container)
         {
             _objectContainer = container;
         }
 
         #region Page Methods
 
-        public bool ClickOnPointsOfDepartureLink()
+        public bool ClickOnPointsOfDestinationLink()
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", PointOfDeparture);
-            return PageHeading.Text.Contains("Add a point of departure");
+            jsExecutor.ExecuteScript("arguments[0].click();", PointOfDestination);
+            return PageHeading.Text.Contains("Add a point of destination (optional)");
         }
 
         public void EnterEstablishmentPostcode(string postcode)
@@ -70,7 +70,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool ClickOnAddTheEstablishmentAddressManuallyLink()
         {
             AddEstablishmentManually.Click();
-            return PageHeading.Text.Contains("Establishments");
+            return PageHeading.Text.Contains("Add a point of departure");
         }
 
         public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry, string testCode)

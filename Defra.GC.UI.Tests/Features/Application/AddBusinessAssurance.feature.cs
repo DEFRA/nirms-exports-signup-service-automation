@@ -156,15 +156,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify back button on Assurance is going country selecting page")]
+        [NUnit.Framework.DescriptionAttribute("Verify back link on Assurance is going country selecting page")]
         [NUnit.Framework.TestCaseAttribute("test", "England", null)]
-        public void VerifyBackButtonOnAssuranceIsGoingCountrySelectingPage(string logininfo, string country, string[] exampleTags)
+        public void VerifyBackLinkOnAssuranceIsGoingCountrySelectingPage(string logininfo, string country, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Country", country);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back button on Assurance is going country selecting page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back link on Assurance is going country selecting page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 28
  this.ScenarioInitialize(scenarioInfo);
 #line hidden

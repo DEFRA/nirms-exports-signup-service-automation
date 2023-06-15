@@ -51,7 +51,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         [Then(@"user  navigates to the Country selection page")]
         public void ThenUserNavigatesToTheCountrySelectionPage()
         {
-            Assert.True(AssurancPage.VerifyCountryPageloaded(), "Country page is not loaded");
+            Assert.AreEqual(AssurancPage.VerifyCountryPageloaded(), "Which country is your business based in?");
         }
     }
 }

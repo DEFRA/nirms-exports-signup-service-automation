@@ -25,7 +25,7 @@ Scenario Outline: Complete eligibility task with Assurance
     | logininfo | Country | FBONumber |
     | test      | England |    |
 
-	Scenario Outline: Verify back button on Assurance is going country selecting page
+	Scenario Outline: Verify back link on Assurance is going country selecting page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task

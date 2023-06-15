@@ -30,6 +30,7 @@ Scenario Outline: Complete eligibility task with Assurance
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>'
+	And   click on back link
 	Then  user  navigates to the Country selection page
 
 	Examples: 

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddBusinessContactName - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddBusinessEligibility - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddBusinessEmailAddress - Copy.feature.cs" />
   </ItemGroup>
 
@@ -68,6 +69,10 @@
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\Application\AddBusinessAddress.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\Application\AddBusinessAssurance.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>

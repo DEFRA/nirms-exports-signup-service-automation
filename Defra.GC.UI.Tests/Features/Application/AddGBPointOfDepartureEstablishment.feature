@@ -18,7 +18,7 @@ Scenario: Check Add the establishment address manually link
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |testcode | Add a point of departure |
+	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
 
 Scenario: Add GB point of Departure establishment address manually
 	Given that I navigate to the NI GC application
@@ -36,7 +36,7 @@ Scenario: Add GB point of Departure establishment address manually
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 | EstablishmentName | AddressLine1 | estCity  | estCountry | AddrPostcode |
-	| test      | England | testFBO   |testCode | Add a point of departure | testName          | testAddress1 | testCity | testCountry| testCode1    |
+	| test      | England | testFBO   |SE10 9NF | Add a point of departure | testName          | testAddress1 | testCity | testCountry| testCode1    |
 
 
 Scenario: Verify error message for blank Establishment postcode field
@@ -81,7 +81,7 @@ Scenario: Verify back link on select establishment address page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |testCode | Add a point of departure |
+	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
 
 Scenario: Verify back link on add establishment address page
 	Given that I navigate to the NI GC application
@@ -99,7 +99,7 @@ Scenario: Verify back link on add establishment address page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |testCode | Add a point of departure |
+	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
 
 Scenario: Verify error messages for GB point of Departure mandatory fields
 	Given that I navigate to the NI GC application
@@ -116,14 +116,14 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | EstablishmentName | AddressLine1 | estCity    | estCountry  | AddrPostcode  | errorMessage                                     |
-	| test      | England | testFBO   |testcode |                   | testAddress1 | testCity   | testCountry | testCode      | Enter establishment name                         |
-	| test      | England | testFBO   |testcode | testName          |              | testCity   | testCountry | testCode      | Enter address line 1                             |
-	| test      | England | testFBO   |testcode | testName          | testAddress1 |            | testCountry | testCode      | Enter a town or city                             |
-	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity   | testCountry |               | Enter a post code                                |
-	| test      | England | testFBO   |testcode | testName$%        | testAddress1 | testCity   | testCountry | testCode      | Enter establishment name using only letters      |
-	| test      | England | testFBO   |testcode | testName          | testAddr%$   | testCity   | testCountry | testCode      | Enter address line 1 using only letters, numbers |
-	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity%$ | testCountry | testCode      | Enter a town or city using only letters, numbers |
-	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity   | testCountry | testCode$%    | Enter a real postcode.                           |
+	| test      | England | testFBO   |SE10 9NF |                   | testAddress1 | testCity   | testCountry | testCode      | Enter establishment name                         |
+	| test      | England | testFBO   |SE10 9NF | testName          |              | testCity   | testCountry | testCode      | Enter address line 1                             |
+	| test      | England | testFBO   |SE10 9NF | testName          | testAddress1 |            | testCountry | testCode      | Enter a town or city                             |
+	| test      | England | testFBO   |SE10 9NF | testName          | testAddress1 | testCity   | testCountry |               | Enter a post code                                |
+	| test      | England | testFBO   |SE10 9NF | testName$%        | testAddress1 | testCity   | testCountry | testCode      | Enter establishment name using only letters      |
+	| test      | England | testFBO   |SE10 9NF | testName          | testAddr%$   | testCity   | testCountry | testCode      | Enter address line 1 using only letters, numbers |
+	| test      | England | testFBO   |SE10 9NF | testName          | testAddress1 | testCity%$ | testCountry | testCode      | Enter a town or city using only letters, numbers |
+	| test      | England | testFBO   |SE10 9NF | testName          | testAddress1 | testCity   | testCountry | testCode$%    | Enter a real postcode.                           |
 
 Scenario: Add Another GB point of Departure establishment address
 	Given that I navigate to the NI GC application
@@ -146,7 +146,7 @@ Scenario: Add Another GB point of Departure establishment address
 	Then  verify more than 1 establishment addresses added
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |testName2          | testAddress2 | testCity2 | testCountry2| testCode2     |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
 
 Scenario: Finish adding GB point of Departure establishment address
 	Given that I navigate to the NI GC application
@@ -164,7 +164,7 @@ Scenario: Finish adding GB point of Departure establishment address
 	Then  verify signUp task list page is loaded
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| EC4R 9HA     |
 
 
 Scenario: Verify no establishment address listed after removing last address
@@ -185,7 +185,7 @@ Scenario: Verify no establishment address listed after removing last address
 
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| EC4R 9HA     |
 
 
 Scenario: Verify remaining establishment address listed after removing one address
@@ -210,7 +210,7 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |testName2          | testAddress2 | testCity2 | testCountry2| testCode2     |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
 
 	
 Scenario: Change manually added establishment address
@@ -233,7 +233,7 @@ Scenario: Change manually added establishment address
 
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |testName2          | testAddress2 | testCity2 | testCountry2| testCode2     |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
 
 
 Scenario: Change establishment address postcode
@@ -251,7 +251,7 @@ Scenario: Change establishment address postcode
 
 	Examples: 
 	| logininfo | Country | FBONumber | AddrPostcode | AddrPostcode1 |
-	| test      | England | testFBO   | testCode1    | testCode2     |
+	| test      | England | testFBO   | testCode1    | SE10 9NF      |
 
 
 Scenario: Change establishment email address
@@ -273,4 +273,23 @@ Scenario: Change establishment email address
 
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |
+
+
+Scenario: Verify error message on add another point of Departure page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on save and continue
+	Then  verify error message '<errorMessage>' on establishment page
+	Examples: 
+	| logininfo | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                             |
+	| test      | England | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | EC4R 9HA     | Select yes if you want to add another point of departure |

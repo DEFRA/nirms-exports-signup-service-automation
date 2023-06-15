@@ -23,6 +23,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
+        [When(@"click on save and continue")]
+        [Then(@"click on save and continue")]
+        public void ThenClickOnSaveAndContinue()
+        {
+            applicationPage.ClickOnSaveAndContinue();
+        }
+
         [Then(@"verify next page '([^']*)' is loaded")]
         public void ThenVerifyNextPageIsLoaded(string pageName)
         {

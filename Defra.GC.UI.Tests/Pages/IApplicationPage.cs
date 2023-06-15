@@ -7,5 +7,6 @@
         public void ClickOnBackLink();
         public bool VerifySignUpTaskListPageIsLoaded();
         public void ClickSaveAndContinueLater();
+        public void ClickOnSaveAndContinue();
     }
 }

@@ -15,5 +15,35 @@
         public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry, string testCode);
 
         public bool VerifyErrorMessageOnAddAPointOfDeparture(string errorMessage);
+
+        public void AddEstablishmentEmailAddress(string emailAddress);
+
+        public void ClickOnAddAnotherEstablishmentAddress();
+
+        public void ClickOnIHaveFinishedAddingPointsOfDeparture();
+
+        public bool VerifyMoreThan1EstablishmentAddressesAdded();
+
+        public void RemoveEstablishmentAddress(string establishmentAddress);
+
+        public int VerifyEstablishmentAddressCount();
+
+        public bool VerifySearchForEstablishmentAddressPageLoaded();
+
+        public void ClickOnChangeEstablishmentAddress(string establishmentName);
+
+        public bool VerifyAddEstablishmentAddressManuallyPageLoaded();
+
+        public bool VerifyChangedEstablishmentAddressFields(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode);
+        
+        public void ClickOnChangeEstablishmentPostcode();
+        
+        public bool VerifyEstablishmentPostcodeChanged(string establishmentCode);
+        
+        public void ClickOnChangeEstablishmentEmailAddress();
+        
+        public bool VerifyAddEstablishmentEmailAddressPageLoaded();
+        
+        public bool VerifyChangedEstablishmentEmailAddress(string establishmentEmail);
     }
 }

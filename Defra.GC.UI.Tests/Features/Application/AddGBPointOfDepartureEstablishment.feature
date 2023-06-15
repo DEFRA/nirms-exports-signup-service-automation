@@ -211,3 +211,66 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
 	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |testName2          | testAddress2 | testCity2 | testCountry2| testCode2     |
+
+	
+Scenario: Change manually added establishment address
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on change establishment address '<EstablishmentName>'
+	And   verify add establishment address manually page loaded
+	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
+	And   add establishment email address 'test2@test.com'
+	And   verify changed establishment address fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
+
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |testName2          | testAddress2 | testCity2 | testCountry2| testCode2     |
+
+
+Scenario: Change establishment address postcode
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on change link next to Establishment postcode
+	Then  verify search for establishment address page loaded
+	When  enter Establishment postcode '<AddrPostcode1>'
+	Then  verify establishment postcode changed to '<AddrPostcode1>'
+
+	Examples: 
+	| logininfo | Country | FBONumber | AddrPostcode | AddrPostcode1 |
+	| test      | England | testFBO   | testCode1    | testCode2     |
+
+
+Scenario: Change establishment email address
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on change establishment email address
+	And   verify add establishment email address page loaded
+	And   add establishment email address 'test2@test.com'
+	Then  verify changed establishment email address 'test2@test.com'
+
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| testCode1    |

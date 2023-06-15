@@ -60,9 +60,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         [When(@"add establishment address manually with fields '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
         [Then(@"add establishment address manually with fields '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
-        public void ThenAddEstablishmentAddressManuallyWithFields(string testName, string testAddress, string testCity, string testCountry, string testCode)
+        public void ThenAddEstablishmentAddressManuallyWithFields(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
-            pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(testName, testAddress, testCity, testCountry, testCode);
+            pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
         }
 
 
@@ -114,6 +114,54 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenVerifySearchForEstablishmentAddressPageLoaded()
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifySearchForEstablishmentAddressPageLoaded(), "Find Establishment address page not loaded successfully");
+        }
+
+        [When(@"click on change establishment address '([^']*)'")]
+        public void WhenClickOnChangeEstablishmentAddress(string EstablishmentName)
+        {
+            pointOfDepartureEstablishmentPage.ClickOnChangeEstablishmentAddress(EstablishmentName);
+        }
+
+        [When(@"verify add establishment address manually page loaded")]
+        public void WhenVerifyAddEstablishmentAddressManuallyPageLoaded()
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyAddEstablishmentAddressManuallyPageLoaded(), "Add Establishment address manually page not loaded successfully");
+        }
+
+        [When(@"verify changed establishment address fields '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void WhenVerifyChangedEstablishmentAddressFields(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyChangedEstablishmentAddressFields(establishmentName, establishmentAddress, establishmentCity,establishmentCountry, establishmentCode), "Establishment address not changed successfully");
+        }
+
+        [When(@"click on change link next to Establishment postcode")]
+        public void WhenClickOnChangeLinkNextToEstablishmentPostcode()
+        {
+            pointOfDepartureEstablishmentPage.ClickOnChangeEstablishmentPostcode();
+        }
+
+        [Then(@"verify establishment postcode changed to '([^']*)'")]
+        public void ThenVerifyEstablishmentPostcodeChanged(string establishmentCode)
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyEstablishmentPostcodeChanged(establishmentCode), "Establishment postcode not changed successfully");
+        }
+
+        [When(@"click on change establishment email address")]
+        public void WhenClickOnChangeEstablishmentEmailAddress()
+        {
+            pointOfDepartureEstablishmentPage.ClickOnChangeEstablishmentEmailAddress();
+        }
+
+        [When(@"verify add establishment email address page loaded")]
+        public void WhenVerifyAddEstablishmentEmailAddressPageLoaded()
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyAddEstablishmentEmailAddressPageLoaded(), "Add Establishment email address page not loaded successfully");
+        }
+
+        [Then(@"verify changed establishment email address '([^']*)'")]
+        public void ThenVerifyChangedEstablishmentEmailAddress(string establishmentEmail)
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyChangedEstablishmentEmailAddress(establishmentEmail), "Establishment email address not changed successfully");
         }
 
     }

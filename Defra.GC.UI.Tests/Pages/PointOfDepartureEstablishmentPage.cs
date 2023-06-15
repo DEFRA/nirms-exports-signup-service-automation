@@ -33,7 +33,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Continue')]"));
         private By NumberOfEstablishments => By.XPath("//div[@class='govuk-summary-card']");
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
-
+        private IWebElement ChangedEstablishmentName => _driver.WaitForElement(By.XPath("//h2[contains(@class,'govuk-summary-card__title')]"));
+        private IWebElement ChangedEstablishmentAddr => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Address')]/..//dd[@class='govuk-summary-list__value']"));
+        private IWebElement ChangeEstablishmentEmail => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//a"));
+        private IWebElement ChangePostcode => _driver.WaitForElement(By.XPath("//a[contains(text(),'Change')]"));
+        private IWebElement EmailAdressPage => _driver.WaitForElement(By.XPath("//label[contains(text(),'Establishment email address (optional)')]"));
+        private IWebElement ChangedEmailAdress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//dd"));
         #endregion
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -74,7 +79,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return PageHeading.Text.Contains("Establishments");
         }
 
-        public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry,string testCode)
+        public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry, string testCode)
         {
             EstablishmentName.SendKeys(testName);
             EstablishmentAddr1.SendKeys(testAddress);
@@ -135,6 +140,54 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             return FindEstablishment.Displayed;
         }
+
+
+        public void ClickOnChangeEstablishmentAddress(string establishmentName)
+        {
+            string RemoveEstablishment = "//h2[contains(text(),'" + establishmentName + "')]/../following-sibling::div//a";
+            _driver.WaitForElement(By.XPath(RemoveEstablishment)).Click();
+        }
+
+        public bool VerifyAddEstablishmentAddressManuallyPageLoaded()
+        {
+            return EstablishmentName.Displayed;
+        }
+
+        public bool VerifyChangedEstablishmentAddressFields(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        {
+            if (ChangedEstablishmentName.Text.Contains(establishmentName) && ChangedEstablishmentAddr.Text.Contains(establishmentAddress) && ChangedEstablishmentAddr.Text.Contains(establishmentCity) && ChangedEstablishmentAddr.Text.Contains(establishmentCode))
+                return true;
+            else
+                return false;
+        }
+
+        public void ClickOnChangeEstablishmentPostcode()
+        {
+            ChangePostcode.Click();
+        }
+
+        public bool VerifyEstablishmentPostcodeChanged(string establishmentCode)
+        {
+            string GetChangedPostcode = "//span[contains(text(),'" + establishmentCode + "')]";
+            return _driver.WaitForElement(By.XPath(GetChangedPostcode)).Displayed;
+        }
+
+        public void ClickOnChangeEstablishmentEmailAddress()
+        {
+            ChangeEstablishmentEmail.Click();
+        }
+
+        public bool VerifyAddEstablishmentEmailAddressPageLoaded()
+        {
+            return EmailAdressPage.Displayed;
+        }
+
+        public bool VerifyChangedEstablishmentEmailAddress(string establishmentEmail)
+        {
+            return ChangedEmailAdress.Text.Contains(establishmentEmail);
+        }
+
+
         #endregion
 
     }

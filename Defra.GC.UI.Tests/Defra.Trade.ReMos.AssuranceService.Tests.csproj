@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddBusinessContactName - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddBusinessEligibility - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddBusinessEmailAddress - Copy.feature.cs" />
   </ItemGroup>
 

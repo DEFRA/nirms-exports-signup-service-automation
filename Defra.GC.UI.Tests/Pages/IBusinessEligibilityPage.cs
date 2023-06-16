@@ -1,8 +1,14 @@
 ﻿namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public interface IAssurancPage
+    public interface IBusinessEligibilityPage
     {
         public bool ClickOnCheckEligibilityTask();
+
+        public void SelectCountryToCompleteEligibility(string country, string FBONumber);
+
+        public bool VerifyEligibilityTaskStatus(string status);
+
+        public void SelectFBONumberToCompleteEligibility(string FBONumber);
 
         public void AssuranceCompleteWithNoSelection(string country, string FBONumber);
 

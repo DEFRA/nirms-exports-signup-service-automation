@@ -6,7 +6,7 @@ using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public class BusinessAssurancPage : IAssurancPage
+    public class BusinessEligibilityPage : IBusinessEligibilityPage
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
@@ -14,21 +14,25 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
 
-        private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
+        private IWebElement Backlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back')]"));
+        private IWebElement SaveAndContinueLater => _driver.WaitForElement(By.XPath("//a[contains(text(),'Save and continue later')]"));
+        private IWebElement SignUPTaskPage => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));
         private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement SelectCountry => _driver.WaitForElement(By.Id("radio-rbCountryEng"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("business-country"));
+        private IWebElement FBORadioYes => _driver.WaitForElement(By.Id("radio-has-fbo"));
+        private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
-
+        private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//a[@href='#FboNumber']"));
 
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
 
-        public BusinessAssurancPage(IObjectContainer container)
+        public BusinessEligibilityPage(IObjectContainer container)
         {
             _objectContainer = container;
         }
@@ -39,6 +43,25 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             CheckEligibility.Click();
             return PageHeading.Text.Contains("Which country is your business based in");
+        }
+
+        public void SelectCountryToCompleteEligibility(string country, string FBONumber)
+        {
+            _driver.ClickRadioButton(country);
+            SaveAndContinue.Click();
+            SelectFBONumberToCompleteEligibility(FBONumber);
+        }
+
+        public void SelectFBONumberToCompleteEligibility(string FBONumber)
+        {
+            _driver.ClickRadioButton("Yes");
+            FBONumberEle.SendKeys(FBONumber);
+            FBOContinue.Click();
+        }
+
+        public bool VerifyEligibilityTaskStatus(string status)
+        {
+            return EligibilityStatus.Text.Contains(status);
         }
 
         public void AssuranceCompleteWithNoSelection(string country, string FBONumber)

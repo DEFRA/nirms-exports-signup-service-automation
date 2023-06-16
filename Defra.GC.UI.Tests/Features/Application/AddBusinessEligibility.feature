@@ -76,7 +76,7 @@ Scenario Outline: Verify error message for invalid task with Assurance
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with invalid data '<Country>', '<FBONumber>'
 	Then   verify error message '<errorMessage>' on  SPS_Assurance page
 
 	Examples: 

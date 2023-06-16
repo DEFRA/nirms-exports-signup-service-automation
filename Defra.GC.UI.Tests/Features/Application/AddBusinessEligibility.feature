@@ -72,7 +72,7 @@ Scenario Outline: Verify back link on Assurance is going country selecting page
     | logininfo | Country | 
     | test      | England |    
 
-Scenario Outline: Verify error message for invalid task with Assurance
+Scenario Outline: Verify error message for invalid FBO with Assurance
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task

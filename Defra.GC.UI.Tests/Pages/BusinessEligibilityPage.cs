@@ -3,6 +3,7 @@ using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using OpenQA.Selenium.Interactions;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -27,6 +28,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
         private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//a[@href='#FboNumber']"));
+
+        private IWebElement RegulationCheckbox => _driver.WaitForElementClickable(By.XPath("//label[contains(text(),'I confirm that I have understood the guidance and ')]"));
+        private IWebElement Continue => _driver.WaitForElement(By.ClassName("govuk-button"));
 
         #endregion Page Objects
 
@@ -57,6 +61,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.ClickRadioButton("Yes");
             FBONumberEle.SendKeys(FBONumber);
             FBOContinue.Click();
+
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
+            Thread.Sleep(1000);
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", RegulationCheckbox);
+            Continue.Click();
         }
 
         public bool VerifyEligibilityTaskStatus(string status)

@@ -2,8 +2,6 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-using OpenQA.Selenium.Interactions;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -11,24 +9,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
 
-        private IWebElement Backlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back')]"));
-        private IWebElement SaveAndContinueLater => _driver.WaitForElement(By.XPath("//a[contains(text(),'Save and continue later')]"));
-        private IWebElement SignUPTaskPage => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));
         private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
-        private IWebElement SelectCountry => _driver.WaitForElement(By.Id("radio-rbCountryEng"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("business-country"));
-        private IWebElement FBORadioYes => _driver.WaitForElement(By.Id("radio-has-fbo"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
         private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//a[@href='#FboNumber']"));
-
         private IWebElement RegulationCheckbox => _driver.WaitForElementClickable(By.XPath("//label[contains(text(),'I confirm that I have understood the guidance and ')]"));
         private IWebElement Continue => _driver.WaitForElement(By.ClassName("govuk-button"));
 
@@ -54,6 +45,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.ClickRadioButton(country);
             SaveAndContinue.Click();
             SelectFBONumberToCompleteEligibility(FBONumber);
+            ConfirmReMosRegulationToCompleteEligibility();
         }
 
         public void SelectFBONumberToCompleteEligibility(string FBONumber)
@@ -61,12 +53,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.ClickRadioButton("Yes");
             FBONumberEle.SendKeys(FBONumber);
             FBOContinue.Click();
+        }
 
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            Thread.Sleep(1000);
+        public void ConfirmReMosRegulationToCompleteEligibility()
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2500)", "");
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", RegulationCheckbox);
-            Continue.Click();
+            IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+            jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
         }
 
         public bool VerifyEligibilityTaskStatus(string status)

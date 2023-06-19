@@ -17,6 +17,7 @@
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Add_BusinessName - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Add_Country - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddGBPointOfDepartureEstablishment - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Application\AddPointOfDestinationEstablishment - Copy.feature.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,8 +44,8 @@
     <Compile Update="Features\Application\AddBusinessContactTelephoneNumber.feature.cs">
       <DependentUpon>AddBusinessContactTelephoneNumber.feature</DependentUpon>
     </Compile>
-    <Compile Update="Features\Application\AddPointOfDestinationEstablishment.feature.cs">
-      <DependentUpon>AddPointOfDestinationEstablishment.feature</DependentUpon>
+    <Compile Update="Features\Application\PointOfDestinationEstablishmentErrorValidation.feature.cs">
+      <DependentUpon>PointOfDestinationEstablishmentErrorValidation.feature</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -77,6 +78,10 @@
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\Application\AddPointOfDestinationEstablishment.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\Application\PointOfDestinationEstablishmentErrorValidation.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>

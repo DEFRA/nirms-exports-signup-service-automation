@@ -43,8 +43,8 @@
     <Compile Update="Features\Application\AddBusinessContactTelephoneNumber.feature.cs">
       <DependentUpon>AddBusinessContactTelephoneNumber.feature</DependentUpon>
     </Compile>
-    <Compile Update="Features\Application\AddGBPointOfDestinationEstablishment.feature.cs">
-      <DependentUpon>AddGBPointOfDestinationEstablishment.feature</DependentUpon>
+    <Compile Update="Features\Application\AddPointOfDestinationEstablishment.feature.cs">
+      <DependentUpon>AddPointOfDestinationEstablishment.feature</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -76,7 +76,7 @@
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>
-    <SpecFlowFeatureFiles Update="Features\Application\AddGBPointOfDestinationEstablishment.feature">
+    <SpecFlowFeatureFiles Update="Features\Application\AddPointOfDestinationEstablishment.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>

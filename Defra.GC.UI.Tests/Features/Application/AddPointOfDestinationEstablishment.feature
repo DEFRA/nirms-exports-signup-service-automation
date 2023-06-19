@@ -37,9 +37,6 @@ Scenario: Add GB point of Destination establishment address manually
 	| logininfo | Country | FBONumber |postcode | nextPage                 | EstablishmentName | AddressLine1 | estCity  | estCountry | AddrPostcode |
 	| test      | England | testFBO   |EC4R 9HA  | Add a point of destination (optional) | testName          | testAddress1 | testCity | testCountry| EC4R 9HA    |
 
-
-
-
 Scenario: Verify back link on enter  Destination establishment postcode page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -88,7 +85,7 @@ Scenario: Verify back link on add Destination  establishment address page
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
 	| test      | England | testFBO   |EC4R 9HA | Add a point of destination (optional) |
 
-	Scenario: Modify point of destination establishment email address
+Scenario: Modify point of destination establishment email address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task
@@ -108,8 +105,6 @@ Scenario: Verify back link on add Destination  establishment address page
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
 	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |
-
-
 	
 Scenario: Add Another point of Destination establishment address
 	Given that I navigate to the NI GC application
@@ -135,7 +130,7 @@ Scenario: Add Another point of Destination establishment address
 	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
 
 
-	Scenario: Finish adding  point of Destination  establishment address
+Scenario: Finish adding  point of Destination  establishment address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task
@@ -199,8 +194,6 @@ Scenario: Verify remaining  point of destination  establishment address listed a
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
 	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
 
-
-	
 	
 Scenario: Change manually added  destination establishment address
 	Given that I navigate to the NI GC application
@@ -223,7 +216,6 @@ Scenario: Change manually added  destination establishment address
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
 	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
-
 
 	
 Scenario: Change  destination establishment address postcode

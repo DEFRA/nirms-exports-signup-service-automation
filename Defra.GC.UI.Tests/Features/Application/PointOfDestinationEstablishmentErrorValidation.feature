@@ -43,7 +43,7 @@ Scenario: Verify valid error messages for point of Destination mandatory fields
 	| test      | England | testFBO   |EC4R 9HA | testName          | testAddress1 | testCity   | testCountry | SE10 9NF$%    | Enter a real postcode.                           |
 
 
-	Scenario: Verify error message on add another point of Destination  page
+Scenario: Verify error message on add another point of Destination  page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task

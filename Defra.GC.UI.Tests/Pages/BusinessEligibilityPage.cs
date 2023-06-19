@@ -48,6 +48,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ConfirmReMosRegulationToCompleteEligibility();
         }
 
+        public void InvaildFBOdata(string country, string FBONumber)
+        {
+            _driver.ClickRadioButton(country);
+            SaveAndContinue.Click();
+            SelectFBONumberToCompleteEligibility(FBONumber);
+        }
+
         public void SelectFBONumberToCompleteEligibility(string FBONumber)
         {
             _driver.ClickRadioButton("Yes");

@@ -902,7 +902,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Change establishment address postcode")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testCode1", "SE10 9NF", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "SE10 9NF", null)]
         public void ChangeEstablishmentAddressPostcode(string logininfo, string country, string fBONumber, string addrPostcode, string addrPostcode1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

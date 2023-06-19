@@ -98,6 +98,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void AddEstablishmentEmailAddress(string emailAddress)
         {
+            EstablishmentEmailAddress.Clear();
             EstablishmentEmailAddress.SendKeys(emailAddress);
             Continue.Click();
         }

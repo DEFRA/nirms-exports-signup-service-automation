@@ -36,7 +36,7 @@ namespace Defra.GC.UI.Tests.Hooks
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessPage, IBusinessPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessAddressPage, IBusinessAddressPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessNamePage, IBusinessNamePage>());
-            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<EligibilityPage, IEligibilityPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessEligibilityPage, IBusinessEligibilityPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<PointOfDepartureEstablishmentPage, IPointOfDepartureEstablishmentPage>());
         }
 

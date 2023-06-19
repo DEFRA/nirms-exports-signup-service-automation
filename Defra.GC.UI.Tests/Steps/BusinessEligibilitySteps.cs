@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Diagnostics.Metrics;
 using System.Globalization;
 using TechTalk.SpecFlow;
 
@@ -31,6 +32,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void WhenCompleteEligibilityTask(string country, string FBONumber)
         {
             eligibilityPage.SelectCountryToCompleteEligibility(country, FBONumber);
+        }
+
+        [When(@"complete eligibility task with invalid data '([^']*)', '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWithInvalidData(string country, string FBONumber)
+        {
+            eligibilityPage.InvaildFBOdata(country, FBONumber);
         }
 
         [Then(@"verify eligibility task status as '([^']*)'")]

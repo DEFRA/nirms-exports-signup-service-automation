@@ -6,6 +6,8 @@
 
         public void SelectCountryToCompleteEligibility(string country, string FBONumber);
 
+        public void InvaildFBOdata(string country, string FBONumber);
+
         public bool VerifyEligibilityTaskStatus(string status);
 
         public void SelectFBONumberToCompleteEligibility(string FBONumber);

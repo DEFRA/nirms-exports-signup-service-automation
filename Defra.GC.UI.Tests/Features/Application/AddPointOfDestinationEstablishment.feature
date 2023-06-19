@@ -18,7 +18,7 @@ Scenario: Check Add the Destination establishment address manually link
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |testcode | Add a point of destination  |
+	| test      | England | testFBO   |EC4R 9HA  | Add a point of destination  |
 
 Scenario: Add GB point of Destination establishment address manually
 	Given that I navigate to the NI GC application
@@ -36,7 +36,7 @@ Scenario: Add GB point of Destination establishment address manually
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 | EstablishmentName | AddressLine1 | estCity  | estCountry | AddrPostcode |
-	| test      | England | testFBO   |testCode | Add a point of destination (optional) | testName          | testAddress1 | testCity | testCountry| testCode1    |
+	| test      | England | testFBO   |EC4R 9HA  | Add a point of destination (optional) | testName          | testAddress1 | testCity | testCountry| EC4R 9HA    |
 
 
 Scenario: Verify error message for blank  Destination Establishment postcode field
@@ -81,7 +81,7 @@ Scenario: Verify back link on select Destination establishment address page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |testCode | Add a point of destination (optional) |
+	| test      | England | testFBO   |EC4R 9HA | Add a point of destination (optional) |
 
 Scenario: Verify back link on add Destination  establishment address page
 	Given that I navigate to the NI GC application
@@ -99,7 +99,7 @@ Scenario: Verify back link on add Destination  establishment address page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |testCode | Add a point of destination (optional) |
+	| test      | England | testFBO   |EC4R 9HA | Add a point of destination (optional) |
 
 Scenario: Verify error messages for GB point of Destination mandatory fields
 	Given that I navigate to the NI GC application
@@ -116,14 +116,14 @@ Scenario: Verify error messages for GB point of Destination mandatory fields
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | EstablishmentName | AddressLine1 | estCity    | estCountry  | AddrPostcode  | errorMessage                                     |
-	| test      | England | testFBO   |testcode |                   | testAddress1 | testCity   | testCountry | testCode      | Enter establishment name                         |
-	| test      | England | testFBO   |testcode | testName          |              | testCity   | testCountry | testCode      | Enter address line 1                             |
-	| test      | England | testFBO   |testcode | testName          | testAddress1 |            | testCountry | testCode      | Enter a town or city                             |
-	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity   | testCountry |               | Enter a post code                                |
-	| test      | England | testFBO   |testcode | testName$%        | testAddress1 | testCity   | testCountry | testCode      | Enter establishment name using only letters      |
-	| test      | England | testFBO   |testcode | testName          | testAddr%$   | testCity   | testCountry | testCode      | Enter address line 1 using only letters, numbers |
-	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity%$ | testCountry | testCode      | Enter a town or city using only letters, numbers |
-	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity   | testCountry | testCode$%    | Enter a real postcode.                           |
+	| test      | England | testFBO   |EC4R 9HA |                   | testAddress1 | testCity   | testCountry | SE10 9NF      | Enter establishment name                         |
+	| test      | England | testFBO   |EC4R 9HA | testName          |              | testCity   | testCountry | SE10 9NF       | Enter address line 1                             |
+	| test      | England | testFBO   |EC4R 9HA | testName          | testAddress1 |            | testCountry | SE10 9NF       | Enter a town or city                             |
+	| test      | England | testFBO   |EC4R 9HA | testName          | testAddress1 | testCity   | testCountry |               | Enter a post code                                |
+	| test      | England | testFBO   |EC4R 9HA | testName$%        | testAddress1 | testCity   | testCountry | SE10 9NF       | Enter establishment name using only letters      |
+	| test      | England | testFBO   |EC4R 9HA | testName          | testAddr%$   | testCity   | testCountry | SE10 9NF       | Enter address line 1 using only letters, numbers |
+	| test      | England | testFBO   |EC4R 9HA | testName          | testAddress1 | testCity%$ | testCountry | SE10 9NF       | Enter a town or city using only letters, numbers |
+	| test      | England | testFBO   |EC4R 9HA | testName          | testAddress1 | testCity   | testCountry | SE10 9NF$%    | Enter a real postcode.                           |
 
 	
 	Scenario: Modify point of destination establishment email address

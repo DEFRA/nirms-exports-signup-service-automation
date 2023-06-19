@@ -13,6 +13,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
+
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement PageHeading1 => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
         private IWebElement PointOfDeparture => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Points of departure')]"));
@@ -39,9 +40,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ChangePostcode => _driver.WaitForElement(By.XPath("//a[contains(text(),'Change')]"));
         private IWebElement EmailAdressPage => _driver.WaitForElement(By.XPath("//label[contains(text(),'Establishment email address (optional)')]"));
         private IWebElement ChangedEmailAdress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//dd"));
-        #endregion
+
+        #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
+
         public PointOfDepartureEstablishmentPage(IObjectContainer container)
         {
             _objectContainer = container;
@@ -98,6 +101,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void AddEstablishmentEmailAddress(string emailAddress)
         {
+            EstablishmentEmailAddress.Clear();
             EstablishmentEmailAddress.SendKeys(emailAddress);
             Continue.Click();
         }
@@ -140,7 +144,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             return FindEstablishment.Displayed;
         }
-
 
         public void ClickOnChangeEstablishmentAddress(string establishmentName)
         {
@@ -187,8 +190,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ChangedEmailAdress.Text.Contains(establishmentEmail);
         }
 
-
-        #endregion
-
+        #endregion Page Methods
     }
 }

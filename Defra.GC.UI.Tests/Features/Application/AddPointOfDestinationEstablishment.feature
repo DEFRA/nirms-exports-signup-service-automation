@@ -1,7 +1,7 @@
 ﻿@Regression
-Feature: AddGBPointOfDestinationEstablishment
+Feature: AddPointOfDestinationEstablishment
 
-Add GB point of Destination Establishment
+Add  point of Destination Establishment
 
 Scenario: Check Add the Destination establishment address manually link
 	Given that I navigate to the NI GC application
@@ -124,3 +124,26 @@ Scenario: Verify error messages for GB point of Destination mandatory fields
 	| test      | England | testFBO   |testcode | testName          | testAddr%$   | testCity   | testCountry | testCode      | Enter address line 1 using only letters, numbers |
 	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity%$ | testCountry | testCode      | Enter a town or city using only letters, numbers |
 	| test      | England | testFBO   |testcode | testName          | testAddress1 | testCity   | testCountry | testCode$%    | Enter a real postcode.                           |
+
+	
+	Scenario: Modify point of destination establishment email address
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   click on check eligibilty task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of destination  link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on change establishment email address
+	And   verify add establishment email address page loaded
+	And   add establishment email address 'test2@test.com'
+	Then  verify changed establishment email address 'test2@test.com'
+
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |
+

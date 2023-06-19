@@ -1,4 +1,4 @@
-﻿
+﻿@Regression
 Feature: Error Validation PointOfDestinationEstablishment
 
 Error Validation PointOfDestinationEstablishment

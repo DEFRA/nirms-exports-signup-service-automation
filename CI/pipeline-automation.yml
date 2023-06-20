@@ -55,12 +55,12 @@ stages:
         BSOSVersion: ${{parameters.BSOSVersion}}
         dependsOn: ''
         
-  - stage: Regression
-    displayName: Regression
+  - stage: CrossBrowserTest
+    displayName: CrossBrowserTest
     jobs:
     - template: run-test-template.yml
       parameters:
-        jobName: Regression
+        jobName: CrossBrowserRun
         envConfigParam: ${{ parameters.Environment}}
         apiEndPoint: ${{ parameters.ApiEndpoint}}
         branchName: ${{ parameters.branchName}}

@@ -21,12 +21,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Error Validation PointOfDestinationEstablishment")]
+    [NUnit.Framework.CategoryAttribute("Regression")]
     public partial class ErrorValidationPointOfDestinationEstablishmentFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "Regression"};
         
 #line 1 "PointOfDestinationEstablishmentErrorValidation.feature"
 #line hidden

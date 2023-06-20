@@ -3,12 +3,11 @@ parameters:
     type: string
   - name: env
     type: string
-    
+  - name: targerBrowser
+    type: string
 
 variables:
 
-- name: Target
-  value: 'Chrome'
 - name: SeleniumGrid
   value: 'https://hub.browserstack.com/wd/hub/'
 - name: DeviceName
@@ -20,7 +19,9 @@ variables:
 - name: Environment
   value:  ${{ parameters.env }}
 - name: Build
-  value: ADO_NI_GC_Tests_$(Build.BuildNumber)
+  value: ReMos_UI_Tests_$(Build.BuildNumber)
+- name: Target
+  value: ${{ parameters.targerBrowser }}
 - name: Where
   ${{ if eq(parameters.jobNameParam, 'EnvironmentCheck') }}:
     value: 'TestCategory=EnvCheck'
@@ -32,5 +33,11 @@ variables:
     value: 'TestCategory=RunOnly'
   ${{ if eq(parameters.jobNameParam, 'SmokeTest') }}:
     value: 'TestCategory=SmokeOnly'
-  ${{ if eq(parameters.jobNameParam, 'CrossBrowserRun') }}:
+  ${{ if eq(parameters.jobNameParam, 'SafariBrowserRun') }}:
+    value: 'TestCategory=CrossBrowser'
+  ${{ if eq(parameters.jobNameParam, 'FirefoxBrowserRun') }}:
+    value: 'TestCategory=CrossBrowser'
+  ${{ if eq(parameters.jobNameParam, 'ChromeBrowserRun') }}:
+    value: 'TestCategory=CrossBrowser'
+  ${{ if eq(parameters.jobNameParam, 'EdgeBrowserRun') }}:
     value: 'TestCategory=CrossBrowser'

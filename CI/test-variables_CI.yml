@@ -3,13 +3,10 @@ parameters:
     type: string
   - name: env
     type: string
-  - name: target
-    type: string
+
 
 variables:
 
-- name: Target
-  value:  ${{ parameters.target }}
 - name: SeleniumGrid
   value: 'https://hub.browserstack.com/wd/hub/'
 - name: DeviceName

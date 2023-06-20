@@ -90,3 +90,34 @@ stages:
         BSOSVersion: '10'
         dependsOn: 'EnvironmentCheck'
         targetBrowserName: 'Edge'
+
+  - stage: FirefoxBrowserRun
+    displayName: FirefoxBrowserRun
+    jobs:
+    - template: run-test-template.yml
+      parameters:
+        jobName: FirefoxBrowserRun
+        envConfigParam: ${{ parameters.Environment}}
+        apiEndPoint: ${{ parameters.ApiEndpoint}}
+        branchName: ${{ parameters.branchName}}
+        SeleniumGrid: ${{parameters.SeleniumGrid}}  
+        DeviceName: ${{parameters.DeviceName}}
+        BSOSVersion: '10'
+        dependsOn: 'EnvironmentCheck'
+        targetBrowserName: 'Firefox'
+
+
+  - stage: SafariBrowserRun
+    displayName: SafariBrowserRun
+    jobs:
+    - template: run-test-template.yml
+      parameters:
+        jobName: SafariBrowserRun
+        envConfigParam: ${{ parameters.Environment}}
+        apiEndPoint: ${{ parameters.ApiEndpoint}}
+        branchName: ${{ parameters.branchName}}
+        SeleniumGrid: ${{parameters.SeleniumGrid}}  
+        DeviceName: ${{parameters.DeviceName}}
+        BSOSVersion: '10'
+        dependsOn: 'EnvironmentCheck'
+        targetBrowserName: 'Safari'

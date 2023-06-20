@@ -2,6 +2,10 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Chromium;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Safari;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
@@ -45,8 +49,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
 
             _browserstackOptions.Add("acceptInsecureCerts", true);
 
+            DriverOptions driverOptions = null;
+            if (_target.Contains("Chrome"))
+                driverOptions = new ChromeOptions();
+            else if (_target.Contains("Edge"))
+                driverOptions = new EdgeOptions();
+            else if (_target.Contains("Safari"))
+                driverOptions = new SafariOptions();
+            else if (_target.Contains("Firefox"))
+                driverOptions = new FirefoxOptions();
 
-            var driverOptions = new ChromeOptions();
             AddDictionaryValuesInDriverOptions(driverOptions, _capDictionary);
             driverOptions.AddAdditionalOption("bstack:options", _browserstackOptions);
 

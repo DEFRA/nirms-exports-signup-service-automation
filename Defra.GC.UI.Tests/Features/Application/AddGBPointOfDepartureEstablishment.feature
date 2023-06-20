@@ -3,6 +3,7 @@ Feature: AddGBPointOfDepartureEstablishment
 
 Add GB point of Departure Establishment
 
+@CrossBrowser
 Scenario: Check Add the establishment address manually link
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

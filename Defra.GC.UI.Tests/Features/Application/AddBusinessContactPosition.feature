@@ -3,6 +3,7 @@ Feature: AddBusinessContactPosition
 
 Add Business Contact contactPosition
 
+@CrossBrowser
 Scenario: Add business contact position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

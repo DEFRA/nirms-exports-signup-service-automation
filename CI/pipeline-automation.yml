@@ -19,6 +19,9 @@ parameters:
   - name: BSOSVersion
     type: string
     default: '11'
+  - name: Target
+    type: string
+    default: 'Chrome'
   
 schedules:
 - cron: "0 10 * * Mon,Tue,Wed,Thu,Fri"

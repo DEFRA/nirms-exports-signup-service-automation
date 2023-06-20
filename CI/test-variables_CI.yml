@@ -20,7 +20,7 @@ variables:
 - name: Environment
   value:  ${{ parameters.env }}
 - name: Build
-  value: ADO_NI_GC_Tests_$(Build.BuildNumber)
+  value: ReMos_UI_Tests_$(Build.BuildNumber)
 - name: Where
   ${{ if eq(parameters.jobNameParam, 'EnvironmentCheck') }}:
     value: 'TestCategory=EnvCheck'

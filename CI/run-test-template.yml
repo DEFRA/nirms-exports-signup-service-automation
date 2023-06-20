@@ -15,7 +15,8 @@ parameters:
     type: string
   - name: dependsOn
     type: string
-
+  - name: Target
+    type: string
 jobs: 
 
 - job: ${{ parameters.jobName }}

@@ -3,7 +3,7 @@ trigger: none
 parameters:
   - name: branchName
     type: string
-    default: 'refs/heads/dev'
+    default: 'refs/heads/task/BrowserStackRun'
   - name: Environment
     type: string
     default: 'https://tst-sign-up.trade.azure.defra.cloud/'

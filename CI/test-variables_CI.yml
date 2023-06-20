@@ -3,12 +3,13 @@ parameters:
     type: string
   - name: env
     type: string
-    
+  - name: target
+    type: string
 
 variables:
 
 - name: Target
-  value: 'Chrome'
+  value:  ${{ parameters.target }}
 - name: SeleniumGrid
   value: 'https://hub.browserstack.com/wd/hub/'
 - name: DeviceName
@@ -33,4 +34,8 @@ variables:
   ${{ if eq(parameters.jobNameParam, 'SmokeTest') }}:
     value: 'TestCategory=SmokeOnly'
   ${{ if eq(parameters.jobNameParam, 'CrossBrowserRun') }}:
+    value: 'TestCategory=CrossBrowser'
+  ${{ if eq(parameters.jobNameParam, 'ChromeBrowserRun') }}:
+    value: 'TestCategory=CrossBrowser'
+  ${{ if eq(parameters.jobNameParam, 'EdgeBrowserRun') }}:
     value: 'TestCategory=CrossBrowser'

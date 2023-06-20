@@ -57,7 +57,7 @@ stages:
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
         dependsOn: ''
-        Target: ${{parameters.Target}}
+        targetBrowserName: ${{parameters.Target}}
 
         
   - stage: ChromeBrowserRun
@@ -73,7 +73,7 @@ stages:
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
         dependsOn: 'EnvironmentCheck'
-        Target: 'Chrome'
+        targetBrowserName: 'Chrome'
 
   
   - stage: EdgeBrowserRun
@@ -89,4 +89,4 @@ stages:
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: '10'
         dependsOn: 'EnvironmentCheck'
-        Target: 'Edge'
+        targetBrowserName: 'Edge'

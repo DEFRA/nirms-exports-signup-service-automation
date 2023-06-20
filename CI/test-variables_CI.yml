@@ -32,3 +32,5 @@ variables:
     value: 'TestCategory=RunOnly'
   ${{ if eq(parameters.jobNameParam, 'SmokeTest') }}:
     value: 'TestCategory=SmokeOnly'
+  ${{ if eq(parameters.jobNameParam, 'CrossBrowserRun') }}:
+    value: 'TestCategory=CrossBrowser'

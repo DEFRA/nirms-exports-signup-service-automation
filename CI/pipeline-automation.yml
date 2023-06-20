@@ -83,3 +83,4 @@ stages:
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: 10
         dependsOn: 'EnvironmentCheck'
+        Target: Edge

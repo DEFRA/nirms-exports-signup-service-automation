@@ -1,6 +1,7 @@
 ﻿@Regression
 Feature: Adddion PointOfDestinationEstablishment
 
+Add Point of Destination Establishment
 
 Scenario: Check Add the Destination establishment address manually link
 	Given that I navigate to the NI GC application

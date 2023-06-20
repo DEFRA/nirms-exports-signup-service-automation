@@ -3,7 +3,8 @@ parameters:
     type: string
   - name: env
     type: string
-
+  - name: targerBrowser
+    type: string
 
 variables:
 
@@ -19,6 +20,8 @@ variables:
   value:  ${{ parameters.env }}
 - name: Build
   value: ReMos_UI_Tests_$(Build.BuildNumber)
+- name: Target
+  value: ${{ parameters.targerBrowser }}
 - name: Where
   ${{ if eq(parameters.jobNameParam, 'EnvironmentCheck') }}:
     value: 'TestCategory=EnvCheck'

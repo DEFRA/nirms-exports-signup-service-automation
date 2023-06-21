@@ -21,7 +21,7 @@ parameters:
     default: '11'
   
 schedules:
-- cron: "0 9-21/18 * * Mon,Tue,Wed,Thu,Fri"
+- cron: "0 0 * * Mon,Tue,Wed,Thu,Fri"
   displayName: Daily midnight build
   branches:
     include:

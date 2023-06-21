@@ -73,12 +73,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnCannotFindEstablishmentLink()
         {
-            CannotFindEstablishment.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", CannotFindEstablishment);
         }
 
         public bool ClickOnAddTheEstablishmentAddressManuallyLink()
         {
-            AddEstablishmentManually.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", AddEstablishmentManually);
             return PageHeading.Text.Contains("Establishments");
         }
 

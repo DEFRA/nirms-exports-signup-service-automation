@@ -60,8 +60,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSaveAndContinue()
         {
-            IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-            jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
         #endregion Page Methods

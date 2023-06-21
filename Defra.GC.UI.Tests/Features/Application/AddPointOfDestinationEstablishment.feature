@@ -1,5 +1,5 @@
-﻿@Regression
-Feature: Adddion PointOfDestinationEstablishment
+﻿@Regression 
+Feature: Adddion Point Of Destination Establishment
 
 Add Point of Destination Establishment
 
@@ -20,7 +20,7 @@ Scenario: Check Add the Destination establishment address manually link
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
 	| test      | England | testFBO   |EC4R 9HA  | Add a point of destination  |
 
-Scenario: Add GB point of Destination establishment address manually
+Scenario: Add point of Destination establishment address manually
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task

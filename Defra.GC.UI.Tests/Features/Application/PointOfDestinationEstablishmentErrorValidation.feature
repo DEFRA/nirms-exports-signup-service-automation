@@ -1,5 +1,5 @@
 ﻿@Regression
-Feature: Error Validation PointOfDestinationEstablishment
+Feature: Error Validation Point Of Destination Establishment
 
 Error Validation PointOfDestinationEstablishment
 

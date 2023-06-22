@@ -3,6 +3,7 @@ Feature: AddBusinessContactTelephoneNumber
 
 Add Contact telephone number
 
+@CrossBrowser
 Scenario: Add contact Telephone Number
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

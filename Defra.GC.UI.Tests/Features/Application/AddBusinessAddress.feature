@@ -3,6 +3,7 @@ Feature: Business Registered Address
 
 Add Business Registered Address
 
+@CrossBrowser
 Scenario Outline: Add Business Address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

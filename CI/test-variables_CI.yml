@@ -33,11 +33,13 @@ variables:
     value: 'TestCategory=RunOnly'
   ${{ if eq(parameters.jobNameParam, 'SmokeTest') }}:
     value: 'TestCategory=SmokeOnly'
-  ${{ if eq(parameters.jobNameParam, 'SafariBrowserRun') }}:
-    value: 'TestCategory=CrossBrowser'
   ${{ if eq(parameters.jobNameParam, 'FirefoxBrowserRun') }}:
     value: 'TestCategory=CrossBrowser'
   ${{ if eq(parameters.jobNameParam, 'ChromeBrowserRun') }}:
     value: 'TestCategory=CrossBrowser'
   ${{ if eq(parameters.jobNameParam, 'EdgeBrowserRun') }}:
+    value: 'TestCategory=CrossBrowser'
+  ${{ if eq(parameters.jobNameParam, 'IOSIpad12Run') }}:
+    value: 'TestCategory=CrossBrowser'
+  ${{ if eq(parameters.jobNameParam, 'IOSIphone14Run') }}:
     value: 'TestCategory=CrossBrowser'

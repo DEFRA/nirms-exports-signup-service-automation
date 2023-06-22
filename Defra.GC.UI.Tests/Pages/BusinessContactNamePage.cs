@@ -16,7 +16,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
         
-        private By BusinessFullName => By.Id("business-name");
+        private IWebElement BusinessFullName => _driver.WaitForElement(By.XPath("//input[@id='business-name']"));
         private IWebElement Fullnamelink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Full name')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.Id("button-rbCountrySubmit"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));

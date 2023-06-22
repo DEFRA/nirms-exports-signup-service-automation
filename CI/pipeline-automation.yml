@@ -3,7 +3,7 @@ trigger: none
 parameters:
   - name: branchName
     type: string
-    default: 'refs/heads/task/BrowserStackRun'
+    default: 'refs/heads/dev'
   - name: Environment
     type: string
     default: 'https://tst-sign-up.trade.azure.defra.cloud/'
@@ -19,16 +19,13 @@ parameters:
   - name: BSOSVersion
     type: string
     default: '11'
-  - name: Target
-    type: string
-    default: 'Edge'
   
 schedules:
-- cron: "0 8 * * Mon,Tue,Wed,Thu,Fri"
-  displayName: Daily CrossBrowser build
+- cron: "0 0 * * Mon,Tue,Wed,Thu,Fri"
+  displayName: Daily midnight build
   branches:
     include:
-    - task/BrowserStackRun
+    - dev
     exclude:
     - feature/*
     - task/*
@@ -57,15 +54,13 @@ stages:
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
         dependsOn: ''
-        targetBrowserName: ${{parameters.Target}}
-
         
-  - stage: ChromeBrowserRun
-    displayName: ChromeBrowserRun
+  - stage: Regression
+    displayName: Regression
     jobs:
     - template: run-test-template.yml
       parameters:
-        jobName: ChromeBrowserRun
+        jobName: Regression
         envConfigParam: ${{ parameters.Environment}}
         apiEndPoint: ${{ parameters.ApiEndpoint}}
         branchName: ${{ parameters.branchName}}
@@ -73,51 +68,3 @@ stages:
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
         dependsOn: 'EnvironmentCheck'
-        targetBrowserName: 'Chrome'
-
-  
-  - stage: EdgeBrowserRun
-    displayName: EdgeBrowserRun
-    jobs:
-    - template: run-test-template.yml
-      parameters:
-        jobName: EdgeBrowserRun
-        envConfigParam: ${{ parameters.Environment}}
-        apiEndPoint: ${{ parameters.ApiEndpoint}}
-        branchName: ${{ parameters.branchName}}
-        SeleniumGrid: ${{parameters.SeleniumGrid}}  
-        DeviceName: ${{parameters.DeviceName}}
-        BSOSVersion: '10'
-        dependsOn: 'EnvironmentCheck'
-        targetBrowserName: 'Edge'
-
-  - stage: FirefoxBrowserRun
-    displayName: FirefoxBrowserRun
-    jobs:
-    - template: run-test-template.yml
-      parameters:
-        jobName: FirefoxBrowserRun
-        envConfigParam: ${{ parameters.Environment}}
-        apiEndPoint: ${{ parameters.ApiEndpoint}}
-        branchName: ${{ parameters.branchName}}
-        SeleniumGrid: ${{parameters.SeleniumGrid}}  
-        DeviceName: ${{parameters.DeviceName}}
-        BSOSVersion: '10'
-        dependsOn: 'EnvironmentCheck'
-        targetBrowserName: 'Firefox'
-
-
-  - stage: SafariBrowserRun
-    displayName: SafariBrowserRun
-    jobs:
-    - template: run-test-template.yml
-      parameters:
-        jobName: SafariBrowserRun
-        envConfigParam: ${{ parameters.Environment}}
-        apiEndPoint: ${{ parameters.ApiEndpoint}}
-        branchName: ${{ parameters.branchName}}
-        SeleniumGrid: ${{parameters.SeleniumGrid}}  
-        DeviceName: ${{parameters.DeviceName}}
-        BSOSVersion: '10'
-        dependsOn: 'EnvironmentCheck'
-        targetBrowserName: 'Safari'

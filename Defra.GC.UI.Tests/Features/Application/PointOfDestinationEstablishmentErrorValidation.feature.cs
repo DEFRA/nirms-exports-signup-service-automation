@@ -20,7 +20,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Error Validation PointOfDestinationEstablishment")]
+    [NUnit.Framework.DescriptionAttribute("Error Validation Point Of Destination Establishment")]
     [NUnit.Framework.CategoryAttribute("Regression")]
     public partial class ErrorValidationPointOfDestinationEstablishmentFeature
     {
@@ -37,7 +37,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Application", "Error Validation PointOfDestinationEstablishment", "Error Validation PointOfDestinationEstablishment", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Application", "Error Validation Point Of Destination Establishment", "Error Validation PointOfDestinationEstablishment", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         

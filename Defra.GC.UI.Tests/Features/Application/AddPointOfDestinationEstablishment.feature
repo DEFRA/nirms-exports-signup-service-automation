@@ -168,11 +168,11 @@ Scenario: Verify no point of destination  establishment address listed after rem
 
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| EC4R 9HA     |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| EC4R 9HA   |
 
 	
 Scenario: Verify remaining  point of destination  establishment address listed after removing one address
-	Given that I navigate to the NI GC application
+    Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -190,11 +190,11 @@ Scenario: Verify remaining  point of destination  establishment address listed a
 	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   add establishment email address 'test2@test.com'
 	And   remove establishment address '<EstablishmentName>'
+	And   click on back link
 	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
 	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
-
 	
 Scenario: Change manually added  destination establishment address
 	Given that I navigate to the NI GC application

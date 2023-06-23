@@ -2,9 +2,6 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
-using SeleniumExtras.WaitHelpers;
-using Defra.UI.Framework.Driver;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -12,7 +9,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
         
@@ -32,12 +28,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         }
 
         #region Page Methods
-
-        public void NavigateToBusinessContactNamePage()
-        {
-            string url = UrlBuilder.Default().Add("registered-business-contact-name").Build();
-            _driver.Navigate().GoToUrl(url);
-        }
 
         public void EnterBusinessContactName(string ContactName)
         {

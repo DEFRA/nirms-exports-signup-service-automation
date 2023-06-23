@@ -2,7 +2,6 @@
 {
     public interface IBusinessContactNamePage
     {
-        public void NavigateToBusinessContactNamePage();
         public void EnterBusinessContactName(string ContactName);
         public bool VerifyErrorMessageOnBusinessContactNamePage(string errorMessage);
         public void ClickOnBusinessContactNameLink();

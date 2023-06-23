@@ -34,6 +34,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             eligibilityPage.SelectCountryToCompleteEligibility(country, FBONumber);
         }
 
+        [When(@"complete eligibility task with '([^']*)', '([^']*)' without Regulations")]
+        public void WhenCompleteEligibilityTaskWithWithoutRegulations(string country, string FBONumber)
+        {
+            eligibilityPage.SelectCountryToCompleteEligibilitywithoutRegulations(country, FBONumber);
+        }
+
+        [When(@"complete eligibility task with '([^']*)', '([^']*)' and navigate to Regulations page")]
+        public void WhenCompleteEligibilityTaskWithAndNavigateToRegulationsPage(string country, string FBONumber)
+        {
+            eligibilityPage.NavigateToRegulations(country, FBONumber);
+        }
+
         [When(@"complete eligibility task with invalid data '([^']*)', '([^']*)'")]
         public void WhenCompleteEligibilityTaskWithInvalidData(string country, string FBONumber)
         {
@@ -68,6 +80,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.VerifyErrorMessageOnSPSAssurancePage(errorMessage), "FBO invalid error not matching");
         }
 
+        [Then(@"verify error message '([^']*)' on  Regulations page")]
+        public void ThenVerifyErrorMessageOnRegulationsPage(string errorMessage)
+        {
+            Assert.True(eligibilityPage.VerifyErrorMessageOnRegulationsPage(errorMessage), "Regulations invalid error not matching");
+        }
+
         [When(@"complete eligibility task with '([^']*)'")]
         public void WhenCompleteEligibilityTaskWith(string country)
         {
@@ -78,6 +96,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenUserNavigatesToTheCountrySelectionPage()
         {
             Assert.AreEqual(eligibilityPage.VerifyCountryPageloaded(), "Which country is your business based in?");
+        }
+
+        [Then(@"user  navigates to the SPO_Assurance page")]
+        public void ThenUserNavigatesToTheSPO_AssurancePage()
+        {
+            Assert.AreEqual(eligibilityPage.VerifySPOPageloaded(), "Does your business have a Food Business Operator (FBO) number?");
         }
     }
 }

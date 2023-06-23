@@ -20,6 +20,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
         private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//a[@href='#FboNumber']"));
+        private IWebElement RegulationsErrorMessage => _driver.WaitForElement(By.XPath("//p[@id='RegulationConfirmed_Error']"));
         private IWebElement RegulationCheckbox => _driver.WaitForElementClickable(By.XPath("//label[contains(text(),'I confirm that I have understood the guidance and ')]"));
         private IWebElement Continue => _driver.WaitForElement(By.ClassName("govuk-button"));
 
@@ -54,7 +55,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
+        public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber)
+        {
+            _driver.ClickRadioButton(country);
+            SaveAndContinue.Click();
+            SelectFBONumberToCompleteEligibility(FBONumber);
+            Continue.Click();
+        }
+
         public void InvaildFBOdata(string country, string FBONumber)
+        {
+            _driver.ClickRadioButton(country);
+            ClickSaveAndContinue();
+            SelectFBONumberToCompleteEligibility(FBONumber);
+        }
+
+        public void NavigateToRegulations(string country, string FBONumber)
         {
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();
@@ -111,7 +127,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ErrorMessage.Text.Contains(errorMessage);
         }
 
+        public bool VerifyErrorMessageOnRegulationsPage(string errorMessage)
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2501)", "");
+            return RegulationsErrorMessage.Text.Contains(errorMessage);
+        }
+
         public string VerifyCountryPageloaded()
+        {
+            return PageHeading.Text;
+        }
+
+        public string VerifySPOPageloaded()
         {
             return PageHeading.Text;
         }

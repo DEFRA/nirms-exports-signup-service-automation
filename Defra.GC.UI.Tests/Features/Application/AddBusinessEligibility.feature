@@ -95,7 +95,6 @@ Scenario Outline: Verify error message for  Regulations page
     | test      | England | testFBO   |     Confirm that you have understood the guidance and regulations|
 
 
-	
 Scenario Outline: Verify back link on Regulations page is navigating to SPO page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

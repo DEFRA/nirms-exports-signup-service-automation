@@ -64,7 +64,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.ClickRadioButton(country);
             SaveAndContinue.Click();
             SelectFBONumberToCompleteEligibility(FBONumber);
-            Continue.Click();
         }
 
         public void InvaildFBOdata(string country, string FBONumber)

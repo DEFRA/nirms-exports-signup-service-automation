@@ -3,10 +3,10 @@ trigger: none
 parameters:
   - name: branchName
     type: string
-    default: 'refs/heads/task/BrowserStackRun'
+    default: 'refs/heads/dev'
   - name: Environment
     type: string
-    default: 'https://tst-sign-up.trade.azure.defra.cloud/'
+    default: 'tst'
   - name: ApiEndpoint
     type: string
     default: 'dev'
@@ -28,7 +28,7 @@ schedules:
   displayName: Daily CrossBrowser build
   branches:
     include:
-    - task/BrowserStackRun
+    - dev
     exclude:
     - feature/*
     - task/*

@@ -53,7 +53,7 @@ stages:
         envConfigParam: ${{ parameters.Environment}}
         apiEndPoint: ${{ parameters.ApiEndpoint}}
         branchName: ${{ parameters.branchName}}
-        SeleniumGrid: ${{parameters.SeleniumGrid}}  
+        SeleniumGrid: ''  
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
         targetBrowserName: ${{parameters.Target}}
@@ -68,7 +68,7 @@ stages:
         envConfigParam: ${{ parameters.Environment}}
         apiEndPoint: ${{ parameters.ApiEndpoint}}
         branchName: ${{ parameters.branchName}}
-        SeleniumGrid: ${{parameters.SeleniumGrid}}  
+        SeleniumGrid: '' 
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
         targetBrowserName: ${{parameters.Target}}

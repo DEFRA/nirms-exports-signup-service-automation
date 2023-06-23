@@ -3,6 +3,7 @@ Feature: AddBusinessContactEmailAddress
 
 Add Contact Email address
 
+@CrossBrowser
 Scenario: Add contact email address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

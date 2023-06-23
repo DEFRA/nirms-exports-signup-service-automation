@@ -3,6 +3,7 @@ Feature: Business name
 
 Sign in to General Certificate Page and add businessname
 
+@CrossBrowser
 Scenario Outline:  Add business name
 	Given that I navigate to the NI GC application
 	When sign in with valid credentials with logininfo '<logininfo>'

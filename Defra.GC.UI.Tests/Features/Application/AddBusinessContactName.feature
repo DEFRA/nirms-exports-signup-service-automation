@@ -3,6 +3,7 @@ Feature: AddBusinessContactName
 
 Add Business Contact Name
 
+@CrossBrowser
 Scenario: Add business contact name
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

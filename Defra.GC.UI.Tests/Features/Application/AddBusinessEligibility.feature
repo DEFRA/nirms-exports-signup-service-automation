@@ -3,6 +3,7 @@ Feature: AddBusinessEligibility
 
 Complete Eligibility task
 
+@CrossBrowser
 Scenario Outline: Complete eligibility task
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

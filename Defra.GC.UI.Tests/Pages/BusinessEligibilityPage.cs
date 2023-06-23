@@ -44,30 +44,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void SelectCountryToCompleteEligibility(string country, string FBONumber)
         {
             _driver.ClickRadioButton(country);
-            SaveAndContinue.Click();
+            ClickSaveAndContinue();
             SelectFBONumberToCompleteEligibility(FBONumber);
             ConfirmReMosRegulationToCompleteEligibility();
         }
 
-        public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber)
+        public void ClickSaveAndContinue()
         {
-            _driver.ClickRadioButton(country);
-            SaveAndContinue.Click();
-            SelectFBONumberToCompleteEligibility(FBONumber);
-            Continue.Click();
-        }
-
-        public void NavigateToRegulations(string country, string FBONumber)
-        {
-            _driver.ClickRadioButton(country);
-            SaveAndContinue.Click();
-            SelectFBONumberToCompleteEligibility(FBONumber);
+            IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+            jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
         public void InvaildFBOdata(string country, string FBONumber)
         {
             _driver.ClickRadioButton(country);
-            SaveAndContinue.Click();
+            ClickSaveAndContinue();
             SelectFBONumberToCompleteEligibility(FBONumber);
         }
 
@@ -95,7 +86,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void AssuranceCompleteWithNoSelection(string country, string FBONumber)
         {
             _driver.ClickRadioButton(country);
-            SaveAndContinue.Click();
+            ClickSaveAndContinue();
             NoFBONumberToCompleteEligibility(FBONumber);
         }
 
@@ -108,7 +99,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void AssurancePagWithCountry(string country)
         {
             _driver.ClickRadioButton(country);
-            SaveAndContinue.Click();
+            ClickSaveAndContinue();
         }
 
         public bool VerifyNoSignUpTaskListPageIsLoaded()

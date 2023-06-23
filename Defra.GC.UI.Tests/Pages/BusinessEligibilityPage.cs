@@ -123,7 +123,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyErrorMessageOnRegulationsPage(string errorMessage)
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2500)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2501)", "");
             return RegulationsErrorMessage.Text.Contains(errorMessage);
         }
 

@@ -369,9 +369,9 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify error message for  Regulations page")]
+        [NUnit.Framework.DescriptionAttribute("Verify confirmation error message for Regulations page")]
         [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "Confirm that you have understood the guidance and regulations", null)]
-        public void VerifyErrorMessageForRegulationsPage(string logininfo, string country, string fBONumber, string errorMessage, string[] exampleTags)
+        public void VerifyConfirmationErrorMessageForRegulationsPage(string logininfo, string country, string fBONumber, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -379,7 +379,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Country", country);
             argumentsOfScenario.Add("FBONumber", fBONumber);
             argumentsOfScenario.Add("errorMessage", errorMessage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for  Regulations page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify confirmation error message for Regulations page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 87
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -446,7 +446,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 105
- testRunner.Then("user  navigates to the SPO_Assurance page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("user navigates to the SPO_Assurance page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

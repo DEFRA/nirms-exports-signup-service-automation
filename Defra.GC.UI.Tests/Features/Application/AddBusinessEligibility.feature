@@ -84,12 +84,12 @@ Scenario Outline: Verify error message for invalid FBO with Assurance
     | logininfo | Country | FBONumber |  errorMessage                                   |
     | test      | England | ***************   | Enter FBO number using only letters, numbers and hyphens - |
 
-Scenario Outline: Verify error message for  Regulations page
+Scenario Outline: Verify confirmation error message for Regulations page
 	Given that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
-	And   complete eligibility task with '<Country>', '<FBONumber>' without Regulations
-	Then   verify error message '<errorMessage>' on  Regulations page
+	When sign in with valid credentials with logininfo '<logininfo>'
+	And  click on check eligibilty task
+	And  complete eligibility task with '<Country>', '<FBONumber>' without Regulations
+	Then  verify error message '<errorMessage>' on  Regulations page
 	
 	Examples: 
     | logininfo | Country | FBONumber | errorMessage |
@@ -98,11 +98,11 @@ Scenario Outline: Verify error message for  Regulations page
 
 Scenario Outline: Verify back link on Regulations page is navigating to SPO page
 	Given that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
+	When sign in with valid credentials with logininfo '<logininfo>'
+	And  click on check eligibilty task
 	And  complete eligibility task with '<Country>', '<FBONumber>' and navigate to Regulations page
-    And   click on back link
-	Then  user  navigates to the SPO_Assurance page
+    And  click on back link
+	Then user navigates to the SPO_Assurance page
 	
 	
 	Examples: 

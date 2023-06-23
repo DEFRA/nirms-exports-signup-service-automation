@@ -98,7 +98,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.AreEqual(eligibilityPage.VerifyCountryPageloaded(), "Which country is your business based in?");
         }
 
-        [Then(@"user  navigates to the SPO_Assurance page")]
+        [Then(@"user navigates to the SPO_Assurance page")]
         public void ThenUserNavigatesToTheSPO_AssurancePage()
         {
             Assert.AreEqual(eligibilityPage.VerifySPOPageloaded(), "Does your business have a Food Business Operator (FBO) number?");

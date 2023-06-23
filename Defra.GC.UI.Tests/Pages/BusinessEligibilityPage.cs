@@ -55,7 +55,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
+        public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber)
+        {
+            _driver.ClickRadioButton(country);
+            SaveAndContinue.Click();
+            SelectFBONumberToCompleteEligibility(FBONumber);
+            Continue.Click();
+        }
+
         public void InvaildFBOdata(string country, string FBONumber)
+        {
+            _driver.ClickRadioButton(country);
+            ClickSaveAndContinue();
+            SelectFBONumberToCompleteEligibility(FBONumber);
+        }
+
+        public void NavigateToRegulations(string country, string FBONumber)
         {
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();

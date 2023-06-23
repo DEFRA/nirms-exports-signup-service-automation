@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow;
-
+﻿
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
     public interface IBusinessNamePage
@@ -25,7 +19,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyErrorMessageOnBusinessNamePage(string errorMessage);
 
-        public void ClickonBusiness();
+        public void ClickonBusinessName();
 
         public void EnterInvalidBusinessName();
 
@@ -44,5 +38,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public List<string> ErrorValidation();
 
         public bool VerifyBusinessNameStatus(string status);
+
+        public void CompleteBusinessNameTask(string businessName, string businessAddr, string businessTown, string addrPostcode);
     }
 }

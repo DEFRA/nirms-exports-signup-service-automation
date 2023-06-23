@@ -16,8 +16,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
 
         private IBusinessContactEmailAddressPage? contactEmailAddressPage => _objectContainer.IsRegistered<IBusinessContactEmailAddressPage>() ? _objectContainer.Resolve<IBusinessContactEmailAddressPage>() : null;
-        private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         public BusinessContactEmailAddressSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
@@ -31,12 +29,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactEmailAddressPage.NavigateToContactEmailAddressPage();
         }
 
+        [When(@"enter email address '([^']*)'")]
         [Then(@"enter email address '([^']*)'")]
         public void ThenEnterEmailAddress(string emailAddress)
         {
             contactEmailAddressPage.EnterEmailAddress(emailAddress);
         }
 
+        [When(@"click on save and continue on contact email address page")]
         [Then(@"click on save and continue on contact email address page")]
         public void ThenClickOnSaveAndContinue()
         {

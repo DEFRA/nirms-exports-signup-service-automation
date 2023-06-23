@@ -10,14 +10,20 @@ Scenario: Add contact email address
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   click on contact email address link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
+	And   enter business contact position '<contactPosition>'
+	And   click on save and continue on contact position page
 	And   enter email address '<emailAddress>'
 	And   click on save and continue on contact email address page
-	And   verify next page '<nextPage>' is loaded 
+	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | emailAddress  | nextPage |
-	| test      | England | testFBO   | test@test.com | Sign up  |
+	| logininfo | Country | FBONumber | Business name    |AddressLine1 | Town     | AddrPostcode |contactName     |contactPosition |emailAddress  | nextPage |
+	| test      | England | testFBO   | testBusinessname |testAddress1 | testCity | wd19 7pf     |testContactName | testPosition   |test@test.com | Sign up  |
 
 
 Scenario: Verify error message for invalid contact email address
@@ -26,14 +32,20 @@ Scenario: Verify error message for invalid contact email address
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   click on contact email address link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'	
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
+	And   enter business contact position '<contactPosition>'
+	And   click on save and continue on contact position page
 	And   enter email address '<emailAddress>'
 	And   click on save and continue on contact email address page
-	And   verify error message '<errorMessage>' on contact email address page
+	Then  verify error message '<errorMessage>' on contact email address page
 
 	Examples: 
-	| logininfo | Country  |FBONumber |emailAddress     | errorMessage                                   |
-	| test      | England  |testFBO   |test£$@£         | Enter an email address in the correct format   |
+	| logininfo | Country  |FBONumber |Business name    |AddressLine1 | Town     | AddrPostcode |contactName     |contactPosition |emailAddress     | errorMessage                                   |
+	| test      | England  |testFBO   |testBusinessname |testAddress1 | testCity | wd19 7pf     |testContactName | testPosition   |test£$@£         | Enter an email address in the correct format   |
 
 
 Scenario: Verify error message for blank contact email address
@@ -42,13 +54,20 @@ Scenario: Verify error message for blank contact email address
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   click on contact email address link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
+	And   enter business contact position '<contactPosition>'
+	And   click on save and continue on contact position page
 	And   enter email address '<emailAddress>'
 	And   click on save and continue on contact email address page
-	And   verify error message '<errorMessage>' on contact email address page
+	Then  verify error message '<errorMessage>' on contact email address page
+
 	Examples: 
-	| logininfo | Country  |FBONumber |emailAddress | errorMessage                                       |
-	| test      | England  |testFBO   |             | Enter the email address of the contact person      |
+	| logininfo | Country  |FBONumber |contactName     |contactPosition |emailAddress | errorMessage                                       |
+	| test      | England  |testFBO   |testContactName | testPosition   |             | Enter the email address of the contact person      |
 
 
 Scenario: Verify back link on contact email address page
@@ -57,13 +76,19 @@ Scenario: Verify back link on contact email address page
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	Then  navigate to task list page
-	And   click on contact email address link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
+	And   enter business contact position '<contactPosition>'
+	And   click on save and continue on contact position page
 	And   click on back link
-	And   verify signUp task list page is loaded
+	Then  verify next page '<nextPage>' is loaded
+
 	Examples: 
-	| logininfo |Country  |FBONumber |
-	| test      |England  |testFBO   |
+	| logininfo | Country | FBONumber | contactName     |contactPosition |nextPage |
+	| test      | England | testFBO   | testContactName | testPosition   |Replace  |
 
 @Ignore
 Scenario: Verify save and continue later on contact email address page
@@ -72,10 +97,16 @@ Scenario: Verify save and continue later on contact email address page
 	And   click on check eligibilty task
     And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	Then  navigate to task list page
-	And   click on contact email address link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
+	And   enter business contact position '<contactPosition>'
+	And   click on save and continue on contact position page
 	And   click save and continue later
-	And   verify signUp task list page is loaded
+	Then  verify next page '<nextPage>' is loaded
+
 	Examples: 
-	| logininfo |Country  |FBONumber |
-	| test      |England  |testFBO   |
+	| logininfo | Country | FBONumber | contactName     |contactPosition |nextPage |
+	| test      | England | testFBO   | testContactName | testPosition   |Replace  |

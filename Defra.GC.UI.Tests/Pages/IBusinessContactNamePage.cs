@@ -2,10 +2,11 @@
 {
     public interface IBusinessContactNamePage
     {
-        public void NavigateToBusinessContactNamePage();
         public void EnterBusinessContactName(string ContactName);
         public bool VerifyErrorMessageOnBusinessContactNamePage(string errorMessage);
-        public void ClickOnBusinessContactNameLink();
+        public void ClickOnBusinessContactDetailsLink();
         public void ClickOnSaveAndContinue();
+        public void CompleteBusinessContactDetailsTask(string contactName, string contactPosition, string contactEmail, string contactTelephone);
+        public bool VerifyTheBusinessContactDetailsStatus(string status);
     }
 }

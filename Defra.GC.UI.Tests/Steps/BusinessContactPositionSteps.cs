@@ -16,8 +16,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
 
         private IBusinessContactPositionPage? contactPositionPage => _objectContainer.IsRegistered<IBusinessContactPositionPage>() ? _objectContainer.Resolve<IBusinessContactPositionPage>() : null;
-        private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         public BusinessContactPositionSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
@@ -31,12 +29,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactPositionPage.NavigateToBusinessContactPositionPage();
         }
 
+        [When(@"enter business contact position '([^']*)'")]
         [Then(@"enter business contact position '([^']*)'")]
         public void ThenEnterBusinessContactPosition(string ContactPosition)
         {
             contactPositionPage.EnterBusinessContactPosition(ContactPosition);
         }
 
+        [When(@"click on save and continue on contact position page")]
         [Then(@"click on save and continue on contact position page")]
         public void ThenClickOnSaveAndContinue()
         {

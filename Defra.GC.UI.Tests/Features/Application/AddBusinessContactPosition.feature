@@ -10,14 +10,18 @@ Scenario: Add business contact position
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   click on business contact position link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
 	And   enter business contact position '<contactPosition>'
 	And   click on save and continue on contact position page
-	And   verify next page '<nextPage>' is loaded 
+	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactPosition | nextPage |
-	| test      | England | testFBO   | testPosition    | Sign up  |
+	| logininfo | Country | FBONumber | Business name    | AddressLine1 | Town     | AddrPostcode | contactName     | contactPosition | nextPage |
+	| test      | England | testFBO   | testBusinessname | testAddress1 | testCity | wd19 7pf     | testContactName | testPosition    | Sign up  |
 
 	
 Scenario: Verify error message for invalid business contact position
@@ -26,13 +30,18 @@ Scenario: Verify error message for invalid business contact position
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   click on business contact position link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
 	And   enter business contact position '<contactPosition>'
 	And   click on save and continue on contact position page
 	And   verify error message '<errorMessage>' on business contact position page
+
 	Examples: 
-	| logininfo | Country  |FBONumber |contactPosition | errorMessage                           |
-	| test      | England  |testFBO   |testPosition%   | Enter a position using only letters    |
+	| logininfo | Country  |FBONumber |Business name    |AddressLine1 | Town     | AddrPostcode |contactName     |contactPosition | errorMessage                           |
+	| test      | England  |testFBO   |testBusinessname |testAddress1 | testCity | wd19 7pf     |testContactName |testPosition%   | Enter a position using only letters    |
 
 
 Scenario: Verify error message for blank business contact position
@@ -41,13 +50,18 @@ Scenario: Verify error message for blank business contact position
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   click on business contact position link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
 	And   enter business contact position '<contactPosition>'
 	And   click on save and continue on contact position page
-	And   verify error message '<errorMessage>' on business contact position page
+	Then  verify error message '<errorMessage>' on business contact position page
+
 	Examples: 
-	| logininfo | Country  |FBONumber |contactPosition | errorMessage                              |
-	| test      | England  |testFBO   |                | Enter the position of the contact person  |
+	| logininfo | Country  |FBONumber |Business name    |AddressLine1 | Town     | AddrPostcode |contactName     |contactPosition | errorMessage                              |
+	| test      | England  |testFBO   |testBusinessname |testAddress1 | testCity | wd19 7pf     |testContactName |                | Enter the position of the contact person  |
 
 
 Scenario: Verify back link on business contact position page
@@ -56,13 +70,17 @@ Scenario: Verify back link on business contact position page
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   navigate to task list page
-	And   click on business contact position link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
 	And   click on back link
-	And   verify signUp task list page is loaded
+	Then  verify next page '<nextPage>' is loaded 
+
 	Examples: 
-	| logininfo |Country  |FBONumber |
-	| test      |England  |testFBO   |
+	| logininfo | Country | FBONumber | Business name    | AddressLine1 | Town     | AddrPostcode |contactName     | nextPage |
+	| test      | England | testFBO   | testBusinessname | testAddress1 | testCity | wd19 7pf     |testContactName | Replace  |
 
 
 @Ignore
@@ -72,10 +90,14 @@ Scenario: Verify save and continue later on business contact position page
 	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   navigate to task list page
-	And   click on business contact position link
+	When  complete Business name task with '<Business name>', '<AddressLine1>', '<Town>', '<AddrPostcode>'
+	Then  user verify the business name status 'COMPLETED'
+	When  click on business contact details link
+	And   enter business contact name '<contactName>'
+	And   click on save and continue on contact full name page
 	And   click save and continue later
-	And   verify signUp task list page is loaded
+	Then  verify next page '<nextPage>' is loaded 
+
 	Examples: 
-	| logininfo |Country  |FBONumber |
-	| test      |England  |testFBO   |
+	| logininfo | Country | FBONumber | Business name    | AddressLine1 | Town     | AddrPostcode | contactName     |nextPage |
+	| test      | England | testFBO   | testBusinessname | testAddress1 | testCity | wd19 7pf     | testContactName |Replace  |

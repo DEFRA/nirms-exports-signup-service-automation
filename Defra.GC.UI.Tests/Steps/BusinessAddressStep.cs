@@ -66,7 +66,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         [When(@"user enters manually all address fields  '([^']*)', '([^']*)',  '([^']*)'")]
         public void WhenUserEntersManuallyAllAddressFields(string p0, string testCity, string testCode)
         {
-            BusinessAddressPagetest.EntertheAddressmanually(p0, testCity, testCode);
+            BusinessAddressPagetest.EnterBusinessAddress(p0, testCity, testCode);
         }
 
         [Then(@"user verifies invalid error message for address data")]

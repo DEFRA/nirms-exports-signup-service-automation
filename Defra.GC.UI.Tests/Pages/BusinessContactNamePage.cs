@@ -12,15 +12,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
+        private IBusinessContactEmailAddressPage? ContactEmailAddressPage => _objectContainer.IsRegistered<IBusinessContactEmailAddressPage>() ? _objectContainer.Resolve<IBusinessContactEmailAddressPage>() : null;
+        private IBusinessContactPositionPage? ContactPositionPage => _objectContainer.IsRegistered<IBusinessContactPositionPage>() ? _objectContainer.Resolve<IBusinessContactPositionPage>() : null;
+        private IBusinessContactTelephoneNumberPage? ContactTelephoneNumberPage => _objectContainer.IsRegistered<IBusinessContactTelephoneNumberPage>() ? _objectContainer.Resolve<IBusinessContactTelephoneNumberPage>() : null;
 
         #region Page Objects
-        
+
         private IWebElement BusinessFullName => _driver.WaitForElement(By.XPath("//input[@id='business-name']"));
         private IWebElement Fullnamelink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Full name')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.Id("button-rbCountrySubmit"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
-
+        private IWebElement BusinessContactDetailStatus => _driver.WaitForElement(By.XPath("//strong[@id='replace']"));
 
         #endregion
 
@@ -33,10 +35,23 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Methods
 
-        public void NavigateToBusinessContactNamePage()
+
+        public void CompleteBusinessContactDetailsTask(string contactName, string contactPosition, string contactEmail, string contactTelephone)
         {
-            string url = UrlBuilder.Default().Add("registered-business-contact-name").Build();
-            _driver.Navigate().GoToUrl(url);
+            ClickOnBusinessContactDetailsLink();
+            EnterBusinessContactName(contactName);
+            ClickOnSaveAndContinue();
+            ContactPositionPage.EnterBusinessContactPosition(contactPosition);
+            ContactPositionPage.ClickOnSaveAndContinue();
+            ContactEmailAddressPage.EnterEmailAddress(contactEmail);
+            ContactEmailAddressPage.ClickOnSaveAndContinue();
+            ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
+            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+        }
+
+        public bool VerifyTheBusinessContactDetailsStatus(string status)
+        {
+            return BusinessContactDetailStatus.Text.Contains(status);
         }
 
         public void EnterBusinessContactName(string ContactName)
@@ -55,7 +70,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             SaveAndContinue.Click();
         }
 
-        public void ClickOnBusinessContactNameLink()
+        public void ClickOnBusinessContactDetailsLink()
         {
             _driver.ElementImplicitWait();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;

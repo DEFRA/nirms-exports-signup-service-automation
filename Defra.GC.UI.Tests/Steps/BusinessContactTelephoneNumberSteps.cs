@@ -16,8 +16,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
 
         private IBusinessContactTelephoneNumberPage? contactTelephoneNumberPage => _objectContainer.IsRegistered<IBusinessContactTelephoneNumberPage>() ? _objectContainer.Resolve<IBusinessContactTelephoneNumberPage>() : null;
-        private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         public BusinessContactTelephoneNumberSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
@@ -31,12 +29,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactTelephoneNumberPage.NavigateToContactTelephoneNumberPage();
         }
 
+        [When(@"enter telephone number '([^']*)'")]
         [Then(@"enter telephone number '([^']*)'")]
         public void ThenEnterTelephoneNumber(string telephoneNumber)
         {
             contactTelephoneNumberPage.EnterTelephoneNumber(telephoneNumber);
         }
 
+        [When(@"click on save and continue on Contact Number page")]
         [Then(@"click on save and continue on Contact Number page")]
         public void ThenClickOnSaveAndContinue()
         {

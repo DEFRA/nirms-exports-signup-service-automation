@@ -15,7 +15,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
-
         private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("business-country"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));

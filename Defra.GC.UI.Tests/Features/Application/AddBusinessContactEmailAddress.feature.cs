@@ -78,8 +78,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add contact email address")]
         [NUnit.Framework.CategoryAttribute("CrossBrowser")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testBusinessname", "testAddress1", "testCity", "wd19 7pf", "testContactName", "testPosition", "test@test.com", "Sign up", null)]
-        public void AddContactEmailAddress(string logininfo, string country, string fBONumber, string businessName, string addressLine1, string town, string addrPostcode, string contactName, string contactPosition, string emailAddress, string nextPage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "Telephone number", null)]
+        public void AddContactEmailAddress(string logininfo, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "CrossBrowser"};
@@ -92,10 +92,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Country", country);
             argumentsOfScenario.Add("FBONumber", fBONumber);
-            argumentsOfScenario.Add("Business name", businessName);
-            argumentsOfScenario.Add("AddressLine1", addressLine1);
-            argumentsOfScenario.Add("Town", town);
-            argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("contactName", contactName);
             argumentsOfScenario.Add("contactPosition", contactPosition);
             argumentsOfScenario.Add("emailAddress", emailAddress);
@@ -118,42 +114,33 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
  testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 12
+#line 11
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 13
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine1, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 14
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 15
+#line 12
  testRunner.When("click on business contact details link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 16
- testRunner.And(string.Format("enter business contact name \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.And(string.Format("enter business contact person \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 17
- testRunner.And("click on save and continue on contact full name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.And("click on save and continue on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 18
+#line 15
  testRunner.And(string.Format("enter business contact position \'{0}\'", contactPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 19
+#line 16
  testRunner.And("click on save and continue on contact position page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 20
+#line 17
  testRunner.And(string.Format("enter email address \'{0}\'", emailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 21
+#line 18
  testRunner.And("click on save and continue on contact email address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 22
+#line 19
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -162,24 +149,20 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for invalid contact email address")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testBusinessname", "testAddress1", "testCity", "wd19 7pf", "testContactName", "testPosition", "test£$@£", "Enter an email address in the correct format", null)]
-        public void VerifyErrorMessageForInvalidContactEmailAddress(string logininfo, string country, string fBONumber, string businessName, string addressLine1, string town, string addrPostcode, string contactName, string contactPosition, string emailAddress, string errorMessage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testContactName", "testPosition", "test£$@£", "Enter an email address in the correct format", null)]
+        public void VerifyErrorMessageForInvalidContactEmailAddress(string logininfo, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Country", country);
             argumentsOfScenario.Add("FBONumber", fBONumber);
-            argumentsOfScenario.Add("Business name", businessName);
-            argumentsOfScenario.Add("AddressLine1", addressLine1);
-            argumentsOfScenario.Add("Town", town);
-            argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("contactName", contactName);
             argumentsOfScenario.Add("contactPosition", contactPosition);
             argumentsOfScenario.Add("emailAddress", emailAddress);
             argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for invalid contact email address", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 29
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -189,49 +172,40 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 30
+#line 27
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 31
+#line 28
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 32
- testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 33
+#line 29
  testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 34
+#line 30
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 35
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine1, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 36
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 37
+#line 31
  testRunner.When("click on business contact details link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 38
- testRunner.And(string.Format("enter business contact name \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
+ testRunner.And(string.Format("enter business contact person \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 39
- testRunner.And("click on save and continue on contact full name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.And("click on save and continue on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 40
+#line 34
  testRunner.And(string.Format("enter business contact position \'{0}\'", contactPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 41
+#line 35
  testRunner.And("click on save and continue on contact position page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 42
+#line 36
  testRunner.And(string.Format("enter email address \'{0}\'", emailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 43
+#line 37
  testRunner.And("click on save and continue on contact email address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 44
+#line 38
  testRunner.Then(string.Format("verify error message \'{0}\' on contact email address page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -253,7 +227,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("emailAddress", emailAddress);
             argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for blank contact email address", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 51
+#line 45
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -263,50 +237,40 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 52
+#line 46
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 53
+#line 47
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 54
- testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 55
+#line 48
  testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 49
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 57
- testRunner.When("complete Business name task with \'<Business name>\', \'<AddressLine1>\', \'<Town>\', \'" +
-                        "<AddrPostcode>\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 58
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 59
+#line 50
  testRunner.When("click on business contact details link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 60
- testRunner.And(string.Format("enter business contact name \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+ testRunner.And(string.Format("enter business contact person \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 61
- testRunner.And("click on save and continue on contact full name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+ testRunner.And("click on save and continue on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 62
+#line 53
  testRunner.And(string.Format("enter business contact position \'{0}\'", contactPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 63
+#line 54
  testRunner.And("click on save and continue on contact position page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 64
+#line 55
  testRunner.And(string.Format("enter email address \'{0}\'", emailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 65
+#line 56
  testRunner.And("click on save and continue on contact email address page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 66
+#line 57
  testRunner.Then(string.Format("verify error message \'{0}\' on contact email address page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -315,7 +279,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on contact email address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testContactName", "testPosition", "Replace", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testContactName", "testPosition", "Position", null)]
         public void VerifyBackLinkOnContactEmailAddressPage(string logininfo, string country, string fBONumber, string contactName, string contactPosition, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -327,7 +291,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("contactPosition", contactPosition);
             argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back link on contact email address page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 73
+#line 64
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -337,47 +301,37 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 74
+#line 65
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 75
+#line 66
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 76
- testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 77
+#line 67
  testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 78
+#line 68
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 79
- testRunner.When("complete Business name task with \'<Business name>\', \'<AddressLine1>\', \'<Town>\', \'" +
-                        "<AddrPostcode>\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 80
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 81
+#line 69
  testRunner.When("click on business contact details link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 82
- testRunner.And(string.Format("enter business contact name \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+ testRunner.And(string.Format("enter business contact person \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 83
- testRunner.And("click on save and continue on contact full name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
+ testRunner.And("click on save and continue on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 84
+#line 72
  testRunner.And(string.Format("enter business contact position \'{0}\'", contactPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 85
+#line 73
  testRunner.And("click on save and continue on contact position page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 86
+#line 74
  testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 87
+#line 75
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -387,7 +341,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify save and continue later on contact email address page")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testContactName", "testPosition", "Replace", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testContactName", "testPosition", "Position", null)]
         public void VerifySaveAndContinueLaterOnContactEmailAddressPage(string logininfo, string country, string fBONumber, string contactName, string contactPosition, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -405,7 +359,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("contactPosition", contactPosition);
             argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify save and continue later on contact email address page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 94
+#line 82
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -415,47 +369,37 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 95
+#line 83
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 96
+#line 84
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 97
- testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 98
+#line 85
     testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 99
+#line 86
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 100
- testRunner.When("complete Business name task with \'<Business name>\', \'<AddressLine1>\', \'<Town>\', \'" +
-                        "<AddrPostcode>\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 101
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 102
+#line 87
  testRunner.When("click on business contact details link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 103
- testRunner.And(string.Format("enter business contact name \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 88
+ testRunner.And(string.Format("enter business contact person \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 104
- testRunner.And("click on save and continue on contact full name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+ testRunner.And("click on save and continue on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 105
+#line 90
  testRunner.And(string.Format("enter business contact position \'{0}\'", contactPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 106
+#line 91
  testRunner.And("click on save and continue on contact position page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 107
+#line 92
  testRunner.And("click save and continue later", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 108
+#line 93
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

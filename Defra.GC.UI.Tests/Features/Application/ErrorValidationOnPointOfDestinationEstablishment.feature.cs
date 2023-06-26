@@ -30,14 +30,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         private static string[] featureTags = new string[] {
                 "Regression"};
         
-#line 1 "PointOfDestinationEstablishmentErrorValidation.feature"
+#line 1 "ErrorValidationOnPointOfDestinationEstablishment.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Application", "Error Validation Point Of Destination Establishment", "Error Validation PointOfDestinationEstablishment", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Application", "Error Validation Point Of Destination Establishment", "Error Validation Point Of Destination Establishment", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,9 +76,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify validation  error message for blank  Destination Establishment postcode fi" +
-            "eld")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "", "Enter a postcode.", null)]
+        [NUnit.Framework.DescriptionAttribute("Verify validation error message for blank Destination Establishment postcode fiel" +
+            "d")]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "", "Enter a postcode.", null)]
         public void VerifyValidationErrorMessageForBlankDestinationEstablishmentPostcodeField(string logininfo, string country, string fBONumber, string postcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -88,8 +88,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             argumentsOfScenario.Add("FBONumber", fBONumber);
             argumentsOfScenario.Add("postcode", postcode);
             argumentsOfScenario.Add("errorMessage", errorMessage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify validation  error message for blank  Destination Establishment postcode fi" +
-                    "eld", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify validation error message for blank Destination Establishment postcode fiel" +
+                    "d", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -107,21 +107,18 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 10
  testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 11
+#line 10
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 12
-    testRunner.When("click on points of destination  link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+    testRunner.When("click on points of destination link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
+#line 12
  testRunner.And(string.Format("enter Establishment postcode \'{0}\'", postcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 13
  testRunner.Then(string.Format("verify error message \'{0}\' on establishment page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -130,14 +127,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify valid error messages for point of Destination mandatory fields")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter establishment name", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "testName", "", "testCity", "testCountry", "SE10 9NF", "Enter address line 1", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "testName", "testAddress1", "", "testCountry", "SE10 9NF", "Enter a town or city", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "testName", "testAddress1", "testCity", "testCountry", "", "Enter a post code", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "testName$%", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter establishment name using only letters", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "testName", "testAddr%$", "testCity", "testCountry", "SE10 9NF", "Enter address line 1 using only letters, numbers", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "testName", "testAddress1", "testCity%$", "testCountry", "SE10 9NF", "Enter a town or city using only letters, numbers", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "EC4R 9HA", "testName", "testAddress1", "testCity", "testCountry", "SE10 9NF$%", "Enter a real postcode.", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "EC4R 9HA", "", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter establishment name", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "EC4R 9HA", "testName", "", "testCity", "testCountry", "SE10 9NF", "Enter address line 1", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "EC4R 9HA", "testName", "testAddress1", "", "testCountry", "SE10 9NF", "Enter a town or city", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "EC4R 9HA", "testName", "testAddress1", "testCity", "testCountry", "", "Enter a post code", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "EC4R 9HA", "testName$%", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter establishment name using only letters", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "EC4R 9HA", "testName", "testAddr%$", "testCity", "testCountry", "SE10 9NF", "Enter address line 1 using only letters, numbers", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "EC4R 9HA", "testName", "testAddress1", "testCity%$", "testCountry", "SE10 9NF", "Enter a town or city using only letters, numbers", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "EC4R 9HA", "testName", "testAddress1", "testCity", "testCountry", "SE10 9NF$%", "Enter a real postcode.", null)]
         public void VerifyValidErrorMessagesForPointOfDestinationMandatoryFields(string logininfo, string country, string fBONumber, string postcode, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -153,7 +150,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify valid error messages for point of Destination mandatory fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 21
+#line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -163,37 +160,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 22
+#line 21
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 23
+#line 22
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
- testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 25
+#line 23
  testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 24
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 27
- testRunner.When("click on points of destination  link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.When("click on points of destination link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 26
  testRunner.And(string.Format("enter Establishment postcode \'{0}\'", postcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 29
+#line 27
  testRunner.And("click on cannot find establishment link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 30
+#line 28
  testRunner.And("click on the add establishment address manually link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 31
+#line 29
  testRunner.And(string.Format("add establishment address manually with fields \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\'", establishmentName, addressLine1, estCity, estCountry, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 32
+#line 30
  testRunner.Then(string.Format("verify error message \'{0}\' on establishment page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -201,8 +195,8 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify error message on add another point of Destination  page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName1", "testAddress1", "testCity1", "testCountry1", "EC4R 9HA", "Select yes if you want to add another point of departure", null)]
+        [NUnit.Framework.DescriptionAttribute("Verify error message on add another point of Destination page")]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "testName1", "testAddress1", "testCity1", "testCountry1", "EC4R 9HA", "Select yes if you want to add another point of departure", null)]
         public void VerifyErrorMessageOnAddAnotherPointOfDestinationPage(string logininfo, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -216,8 +210,8 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("estCountry", estCountry);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("errorMessage", errorMessage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message on add another point of Destination  page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 46
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message on add another point of Destination page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 44
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -227,43 +221,40 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 47
+#line 45
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 48
+#line 46
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 49
- testRunner.And("click on check eligibilty task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 50
+#line 47
  testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 51
+#line 48
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 52
- testRunner.When("click on points of destination  link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 49
+ testRunner.When("click on points of destination link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 53
+#line 50
  testRunner.And(string.Format("enter Establishment postcode \'{0}\'", addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 54
+#line 51
  testRunner.And("click on cannot find establishment link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 55
+#line 52
  testRunner.And("click on the add establishment address manually link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 53
  testRunner.And(string.Format("add establishment address manually with fields \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\'", establishmentName, addressLine1, estCity, estCountry, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 57
+#line 54
  testRunner.And("add establishment email address \'test1@test.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 58
+#line 55
  testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 59
+#line 56
  testRunner.Then(string.Format("verify error message \'{0}\' on establishment page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

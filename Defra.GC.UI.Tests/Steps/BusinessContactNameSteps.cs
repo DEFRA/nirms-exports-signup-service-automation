@@ -29,15 +29,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactNamePage.CompleteBusinessContactDetailsTask(contactName, contactPosition, contactEmail, contactTelephone);
         }
 
-        [When(@"enter business contact name '([^']*)'")]
-        [Then(@"enter business contact name '([^']*)'")]
+        [When(@"enter business contact person '([^']*)'")]
+        [Then(@"enter business contact person '([^']*)'")]
         public void ThenEnterBusinessContactName(string ContactName)
         {
             contactNamePage.EnterBusinessContactName(ContactName);
         }
 
-        [When(@"click on save and continue on contact full name page")]
-        [Then(@"click on save and continue on contact full name page")]
+        [When(@"click on save and continue on business contact name page")]
+        [Then(@"click on save and continue on business contact name page")]
         public void ThenClickOnSaveAndContinue()
         {
             contactNamePage.ClickOnSaveAndContinue();

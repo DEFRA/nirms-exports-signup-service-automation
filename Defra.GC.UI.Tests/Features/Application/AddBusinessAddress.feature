@@ -23,7 +23,6 @@ Scenario Outline: Add Business Address
 Scenario Outline: Verify the error message when user do not select the address fields
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
@@ -44,7 +43,6 @@ Scenario Outline: Verify the error message when user do not select the address f
 Scenario: Verify error message for invalid address data
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
@@ -64,7 +62,6 @@ Scenario: Verify error message for invalid address data
 Scenario Outline: Verify back button is navigated to tasklist page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
@@ -80,7 +77,6 @@ Scenario Outline: Verify back button is navigated to tasklist page
 Scenario Outline:Verify save and continue later navigating to tasklist page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page

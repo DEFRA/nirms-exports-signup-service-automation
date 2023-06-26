@@ -21,7 +21,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
         }
 
-        [When(@"click on points of destination  link")]
+        [When(@"click on points of destination link")]
         public void WhenClickOnPointsOfDestinationLink()
         {
             Assert.True(pointOfDestinationEstablishmentPage.ClickOnPointsOfDestinationLink(), "Point Of Destination Page not loaded");

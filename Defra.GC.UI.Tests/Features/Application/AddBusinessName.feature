@@ -22,7 +22,6 @@ Scenario Outline:  Add business name
 Scenario Outline: Verify error message for invalid characters business name
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
     And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
@@ -37,7 +36,6 @@ Scenario Outline: Verify error message for invalid characters business name
 Scenario Outline:  Verify error message for  blank business name
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
@@ -51,7 +49,6 @@ Scenario Outline:  Verify error message for  blank business name
 Scenario Outline:  Verify user clicks on back button  and navigate 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
@@ -66,7 +63,6 @@ Scenario Outline:  Verify user clicks on back button  and navigate
 Scenario Outline:  Verify user clicks on save and continue later  and navigated to tasklist page 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   click on check eligibilty task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page

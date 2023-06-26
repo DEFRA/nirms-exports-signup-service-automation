@@ -15,7 +15,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
-        private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("business-country"));
+        private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("eligibility"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
         private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
@@ -79,6 +79,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyEligibilityTaskStatus(string status)
         {
+            string text = EligibilityStatus.Text;
             return EligibilityStatus.Text.Contains(status);
         }
 

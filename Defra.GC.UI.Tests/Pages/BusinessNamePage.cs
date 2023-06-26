@@ -32,7 +32,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement InvalidError => _driver.WaitForElement(By.XPath("//p[@id='Name_Error' and  not(self::span)]"));
         private IWebElement BackLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Back']"));
         private IWebElement SaveLater => _driver.WaitForElement(By.XPath("(//a[normalize-space()='Save and continue later'])[1]"));
-        private IWebElement BusinessStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-name']"));
+        private IWebElement BusinessStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-details']"));
         private IWebElement CountryName => _driver.WaitForElement(By.XPath("//label[normalize-space()='England']"));
         private IWebElement CountryError => _driver.WaitForElement(By.XPath("//p[@id='Country_Error']"));
         private IWebElement Address => _driver.WaitForElement(By.XPath(" //a[normalize-space()='Registered address']"));

@@ -60,6 +60,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.ClickRadioButton(country);
             SaveAndContinue.Click();
             SelectFBONumberToCompleteEligibility(FBONumber);
+            _driver.ElementImplicitWait();
             Continue.Click();
         }
 

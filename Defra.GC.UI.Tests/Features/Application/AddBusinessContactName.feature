@@ -54,7 +54,6 @@ Scenario: Verify back link on business contact name page
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	Then  navigate to task list page
 	When  click on business contact details link
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded 

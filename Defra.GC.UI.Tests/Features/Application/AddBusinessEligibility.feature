@@ -85,7 +85,7 @@ Scenario Outline: Verify confirmation error message for Regulations page
 	
 	Examples: 
     | logininfo | Country | FBONumber | errorMessage |
-    | test      | England | testFBO   |     Confirm that you have understood the guidance and regulations|
+    | test      | England | testFBO   | Confirm that you have understood the guidance and regulations|
 
 
 Scenario Outline: Verify back link on Regulations page is navigating to SPO page

@@ -22,7 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//a[@href='#FboNumber']"));
         private IWebElement RegulationsErrorMessage => _driver.WaitForElement(By.XPath("//p[@id='RegulationConfirmed_Error']"));
         private IWebElement RegulationCheckbox => _driver.WaitForElementClickable(By.XPath("//label[contains(text(),'I confirm that I have understood the guidance and ')]"));
-        private IWebElement Continue => _driver.WaitForElement(By.ClassName("govuk-button"));
+        private IWebElement Continue => _driver.WaitForElement(By.Id("button-elig_regulations_Submit data-module="));
 
         #endregion Page Objects
 
@@ -61,7 +61,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             SaveAndContinue.Click();
             SelectFBONumberToCompleteEligibility(FBONumber);
             _driver.ElementImplicitWait();
-            Continue.Click();
+            IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+            jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
         }
 
         public void InvaildFBOdata(string country, string FBONumber)

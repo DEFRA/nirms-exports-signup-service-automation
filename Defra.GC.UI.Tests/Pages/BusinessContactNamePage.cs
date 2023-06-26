@@ -2,9 +2,6 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
-using SeleniumExtras.WaitHelpers;
-using Defra.UI.Framework.Driver;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {

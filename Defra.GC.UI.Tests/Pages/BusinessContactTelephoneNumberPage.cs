@@ -1,9 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
-using SeleniumExtras.WaitHelpers;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -11,7 +9,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
 
@@ -45,13 +42,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterTelephoneNumber(string telephoneNumber)
         {
-            Telephone.SendKeys(telephoneNumber);
-        }
-
-        public void NavigateToContactTelephoneNumberPage()
-        {
-            string url = UrlBuilder.Default().Add("registered-business-contact-phone").Build();
-            _driver.Navigate().GoToUrl(url);
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + telephoneNumber + "')", Telephone);
         }
 
         public bool VerifyErrorMessageOnContactTelephoneNumberPage(string errorMessage)

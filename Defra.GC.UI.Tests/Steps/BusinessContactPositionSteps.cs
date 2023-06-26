@@ -1,7 +1,5 @@
 ﻿using BoDi;
-using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
@@ -21,12 +19,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _scenarioContext = context;
             _objectContainer = container;
 
-        }
-
-        [Then(@"navigate to business contact position page")]
-        public void ThenNavigateToBusinessContactNamePage()
-        {
-            contactPositionPage.NavigateToBusinessContactPositionPage();
         }
 
         [When(@"enter business contact position '([^']*)'")]

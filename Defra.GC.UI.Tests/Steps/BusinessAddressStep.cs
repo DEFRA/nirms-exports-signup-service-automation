@@ -5,10 +5,6 @@ using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
-using static System.Net.Mime.MediaTypeNames;
-using Defra.UI.Framework.Driver;
-using System;
-using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {

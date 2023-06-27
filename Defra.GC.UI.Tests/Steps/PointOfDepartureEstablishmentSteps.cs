@@ -166,11 +166,5 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyChangedEstablishmentEmailAddress(establishmentEmail), "Establishment email address not changed successfully");
         }
-
-        [Then(@"verify Add apoint of departure page is loaded")]
-        public void ThenVerifyAddApointOfDeparturePageIsLoaded()
-        {
-            Assert.True(pointOfDepartureEstablishmentPage.VerifyAddressDeparturePageIsLoaded(), "Establishment address postcode page  not loaded");
-        }
     }
 }

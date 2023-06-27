@@ -198,11 +198,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return InvalidEmailAdressPage.Text.Contains(invalidEmail);
         }
 
-        public bool VerifyAddressDeparturePageIsLoaded()
-        {
-            return PageHeading.Text.Contains("Add a point of departure");
-        }
-
         #endregion Page Methods
     }
 }

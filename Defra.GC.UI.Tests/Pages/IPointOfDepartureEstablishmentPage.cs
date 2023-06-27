@@ -47,7 +47,5 @@
         public bool VerifyChangedEstablishmentEmailAddress(string establishmentEmail);
 
         public bool VerifyInvalidEstablishmentEmailAddress(string invalidEmail);
-
-        public bool VerifyAddressDeparturePageIsLoaded();
     }
 }

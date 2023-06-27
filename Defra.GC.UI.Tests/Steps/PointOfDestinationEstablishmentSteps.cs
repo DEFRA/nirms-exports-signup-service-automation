@@ -1,6 +1,5 @@
 ﻿using BoDi;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;

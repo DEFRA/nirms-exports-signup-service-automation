@@ -17,6 +17,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement PageHeading1 => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
         private IWebElement PointOfDeparture => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Points of departure')]"));
+        private By PointOfDestinationLink => By.XPath("//a[normalize-space()='Points of destination']");
+        private IWebElement PointOfDestinationStatus => _driver.WaitForElement(By.Id("establistment-departure"));
         private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='Postcode']"));
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
@@ -51,6 +53,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         }
 
         #region Page Methods
+
+        public void CompletePointsOfDeparture(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        {
+            //ClickOnPointsOfDepartureLink();
+            EnterEstablishmentPostcode(establishmentCode);
+            ClickOnCannotFindEstablishmentLink();
+            ClickOnAddTheEstablishmentAddressManuallyLink();
+            AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            AddEstablishmentEmailAddress("test@test.com");
+            ClickOnIHaveFinishedAddingPointsOfDeparture();
+        }
+
+        public bool VerifyThePointsOfDepartureStatus(string status)
+        {
+            return PointOfDestinationStatus.Text.Contains(status);
+        }
 
         public bool ClickOnPointsOfDepartureLink()
         {
@@ -190,6 +208,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyChangedEstablishmentEmailAddress(string establishmentEmail)
         {
             return ChangedEmailAdress.Text.Contains(establishmentEmail);
+        }
+
+        public bool VerifyPointsOfDestinationLinkOnTasklistPage()
+        {
+            if (_driver.FindElements(PointOfDestinationLink).Count > 0)
+                return false;
+            else
+                return true;
         }
 
         #endregion Page Methods

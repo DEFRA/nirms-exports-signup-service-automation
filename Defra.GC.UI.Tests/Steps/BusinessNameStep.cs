@@ -1,14 +1,8 @@
 ﻿using BoDi;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
-using static System.Net.Mime.MediaTypeNames;
-using Defra.UI.Framework.Driver;
-using System;
-using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
@@ -25,12 +19,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
         }
 
-        private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
-
-        private ISignInPage? Signin => _objectContainer.IsRegistered<ISignInPage>() ? _objectContainer.Resolve<ISignInPage>() : null;
-
-        private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         private IBusinessNamePage? BusinessNamePagetest => _objectContainer.IsRegistered<IBusinessNamePage>() ? _objectContainer.Resolve<IBusinessNamePage>() : null;
 
         [Then(@"user verifies the ""([^""]*)"" error message")]

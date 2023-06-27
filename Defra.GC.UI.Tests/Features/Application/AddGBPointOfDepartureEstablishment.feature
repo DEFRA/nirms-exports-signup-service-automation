@@ -227,4 +227,36 @@ Scenario: Change establishment email address
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
 	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |
 
+Scenario:Add GB Point of Departure Establishment Contact Email Address
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	Then  verify changed establishment email address 'test1@test.com'
 
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |
+
+Scenario:Verify Back link of is navigated to Add a point of departure page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   click on back link
+	Then  verify Add apoint of departure page is loaded
+
+	Examples: 
+	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
+	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |

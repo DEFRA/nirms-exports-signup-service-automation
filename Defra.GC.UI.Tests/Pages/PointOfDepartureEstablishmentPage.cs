@@ -40,6 +40,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ChangePostcode => _driver.WaitForElement(By.XPath("//a[contains(text(),'Change')]"));
         private IWebElement EmailAdressPage => _driver.WaitForElement(By.XPath("//label[contains(text(),'Establishment email address (optional)')]"));
         private IWebElement ChangedEmailAdress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//dd"));
+        private IWebElement InvalidEmailAdressPage => _driver.WaitForElement(By.XPath("//p[@id='Email_Error']"));
 
         #endregion Page Objects
 
@@ -190,6 +191,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyChangedEstablishmentEmailAddress(string establishmentEmail)
         {
             return ChangedEmailAdress.Text.Contains(establishmentEmail);
+        }
+
+        public bool VerifyInvalidEstablishmentEmailAddress(string invalidEmail)
+        {
+            return InvalidEmailAdressPage.Text.Contains(invalidEmail);
+        }
+
+        public bool VerifyAddressDeparturePageIsLoaded()
+        {
+            return PageHeading.Text.Contains("Add a point of departure");
         }
 
         #endregion Page Methods

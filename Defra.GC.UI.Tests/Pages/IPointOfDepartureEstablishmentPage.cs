@@ -35,15 +35,19 @@
         public bool VerifyAddEstablishmentAddressManuallyPageLoaded();
 
         public bool VerifyChangedEstablishmentAddressFields(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode);
-        
+
         public void ClickOnChangeEstablishmentPostcode();
-        
+
         public bool VerifyEstablishmentPostcodeChanged(string establishmentCode);
-        
+
         public void ClickOnChangeEstablishmentEmailAddress();
-        
+
         public bool VerifyAddEstablishmentEmailAddressPageLoaded();
-        
+
         public bool VerifyChangedEstablishmentEmailAddress(string establishmentEmail);
+
+        public bool VerifyInvalidEstablishmentEmailAddress(string invalidEmail);
+
+        public bool VerifyAddressDeparturePageIsLoaded();
     }
 }

@@ -11,7 +11,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         public void ClickOnRegisteredAddres();
 
-        public void EntertheAddressmanually(string add1, string town, string postcode);
+        public void EnterBusinessAddress(string add1, string town, string postcode);
 
         public void ClickOnSaveAndContinue();
 

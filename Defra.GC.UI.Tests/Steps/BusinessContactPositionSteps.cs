@@ -21,12 +21,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
+        [When(@"enter business contact position '([^']*)'")]
         [Then(@"enter business contact position '([^']*)'")]
         public void ThenEnterBusinessContactPosition(string ContactPosition)
         {
             contactPositionPage.EnterBusinessContactPosition(ContactPosition);
         }
 
+        [When(@"click on save and continue on contact position page")]
         [Then(@"click on save and continue on contact position page")]
         public void ThenClickOnSaveAndContinue()
         {

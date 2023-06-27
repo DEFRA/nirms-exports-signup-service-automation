@@ -21,12 +21,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
+        [When(@"enter telephone number '([^']*)'")]
         [Then(@"enter telephone number '([^']*)'")]
         public void ThenEnterTelephoneNumber(string telephoneNumber)
         {
             contactTelephoneNumberPage.EnterTelephoneNumber(telephoneNumber);
         }
 
+        [When(@"click on save and continue on Contact Number page")]
         [Then(@"click on save and continue on Contact Number page")]
         public void ThenClickOnSaveAndContinue()
         {

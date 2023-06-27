@@ -12,7 +12,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
         #region Page Objects
-        private IWebElement SaveAndContinue => _driver.WaitForElement(By.Id("button-rbIndexSubmit"));
+        private IWebElement StartNew => _driver.WaitForElement(By.Id("button-rbIndexSave"));
 
         #endregion
 
@@ -30,7 +30,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool IsSignedIn(string userName, string password)
         {
-            SaveAndContinue.Click();
+            StartNew.Click();
             return true;
         }
 

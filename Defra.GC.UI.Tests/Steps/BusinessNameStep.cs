@@ -60,10 +60,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(BusinessNamePagetest.VerifyErrorMessageOnBusinessNamePage(errorMessage), "Business name error message not matching");
         }
 
-        [When(@"user is in Business details page")]
-        public void WhenUserIsInBusinessDetailsPage()
+        [When(@"user is in Business name page")]
+        public void WhenUserIsInBusinessNamePage()
         {
-            BusinessNamePagetest.ClickonBusiness();
+            BusinessNamePagetest.ClickonBusinessName();
         }
 
         [When(@"user clicks back button")]
@@ -97,10 +97,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             BusinessNamePagetest.ClickOnSaveAndContinue();
         }
 
-        [Then(@"user verify the business status '([^']*)'")]
+        [Then(@"user verify the business name status '([^']*)'")]
         public void ThenUserVerifyTheBusinessStatus(string status)
         {
             Assert.True(BusinessNamePagetest.VerifyBusinessNameStatus(status), "Status is Invalid");
         }
+
+        [When(@"complete Business name task with '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void WhenCompleteBusinessNameTaskWith(string businessName, string businessAddr, string businessTown, string addrPostcode)
+        {
+            BusinessNamePagetest.CompleteBusinessNameTask(businessName, businessAddr, businessTown, addrPostcode);
+        }
+
     }
 }

@@ -15,14 +15,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
-        private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("business-country"));
+        private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("eligibility"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
         private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//a[@href='#FboNumber']"));
         private IWebElement RegulationsErrorMessage => _driver.WaitForElement(By.XPath("//p[@id='RegulationConfirmed_Error']"));
         private IWebElement RegulationCheckbox => _driver.WaitForElementClickable(By.XPath("//label[contains(text(),'I confirm that I have understood the guidance and ')]"));
-        private IWebElement Continue => _driver.WaitForElement(By.ClassName("govuk-button"));
+        private IWebElement Continue => _driver.WaitForElement(By.Id("button-elig_regulations_Submit data-module="));
 
         #endregion Page Objects
 
@@ -60,7 +60,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.ClickRadioButton(country);
             SaveAndContinue.Click();
             SelectFBONumberToCompleteEligibility(FBONumber);
-            Continue.Click();
+            _driver.ElementImplicitWait();
+            IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+            jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
         }
 
         public void InvaildFBOdata(string country, string FBONumber)
@@ -95,6 +97,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyEligibilityTaskStatus(string status)
         {
+            string text = EligibilityStatus.Text;
             return EligibilityStatus.Text.Contains(status);
         }
 

@@ -56,6 +56,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(applicationPage.VerifySignUpTaskListPageIsLoaded(), "Signup task list page not loaded");
         }
 
+        [When(@"click save and continue later")]
         [Then(@"click save and continue later")]
         public void ThenClickSaveAndContinueLater()
         {

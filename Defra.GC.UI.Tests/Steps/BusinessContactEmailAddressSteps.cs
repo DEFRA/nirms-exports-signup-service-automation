@@ -21,12 +21,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
+        [When(@"enter email address '([^']*)'")]
         [Then(@"enter email address '([^']*)'")]
         public void ThenEnterEmailAddress(string emailAddress)
         {
             contactEmailAddressPage.EnterEmailAddress(emailAddress);
         }
 
+        [When(@"click on save and continue on contact email address page")]
         [Then(@"click on save and continue on contact email address page")]
         public void ThenClickOnSaveAndContinue()
         {

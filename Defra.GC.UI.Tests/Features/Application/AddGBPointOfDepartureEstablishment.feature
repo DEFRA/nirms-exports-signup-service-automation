@@ -3,6 +3,20 @@ Feature: AddGBPointOfDepartureEstablishment
 
 Add GB point of Departure Establishment
 
+Scenario: Verify Point of Departure link for GB countries
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	And   verify points of destination link not visible on tasklist page
+	When  click on points of departure link
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Country  | FBONumber |postcode | nextPage                 |
+	| test      | Wales    | testFBO   |SE10 9NF | Add a point of departure |
+	| test      | Scotland | testFBO   |SE10 9NF | Add a point of departure |
+
 @CrossBrowser
 Scenario: Check Add the establishment address manually link
 	Given that I navigate to the NI GC application
@@ -34,8 +48,10 @@ Scenario: Add GB point of Departure establishment address manually
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber |postcode | nextPage                 | EstablishmentName | AddressLine1 | estCity  | estCountry | AddrPostcode |
-	| test      | England | testFBO   |SE10 9NF | Add a point of departure | testName          | testAddress1 | testCity | testCountry| SE10 9NF     |
+	| logininfo | Country  | FBONumber |postcode | nextPage                 | EstablishmentName | AddressLine1 | estCity   | estCountry | AddrPostcode |
+	| test      | England  | testFBO   |SE10 9NF | Add a point of departure | testName1         | testAddress1 | London    | England    | SE10 9NF     |
+	| test      | Wales    | testFBO   |CF10 1AA | Add a point of departure | testName2         | testAddress2 | Cardiff   | Wales      | CF10 1AA     |
+	| test      | Scotland | testFBO   |G1 1AB   | Add a point of departure | testName3         | testAddress3 | Glasgow   | Scotland   | G1 1AB       |
 
 
 Scenario: Verify back link on enter establishment postcode page
@@ -104,7 +120,7 @@ Scenario: Add Another GB point of Departure establishment address
 	Then  verify more than 1 establishment addresses added
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
+	| test      | England | testFBO   |testName1         | testAddress1 | London   | England     | SE10 9NF     |testName2          | testAddress2 | Liverpool | England     | L1 0AN        |
 
 Scenario: Finish adding GB point of Departure establishment address
 	Given that I navigate to the NI GC application
@@ -121,7 +137,7 @@ Scenario: Finish adding GB point of Departure establishment address
 	Then  verify signUp task list page is loaded
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| EC4R 9HA     |
+	| test      | England | testFBO   |testName1         | testAddress1 | London   | England     | EC4R 9HA     |
 
 
 Scenario: Verify no establishment address listed after removing last address
@@ -141,7 +157,7 @@ Scenario: Verify no establishment address listed after removing last address
 
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| EC4R 9HA     |
+	| test      | England | testFBO   |testName1         | testAddress1 | London   | England     | EC4R 9HA     |
 
 
 Scenario: Verify remaining establishment address listed after removing one address
@@ -165,7 +181,7 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
+	| test      | England | testFBO   |testName1         | testAddress1 | London   | England     | SE10 9NF     |testName2          | testAddress2 | Liverpool | England     | L1 0AN        |
 
 	
 Scenario: Change manually added establishment address
@@ -187,7 +203,7 @@ Scenario: Change manually added establishment address
 
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
+	| test      | England | testFBO   |testName1         | testAddress1 | London   | England     | SE10 9NF     |testName2          | testAddress2 | Liverpool | England     | L1 0AN        |
 
 
 Scenario: Change establishment address postcode
@@ -225,7 +241,7 @@ Scenario: Change establishment email address
 
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | England | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |
+	| test      | England | testFBO   |testName1         | testAddress1 | London   | England     | SE10 9NF     |
 
 Scenario:Add GB Point of Departure Establishment Contact Email Address
 	Given that I navigate to the NI GC application

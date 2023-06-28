@@ -1,9 +1,7 @@
 ﻿using BoDi;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System.Net.Mail;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
@@ -21,6 +19,19 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _scenarioContext = context;
             _objectContainer = container;
         }
+
+        [When(@"complete Points of departure with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void ThenClickOnPointsOfDepartureLink(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        {
+            pointOfDepartureEstablishmentPage.CompletePointsOfDeparture(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+        }
+
+        [Then(@"user verify the Points of departure status '([^']*)'")]
+        public void ThenUserVerifyThePointsOfDepartureStatus(string status)
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyThePointsOfDepartureStatus(status), "Point Of Departure Status not matching");
+        }
+
 
         [When(@"click on points of departure link")]
         [Then(@"click on points of departure link")]
@@ -166,5 +177,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyChangedEstablishmentEmailAddress(establishmentEmail), "Establishment email address not changed successfully");
         }
+
+        [Then(@"verify points of destination link not visible on tasklist page")]
+        public void ThenVerifyPointsOfDestinationLinkNotVisibleOnTasklistPage()
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyPointsOfDestinationLinkOnTasklistPage(), "Points Of Destination Link Visible On Tasklist Page");
+        }
+
     }
 }

@@ -32,7 +32,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(pointOfDepartureEstablishmentPage.VerifyThePointsOfDepartureStatus(status), "Point Of Departure Status not matching");
         }
 
-
         [When(@"click on points of departure link")]
         [Then(@"click on points of departure link")]
         public void ThenClickOnPointsOfDepartureLink()
@@ -47,6 +46,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             pointOfDepartureEstablishmentPage.EnterEstablishmentPostcode(postcode);
         }
 
+        [Then(@"click on select address button")]
+        public void ThenClickOnSelectAddressButton()
+        {
+            pointOfDepartureEstablishmentPage.ClickOnSelectAddressButton();
+        }
+
         [Then(@"verify Add a point of departure Page loaded")]
         public void ThenVerifyAddAPointOfDeparturePageLoaded()
         {
@@ -58,6 +63,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenClickOnCannotFindEstablishmentLink()
         {
             pointOfDepartureEstablishmentPage.ClickOnCannotFindEstablishmentLink();
+        }
+
+        [When(@"click on a different postcode error link")]
+        public void WhenClickOnADifferentPostcodeErrorLink()
+        {
+            pointOfDepartureEstablishmentPage.ClickOndifferentPostCodeLink();
+        }
+
+        [When(@"click on a enter an address manually error link")]
+        public void WhenClickOnAEnterAnAddressManuallyErrorLink()
+        {
+            pointOfDepartureEstablishmentPage.ClickOnAdressManuallyLink();
         }
 
         [When(@"click on the add establishment address manually link")]
@@ -183,6 +200,5 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyPointsOfDestinationLinkOnTasklistPage(), "Points Of Destination Link Visible On Tasklist Page");
         }
-
     }
 }

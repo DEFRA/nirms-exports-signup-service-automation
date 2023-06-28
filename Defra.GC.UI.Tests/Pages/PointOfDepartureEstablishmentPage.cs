@@ -44,6 +44,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ChangedEmailAdress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//dd"));
         private IWebElement InvalidEmailAdressPage => _driver.WaitForElement(By.XPath("//p[@id='Email_Error']"));
 
+        private IWebElement DifferentPostcode => _driver.WaitForElement(By.XPath("//a[normalize-space()='a different postcode']"));
+        private IWebElement AddressMnualLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='enter an address manually.']"));
+
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -94,6 +97,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", CannotFindEstablishment);
+        }
+
+        public void ClickOndifferentPostCodeLink()
+        {
+            DifferentPostcode.Click();
+        }
+
+        public void ClickOnSelectAddressButton()
+        {
+            SelectAddresButton.Click();
+        }
+
+        public void ClickOnAdressManuallyLink()
+        {
+            AddressMnualLink.Click();
         }
 
         public bool ClickOnAddTheEstablishmentAddressManuallyLink()

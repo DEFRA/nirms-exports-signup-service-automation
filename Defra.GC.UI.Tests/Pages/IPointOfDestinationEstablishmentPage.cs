@@ -15,5 +15,9 @@
         public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry, string testCode);
 
         public bool VerifyErrorMessageOnAddAPointOfDeparture(string errorMessage);
+
+        public void CompletePointsOfDestination(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode);
+
+        public bool VerifyThePointsOfDestinationStatus(string status);
     }
 }

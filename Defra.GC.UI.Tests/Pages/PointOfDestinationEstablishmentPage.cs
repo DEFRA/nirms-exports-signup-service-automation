@@ -10,12 +10,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
+        private IPointOfDepartureEstablishmentPage? pointOfDepartureEstablishmentPage => _objectContainer.IsRegistered<IPointOfDepartureEstablishmentPage>() ? _objectContainer.Resolve<IPointOfDepartureEstablishmentPage>() : null;
 
         #region Page Objects
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement PageHeading1 => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
         private IWebElement PointOfDestination => _driver.WaitForElementClickable(By.XPath("//a[normalize-space()='Points of destination']"));
+        private IWebElement PointOfDestinationStatus => _driver.WaitForElement(By.Id("establistment-destination"));
         private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='search-points-of-departure']"));
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
@@ -41,6 +43,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         }
 
         #region Page Methods
+
+        public void CompletePointsOfDestination(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        {
+            //ClickOnPointsOfDepartureLink();
+            EnterEstablishmentPostcode(establishmentCode);
+            ClickOnCannotFindEstablishmentLink();
+            ClickOnAddTheEstablishmentAddressManuallyLink();
+            AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
+            pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
+        }
+
+        public bool VerifyThePointsOfDestinationStatus(string status)
+        {
+            return PointOfDestinationStatus.Text.Contains(status);
+        }
 
         public bool ClickOnPointsOfDestinationLink()
         {

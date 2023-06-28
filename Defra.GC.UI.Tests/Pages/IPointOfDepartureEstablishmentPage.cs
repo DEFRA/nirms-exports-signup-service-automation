@@ -47,7 +47,9 @@
         public bool VerifyChangedEstablishmentEmailAddress(string establishmentEmail);
 
         public bool VerifyPointsOfDestinationLinkOnTasklistPage();
+
         public void CompletePointsOfDeparture(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode);
+        
         public bool VerifyThePointsOfDepartureStatus(string status);
     }
 }

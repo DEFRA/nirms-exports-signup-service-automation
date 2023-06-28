@@ -97,7 +97,7 @@ Scenario: Verify back link on add Destination  establishment address page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber |postcode | nextPage                 |
+	| logininfo | Country          | FBONumber |postcode | nextPage                   |
 	| test      | Northern Ireland | testFBO   |BT52 2AJ | Add a point of destination |
 
 	
@@ -114,7 +114,7 @@ Scenario: Verify back link on add Destination  establishment address page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber |postcode | nextPage                 |
+	| logininfo | Country          | FBONumber |postcode  | nextPage                   |
 	| test      | Northern Ireland | testFBO   |BT52 2AJ  | Add a point of destination |
 
 Scenario: Modify point of destination establishment email address
@@ -175,7 +175,7 @@ Scenario: Finish adding  point of Destination  establishment address
 	Then  verify signUp task list page is loaded
 	Examples: 
 	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity        | estCountry       | AddrPostcode |
-	| test      | Northern Ireland | testFBO   |Coleraine        | testAddress1 | Crown Buildings| Northern Ireland |BT52 2AJ    |
+	| test      | Northern Ireland | testFBO   |Coleraine         | testAddress1 | Crown Buildings| Northern Ireland |BT52 2AJ    |
 
 	
 Scenario: Verify no point of destination  establishment address listed after removing last address
@@ -293,7 +293,7 @@ Scenario: Change destination establishment email address
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber |    AddrPostcode |  nextPage                 |
+	| logininfo | Country          | FBONumber |    AddrPostcode |  nextPage                 |
 	| test      | Northern Ireland | testFBO   |    N3 3NA      |  Add a point of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a point of destination page
@@ -307,7 +307,7 @@ Scenario:Verify Enter a Address manually link is navigated to Add a point of des
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber |    AddrPostcode |  nextPage                 |
-	| test      | Northern Ireland | testFBO   |  N3 3NA       |  Add a point of destination |
+	| logininfo | Country          | FBONumber |    AddrPostcode |  nextPage                 |
+	| test      | Northern Ireland | testFBO   |    N3 3NA       |  Add a point of destination |
 
 

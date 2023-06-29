@@ -100,6 +100,43 @@ Scenario: Verify back link on add establishment address page
 	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
 
 
+
+	Scenario: Verify back link on the  Do you want to add another point of departure Page ?
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link	
+	And   enter Establishment postcode '<postcode>'
+	Then  verify next page '<nextPage>' is loaded 
+	Then  click on select address button
+	Then  click on continue button
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Country | FBONumber |postcode | nextPage                 |
+	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
+
+	
+	Scenario: Verify back link on the Establishment email address optional page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link	
+	And   enter Establishment postcode '<postcode>'
+	Then  verify next page '<nextPage>' is loaded 
+	Then  click on select address button
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Country | FBONumber |postcode | nextPage                 |
+	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
+
+
+
 Scenario: Add Another GB point of Departure establishment address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -243,4 +280,48 @@ Scenario: Change establishment email address
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
 	| test      | England | testFBO   |testName1         | testAddress1 | London   | England     | SE10 9NF     |
 
+Scenario:Verify Back link  from address page navigated to Add a point of departure page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded 
 
+	Examples: 
+	| logininfo | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                 |
+	| test      | England | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Add a point of departure |
+
+	
+Scenario:Verify different post code link is navigated to Add a point of departure page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on a different postcode error link
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Country | FBONumber |    AddrPostcode |  nextPage                 |
+	| test      | England | testFBO   |    N3 3NA       |  Add a point of departure |
+
+Scenario:Verify Enter a Address manually link is navigated to Add a point of departure page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on a enter an address manually error link
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Country | FBONumber |    AddrPostcode |  nextPage                 |
+	| test      | England | testFBO   |    N3 3NA       |  Add a point of departure |

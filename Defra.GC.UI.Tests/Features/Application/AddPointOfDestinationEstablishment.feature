@@ -35,7 +35,7 @@ Scenario: Add point of Destination establishment address manually
 
 	Examples: 
 	| logininfo | Country          | FBONumber | postcode | nextPage                              | EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | Northern Ireland | testFBO   | BT52 2AJ | Add a point of destination (optional) | Coleraine          |  Crown Buildings| Millburn | Northen Ireland | BT52 2AJ    |
+	| test      | Northern Ireland | testFBO   | BT52 2AJ | Add a point of destination            | Coleraine          |  Crown Buildings| Millburn | Northen Ireland | BT52 2AJ    |
 
 
 Scenario: Verify back link on enter  Destination establishment postcode page
@@ -64,7 +64,7 @@ Scenario: Verify back link on select Destination establishment address page
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode | nextPage                              |
-	| test      | Northern Ireland | testFBO   |BT52 2AJ | Add a point of destination (optional) |
+	| test      | Northern Ireland | testFBO   |BT52 2AJ | Add a point of destination            |
 
 Scenario: Verify back link on add Destination  establishment address page
 	Given that I navigate to the NI GC application
@@ -81,7 +81,7 @@ Scenario: Verify back link on add Destination  establishment address page
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode | nextPage                              |
-	| test      | Northern Ireland | testFBO   |BT52 2AJ | Add a point of destination (optional) |
+	| test      | Northern Ireland | testFBO   |BT52 2AJ | Add a point of destination            |
 
 	Scenario: Verify back link on the  Do you want to add another point of destination Page ?
 	Given that I navigate to the NI GC application

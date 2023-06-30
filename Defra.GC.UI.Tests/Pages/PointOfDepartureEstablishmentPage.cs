@@ -60,10 +60,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CompletePointsOfDeparture(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
-            //ClickOnPointsOfDepartureLink();
-            EnterEstablishmentPostcode(establishmentCode);
-            ClickOnCannotFindEstablishmentLink();
-            ClickOnAddTheEstablishmentAddressManuallyLink();
+            ClickOnPointsOfDepartureLink();
+            //EnterEstablishmentPostcode(establishmentCode);
+            //ClickOnCannotFindEstablishmentLink();
+            //ClickOnAddTheEstablishmentAddressManuallyLink();
             AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             AddEstablishmentEmailAddress("test@test.com");
             ClickOnIHaveFinishedAddingPointsOfDeparture();

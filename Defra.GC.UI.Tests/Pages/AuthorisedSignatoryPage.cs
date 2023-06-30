@@ -10,17 +10,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
+
         public AuthorisedSignatoryPage(IObjectContainer container)
         {
             _objectContainer = container;
         }
 
         #region Page Objects
+
         public IWebElement AuthorisedSignatoryLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Authorised Signatory']"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbNatureSubmit')]"));
-        #endregion Page Objects
+        private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
+        #endregion Page Objects
 
         #region Page Methods
 
@@ -41,6 +44,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             ClickOnAuthorisedSignatoryLink();
             SelectAuthorisedSignatory("Yes");
+        }
+
+        public bool VerifyErrorMessageOnAuthorisedPage(string errorMessage)
+        {
+            return ErrorMessage.Text.Contains(errorMessage);
         }
 
         #endregion Page Methods

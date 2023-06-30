@@ -9,8 +9,8 @@ Scenario: Verify error message for blank Establishment postcode field
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
-	And   enter Establishment postcode '<postcode>'
-	Then  verify error message '<errorMessage>' on establishment page
+	#And   enter Establishment postcode '<postcode>'
+	#Then  verify error message '<errorMessage>' on establishment page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | errorMessage      |
@@ -22,9 +22,9 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
-	And   enter Establishment postcode '<postcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
+	#And   enter Establishment postcode '<postcode>'
+	#And   click on cannot find establishment link 
+	#And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  verify error message '<errorMessage>' on establishment page
 

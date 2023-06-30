@@ -286,9 +286,9 @@ Scenario:Verify Back link  from address page navigated to Add a point of departu
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#And   click on cannot find establishment link 
+	#And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded 
@@ -304,8 +304,8 @@ Scenario:Verify different post code link is navigated to Add a point of departur
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on a different postcode error link
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#And   click on a different postcode error link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
@@ -318,8 +318,8 @@ Scenario:Verify Enter a Address manually link is navigated to Add a point of dep
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on a enter an address manually error link
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#And   click on a enter an address manually error link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 

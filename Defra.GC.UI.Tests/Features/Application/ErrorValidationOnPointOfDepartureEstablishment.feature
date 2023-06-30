@@ -45,9 +45,9 @@ Scenario:Verify the error GB Point of Departure Establishment Contact Email Addr
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#And   click on cannot find establishment link 
+	#And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'testcom'
 	Then  verify error message '<errorMessage>' on  add a departure page

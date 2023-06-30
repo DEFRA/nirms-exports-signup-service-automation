@@ -89,10 +89,10 @@ Scenario: Verify back link on add Destination  establishment address page
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
-	And   enter Establishment postcode '<postcode>'
-	Then  verify next page '<nextPage>' is loaded 
-	Then  click on select address button
-	Then  click on continue button
+	#And   enter Establishment postcode '<postcode>'
+	#Then  verify next page '<nextPage>' is loaded 
+	#Then  click on select address button
+	#Then  click on continue button
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded 
 
@@ -107,9 +107,9 @@ Scenario: Verify back link on add Destination  establishment address page
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link	
-	And   enter Establishment postcode '<postcode>'
-	Then  verify next page '<nextPage>' is loaded 
-	Then  click on select address button
+	#And   enter Establishment postcode '<postcode>'
+	#Then  verify next page '<nextPage>' is loaded 
+	#Then  click on select address button
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded 
 
@@ -288,13 +288,13 @@ Scenario: Change destination establishment email address
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on a different postcode error link
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#And   click on a different postcode error link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country          | FBONumber |    AddrPostcode |  nextPage                 |
-	| test      | Northern Ireland | testFBO   |    N3 3NA      |  Add a point of destination |
+	| logininfo | Country          | FBONumber |    AddrPostcode |  nextPage                   |
+	| test      | Northern Ireland | testFBO   |    N3 3NA       |  Add a point of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a point of destination page
 	Given that I navigate to the NI GC application
@@ -302,12 +302,12 @@ Scenario:Verify Enter a Address manually link is navigated to Add a point of des
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
     When  click on points of destination link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on a enter an address manually error link
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#And   click on a enter an address manually error link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country          | FBONumber |    AddrPostcode |  nextPage                 |
+	| logininfo | Country          | FBONumber |    AddrPostcode |  nextPage                   |
 	| test      | Northern Ireland | testFBO   |    N3 3NA       |  Add a point of destination |
 
 

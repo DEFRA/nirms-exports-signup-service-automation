@@ -15,12 +15,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
         private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
-
         public ApplicationSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
             _objectContainer = container;
-
         }
 
         [When(@"click on save and continue")]
@@ -28,6 +26,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenClickOnSaveAndContinue()
         {
             applicationPage.ClickOnSaveAndContinue();
+        }
+
+        [Then(@"click on continue button")]
+        public void ThenClickOnContinueButton()
+        {
+            applicationPage.ClickOnContinue();
         }
 
         [Then(@"verify next page '([^']*)' is loaded")]
@@ -42,7 +46,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             applicationPage.ClickOnBackLink();
         }
-
 
         [Then(@"navigate to task list page")]
         public void ThenNavigateToTaskListPage()

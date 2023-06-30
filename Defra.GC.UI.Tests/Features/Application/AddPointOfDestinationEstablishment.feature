@@ -18,7 +18,7 @@ Scenario: Check Add the Destination establishment address manually link
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode  | nextPage                    |
-	| test      | Northern Ireland | testFBO   |EC4R 9HA  | Add a point of destination  |
+	| test      | Northern Ireland | testFBO   |BT52 2AJ  | Add a point of destination  |
 
 Scenario: Add point of Destination establishment address manually
 	Given that I navigate to the NI GC application
@@ -34,8 +34,9 @@ Scenario: Add point of Destination establishment address manually
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country          | FBONumber |postcode  | nextPage                              | EstablishmentName | AddressLine1 | estCity  | estCountry | AddrPostcode |
-	| test      | Northern Ireland | testFBO   |EC4R 9HA  | Add a point of destination (optional) | testName          | testAddress1 | testCity | testCountry| EC4R 9HA     |
+	| logininfo | Country          | FBONumber | postcode | nextPage                              | EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
+	| test      | Northern Ireland | testFBO   | BT52 2AJ | Add a point of destination (optional) | Coleraine          |  Crown Buildings| Millburn | Northen Ireland | BT52 2AJ    |
+
 
 Scenario: Verify back link on enter  Destination establishment postcode page
 	Given that I navigate to the NI GC application
@@ -63,7 +64,7 @@ Scenario: Verify back link on select Destination establishment address page
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode | nextPage                              |
-	| test      | Northern Ireland | testFBO   |EC4R 9HA | Add a point of destination (optional) |
+	| test      | Northern Ireland | testFBO   |BT52 2AJ | Add a point of destination (optional) |
 
 Scenario: Verify back link on add Destination  establishment address page
 	Given that I navigate to the NI GC application
@@ -80,7 +81,41 @@ Scenario: Verify back link on add Destination  establishment address page
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode | nextPage                              |
-	| test      | Northern Ireland | testFBO   |EC4R 9HA | Add a point of destination (optional) |
+	| test      | Northern Ireland | testFBO   |BT52 2AJ | Add a point of destination (optional) |
+
+	Scenario: Verify back link on the  Do you want to add another point of destination Page ?
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of destination link
+	And   enter Establishment postcode '<postcode>'
+	Then  verify next page '<nextPage>' is loaded 
+	Then  click on select address button
+	Then  click on continue button
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Country          | FBONumber |postcode | nextPage                   |
+	| test      | Northern Ireland | testFBO   |BT52 2AJ | Add a point of destination |
+
+	
+	Scenario: Verify back link on the Establishment email address optional page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of destination link	
+	And   enter Establishment postcode '<postcode>'
+	Then  verify next page '<nextPage>' is loaded 
+	Then  click on select address button
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Country          | FBONumber |postcode  | nextPage                   |
+	| test      | Northern Ireland | testFBO   |BT52 2AJ  | Add a point of destination |
 
 Scenario: Modify point of destination establishment email address
 	Given that I navigate to the NI GC application
@@ -100,7 +135,7 @@ Scenario: Modify point of destination establishment email address
 
 	Examples: 
 	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |
+	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | Millburn| Northen Ireland| BT52 2AJ     |
 	
 Scenario: Add Another point of Destination establishment address
 	Given that I navigate to the NI GC application
@@ -121,8 +156,8 @@ Scenario: Add Another point of Destination establishment address
 	And   add establishment email address 'test2@test.com'
 	Then  verify more than 1 establishment addresses added
 	Examples: 
-	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
+	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry      | AddrPostcode |EstablishmentName2      | AddressLine2         | estCity2  | estCountry2     | AddrPostcode2 |
+	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| Northern Ireland| BT30 6LZ     | Market Street          | Demesne of Down Acre | testCity2 | Northern Ireland| BT52 2AJ      |
 
 
 Scenario: Finish adding  point of Destination  establishment address
@@ -139,8 +174,8 @@ Scenario: Finish adding  point of Destination  establishment address
 	And   click on I have finished adding points of departure
 	Then  verify signUp task list page is loaded
 	Examples: 
-	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| EC4R 9HA     |
+	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity        | estCountry       | AddrPostcode |
+	| test      | Northern Ireland | testFBO   |Coleraine         | testAddress1 | Crown Buildings| Northern Ireland |BT52 2AJ    |
 
 	
 Scenario: Verify no point of destination  establishment address listed after removing last address
@@ -159,8 +194,8 @@ Scenario: Verify no point of destination  establishment address listed after rem
 	And   verify search for establishment address page loaded
 
 	Examples: 
-	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| EC4R 9HA   |
+	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity        | estCountry       | AddrPostcode |
+	| test      | Northern Ireland | testFBO   |Coleraine        | testAddress1  | Crown Buildings| Northern Ireland |BT52 2AJ    |
 
 	
 Scenario: Verify remaining  point of destination  establishment address listed after removing one address
@@ -184,9 +219,9 @@ Scenario: Verify remaining  point of destination  establishment address listed a
 	And   click on back link
 	Then  verify establishment address count '1'
 	Examples: 
-	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
-	
+	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry      | AddrPostcode |EstablishmentName2      | AddressLine2         | estCity2  | estCountry2 | AddrPostcode2 |
+	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| Northern Ireland| BT30 6LZ     | Market Street          | Demesne of Down Acre | testCity2 | Northern Ireland| BT52 2AJ      |
+
 Scenario: Change manually added  destination establishment address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -205,8 +240,8 @@ Scenario: Change manually added  destination establishment address
 	And   verify changed establishment address fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 
 	Examples: 
-	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |testName2          | testAddress2 | testCity2 | testCountry2| EC4R 9HA      |
+	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry      | AddrPostcode |EstablishmentName2      | AddressLine2         | estCity2  | estCountry2     | AddrPostcode2 |
+	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| Northern Ireland| BT30 6LZ     | Market Street          | Demesne of Down Acre | testCity2 | Northern Ireland| BT52 2AJ      |
 
 	
 Scenario: Change destination establishment address postcode
@@ -223,7 +258,8 @@ Scenario: Change destination establishment address postcode
 
 	Examples: 
 	| logininfo | Country          | FBONumber | AddrPostcode | AddrPostcode1 |
-	| test      | Northern Ireland | testFBO   | EC4R 9HA     | SE10 9NF      |
+	| test      | Northern Ireland | testFBO   |  BT30 6LZ      | BT52 2AJ       |
+
 
 
 Scenario: Change destination establishment email address
@@ -242,8 +278,36 @@ Scenario: Change destination establishment email address
 	And   add establishment email address 'test2@test.com'
 	Then  verify changed establishment email address 'test2@test.com'
 
+	Examples:  
+	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1    | estCity   | estCountry      | AddrPostcode |
+	| test      | Northern Ireland | testFBO   |Coleraine         | Crown Buildings | Belfast   | Northern Ireland|  BT30 6LZ    |
+
+	Scenario:Verify different post code link is navigated to Add a point of deastination page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of destination link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on a different postcode error link
+	Then  verify next page '<nextPage>' is loaded 
+
 	Examples: 
-	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
-	| test      | Northern Ireland | testFBO   |testName1         | testAddress1 | testCity1| testCountry1| SE10 9NF     |
+	| logininfo | Country          | FBONumber |    AddrPostcode |  nextPage                 |
+	| test      | Northern Ireland | testFBO   |    N3 3NA      |  Add a point of destination |
+
+Scenario:Verify Enter a Address manually link is navigated to Add a point of destination page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+    When  click on points of destination link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on a enter an address manually error link
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Country          | FBONumber |    AddrPostcode |  nextPage                 |
+	| test      | Northern Ireland | testFBO   |    N3 3NA       |  Add a point of destination |
 
 

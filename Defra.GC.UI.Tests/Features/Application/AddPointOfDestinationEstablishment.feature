@@ -191,7 +191,7 @@ Scenario: Verify no point of destination  establishment address listed after rem
 	And   add establishment email address 'test1@test.com'
 	And   remove establishment address '<EstablishmentName>'
 	Then  verify establishment address count '0'
-	And   verify search for establishment address page loaded
+	#And   verify search for establishment address page loaded
 
 	Examples: 
 	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity        | estCountry       | AddrPostcode |

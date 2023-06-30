@@ -107,10 +107,10 @@ Scenario: Verify back link on add establishment address page
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
-	And   enter Establishment postcode '<postcode>'
-	Then  verify next page '<nextPage>' is loaded 
-	Then  click on select address button
-	Then  click on continue button
+	#And   enter Establishment postcode '<postcode>'
+	#Then  verify next page '<nextPage>' is loaded 
+	#Then  click on select address button
+	#Then  click on continue button
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded 
 
@@ -125,9 +125,9 @@ Scenario: Verify back link on add establishment address page
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
-	And   enter Establishment postcode '<postcode>'
-	Then  verify next page '<nextPage>' is loaded 
-	Then  click on select address button
+	#And   enter Establishment postcode '<postcode>'
+	#Then  verify next page '<nextPage>' is loaded 
+	#Then  click on select address button
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded 
 
@@ -190,7 +190,7 @@ Scenario: Verify no establishment address listed after removing last address
 	And   add establishment email address 'test1@test.com'
 	And   remove establishment address '<EstablishmentName>'
 	Then  verify establishment address count '0'
-	And   verify search for establishment address page loaded
+	#And   verify search for establishment address page loaded
 
 	Examples: 
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |

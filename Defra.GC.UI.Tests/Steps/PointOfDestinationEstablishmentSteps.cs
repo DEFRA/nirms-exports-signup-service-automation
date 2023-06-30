@@ -20,11 +20,24 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
         }
 
+
+        [When(@"complete Points of destination with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void ThenCompletePointsOfDestination(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        {
+            pointOfDestinationEstablishmentPage.CompletePointsOfDestination(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+        }
+
+        [Then(@"user verify the Points of destination status '([^']*)'")]
+        public void ThenUserVerifyThePointsOfDestinationStatus(string status)
+        {
+            Assert.True(pointOfDestinationEstablishmentPage.VerifyThePointsOfDestinationStatus(status), "Point Of Destination Status not matching");
+        }
+
+
         [When(@"click on points of destination link")]
         public void WhenClickOnPointsOfDestinationLink()
         {
             Assert.True(pointOfDestinationEstablishmentPage.ClickOnPointsOfDestinationLink(), "Point Of Destination Page not loaded");
-            Thread.Sleep(5000);
         }
 
         [Then(@"verify Add a point of departure Page loaded")]

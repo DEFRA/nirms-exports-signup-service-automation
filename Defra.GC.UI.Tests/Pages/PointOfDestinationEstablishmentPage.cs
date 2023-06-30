@@ -10,24 +10,26 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
+        private IPointOfDepartureEstablishmentPage? pointOfDepartureEstablishmentPage => _objectContainer.IsRegistered<IPointOfDepartureEstablishmentPage>() ? _objectContainer.Resolve<IPointOfDepartureEstablishmentPage>() : null;
 
         #region Page Objects
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement PageHeading1 => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
-        private IWebElement PointOfDestination => _driver.WaitForElementClickable(By.XPath("//a[normalize-space()='Points of destination']"));
+        private IWebElement PointOfDestination => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Points of destination')]"));
+        private IWebElement PointOfDestinationStatus => _driver.WaitForElement(By.Id("establistment-destination"));
         private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='search-points-of-departure']"));
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
         private IWebElement SelectAddresButton => _driver.WaitForElement(By.XPath("//button[contains(text(),'Select address')]"));
         private IWebElement CannotFindEstablishment => _driver.WaitForElement(By.XPath("//span[contains(text(),'Cannot find establishment')]"));
         private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add the establishment address manually')]"));
-        private IWebElement EstablishmentName => _driver.WaitForElement(By.Id("establishment-name"));
-        private IWebElement EstablishmentAddr1 => _driver.WaitForElement(By.Id("address-line-1"));
-        private IWebElement EstablishmentAddr2 => _driver.WaitForElement(By.Id("address-line-2"));
-        private IWebElement EstablishmentCity => _driver.WaitForElement(By.Id("address-city"));
-        private IWebElement EstablishmentCountry => _driver.WaitForElement(By.Id("address-country"));
-        private IWebElement Postcode => _driver.WaitForElement(By.Id("address-postcode"));
+        private IWebElement EstablishmentName => _driver.WaitForElement(By.Id("EstablishmentName"));
+        private IWebElement EstablishmentAddr1 => _driver.WaitForElement(By.Id("LineOne"));
+        private IWebElement EstablishmentAddr2 => _driver.WaitForElement(By.Id("LineTwo"));
+        private IWebElement EstablishmentCity => _driver.WaitForElement(By.Id("CityName"));
+        private IWebElement EstablishmentCountry => _driver.WaitForElement(By.Id("Country"));
+        private IWebElement Postcode => _driver.WaitForElement(By.Id("PostCode"));
         private IWebElement SaveAndContinue => _driver.WaitForElementClickable(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
@@ -42,11 +44,27 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Methods
 
+        public void CompletePointsOfDestination(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        {
+            ClickOnPointsOfDestinationLink();
+            //EnterEstablishmentPostcode(establishmentCode);
+            //ClickOnCannotFindEstablishmentLink();
+            //ClickOnAddTheEstablishmentAddressManuallyLink();
+            AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
+            pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
+        }
+
+        public bool VerifyThePointsOfDestinationStatus(string status)
+        {
+            return PointOfDestinationStatus.Text.Contains(status);
+        }
+
         public bool ClickOnPointsOfDestinationLink()
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", PointOfDestination);
-            return PageHeading.Text.Contains("Add a point of destination (optional)");
+            return PageHeading.Text.Contains("Add a point of destination");
         }
 
         public void EnterEstablishmentPostcode(string postcode)

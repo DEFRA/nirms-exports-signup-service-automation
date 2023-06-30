@@ -15,13 +15,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
 
-        private IWebElement BusinessFullName => _driver.WaitForElement(By.XPath("//input[@id='business-name']"));
+        private IWebElement BusinessFullName => _driver.WaitForElement(By.XPath("//input[@id='Name']"));
         private IWebElement ContactPersonLink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Contact Person')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         private IWebElement BusinessContactDetailStatus => _driver.WaitForElement(By.XPath("//strong[@id='contact-details']"));
 
-        #endregion
+        #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
 
@@ -31,7 +31,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         }
 
         #region Page Methods
-
 
         public void CompleteBusinessContactDetailsTask(string contactName, string contactPosition, string contactEmail, string contactTelephone)
         {
@@ -73,7 +72,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", ContactPersonLink);
         }
-        #endregion
 
+        #endregion Page Methods
     }
 }

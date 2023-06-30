@@ -23,7 +23,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
 
         public IWebElement Businessname => _driver.WaitForElement(By.XPath("//a[normalize-space()='Business name']"));
-        public IWebElement BusinessnameText => _driver.WaitForElement(By.XPath("//input[@id='business-name']"));
+        public IWebElement BusinessnameText => _driver.WaitForElement(By.XPath("//input[@id='Name']"));
         public IWebElement AddressLine1 => _driver.WaitForElement(By.XPath("//input[@id='address-line-1']"));
         public IWebElement City => _driver.WaitForElement(By.XPath("//input[@id='address-city']"));
         public IWebElement Realpost => _driver.WaitForElement(By.XPath("//input[@id='address-postcode']"));

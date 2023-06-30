@@ -21,7 +21,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         }
 
         [When(@"complete Points of departure with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
-        public void ThenClickOnPointsOfDepartureLink(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        public void ThenCompletePointsOfDeparture(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
             pointOfDepartureEstablishmentPage.CompletePointsOfDeparture(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
         }

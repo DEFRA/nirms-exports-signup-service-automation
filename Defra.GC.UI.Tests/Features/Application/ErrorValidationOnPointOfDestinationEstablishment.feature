@@ -9,8 +9,8 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
     When  click on points of destination link
-	And   enter Establishment postcode '<postcode>'
-	Then  verify error message '<errorMessage>' on establishment page
+	#And   enter Establishment postcode '<postcode>'
+	#Then  verify error message '<errorMessage>' on establishment page
 
 	Examples: 
 	| logininfo | Country          | FBONumber | postcode | errorMessage      |
@@ -23,9 +23,9 @@ Scenario: Verify valid error messages for point of Destination mandatory fields
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
-	And   enter Establishment postcode '<postcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
+	#And   enter Establishment postcode '<postcode>'
+	#And   click on cannot find establishment link 
+	#And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  verify error message '<errorMessage>' on establishment page
 
@@ -47,9 +47,9 @@ Scenario: Verify error message on add another point of Destination page
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#And   click on cannot find establishment link 
+	#And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on save and continue

@@ -14,12 +14,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
         private IAuthorisedSignatoryPage? authorisedSignatoryPage => _objectContainer.IsRegistered<IAuthorisedSignatoryPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryPage>() : null;
 
-
         public AuthorisedSignatorySteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
             _objectContainer = container;
-
         }
 
         [When(@"click on Authorised Signatory link")]
@@ -38,6 +36,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void WhenCompleteContactPersonAuthorisedSignatoryWithYes()
         {
             authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
+        }
+
+        [Then(@"verify error message '([^']*)' on Authorised Signatory page")]
+        public void ThenVerifyErrorMessageOnAuthorisedSignatoryPage(string errorMessage)
+        {
+            Assert.True(authorisedSignatoryPage.VerifyErrorMessageOnAuthorisedPage(errorMessage), "Invalid error on Authorised  page");
         }
     }
 }

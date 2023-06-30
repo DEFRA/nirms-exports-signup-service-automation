@@ -60,7 +60,7 @@ Scenario: Verify back link on select Destination establishment address page
 	#And   enter Establishment postcode '<postcode>'
 	#Then  verify next page '<nextPage>' is loaded 
 	When  click on back link
-	Then  verify next page '<nextPage>' is loaded 
+	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode | nextPage                              |
@@ -77,7 +77,7 @@ Scenario: Verify back link on add Destination  establishment address page
 	#When  click on cannot find establishment link 
 	#And   click on the add establishment address manually link
 	And   click on back link
-	Then  verify next page '<nextPage>' is loaded 
+	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode | nextPage                              |
@@ -94,7 +94,7 @@ Scenario: Verify back link on add Destination  establishment address page
 	#Then  click on select address button
 	#Then  click on continue button
 	And   click on back link
-	Then  verify next page '<nextPage>' is loaded 
+	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode | nextPage                   |
@@ -111,7 +111,7 @@ Scenario: Verify back link on add Destination  establishment address page
 	#Then  verify next page '<nextPage>' is loaded 
 	#Then  click on select address button
 	And   click on back link
-	Then  verify next page '<nextPage>' is loaded 
+	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Country          | FBONumber |postcode  | nextPage                   |

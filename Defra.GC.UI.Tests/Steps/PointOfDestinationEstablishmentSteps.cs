@@ -38,7 +38,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void WhenClickOnPointsOfDestinationLink()
         {
             Assert.True(pointOfDestinationEstablishmentPage.ClickOnPointsOfDestinationLink(), "Point Of Destination Page not loaded");
-            //Thread.Sleep(5000);
         }
 
         [Then(@"verify Add a point of departure Page loaded")]

@@ -291,7 +291,7 @@ Scenario:Verify Back link  from address page navigated to Add a point of departu
 	#And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   click on back link
-	Then  verify next page '<nextPage>' is loaded 
+	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                 |

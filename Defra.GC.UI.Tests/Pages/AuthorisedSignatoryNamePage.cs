@@ -2,22 +2,26 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
-    public class AuthorisedSignatoryPage : IAuthorisedSignatoryPage
+    public class AuthorisedSignatoryNamePage : IAuthorisedSignatoryNamePage
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
-        public AuthorisedSignatoryPage(IObjectContainer container)
+        public AuthorisedSignatoryNamePage(IObjectContainer container)
         {
             _objectContainer = container;
         }
 
         #region Page Objects
         public IWebElement AuthorisedSignatoryLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Authorised Signatory']"));
-        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@class,'govuk-button')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         public IWebElement Fullname => _driver.WaitForElement(By.XPath("//input[@id='Name']"));
@@ -26,28 +30,33 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
 
         #region Page Methods
-
-        public bool ClickOnAuthorisedSignatoryLink()
+        public void ClickonFullName()
         {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", AuthorisedSignatoryLink);
-            return PageHeading.Text.Contains("Authorised Signatory");
+            Fullname.Click();
         }
 
-        public void SelectAuthorisedSignatory(string authorisation)
+        public void EnterFullName(string FullName)
         {
-            _driver.ClickRadioButton(authorisation);
+            Fullname.SendKeys(FullName);
+        }
+
+        public void ClickOnSaveAndContinue()
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
+            _driver.ElementImplicitWait();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
-        public void CompleteContactPersonAuthorisedSignatoryWithYes()
+        public bool VerifyErrorMessageOnAuthorisedSignatoryNamePage(string errorMessage)
         {
-            ClickOnAuthorisedSignatoryLink();
-            SelectAuthorisedSignatory("Yes");
+            return ErrorMessage.Text.Contains(errorMessage);
         }
-      
-        #endregion Page Methods
 
+        public void ClickOnAuthorisedSignatoryBacklink()
+        {
+            BackLink.Click();
+        }
+        #endregion Page Methods
     }
 }

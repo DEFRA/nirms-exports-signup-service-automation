@@ -15,7 +15,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
 
-        private IWebElement BusinessFullName => _driver.WaitForElement(By.XPath("//input[@id='business-name']"));
+        // private IWebElement BusinessFullName => _driver.WaitForElement(By.XPath("//input[@id='business-name']"));
+        private IWebElement BusinessFullName => _driver.WaitForElement(By.XPath("//input[contains(@id,'Name')]"));
         private IWebElement ContactPersonLink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Contact Person')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
@@ -54,7 +55,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EnterBusinessContactName(string ContactName)
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + ContactName + "')", BusinessFullName);
+            jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + ContactName + "')", BusinessFullName); 
+
         }
 
         public bool VerifyErrorMessageOnBusinessContactNamePage(string errorMessage)

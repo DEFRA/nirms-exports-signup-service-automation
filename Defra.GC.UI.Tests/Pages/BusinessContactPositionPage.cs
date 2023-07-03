@@ -14,7 +14,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement Positionlink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Position')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.Id("button-rbPositionSubmit"));
-        private IWebElement BusinessContactPosition => _driver.WaitForElement(By.Id("contact-position"));
+        //private IWebElement BusinessContactPosition => _driver.WaitForElement(By.Id("contact-position"));
+        private IWebElement BusinessContactPosition => _driver.WaitForElement(By.XPath("//input[contains(@id,'Position')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
         #endregion

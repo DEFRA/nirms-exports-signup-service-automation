@@ -14,16 +14,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
         private IPointOfDepartureEstablishmentPage? pointOfDepartureEstablishmentPage => _objectContainer.IsRegistered<IPointOfDepartureEstablishmentPage>() ? _objectContainer.Resolve<IPointOfDepartureEstablishmentPage>() : null;
 
-
         public PointOfDepartureEstablishmentSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
             _objectContainer = container;
-
         }
 
         [When(@"complete Points of departure with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
-        public void ThenClickOnPointsOfDepartureLink(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        public void ThenCompletePointsOfDeparture(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
             pointOfDepartureEstablishmentPage.CompletePointsOfDeparture(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
         }
@@ -33,7 +31,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyThePointsOfDepartureStatus(status), "Point Of Departure Status not matching");
         }
-
 
         [When(@"click on points of departure link")]
         [Then(@"click on points of departure link")]
@@ -49,6 +46,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             pointOfDepartureEstablishmentPage.EnterEstablishmentPostcode(postcode);
         }
 
+        [Then(@"click on select address button")]
+        public void ThenClickOnSelectAddressButton()
+        {
+            pointOfDepartureEstablishmentPage.ClickOnSelectAddressButton();
+        }
+
         [Then(@"verify Add a point of departure Page loaded")]
         public void ThenVerifyAddAPointOfDeparturePageLoaded()
         {
@@ -60,6 +63,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenClickOnCannotFindEstablishmentLink()
         {
             pointOfDepartureEstablishmentPage.ClickOnCannotFindEstablishmentLink();
+        }
+
+        [When(@"click on a different postcode error link")]
+        public void WhenClickOnADifferentPostcodeErrorLink()
+        {
+            pointOfDepartureEstablishmentPage.ClickOndifferentPostCodeLink();
+        }
+
+        [When(@"click on a enter an address manually error link")]
+        public void WhenClickOnAEnterAnAddressManuallyErrorLink()
+        {
+            pointOfDepartureEstablishmentPage.ClickOnAdressManuallyLink();
         }
 
         [When(@"click on the add establishment address manually link")]
@@ -76,7 +91,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
         }
 
-
         [Then(@"verify error message '([^']*)' on establishment page")]
         public void ThenVerifyErrorMessageOnAddAPointOfDeparturePage(string errorMessage)
         {
@@ -88,6 +102,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void WhenAddEstablishmentEmailAddress(string emailAddress)
         {
             pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress(emailAddress);
+        }
+
+        [Then(@"verify error message '([^']*)' on  add a departure page")]
+        public void ThenVerifyErrorMessageOnAddADeparturePage(string invalidEmail)
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyInvalidEstablishmentEmailAddress(invalidEmail), "Invalid error on Establishment address page");
         }
 
         [When(@"click on add another establishment address")]
@@ -142,7 +162,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         [When(@"verify changed establishment address fields '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
         public void WhenVerifyChangedEstablishmentAddressFields(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
-            Assert.True(pointOfDepartureEstablishmentPage.VerifyChangedEstablishmentAddressFields(establishmentName, establishmentAddress, establishmentCity,establishmentCountry, establishmentCode), "Establishment address not changed successfully");
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyChangedEstablishmentAddressFields(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode), "Establishment address not changed successfully");
         }
 
         [When(@"click on change link next to Establishment postcode")]
@@ -180,6 +200,5 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyPointsOfDestinationLinkOnTasklistPage(), "Points Of Destination Link Visible On Tasklist Page");
         }
-
     }
 }

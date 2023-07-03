@@ -28,16 +28,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement InvalidError => _driver.WaitForElement(By.XPath("//p[@id='Name_Error' and  not(self::span)]"));
         private IWebElement BackLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Back']"));
         private IWebElement Address => _driver.WaitForElement(By.XPath(" //a[normalize-space()='Registered address']"));
-        private IWebElement AddressOne => _driver.WaitForElement(By.XPath("//input[@id='address-line-1']"));
-        private IWebElement AddressTown => _driver.WaitForElement(By.XPath("//input[@id='address-city']"));
-        private IWebElement AddressPostcode => _driver.WaitForElement(By.XPath("//input[@id='address-postcode']"));
+        private IWebElement AddressOne => _driver.WaitForElement(By.XPath("//input[@id='LineOne']"));
+        private IWebElement AddressTown => _driver.WaitForElement(By.XPath("//input[@id='CityName']"));
+        private IWebElement AddressPostcode => _driver.WaitForElement(By.XPath("//input[@id='PostCode']"));
         private IWebElement AddressStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-address']"));
         private IWebElement ErrorValidationAddress => _driver.WaitForElement(By.XPath("//li//a"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         private By Errors = By.XPath("//li//a");
 
-        #endregion
+        #endregion Page Objects
 
         #region Page Methods
 
@@ -60,7 +60,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
-
 
         public string ValidateInvalidErrorMessage()
         {
@@ -93,7 +92,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             }
             return errorList;
         }
-        #endregion
 
+        #endregion Page Methods
     }
 }

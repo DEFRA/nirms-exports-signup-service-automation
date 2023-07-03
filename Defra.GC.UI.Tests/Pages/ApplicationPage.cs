@@ -67,7 +67,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnContinue()
         {
-            Continue.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", Continue);
         }
 
         #endregion Page Methods

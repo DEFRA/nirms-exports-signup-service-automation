@@ -93,6 +93,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return errorList;
         }
 
+        public void EditBusinessAddress(string add1, string town, string postcode)
+        {
+            AddressOne.Clear();
+            AddressTown.Clear(); ;
+            AddressPostcode.Clear();
+            AddressOne.SendKeys(add1);
+            AddressTown.SendKeys(town);
+            AddressPostcode.SendKeys(postcode);
+            ClickOnSaveAndContinue();
+        }
         #endregion Page Methods
     }
 }

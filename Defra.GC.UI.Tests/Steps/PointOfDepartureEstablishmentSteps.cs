@@ -52,7 +52,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             pointOfDepartureEstablishmentPage.ClickOnSelectAddressButton();
         }
 
-        [Then(@"verify Add a point of departure Page loaded")]
+        [Then(@"verify Add a place of dispatch Page loaded")]
         public void ThenVerifyAddAPointOfDeparturePageLoaded()
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyAddAPointOfDeparturePage(), "Select Point Of Departure Page not loaded");

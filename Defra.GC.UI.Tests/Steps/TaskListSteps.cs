@@ -23,6 +23,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
+        [When(@"click on Check answers and submit sign up")]
         [Then(@"click on Check answers and submit sign up")]
         public void ThenClickOnCheckAnswersAndSubmitSignUp()
         {

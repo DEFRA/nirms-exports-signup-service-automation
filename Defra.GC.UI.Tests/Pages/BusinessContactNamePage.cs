@@ -52,6 +52,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterBusinessContactName(string ContactName)
         {
+            BusinessFullName.Click();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + ContactName + "')", BusinessFullName);
         }
@@ -71,6 +72,36 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.ElementImplicitWait();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", ContactPersonLink);
+        }
+
+        public void EditBusinessContactName(string contactName)
+        {
+            EnterBusinessContactName(contactName);
+            ClickOnSaveAndContinue();
+            ContactPositionPage.ClickOnSaveAndContinue();
+            ContactEmailAddressPage.ClickOnSaveAndContinue();
+            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+        }
+
+        public void EditBusinessContactPosition(string contactPosition)
+        {
+            ContactPositionPage.EnterBusinessContactPosition(contactPosition);
+            ContactPositionPage.ClickOnSaveAndContinue();
+            ContactEmailAddressPage.ClickOnSaveAndContinue();
+            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+        }
+
+        public void EditBusinessContactEmailAddress(string contactEmail)
+        {
+            ContactEmailAddressPage.EnterEmailAddress(contactEmail);
+            ContactEmailAddressPage.ClickOnSaveAndContinue();
+            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+        }
+
+        public void EditBusinessContactTelephoneNumber(string contactTelephone)
+        {
+            ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
+            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         #endregion Page Methods

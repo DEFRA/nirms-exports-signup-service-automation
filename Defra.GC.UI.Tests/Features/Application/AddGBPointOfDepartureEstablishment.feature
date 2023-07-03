@@ -14,8 +14,8 @@ Scenario: Verify Point of Departure link for GB countries
 
 	Examples: 
 	| logininfo | Country  | FBONumber |postcode | nextPage                 |
-	| test      | Wales    | testFBO   |SE10 9NF | Add a point of departure |
-	| test      | Scotland | testFBO   |SE10 9NF | Add a point of departure |
+	| test      | Wales    | testFBO   |SE10 9NF | Add a place of dispatch  |
+	| test      | Scotland | testFBO   |SE10 9NF | Add a place of dispatch  |
 
 @CrossBrowser
 Scenario: Check Add the establishment address manually link
@@ -32,7 +32,7 @@ Scenario: Check Add the establishment address manually link
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
+	| test      | England | testFBO   |SE10 9NF | Add a place of dispatch  |
 
 Scenario: Add GB point of Departure establishment address manually
 	Given that I navigate to the NI GC application
@@ -49,9 +49,9 @@ Scenario: Add GB point of Departure establishment address manually
 
 	Examples: 
 	| logininfo | Country  | FBONumber |postcode | nextPage                 | EstablishmentName | AddressLine1 | estCity   | estCountry | AddrPostcode |
-	| test      | England  | testFBO   |SE10 9NF | Add a point of departure | testName1         | testAddress1 | London    | England    | SE10 9NF     |
-	| test      | Wales    | testFBO   |CF10 1AA | Add a point of departure | testName2         | testAddress2 | Cardiff   | Wales      | CF10 1AA     |
-	| test      | Scotland | testFBO   |G1 1AB   | Add a point of departure | testName3         | testAddress3 | Glasgow   | Scotland   | G1 1AB       |
+	| test      | England  | testFBO   |SE10 9NF | Add a place of dispatch  | testName1         | testAddress1 | London    | England    | SE10 9NF     |
+	| test      | Wales    | testFBO   |CF10 1AA | Add a place of dispatch  | testName2         | testAddress2 | Cardiff   | Wales      | CF10 1AA     |
+	| test      | Scotland | testFBO   |G1 1AB   | Add a place of dispatch  | testName3         | testAddress3 | Glasgow   | Scotland   | G1 1AB       |
 
 
 Scenario: Verify back link on enter establishment postcode page
@@ -80,7 +80,7 @@ Scenario: Verify back link on select establishment address page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
+	| test      | England | testFBO   |SE10 9NF | Add a place of dispatch  |
 
 Scenario: Verify back link on add establishment address page
 	Given that I navigate to the NI GC application
@@ -97,7 +97,7 @@ Scenario: Verify back link on add establishment address page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
+	| test      | England | testFBO   |SE10 9NF | Add a place of dispatch  |
 
 
 
@@ -116,7 +116,7 @@ Scenario: Verify back link on add establishment address page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
+	| test      | England | testFBO   |SE10 9NF | Add a place of dispatch  |
 
 	
 	Scenario: Verify back link on the Establishment email address optional page
@@ -133,7 +133,7 @@ Scenario: Verify back link on add establishment address page
 
 	Examples: 
 	| logininfo | Country | FBONumber |postcode | nextPage                 |
-	| test      | England | testFBO   |SE10 9NF | Add a point of departure |
+	| test      | England | testFBO   |SE10 9NF | Add a place of dispatch  |
 
 
 
@@ -280,7 +280,7 @@ Scenario: Change establishment email address
 	| logininfo | Country | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry  | AddrPostcode |
 	| test      | England | testFBO   |testName1         | testAddress1 | London   | England     | SE10 9NF     |
 
-Scenario:Verify Back link  from address page navigated to Add a point of departure page
+Scenario:Verify Back link  from address page navigated to Add a place of dispatch  page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -295,10 +295,10 @@ Scenario:Verify Back link  from address page navigated to Add a point of departu
 
 	Examples: 
 	| logininfo | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                 |
-	| test      | England | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Add a point of departure |
+	| test      | England | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Add a place of dispatch  |
 
 	
-Scenario:Verify different post code link is navigated to Add a point of departure page
+Scenario:Verify different post code link is navigated to Add a place of dispatch  page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -310,9 +310,9 @@ Scenario:Verify different post code link is navigated to Add a point of departur
 
 	Examples: 
 	| logininfo | Country | FBONumber |    AddrPostcode |  nextPage                 |
-	| test      | England | testFBO   |    N3 3NA       |  Add a point of departure |
+	| test      | England | testFBO   |    N3 3NA       |  Add a place of dispatch  |
 
-Scenario:Verify Enter a Address manually link is navigated to Add a point of departure page
+Scenario:Verify Enter a Address manually link is navigated to Add a place of dispatch  page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -324,4 +324,4 @@ Scenario:Verify Enter a Address manually link is navigated to Add a point of dep
 
 	Examples: 
 	| logininfo | Country | FBONumber |    AddrPostcode |  nextPage                 |
-	| test      | England | testFBO   |    N3 3NA       |  Add a point of departure |
+	| test      | England | testFBO   |    N3 3NA       |  Add a place of dispatch  |

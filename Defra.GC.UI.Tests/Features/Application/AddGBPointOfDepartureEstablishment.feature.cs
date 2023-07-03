@@ -77,8 +77,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Point of Departure link for GB countries")]
-        [NUnit.Framework.TestCaseAttribute("test", "Wales", "testFBO", "SE10 9NF", "Add a point of departure", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Scotland", "testFBO", "SE10 9NF", "Add a point of departure", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Wales", "testFBO", "SE10 9NF", "Add a place of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Scotland", "testFBO", "SE10 9NF", "Add a place of dispatch", null)]
         public void VerifyPointOfDepartureLinkForGBCountries(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -127,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check Add the establishment address manually link")]
         [NUnit.Framework.CategoryAttribute("CrossBrowser")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a point of departure", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", null)]
         public void CheckAddTheEstablishmentAddressManuallyLink(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -178,9 +178,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add GB point of Departure establishment address manually")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a point of departure", "testName1", "testAddress1", "London", "England", "SE10 9NF", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Wales", "testFBO", "CF10 1AA", "Add a point of departure", "testName2", "testAddress2", "Cardiff", "Wales", "CF10 1AA", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Scotland", "testFBO", "G1 1AB", "Add a point of departure", "testName3", "testAddress3", "Glasgow", "Scotland", "G1 1AB", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", "testName1", "testAddress1", "London", "England", "SE10 9NF", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Wales", "testFBO", "CF10 1AA", "Add a place of dispatch", "testName2", "testAddress2", "Cardiff", "Wales", "CF10 1AA", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Scotland", "testFBO", "G1 1AB", "Add a place of dispatch", "testName3", "testAddress3", "Glasgow", "Scotland", "G1 1AB", null)]
         public void AddGBPointOfDepartureEstablishmentAddressManually(string logininfo, string country, string fBONumber, string postcode, string nextPage, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -279,7 +279,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on select establishment address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a point of departure", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", null)]
         public void VerifyBackLinkOnSelectEstablishmentAddressPage(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -324,7 +324,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on add establishment address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a point of departure", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", null)]
         public void VerifyBackLinkOnAddEstablishmentAddressPage(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -369,7 +369,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on the  Do you want to add another point of departure Page ?")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a point of departure", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", null)]
         public void VerifyBackLinkOnTheDoYouWantToAddAnotherPointOfDeparturePage(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -414,7 +414,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on the Establishment email address optional page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a point of departure", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", null)]
         public void VerifyBackLinkOnTheEstablishmentEmailAddressOptionalPage(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -887,9 +887,9 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify Back link  from address page navigated to Add a point of departure page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName1", "testAddress1", "testCity1", "testCountry1", "SE10 9NF", "Add a point of departure", null)]
-        public void VerifyBackLinkFromAddressPageNavigatedToAddAPointOfDeparturePage(string logininfo, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify Back link  from address page navigated to Add a place of dispatch  page")]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName1", "testAddress1", "testCity1", "testCountry1", "SE10 9NF", "Add a place of dispatch", null)]
+        public void VerifyBackLinkFromAddressPageNavigatedToAddAPlaceOfDispatchPage(string logininfo, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -902,7 +902,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("estCountry", estCountry);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("nextPage", nextPage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Back link  from address page navigated to Add a point of departure page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Back link  from address page navigated to Add a place of dispatch  page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 283
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -939,9 +939,9 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify different post code link is navigated to Add a point of departure page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "N3 3NA", "Add a point of departure", null)]
-        public void VerifyDifferentPostCodeLinkIsNavigatedToAddAPointOfDeparturePage(string logininfo, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify different post code link is navigated to Add a place of dispatch  page")]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "N3 3NA", "Add a place of dispatch", null)]
+        public void VerifyDifferentPostCodeLinkIsNavigatedToAddAPlaceOfDispatchPage(string logininfo, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -950,7 +950,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("FBONumber", fBONumber);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("nextPage", nextPage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify different post code link is navigated to Add a point of departure page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify different post code link is navigated to Add a place of dispatch  page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 301
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -984,10 +984,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify Enter a Address manually link is navigated to Add a point of departure pag" +
+        [NUnit.Framework.DescriptionAttribute("Verify Enter a Address manually link is navigated to Add a place of dispatch  pag" +
             "e")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "N3 3NA", "Add a point of departure", null)]
-        public void VerifyEnterAAddressManuallyLinkIsNavigatedToAddAPointOfDeparturePage(string logininfo, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "N3 3NA", "Add a place of dispatch", null)]
+        public void VerifyEnterAAddressManuallyLinkIsNavigatedToAddAPlaceOfDispatchPage(string logininfo, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -996,7 +996,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("FBONumber", fBONumber);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("nextPage", nextPage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Enter a Address manually link is navigated to Add a point of departure pag" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Enter a Address manually link is navigated to Add a place of dispatch  pag" +
                     "e", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 315
 this.ScenarioInitialize(scenarioInfo);

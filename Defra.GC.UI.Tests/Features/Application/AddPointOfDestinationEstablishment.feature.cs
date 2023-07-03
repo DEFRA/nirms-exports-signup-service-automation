@@ -78,7 +78,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check Add the Destination establishment address manually link")]
         [NUnit.Framework.CategoryAttribute("CrossBrowser")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a point of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
         public void CheckAddTheDestinationEstablishmentAddressManuallyLink(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -129,7 +129,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add point of Destination establishment address manually")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a point of destination", "Coleraine", "Crown Buildings", "Millburn", "Northen Ireland", "BT52 2AJ", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", "Coleraine", "Crown Buildings", "Millburn", "Northen Ireland", "BT52 2AJ", null)]
         public void AddPointOfDestinationEstablishmentAddressManually(string logininfo, string country, string fBONumber, string postcode, string nextPage, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -229,7 +229,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on select Destination establishment address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a point of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
         public void VerifyBackLinkOnSelectDestinationEstablishmentAddressPage(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -274,7 +274,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on add Destination  establishment address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a point of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
         public void VerifyBackLinkOnAddDestinationEstablishmentAddressPage(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -319,7 +319,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on the  Do you want to add another point of destination Page ?")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a point of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
         public void VerifyBackLinkOnTheDoYouWantToAddAnotherPointOfDestinationPage(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -364,7 +364,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on the Establishment email address optional page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a point of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
         public void VerifyBackLinkOnTheEstablishmentEmailAddressOptionalPage(string logininfo, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -908,7 +908,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify different post code link is navigated to Add a point of deastination page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "N3 3NA", "Add a point of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "N3 3NA", "Add a place of destination", null)]
         public void VerifyDifferentPostCodeLinkIsNavigatedToAddAPointOfDeastinationPage(string logininfo, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -952,10 +952,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify Enter a Address manually link is navigated to Add a point of destination p" +
+        [NUnit.Framework.DescriptionAttribute("Verify Enter a Address manually link is navigated to Add a place of destination p" +
             "age")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "N3 3NA", "Add a point of destination", null)]
-        public void VerifyEnterAAddressManuallyLinkIsNavigatedToAddAPointOfDestinationPage(string logininfo, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "N3 3NA", "Add a place of destination", null)]
+        public void VerifyEnterAAddressManuallyLinkIsNavigatedToAddAPlaceOfDestinationPage(string logininfo, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -964,7 +964,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("FBONumber", fBONumber);
             argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             argumentsOfScenario.Add("nextPage", nextPage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Enter a Address manually link is navigated to Add a point of destination p" +
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Enter a Address manually link is navigated to Add a place of destination p" +
                     "age", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 299
 this.ScenarioInitialize(scenarioInfo);

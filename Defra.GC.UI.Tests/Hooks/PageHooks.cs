@@ -4,6 +4,7 @@ using Defra.GC.UI.Tests.Configuration;
 using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
+using Defra.Trade.ReMos.AssuranceService.Tests.Steps;
 
 namespace Defra.GC.UI.Tests.Hooks
 {
@@ -41,6 +42,9 @@ namespace Defra.GC.UI.Tests.Hooks
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<TaskListPage, ITaskListPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryPage, IAuthorisedSignatoryPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<CheckYourAnswersPage, ICheckYourAnswersPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryNamePage, IAuthorisedSignatoryNamePage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryPositionPage, IAuthorisedSignatoryPositionPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryEmailAddressPage, IAuthorisedSignatoryEmailAddressPage>());
 
         }
 

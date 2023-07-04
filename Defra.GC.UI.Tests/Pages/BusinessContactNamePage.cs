@@ -52,7 +52,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterBusinessContactName(string ContactName)
         {
-            BusinessFullName.Click();
+            BusinessFullName.Clear();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + ContactName + "')", BusinessFullName);
         }

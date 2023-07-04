@@ -181,7 +181,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message on add another point of Destination page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "testName1", "testAddress1", "testCity1", "testCountry1", "EC4R 9HA", "Select yes if you want to add another place of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "testName1", "testAddress1", "testCity1", "testCountry1", "EC4R 9HA", "Select yes if you want to add another place of destination", null)]
         public void VerifyErrorMessageOnAddAnotherPointOfDestinationPage(string logininfo, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

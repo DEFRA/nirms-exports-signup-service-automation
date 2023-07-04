@@ -42,7 +42,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditValueOnCheckAnswersPage(string fieldName, string fieldValue)
         {
             string EditField = "//dt[contains(text(),'" + fieldName + "')]/..//a";
-            _driver.WaitForElement(By.XPath(EditField)).Click();
+            IWebElement EditFieldEle = _driver.WaitForElement(By.XPath(EditField));
+
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", EditFieldEle);
+            //_driver.WaitForElement(By.XPath(EditField)).Click();
 
             if (fieldName.Contains("Business name"))
             {

@@ -55,7 +55,7 @@ Scenario: Verify error message on add another point of Destination page
 	And   click on save and continue
 	Then  verify error message '<errorMessage>' on establishment page
 	Examples: 
-	| logininfo | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                             |
-	| test      | Northern Ireland | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | EC4R 9HA     | Select yes if you want to add another point of departure |
+	| logininfo | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                             |  
+	| test      | Northern Ireland | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | EC4R 9HA     | Select yes if you want to add another place of destination  |
 
 

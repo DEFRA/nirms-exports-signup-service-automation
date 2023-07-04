@@ -30,6 +30,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterBusinessContactPosition(string ContactPosition)
         {
+            BusinessContactPosition.Clear();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + ContactPosition + "')", BusinessContactPosition);
         }

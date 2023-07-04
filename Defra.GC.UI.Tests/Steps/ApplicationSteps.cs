@@ -28,6 +28,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             applicationPage.ClickOnSaveAndContinue();
         }
 
+        [When(@"click on continue button")]
         [Then(@"click on continue button")]
         public void ThenClickOnContinueButton()
         {

@@ -24,5 +24,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyAddressStatus(string status);
 
         public List<string> ErrorValidation();
+        public void EditBusinessAddress(string businessAddr, string businessTown, string addrPostcode);
     }
 }

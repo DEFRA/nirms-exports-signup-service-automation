@@ -52,11 +52,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(authSignatoryEmailAddressPage.ValidateInvalidErrorMessage(errorMessage), "auth signatory email address error message not matching");
         }
 
-        //[When(@"user clicks back button on authorised signatory page")]
-        //public void WhenUserClicksBackButton()
-        //{
-        //    authorisedSignatoryNamePage.ClickOnAuthorisedSignatoryBacklink();
-        //}
+      
 
     }
 }

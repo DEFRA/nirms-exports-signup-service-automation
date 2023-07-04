@@ -104,7 +104,7 @@ Given that I navigate to the NI GC application
 	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
-	When  user clicks back button on authorised signatory page
+	When  click on back link
 	Then  verify next page '<previousPage>' is loaded 
 
 Examples:

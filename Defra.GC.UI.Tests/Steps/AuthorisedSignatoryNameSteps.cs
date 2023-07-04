@@ -43,12 +43,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(authorisedSignatoryNamePage.VerifyErrorMessageOnAuthorisedSignatoryNamePage(errorMessage), "authorised signatory name error message not matching");
         }
-
-        [When(@"user clicks back button on authorised signatory page")]
-        public void WhenUserClicksBackButton()
-        {
-            authorisedSignatoryNamePage.ClickOnAuthorisedSignatoryBacklink();
-        }
     }
 }
 

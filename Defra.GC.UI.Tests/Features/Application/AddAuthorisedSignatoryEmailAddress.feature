@@ -62,7 +62,7 @@ Scenario: Verify error message for invalid Authorised Signatory Email Address
 	When  user is on Authorised Signatory Email address page
     Then  user enters manually '<AuthemailAddress>' in email address page
     Then  click on save and continue on Authorised Signatory Email address page 
-	Then  user enters manually '<errorMsg>' in email address page
+	Then  verify error message '<errorMsg>' on authorised signatory email address page
 
     Examples:    
 	| logininfo | fullName      | Country    |FBONumber |errorMsg                                                            |contactName     |contactPosition |emailAddress  |telephoneNumber |AuthemailAddress|Authposition |
@@ -94,7 +94,7 @@ Scenario Outline:  Verify error message for blank Authorised Signatory Email Add
 	When  user is on Authorised Signatory Email address page
     Then  user enters manually '<AuthemailAddress>' in email address page
     Then  click on save and continue on Authorised Signatory Email address page 
-	Then  user enters manually '<errorMsg>' in email address page
+	Then  verify error message '<errorMsg>' on authorised signatory email address page
 
     Examples:    
 	| logininfo | fullName      | Country    |FBONumber |errorMsg                                             |contactName     |contactPosition |emailAddress  |telephoneNumber |AuthemailAddress|Authposition |
@@ -125,7 +125,7 @@ Scenario Outline:Verify user clicks on back button and navigates to previous pag
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue on Authorised signatory position page
 	When  user is on Authorised Signatory Email address page
-	When  user clicks back button on authorised signatory page
+	When  click on back link
 	Then  verify next page '<previousPage>' is loaded 
 
 Examples:

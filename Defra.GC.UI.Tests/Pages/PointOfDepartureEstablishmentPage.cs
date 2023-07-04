@@ -10,7 +10,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
 
@@ -18,7 +17,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement PageHeading1 => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
         private IWebElement PointOfDeparture => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Points of departure')]"));
         private By PointOfDestinationLink => By.XPath("//a[normalize-space()='Points of destination']");
-        private IWebElement PointOfDestinationStatus => _driver.WaitForElement(By.Id("establistment-departure"));
+        private IWebElement PointOfDepartureStatus => _driver.WaitForElement(By.Id("establistment-departure"));
         private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='Postcode']"));
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
@@ -42,6 +41,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ChangePostcode => _driver.WaitForElement(By.XPath("//a[contains(text(),'Change')]"));
         private IWebElement EmailAdressPage => _driver.WaitForElement(By.XPath("//label[contains(text(),'Establishment email address (optional)')]"));
         private IWebElement ChangedEmailAdress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//dd"));
+        private IWebElement InvalidEmailAdressPage => _driver.WaitForElement(By.XPath("//p[@id='Email_Error']"));
+
+        private IWebElement DifferentPostcode => _driver.WaitForElement(By.XPath("//a[normalize-space()='a different postcode']"));
+        private IWebElement AddressMnualLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='enter an address manually.']"));
 
         #endregion Page Objects
 
@@ -56,10 +59,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CompletePointsOfDeparture(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
-            //ClickOnPointsOfDepartureLink();
-            EnterEstablishmentPostcode(establishmentCode);
-            ClickOnCannotFindEstablishmentLink();
-            ClickOnAddTheEstablishmentAddressManuallyLink();
+            ClickOnPointsOfDepartureLink();
+            //EnterEstablishmentPostcode(establishmentCode);
+            //ClickOnCannotFindEstablishmentLink();
+            //ClickOnAddTheEstablishmentAddressManuallyLink();
             AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             AddEstablishmentEmailAddress("test@test.com");
             ClickOnIHaveFinishedAddingPointsOfDeparture();
@@ -67,7 +70,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyThePointsOfDepartureStatus(string status)
         {
-            return PointOfDestinationStatus.Text.Contains(status);
+            return PointOfDepartureStatus.Text.Contains(status);
         }
 
         public bool ClickOnPointsOfDepartureLink()
@@ -93,6 +96,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", CannotFindEstablishment);
+        }
+
+        public void ClickOndifferentPostCodeLink()
+        {
+            DifferentPostcode.Click();
+        }
+
+        public void ClickOnSelectAddressButton()
+        {
+            SelectAddresButton.Click();
+        }
+
+        public void ClickOnAdressManuallyLink()
+        {
+            AddressMnualLink.Click();
         }
 
         public bool ClickOnAddTheEstablishmentAddressManuallyLink()
@@ -216,6 +234,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 return false;
             else
                 return true;
+        }
+
+        public bool VerifyInvalidEstablishmentEmailAddress(string invalidEmail)
+        {
+            return InvalidEmailAdressPage.Text.Contains(invalidEmail);
         }
 
         #endregion Page Methods

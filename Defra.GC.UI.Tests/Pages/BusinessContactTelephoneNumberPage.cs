@@ -13,11 +13,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
 
         private IWebElement TelephoneNumberlink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Telephone number')]"));
-        //private IWebElement Telephone => _driver.WaitForElement(By.Id("business-phone"));
-        private IWebElement Telephone => _driver.WaitForElement(By.XPath("//input[contains(@id,'PhoneNumber')]"));
+        private IWebElement Telephone => _driver.WaitForElement(By.XPath("//input[@id='PhoneNumber']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.Id("Phone_Error"));
-        #endregion
+
+        #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
 
@@ -32,7 +32,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             SaveAndContinue.Click();
         }
-
 
         public void ClickOnContactTelephoneNumberLink()
         {
@@ -52,7 +51,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ErrorMessage.Text.Contains(errorMessage);
         }
 
-        #endregion
-
+        #endregion Page Methods
     }
 }

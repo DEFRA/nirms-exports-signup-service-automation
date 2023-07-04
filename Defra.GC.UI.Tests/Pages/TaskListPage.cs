@@ -22,7 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
         public IWebElement CheckAnswersSubmitSignUpLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check answers and submit sign up')]"));
-        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
+        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
 
         #endregion Page Objects
 
@@ -30,7 +30,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Methods
         public bool ClickOnCheckAnswersAndSubmitSignUp()
         {
-            return CheckAnswersSubmitSignUpLink.Enabled;
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", CheckAnswersSubmitSignUpLink);
+            return PageHeading.Text.Contains("Check your answers");
         }
         #endregion Page Methods
     }

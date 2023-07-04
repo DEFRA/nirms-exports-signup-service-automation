@@ -33,5 +33,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public string VerifyCountryPageloaded();
 
         public string VerifySPOPageloaded();
+
+        public void EditCountryToCompleteEligibility(string country);
+
+        public void EditFBONumberToCompleteEligibility(string FBONumber);
+
     }
 }

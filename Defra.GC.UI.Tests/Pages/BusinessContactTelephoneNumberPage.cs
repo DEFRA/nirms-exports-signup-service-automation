@@ -42,6 +42,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterTelephoneNumber(string telephoneNumber)
         {
+            Telephone.Clear();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + telephoneNumber + "')", Telephone);
         }

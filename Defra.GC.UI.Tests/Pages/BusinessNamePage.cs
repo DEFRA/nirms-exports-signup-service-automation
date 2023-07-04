@@ -48,38 +48,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Methods
 
-        public void ClickOnRegisteredAddres()
-        {
-            Address.Click();
-        }
-
-        public void ClickOnSaveAndContinuebuttonWithoutAddress()
-        {
-            _driver.ElementImplicitWait();
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
-            _driver.ElementImplicitWait();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
-        }
-
-        public void SelectCountry()
-        {
-            CountryName.Click();
-            SaveAndContinue.Click();
-        }
-
-        public void EntertheAddress()
-        {
-            AddressOne.SendKeys("1");
-            AddressTown.SendKeys("London");
-            AddressPostcode.SendKeys("WV1 3EB");
-
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            _driver.ElementImplicitWait();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
-        }
-
         public string SelectWithoutCountryAndVerifyMessage()
         {
             SaveAndContinue.Click();
@@ -98,6 +66,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterBusinessName(string businessname)
         {
+            BusinessnameText.Clear();
             BusinessnameText.SendKeys(businessname);
         }
 
@@ -106,32 +75,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             SaveAndContinue.Click();
         }
 
-        public void EnterInvalidBusinessName()
-        {
-            BusinessnameText.SendKeys("£££*****");
-            SaveAndContinue.Click();
-        }
-
-        public void EnterInvalidAddress()
-        {
-            AddressLine1.SendKeys("£££*****");
-            City.SendKeys("****");
-            Realpost.SendKeys("****");
-
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            _driver.ElementImplicitWait();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
-        }
-
         public string ValidateInvalidErrorMessage()
         {
             return InvalidError.Text;
-        }
-
-        public void WithoutBusinessName()
-        {
-            SaveAndContinue.Click();
         }
 
         public string WithoutBusinessNameValidation()
@@ -162,24 +108,19 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return BusinessStatus.Text.Contains(status);
         }
 
-        public List<string> ErrorValidation()
-        {
-            IList<IWebElement> errors = _driver.FindElements(Errors);
-            List<string> errorList = new List<string>();
-
-            foreach (IWebElement error in errors)
-            {
-                errorList.Add(error.Text);
-            }
-            return errorList;
-        }
-
         public void CompleteBusinessNameTask(string businessName, string businessAddr, string businessTown, string addrPostcode)
         {
             ClickonBusinessName();
             EnterBusinessName(businessName);
             ClickOnSaveAndContinue();
             businessAddressPage.EnterBusinessAddress(businessAddr, businessTown, addrPostcode);
+            businessAddressPage.ClickOnSaveAndContinue();
+        }
+
+        public void EditBusinessNameTask(string businessName)
+        {
+            EnterBusinessName(businessName);
+            ClickOnSaveAndContinue();
             businessAddressPage.ClickOnSaveAndContinue();
         }
 

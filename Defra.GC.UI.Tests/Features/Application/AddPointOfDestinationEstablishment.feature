@@ -216,7 +216,6 @@ Scenario: Verify remaining  point of destination  establishment address listed a
 	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   add establishment email address 'test2@test.com'
 	And   remove establishment address '<EstablishmentName>'
-	And   click on back link
 	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Country          | FBONumber |EstablishmentName | AddressLine1 | estCity  | estCountry      | AddrPostcode |EstablishmentName2      | AddressLine2         | estCity2  | estCountry2 | AddrPostcode2 |

@@ -62,5 +62,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(checkYourAnswersPage.VerifyMoreThan1EstablishmentAddressesAdded(), "Another Establishment address not added successfully");
         }
 
+        [Then(@"verify total '([^']*)' establishment addresses added")]
+        public void ThenVerifyTotalEstablishmentAddressesAdded(string TotalNum)
+        {
+            Assert.True(checkYourAnswersPage.VerifyTotalEstablishmentAddressesAdded(TotalNum), "Total Establishment address count not matching");
+        }
+
+        [When(@"click on remove link on estblishment '([^']*)' on check answers page")]
+        public void WhenClickOnRemoveLinkOnEstblishmentOnCheckAnswersPage(string EstablishmentName)
+        {
+            checkYourAnswersPage.ClickOnRemoveLinkOnEstblishmentOnCheckAnswersPage(EstablishmentName);
+        }
+
+
     }
 }

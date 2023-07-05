@@ -53,8 +53,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EnterBusinessContactName(string ContactName)
         {
             BusinessFullName.Clear();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + ContactName + "')", BusinessFullName);
+            BusinessFullName.SendKeys(ContactName);
+            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            //jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + ContactName + "')", BusinessFullName);
         }
 
         public bool VerifyErrorMessageOnBusinessContactNamePage(string errorMessage)

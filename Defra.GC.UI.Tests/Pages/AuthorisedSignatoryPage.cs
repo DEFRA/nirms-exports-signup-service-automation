@@ -29,7 +29,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool ClickOnAuthorisedSignatoryLink()
         {
-            AuthorisedSignatoryLink.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", AuthorisedSignatoryLink);
             return PageHeading.Text.Contains("Authorised Signatory");
         }
 
@@ -52,5 +53,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         }
 
         #endregion Page Methods
+
     }
 }

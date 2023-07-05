@@ -150,7 +150,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();
-            ClickSaveAndContinue();
+            FBOContinue.Click();
             ConfirmReMosRegulationToCompleteEligibility();
         }
 

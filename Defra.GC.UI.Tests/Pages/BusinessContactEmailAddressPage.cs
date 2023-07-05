@@ -41,9 +41,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterEmailAddress(string emailAddress)
         {
-            //EmailAddress.Clear();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + emailAddress + "')", EmailAddress);
+            EmailAddress.Clear();
+            EmailAddress.SendKeys(emailAddress);
+            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            //jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + emailAddress + "')", EmailAddress);
         }
 
         public bool VerifyErrorMessageOnContactEmailAddressPage(string errorMessage)

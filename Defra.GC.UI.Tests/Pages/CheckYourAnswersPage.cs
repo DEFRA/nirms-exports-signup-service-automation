@@ -20,6 +20,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IBusinessEligibilityPage? eligibilityPage => _objectContainer.IsRegistered<IBusinessEligibilityPage>() ? _objectContainer.Resolve<IBusinessEligibilityPage>() : null;
         private IBusinessContactNamePage? contactNamePage => _objectContainer.IsRegistered<IBusinessContactNamePage>() ? _objectContainer.Resolve<IBusinessContactNamePage>() : null;
         private ITaskListPage? taskListPage => _objectContainer.IsRegistered<ITaskListPage>() ? _objectContainer.Resolve<ITaskListPage>() : null;
+        private IAuthorisedSignatoryPage? authorisedSignatoryPage => _objectContainer.IsRegistered<IAuthorisedSignatoryPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryPage>() : null;
+        private IPointOfDepartureEstablishmentPage? pointOfDepartureEstablishmentPage => _objectContainer.IsRegistered<IPointOfDepartureEstablishmentPage>() ? _objectContainer.Resolve<IPointOfDepartureEstablishmentPage>() : null;
 
         #region Page Objects
         private IWebElement ConfirmSanitaryAndPhytosanitaryBox => _driver.WaitForElementExists(By.Id("AssuranceCommitment"));
@@ -68,18 +70,44 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             else if (fieldName.Contains("Contact name"))
             {
                 contactNamePage.EditBusinessContactName(fieldValue);
+                authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact position"))
             {
                 contactNamePage.EditBusinessContactPosition(fieldValue);
+                authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact email address"))
             {
                 contactNamePage.EditBusinessContactEmailAddress(fieldValue);
+                authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact telephone number"))
             {
                 contactNamePage.EditBusinessContactTelephoneNumber(fieldValue);
+                authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
+            }
+            else if (fieldName.Contains("Address"))
+            {
+                pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(fieldValue, fieldValue, fieldValue, fieldValue, fieldValue);
+                pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
+                pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
+            }
+            else if (fieldName.Contains("Email address"))
+            {
+                pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress(fieldValue);
+                pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
+            }
+            else if (fieldName.Contains("Contact person is the Authorised Signatory"))
+            {
+                if (fieldValue.Contains("Yes"))
+                {
+                    authorisedSignatoryPage.SelectAuthorisedSignatory("Yes");
+                }
+                else 
+                {
+                    authorisedSignatoryPage.SelectAuthorisedSignatory("No");
+                }
             }
 
             taskListPage.ClickOnCheckAnswersAndSubmitSignUp();
@@ -111,6 +139,27 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 return true;
             else
                 return false;
+        }
+
+
+        public bool VerifyTotalEstablishmentAddressesAdded(string TotalNum)
+        {
+            int totalEstablishments = Convert.ToInt32(TotalNum);
+            int count = _driver.FindElements(NumberOfEstablishments).Count();
+            if (count == totalEstablishments)
+                return true;
+            else
+                return false;
+        }
+
+        public void ClickOnRemoveLinkOnEstblishmentOnCheckAnswersPage(string EstablishemntName)
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollTo(0,1400)", "");
+            _driver.ElementImplicitWait();
+            string RemoveEstablishment = "//h2[contains(text(),'" + EstablishemntName + "')]/..//a";
+            IWebElement RemoveEstEle = _driver.WaitForElement(By.XPath(RemoveEstablishment));
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", RemoveEstEle);
         }
 
         #endregion Page Methods

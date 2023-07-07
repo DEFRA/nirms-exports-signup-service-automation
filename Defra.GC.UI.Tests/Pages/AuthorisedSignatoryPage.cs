@@ -2,6 +2,7 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
+using System.Net.Mail;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -10,6 +11,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
+        private IAuthorisedSignatoryEmailAddressPage? authSignatoryEmailAddressPage => _objectContainer.IsRegistered<IAuthorisedSignatoryEmailAddressPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryEmailAddressPage>() : null;
+        private IAuthorisedSignatoryNamePage? authSignatoryNamePage => _objectContainer.IsRegistered<IAuthorisedSignatoryNamePage>() ? _objectContainer.Resolve<IAuthorisedSignatoryNamePage>() : null;
+        private IAuthorisedSignatoryPositionPage? authSignatoryPositionPage => _objectContainer.IsRegistered<IAuthorisedSignatoryPositionPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryPositionPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         public AuthorisedSignatoryPage(IObjectContainer container)
         {
@@ -50,6 +55,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyErrorMessageOnAuthorisedPage(string errorMessage)
         {
             return ErrorMessage.Text.Contains(errorMessage);
+        }
+
+        public void EditAuthorisedSignatoryToNo(string authorisation)
+        {
+            _driver.ClickRadioButton(authorisation);
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
+
+            authSignatoryNamePage.EnterFullName("AuthSign Full Name");
+            applicationPage.ClickOnSaveAndContinue();
+            authSignatoryPositionPage.EnterAuthSignatoryPosition("AuthSignPosition");
+            applicationPage.ClickOnSaveAndContinue();
+            authSignatoryEmailAddressPage.EnterAuthEmailAddress("AuthSignEmail@test.com");
+            applicationPage.ClickOnSaveAndContinue();
         }
 
         #endregion Page Methods

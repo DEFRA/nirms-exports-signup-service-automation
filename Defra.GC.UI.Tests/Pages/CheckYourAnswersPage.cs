@@ -37,8 +37,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", ConfirmSanitaryAndPhytosanitaryBox);
-            //IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-            //jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
         }
 
         public void EditValueOnCheckAnswersPage(string fieldName, string fieldValue)
@@ -106,7 +104,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 }
                 else 
                 {
-                    authorisedSignatoryPage.SelectAuthorisedSignatory("No");
+                    authorisedSignatoryPage.EditAuthorisedSignatoryToNo("No");
                 }
             }
 

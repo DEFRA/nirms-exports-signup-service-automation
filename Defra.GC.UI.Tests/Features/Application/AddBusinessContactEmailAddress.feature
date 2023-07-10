@@ -11,11 +11,11 @@ Scenario: Add contact email address
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   enter email address '<emailAddress>'
-	And   click on save and continue on contact email address page
+	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
@@ -30,11 +30,11 @@ Scenario: Verify error message for invalid contact email address
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   enter email address '<emailAddress>'
-	And   click on save and continue on contact email address page
+	And   click on save and continue
 	Then  verify error message '<errorMessage>' on contact email address page
 
 	Examples: 
@@ -49,11 +49,11 @@ Scenario: Verify error message for blank contact email address
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   enter email address '<emailAddress>'
-	And   click on save and continue on contact email address page
+	And   click on save and continue
 	Then  verify error message '<errorMessage>' on contact email address page
 
 	Examples: 
@@ -68,9 +68,9 @@ Scenario: Verify back link on contact email address page
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded
 
@@ -86,9 +86,9 @@ Scenario: Verify save and continue later on contact email address page
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   click save and continue later
 	Then  verify next page '<nextPage>' is loaded
 

@@ -23,11 +23,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement AddPointOfDestinationLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add another place of destination')]"));
         private By NumberOfEstablishments => By.XPath("//div[@class='govuk-summary-card']");
 
-        #endregion Page Objects
+        private IWebElement Chequebox => _driver.WaitForElement(By.XPath("//input[@id='TandCs']/.."));
 
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
         private IWebElement Cdate => _driver.WaitForElement(By.XPath("//p[contains(text(),'Date of declaration')]"));
+
+        #endregion Page Objects
 
         #region Page Methods
 
@@ -47,6 +49,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public string VerifyTandCDay()
         {
             return Cdate.Text;
+        }
+
+        public void ChequeBoxSelected()
+        {
+            Chequebox.Click();
         }
 
         #endregion Page Methods

@@ -3,7 +3,9 @@ Feature: Terms and Conditions
 
 Check Terms and conditions and Submit signup button
 
-Scenario: Check answers and submit sign up Button verification on GB points of establishment
+
+
+Scenario: Verify user positive flow to the  notification page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -19,37 +21,12 @@ Scenario: Check answers and submit sign up Button verification on GB points of e
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
-	And   confirm Sanitary and phytosanitary SPS assurance commitment
-	And   click on continue button
-
-	Examples: 
-	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                  |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Sanitary and phytosanitary |
-
-
-	
-Scenario: Verify user is on the Submit ReMoS Terms & Conditions Declaration  page
-	Given that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
-	Then  verify eligibility task status as 'COMPLETED'
-	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	Then  user verify the business name status 'COMPLETED'
-	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
-	Then  user verify the business contact details status 'COMPLETED'
-	When  complete contact person Authorised Signatory with Yes Authorisation
-	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
-	And   click on Check answers and submit sign up
-	And   verify next page '<nextPage>' is loaded 
+	Then  click on the confirm  cheque box 
 	When  click on continue button
-	Then  verify next page '<nextPage1>' is loaded
-
 
 	Examples: 
 	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                  |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions       |
-
+	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and Conditions       |
 
 Scenario: Verify clicking on backlink on  Submit ReMoS Terms & Conditions Declaration  page navigated to Check your answer page 
 	Given that I navigate to the NI GC application
@@ -73,7 +50,7 @@ Scenario: Verify clicking on backlink on  Submit ReMoS Terms & Conditions Declar
 
 	Examples: 
 	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                      |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions           |
+	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and Conditions           |
 
 
 	
@@ -100,7 +77,7 @@ Scenario: Verify error message on Submit ReMoS Terms & Conditions Declaration  p
 
 	Examples: 
 	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |            errorMessage                                             |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | confirm that you have understood the guidance and regulations       |
+	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and Conditions | Confirm that the above requirements will be met       |
 
 
 		

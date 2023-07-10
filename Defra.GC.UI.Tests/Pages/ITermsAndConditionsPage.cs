@@ -7,5 +7,7 @@
         public bool VerifyTandCsErrorsMessage(string errorMessage);
 
         public string VerifyTandCDay();
+
+        public void ChequeBoxSelected();
     }
 }

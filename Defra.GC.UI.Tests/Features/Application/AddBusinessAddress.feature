@@ -11,9 +11,9 @@ Scenario Outline: Add Business Address
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
-	Then  click on save and continue on Business Name page
+	Then  click on save and continue
 	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	Then  click on save and continue on Address page
+	Then  click on save and continue
 	And   user verify the business name status 'COMPLETED'
 
 	Examples: 
@@ -27,9 +27,9 @@ Scenario Outline: Verify the error message when user do not select the address f
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
-	Then  click on save and continue on Business Name page
+	Then  click on save and continue
 	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	Then  click on save and continue on Address page
+	Then  click on save and continue
 	And   user verifies address error message
 	| Key         | Value				  |
 	| Adddress    | Enter address line 1. |
@@ -47,9 +47,9 @@ Scenario: Verify error message for invalid address data
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
-	Then  click on save and continue on Business Name page
+	Then  click on save and continue
 	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	Then  click on save and continue on Address page
+	Then  click on save and continue
 	And   user verifies invalid error message for address data
 	| Key             | Value                                                                                |
 	| Adddress Line 1 | Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (').   |
@@ -66,8 +66,8 @@ Scenario Outline: Verify back button is navigated to tasklist page
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
-	Then  click on save and continue on Business Name page
-	When  user clicks back button Business address page
+	Then  click on save and continue
+	When  click on back link
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Country | FBONumber | nextPage |Business name    |

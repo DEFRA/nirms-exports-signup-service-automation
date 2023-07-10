@@ -6,6 +6,8 @@
 
         public void CompleteContactPersonAuthorisedSignatoryWithYes();
 
+        public void EditAuthorisedSignatoryToNo(string authorisation);
+
         public void SelectAuthorisedSignatory(string authorisation);
 
         public bool VerifyErrorMessageOnAuthorisedPage(string erromessage);

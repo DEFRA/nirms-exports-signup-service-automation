@@ -2,11 +2,6 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -23,6 +18,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
         public IWebElement CheckAnswersSubmitSignUpLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check answers and submit sign up')]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
+        private IWebElement CheckAnswersStatus => _driver.WaitForElement(By.Id("complete_submit"));
 
         #endregion Page Objects
 
@@ -34,6 +30,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor.ExecuteScript("arguments[0].click();", CheckAnswersSubmitSignUpLink);
             return PageHeading.Text.Contains("Check your answers");
         }
+
+        public bool VerifyCheckAnswersAndSubmitSignUpStatus(string status)
+        {
+            return CheckAnswersStatus.Text.Contains(status);
+        }
+
+        public bool VerifyCheckAnswersAndSubmitSignUpLinkStatus()
+        {
+            return CheckAnswersSubmitSignUpLink.Enabled;
+        }
+
         #endregion Page Methods
     }
 }

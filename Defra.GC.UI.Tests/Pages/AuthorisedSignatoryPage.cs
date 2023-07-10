@@ -2,7 +2,6 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
-using System.Net.Mail;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -27,6 +26,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbNatureSubmit')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
+        private IWebElement AuthorisedSignatoryStatus => _driver.WaitForElement(By.Id("authorised-signatory-details"));
+
 
         #endregion Page Objects
 
@@ -71,6 +72,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             applicationPage.ClickOnSaveAndContinue();
         }
 
+        public bool VerifyTheAuthorisedSignatoryStatus(string status)
+        {
+            return AuthorisedSignatoryStatus.Text.Contains(status);
+        }
         #endregion Page Methods
     }
 }

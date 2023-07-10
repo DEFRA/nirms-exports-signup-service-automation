@@ -43,5 +43,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(authorisedSignatoryPage.VerifyErrorMessageOnAuthorisedPage(errorMessage), "Invalid error on Authorised  page");
         }
+
+        [Then(@"user verify the Authorised Signatory status '([^']*)'")]
+        public void ThenUserVerifyTheAuthorisedSignatoryStatus(string status)
+        {
+            Assert.True(authorisedSignatoryPage.VerifyTheAuthorisedSignatoryStatus(status), "Authorised Signatory Status not matching");
+        }
     }
 }

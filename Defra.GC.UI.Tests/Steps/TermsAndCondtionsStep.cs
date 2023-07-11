@@ -20,18 +20,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
         }
 
-        //[Then(@"verify total '([^']*)' establishment addresses added")]
-        //public void ThenVerifyTotalEstablishmentAddressesAdded(string TotalNum)
-        //{
-        //    Assert.True(checkYourAnswersPage.VerifyTotalEstablishmentAddressesAdded(TotalNum), "Total Establishment address count not matching");
-        //}
-
-        //[When(@"click on remove link on estblishment '([^']*)' on check answers page")]
-        //public void WhenClickOnRemoveLinkOnEstblishmentOnCheckAnswersPage(string EstablishmentName)
-        //{
-        //    checkYourAnswersPage.ClickOnRemoveLinkOnEstblishmentOnCheckAnswersPage(EstablishmentName);
-        //}
-
         [Then(@"verify error message '([^']*)' on ReMoS Terms & Conditions Declaration  page")]
         public void ThenVerifyErrorMessageOnReMoSTermsConditionsDeclarationPage(string errorMessage)
         {

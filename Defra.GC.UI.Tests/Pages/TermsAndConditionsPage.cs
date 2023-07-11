@@ -19,9 +19,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
 
         private IWebElement ConfirmSanitaryAndPhytosanitaryBox => _driver.WaitForElementExists(By.Id("AssuranceCommitment"));
-        private IWebElement AddPointOfDepartureLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add another place of dispatch')]"));
-        private IWebElement AddPointOfDestinationLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add another place of destination')]"));
-        private By NumberOfEstablishments => By.XPath("//div[@class='govuk-summary-card']");
 
         private IWebElement Chequebox => _driver.WaitForElement(By.XPath("//input[@id='TandCs']/.."));
 
@@ -32,14 +29,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #endregion Page Objects
 
         #region Page Methods
-
-        public void ConfirmSanitaryAndPhytosanitary()
-        {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", ConfirmSanitaryAndPhytosanitaryBox);
-            //IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-            //jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
-        }
 
         public bool VerifyTandCsErrorsMessage(string errorMessage)
         {

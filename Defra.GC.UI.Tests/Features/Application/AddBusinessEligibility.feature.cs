@@ -274,13 +274,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on Assurance is going country selecting page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", null)]
-        public void VerifyBackLinkOnAssuranceIsGoingCountrySelectingPage(string logininfo, string country, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "England", "Where is your business based?", null)]
+        public void VerifyBackLinkOnAssuranceIsGoingCountrySelectingPage(string logininfo, string country, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Country", country);
+            argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify back link on Assurance is going country selecting page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 59
 this.ScenarioInitialize(scenarioInfo);
@@ -305,7 +306,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 64
- testRunner.Then("user  navigates to the Country selection page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

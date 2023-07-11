@@ -177,7 +177,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("click on the confirm  check box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 23
- testRunner.When("click on continue button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -239,7 +239,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 30
- testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 31
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -287,14 +287,14 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 46
-  testRunner.And(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify error message on Submit ReMoS Terms & Conditions Declaration  page")]
+        [NUnit.Framework.DescriptionAttribute("Verify error message on Submit ReMoS Terms & Conditions Declaration page")]
         [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "Confirm that the above requirements will be met", null)]
         public void VerifyErrorMessageOnSubmitReMoSTermsConditionsDeclarationPage(
                     string logininfo, 
@@ -337,7 +337,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("nextPage", nextPage);
             argumentsOfScenario.Add("nextPage1", nextPage1);
             argumentsOfScenario.Add("errorMessage", errorMessage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message on Submit ReMoS Terms & Conditions Declaration  page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message on Submit ReMoS Terms & Conditions Declaration page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 52
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -394,7 +394,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 68
- testRunner.Then("click on continue button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 69
  testRunner.Then(string.Format("verify error message \'{0}\' on ReMoS Terms & Conditions Declaration  page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

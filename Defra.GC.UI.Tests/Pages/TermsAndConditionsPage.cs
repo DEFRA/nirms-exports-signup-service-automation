@@ -1,6 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
@@ -25,6 +26,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
         private IWebElement Cdate => _driver.WaitForElement(By.XPath("//p[contains(text(),'Date of declaration')]"));
+        private IWebElement SubmitSignUpButton => _driver.WaitForElement(By.XPath("//button[@id='button-assuranceSubmit']"));
 
         #endregion Page Objects
 
@@ -35,14 +37,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ErrorMessage.Text.Contains(errorMessage);
         }
 
-        public string VerifyTandCDay()
+        public bool VerifyTandCDate()
         {
-            return Cdate.Text;
+            string sDate = DateTime.Now.ToString("dd MMMM yyyy");
+            return Cdate.Text.Contains(sDate);
         }
 
         public void CheckBoxSelected()
         {
             CheckBox.Click();
+        }
+
+        public void ClickOnSubmitSignUp()
+        {
+            SubmitSignUpButton.Click();
         }
 
         #endregion Page Methods

@@ -20,7 +20,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
 	Then  click on the confirm  check box
-	Then  click on continue button
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                  |
@@ -43,7 +43,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
 	Then  click on the confirm  check box
-	Then  click on continue button
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           |nextPage1                  |
@@ -131,7 +131,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Then  verify more than 1 establishment addresses added on Check your answers page
 	When  click on continue button
 	Then  click on the confirm  check box
-	Then  click on continue button
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                  |
@@ -159,7 +159,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Then  verify more than 1 establishment addresses added on Check your answers page
 	When  click on continue button
     Then  click on the confirm  check box
-	Then  click on continue button
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           |nextPage1                  |

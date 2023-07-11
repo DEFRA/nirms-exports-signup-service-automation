@@ -4,8 +4,10 @@
     {
         public bool VerifyTandCsErrorsMessage(string errorMessage);
 
-        public string VerifyTandCDay();
+        public bool VerifyTandCDate();
 
         public void CheckBoxSelected();
+
+        public void ClickOnSubmitSignUp();
     }
 }

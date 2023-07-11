@@ -32,23 +32,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             TandCsPage.CheckBoxSelected();
         }
 
+        [Then(@"click on submit sign up")]
+        public void ThenClickOnSubmitSignUp()
+        {
+            TandCsPage.ClickOnSubmitSignUp();
+        }
+
         [Then(@"verify the current date is shows on ReMoS Terms & Conditions Declaration  page")]
         public void ThenVerifyTheCurrentDateIsShowsOnReMoSTermsConditionsDeclarationPage()
         {
-            Thread.Sleep(10000);
-            String sDate = DateTime.Now.ToString();
-            DateTime datevalue = (Convert.ToDateTime(sDate.ToString()));
-
-            String dy = datevalue.Day.ToString();
-            String yy = datevalue.Year.ToString();
-
-            DateTime dt = DateTime.Now;
-
-            Assert.True(TandCsPage.VerifyTandCDay().Contains(dy), "T and C's error not matching matching");
-
-            Assert.True(TandCsPage.VerifyTandCDay().Contains(dt.ToString("MMMM")), "T and C's error not matching matching");
-
-            Assert.True(TandCsPage.VerifyTandCDay().Contains(yy), "T and C's error not matching matching");
+            Assert.True(TandCsPage.VerifyTandCDate(), "T and C's date not matching ");
         }
     }
 }

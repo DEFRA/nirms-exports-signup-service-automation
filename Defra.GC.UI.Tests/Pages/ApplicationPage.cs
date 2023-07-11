@@ -19,8 +19,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SaveAndContinueLater => _driver.WaitForElement(By.XPath("//a[contains(text(),'Save and continue later')]"));
         private IWebElement SignUPTaskPage => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
-        //private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Continue']"));
-
         private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Continue'] | //button[@id='button-assuranceSubmit'] "));
 
         #endregion Page Objects

@@ -6,6 +6,6 @@
 
         public string VerifyTandCDay();
 
-        public void ChequeBoxSelected();
+        public void CheckBoxSelected();
     }
 }

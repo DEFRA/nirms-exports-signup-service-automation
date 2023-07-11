@@ -19,7 +19,7 @@ Scenario: Verify Terms and conditions page loaded
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
-	Then  click on the confirm  cheque box 
+	Then  click on the confirm  check box
 	When  click on continue button
 
 	Examples: 

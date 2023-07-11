@@ -26,10 +26,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(TandCsPage.VerifyTandCsErrorsMessage(errorMessage), "T and C's error not matching matching");
         }
 
-        [Then(@"click on the confirm  cheque box")]
-        public void ThenClickOnTheConfirmChequeBox()
+        [Then(@"click on the confirm  check box")]
+        public void ThenClickOnTheConfirmCheckBox()
         {
-            TandCsPage.ChequeBoxSelected();
+            TandCsPage.CheckBoxSelected();
         }
 
         [Then(@"verify the current date is shows on ReMoS Terms & Conditions Declaration  page")]

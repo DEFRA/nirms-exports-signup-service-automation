@@ -11,7 +11,7 @@ Scenario: Add business contact name
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
@@ -26,7 +26,7 @@ Scenario: Verify error message for invalid business contact name
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	Then  verify error message '<errorMessage>' on business contact name page 
 
 	Examples: 
@@ -41,7 +41,7 @@ Scenario: Verify error message for blank business contact name
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	Then  verify error message '<errorMessage>' on business contact name page
 
 	Examples: 

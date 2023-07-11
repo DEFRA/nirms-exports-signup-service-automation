@@ -30,5 +30,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(taskListPage.ClickOnCheckAnswersAndSubmitSignUp(), "Check Answers And Submit SignUp page not loaded");
         }
 
+        [Then(@"verify Check answers and submit sign up status '([^']*)'")]
+        public void ThenVerifyCheckAnswersAndSubmitSignUpStatus(string status)
+        {
+            Assert.True(taskListPage.VerifyCheckAnswersAndSubmitSignUpStatus(status), "Check Answers And Submit SignUp status not matching");
+        }
+
+        [Then(@"verify Check answers and submit sign up link is enabled")]
+        public void ThenVerifyCheckAnswersAndSubmitSignUpLink()
+        {
+            Assert.True(taskListPage.VerifyCheckAnswersAndSubmitSignUpLinkStatus(), "Check Answers And Submit SignUp link is not enabled");
+        }
+
     }
 }

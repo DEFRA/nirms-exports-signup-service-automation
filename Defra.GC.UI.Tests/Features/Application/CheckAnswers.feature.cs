@@ -303,6 +303,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Contact telephone number", "01632 960 999", null)]
         [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Address", "ChangedAddress", null)]
         [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Email address", "Changed@address.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Contact person is the Authorised Signatory", "No", null)]
         public void EditCheckAnswersForGBRetailMovementSchemeSignUp(
                     string logininfo, 
                     string country, 
@@ -410,6 +411,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "Belfast", "Northern Ireland", "Contact telephone number", "01632 960 999", null)]
         [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "Belfast", "Northern Ireland", "Address", "ChangedAddress", null)]
         [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "Belfast", "Northern Ireland", "Email address", "Changed@Address.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "Belfast", "Northern Ireland", "Contact person is the Authorised Signatory", "No", null)]
         public void EditCheckAnswersForNorthernIrelandRetailMovementSchemeSignUp(
                     string logininfo, 
                     string country, 

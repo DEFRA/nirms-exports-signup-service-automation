@@ -10,19 +10,19 @@ Scenario: Add Authorised Signatory name
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   enter email address '<emailAddress>'
-	And   click on save and continue on contact email address page
+	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue on Contact Number page
+	And   click on save and continue
 	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
-	Then  click on save and continue on Authorised signatory Enter Name page
+	Then  click on save and continue
 	And   verify next page '<nextPage>' is loaded 
 
 	
@@ -39,19 +39,19 @@ Scenario: Verify error message for invalid Authorised Signatory name
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   enter email address '<emailAddress>'
-	And   click on save and continue on contact email address page
+	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue on Contact Number page
+	And   click on save and continue
 	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
-	Then  click on save and continue on Authorised signatory Enter Name page
+	Then click on save and continue
 	Then  user verifies the '<errorMsg>' error message for Authorised Signatory name
 
     Examples:    
@@ -66,19 +66,19 @@ Scenario Outline:  Verify error message for blank Authorised Signatory name
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   enter email address '<emailAddress>'
-	And   click on save and continue on contact email address page
+	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue on Contact Number page
+	And   click on save and continue
 	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
-	Then  click on save and continue on Authorised signatory Enter Name page
+	Then  click on save and continue
 	Then  user verifies the '<errorMsg>' error message for Authorised Signatory name
 
     Examples:    
@@ -93,13 +93,13 @@ Given that I navigate to the NI GC application
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
-	And   click on save and continue on business contact name page
+	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
-	And   click on save and continue on contact position page
+	And   click on save and continue
 	And   enter email address '<emailAddress>'
-	And   click on save and continue on contact email address page
+	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue on Contact Number page
+	And   click on save and continue
 	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory

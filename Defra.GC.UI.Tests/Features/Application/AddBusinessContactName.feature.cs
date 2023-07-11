@@ -124,7 +124,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter business contact person \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
- testRunner.And("click on save and continue on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -175,7 +175,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter business contact person \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 29
- testRunner.And("click on save and continue on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 30
  testRunner.Then(string.Format("verify error message \'{0}\' on business contact name page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -226,7 +226,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("enter business contact person \'{0}\'", contactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 44
- testRunner.And("click on save and continue on business contact name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 45
  testRunner.Then(string.Format("verify error message \'{0}\' on business contact name page", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

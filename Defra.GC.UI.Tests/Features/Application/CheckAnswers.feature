@@ -19,12 +19,12 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
-	And   confirm Sanitary and phytosanitary SPS assurance commitment
-	And   click on continue button
+	Then  click on the confirm  cheque box 
+	Then  click on continue button
 
 	Examples: 
 	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                  |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Sanitary and phytosanitary |
+	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions       |
 
 Scenario: Check answers and submit sign up link verification on NI points of establishment
 	Given that I navigate to the NI GC application
@@ -42,12 +42,12 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
-	And   confirm Sanitary and phytosanitary SPS assurance commitment
-	And   click on continue button
+	Then  click on the confirm  cheque box 
+	Then  click on continue button
 
 	Examples: 
 	| logininfo | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           |nextPage1                  |
-	| test      | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | Belfast | Northern Ireland | Check your answers |Sanitary and phytosanitary |
+	| test      | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | Belfast | Northern Ireland | Check your answers |Terms and conditions       |
 
 
 	Scenario: Edit Check answers for GB Retail Movement Scheme sign up
@@ -130,8 +130,8 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	And   click on Check answers and submit sign up
 	Then  verify more than 1 establishment addresses added on Check your answers page
 	When  click on continue button
-	And   confirm Sanitary and phytosanitary SPS assurance commitment
-	And   click on continue button
+	Then  click on the confirm  cheque box 
+	Then  click on continue button
 
 	Examples: 
 	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                  |
@@ -158,8 +158,8 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	And   click on Check answers and submit sign up
 	Then  verify more than 1 establishment addresses added on Check your answers page
 	When  click on continue button
-	And   confirm Sanitary and phytosanitary SPS assurance commitment
-	And   click on continue button
+    Then  click on the confirm  cheque box 
+	Then  click on continue button
 
 	Examples: 
 	| logininfo | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           |nextPage1                  |

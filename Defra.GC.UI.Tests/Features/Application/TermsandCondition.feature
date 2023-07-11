@@ -1,7 +1,7 @@
 ﻿@Regression
 Feature: Terms and Conditions
 
-Check Terms and conditions and Submit signup button
+Check Terms and conditions and  clicking on the Submit signup button
 
 Scenario: Verify Terms and conditions page loaded 
 	Given that I navigate to the NI GC application

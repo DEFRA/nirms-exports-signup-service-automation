@@ -61,11 +61,11 @@ Scenario Outline: Verify back link on Assurance is going country selecting page
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>'
 	And   click on back link
-	Then  user  navigates to the Country selection page
+	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-    | logininfo | Country | 
-    | test      | England |    
+    | logininfo | Country | nextPage                      |
+    | test      | England | Where is your business based? |
 
 Scenario Outline: Verify error message for invalid FBO with Assurance
 	Given that I navigate to the NI GC application

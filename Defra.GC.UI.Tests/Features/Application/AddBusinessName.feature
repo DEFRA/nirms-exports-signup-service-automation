@@ -11,7 +11,7 @@ Scenario Outline:  Add business name
 	Then verify eligibility task status as 'COMPLETED'
 	When user is in Business name page
     And  user enters Business name  '<Business name>'
-	Then click on save and continue on Business Name page
+	Then click on save and continue
 	And  verify next page '<nextPage>' is loaded 
 
  Examples:  
@@ -26,7 +26,7 @@ Scenario Outline: Verify error message for invalid characters business name
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
-	Then  click on save and continue on Business Name page
+	Then  click on save and continue
 	Then  user verifies the "Enter your business name using only letters, numbers, and special characters -_./()&" error message for Business name
 
     Examples:   

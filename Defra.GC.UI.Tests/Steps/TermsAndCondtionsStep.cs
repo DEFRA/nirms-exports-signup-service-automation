@@ -26,8 +26,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(TandCsPage.VerifyTandCsErrorsMessage(errorMessage), "T and C's error not matching matching");
         }
 
-        [Then(@"click on the confirm  check box")]
-        public void ThenClickOnTheConfirmCheckBox()
+        [Then(@"click on the confirm check box on Terms and conditions page")]
+        public void ThenClickOnTheConfirmCheckBoxOnTermsAndConditionsPage()
         {
             TandCsPage.CheckBoxSelected();
         }

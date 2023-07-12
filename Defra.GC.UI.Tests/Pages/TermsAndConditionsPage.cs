@@ -1,8 +1,10 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.UI.Framework.Driver;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -21,7 +23,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement ConfirmSanitaryAndPhytosanitaryBox => _driver.WaitForElementExists(By.Id("AssuranceCommitment"));
 
-        private IWebElement CheckBox => _driver.WaitForElement(By.XPath("//input[@id='TandCs']/.."));
+        private By CheckBox = By.CssSelector("#TandCs");
 
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
@@ -45,7 +47,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CheckBoxSelected()
         {
-            CheckBox.Click();
+            _driver.FindElement(CheckBox).Click();
         }
 
         public void ClickOnSubmitSignUp()

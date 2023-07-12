@@ -1,9 +1,7 @@
 ﻿@Regression
-Feature: Receive Notice of Signup Request
-
+Feature: Receive Notice after RequestSubmission
 Receive Notice of Signup Request
-
-Scenario: Receive Notice of  completion of Signup Request 
+Scenario: Receive Notice of after completion of Signup Request 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -19,13 +17,13 @@ Scenario: Receive Notice of  completion of Signup Request
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
-	Then  click on the confirm  check box
+	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
 	Then  verify  '<Message>' on completed sign up page
 
 	Examples: 
-	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                           | lastPage |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |          |
+	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              | 
+	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |          
 
 
 Scenario:  Verify outcome message  after completion of Signup Request 
@@ -44,7 +42,7 @@ Scenario:  Verify outcome message  after completion of Signup Request
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
-    Then  click on the confirm  check box
+   Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
 	Then  verify  '<OutcomeMessage>' on completed sign up page
 

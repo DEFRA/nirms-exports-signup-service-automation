@@ -28,8 +28,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyNotificationMessage(string NotifyMessage)
         {
-            Thread.Sleep(10000);
-            Console.WriteLine("------" + PageHeadingNotification.Text);
             return PageHeadingNotification.Text.Contains(NotifyMessage);
         }
 

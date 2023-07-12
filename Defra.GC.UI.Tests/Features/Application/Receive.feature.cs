@@ -77,8 +77,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Receive Notice of  completion of Signup Request")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and Conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Sch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+            "ail Movement Scheme", "", null)]
         public void ReceiveNoticeOfCompletionOfSignupRequest(
                     string logininfo, 
                     string country, 
@@ -98,6 +98,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
                     string nextPage, 
                     string nextPage1, 
                     string message, 
+                    string lastPage, 
                     string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -120,6 +121,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             argumentsOfScenario.Add("nextPage", nextPage);
             argumentsOfScenario.Add("nextPage1", nextPage1);
             argumentsOfScenario.Add("Message", message);
+            argumentsOfScenario.Add("lastPage", lastPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Receive Notice of  completion of Signup Request", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
@@ -177,10 +179,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 22
- testRunner.And("confirm Sanitary and phytosanitary SPS assurance commitment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("click on the confirm  check box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 23
- testRunner.And("click on continue button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 24
  testRunner.Then(string.Format("verify  \'{0}\' on  completed sign up page", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -191,7 +193,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Receive Notice of completion of Signup Request and outcome message")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and Conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Sch", "We will review your sign up request and email you", null)]
         public void ReceiveNoticeOfCompletionOfSignupRequestAndOutcomeMessage(
                     string logininfo, 
@@ -238,7 +240,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("OutcomeMessage", outcomeMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Receive Notice of completion of Signup Request and outcome message", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 31
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -292,8 +294,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 46
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 47
+    testRunner.Then("click on the confirm  check box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
 #line 48
- testRunner.And("click on continue button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 49
  testRunner.Then(string.Format("verify  \'{0}\' on completed sign up page", outcomeMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

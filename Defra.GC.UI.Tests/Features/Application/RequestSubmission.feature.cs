@@ -30,7 +30,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         private static string[] featureTags = new string[] {
                 "Regression"};
         
-#line 1 "Receive.feature"
+#line 1 "RequestSubmission.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -78,7 +78,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Receive Notice of after completion of Signup Request")]
         [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Scheme", "", null)]
+            "ail Movement Scheme", null)]
         public void ReceiveNoticeOfAfterCompletionOfSignupRequest(
                     string logininfo, 
                     string country, 
@@ -98,7 +98,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
                     string nextPage, 
                     string nextPage1, 
                     string message, 
-                    string lastPage, 
                     string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -121,7 +120,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             argumentsOfScenario.Add("nextPage", nextPage);
             argumentsOfScenario.Add("nextPage1", nextPage1);
             argumentsOfScenario.Add("Message", message);
-            argumentsOfScenario.Add("lastPage", lastPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Receive Notice of after completion of Signup Request", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
@@ -179,15 +177,12 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 20
- testRunner.Then("click on the confirm  check box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 21
  testRunner.Then("click on the confirm check box on Terms and conditions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 22
+#line 21
  testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 23
+#line 22
  testRunner.Then(string.Format("verify  \'{0}\' on completed sign up page", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -196,8 +191,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify outcome message  after completion of Signup Request")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Sch", "We will review your sign up request and email you", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "We will review your sign up request and email you", null)]
         public void VerifyOutcomeMessageAfterCompletionOfSignupRequest(
                     string logininfo, 
                     string country, 
@@ -216,7 +210,6 @@ this.ScenarioInitialize(scenarioInfo);
                     string estCountry, 
                     string nextPage, 
                     string nextPage1, 
-                    string message, 
                     string outcomeMessage, 
                     string[] exampleTags)
         {
@@ -239,10 +232,9 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("estCountry", estCountry);
             argumentsOfScenario.Add("nextPage", nextPage);
             argumentsOfScenario.Add("nextPage1", nextPage1);
-            argumentsOfScenario.Add("Message", message);
             argumentsOfScenario.Add("OutcomeMessage", outcomeMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify outcome message  after completion of Signup Request", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 30
+#line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -252,59 +244,59 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 31
+#line 30
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 32
+#line 31
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 32
  testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\'", country, fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 34
+#line 33
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 35
+#line 34
  testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 36
+#line 35
  testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 37
+#line 36
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 38
+#line 37
  testRunner.Then("user verify the business contact details status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 39
+#line 38
  testRunner.When("complete contact person Authorised Signatory with Yes Authorisation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 40
+#line 39
  testRunner.When(string.Format("complete Points of departure with \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\'", establishmentName, addressLine1, estCity, estCountry, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 41
+#line 40
  testRunner.Then("user verify the Points of departure status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 42
+#line 41
  testRunner.And("click on Check answers and submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 43
+#line 42
  testRunner.And(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 44
+#line 43
  testRunner.When("click on continue button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 45
+#line 44
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 46
-    testRunner.Then("click on the confirm  check box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 45
+    testRunner.Then("click on the confirm check box on Terms and conditions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 47
+#line 46
  testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 48
- testRunner.Then(string.Format("verify  \'{0}\' on completed sign up page", outcomeMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 47
+ testRunner.Then(string.Format("verify  \'{0}\' outcome of my request submission page", outcomeMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

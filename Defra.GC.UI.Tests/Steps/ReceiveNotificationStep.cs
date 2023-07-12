@@ -23,14 +23,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
         }
 
-        [Then(@"verify  '([^']*)' on  completed sign up page")]
+        [Then(@"verify  '([^']*)' on completed sign up page")]
         public void ThenVerifyOnCompletedSignUpPage(string message)
         {
             Assert.True(CompletionPage.VerifyNotificationMessage(message), "Mismatching the content on the completion page");
         }
 
-        [Then(@"verify  '([^']*)' on completed sign up page")]
-        public void ThenVerifyOnCompletedOutcomeSignUpPage(string message)
+        [Then(@"verify  '([^']*)' outcome of my request submission page")]
+        public void ThenVerifyOutcomeOfMyRequestSubmissionPage(string message)
         {
             Assert.True(CompletionPage.VerifyNotificationOutcomeMessage(message), "Mismatching the content on the completion page");
         }

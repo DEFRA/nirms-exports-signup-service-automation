@@ -12,6 +12,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IBusinessContactEmailAddressPage? ContactEmailAddressPage => _objectContainer.IsRegistered<IBusinessContactEmailAddressPage>() ? _objectContainer.Resolve<IBusinessContactEmailAddressPage>() : null;
         private IBusinessContactPositionPage? ContactPositionPage => _objectContainer.IsRegistered<IBusinessContactPositionPage>() ? _objectContainer.Resolve<IBusinessContactPositionPage>() : null;
         private IBusinessContactTelephoneNumberPage? ContactTelephoneNumberPage => _objectContainer.IsRegistered<IBusinessContactTelephoneNumberPage>() ? _objectContainer.Resolve<IBusinessContactTelephoneNumberPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #region Page Objects
 
@@ -42,7 +43,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ContactEmailAddressPage.EnterEmailAddress(contactEmail);
             ContactEmailAddressPage.ClickOnSaveAndContinue();
             ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
-            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public bool VerifyTheBusinessContactDetailsStatus(string status)
@@ -76,31 +77,35 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditBusinessContactName(string contactName)
         {
             EnterBusinessContactName(contactName);
-            ClickOnSaveAndContinue();
-            ContactPositionPage.ClickOnSaveAndContinue();
-            ContactEmailAddressPage.ClickOnSaveAndContinue();
-            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
+            //ClickOnSaveAndContinue();
+            //ContactPositionPage.ClickOnSaveAndContinue();
+            //ContactEmailAddressPage.ClickOnSaveAndContinue();
+            //ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         public void EditBusinessContactPosition(string contactPosition)
         {
             ContactPositionPage.EnterBusinessContactPosition(contactPosition);
             ContactPositionPage.ClickOnSaveAndContinue();
-            ContactEmailAddressPage.ClickOnSaveAndContinue();
-            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
+            //ContactEmailAddressPage.ClickOnSaveAndContinue();
+            //ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         public void EditBusinessContactEmailAddress(string contactEmail)
         {
             ContactEmailAddressPage.EnterEmailAddress(contactEmail);
-            ContactEmailAddressPage.ClickOnSaveAndContinue();
-            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
+            //ContactEmailAddressPage.ClickOnSaveAndContinue();
+            //ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         public void EditBusinessContactTelephoneNumber(string contactTelephone)
         {
             ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
-            ContactTelephoneNumberPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
+            //ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         #endregion Page Methods

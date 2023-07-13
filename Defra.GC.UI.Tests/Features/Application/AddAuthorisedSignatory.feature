@@ -1,4 +1,5 @@
-﻿Feature: AddAuthorisedSignatory
+﻿@Regression
+Feature: AddAuthorisedSignatory
 
 Add Authorised Signatory
 

@@ -9,6 +9,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #region Page Objects
 
@@ -68,6 +69,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             AddEstablishmentEmailAddress("test@test.com");
             ClickOnIHaveFinishedAddingPointsOfDeparture();
+            applicationPage.ClickOnSaveAndContinue();
         }
 
         public bool VerifyThePointsOfDepartureStatus(string status)
@@ -158,8 +160,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollTo(0,3000)", "");
             Thread.Sleep(1000);
             _driver.ClickRadioButton("No, I have finished adding places");
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
+            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            //jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
         public bool VerifyMoreThan1EstablishmentAddressesAdded()

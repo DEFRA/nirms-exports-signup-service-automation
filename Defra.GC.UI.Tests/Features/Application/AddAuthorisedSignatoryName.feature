@@ -17,10 +17,8 @@ Scenario: Add Authorised Signatory name
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
-	And   select 'No' to the contact person is the Authorised Signatory
-	When  user is on Authorised Signatory Enter name page
+	When  select 'No' to the contact person is the Authorised Signatory
+	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
 	And   verify next page '<nextPage>' is loaded 
@@ -46,10 +44,8 @@ Scenario: Verify error message for invalid Authorised Signatory name
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
-	And   select 'No' to the contact person is the Authorised Signatory
-	When  user is on Authorised Signatory Enter name page
+	When  select 'No' to the contact person is the Authorised Signatory
+	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then click on save and continue
 	Then  user verifies the '<errorMsg>' error message for Authorised Signatory name
@@ -73,10 +69,8 @@ Scenario Outline:  Verify error message for blank Authorised Signatory name
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
-	And   select 'No' to the contact person is the Authorised Signatory
-	When  user is on Authorised Signatory Enter name page
+	When  select 'No' to the contact person is the Authorised Signatory
+	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
 	Then  user verifies the '<errorMsg>' error message for Authorised Signatory name
@@ -100,11 +94,9 @@ Given that I navigate to the NI GC application
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
-	And   select 'No' to the contact person is the Authorised Signatory
-	When  user is on Authorised Signatory Enter name page
-	When  click on back link
+	When  select 'No' to the contact person is the Authorised Signatory
+	And   user is on Authorised Signatory Enter name page
+	And   click on back link
 	Then  verify next page '<previousPage>' is loaded 
 
 Examples:

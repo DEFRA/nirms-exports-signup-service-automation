@@ -13,6 +13,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private readonly ScenarioContext _scenarioContext;
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
         private IPointOfDepartureEstablishmentPage? pointOfDepartureEstablishmentPage => _objectContainer.IsRegistered<IPointOfDepartureEstablishmentPage>() ? _objectContainer.Resolve<IPointOfDepartureEstablishmentPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         public PointOfDepartureEstablishmentSteps(ScenarioContext context, IObjectContainer container)
         {
@@ -126,6 +127,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void WhenClickOnIHaveFinishedAddingPointsOfDeparture()
         {
             pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
+            applicationPage.ClickOnSaveAndContinue();
         }
 
         [When(@"remove establishment address '([^']*)'")]

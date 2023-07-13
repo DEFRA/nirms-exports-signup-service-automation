@@ -18,10 +18,8 @@ Scenario: Add Authorised Signatory position
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
-	And   select 'No' to the contact person is the Authorised Signatory
-	When  user is on Authorised Signatory Enter name page
+	When  select 'No' to the contact person is the Authorised Signatory
+	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
 	Then  user enters '<Authposition>' position on Authorised signatory position page
@@ -47,7 +45,6 @@ Scenario: Verify error message for invalid authorised signatory position
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -74,9 +71,7 @@ Scenario: Verify error message for blank authorised signatory position
 	And   enter email address '<emailAddress>'
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
-	And  click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
+	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -103,8 +98,6 @@ Scenario: Verify back link on authorised signatory position page
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -133,8 +126,6 @@ Scenario: Verify save and continue later on authorised signatory position page
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild

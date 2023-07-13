@@ -10,6 +10,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
         private IPointOfDepartureEstablishmentPage? pointOfDepartureEstablishmentPage => _objectContainer.IsRegistered<IPointOfDepartureEstablishmentPage>() ? _objectContainer.Resolve<IPointOfDepartureEstablishmentPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #region Page Objects
 
@@ -56,6 +57,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
             pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
+            applicationPage.ClickOnSaveAndContinue();
         }
 
         public bool VerifyThePointsOfDestinationStatus(string status)

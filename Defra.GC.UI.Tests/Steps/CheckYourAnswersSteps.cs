@@ -1,6 +1,4 @@
-﻿
-
-using BoDi;
+﻿using BoDi;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;

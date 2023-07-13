@@ -43,6 +43,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectCountryToCompleteEligibility(string country, string FBONumber)
         {
+            _driver.ElementImplicitWait();
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();
             SelectFBONumberToCompleteEligibility(FBONumber);

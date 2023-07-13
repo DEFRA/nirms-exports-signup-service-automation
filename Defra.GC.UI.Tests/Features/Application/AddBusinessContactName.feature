@@ -59,20 +59,20 @@ Scenario: Verify back link on business contact name page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | nextPage                                                |
-	| test      | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |
+	| logininfo | Country | FBONumber | nextPage  |
+	| test      | England | testFBO   | Sign up   |
 
-@Ignore
-Scenario: Verify save and continue later on business contact name page
+Scenario: Verify save and return to dashboard on business contact name page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	Then  navigate to task list page
 	When  click on business contact details link
-	And   click save and continue later
+	And   enter business contact person '<contactName>'
+	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | nextPage                                                |
-	| test      | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |
+	| logininfo | Country | FBONumber | nextPage | contactName     |
+	| test      | England | testFBO   | Sign up  | testcontactName |

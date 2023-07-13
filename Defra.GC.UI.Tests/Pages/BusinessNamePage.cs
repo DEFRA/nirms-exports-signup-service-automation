@@ -1,11 +1,7 @@
 ﻿using BoDi;
-using Defra.UI.Framework.Driver;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-using Microsoft.VisualBasic;
-using System.Windows;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {

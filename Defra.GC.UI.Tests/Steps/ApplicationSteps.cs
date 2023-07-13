@@ -1,5 +1,4 @@
 ﻿using BoDi;
-using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -60,11 +59,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(applicationPage.VerifySignUpTaskListPageIsLoaded(), "Signup task list page not loaded");
         }
 
-        [When(@"click save and continue later")]
-        [Then(@"click save and continue later")]
-        public void ThenClickSaveAndContinueLater()
+        [When(@"click Save and return to dashboard")]
+        [Then(@"click Save and return to dashboard")]
+        public void ThenClickSaveAndreturnToDashboard()
         {
-            applicationPage.ClickSaveAndContinueLater();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
     }
 }

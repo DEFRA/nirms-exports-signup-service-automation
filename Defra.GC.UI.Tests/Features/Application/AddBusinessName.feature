@@ -59,16 +59,16 @@ Scenario Outline:  Verify user clicks on back button  and navigate
 	| logininfo | Country | FBONumber | nextPage                                                |
 	| test      | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |
 
-@ignore
-Scenario Outline:  Verify user clicks on save and continue later  and navigated to tasklist page 
+Scenario Outline:  Verify user clicks on save and return to dashboard and navigated to tasklist page 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
-	And   user clicks on Save and continue later link
+	And   user enters Business name  '<Business name>'
+	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber |nextPage                                                |
-	| test      | England | testFBO   |Sign up for the Northern Ireland Retail Movement Scheme |
+	| logininfo | Country | FBONumber | Business name    | nextPage                                                |
+	| test      | England | testFBO   | TestBusinessName | Sign up for the Northern Ireland Retail Movement Scheme |

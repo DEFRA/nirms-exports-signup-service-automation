@@ -17,7 +17,7 @@ Scenario: Add contact Telephone Number
 	And   enter email address '<emailAddress>'
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue
+	And   click Save and return to dashboard
 	Then  user verify the business contact details status 'COMPLETED'
 
 	Examples: 
@@ -86,8 +86,7 @@ Scenario: Verify back link on contact telephone number page
 	| logininfo | Country | FBONumber | contactName     |contactPosition |emailAddress  |nextPage       |
 	| test      | England | testFBO   | testContactName | testPosition   |test@test.com |Email address  |
 
-@Ignore
-Scenario: Verify save and continue later on contact telephone number page
+Scenario: Verify save and return to dashboard on contact telephone number page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -98,10 +97,11 @@ Scenario: Verify save and continue later on contact telephone number page
 	And   enter business contact position '<contactPosition>'
 	And   click on save and continue
 	And   enter email address '<emailAddress>'
-	And  click on save and continue
-	And   click save and continue later
+	And   click on save and continue
+	And   enter telephone number '<telephoneNumber>'
+	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     |contactPosition |emailAddress  |nextPage       |
-	| test      | England | testFBO   | testContactName | testPosition   |test@test.com |Email address  |
+	| logininfo | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage  | telephoneNumber |
+	| test      | England | testFBO   | testContactName | testPosition    | test@test.com | Sign up   | 01632 960 001   |

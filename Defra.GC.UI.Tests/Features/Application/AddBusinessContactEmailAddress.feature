@@ -78,8 +78,7 @@ Scenario: Verify back link on contact email address page
 	| logininfo | Country | FBONumber | contactName     |contactPosition |nextPage |
 	| test      | England | testFBO   | testContactName | testPosition   |Position |
 
-@Ignore
-Scenario: Verify save and continue later on contact email address page
+Scenario: Verify save and return to dashboard on contact email address page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -89,9 +88,10 @@ Scenario: Verify save and continue later on contact email address page
 	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
 	And   click on save and continue
-	And   click save and continue later
+	And   enter email address '<emailAddress>'
+	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     |contactPosition |nextPage |
-	| test      | England | testFBO   | testContactName | testPosition   |Position |
+	| logininfo | Country | FBONumber | contactName     | contactPosition | nextPage | emailAddress     |
+	| test      | England | testFBO   | testContactName | testPosition    | Sign up  | contact@test.com |

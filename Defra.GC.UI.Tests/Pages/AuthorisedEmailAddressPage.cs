@@ -1,8 +1,6 @@
 ﻿using BoDi;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-using System.Net.Mail;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {

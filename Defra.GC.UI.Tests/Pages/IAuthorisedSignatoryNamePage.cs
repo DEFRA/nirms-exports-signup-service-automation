@@ -9,5 +9,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnSaveAndContinue();
         public bool VerifyErrorMessageOnAuthorisedSignatoryNamePage(string errorMessage);
         public void ClickOnAuthorisedSignatoryBacklink();
+        public void EditAuthorisedSignatoryName(string name);
     }
-    }
+}

@@ -8,7 +8,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnSaveAndContinue();
         public bool ValidateInvalidErrorMessage(string errorMessage);
         public void ClickonBusinessBacklink();
-
+        public void EditAuthorisedSignatoryEmailAddress(string emailAddress);
 
     }
 }

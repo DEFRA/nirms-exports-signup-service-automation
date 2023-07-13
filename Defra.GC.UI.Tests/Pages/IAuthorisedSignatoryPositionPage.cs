@@ -9,5 +9,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyErrorMessageOnAuthSignatoryPositionPage(string errorMessage);
 
+        public void EditAuthorisedSignatoryPosition(string position);
+
     }
 }

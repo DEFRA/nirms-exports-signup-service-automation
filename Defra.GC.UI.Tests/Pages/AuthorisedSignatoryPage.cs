@@ -58,6 +58,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ErrorMessage.Text.Contains(errorMessage);
         }
 
+        public void CompleteContactPersonAuthorisedSignatoryWithNo()
+        {
+            ClickOnAuthorisedSignatoryLink();
+            EditAuthorisedSignatoryToNo("No");
+        }
+
         public void EditAuthorisedSignatoryToNo(string authorisation)
         {
             _driver.ClickRadioButton(authorisation);

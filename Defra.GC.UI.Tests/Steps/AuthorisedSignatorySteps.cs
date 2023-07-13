@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Net;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
@@ -48,6 +49,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenUserVerifyTheAuthorisedSignatoryStatus(string status)
         {
             Assert.True(authorisedSignatoryPage.VerifyTheAuthorisedSignatoryStatus(status), "Authorised Signatory Status not matching");
+        }
+
+        [When(@"complete contact person Authorised Signatory with No option")]
+        public void WhenCompleteContactPersonAuthorisedSignatoryWithNo()
+        {
+            authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithNo();
         }
     }
 }

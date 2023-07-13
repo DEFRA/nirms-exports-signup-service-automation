@@ -22,6 +22,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private ITaskListPage? taskListPage => _objectContainer.IsRegistered<ITaskListPage>() ? _objectContainer.Resolve<ITaskListPage>() : null;
         private IAuthorisedSignatoryPage? authorisedSignatoryPage => _objectContainer.IsRegistered<IAuthorisedSignatoryPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryPage>() : null;
         private IPointOfDepartureEstablishmentPage? pointOfDepartureEstablishmentPage => _objectContainer.IsRegistered<IPointOfDepartureEstablishmentPage>() ? _objectContainer.Resolve<IPointOfDepartureEstablishmentPage>() : null;
+        private IAuthorisedSignatoryNamePage? authorisedSignatoryNamePage => _objectContainer.IsRegistered<IAuthorisedSignatoryNamePage>() ? _objectContainer.Resolve<IAuthorisedSignatoryNamePage>() : null;
+        private IAuthorisedSignatoryPositionPage? authorisedSignatoryPositionPage => _objectContainer.IsRegistered<IAuthorisedSignatoryPositionPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryPositionPage>() : null;
+        private IAuthorisedSignatoryEmailAddressPage? authorisedSignatoryEmailPage => _objectContainer.IsRegistered<IAuthorisedSignatoryEmailAddressPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryEmailAddressPage>() : null;
 
         #region Page Objects
         private IWebElement ConfirmSanitaryAndPhytosanitaryBox => _driver.WaitForElementExists(By.Id("AssuranceCommitment"));
@@ -102,10 +105,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 {
                     authorisedSignatoryPage.SelectAuthorisedSignatory("Yes");
                 }
-                else 
+                else
                 {
                     authorisedSignatoryPage.EditAuthorisedSignatoryToNo("No");
                 }
+            }
+            else if (fieldName.Contains("Authorised Signatory name"))
+            {
+                authorisedSignatoryNamePage.EditAuthorisedSignatoryName(fieldValue);
+            }
+            else if (fieldName.Contains("Authorised Signatory position"))
+            {
+                authorisedSignatoryPositionPage.EditAuthorisedSignatoryPosition(fieldValue);
+            }
+            else if (fieldName.Contains("Authorised Signatory email address"))
+            {
+                authorisedSignatoryEmailPage.EditAuthorisedSignatoryEmailAddress(fieldValue);
             }
 
             taskListPage.ClickOnCheckAnswersAndSubmitSignUp();

@@ -35,9 +35,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterAuthEmailAddress(string emailAddress)
         {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + emailAddress + "')", EmailAddress);
-
+            EmailAddress.Clear();
+            EmailAddress.SendKeys(emailAddress);
         }
 
         public void ClickOnSaveAndContinue()
@@ -58,6 +57,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             BackLink.Click();
         }
 
+        public void EditAuthorisedSignatoryEmailAddress(string EmailAddress)
+        {
+            EnterAuthEmailAddress(EmailAddress);
+            ClickOnSaveAndContinue();
+        }
         #endregion Page Methods
     }
 }

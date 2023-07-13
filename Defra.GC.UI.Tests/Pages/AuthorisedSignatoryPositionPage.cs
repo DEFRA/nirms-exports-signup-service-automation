@@ -28,8 +28,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterAuthSignatoryPosition(string AuthSignPosition)
         {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + AuthSignPosition + "')", AuthPosition);
+            AuthPosition.Clear();
+            AuthPosition.SendKeys(AuthSignPosition);
         }
 
         public void ClickOnSaveAndContinue()
@@ -40,6 +40,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyErrorMessageOnAuthSignatoryPositionPage(string errorMessage)
         {
             return ErrorMessage.Text.Contains(errorMessage);
+        }
+
+        public void EditAuthorisedSignatoryPosition(string position)
+        {
+            EnterAuthSignatoryPosition(position);
+            ClickOnSaveAndContinue();
+            ClickOnSaveAndContinue();
         }
 
         #endregion

@@ -32,6 +32,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterFullName(string FullName)
         {
+            Fullname.Clear();
             Fullname.SendKeys(FullName);
         }
 
@@ -51,6 +52,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnAuthorisedSignatoryBacklink()
         {
             BackLink.Click();
+        }
+
+        public void EditAuthorisedSignatoryName(string FullName)
+        {
+            EnterFullName(FullName);
+            ClickOnSaveAndContinue();
+            ClickOnSaveAndContinue();
+            ClickOnSaveAndContinue();
         }
         #endregion Page Methods
     }

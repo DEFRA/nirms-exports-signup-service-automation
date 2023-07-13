@@ -45,5 +45,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(pointOfDestinationEstablishmentPage.VerifyAddAPointOfDeparturePage(), "Select Point Of Departure Page not loaded");
         }
+
+        [Then(@"verify duplicate establishment error message '([^']*)'")]
+        public void ThenVerifyDuplicateEstablishmentErrorMessage(string errorMessage)
+        {
+            Assert.True(pointOfDestinationEstablishmentPage.VerifyDuplicateEstablishmentErrorMessage(errorMessage), "Duplicate error message not matching");
+        }
+
     }
 }

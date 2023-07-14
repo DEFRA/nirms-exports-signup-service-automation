@@ -25,6 +25,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IAuthorisedSignatoryNamePage? authorisedSignatoryNamePage => _objectContainer.IsRegistered<IAuthorisedSignatoryNamePage>() ? _objectContainer.Resolve<IAuthorisedSignatoryNamePage>() : null;
         private IAuthorisedSignatoryPositionPage? authorisedSignatoryPositionPage => _objectContainer.IsRegistered<IAuthorisedSignatoryPositionPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryPositionPage>() : null;
         private IAuthorisedSignatoryEmailAddressPage? authorisedSignatoryEmailPage => _objectContainer.IsRegistered<IAuthorisedSignatoryEmailAddressPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryEmailAddressPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #region Page Objects
         private IWebElement ConfirmSanitaryAndPhytosanitaryBox => _driver.WaitForElementExists(By.Id("AssuranceCommitment"));
@@ -71,33 +72,36 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             else if (fieldName.Contains("Contact name"))
             {
                 contactNamePage.EditBusinessContactName(fieldValue);
-                authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
+                //authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact position"))
             {
                 contactNamePage.EditBusinessContactPosition(fieldValue);
-                authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
+                //authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact email address"))
             {
                 contactNamePage.EditBusinessContactEmailAddress(fieldValue);
-                authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
+                //authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact telephone number"))
             {
                 contactNamePage.EditBusinessContactTelephoneNumber(fieldValue);
-                authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
+                //authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Address"))
             {
                 pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(fieldValue, fieldValue, fieldValue, fieldValue, fieldValue);
                 pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
                 pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
+                applicationPage.ClickOnSaveAndContinue();
+
             }
             else if (fieldName.Contains("Email address"))
             {
                 pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress(fieldValue);
                 pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
+                applicationPage.ClickOnSaveAndContinue();
             }
             else if (fieldName.Contains("Contact person is the Authorised Signatory"))
             {

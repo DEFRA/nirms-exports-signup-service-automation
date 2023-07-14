@@ -43,8 +43,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void SelectAuthorisedSignatory(string authorisation)
         {
             _driver.ClickRadioButton(authorisation);
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
+            applicationPage.ClickOnSaveAndContinue();
         }
 
         public void CompleteContactPersonAuthorisedSignatoryWithYes()

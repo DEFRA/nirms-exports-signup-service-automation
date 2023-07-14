@@ -1,11 +1,7 @@
 ﻿using BoDi;
-using Defra.UI.Framework.Driver;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-using Microsoft.VisualBasic;
-using System.Windows;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -41,6 +37,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement AddressPostcode => _driver.WaitForElement(By.XPath("//input[@id='address-postcode']"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         private IBusinessAddressPage? businessAddressPage => _objectContainer.IsRegistered<IBusinessAddressPage>() ? _objectContainer.Resolve<IBusinessAddressPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         private By Errors = By.XPath("//li//a");
 
@@ -114,14 +111,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             EnterBusinessName(businessName);
             ClickOnSaveAndContinue();
             businessAddressPage.EnterBusinessAddress(businessAddr, businessTown, addrPostcode);
-            businessAddressPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public void EditBusinessNameTask(string businessName)
         {
             EnterBusinessName(businessName);
             ClickOnSaveAndContinue();
-            businessAddressPage.ClickOnSaveAndContinue();
+            //businessAddressPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         #endregion Page Methods

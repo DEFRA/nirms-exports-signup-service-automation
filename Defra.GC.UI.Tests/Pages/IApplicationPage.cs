@@ -10,7 +10,7 @@
 
         public bool VerifySignUpTaskListPageIsLoaded();
 
-        public void ClickSaveAndContinueLater();
+        public void ClickSaveAndReturnToDashboard();
 
         public void ClickOnSaveAndContinue();
 

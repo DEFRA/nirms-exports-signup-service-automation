@@ -71,8 +71,7 @@ Scenario: Verify back link on business contact position page
 	| test      | England | testFBO   | testContactName | Full name  |
 
 
-@Ignore
-Scenario: Verify save and continue later on business contact position page
+Scenario: Verify save and return to dashboard on business contact position page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -80,9 +79,10 @@ Scenario: Verify save and continue later on business contact position page
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
-	And   click save and continue later
+	And   enter business contact position '<contactPosition>'
+	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     |nextPage   |
-	| test      | England | testFBO   | testContactName |Full name  |
+	| logininfo | Country | FBONumber | contactName     | nextPage  | contactPosition     |
+	| test      | England | testFBO   | testContactName | Sign up   | testcontactPosition |

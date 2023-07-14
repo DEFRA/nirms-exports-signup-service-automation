@@ -16,7 +16,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status 'COMPLETED'
 	And   click on Check answers and submit sign up
-	And   verify next page '<nextPage>' is loaded 
+	Then  verify next page '<nextPage>' is loaded 
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
     Then  click on the confirm check box on Terms and conditions page

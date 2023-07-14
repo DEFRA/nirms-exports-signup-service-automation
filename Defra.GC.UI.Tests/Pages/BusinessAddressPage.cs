@@ -36,6 +36,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         private By Errors = By.XPath("//li//a");
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #endregion Page Objects
 
@@ -101,7 +102,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             AddressOne.SendKeys(add1);
             AddressTown.SendKeys(town);
             AddressPostcode.SendKeys(postcode);
-            ClickOnSaveAndContinue();
+            //ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
         #endregion Page Methods
     }

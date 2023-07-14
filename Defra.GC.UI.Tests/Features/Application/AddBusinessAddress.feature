@@ -13,7 +13,7 @@ Scenario Outline: Add Business Address
     And   user enters Business name  '<Business name>'
 	Then  click on save and continue
 	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	Then  click on save and continue
+	Then  click Save and return to dashboard
 	And   user verify the business name status 'COMPLETED'
 
 	Examples: 
@@ -59,7 +59,7 @@ Scenario: Verify error message for invalid address data
 	| logininfo |  AddressLine1 | Town     | AddrPostcode | Country  |FBONumber |Business name    |
 	| test      |  ****         | *****    | *****        | England  |testFBO   |testBusinessname |
 
-Scenario Outline: Verify back button is navigated to tasklist page
+Scenario Outline: Verify back button is navigated to previous page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -70,20 +70,20 @@ Scenario Outline: Verify back button is navigated to tasklist page
 	When  click on back link
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Country | FBONumber | nextPage |Business name    |
-	| test      | England | testFBO   |          |testBusinessname |
+	| logininfo | Country | FBONumber | nextPage                           |Business name    |
+	| test      | England | testFBO   | What is the name of your business? |testBusinessname |
 
-@ignore
-Scenario Outline:Verify save and continue later navigating to tasklist page
+Scenario Outline:Verify save and return to dashboard navigating to tasklist page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
-	Then  click on save and continue on Business Name page
-	When  user clicks on Save and continue later link
+	Then  click on save and continue
+	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
+	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Country | FBONumber | nextPage                                                |Business name    |
-	| test      | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |testBusinessname |
+	| logininfo | Country | FBONumber | nextPage                                                |Business name    |AddressLine1 | Town     | AddrPostcode | 
+	| test      | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |testBusinessname |testAddress1 | testCity | wd19 7pf     |

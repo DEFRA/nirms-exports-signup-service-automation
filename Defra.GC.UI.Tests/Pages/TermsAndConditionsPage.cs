@@ -1,10 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.UI.Framework.Driver;
-using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {

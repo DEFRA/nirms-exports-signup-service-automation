@@ -6,8 +6,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         public bool ClickOnCheckEligibilityTask();
 
-        //public void SelectCountryToCompleteEligibility(string country, string FBONumber);
-
         public void SelectCountryToCompleteEligibility(string country, string FBONumber, string businessname);
 
         public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber);

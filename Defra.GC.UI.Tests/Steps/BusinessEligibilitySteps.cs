@@ -26,10 +26,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.ClickOnCheckEligibilityTask(), "Select Coutry page not loaded");
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTask(string country, string FBONumber)
+        [When(@"complete eligibility task with '([^']*)', '([^']*)' '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWith(string country, string FBONumber, string businessname)
         {
-            eligibilityPage.SelectCountryToCompleteEligibility(country, FBONumber);
+            eligibilityPage.SelectCountryToCompleteEligibility(country, FBONumber, businessname);
         }
 
         [When(@"complete eligibility task with '([^']*)', '([^']*)' without Regulations")]

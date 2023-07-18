@@ -7,7 +7,7 @@ Add Authorised Signatory Position
 Scenario: Add Authorised Signatory position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -27,14 +27,14 @@ Scenario: Add Authorised Signatory position
 	And   verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     | contactPosition | fullName       | Authposition | nextPage								|emailAddress  |telephoneNumber |
-	| test      | England | testFBO   | testContactName | testPosition    | test Name      | administrator| Email address of Authorised Signatory	|test@gmail.com|01632 960 001   |
+	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage                              | emailAddress   | telephoneNumber |
+	| test      | ACME Ltd           | England | testFBO   | testContactName | testPosition    | test Name | administrator | Email address of Authorised Signatory | test@gmail.com | 01632 960 001   |
 
 	
 Scenario: Verify error message for invalid authorised signatory position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -54,14 +54,14 @@ Scenario: Verify error message for invalid authorised signatory position
 	Then  verify error message '<errorMessage>' on Authorised signatory position page
 
 	Examples: 
-| logininfo | Country | FBONumber | contactName     | contactPosition | fullName       | Authposition |emailAddress  |telephoneNumber |errorMessage                                                                 |
-| test      | England | testFBO   | testContactName | testPosition    | test Name      | test%        |test@gmail.com|01632 960 001   |Position must only include letters, numbers, and special characters -_./()&  | 
+| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage                                                                |
+| test      | ACME Ltd            | England | testFBO   | testContactName | testPosition    | test Name | test%        | test@gmail.com | 01632 960 001   | Position must only include letters, numbers, and special characters -_./()& |
 
 
 Scenario: Verify error message for blank authorised signatory position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -81,13 +81,13 @@ Scenario: Verify error message for blank authorised signatory position
 	Then  verify error message '<errorMessage>' on business contact position page
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     | contactPosition | fullName       | Authposition |emailAddress  |telephoneNumber |errorMessage        |
-	| test      | England | testFBO   | testContactName | testPosition    | test Name      |              |test@gmail.com|01632 960 001   |Enter a position.   |
+	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage      |
+	| test      |  ACME Ltd          | England | testFBO   | testContactName | testPosition    | test Name |              | test@gmail.com | 01632 960 001   | Enter a position. |
 
 Scenario: Verify back link on authorised signatory position page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -107,14 +107,14 @@ Scenario: Verify back link on authorised signatory position page
 	Then  verify next page '<previousPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     | contactPosition | fullName       | Authposition | nextPage								|emailAddress  |telephoneNumber |previousPage                      |
-	| test      | England | testFBO   | testContactName | testPosition    | test Name      | administrator| Email address of Authorised Signatory	|test@gmail.com|01632 960 001   |Full name of Authorised Signatory |
+	| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage                              | emailAddress   | telephoneNumber | previousPage                      |
+	| test      | ACME Ltd            | England | testFBO   | testContactName | testPosition    | test Name | administrator | Email address of Authorised Signatory | test@gmail.com | 01632 960 001   | Full name of Authorised Signatory |
 
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory position Page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'

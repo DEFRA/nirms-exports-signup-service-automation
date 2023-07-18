@@ -6,7 +6,7 @@ Error Validation on GB point of Departure Establishment
 Scenario: Verify error message for blank Establishment postcode field
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	#And   enter Establishment postcode '<postcode>'
@@ -19,7 +19,7 @@ Scenario: Verify error message for blank Establishment postcode field
 Scenario: Verify error messages for GB point of Departure mandatory fields
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
 	#And   enter Establishment postcode '<postcode>'
@@ -42,7 +42,7 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 Scenario:Verify the error GB Point of Departure Establishment Contact Email Address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	#And   enter Establishment postcode '<AddrPostcode>'
@@ -59,7 +59,7 @@ Scenario:Verify the error GB Point of Departure Establishment Contact Email Addr
 Scenario: Verify duplicate point of dispatch establishment not allowed 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<AddrPostcode>'

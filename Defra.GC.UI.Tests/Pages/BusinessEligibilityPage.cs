@@ -44,6 +44,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void SelectCountryToCompleteEligibility(string country, string FBONumber, string businesselection)
         {
             _driver.FindElement(By.XPath("//input[@value='" + businesselection + "']")).Click();
+            //_driver.ElementImplicitWait();
+            //_driver.ClickRadioButton(businesselection);
             ClickSaveAndContinue();
             _driver.ElementImplicitWait();
             _driver.ClickRadioButton(country);
@@ -58,8 +60,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
-        public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber)
+        public void SelectCountryToCompleteEligibilitywithoutRegulations(string businessSelection, string country, string FBONumber)
         {
+            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
+            ClickSaveAndContinue();
             _driver.ClickRadioButton(country);
             SaveAndContinue.Click();
             SelectFBONumberToCompleteEligibility(FBONumber);
@@ -68,15 +72,19 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
         }
 
-        public void InvaildFBOdata(string country, string FBONumber)
+        public void InvaildFBOdata(string country, string FBONumber,string businessSelection)
         {
+            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
+            ClickSaveAndContinue();
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();
             SelectFBONumberToCompleteEligibility(FBONumber);
         }
 
-        public void NavigateToRegulations(string country, string FBONumber)
+        public void NavigateToRegulations(string businessSelection, string country, string FBONumber)
         {
+            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
+            ClickSaveAndContinue();
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();
             SelectFBONumberToCompleteEligibility(FBONumber);
@@ -117,8 +125,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             FBOContinue.Click();
         }
 
-        public void AssurancePagWithCountry(string country)
+        public void AssurancePagWithCountry(string businessSelection, string country)
         {
+            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
+            ClickSaveAndContinue(); 
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();
         }

@@ -6,7 +6,7 @@ Verify the status of each task on Signup page
 Scenario: Verify the status of each task on Signup task list page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the business name status 'NOT STARTED'
 	And   user verify the business contact details status 'NOT STARTED'
@@ -21,7 +21,7 @@ Scenario: Verify the status of each task on Signup task list page
 Scenario: Verify the status of each task on Signup task list page when tasks are completed
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'

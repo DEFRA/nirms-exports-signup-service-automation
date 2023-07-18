@@ -6,7 +6,7 @@ Check Terms and conditions and clicking on the Submit signup button
 Scenario: Verify Terms and conditions page loaded 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -29,7 +29,7 @@ Scenario: Verify Terms and conditions page loaded
 Scenario: Verify clicking on backlink on Submit ReMoS Terms&Conditions Declaration page navigated to Check your answer page 
     Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -52,7 +52,7 @@ Scenario: Verify clicking on backlink on Submit ReMoS Terms&Conditions Declarati
 Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -75,7 +75,7 @@ Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 Scenario: Verify user checks current day month and year on  Submit ReMoS Terms&Conditions Declaration  page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'

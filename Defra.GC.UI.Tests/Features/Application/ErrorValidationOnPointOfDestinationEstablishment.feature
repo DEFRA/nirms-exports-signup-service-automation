@@ -6,7 +6,7 @@ Error Validation Point Of Destination Establishment
 Scenario: Verify validation error message for blank Destination Establishment postcode field
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
     When  click on points of destination link
 	#And   enter Establishment postcode '<postcode>'
@@ -20,7 +20,7 @@ Scenario: Verify validation error message for blank Destination Establishment po
 Scenario: Verify valid error messages for point of Destination mandatory fields
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
 	#And   enter Establishment postcode '<postcode>'
@@ -44,7 +44,7 @@ Scenario: Verify valid error messages for point of Destination mandatory fields
 Scenario: Verify error message on add another point of Destination page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
 	#And   enter Establishment postcode '<AddrPostcode>'
@@ -61,7 +61,7 @@ Scenario: Verify error message on add another point of Destination page
 Scenario: Verify duplicate point of destination establishment not allowed
     Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
 	#And   enter Establishment postcode '<AddrPostcode>'

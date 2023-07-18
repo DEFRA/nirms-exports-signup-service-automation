@@ -26,28 +26,28 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.ClickOnCheckEligibilityTask(), "Select Coutry page not loaded");
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)' '([^']*)'")]
+        [When(@"complete eligibility task with '([^']*)', '([^']*)', '([^']*)'")]
         public void WhenCompleteEligibilityTaskWith(string country, string FBONumber, string businessname)
         {
             eligibilityPage.SelectCountryToCompleteEligibility(country, FBONumber, businessname);
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)' without Regulations")]
-        public void WhenCompleteEligibilityTaskWithWithoutRegulations(string country, string FBONumber)
+        [When(@"complete eligibility task with '([^']*)', '([^']*)', '([^']*)' without Regulations")]
+        public void WhenCompleteEligibilityTaskWithWithoutRegulations(string businessSelection,string country, string FBONumber)
         {
-            eligibilityPage.SelectCountryToCompleteEligibilitywithoutRegulations(country, FBONumber);
+            eligibilityPage.SelectCountryToCompleteEligibilitywithoutRegulations(businessSelection, country, FBONumber);
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)' and navigate to Regulations page")]
-        public void WhenCompleteEligibilityTaskWithAndNavigateToRegulationsPage(string country, string FBONumber)
+        [When(@"complete eligibility task with '([^']*)', '([^']*)', '([^']*)' and navigate to Regulations page")]
+        public void WhenCompleteEligibilityTaskWithAndNavigateToRegulationsPage(string businessSelection, string country, string FBONumber)
         {
-            eligibilityPage.NavigateToRegulations(country, FBONumber);
+            eligibilityPage.NavigateToRegulations(businessSelection, country, FBONumber);
         }
 
-        [When(@"complete eligibility task with invalid data '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWithInvalidData(string country, string FBONumber)
+        [When(@"complete eligibility task with invalid data '([^']*)', '([^']*)', '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWithInvalidData(string country, string FBONumber,string BusinessSelection)
         {
-            eligibilityPage.InvaildFBOdata(country, FBONumber);
+            eligibilityPage.InvaildFBOdata(country, FBONumber, BusinessSelection);
         }
 
         [Then(@"verify eligibility task status as '([^']*)'")]
@@ -84,10 +84,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.VerifyErrorMessageOnRegulationsPage(errorMessage), "Regulations invalid error not matching");
         }
 
-        [When(@"complete eligibility task with '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWith(string country)
+        [When(@"complete eligibility task with '([^']*)', '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWith(string businessSelection,string country)
         {
-            eligibilityPage.AssurancePagWithCountry(country);
+            eligibilityPage.AssurancePagWithCountry(businessSelection,country);
         }
 
         [Then(@"user  navigates to the Country selection page")]

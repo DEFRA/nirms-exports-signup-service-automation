@@ -4,7 +4,7 @@ Receive Notice of Signup Request
 Scenario: Receive Notice of after completion of Signup Request 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -29,7 +29,7 @@ Scenario: Receive Notice of after completion of Signup Request
 Scenario:  Verify outcome message  after completion of Signup Request 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'

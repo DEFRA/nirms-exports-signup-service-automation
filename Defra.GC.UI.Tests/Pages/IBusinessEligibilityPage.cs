@@ -8,9 +8,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectCountryToCompleteEligibility(string country, string FBONumber, string businessname);
 
-        public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber);
+        public void SelectCountryToCompleteEligibilitywithoutRegulations(string businessSelection, string country, string FBONumber);
 
-        public void InvaildFBOdata(string country, string FBONumber);
+        public void InvaildFBOdata(string country, string FBONumber, string BusinessSelection);
 
         public bool VerifyEligibilityTaskStatus(string status);
 
@@ -18,7 +18,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void AssuranceCompleteWithNoSelection(string country, string FBONumber);
 
-        public void NavigateToRegulations(string country, string FBONumber);
+        public void NavigateToRegulations(string businessSelection, string country, string FBONumber);
 
         public void NoFBONumberToCompleteEligibility(string FBONumber);
 
@@ -28,7 +28,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyErrorMessageOnRegulationsPage(string errorMessage);
 
-        public void AssurancePagWithCountry(string country);
+        public void AssurancePagWithCountry(string businessSelection, string country);
 
         public string VerifyCountryPageloaded();
 

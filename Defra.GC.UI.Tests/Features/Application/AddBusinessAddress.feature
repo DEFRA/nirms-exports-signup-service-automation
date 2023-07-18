@@ -7,7 +7,7 @@ Add Business Registered Address
 Scenario Outline: Add Business Address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -23,7 +23,7 @@ Scenario Outline: Add Business Address
 Scenario Outline: Verify the error message when user do not select the address fields
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -43,7 +43,7 @@ Scenario Outline: Verify the error message when user do not select the address f
 Scenario: Verify error message for invalid address data
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -62,7 +62,7 @@ Scenario: Verify error message for invalid address data
 Scenario Outline: Verify back button is navigated to previous page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -76,7 +76,7 @@ Scenario Outline: Verify back button is navigated to previous page
 Scenario Outline:Verify save and return to dashboard navigating to tasklist page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'

@@ -6,7 +6,7 @@ Add Authorised Signatory Email Address
 Scenario: Add Authorised Signatory Email Address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -38,7 +38,7 @@ Scenario: Add Authorised Signatory Email Address
 Scenario: Verify error message for invalid Authorised Signatory Email Address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -68,7 +68,7 @@ Scenario: Verify error message for invalid Authorised Signatory Email Address
 Scenario Outline:  Verify error message for blank Authorised Signatory Email Address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -99,7 +99,7 @@ Scenario Outline:  Verify error message for blank Authorised Signatory Email Add
 Scenario Outline:Verify user clicks on back button and navigates to previous page 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -128,7 +128,7 @@ Examples:
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory Email address Page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -151,6 +151,6 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory Ema
 	Then  verify next page '<nextPage>' is loaded 
 
 Examples: 
-	| logininfo | Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |Authposition |
-	| test      | England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
+	| logininfo | Business selection  |Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |Authposition |
+	| test      | ACME Ltd            |England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
 

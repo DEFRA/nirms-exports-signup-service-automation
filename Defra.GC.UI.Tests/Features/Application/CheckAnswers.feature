@@ -6,7 +6,7 @@ Check Answers and Submit the application
 Scenario: Check answers and submit sign up link verification on GB points of establishment
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -29,7 +29,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 Scenario: Check answers and submit sign up link verification on NI points of establishment
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -53,7 +53,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Scenario: Edit Check answers for GB Retail Movement Scheme sign up
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -82,7 +82,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Scenario: Edit Authorised Signatory on Check answers for GB Retail Movement Scheme sign up
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -106,7 +106,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Scenario: Edit Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -135,7 +135,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Scenario: Edit Authorised Signatory on Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -161,7 +161,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Scenario: Verify place of dispatch link on check your answers page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -189,7 +189,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Scenario: Verify place of destination link on check your answers page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -216,7 +216,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 Scenario: Remove GB establishment on check your answers page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -243,7 +243,7 @@ Scenario: Remove GB establishment on check your answers page
 	Scenario: Remove NI establishment on check your answers page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -270,7 +270,7 @@ Scenario: Remove GB establishment on check your answers page
 	Scenario: Verify back link on Check answers page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>' 
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'

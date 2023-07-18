@@ -7,7 +7,7 @@ Add Authorised Signatory Position
 Scenario: Add Authorised Signatory position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -34,7 +34,7 @@ Scenario: Add Authorised Signatory position
 Scenario: Verify error message for invalid authorised signatory position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -61,7 +61,7 @@ Scenario: Verify error message for invalid authorised signatory position
 Scenario: Verify error message for blank authorised signatory position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -87,7 +87,7 @@ Scenario: Verify error message for blank authorised signatory position
 Scenario: Verify back link on authorised signatory position page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -114,7 +114,7 @@ Scenario: Verify back link on authorised signatory position page
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory position Page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -130,10 +130,9 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory pos
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
 	And   click Save and return to dashboard
-
 	Then  verify next page '<nextPage>' is loaded 
 
 Examples: 
-	| logininfo | Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |
-	| test      | England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |
+	| logininfo | Business selection  |Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |
+	| test      | ACME Ltd            |England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |
 

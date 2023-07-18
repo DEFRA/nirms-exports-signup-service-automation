@@ -111,8 +111,7 @@ Scenario: Verify back link on authorised signatory position page
 	| test      | England | testFBO   | testContactName | testPosition    | test Name      | administrator| Email address of Authorised Signatory	|test@gmail.com|01632 960 001   |Full name of Authorised Signatory |
 
 
-@Ignore
-Scenario: Verify save and continue later on authorised signatory position page
+Scenario Outline:Verify save and return to dashboard on Authorised Signatory position Page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -130,8 +129,11 @@ Scenario: Verify save and continue later on authorised signatory position page
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
-	Then  user enters '<Authposition>' position on Authorised signatory position page
+	And   click Save and return to dashboard
 
-	Examples: 
-	| logininfo | Country | FBONumber | contactName     |nextPage   |
-	| test      | England | testFBO   | testContactName |Full name  |
+	Then  verify next page '<nextPage>' is loaded 
+
+Examples: 
+	| logininfo | Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |
+	| test      | England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |
+

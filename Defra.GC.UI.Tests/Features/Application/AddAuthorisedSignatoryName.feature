@@ -104,22 +104,28 @@ Examples:
 	| test      | England | testFBO   | Is the contact person the Authorised Signatory at ? |test Name       |test            |test@gmail.com|01632 960 001   |
 
 
-
-
-@ignore
-Scenario Outline:Verify save and continue later navigating to tasklist page
-Given that I navigate to the NI GC application
+Scenario Outline:Verify save and return to dashboard on Authorised Signatory Name Page
+	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  click on Authorised Signatory link
+	When  click on business contact details link
+	And   enter business contact person '<contactName>'
+	And   click on save and continue
+	And   enter business contact position '<contactPosition>'
+	And   click on save and continue
+	And   enter email address '<emailAddress>'
+	And   click on save and continue
+	And   enter telephone number '<telephoneNumber>'
+	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
-	When  user clicks on Save and continue later link
+	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
-	Examples: 
-	| logininfo | Country | FBONumber | nextPage                        |
-	| test      | England | testFBO   | Position of Authorised Signatory|
+
+Examples: 
+	| logininfo | Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |
+	| test      | England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |
 
 
 

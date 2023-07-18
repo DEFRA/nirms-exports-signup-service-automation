@@ -30,8 +30,8 @@ Scenario: Add Authorised Signatory Email Address
 
 	
 	Examples: 
-	| logininfo | Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |Authposition |
-	| test      | England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
+	| logininfo | Country | FBONumber | nextPage       | fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |Authposition |
+	| test      | England | testFBO   | Add a place of | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
 
 
 
@@ -125,10 +125,7 @@ Examples:
 	| test      | England | testFBO   | Position    | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
 
 
-
-
-@ignore
-Scenario Outline:Verify save and continue later navigating to tasklist page
+Scenario Outline:Verify save and return to dashboard on Authorised Signatory Email address Page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   complete eligibility task with '<Country>', '<FBONumber>'
@@ -142,8 +139,6 @@ Scenario Outline:Verify save and continue later navigating to tasklist page
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  user verify the business contact details status 'COMPLETED'
-	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -151,10 +146,11 @@ Scenario Outline:Verify save and continue later navigating to tasklist page
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue
 	When  user is on Authorised Signatory Email address page
-    Then  user enters manually '<AuthemailAddress>' in email address page
-	Then  user enter save and continue later link
+	And   click Save and return to dashboard
+
+	Then  verify next page '<nextPage>' is loaded 
 
 Examples: 
-	| logininfo | Country | FBONumber | previousPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |Authposition |
-	| test      | England | testFBO   | Position    | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
+	| logininfo | Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |Authposition |
+	| test      | England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
 

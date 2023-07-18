@@ -6,7 +6,7 @@ Verify the status of each task on Signup page
 Scenario: Verify the status of each task on Signup task list page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the business name status 'NOT STARTED'
 	And   user verify the business contact details status 'NOT STARTED'
@@ -15,13 +15,13 @@ Scenario: Verify the status of each task on Signup task list page
 	And   verify Check answers and submit sign up status 'CANNOT START YET'
 
 	Examples: 
-	| logininfo | Country | FBONumber | 
-	| test      | England | testFBO   |
+	| logininfo | Business selection | Country | FBONumber |
+	| test      | ACME Ltd           | England | testFBO   |
 
 Scenario: Verify the status of each task on Signup task list page when tasks are completed
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>' '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -35,7 +35,7 @@ Scenario: Verify the status of each task on Signup task list page when tasks are
 	And   verify Check answers and submit sign up link is enabled
 
 	Examples: 
-	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |
+	| logininfo | Business selection   | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |
+	| test      |   ACME Ltd           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |
 
 

@@ -41,8 +41,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return PageHeading.Text.Contains("Which country is your business based in");
         }
 
-        public void SelectCountryToCompleteEligibility(string country, string FBONumber)
+        public void SelectCountryToCompleteEligibility(string country, string FBONumber, string businesselection)
         {
+            _driver.FindElement(By.XPath("//input[@value='" + businesselection + "']")).Click();
+            ClickSaveAndContinue();
             _driver.ElementImplicitWait();
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();

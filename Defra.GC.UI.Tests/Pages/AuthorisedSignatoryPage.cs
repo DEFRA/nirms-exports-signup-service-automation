@@ -43,13 +43,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void SelectAuthorisedSignatory(string authorisation)
         {
             _driver.ClickRadioButton(authorisation);
-            applicationPage.ClickOnSaveAndContinue();
         }
 
         public void CompleteContactPersonAuthorisedSignatoryWithYes()
         {
             ClickOnAuthorisedSignatoryLink();
             SelectAuthorisedSignatory("Yes");
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public bool VerifyErrorMessageOnAuthorisedPage(string errorMessage)
@@ -74,7 +74,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             authSignatoryPositionPage.EnterAuthSignatoryPosition("AuthSignPosition");
             applicationPage.ClickOnSaveAndContinue();
             authSignatoryEmailAddressPage.EnterAuthEmailAddress("AuthSignEmail@test.com");
-            applicationPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public bool VerifyTheAuthorisedSignatoryStatus(string status)

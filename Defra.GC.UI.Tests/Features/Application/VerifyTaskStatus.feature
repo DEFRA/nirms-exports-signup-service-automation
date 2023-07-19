@@ -8,7 +8,7 @@ Scenario: Verify the status of each task on Signup task list page
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the business name status 'NOT STARTED'
+	And   user verify the business name status 'IN PROGRESS'
 	And   user verify the business contact details status 'NOT STARTED'
     And   user verify the Authorised Signatory status 'NOT STARTED'
     And   user verify the Points of departure status 'NOT STARTED'

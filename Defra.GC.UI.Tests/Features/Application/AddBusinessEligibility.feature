@@ -39,12 +39,12 @@ Scenario Outline: Verify back button on country page is going tasklist page
 Scenario Outline:  Verify No sign up page appears when no FBO number
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task without '<Country>', '<FBONumber>'
+	And   complete eligibility task without '<Business selection>', '<Country>', '<FBONumber>'
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-    | logininfo | Country | FBONumber | nextPage                         |
-    | test      | England |           | You cannot sign up your business |
+    | logininfo | Business selection | Country | FBONumber  | nextPage                         |
+    | test      | ACME Ltd           |England  |            | You cannot sign up your business |
 
 Scenario Outline: Verify back link on Assurance is going country selecting page
 	Given that I navigate to the NI GC application

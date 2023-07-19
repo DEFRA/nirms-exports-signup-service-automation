@@ -172,10 +172,11 @@ Scenario: Finish adding  point of Destination  establishment address
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
-	Then  verify signUp task list page is loaded
+	And   click on save and continue
+	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode |
-	| test      | ACME Ltd           | Northern Ireland | testFBO   | Coleraine         | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     |
+	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage          |
+	| test      | ACME Ltd           | Northern Ireland | testFBO   | Coleraine         | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Check your answers         |
 
 	
 Scenario: Verify no point of destination  establishment address listed after removing last address
@@ -311,3 +312,18 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of des
 	| test      |     ACME Ltd         | Northern Ireland | testFBO   | N3 3NA       | Add a place of destination |
 
 
+Scenario:Verify save and return to dashboard on Add a place of destination page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of destination link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on I have finished adding points of departure
+	And   click Save and return to dashboard
+	Then  verify next page '<nextPage>' is loaded 
+
+	Examples: 
+	| logininfo | Business selection  | Country          | FBONumber | nextPage  |EstablishmentName | AddressLine1    | estCity | estCountry       | AddrPostcode |
+	| test      | ACME Ltd            | Northern Ireland | testFBO   | Sign up   |Coleraine         | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |

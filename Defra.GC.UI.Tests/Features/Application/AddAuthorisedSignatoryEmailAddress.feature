@@ -18,6 +18,7 @@ Scenario: Add Authorised Signatory Email Address
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -25,13 +26,13 @@ Scenario: Add Authorised Signatory Email Address
 	And   click on save and continue
 	When  user is on Authorised Signatory Email address page
     Then  user enters manually '<emailAddress>' in email address page
-    Then  click on save and continue 
+    And   click Save and return to dashboard
 	And   verify next page '<nextPage>' is loaded 
 
 	
 	Examples: 
-	| logininfo | Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |Authposition |
-	| test      | England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
+	| logininfo | Business selection | Country | FBONumber | nextPage  | fullName  | contactName | contactPosition | emailAddress  | telephoneNumber | Authposition |
+	| test      | ACME Ltd           | England | testFBO   | Sign up   | test name | test name   | test            | test@gmail.com  | 01632 960 001 | administrator|
 
 
 
@@ -50,6 +51,7 @@ Scenario: Verify error message for invalid Authorised Signatory Email Address
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -80,6 +82,7 @@ Scenario Outline:  Verify error message for blank Authorised Signatory Email Add
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -111,6 +114,7 @@ Scenario Outline:Verify user clicks on back button and navigates to previous pag
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -140,17 +144,18 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory Ema
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue
 	When  user is on Authorised Signatory Email address page
+    And   user enters manually '<AuthemailAddress>' in email address page
 	And   click Save and return to dashboard
-
 	Then  verify next page '<nextPage>' is loaded 
 
 Examples: 
-	| logininfo | Business selection  |Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |Authposition |
-	| test      | ACME Ltd            |England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |administrator|
+	| logininfo | Business selection | Country | FBONumber | nextPage | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber | Authposition  | AuthemailAddress |
+	| test      | ACME Ltd           | England | testFBO   | Sign up  | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator | auth@gmail.com   |
 

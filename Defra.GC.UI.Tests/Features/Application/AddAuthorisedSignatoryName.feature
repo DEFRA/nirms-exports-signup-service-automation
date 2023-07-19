@@ -18,6 +18,7 @@ Scenario: Add Authorised Signatory name
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	When  select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -45,6 +46,7 @@ Scenario: Verify error message for invalid Authorised Signatory name
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	When  select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then click on save and continue
@@ -70,6 +72,7 @@ Scenario Outline: Verify error message for blank Authorised Signatory name
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	When  select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -95,6 +98,7 @@ Given that I navigate to the NI GC application
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	When  select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	And   user is on Authorised Signatory Enter name page
 	And   click on back link
 	Then  verify next page '<previousPage>' is loaded 
@@ -119,7 +123,9 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory Nam
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
+	And   user enters manually '<fullName>' in the full name feild
 	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 

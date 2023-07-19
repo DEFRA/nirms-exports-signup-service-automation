@@ -19,6 +19,7 @@ Scenario: Add Authorised Signatory position
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	When  select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -46,6 +47,7 @@ Scenario: Verify error message for invalid authorised signatory position
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -73,6 +75,7 @@ Scenario: Verify error message for blank authorised signatory position
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
@@ -99,9 +102,10 @@ Scenario: Verify back link on authorised signatory position page
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
-	Then click on save and continue
+	Then  click on save and continue
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on back link
 	Then  verify next page '<previousPage>' is loaded 
@@ -126,13 +130,15 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory pos
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	And   select 'No' to the contact person is the Authorised Signatory
+	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
-	Then  user enters manually '<fullName>' in the full name feild
-	Then  click on save and continue
+	And   user enters manually '<fullName>' in the full name feild
+	And   click on save and continue
+	And   user enters '<Authposition>' position on Authorised signatory position page
 	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 
 Examples: 
-	| logininfo | Business selection  |Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |
-	| test      | ACME Ltd            |England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |
+	| logininfo | Business selection | Country | FBONumber | nextPage | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber | Authposition  |
+	| test      | ACME Ltd           | England | testFBO   | Sign up  | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator |
 

@@ -112,8 +112,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return EligibilityStatus.Text.Contains(status);
         }
 
-        public void AssuranceCompleteWithNoSelection(string country, string FBONumber)
+        public void AssuranceCompleteWithNoSelection(string businessSelection, string country, string FBONumber)
         {
+            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
+            ClickSaveAndContinue();
             _driver.ClickRadioButton(country);
             ClickSaveAndContinue();
             NoFBONumberToCompleteEligibility(FBONumber);

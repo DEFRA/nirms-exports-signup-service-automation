@@ -13,6 +13,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -36,6 +37,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of destination status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -60,6 +62,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -89,7 +92,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with No option
-	Then  user verify the Authorised Signatory status 'COMPLETED'
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -113,6 +116,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of destination status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -168,6 +172,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -196,6 +201,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of destination status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -223,6 +229,7 @@ Scenario: Remove GB establishment on check your answers page
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -250,6 +257,7 @@ Scenario: Remove GB establishment on check your answers page
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of destination status 'COMPLETED'
 	And   click on Check answers and submit sign up
@@ -277,6 +285,7 @@ Scenario: Remove GB establishment on check your answers page
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status 'COMPLETED'
 	And   click on Check answers and submit sign up

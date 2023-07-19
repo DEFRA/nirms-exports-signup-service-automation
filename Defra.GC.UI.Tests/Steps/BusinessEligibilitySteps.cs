@@ -56,10 +56,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.VerifyEligibilityTaskStatus(status), "Eligibility not completed");
         }
 
-        [When(@"complete eligibility task without '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWithout(string country, string FBONumber)
+        [When(@"complete eligibility task without '([^']*)', '([^']*)', '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWithout(string BusinessSelection,string country, string FBONumber)
         {
-            eligibilityPage.AssuranceCompleteWithNoSelection(country, FBONumber);
+            eligibilityPage.AssuranceCompleteWithNoSelection(BusinessSelection,country, FBONumber);
         }
 
         [Then(@"verify no signp page appears")]

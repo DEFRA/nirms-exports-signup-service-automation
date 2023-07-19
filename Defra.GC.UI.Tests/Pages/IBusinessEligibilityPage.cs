@@ -16,7 +16,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectFBONumberToCompleteEligibility(string FBONumber);
 
-        public void AssuranceCompleteWithNoSelection(string country, string FBONumber);
+        public void AssuranceCompleteWithNoSelection(string BusinessSelection, string country, string FBONumber);
 
         public void NavigateToRegulations(string businessSelection, string country, string FBONumber);
 

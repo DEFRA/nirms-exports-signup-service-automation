@@ -17,7 +17,7 @@ Scenario: Add Authorised Signatory Email Address
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -50,7 +50,7 @@ Scenario: Verify error message for invalid Authorised Signatory Email Address
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -81,7 +81,7 @@ Scenario Outline:  Verify error message for blank Authorised Signatory Email Add
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -113,7 +113,7 @@ Scenario Outline:Verify user clicks on back button and navigates to previous pag
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -143,7 +143,7 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory Ema
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild

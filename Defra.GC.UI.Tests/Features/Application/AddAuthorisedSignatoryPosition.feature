@@ -18,7 +18,7 @@ Scenario: Add Authorised Signatory position
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	When  select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -46,7 +46,7 @@ Scenario: Verify error message for invalid authorised signatory position
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -74,7 +74,7 @@ Scenario: Verify error message for blank authorised signatory position
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -101,7 +101,7 @@ Scenario: Verify back link on authorised signatory position page
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
@@ -129,7 +129,7 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory pos
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	And   select 'No' to the contact person is the Authorised Signatory
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	When  user is on Authorised Signatory Enter name page
 	And   user enters manually '<fullName>' in the full name feild

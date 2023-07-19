@@ -16,5 +16,6 @@
 
         public void CompleteContactPersonAuthorisedSignatoryWithNo();
 
+        public void SelectAuthorisedSignatoryWithoutSave(string authorisation);
     }
 }

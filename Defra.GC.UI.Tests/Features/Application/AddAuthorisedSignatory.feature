@@ -9,7 +9,7 @@ Scenario: Add Authorised Signatory and navigated to tasklist page
 	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on Authorised Signatory link
-	And   select 'Yes' to the contact person is the Authorised Signatory
+	And   select 'Yes' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 
@@ -24,7 +24,7 @@ Scenario: No to the contact person of the Authorised Signatory and navigted to f
 	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on Authorised Signatory link
-	And   select 'No' to the contact person is the Authorised Signatory
+	And   select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 
@@ -66,7 +66,7 @@ Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on Authorised Signatory link
-	When  select 'Yes' to the contact person is the Authorised Signatory
+	When  select 'Yes' to the contact person is the Authorised Signatory without save
 	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 
@@ -89,7 +89,7 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory pag
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
-	When  select 'Yes' to the contact person is the Authorised Signatory
+	When  select 'Yes' to the contact person is the Authorised Signatory without save
 	And   click Save and return to dashboard
 	Then  verify next page '<nextPage1>' is loaded 
 

@@ -7,7 +7,7 @@ Add Business Contact contactPosition
 Scenario: Add business contact position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -17,14 +17,14 @@ Scenario: Add business contact position
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     | contactPosition | nextPage       |
-	| test      | England | testFBO   | testContactName | testPosition    | Email address  |
+	| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | nextPage      |
+	| test      | ACME Ltd            | England | testFBO   | testContactName | testPosition    | Email address |
 
 	
 Scenario: Verify error message for invalid business contact position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -34,14 +34,14 @@ Scenario: Verify error message for invalid business contact position
 	Then  verify error message '<errorMessage>' on business contact position page
 
 	Examples: 
-	| logininfo | Country  |FBONumber |contactName     |contactPosition | errorMessage                           |
-	| test      | England  |testFBO   |testContactName |testPosition%   | Enter a position using only letters    |
+	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | errorMessage                        |
+	| test      |  ACME Ltd          | England | testFBO   | testContactName | testPosition%   | Enter a position using only letters |
 
 
 Scenario: Verify error message for blank business contact position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -51,14 +51,14 @@ Scenario: Verify error message for blank business contact position
 	Then  verify error message '<errorMessage>' on business contact position page
 
 	Examples: 
-	| logininfo | Country  |FBONumber |contactName     |contactPosition | errorMessage                              |
-	| test      | England  |testFBO   |testContactName |                | Enter the position of the contact person  |
+	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | errorMessage                             |
+	| test      | ACME Ltd           | England | testFBO   | testContactName |                 | Enter the position of the contact person |
 
 
 Scenario: Verify back link on business contact position page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -67,14 +67,14 @@ Scenario: Verify back link on business contact position page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     | nextPage   |
-	| test      | England | testFBO   | testContactName | Full name  |
+	| logininfo | Business selection | Country | FBONumber | contactName     | nextPage  |
+	| test      |  ACME Ltd          | England | testFBO   | testContactName | Full name |
 
 
 Scenario: Verify save and return to dashboard on business contact position page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -84,5 +84,5 @@ Scenario: Verify save and return to dashboard on business contact position page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | contactName     | nextPage  | contactPosition     |
-	| test      | England | testFBO   | testContactName | Sign up   | testcontactPosition |
+	| logininfo | Business selection | Country | FBONumber | contactName     | nextPage | contactPosition     |
+	| test      | ACME Ltd           | England | testFBO   | testContactName | Sign up  | testcontactPosition |

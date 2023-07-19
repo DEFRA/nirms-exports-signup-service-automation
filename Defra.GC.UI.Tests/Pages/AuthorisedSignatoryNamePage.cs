@@ -10,6 +10,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
+        
         public AuthorisedSignatoryNamePage(IObjectContainer container)
         {
             _objectContainer = container;
@@ -57,9 +59,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditAuthorisedSignatoryName(string FullName)
         {
             EnterFullName(FullName);
-            ClickOnSaveAndContinue();
-            ClickOnSaveAndContinue();
-            ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
         #endregion Page Methods
     }

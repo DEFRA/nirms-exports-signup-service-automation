@@ -18,6 +18,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #endregion
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         public AuthorisedSignatoryPositionPage(IObjectContainer container)
         {
@@ -45,8 +46,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditAuthorisedSignatoryPosition(string position)
         {
             EnterAuthSignatoryPosition(position);
-            ClickOnSaveAndContinue();
-            ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         #endregion

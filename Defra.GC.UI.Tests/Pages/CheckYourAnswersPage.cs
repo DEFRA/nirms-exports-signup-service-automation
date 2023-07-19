@@ -59,7 +59,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             }
             else if (fieldName.Contains("Business address"))
             {
-                BusinessAddressPagetest.EditBusinessAddress(fieldValue, fieldValue, fieldValue);
+                BusinessAddressPagetest.EditBusinessAddress(fieldValue, fieldValue, "SE9 0AW");
             }
             else if (fieldName.Contains("Country"))
             {
@@ -72,36 +72,32 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             else if (fieldName.Contains("Contact name"))
             {
                 contactNamePage.EditBusinessContactName(fieldValue);
-                //authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact position"))
             {
                 contactNamePage.EditBusinessContactPosition(fieldValue);
-                //authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact email address"))
             {
                 contactNamePage.EditBusinessContactEmailAddress(fieldValue);
-                //authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Contact telephone number"))
             {
                 contactNamePage.EditBusinessContactTelephoneNumber(fieldValue);
-                //authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
             }
             else if (fieldName.Contains("Address"))
             {
-                pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(fieldValue, fieldValue, fieldValue, fieldValue, fieldValue);
+                pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(fieldValue, fieldValue, fieldValue, fieldValue, "SE9 0AW");
                 pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
                 pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
-                applicationPage.ClickOnSaveAndContinue();
+                applicationPage.ClickSaveAndReturnToDashboard();
 
             }
             else if (fieldName.Contains("Email address"))
             {
                 pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress(fieldValue);
                 pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
-                applicationPage.ClickOnSaveAndContinue();
+                applicationPage.ClickSaveAndReturnToDashboard();
             }
             else if (fieldName.Contains("Contact person is the Authorised Signatory"))
             {

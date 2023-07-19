@@ -78,10 +78,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             EnterBusinessContactName(contactName);
             applicationPage.ClickSaveAndReturnToDashboard();
-            //ClickOnSaveAndContinue();
-            //ContactPositionPage.ClickOnSaveAndContinue();
-            //ContactEmailAddressPage.ClickOnSaveAndContinue();
-            //ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         public void EditBusinessContactPosition(string contactPosition)
@@ -89,23 +85,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ContactPositionPage.EnterBusinessContactPosition(contactPosition);
             ContactPositionPage.ClickOnSaveAndContinue();
             applicationPage.ClickSaveAndReturnToDashboard();
-            //ContactEmailAddressPage.ClickOnSaveAndContinue();
-            //ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         public void EditBusinessContactEmailAddress(string contactEmail)
         {
             ContactEmailAddressPage.EnterEmailAddress(contactEmail);
             applicationPage.ClickSaveAndReturnToDashboard();
-            //ContactEmailAddressPage.ClickOnSaveAndContinue();
-            //ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         public void EditBusinessContactTelephoneNumber(string contactTelephone)
         {
             ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
             applicationPage.ClickSaveAndReturnToDashboard();
-            //ContactTelephoneNumberPage.ClickOnSaveAndContinue();
         }
 
         #endregion Page Methods

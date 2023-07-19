@@ -127,7 +127,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void WhenClickOnIHaveFinishedAddingPointsOfDeparture()
         {
             pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
-            applicationPage.ClickOnSaveAndContinue();
         }
 
         [When(@"remove establishment address '([^']*)'")]

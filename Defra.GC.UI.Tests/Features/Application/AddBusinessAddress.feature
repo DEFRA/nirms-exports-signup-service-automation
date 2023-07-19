@@ -7,7 +7,7 @@ Add Business Registered Address
 Scenario Outline: Add Business Address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -17,13 +17,13 @@ Scenario Outline: Add Business Address
 	And   user verify the business name status 'COMPLETED'
 
 	Examples: 
-	| logininfo | AddressLine1 | Town     | AddrPostcode | Country | FBONumber | Business name    |
-	| test      | testAddress1 | testCity | wd19 7pf     | England | testFBO   | testBusinessname |
+	| logininfo | Business selection | AddressLine1 | Town     | AddrPostcode | Country | FBONumber | Business name    |
+	| test      | ACME Ltd           | testAddress1 | testCity | wd19 7pf     | England | testFBO   | testBusinessname |
 
 Scenario Outline: Verify the error message when user do not select the address fields
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -36,14 +36,14 @@ Scenario Outline: Verify the error message when user do not select the address f
 	| Town        | Enter a town or city. |
 	| Postcode    | Enter a post code.    |
 	Examples: 
-	| logininfo |  AddressLine1 | Town     | AddrPostcode | Country  |FBONumber |Business name    |
-	| test      |				|		   |			  | England  |testFBO   |testBusinessname |
+	| logininfo | Business selection | AddressLine1 | Town | AddrPostcode | Country | FBONumber | Business name    |
+	| test      | ACME Ltd           |              |      |              | England | testFBO   | testBusinessname |
 
 	
 Scenario: Verify error message for invalid address data
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -56,13 +56,13 @@ Scenario: Verify error message for invalid address data
 	| Town            | Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (').   |
 	| Postcode        | Enter a real postcode.                                                               |
 	Examples: 
-	| logininfo |  AddressLine1 | Town     | AddrPostcode | Country  |FBONumber |Business name    |
-	| test      |  ****         | *****    | *****        | England  |testFBO   |testBusinessname |
+	| logininfo | Business selection | AddressLine1 | Town  | AddrPostcode | Country | FBONumber | Business name    |
+	| test      | ACME Ltd           | ****         | ***** | *****        | England | testFBO   | testBusinessname |
 
 Scenario Outline: Verify back button is navigated to previous page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -70,13 +70,13 @@ Scenario Outline: Verify back button is navigated to previous page
 	When  click on back link
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Country | FBONumber | nextPage                           |Business name    |
-	| test      | England | testFBO   | What is the name of your business? |testBusinessname |
+	| logininfo | Business selection | Country | FBONumber | nextPage                           | Business name    |
+	| test      | ACME Ltd           | England | testFBO   | What is the name of your business? | testBusinessname |
 
 Scenario Outline:Verify save and return to dashboard navigating to tasklist page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
@@ -85,5 +85,5 @@ Scenario Outline:Verify save and return to dashboard navigating to tasklist page
 	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Country | FBONumber | nextPage                                                |Business name    |AddressLine1 | Town     | AddrPostcode | 
-	| test      | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |testBusinessname |testAddress1 | testCity | wd19 7pf     |
+	| logininfo | Business selection | Country | FBONumber | nextPage                                                | Business name    | AddressLine1 | Town     | AddrPostcode |
+	| test      | ACME Ltd           | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme | testBusinessname | testAddress1 | testCity | wd19 7pf     |

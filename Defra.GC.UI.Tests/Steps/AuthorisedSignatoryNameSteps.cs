@@ -26,6 +26,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             authorisedSignatoryNamePage.ClickonFullName();
         }
 
+        [When(@"user enters manually '([^']*)' in the full name feild")]
         [Then(@"user enters manually '([^']*)' in the full name feild")]
         public void EnterFullName(string dEFRA)
         {

@@ -14,6 +14,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         }
 
         public IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #region Page Objects
 
@@ -58,7 +59,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditAuthorisedSignatoryEmailAddress(string EmailAddress)
         {
             EnterAuthEmailAddress(EmailAddress);
-            ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
         #endregion Page Methods
     }

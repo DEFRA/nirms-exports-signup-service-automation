@@ -69,7 +69,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             AddEstablishmentEmailAddress("test@test.com");
             ClickOnIHaveFinishedAddingPointsOfDeparture();
-            applicationPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public bool VerifyThePointsOfDepartureStatus(string status)
@@ -126,6 +126,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry, string testCode)
         {
+            EstablishmentName.Clear();
+            EstablishmentAddr1.Clear();
+            EstablishmentAddr2.Clear();
+            EstablishmentCity.Clear();
+            EstablishmentCountry.Clear();
+            Postcode.Clear();
             EstablishmentName.SendKeys(testName);
             EstablishmentAddr1.SendKeys(testAddress);
             EstablishmentAddr2.SendKeys(testAddress);

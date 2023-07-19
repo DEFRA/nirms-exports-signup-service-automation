@@ -6,7 +6,7 @@ Check Terms and conditions and clicking on the Submit signup button
 Scenario: Verify Terms and conditions page loaded 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -23,13 +23,13 @@ Scenario: Verify Terms and conditions page loaded
 	Then  click on submit sign up
 
 	Examples: 
-	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                  |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions       |
+	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |
+	| test      | ACME Ltd           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions |
 
 Scenario: Verify clicking on backlink on Submit ReMoS Terms&Conditions Declaration page navigated to Check your answer page 
     Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -46,13 +46,13 @@ Scenario: Verify clicking on backlink on Submit ReMoS Terms&Conditions Declarati
 	And   verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                      |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions           |
+	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |
+	| test      |   ACME Ltd         | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions |
 
 Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -69,13 +69,13 @@ Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 	Then  verify error message '<errorMessage>' on ReMoS Terms & Conditions Declaration  page
 	
 	Examples: 
-	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |            errorMessage                                             |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | Confirm that the above requirements will be met                     |
+	| logininfo | Business selection  | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | errorMessage                                    |
+	| test      |    ACME Ltd         | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | Confirm that the above requirements will be met |
 
 Scenario: Verify user checks current day month and year on  Submit ReMoS Terms&Conditions Declaration  page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
 	Then  user verify the business name status 'COMPLETED'
@@ -91,5 +91,5 @@ Scenario: Verify user checks current day month and year on  Submit ReMoS Terms&C
     Then  verify the current date is shows on ReMoS Terms & Conditions Declaration  page
 
 	Examples: 
-	| logininfo | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1                  |
-	| test      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers |Terms and conditions        |
+	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |
+	| test      |    ACME Ltd        | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions |

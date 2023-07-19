@@ -43,13 +43,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void SelectAuthorisedSignatory(string authorisation)
         {
             _driver.ClickRadioButton(authorisation);
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public void CompleteContactPersonAuthorisedSignatoryWithYes()
         {
             ClickOnAuthorisedSignatoryLink();
             SelectAuthorisedSignatory("Yes");
-            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public bool VerifyErrorMessageOnAuthorisedPage(string errorMessage)

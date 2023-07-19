@@ -32,6 +32,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             authorisedSignatoryPage.SelectAuthorisedSignatory(Authorisation);
         }
 
+        [When(@"select '([^']*)' to the contact person is the Authorised Signatory without save")]
+        public void WhenSelectContactPersonIsTheAuthorisedSignatoryWithoutSave(string Authorisation)
+        {
+            authorisedSignatoryPage.SelectAuthorisedSignatoryWithoutSave(Authorisation);
+        }
+
         [When(@"complete contact person Authorised Signatory with Yes Authorisation")]
         public void WhenCompleteContactPersonAuthorisedSignatoryWithYes()
         {

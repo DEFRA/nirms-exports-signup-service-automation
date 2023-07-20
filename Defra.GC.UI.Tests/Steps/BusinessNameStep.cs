@@ -97,5 +97,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             BusinessNamePagetest.CompleteBusinessNameTask(businessName, businessAddr, businessTown, addrPostcode);
         }
 
+        [When(@"complete Business name task with '([^']*)', '([^']*)', '([^']*)', '([^']*)' with save and continue")]
+        public void WhenCompleteBusinessNameTaskWithSave(string businessName, string businessAddr, string businessTown, string addrPostcode)
+        {
+            BusinessNamePagetest.CompleteBusinessNameTaskWithSave(businessName, businessAddr, businessTown, addrPostcode);
+        }
     }
 }

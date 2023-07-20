@@ -27,6 +27,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             pointOfDepartureEstablishmentPage.CompletePointsOfDeparture(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
         }
 
+
+        [When(@"complete Points of departure with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)' with save and continue")]
+        public void ThenCompletePointsOfDepartureWithSave(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
+        {
+            pointOfDepartureEstablishmentPage.CompletePointsOfDepartureWithSave(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+        }
+
         [Then(@"user verify the Points of departure status '([^']*)'")]
         public void ThenUserVerifyThePointsOfDepartureStatus(string status)
         {

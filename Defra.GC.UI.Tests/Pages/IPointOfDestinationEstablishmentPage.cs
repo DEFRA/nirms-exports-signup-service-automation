@@ -18,6 +18,8 @@
 
         public void CompletePointsOfDestination(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode);
 
+        public void CompletePointsOfDestinationWithSave(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode);
+
         public bool VerifyThePointsOfDestinationStatus(string status);
 
         public bool VerifyDuplicateEstablishmentErrorMessage(string errorMessage);

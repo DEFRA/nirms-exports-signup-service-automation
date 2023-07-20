@@ -27,6 +27,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CompleteBusinessNameTask(string businessName, string businessAddr, string businessTown, string addrPostcode);
 
+        public void CompleteBusinessNameTaskWithSave(string businessName, string businessAddr, string businessTown, string addrPostcode);
+
         public void EditBusinessNameTask(string businessName);
     }
 }

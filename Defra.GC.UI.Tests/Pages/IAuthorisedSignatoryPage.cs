@@ -6,6 +6,8 @@
 
         public void CompleteContactPersonAuthorisedSignatoryWithYes();
 
+        public void CompleteContactPersonAuthorisedSignatoryWithYesSave();
+
         public void EditAuthorisedSignatoryToNo(string authorisation);
 
         public void SelectAuthorisedSignatory(string authorisation);

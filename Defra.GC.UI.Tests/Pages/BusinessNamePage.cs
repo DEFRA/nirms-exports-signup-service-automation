@@ -114,6 +114,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             applicationPage.ClickSaveAndReturnToDashboard();
         }
 
+        public void CompleteBusinessNameTaskWithSave(string businessName, string businessAddr, string businessTown, string addrPostcode)
+        {
+            ClickonBusinessName();
+            EnterBusinessName(businessName);
+            ClickOnSaveAndContinue();
+            businessAddressPage.EnterBusinessAddress(businessAddr, businessTown, addrPostcode);
+            applicationPage.ClickOnSaveAndContinue();
+        }
+
         public void EditBusinessNameTask(string businessName)
         {
             EnterBusinessName(businessName);

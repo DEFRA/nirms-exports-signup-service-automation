@@ -44,6 +44,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYes();
         }
 
+        [When(@"complete contact person Authorised Signatory with Yes Authorisation with save and continue")]
+        public void WhenCompleteContactPersonAuthorisedSignatoryWithYesSave()
+        {
+            authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYesSave();
+        }
+
         [Then(@"verify error message '([^']*)' on Authorised Signatory page")]
         public void ThenVerifyErrorMessageOnAuthorisedSignatoryPage(string errorMessage)
         {

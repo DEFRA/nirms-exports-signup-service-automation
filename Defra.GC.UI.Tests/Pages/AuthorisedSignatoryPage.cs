@@ -46,6 +46,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             applicationPage.ClickSaveAndReturnToDashboard();
         }
 
+        public void SelectAuthorisedSignatoryWithSave(string authorisation)
+        {
+            _driver.ClickRadioButton(authorisation);
+            applicationPage.ClickOnSaveAndContinue();
+        }
+
         public void SelectAuthorisedSignatoryWithoutSave(string authorisation)
         {
             _driver.ClickRadioButton(authorisation);
@@ -55,6 +61,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             ClickOnAuthorisedSignatoryLink();
             SelectAuthorisedSignatory("Yes");
+        }
+
+        public void CompleteContactPersonAuthorisedSignatoryWithYesSave()
+        {
+            SelectAuthorisedSignatoryWithSave("Yes");
         }
 
         public bool VerifyErrorMessageOnAuthorisedPage(string errorMessage)

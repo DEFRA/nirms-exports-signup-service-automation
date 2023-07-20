@@ -27,6 +27,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             contactNamePage.CompleteBusinessContactDetailsTask(contactName, contactPosition, contactEmail, contactTelephone);
         }
 
+        [When(@"complete Business contact details task with '([^']*)', '([^']*)', '([^']*)', '([^']*)' with save and continue")]
+        public void WhenCompleteBusinessContactDetailsTaskWithSave(string contactName, string contactPosition, string contactEmail, string contactTelephone)
+        {
+            contactNamePage.CompleteBusinessContactDetailsTaskWithSave(contactName, contactPosition, contactEmail, contactTelephone);
+        }
+
         [When(@"enter business contact person '([^']*)'")]
         [Then(@"enter business contact person '([^']*)'")]
         public void ThenEnterBusinessContactName(string ContactName)

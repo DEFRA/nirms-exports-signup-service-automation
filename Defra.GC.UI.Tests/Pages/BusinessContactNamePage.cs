@@ -46,6 +46,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             applicationPage.ClickSaveAndReturnToDashboard();
         }
 
+        public void CompleteBusinessContactDetailsTaskWithSave(string contactName, string contactPosition, string contactEmail, string contactTelephone)
+        {
+            EnterBusinessContactName(contactName);
+            ClickOnSaveAndContinue();
+            ContactPositionPage.EnterBusinessContactPosition(contactPosition);
+            ContactPositionPage.ClickOnSaveAndContinue();
+            ContactEmailAddressPage.EnterEmailAddress(contactEmail);
+            ContactEmailAddressPage.ClickOnSaveAndContinue();
+            ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
+            applicationPage.ClickOnSaveAndContinue();
+        }
+
         public bool VerifyTheBusinessContactDetailsStatus(string status)
         {
             return BusinessContactDetailStatus.Text.Contains(status);

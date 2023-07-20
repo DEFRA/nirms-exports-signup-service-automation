@@ -12,6 +12,8 @@
 
         public void CompleteBusinessContactDetailsTask(string contactName, string contactPosition, string contactEmail, string contactTelephone);
 
+        public void CompleteBusinessContactDetailsTaskWithSave(string contactName, string contactPosition, string contactEmail, string contactTelephone);
+
         public bool VerifyTheBusinessContactDetailsStatus(string status);
 
         public void EditBusinessContactName(string contactName);

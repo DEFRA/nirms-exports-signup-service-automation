@@ -3,6 +3,52 @@ Feature: CheckAnswers
 
 Check Answers and Submit the application
 
+Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>' with save and continue
+	Then  verify next page '<nextPage1>' is loaded 
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>' with save and continue
+	Then  verify next page '<nextPage2>' is loaded 
+	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
+	Then  verify next page '<nextPage3>' is loaded 
+	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>' with save and continue
+	Then  verify next page '<nextPage4>' is loaded 
+	When  click on continue button
+	Then  verify next page '<nextPage5>' is loaded
+    Then  click on the confirm check box on Terms and conditions page
+	Then  click on submit sign up
+
+	Examples: 
+	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1 | nextPage2            | nextPage3               | nextPage4          | nextPage5            |
+	| test      | ACME Ltd           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Full name | Authorised Signatory | Add a place of dispatch | Check your answers | Terms and conditions |
+
+
+Scenario: Check answers and submit sign up link verification on NI points of establishment with save and continue
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>' with save and continue
+	Then  verify next page '<nextPage1>' is loaded 
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>' with save and continue
+	Then  verify next page '<nextPage2>' is loaded 
+	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
+	Then  verify next page '<nextPage3>' is loaded 
+	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>' with save and continue
+	Then  verify next page '<nextPage4>' is loaded 
+	When  click on continue button
+	Then  verify next page '<nextPage5>' is loaded
+	Then  click on the confirm check box on Terms and conditions page
+	Then  click on submit sign up
+
+	Examples: 
+	| logininfo | Business selection  | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage1 | nextPage2            | nextPage3                  | nextPage4          | nextPage5            |
+	| test      | ACME Ltd            | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | Belfast | Northern Ireland | Full name | Authorised Signatory | Add a place of destination | Check your answers | Terms and conditions |
+
+
 Scenario: Check answers and submit sign up link verification on GB points of establishment
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

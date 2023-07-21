@@ -121,12 +121,12 @@ Scenario Outline:Verify user clicks on back button and navigates to previous pag
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue
 	When  user is on Authorised Signatory Email address page
-	When  click on back link
+	When  click on back to dashboard link
 	Then  verify next page '<previousPage>' is loaded 
 
 Examples:
 	| logininfo | Business selection | Country | FBONumber | previousPage | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber | Authposition  |
-	| test      | ACME Ltd           | England | testFBO   | Position     | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator |
+	| test      | ACME Ltd           | England | testFBO   | Sign up      | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator |
 
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory Email address Page

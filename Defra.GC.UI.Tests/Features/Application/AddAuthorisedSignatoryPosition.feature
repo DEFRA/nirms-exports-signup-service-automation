@@ -106,13 +106,12 @@ Scenario: Verify back link on authorised signatory position page
 	When  user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
-	Then  user enters '<Authposition>' position on Authorised signatory position page
-	And   click on back link
+	And   click on back to dashboard link
 	Then  verify next page '<previousPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage                              | emailAddress   | telephoneNumber | previousPage                      |
-	| test      | ACME Ltd            | England | testFBO   | testContactName | testPosition    | test Name | administrator | Email address of Authorised Signatory | test@gmail.com | 01632 960 001   | Full name of Authorised Signatory |
+	| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | emailAddress   | telephoneNumber | previousPage |
+	| test      | ACME Ltd            | England | testFBO   | testContactName | testPosition    | test Name | administrator | test@gmail.com | 01632 960 001   | Sign up      |
 
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory position Page

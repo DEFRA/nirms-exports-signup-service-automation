@@ -71,12 +71,12 @@ Scenario: Verify back link on contact email address page
 	And   click on save and continue
 	And   enter business contact position '<contactPosition>'
 	And   click on save and continue
-	And   click on back link
+	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | nextPage |
-	| test      | ACME Ltd           | England | testFBO   | testContactName | testPosition    | Position |
+	| test      | ACME Ltd           | England | testFBO   | testContactName | testPosition    | Sign up  |
 
 Scenario: Verify save and return to dashboard on contact email address page
 	Given that I navigate to the NI GC application

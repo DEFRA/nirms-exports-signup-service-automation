@@ -52,7 +52,7 @@ Scenario Outline:  Verify user clicks on back button  and navigate
     And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  user is in Business name page
-	When  user clicks back button
+	When  click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 

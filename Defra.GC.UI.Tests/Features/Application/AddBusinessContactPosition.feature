@@ -63,12 +63,12 @@ Scenario: Verify back link on business contact position page
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
-	And   click on back link
+	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | contactName     | nextPage  |
-	| test      |  ACME Ltd          | England | testFBO   | testContactName | Full name |
+	| test      |  ACME Ltd          | England | testFBO   | testContactName | Sign up   |
 
 
 Scenario: Verify save and return to dashboard on business contact position page

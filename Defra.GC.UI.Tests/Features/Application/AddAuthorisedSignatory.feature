@@ -52,7 +52,7 @@ Scenario: Verify back link navigated to tasklist page
 	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on Authorised Signatory link
-	And   click on back link
+	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 

@@ -20,7 +20,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SignUPTaskPage => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Continue']"));
-
+        private IWebElement BackToDashboardlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back to dashboard')]"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -72,6 +72,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor.ExecuteScript("arguments[0].click();", Continue);
         }
 
+        public void ClickOnBackToDashboardLink()
+        {
+            BackToDashboardlink.Click();
+        }
         #endregion Page Methods
     }
 }

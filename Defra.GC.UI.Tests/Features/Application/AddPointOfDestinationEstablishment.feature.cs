@@ -221,7 +221,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("click on points of destination link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 47
- testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on back to dashboard link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 48
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -232,7 +232,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on select Destination establishment address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ACME Ltd", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "ACME Ltd", "Northern Ireland", "testFBO", "BT52 2AJ", "Sign up", null)]
         public void VerifyBackLinkOnSelectDestinationEstablishmentAddressPage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -270,7 +270,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.When("click on points of destination link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 62
- testRunner.When("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("click on back to dashboard link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -278,7 +278,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on add Destination  establishment address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ACME Ltd", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "ACME Ltd", "Northern Ireland", "testFBO", "BT52 2AJ", "Sign up", null)]
         public void VerifyBackLinkOnAddDestinationEstablishmentAddressPage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -316,7 +316,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("click on points of destination link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 79
- testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on back to dashboard link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -324,7 +324,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on the  Do you want to add another point of destination Page ?")]
-        [NUnit.Framework.TestCaseAttribute("test", "ACME Ltd", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "ACME Ltd", "Northern Ireland", "testFBO", "BT52 2AJ", "Sign up", null)]
         public void VerifyBackLinkOnTheDoYouWantToAddAnotherPointOfDestinationPage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -362,7 +362,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("click on points of destination link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 96
- testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on back to dashboard link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -370,7 +370,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on the Establishment email address optional page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ACME Ltd", "Northern Ireland", "testFBO", "BT52 2AJ", "Add a place of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "ACME Ltd", "Northern Ireland", "testFBO", "BT52 2AJ", "Sign up", null)]
         public void VerifyBackLinkOnTheEstablishmentEmailAddressOptionalPage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -408,7 +408,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("click on points of destination link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 113
- testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on back to dashboard link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

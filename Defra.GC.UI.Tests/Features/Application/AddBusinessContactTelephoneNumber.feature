@@ -79,12 +79,12 @@ Scenario: Verify back link on contact telephone number page
 	And   click on save and continue
 	And   enter email address '<emailAddress>'
 	And   click on save and continue
-	And   click on back link
+	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage      |
-	| test      | ACME Ltd			 | England | testFBO   | testContactName | testPosition    | test@test.com | Email address |
+	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage |
+	| test      | ACME Ltd			 | England | testFBO   | testContactName | testPosition    | test@test.com | Sign up  |
 
 Scenario: Verify save and return to dashboard on contact telephone number page
 	Given that I navigate to the NI GC application

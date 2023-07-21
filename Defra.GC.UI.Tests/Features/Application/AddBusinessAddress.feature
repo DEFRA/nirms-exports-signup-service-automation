@@ -67,11 +67,11 @@ Scenario Outline: Verify back button is navigated to previous page
 	When  user is in Business name page
     And   user enters Business name  '<Business name>'
 	Then  click on save and continue
-	When  click on back link
+	When  click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | nextPage                           | Business name    |
-	| test      | ACME Ltd           | England | testFBO   | What is the name of your business? | testBusinessname |
+	| logininfo | Business selection | Country | FBONumber | nextPage | Business name    |
+	| test      | ACME Ltd           | England | testFBO   | Sign up  | testBusinessname |
 
 Scenario Outline:Verify save and return to dashboard navigating to tasklist page
 	Given that I navigate to the NI GC application

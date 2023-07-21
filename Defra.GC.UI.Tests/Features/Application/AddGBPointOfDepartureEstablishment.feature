@@ -60,12 +60,12 @@ Scenario: Verify back link on enter establishment postcode page
     And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
-	And   click on back link
-	Then  verify signUp task list page is loaded
+	And   click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber |
-	| test      | ACME Ltd           | England | testFBO   |
+	| logininfo | Business selection | Country | FBONumber | nextPage |
+	| test      | ACME Ltd           | England | testFBO   | Sign up  |
 
 Scenario: Verify back link on select establishment address page
 	Given that I navigate to the NI GC application
@@ -75,12 +75,12 @@ Scenario: Verify back link on select establishment address page
 	When  click on points of departure link	
 #	And   enter Establishment postcode '<postcode>'
 #	Then  verify next page '<nextPage>' is loaded 
-	When  click on back link
+	When  click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage |
+	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Sign up  |
 
 Scenario: Verify back link on add establishment address page
 	Given that I navigate to the NI GC application
@@ -92,12 +92,12 @@ Scenario: Verify back link on add establishment address page
 #	Then  verify next page '<nextPage>' is loaded 
 #	When  click on cannot find establishment link 
 #	And   click on the add establishment address manually link
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      | ACME Ltd           | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo | Business selection | Country | FBONumber | postcode | nextPage  |
+	| test      | ACME Ltd           | England | testFBO   | SE10 9NF | Sign up   |
 
 
 
@@ -111,12 +111,12 @@ Scenario: Verify back link on add establishment address page
 	#Then  verify next page '<nextPage>' is loaded 
 	#Then  click on select address button
 	#Then  click on continue button
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage  |
+	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Sign up   |
 
 	
 	Scenario: Verify back link on the Establishment email address optional page
@@ -128,12 +128,12 @@ Scenario: Verify back link on add establishment address page
 	#And   enter Establishment postcode '<postcode>'
 	#Then  verify next page '<nextPage>' is loaded 
 	#Then  click on select address button
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage |
+	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Sign up  |
 
 
 
@@ -291,12 +291,12 @@ Scenario:Verify Back link  from address page navigated to Add a place of dispatc
 	#And   click on cannot find establishment link 
 	#And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
-	| test      | ACME Ltd            | England | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Add a place of dispatch |
+	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage |
+	| test      | ACME Ltd            | England | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Sign up  |
 
 	
 Scenario:Verify different post code link is navigated to Add a place of dispatch page

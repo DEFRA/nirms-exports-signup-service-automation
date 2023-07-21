@@ -55,7 +55,7 @@ Scenario: Verify back link on business contact name page
     And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
-	And   click on back link
+	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 

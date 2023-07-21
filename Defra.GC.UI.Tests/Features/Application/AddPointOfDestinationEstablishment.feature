@@ -44,7 +44,7 @@ Scenario: Verify back link on enter  Destination establishment postcode page
     And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
-	And   click on back link
+	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
@@ -59,12 +59,12 @@ Scenario: Verify back link on select Destination establishment address page
     When  click on points of destination link
 	#And   enter Establishment postcode '<postcode>'
 	#Then  verify next page '<nextPage>' is loaded 
-	When  click on back link
+	When  click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage                   |
-	| test      | ACME Ltd           | Northern Ireland | testFBO   | BT52 2AJ | Add a place of destination |
+	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage |
+	| test      | ACME Ltd           | Northern Ireland | testFBO   | BT52 2AJ | Sign up  |
 
 Scenario: Verify back link on add Destination  establishment address page
 	Given that I navigate to the NI GC application
@@ -76,12 +76,12 @@ Scenario: Verify back link on add Destination  establishment address page
 	#Then  verify next page '<nextPage>' is loaded 
 	#When  click on cannot find establishment link 
 	#And   click on the add establishment address manually link
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country          | FBONumber | postcode | nextPage                   |
-	| test      |      ACME Ltd       | Northern Ireland | testFBO   | BT52 2AJ | Add a place of destination |
+	| logininfo |  Business selection | Country          | FBONumber | postcode | nextPage  |
+	| test      |      ACME Ltd       | Northern Ireland | testFBO   | BT52 2AJ | Sign up   |
 
 	Scenario: Verify back link on the  Do you want to add another point of destination Page ?
 	Given that I navigate to the NI GC application
@@ -93,12 +93,12 @@ Scenario: Verify back link on add Destination  establishment address page
 	#Then  verify next page '<nextPage>' is loaded 
 	#Then  click on select address button
 	#Then  click on continue button
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection  | Country          | FBONumber | postcode | nextPage                   |
-	| test      |    ACME Ltd          | Northern Ireland | testFBO   | BT52 2AJ | Add a place of destination |
+	| logininfo |  Business selection  | Country          | FBONumber | postcode | nextPage  |
+	| test      |    ACME Ltd          | Northern Ireland | testFBO   | BT52 2AJ | Sign up   |
 
 	
 	Scenario: Verify back link on the Establishment email address optional page
@@ -110,12 +110,12 @@ Scenario: Verify back link on add Destination  establishment address page
 	#And   enter Establishment postcode '<postcode>'
 	#Then  verify next page '<nextPage>' is loaded 
 	#Then  click on select address button
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage                   |
-	| test      |  ACME Ltd          | Northern Ireland | testFBO   | BT52 2AJ | Add a place of destination |
+	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage |
+	| test      |  ACME Ltd          | Northern Ireland | testFBO   | BT52 2AJ | Sign up  |
 
 Scenario: Modify point of destination establishment email address
 	Given that I navigate to the NI GC application

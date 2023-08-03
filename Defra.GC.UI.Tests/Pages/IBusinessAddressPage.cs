@@ -11,8 +11,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public string ValidateInvalidErrorMessage();
 
-        public void ClickonBusinessBacklink();
-
         public string VerifyUserinTaskListPage();
 
         public bool VerifyAddressStatus(string status);

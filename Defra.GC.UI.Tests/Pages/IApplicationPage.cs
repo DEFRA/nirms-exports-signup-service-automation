@@ -15,5 +15,7 @@
         public void ClickOnSaveAndContinue();
 
         public void ClickOnContinue();
+
+        public void ClickonBackToDashboardlink();
     }
 }

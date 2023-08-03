@@ -79,12 +79,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         }
 
 
-        [When(@"user clicks back button Business address page")]
-        public void WhenUserClicksBackButtonBusinessAddressPage()
-        {
-            BusinessAddressPagetest.ClickonBusinessBacklink();
-        }
-
         [Then(@"user  navigates back to task list page from Address page")]
         public void ThenUserNavigatesBackToTaskListPageFromAddressPage()
         {

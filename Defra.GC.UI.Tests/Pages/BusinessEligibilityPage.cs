@@ -13,7 +13,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
 
         private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
-        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-fieldset__heading')]"));
+        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("eligibility"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
@@ -22,7 +22,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//a[@href='#FboNumber']"));
         private IWebElement RegulationsErrorMessage => _driver.WaitForElement(By.XPath("//p[@id='RegulationConfirmed_Error']"));
         private IWebElement RegulationCheckbox => _driver.WaitForElementClickable(By.XPath("//label[contains(text(),'I confirm that I have understood the guidance and ')]"));
-        private IWebElement Continue => _driver.WaitForElement(By.Id("button-elig_regulations_Submit data-module="));
+        private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Continue')]"));
+        private By ErrorSummaryBy => By.XPath("//h2[contains(@class,'govuk-error-summary__title')]");
+        private By RegulationCheckedboxBy => By.XPath("//input[@checked='checked']");
+        private IWebElement FBONumberValue => _driver.WaitForElement(By.Id("FboNumber"));
 
         #endregion Page Objects
 
@@ -37,21 +40,51 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool ClickOnCheckEligibilityTask()
         {
+            if(PageHeading.Text.Contains("Sign up"))
             CheckEligibility.Click();
-            return PageHeading.Text.Contains("Which country is your business based in");
+            return PageHeading.Text.Contains("What will your business do");
         }
 
-        public void SelectCountryToCompleteEligibility(string country, string FBONumber, string businesselection)
+        public void CompleteEligibility(string country, string FBONumber)
         {
-            _driver.FindElement(By.XPath("//input[@value='" + businesselection + "']")).Click();
-            //_driver.ElementImplicitWait();
-            //_driver.ClickRadioButton(businesselection);
-            ClickSaveAndContinue();
-            _driver.ElementImplicitWait();
-            _driver.ClickRadioButton(country);
-            ClickSaveAndContinue();
-            SelectFBONumberToCompleteEligibility(FBONumber);
-            ConfirmReMosRegulationToCompleteEligibility();
+            if (!PageHeading.Text.Contains("Sign up"))
+            {
+                if (PageHeading.Text.Contains("What will your business do"))
+                {
+                    if (_driver.FindElements(ErrorSummaryBy).Count > 0)
+                    {
+                        ClickContinue();
+                    }
+                    else
+                    {
+                        if (country.Contains("England") || country.Contains("Scotland") || country.Contains("Wales"))
+                        {
+                            _driver.ClickRadioButton("Send consignments from Great Britain");
+                            _driver.ClickRadioButton(country);
+                        }
+                        else
+                        if (country.Contains("Northern Ireland"))
+                        {
+                            _driver.ClickRadioButton("Receive consignments from Great Britain");
+                        }
+                        ClickContinue();
+                    }
+                }
+                if (PageHeading.Text.Contains("Food Business Operator (FBO)"))
+                {
+                    _driver.ElementImplicitWait();
+                    _driver.ClickRadioButton("Yes");
+                    if (!FBONumberValue.GetAttribute("value").Contains(FBONumber))
+                    {
+                        FBONumberEle.SendKeys(FBONumber);
+                    }
+                    ClickContinue();
+                }
+                if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))
+                {
+                    ConfirmReMosRegulationToCompleteEligibility();
+                }
+            }
         }
 
         public void ClickSaveAndContinue()
@@ -60,33 +93,39 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
-        public void SelectCountryToCompleteEligibilitywithoutRegulations(string businessSelection, string country, string FBONumber)
+        public void ClickContinue()
         {
-            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
-            ClickSaveAndContinue();
-            _driver.ClickRadioButton(country);
-            SaveAndContinue.Click();
-            SelectFBONumberToCompleteEligibility(FBONumber);
-            _driver.ElementImplicitWait();
             IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
             jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
         }
 
-        public void InvaildFBOdata(string country, string FBONumber,string businessSelection)
+        public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber)
         {
-            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
+            if (_driver.WaitForElement(ErrorSummaryBy).Text.Contains("You cannot change this answer"))
+                ClickContinue();
+            //SelectFBONumberToCompleteEligibility(FBONumber);
+            ClickContinue();
+            _driver.ElementImplicitWait();
+            DoNotConfirmReMosRegulationToCompleteEligibility();
+        }
+
+        public void SelectBusinessToSignUp(string businessSelection)
+        {
+            _driver.FindElement(By.XPath("//label[contains(text(),'" +businessSelection + "')]/../input")).Click();
             ClickSaveAndContinue();
-            _driver.ClickRadioButton(country);
-            ClickSaveAndContinue();
+        }
+
+        public void InvaildFBOdata(string country, string FBONumber)
+        {
+            if (_driver.WaitForElement(ErrorSummaryBy).Text.Contains("You cannot change this answer"))
+                ClickContinue();
             SelectFBONumberToCompleteEligibility(FBONumber);
         }
 
-        public void NavigateToRegulations(string businessSelection, string country, string FBONumber)
+        public void NavigateToRegulations(string country, string FBONumber)
         {
-            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
-            ClickSaveAndContinue();
-            _driver.ClickRadioButton(country);
-            ClickSaveAndContinue();
+            if (_driver.WaitForElement(ErrorSummaryBy).Text.Contains("You cannot change this answer"))
+                ClickContinue();
             SelectFBONumberToCompleteEligibility(FBONumber);
         }
 
@@ -100,10 +139,35 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ConfirmReMosRegulationToCompleteEligibility()
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2500)", "");
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", RegulationCheckbox);
             IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-            jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
+            if (_driver.FindElements(RegulationCheckedboxBy).Count() > 0)
+            {
+                string checkedValue = jsExecutor1.ExecuteScript("return document.getElementById('Confirmed').checked").ToString();
+                if (checkedValue.Contains("True"))
+                    ClickContinue();
+            }
+            else
+            {
+                IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+                jsExecutor.ExecuteScript("arguments[0].click();", RegulationCheckbox);
+                ClickContinue();
+            }
+        }
+
+        public void DoNotConfirmReMosRegulationToCompleteEligibility()
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2500)", "");
+            IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+            if (_driver.FindElements(RegulationCheckedboxBy).Count() > 0)
+            {
+                string checkedValue = jsExecutor1.ExecuteScript("return document.getElementById('Confirmed').checked").ToString();
+                if (checkedValue.Contains("True"))
+                {
+                    IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+                    jsExecutor.ExecuteScript("arguments[0].click();", RegulationCheckbox);
+                }
+                ClickContinue();
+            }
         }
 
         public bool VerifyEligibilityTaskStatus(string status)
@@ -112,27 +176,35 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return EligibilityStatus.Text.Contains(status);
         }
 
-        public void AssuranceCompleteWithNoSelection(string businessSelection, string country, string FBONumber)
+        public void AssuranceCompleteWithNoFBO()
         {
-            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
-            ClickSaveAndContinue();
-            _driver.ClickRadioButton(country);
-            ClickSaveAndContinue();
-            NoFBONumberToCompleteEligibility(FBONumber);
+            ClickContinue();
+            NoFBONumberToCompleteEligibility();
         }
 
-        public void NoFBONumberToCompleteEligibility(string FBONumber)
+        public void NoFBONumberToCompleteEligibility()
         {
             _driver.ClickRadioButton("No");
             FBOContinue.Click();
         }
 
-        public void AssurancePagWithCountry(string businessSelection, string country)
+        public void AssurancePagWithCountry(string country)
         {
-            _driver.FindElement(By.XPath("//input[@value='" + businessSelection + "']")).Click();
-            ClickSaveAndContinue(); 
-            _driver.ClickRadioButton(country);
-            ClickSaveAndContinue();
+            if (_driver.WaitForElement(ErrorSummaryBy).Text.Contains("You cannot change this answer"))
+                ClickContinue();
+        }
+
+        public bool VerifyEligibilityTaskFields(string country, string FBONumber)
+        {
+            bool status = true;
+            if (!_driver.WaitForElement(ErrorSummaryBy).Text.Contains("You cannot change this answer"))
+                status = false;
+            ClickContinue();
+            if (!FBONumberValue.GetAttribute("value").Contains(FBONumber))
+                status = false;
+            ClickContinue();
+            ClickContinue();
+            return status;
         }
 
         public bool VerifyNoSignUpTaskListPageIsLoaded()

@@ -42,5 +42,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(taskListPage.VerifyCheckAnswersAndSubmitSignUpLinkStatus(), "Check Answers And Submit SignUp link is not enabled");
         }
 
+        [When(@"click on eligibility task")]
+        public void WhenClickOnEligibilityTask()
+        {
+            Assert.True(taskListPage.ClickOnEligibilityTask(), "Eligibility Task Page not loaded");
+        }
+
     }
 }

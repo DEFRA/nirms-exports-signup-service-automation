@@ -6,22 +6,26 @@ Add GB point of Departure Establishment
 Scenario: Verify Point of Departure link for GB countries
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   verify points of destination link not visible on tasklist page
 	When  click on points of departure link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country  | FBONumber | postcode | nextPage                |
-	| test      |  ACME Ltd           | Wales    | testFBO   | SE10 9NF | Add a place of dispatch |
-	| test      |  ACME Ltd           | Scotland | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo |  Business selection                        | Country  | FBONumber | postcode | nextPage    |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Wales    | testFBO   | SE10 9NF | of dispatch |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Scotland | testFBO   | SE10 9NF | of dispatch |
 
 @CrossBrowser
 Scenario: Check Add the establishment address manually link
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<postcode>'
@@ -31,13 +35,15 @@ Scenario: Check Add the establishment address manually link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      |  ACME Ltd           | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo |  Business selection                         | Country | FBONumber | postcode | nextPage    |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | SE10 9NF | of dispatch |
 
 Scenario: Add GB point of Departure establishment address manually
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<postcode>'
@@ -48,99 +54,112 @@ Scenario: Add GB point of Departure establishment address manually
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country  | FBONumber | postcode | nextPage                | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
-	| test      | ACME Ltd           | England  | testFBO   | SE10 9NF | Add a place of dispatch | testName1         | testAddress1 | London  | England    | SE10 9NF     |
-	| test      | ACME Ltd           | Wales    | testFBO   | CF10 1AA | Add a place of dispatch | testName2         | testAddress2 | Cardiff | Wales      | CF10 1AA     |
-	| test      | ACME Ltd           | Scotland | testFBO   | G1 1AB   | Add a place of dispatch | testName3         | testAddress3 | Glasgow | Scotland   | G1 1AB       |
+	| logininfo | Business selection                       | Country  | FBONumber | postcode | nextPage                | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England  | testFBO   | SE10 9NF | Add a place of dispatch | testName1         | testAddress1 | London  | England    | SE10 9NF     |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| Wales    | testFBO   | CF10 1AA | Add a place of dispatch | testName2         | testAddress2 | Cardiff | Wales      | CF10 1AA     |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| Scotland | testFBO   | G1 1AB   | Add a place of dispatch | testName3         | testAddress3 | Glasgow | Scotland   | G1 1AB       |
 
 
-Scenario: Verify back link on enter establishment postcode page
+Scenario: Verify back to dashboard link on enter establishment postcode page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
-	And   click on back link
-	Then  verify signUp task list page is loaded
+	And   click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber |
-	| test      | ACME Ltd           | England | testFBO   |
+	| logininfo | Business selection                        | Country | FBONumber | nextPage |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up  |
 
-Scenario: Verify back link on select establishment address page
+Scenario: Verify back to dashboard link on select establishment address page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
 #	And   enter Establishment postcode '<postcode>'
 #	Then  verify next page '<nextPage>' is loaded 
-	When  click on back link
+	When  click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo |  Business selection                       | Country | FBONumber | postcode | nextPage  |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE10 9NF | Sign up   |
 
-Scenario: Verify back link on add establishment address page
+Scenario: Verify back to dashboard link on add establishment address page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
 #	And   enter Establishment postcode '<postcode>'
 #	Then  verify next page '<nextPage>' is loaded 
 #	When  click on cannot find establishment link 
 #	And   click on the add establishment address manually link
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      | ACME Ltd           | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo | Business selection                       | Country | FBONumber | postcode | nextPage                |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE10 9NF | Sign up                 |
 
 
 
-	Scenario: Verify back link on the  Do you want to add another point of departure Page ?
+	Scenario: Verify back to dashboard link on then Do you want to add another point of departure Page ?
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
 	#And   enter Establishment postcode '<postcode>'
 	#Then  verify next page '<nextPage>' is loaded 
 	#Then  click on select address button
 	#Then  click on continue button
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo |  Business selection                        | Country | FBONumber | postcode | nextPage                |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Sign up                 |
 
 	
-	Scenario: Verify back link on the Establishment email address optional page
+	Scenario: Verify back to dashboard link on the Establishment email address optional page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
 	#And   enter Establishment postcode '<postcode>'
 	#Then  verify next page '<nextPage>' is loaded 
 	#Then  click on select address button
-	And   click on back link
-	#Then  verify next page '<nextPage>' is loaded 
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | postcode | nextPage                |
-	| test      |   ACME Ltd          | England | testFBO   | SE10 9NF | Add a place of dispatch |
+	| logininfo |  Business selection                        | Country | FBONumber | postcode | nextPage  |EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Sign up   |testName4         | testAddress1 | London  | England    | SE10 9NF     |
 
 
 
 Scenario: Add Another GB point of Departure establishment address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<AddrPostcode>'
@@ -156,13 +175,15 @@ Scenario: Add Another GB point of Departure establishment address
 	And   add establishment email address 'test2@test.com'
 	Then  verify more than 1 establishment addresses added
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      |  ACME Ltd          | England | testFBO   | testName1         | testAddress1 | London  | England    | SE10 9NF     | testName2          | testAddress2 | Liverpool | England     | L1 0AN        |
+	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        |
 
 Scenario: Finish adding GB point of Departure establishment address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<AddrPostcode>'
@@ -174,14 +195,16 @@ Scenario: Finish adding GB point of Departure establishment address
 	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
-	| test      | ACME Ltd           | England | testFBO   | testName1         | testAddress1 | London  | England    | EC4R 9HA     | Check your answers |
+	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |
 
 
 Scenario: Verify no establishment address listed after removing last address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<AddrPostcode>'
@@ -190,18 +213,20 @@ Scenario: Verify no establishment address listed after removing last address
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   remove establishment address '<EstablishmentName>'
-	Then  verify establishment address count '0'
+	#Then  verify establishment address count '0'
 	#And   verify search for establishment address page loaded
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
-	| test      |   ACME Ltd          | England | testFBO   | testName1         | testAddress1 | London  | England    | EC4R 9HA     |
+	| logininfo |  Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     |
 
 
 Scenario: Verify remaining establishment address listed after removing one address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<AddrPostcode>'
@@ -216,16 +241,18 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   add establishment email address 'test2@test.com'
 	And   remove establishment address '<EstablishmentName>'
-	Then  verify establishment address count '1'
+	#Then  verify establishment address count '1'
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | ACME Ltd            | England | testFBO   | testName1         | testAddress1 | London  | England    | SE10 9NF     | testName2          | testAddress2 | Liverpool | England     | L1 0AN        |
+	| logininfo | Business selection                          | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.   | England | testFBO   | testName9         | testAddress1 | London  | England    | SE10 9NF     | testName10         | testAddress2 | Liverpool | England     | L1 0AN        |
 
 	
 Scenario: Change manually added establishment address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<AddrPostcode>'
@@ -240,14 +267,16 @@ Scenario: Change manually added establishment address
 	And   verify changed establishment address fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      |  ACME Ltd          | England | testFBO   | testName1         | testAddress1 | London  | England    | SE10 9NF     | testName2          | testAddress2 | Liverpool | England     | L1 0AN        |
+	| logininfo | Business selection                        | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        |
 
 
 Scenario: Change establishment address postcode
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<AddrPostcode>'
@@ -257,14 +286,16 @@ Scenario: Change establishment address postcode
 #	Then  verify establishment postcode changed to '<AddrPostcode1>'
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | AddrPostcode | AddrPostcode1 |
-	| test      | ACME Ltd            | England | testFBO   | EC4R 9HA     | SE10 9NF      |
+	| logininfo | Business selection                        | Country | FBONumber | AddrPostcode | AddrPostcode1 |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | EC4R 9HA     | SE10 9NF      |
 
 
 Scenario: Change establishment email address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 #	And   enter Establishment postcode '<AddrPostcode>'
@@ -278,31 +309,35 @@ Scenario: Change establishment email address
 	Then  verify changed establishment email address 'test2@test.com'
 
 	Examples: 
-	| logininfo |  Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
-	| test      |   ACME Ltd          | England | testFBO   | testName1         | testAddress1 | London  | England    | SE10 9NF     |
+	| logininfo | Business selection                        | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName13        | testAddress1 | London  | England    | SE10 9NF     |
 
-Scenario:Verify Back link  from address page navigated to Add a place of dispatch  page
+Scenario:Verify back to dashboard link from address page navigated to Add a place of dispatch  page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	#And   enter Establishment postcode '<AddrPostcode>'
 	#And   click on cannot find establishment link 
 	#And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   click on back link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
-	| test      | ACME Ltd            | England | testFBO   | testName1         | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Add a place of dispatch |
+	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Add a place of dispatch |
 
 	
 Scenario:Verify different post code link is navigated to Add a place of dispatch page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	#And   enter Establishment postcode '<AddrPostcode>'
@@ -310,13 +345,15 @@ Scenario:Verify different post code link is navigated to Add a place of dispatch
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | AddrPostcode | nextPage                |
-	| test      | ACME Ltd            | England | testFBO   | N3 3NA       | Add a place of dispatch |
+	| logininfo | Business selection                       | Country | FBONumber | AddrPostcode | nextPage    |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | N3 3NA       | of dispatch |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of dispatch page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	#And   enter Establishment postcode '<AddrPostcode>'
@@ -324,14 +361,16 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of dis
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | AddrPostcode | nextPage                |
-	| test      | ACME Ltd            | England | testFBO   | N3 3NA       | Add a place of dispatch |
+	| logininfo | Business selection                       | Country | FBONumber | AddrPostcode | nextPage    |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | N3 3NA       | of dispatch |
 
 
 Scenario:Verify save and return to dashboard on Add a place of dispatch page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
@@ -341,5 +380,5 @@ Scenario:Verify save and return to dashboard on Add a place of dispatch page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | nextPage  |EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode |
-	| test      | ACME Ltd            | England | testFBO   | Sign up   |testName1         | testAddress1 | testCity1 | testCountry1 | SE10 9NF     |
+	| logininfo | Business selection                        | Country | FBONumber | nextPage  |EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up   |testName15        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     |

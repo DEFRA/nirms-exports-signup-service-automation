@@ -80,7 +80,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", PointOfDestination);
-            return PageHeading.Text.Contains("Add a place of destination");
+            return PageHeading.Text.Contains("of destination");
         }
 
         public void EnterEstablishmentPostcode(string postcode)

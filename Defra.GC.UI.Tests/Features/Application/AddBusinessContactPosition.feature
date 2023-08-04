@@ -7,7 +7,9 @@ Add Business Contact contactPosition
 Scenario: Add business contact position
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -55,7 +57,7 @@ Scenario: Verify error message for blank business contact position
 	| test      | ACME Ltd           | England | testFBO   | testContactName |                 | Enter the position of the contact person |
 
 
-Scenario: Verify back link on business contact position page
+Scenario: Verify back to dashboard link on business contact position page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
@@ -63,12 +65,12 @@ Scenario: Verify back link on business contact position page
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
-	And   click on back link
+	And click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | contactName     | nextPage  |
-	| test      |  ACME Ltd          | England | testFBO   | testContactName | Full name |
+	| test      |  ACME Ltd          | England | testFBO   | testContactName | Sign up   |
 
 
 Scenario: Verify save and return to dashboard on business contact position page

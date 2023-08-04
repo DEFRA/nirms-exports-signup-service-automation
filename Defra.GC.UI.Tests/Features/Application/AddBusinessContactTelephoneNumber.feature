@@ -7,7 +7,9 @@ Add Contact telephone number
 Scenario: Add contact Telephone Number
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+    And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -21,14 +23,16 @@ Scenario: Add contact Telephone Number
 	Then  user verify the business contact details status 'COMPLETED'
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | nextPage |
-	| test      |  ACME Ltd          | England | testFBO   | testContactName | testPosition    | test@test.com | 01632 960 001   | Sign up  |
+	| logininfo |       Business selection                            | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | nextPage |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | 01632 960 001   | Sign up  |
 
 
 Scenario: Verify error message for invalid contact Telephone Number
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+     And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -42,14 +46,16 @@ Scenario: Verify error message for invalid contact Telephone Number
 	Then  verify error message '<errorMessage>' on contact telephone number page
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | errorMessage                                   |
-	| test      | ACME Ltd           | England | testFBO   | testContactName | testPosition    | test@test.com | abc123          | Enter a telephone number in the correct format |
+	| logininfo |     Business selection                             | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | errorMessage                                   |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | abc123          | Enter a telephone number in the correct format, like 01632 960 001, 07700 900 982 or +44 808 157 019 |
 
 
 Scenario: Verify error message for blank contact telephone number
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+    And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -63,14 +69,16 @@ Scenario: Verify error message for blank contact telephone number
 	Then  verify error message '<errorMessage>' on contact telephone number page
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | errorMessage                                 |
-	| test      |  ACME Ltd			  | England | testFBO   | testContactName | testPosition    | test@test.com |                 | Enter the phone number of the contact person |
+	| logininfo |             Business selection                      | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | errorMessage                                 |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. 		  | England | testFBO   | testContactName | testPosition    | test@test.com |                 | Enter the phone number of the contact person |
 
 
-Scenario: Verify back link on contact telephone number page
+Scenario: Verify back to dashboard link contact telephone number page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+    And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -83,13 +91,15 @@ Scenario: Verify back link on contact telephone number page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage      |
-	| test      | ACME Ltd			 | England | testFBO   | testContactName | testPosition    | test@test.com | Email address |
+	| logininfo |           Business selection                           | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage      |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. 			 | England | testFBO   | testContactName | testPosition    | test@test.com | Sign up       |
 
 Scenario: Verify save and return to dashboard on contact telephone number page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+    And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -103,5 +113,5 @@ Scenario: Verify save and return to dashboard on contact telephone number page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage | telephoneNumber |
-	| test      |	ACME Ltd		 | England | testFBO   | testContactName | testPosition    | test@test.com | Sign up  | 01632 960 001   |
+	| logininfo |                      Business selection            | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage | telephoneNumber |
+	| test      |	ABC ACCOUNTANCY & MARKETING SERVICES LTD.		 | England | testFBO   | testContactName | testPosition    | test@test.com | Sign up  | 01632 960 001   |

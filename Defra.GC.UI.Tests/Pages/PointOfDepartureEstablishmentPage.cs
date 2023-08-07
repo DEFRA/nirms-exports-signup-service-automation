@@ -139,7 +139,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             if (_driver.FindElements(AddAnotherPlaceOfDispatchMessage).Count > 0)
             {
-                ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3000)", "");
+                ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3500)", "");
                 Thread.Sleep(1000);
                 _driver.ClickRadioButton("No, I need to add another place of");
                 IJavaScriptExecutor jsExecute = (IJavaScriptExecutor)_driver;
@@ -162,9 +162,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
             if (_driver.FindElements(ErrorMessage).Count > 0)
             {
-                EstablishmentAddr1.SendKeys("123");
-                IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-                jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
+                if (_driver.FindElement(ErrorMessage).Text.Contains("This address has already been added as a place of"))
+                { 
+                    EstablishmentAddr1.SendKeys("123");
+                    IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+                    jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue); 
+                }
             }
         }
 
@@ -182,7 +185,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnAddAnotherEstablishmentAddress()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3000)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3500)", "");
             Thread.Sleep(1000);
             _driver.ClickRadioButton("No, I need to add another place of");
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
@@ -191,7 +194,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnIHaveFinishedAddingPointsOfDeparture()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3000)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3500)", "");
             Thread.Sleep(1000);
             _driver.ClickRadioButton("Yes");
         }

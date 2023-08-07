@@ -233,14 +233,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return PageHeading.Text;
         }
 
-        public void EditCountryToCompleteEligibility(string country)
-        {
-            _driver.ClickRadioButton(country);
-            ClickSaveAndContinue();
-            FBOContinue.Click();
-            ConfirmReMosRegulationToCompleteEligibility();
-        }
-
         public void EditFBONumberToCompleteEligibility(string FBONumber)
         {
             SelectFBONumberToCompleteEligibility(FBONumber);

@@ -24,8 +24,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
 
         }
-
         [Given(@"that I navigate to the NI GC application")]
+        [When(@"that I navigate to the NI GC application")]
         public void GivenThatINavigateToTheGCApplication()
         {
             string url = UrlBuilder.Default().Build();

@@ -54,7 +54,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             //EnterEstablishmentPostcode(establishmentCode);
             //ClickOnCannotFindEstablishmentLink();
             //ClickOnAddTheEstablishmentAddressManuallyLink();
-            AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            //AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
             pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
             applicationPage.ClickSaveAndReturnToDashboard();
@@ -65,7 +66,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             //EnterEstablishmentPostcode(establishmentCode);
             //ClickOnCannotFindEstablishmentLink();
             //ClickOnAddTheEstablishmentAddressManuallyLink();
-            AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
             pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
             applicationPage.ClickOnSaveAndContinue();

@@ -126,7 +126,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditBusinessNameTask(string businessName)
         {
             EnterBusinessName(businessName);
-            ClickOnSaveAndContinue();
+            //ClickOnSaveAndContinue();
             //businessAddressPage.ClickOnSaveAndContinue();
             applicationPage.ClickSaveAndReturnToDashboard();
         }

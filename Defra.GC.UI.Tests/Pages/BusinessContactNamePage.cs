@@ -95,7 +95,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditBusinessContactPosition(string contactPosition)
         {
             ContactPositionPage.EnterBusinessContactPosition(contactPosition);
-            ContactPositionPage.ClickOnSaveAndContinue();
+            //ContactPositionPage.ClickOnSaveAndContinue();
             applicationPage.ClickSaveAndReturnToDashboard();
         }
 

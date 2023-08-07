@@ -61,10 +61,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             {
                 BusinessAddressPagetest.EditBusinessAddress(fieldValue, fieldValue, "SE9 0AW");
             }
-            else if (fieldName.Contains("Country"))
-            {
-                eligibilityPage.EditCountryToCompleteEligibility(fieldValue);
-            }
             else if (fieldName.Contains("FBO number"))
             {
                 eligibilityPage.EditFBONumberToCompleteEligibility(fieldValue);
@@ -99,7 +95,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
                 applicationPage.ClickSaveAndReturnToDashboard();
             }
-            else if (fieldName.Contains("Contact person is the Authorised Signatory"))
+            else if (fieldName.Contains("Contact person is the authorised representative"))
             {
                 if (fieldValue.Contains("Yes"))
                 {

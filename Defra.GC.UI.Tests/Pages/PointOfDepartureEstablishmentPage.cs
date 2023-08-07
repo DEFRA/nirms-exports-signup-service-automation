@@ -139,7 +139,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             if (_driver.FindElements(AddAnotherPlaceOfDispatchMessage).Count > 0)
             {
-                ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3500)", "");
+                ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
                 Thread.Sleep(1000);
                 _driver.ClickRadioButton("No, I need to add another place of");
                 IJavaScriptExecutor jsExecute = (IJavaScriptExecutor)_driver;
@@ -185,7 +185,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnAddAnotherEstablishmentAddress()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3500)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             Thread.Sleep(1000);
             _driver.ClickRadioButton("No, I need to add another place of");
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
@@ -194,7 +194,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnIHaveFinishedAddingPointsOfDeparture()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3500)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             Thread.Sleep(1000);
             _driver.ClickRadioButton("Yes");
         }

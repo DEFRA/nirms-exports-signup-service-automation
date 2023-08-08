@@ -1,7 +1,10 @@
 ﻿using BoDi;
+using Defra.GC.UI.Tests.Configuration;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Data;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
@@ -18,6 +21,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             _scenarioContext = context;
             _objectContainer = container;
+        }
+
+        [When(@"Clear Database")]
+        [Given(@"Clear Database")]
+        public void ThenClearDatabase()
+        {
+            string query = "DELETE FROM AuthorisedSignatory";
+            if(ConfigSetup.BaseConfiguration != null)
+            {
+                ConfigSetup.BaseConfiguration.ApplicationCon.ExecuteQuery(query);
+            }
         }
 
         [When(@"click on save and continue")]

@@ -1,4 +1,5 @@
-﻿using Defra.UI.Framework.Configuration;
+﻿using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.UI.Framework.Configuration;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework.Internal;
 using TechTalk.SpecFlow;
@@ -9,7 +10,7 @@ namespace Defra.GC.UI.Tests.Configuration
     [Binding]
     public class ConfigSetup
     {
-        public static BaseConfiguration BaseConfiguration { get; private set; }
+        public static BaseConfiguration? BaseConfiguration { get; private set; }
 
         [BeforeTestRun(Order = (int)HookRunOrder.Configuration)]
         public static void SetupProjectConfig()
@@ -17,6 +18,7 @@ namespace Defra.GC.UI.Tests.Configuration
             BaseConfiguration = LoadConfigurationFromAppSettings();
             UiFrameworkConfigurationBinding();
             DataSetupConfigurationBinding();
+            //DBSetupConfigurationBinding();
         }
 
         private static BaseConfiguration LoadConfigurationFromAppSettings()
@@ -44,6 +46,14 @@ namespace Defra.GC.UI.Tests.Configuration
         private static void DataSetupConfigurationBinding()
         {
             Test.Data.Configuration.DataSetupConfig.Configuration = BaseConfiguration.BackendSetupConfig;
+        }
+
+        private static void DBSetupConfigurationBinding()
+        {
+
+            string connectString = @"Data Source=TSTTRSDBSSQ1001;Initial Catalog=trade-remos-signup;Integrated Security=true;User ID=;Password=;";
+            var dataDB = BaseConfiguration.AppConnectionString;
+            BaseConfiguration.ApplicationCon = BaseConfiguration.ApplicationCon.DBConnect(connectString);
         }
     }
 

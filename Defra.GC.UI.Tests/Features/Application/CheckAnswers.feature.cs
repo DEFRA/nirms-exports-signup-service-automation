@@ -156,13 +156,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 13
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\' with save and continu" +
-                            "e", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 14
- testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 15
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\' with save " +
                             "and continue", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -278,13 +271,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 37
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 38
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\' with save and continu" +
-                            "e", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 39
- testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 40
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\' with save " +
                             "and continue", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -391,12 +377,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 62
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 63
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 64
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 65
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -508,12 +488,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 88
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 89
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 90
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 91
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -558,11 +532,11 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName7", "testAddress1", "London", "England", "FBO number", "ChangeFBO", null)]
         [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName8", "testAddress1", "London", "England", "Contact name", "ChangedName", null)]
         [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName9", "testAddress1", "London", "England", "Contact position", "ChangedPosition", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName10", "testAddress1", "London", "England", "Contact email address", "change@test.com", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName11", "testAddress1", "London", "England", "Contact telephone number", "01632 960 999", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName12", "testAddress1", "London", "England", "Address", "ChangedAddress", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName13", "testAddress1", "London", "England", "Email address", "Changed@address.com", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName14", "testAddress1", "London", "England", "Contact person is the authorised representative", "No", null)]
+        [NUnit.Framework.TestCaseAttribute("test3", "EASYJET UK LIMITED", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName10", "testAddress1", "London", "England", "Contact email address", "change@test.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test3", "EASYJET UK LIMITED", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName11", "testAddress1", "London", "England", "Contact telephone number", "01632 960 999", null)]
+        [NUnit.Framework.TestCaseAttribute("test3", "EASYJET UK LIMITED", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName12", "testAddress1", "London", "England", "Address", "ChangedAddress", null)]
+        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName13", "testAddress1", "London", "England", "Email address", "Changed@address.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName14", "testAddress1", "London", "England", "Contact person is the authorised representative", "No", null)]
         public void EditCheckAnswersForGBRetailMovementSchemeSignUp(
                     string logininfo, 
                     string businessSelection, 
@@ -632,12 +606,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 115
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 116
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 117
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 118
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -746,12 +714,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 147
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 148
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 149
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 150
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -785,16 +747,16 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit Check answers for Northern Ireland Retail Movement Scheme sign up")]
-        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName19", "testAddress1", "Belfast", "Northern Ireland", "Business name", "ChangedName", null)]
-        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName20", "testAddress1", "Belfast", "Northern Ireland", "Business address", "ChangedAddr", null)]
-        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName21", "testAddress1", "Belfast", "Northern Ireland", "FBO number", "ChangeFBO", null)]
-        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName22", "testAddress1", "Belfast", "Northern Ireland", "Contact name", "ChangedName", null)]
-        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName23", "testAddress1", "Belfast", "Northern Ireland", "Contact position", "ChangedPosition", null)]
-        [NUnit.Framework.TestCaseAttribute("test1", "Kaka", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName24", "testAddress1", "Belfast", "Northern Ireland", "Contact email address", "change@test.com", null)]
-        [NUnit.Framework.TestCaseAttribute("test1", "Kaka", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName25", "testAddress1", "Belfast", "Northern Ireland", "Contact telephone number", "01632 960 999", null)]
-        [NUnit.Framework.TestCaseAttribute("test1", "Kaka", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName26", "testAddress1", "Belfast", "Northern Ireland", "Address", "ChangedAddress", null)]
-        [NUnit.Framework.TestCaseAttribute("test1", "Kaka", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName27", "testAddress1", "Belfast", "Northern Ireland", "Email address", "Changed@Address.com", null)]
-        [NUnit.Framework.TestCaseAttribute("test1", "Kaka", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName28", "testAddress1", "Belfast", "Northern Ireland", "Contact person is the authorised representative", "No", null)]
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName19", "testAddress1", "Belfast", "Northern Ireland", "Business name", "ChangedName", null)]
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName20", "testAddress1", "Belfast", "Northern Ireland", "Business address", "ChangedAddr", null)]
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName21", "testAddress1", "Belfast", "Northern Ireland", "FBO number", "ChangeFBO", null)]
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName22", "testAddress1", "Belfast", "Northern Ireland", "Contact name", "ChangedName", null)]
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName23", "testAddress1", "Belfast", "Northern Ireland", "Contact position", "ChangedPosition", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName24", "testAddress1", "Belfast", "Northern Ireland", "Contact email address", "change@test.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName25", "testAddress1", "Belfast", "Northern Ireland", "Contact telephone number", "01632 960 999", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName26", "testAddress1", "Belfast", "Northern Ireland", "Address", "ChangedAddress", null)]
+        [NUnit.Framework.TestCaseAttribute("test6", "Tesco Carlisle", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName27", "testAddress1", "Belfast", "Northern Ireland", "Email address", "Changed@Address.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test6", "Tesco Carlisle", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName28", "testAddress1", "Belfast", "Northern Ireland", "Contact person is the authorised representative", "No", null)]
         public void EditCheckAnswersForNorthernIrelandRetailMovementSchemeSignUp(
                     string logininfo, 
                     string businessSelection, 
@@ -865,12 +827,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 173
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 174
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 175
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 176
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -905,10 +861,10 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit Authorised Signatory on Check answers for Northern Ireland Retail Movement S" +
             "cheme sign up")]
-        [NUnit.Framework.TestCaseAttribute("test3", "EASYJET UK LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName29", "testAddress1", "Belfast", "Northern Ireland", "Contact person is the authorised representative", "Yes", null)]
-        [NUnit.Framework.TestCaseAttribute("test3", "EASYJET UK LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName30", "testAddress1", "Belfast", "Northern Ireland", "Authorised Signatory name", "Changed Authorised Signatory name", null)]
-        [NUnit.Framework.TestCaseAttribute("test3", "EASYJET UK LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName31", "testAddress1", "Belfast", "Northern Ireland", "Authorised Signatory position", "Changed Authorised Signatory position", null)]
-        [NUnit.Framework.TestCaseAttribute("test3", "EASYJET UK LIMITED", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName32", "testAddress1", "Belfast", "Northern Ireland", "Authorised Signatory email address", "Changed@AuthorisedSignatoryname.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName29", "testAddress1", "Belfast", "Northern Ireland", "Contact person is the authorised representative", "Yes", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName30", "testAddress1", "Belfast", "Northern Ireland", "Authorised Signatory name", "Changed Authorised Signatory name", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName31", "testAddress1", "Belfast", "Northern Ireland", "Authorised Signatory position", "Changed Authorised Signatory position", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName32", "testAddress1", "Belfast", "Northern Ireland", "Authorised Signatory email address", "Changed@AuthorisedSignatoryname.com", null)]
         public void EditAuthorisedSignatoryOnCheckAnswersForNorthernIrelandRetailMovementSchemeSignUp(
                     string logininfo, 
                     string businessSelection, 
@@ -980,12 +936,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 205
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 206
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 207
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 208
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -1019,7 +969,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify place of dispatch link on check your answers page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName33", "testAddress1", "SecondEstName", "EstAddress2", "London", "England", "Check your answers", "Add a place of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName33", "testAddress1", "SecondEstName", "EstAddress2", "London", "England", "Check your answers", "Add a place of dispatch", null)]
         public void VerifyPlaceOfDispatchLinkOnCheckYourAnswersPage(
                     string logininfo, 
                     string businessSelection, 
@@ -1094,12 +1044,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 233
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 234
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 235
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 236
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -1151,7 +1095,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify place of destination link on check your answers page")]
-        [NUnit.Framework.TestCaseAttribute("test1", "Kaka", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName34", "testAddress1", "SecondEstName", "EastAddr1", "Belfast", "Northern Ireland", "Check your answers", "Add a place of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test6", "Tesco Carlisle", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName34", "testAddress1", "SecondEstName", "EastAddr1", "Belfast", "Northern Ireland", "Check your answers", "Add a place of destination", null)]
         public void VerifyPlaceOfDestinationLinkOnCheckYourAnswersPage(
                     string logininfo, 
                     string businessSelection, 
@@ -1226,12 +1170,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 264
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 265
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 266
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 267
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -1283,7 +1221,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Remove GB establishment on check your answers page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName35", "testEstNameRemove", "testAddress1", "London", "England", "Check your answers", "Add a place of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "RemoveEstName35", "testEstNameRemove", "testAddress1", "London", "England", "Check your answers", "Add a place of dispatch", null)]
         public void RemoveGBEstablishmentOnCheckYourAnswersPage(
                     string logininfo, 
                     string businessSelection, 
@@ -1356,12 +1294,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 294
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 295
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 296
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 297
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -1407,7 +1339,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Remove NI establishment on check your answers page")]
-        [NUnit.Framework.TestCaseAttribute("test1", "Kaka", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName36", "testEstRemove", "testAddress1", "Belfast", "Northern Ireland", "Check your answers", "Add a place of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test6", "Tesco Carlisle", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "RemoveEstAddress", "testEstRemove", "testAddress1", "Belfast", "Northern Ireland", "Check your answers", "Add a place of destination", null)]
         public void RemoveNIEstablishmentOnCheckYourAnswersPage(
                     string logininfo, 
                     string businessSelection, 
@@ -1480,12 +1412,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 324
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 325
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 326
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 327
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -1531,7 +1457,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link on Check answers page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName37", "testAddress1", "London", "England", "Check your answers", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName37", "testAddress1", "London", "England", "Check your answers", "Sign up", null)]
         public void VerifyBackToDashboardLinkOnCheckAnswersPage(
                     string logininfo, 
                     string businessSelection, 
@@ -1601,12 +1527,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 354
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 355
- testRunner.When(string.Format("complete Business name task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", businessName, addressLine, town, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 356
- testRunner.Then("user verify the business name status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 357
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

@@ -11,7 +11,8 @@ Scenario Outline: Complete eligibility task
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	
+	And   user verify the selected business name '<Business selection>'
+
 	Examples:
     | logininfo | Country | FBONumber | Business selection                             |
     | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD.      |

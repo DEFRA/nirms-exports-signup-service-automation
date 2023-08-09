@@ -48,6 +48,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CompleteBusinessContactDetailsTaskWithSave(string contactName, string contactPosition, string contactEmail, string contactTelephone)
         {
+            ClickOnBusinessContactDetailsLink();
             EnterBusinessContactName(contactName);
             ClickOnSaveAndContinue();
             ContactPositionPage.EnterBusinessContactPosition(contactPosition);

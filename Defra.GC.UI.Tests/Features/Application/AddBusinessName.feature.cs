@@ -124,15 +124,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 14
- testRunner.When("user is in Business name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 15
-    testRunner.And(string.Format("user enters Business name  \'{0}\'", businessName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 16
- testRunner.Then("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 17
  testRunner.And(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -181,26 +172,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 30
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 31
- testRunner.When("user is in Business name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 32
-    testRunner.And(string.Format("user enters Business name  \'{0}\'", businessName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 33
- testRunner.Then("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 34
- testRunner.Then("user verifies the \"Enter your business name using only letters, numbers, brackets" +
-                        ", full stops, hyphens (-), underscores (_), slashes (/) or ampersands (&)\" error" +
-                        " message for Business name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify error message for  blank business name")]
+        [NUnit.Framework.DescriptionAttribute("Verify error message for blank business name")]
         [NUnit.Framework.TestCaseAttribute("test", "", "England", "testFBO", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", null)]
         public void VerifyErrorMessageForBlankBusinessName(string logininfo, string businessName, string country, string fBONumber, string businessSelection, string[] exampleTags)
         {
@@ -211,7 +188,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Country", country);
             argumentsOfScenario.Add("FBONumber", fBONumber);
             argumentsOfScenario.Add("Business selection", businessSelection);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for  blank business name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error message for blank business name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 40
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -239,16 +216,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 46
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 47
- testRunner.When("user is in Business name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 48
- testRunner.And(string.Format("user enters Business name  \'{0}\'", businessName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 49
- testRunner.Then("user verifies the \"Enter your business name\" error message when user clicks on sa" +
-                        "ve button without Business name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -294,15 +261,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 61
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 62
- testRunner.When("user is in Business name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 63
- testRunner.When("click on back to dashboard link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 64
- testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -351,18 +309,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 76
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 77
- testRunner.When("user is in Business name page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 78
- testRunner.And(string.Format("user enters Business name  \'{0}\'", businessName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 79
- testRunner.And("click Save and return to dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 80
- testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

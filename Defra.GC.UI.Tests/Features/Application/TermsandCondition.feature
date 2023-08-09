@@ -10,8 +10,6 @@ Scenario: Verify Terms and conditions page loaded
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -35,8 +33,6 @@ Scenario: Verify clicking on back link on Submit ReMoS Terms and Conditions Decl
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -60,8 +56,6 @@ Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -85,8 +79,6 @@ Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Co
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation

@@ -210,6 +210,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void RemoveEstablishmentAddress(string establishmentAddress)
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
+            Thread.Sleep(1000);
             string RemoveEstablishment = "//h2[contains(text(),'" + establishmentAddress + "')]/..//a";
             _driver.WaitForElement(By.XPath(RemoveEstablishment)).Click();
         }

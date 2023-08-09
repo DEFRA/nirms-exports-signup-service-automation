@@ -11,6 +11,7 @@ Scenario: Add business contact name
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
@@ -28,6 +29,7 @@ Scenario: Verify error message for invalid business contact name
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
@@ -44,6 +46,7 @@ Scenario: Verify error message for blank business contact name
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
@@ -61,6 +64,7 @@ Scenario: Verify back to dashboard link on business contact name page
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
 	When  click on business contact details link
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded 
@@ -76,6 +80,7 @@ Scenario: Verify save and return to dashboard on business contact name page
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click Save and return to dashboard

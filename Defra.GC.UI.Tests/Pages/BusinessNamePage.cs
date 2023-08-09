@@ -29,6 +29,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement BackLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Back']"));
         private IWebElement SaveLater => _driver.WaitForElement(By.XPath("(//a[normalize-space()='Save and continue later'])[1]"));
         private IWebElement BusinessStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-details']"));
+        private IWebElement SelectedBusinessName => _driver.WaitForElement(By.XPath("//strong[@id='selected-business']"));
         private IWebElement CountryName => _driver.WaitForElement(By.XPath("//label[normalize-space()='England']"));
         private IWebElement CountryError => _driver.WaitForElement(By.XPath("//p[@id='Country_Error']"));
         private IWebElement Address => _driver.WaitForElement(By.XPath(" //a[normalize-space()='Registered address']"));
@@ -129,6 +130,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             //ClickOnSaveAndContinue();
             //businessAddressPage.ClickOnSaveAndContinue();
             applicationPage.ClickSaveAndReturnToDashboard();
+        }
+
+        public bool VerifyBusinessName(string businessName)
+        {
+            return SelectedBusinessName.Text.Contains(businessName);
         }
 
         #endregion Page Methods

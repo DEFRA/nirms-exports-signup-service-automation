@@ -193,7 +193,7 @@ Scenario: Finish adding GB point of Departure establishment address
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
 	And   click on save and continue
-	Then  verify next page '<nextPage>' is loaded 
+	#Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |

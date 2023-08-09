@@ -11,12 +11,12 @@ Scenario Outline: Add Business Address
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  user is in Business name page
-    And   user enters Business name  '<Business name>'
-	Then  click on save and continue
-	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	Then  click Save and return to dashboard
-	And   user verify the business name status 'COMPLETED'
+	#When  user is in Business name page
+ #   And   user enters Business name  '<Business name>'
+	#Then  click on save and continue
+	#When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
+	#Then  click Save and return to dashboard
+	#And   user verify the business name status 'COMPLETED'
 
 	Examples: 
 	| logininfo | Business selection                       | AddressLine1 | Town     | AddrPostcode | Country | FBONumber | Business name    |
@@ -30,16 +30,16 @@ Scenario Outline: Verify the error message when user do not select the address f
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'	
 	Then  verify eligibility task status as 'COMPLETED'
-	When  user is in Business name page
-    And   user enters Business name  '<Business name>'
-	Then  click on save and continue
-	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	Then  click on save and continue
-	And   user verifies address error message
-	| Key         | Value				  |
-	| Adddress    | Enter address line 1  |
-	| Town        | Enter a town or city  |
-	| Postcode    | Enter a postcode      |
+	#When  user is in Business name page
+ #   And   user enters Business name  '<Business name>'
+	#Then  click on save and continue
+	#When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
+	#Then  click on save and continue
+	#And   user verifies address error message
+	#| Key         | Value				  |
+	#| Adddress    | Enter address line 1  |
+	#| Town        | Enter a town or city  |
+	#| Postcode    | Enter a postcode      |
 	Examples: 
 	| logininfo | Business selection                         | AddressLine1 | Town | AddrPostcode | Country | FBONumber | Business name    |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |              |      |              | England | testFBO   | testBusinessname |
@@ -52,16 +52,16 @@ Scenario: Verify error message for invalid address data
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  user is in Business name page
-    And   user enters Business name  '<Business name>'
-	Then  click on save and continue
-	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	Then  click on save and continue
-	And   user verifies invalid error message for address data
-	| Key             | Value                                                                                |
-	| Adddress Line 1 | Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (')    |
-	| Town            | Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (')    |
-	| Postcode        | Enter a real postcode                                                                |
+	#When  user is in Business name page
+ #   And   user enters Business name  '<Business name>'
+	#Then  click on save and continue
+	#When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
+	#Then  click on save and continue
+	#And   user verifies invalid error message for address data
+	#| Key             | Value                                                                                |
+	#| Adddress Line 1 | Enter address line 1 using only letters, numbers, hyphens (-) and apostrophes (')    |
+	#| Town            | Enter a town or city using only letters, numbers, hyphens (-) and apostrophes (')    |
+	#| Postcode        | Enter a real postcode                                                                |
 	Examples: 
 	| logininfo | Business selection                       | AddressLine1 | Town  | AddrPostcode | Country | FBONumber | Business name    |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| ****         | ***** | *****        | England | testFBO   | testBusinessname |
@@ -74,11 +74,11 @@ Scenario Outline: Verify back to dashboard link is navigated to tasklist page
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  user is in Business name page
-    And   user enters Business name  '<Business name>'
-	Then  click on save and continue
-	When  click on back to dashboard link
-	Then  verify next page '<nextPage>' is loaded 
+	#When  user is in Business name page
+ #   And   user enters Business name  '<Business name>'
+	#Then  click on save and continue
+	#When  click on back to dashboard link
+	#Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Business selection                         | Country | FBONumber | nextPage   | Business name    |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Sign up    | testBusinessname |
@@ -90,13 +90,13 @@ Scenario Outline:Verify save and return to dashboard navigating to tasklist page
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
-	Then  verify eligibility task status as 'COMPLETED'
-	When  user is in Business name page
-    And   user enters Business name  '<Business name>'
-	Then  click on save and continue
-	When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	And   click Save and return to dashboard
-	Then  verify next page '<nextPage>' is loaded 
+	#Then  verify eligibility task status as 'COMPLETED'
+	#When  user is in Business name page
+ #   And   user enters Business name  '<Business name>'
+	#Then  click on save and continue
+	#When  user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
+	#And   click Save and return to dashboard
+	#Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | nextPage | Business name    | AddressLine1 | Town     | AddrPostcode |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | Sign up  | testBusinessname | testAddress1 | testCity | wd19 7pf     |

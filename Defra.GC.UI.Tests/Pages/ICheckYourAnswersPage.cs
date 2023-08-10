@@ -11,5 +11,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyEditedValueOnCheckAnswersPage(string fieldName, string fieldValue);
         public bool VerifyMoreThan1EstablishmentAddressesAdded();
         public bool VerifyTotalEstablishmentAddressesAdded(string TotalNum);
+        public string VerifyBusinessNameAdded();
+        public void VerifySelectedBusinessNamePage();
     }
 }

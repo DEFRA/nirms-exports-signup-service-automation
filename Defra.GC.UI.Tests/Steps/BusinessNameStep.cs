@@ -108,5 +108,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             BusinessNamePagetest.CompleteBusinessNameTaskWithSave(businessName, businessAddr, businessTown, addrPostcode);
         }
+
+
+        [Then(@"user clicks on Selected business")]
+        public void ThenUserClicksOnSelectedBusiness()
+        {
+            BusinessNamePagetest.ClickOnSelectedBusinessNameTask();
+        }
+
+        [Then(@"user clicks on the start a new sign up request link")]
+        public void ThenUserClicksOnTheStartANewSignUpRequestLink()
+        {
+            BusinessNamePagetest.ClickOnSignUpNewRequest();
+        }
     }
 }

@@ -11,6 +11,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     public class SignInPage : ISignInPage
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
+
         private IObjectContainer _objectContainer;
         #region Page Objects
         private IWebElement StartNew => _driver.WaitForElement(By.Id("button-rbIndexSave"));
@@ -21,6 +23,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SignInConfirm => _driver.WaitForElement(By.Id("Link-SignOut"));
         private By SignInConfirmBy => By.Id("Link-SignOut");
         private IWebElement SignOutConfirmMessage => _driver.WaitForElement(By.CssSelector("h1.govuk-heading-xl"));
+        private IWebElement EnvPassword => _driver.WaitForElement(By.Id("password"));
 
         #endregion
 
@@ -57,15 +60,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return SignOutConfirmMessage.Text.Contains("Page not found");
         }
 
-        //public static SqlConnection DBConnect this SqlConnection sqlConnection, ClearDatabase()
-        //{
-        //    SqlConnection Connection = DriverManager.getConnection("ConnetionString", "Username", "Password");
-        //    ;
-        //    DataSet ds = new DataSet();
-        //    Connection con = new SqlConnection(vConnectionString);
-        //    Connection.Open();
-        //    SqlDataAdapter adp = new SqlDataAdapter(vQuery, Connection);
-        //}
+        public void EnterPAssword()
+        {
+            EnvPassword.SendKeys(ConfigSetup.BaseConfiguration.TestConfiguration.EnvPassword);
+            applicationPage.ClickOnContinue();
+        }
     }
 }
 

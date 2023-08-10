@@ -6,5 +6,6 @@
         public bool IsSignedIn(string userName, string password);
         public void ClickSignedOut();
         public bool IsSignedOut();
+        public void EnterPAssword();
     }
 }

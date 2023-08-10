@@ -32,6 +32,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement AddPointOfDepartureLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add another place of dispatch')]"));
         private IWebElement AddPointOfDestinationLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add another place of destination')]"));
         private By NumberOfEstablishments => By.XPath("//div[@class='govuk-summary-card']");
+        private IWebElement Businessname => _driver.WaitForElement(By.Id("business-details-name"));
+        private IWebElement AnotherBusinessname => _driver.WaitForElement(By.XPath("//a[normalize-space()='Sign up another business']"));
 
         #endregion Page Objects
 
@@ -169,6 +171,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             IWebElement RemoveEstEle = _driver.WaitForElement(By.XPath(RemoveEstablishment));
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", RemoveEstEle);
+        }
+
+        public string VerifyBusinessNameAdded()
+        {
+            return Businessname.Text.Trim();
+        }
+
+        public void VerifySelectedBusinessNamePage()
+        {
+            AnotherBusinessname.Click();
         }
 
         #endregion Page Methods

@@ -9,6 +9,7 @@ namespace Defra.GC.UI.Tests.Configuration
     public class TestConfiguration
     {
         public string Environment { get; set; }
+        public string EnvPassword { get; set; }
         public string Platform { get; set; }
         public bool Headless { get; set; }
         public int GlobalWaitsInSeconds { get; set; }

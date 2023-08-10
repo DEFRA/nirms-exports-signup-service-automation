@@ -16,6 +16,6 @@
 
         public void ClickOnContinue();
 
-        public void ClickOnBackToDashboardLink();
+        public void ClickonBackToDashboardlink();
     }
 }

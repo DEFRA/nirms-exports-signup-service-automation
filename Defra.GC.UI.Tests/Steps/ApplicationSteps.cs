@@ -47,6 +47,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             applicationPage.ClickOnBackLink();
         }
 
+        [When(@"click on back to dashboard link")]
+        public void WhenClickOnBackToDashboardLink()
+        {
+            applicationPage.ClickonBackToDashboardlink();
+        }
+
         [Then(@"navigate to task list page")]
         public void ThenNavigateToTaskListPage()
         {

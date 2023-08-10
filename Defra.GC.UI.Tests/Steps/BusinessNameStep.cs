@@ -91,6 +91,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(BusinessNamePagetest.VerifyBusinessNameStatus(status), "Status is Invalid");
         }
 
+        [Then(@"user verify the selected business name '([^']*)'")]
+        public void ThenUserVerifyTheSelectedBusinessName(string businessName)
+        {
+            Assert.True(BusinessNamePagetest.VerifyBusinessName(businessName), "Name is Invalid");
+        }
+
         [When(@"complete Business name task with '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
         public void WhenCompleteBusinessNameTaskWith(string businessName, string businessAddr, string businessTown, string addrPostcode)
         {
@@ -101,6 +107,19 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void WhenCompleteBusinessNameTaskWithSave(string businessName, string businessAddr, string businessTown, string addrPostcode)
         {
             BusinessNamePagetest.CompleteBusinessNameTaskWithSave(businessName, businessAddr, businessTown, addrPostcode);
+        }
+
+
+        [Then(@"user clicks on Selected business")]
+        public void ThenUserClicksOnSelectedBusiness()
+        {
+            BusinessNamePagetest.ClickOnSelectedBusinessNameTask();
+        }
+
+        [Then(@"user clicks on the start a new sign up request link")]
+        public void ThenUserClicksOnTheStartANewSignUpRequestLink()
+        {
+            BusinessNamePagetest.ClickOnSignUpNewRequest();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
         private IWebElement Backlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back')]"));
+        private IWebElement BackToDashboardlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back to dashboard')]"));
         private IWebElement SaveAndReturnToDashboard => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and return to dashboard')]"));
         private IWebElement SignUPTaskPage => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
@@ -41,6 +42,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnBackLink()
         {
             Backlink.Click();
+        }
+
+        public void ClickonBackToDashboardlink()
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,-4000)", "");
+            Thread.Sleep(1000);
+            BackToDashboardlink.Click();
         }
 
         public void NavigateToTaskListPage()

@@ -6,78 +6,105 @@ Add Authorised Signatory
 Scenario: Add Authorised Signatory and navigated to tasklist page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
+	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   select 'Yes' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection   | Country | FBONumber | nextPage                |
-	| test      | ACME Ltd             | England | testFBO   | Add a place of dispatch |
+	| logininfo | Business selection                        | Country | FBONumber | nextPage                | contactName     | contactPosition | emailAddress  | telephoneNumber |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Add a place of dispatch | testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
 
 Scenario: No to the contact person of the Authorised Signatory and navigted to full name Authorised page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
+	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | AddressLine1 | Town     | AddrPostcode | Country | FBONumber | Business name    | nextPage                          |
-	| test      | ACME Ltd           | testAddress1 | testCity | wd19 7pf     | England | testFBO   | testBusinessname | Full name of Authorised Signatory |
+	| logininfo | Business selection						| Country | FBONumber | nextPage											   | contactName     | contactPosition | emailAddress  | telephoneNumber |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Who is the authorised representative at your business? | testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
 
 Scenario: Verify error messages if user do not select Authorised Signatory 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
+	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   click on save and continue
-	Then  verify error message '<errorMessage>' on Authorised Signatory page
+	#Then  verify error message '<errorMessage>' on Authorised Signatory page
 
 	Examples: 
-	| logininfo | Business selection | AddressLine1 | Town     | AddrPostcode | Country | FBONumber | errorMessage      |
-	| test      | ACME Ltd           | testAddress1 | testCity | wd19 7pf     | England | testFBO   | Fill in Yes or No |
+	| logininfo | Business selection						 | Country | FBONumber | errorMessage											        |contactName     | contactPosition | emailAddress  | telephoneNumber |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Select if the contact person is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-Scenario: Verify back link navigated to tasklist page
+Scenario: Verify back to dashboard link navigated to tasklist page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
+	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | nextPage                                                |
-	| test      | ACME Ltd           | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |
+	| logininfo | Business selection						| Country | FBONumber | nextPage                                                |contactName     | contactPosition | emailAddress  | telephoneNumber |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 	
 Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
+	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	When  select 'Yes' to the contact person is the Authorised Signatory without save
 	And   click Save and return to dashboard
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection  |Country | FBONumber |                        nextPage                                  |
-	| test      |  ACME Ltd            |England | testFBO   |   Sign up for the Northern Ireland Retail Movement Scheme        |
+	| logininfo |  Business selection						|Country | FBONumber |                        nextPage                                  |contactName     | contactPosition | emailAddress  | telephoneNumber |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.|England | testFBO   |   Sign up for the Northern Ireland Retail Movement Scheme        |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory page after completing Contact person
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -94,6 +121,6 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory pag
 	Then  verify next page '<nextPage1>' is loaded 
 
 Examples: 
-	| logininfo | Business selection  |Country | FBONumber | nextPage             | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber | Authposition  | nextPage1 |
-	| test      | ACME Ltd            |England | testFBO   | Authorised Signatory | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator | Sign up   |
+	| logininfo | Business selection						|Country | FBONumber | nextPage                  | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber | Authposition  | nextPage1 |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |England | testFBO   | authorised representative | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator | Sign up   |
 

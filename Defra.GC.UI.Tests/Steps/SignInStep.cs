@@ -5,6 +5,8 @@ using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.GC.UI.Tests.Configuration;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
@@ -24,12 +26,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
 
         }
-
         [Given(@"that I navigate to the NI GC application")]
+        [When(@"that I navigate to the NI GC application")]
         public void GivenThatINavigateToTheGCApplication()
         {
             string url = UrlBuilder.Default().Build();
             _driver.Navigate().GoToUrl(url);
+            Signin.EnterPAssword();
             Assert.True(Signin.IsPageLoaded(), "We are not in the home Page");
         }
 

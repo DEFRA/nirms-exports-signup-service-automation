@@ -1,15 +1,25 @@
 ﻿@Regression
 Feature: Receive Notice after RequestSubmission
+
 Receive Notice of Signup Request
+
 Scenario: Receive Notice of after completion of Signup Request 
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	Then  user verify the business name status 'COMPLETED'
+	#And   user verify the business name status 'NOT STARTED'
+	And   user verify the business contact details status 'NOT STARTED'
+    And   user verify the Authorised Signatory status 'CANNOT START YET'
+    And   user verify the Points of departure status 'NOT STARTED'
+	And   verify Check answers and submit sign up status 'CANNOT START YET'
+	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
+	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
+    And   user verify the Authorised Signatory status 'NOT STARTED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status 'COMPLETED'
@@ -20,33 +30,14 @@ Scenario: Receive Notice of after completion of Signup Request
 	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
 	Then  verify  '<Message>' on completed sign up page
-
-	Examples: 
-	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              |
-	| test      |  ACME Ltd			 | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
-
-
-Scenario:  Verify outcome message  after completion of Signup Request 
-	Given that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-    And   complete eligibility task with '<Country>', '<FBONumber>', '<Business selection>'
-	Then  verify eligibility task status as 'COMPLETED'
-	When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	Then  user verify the business name status 'COMPLETED'
-	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
-	Then  user verify the business contact details status 'COMPLETED'
-	When  complete contact person Authorised Signatory with Yes Authorisation
-	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
-	And   click on Check answers and submit sign up
-	And   verify next page '<nextPage>' is loaded 
-	When  click on continue button
-	Then  verify next page '<nextPage1>' is loaded
-    Then  click on the confirm check box on Terms and conditions page
-	Then  click on submit sign up
 	Then  verify  '<OutcomeMessage>' outcome of my request submission page
+	Then  click on signout button and verify the signout message
+	When  that I navigate to the NI GC application
+	And   sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	Then  verify next page '<nextPage2>' is loaded
+
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | OutcomeMessage                                    |
-	| test      |  ACME Ltd			 | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | We will review your sign up request and email you |
-
+	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              | OutcomeMessage                                    | nextPage2                           |
+	| test1     | Org New            | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you | Your business has already submitted |

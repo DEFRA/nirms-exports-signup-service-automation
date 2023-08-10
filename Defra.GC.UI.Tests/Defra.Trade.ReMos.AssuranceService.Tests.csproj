@@ -34,6 +34,7 @@
     <PackageReference Include="SpecFlow.ExternalData" Version="3.9.74" />
     <PackageReference Include="SpecFlow.NUnit.Runners" Version="3.9.74" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>

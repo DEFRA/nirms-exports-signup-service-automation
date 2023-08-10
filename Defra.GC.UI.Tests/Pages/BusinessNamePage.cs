@@ -17,7 +17,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
 
         public IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
-
+        public IWebElement BusinessDeatailSelectBusiness => _driver.WaitForElement(By.XPath("//a[normalize-space()='Selected business']"));
+        public IWebElement StartupNewSignupRequest => _driver.WaitForElement(By.XPath("//a[normalize-space()='start a new sign up request']"));
         public IWebElement Businessname => _driver.WaitForElement(By.XPath("//a[normalize-space()='Business details']"));
         public IWebElement BusinessnameText => _driver.WaitForElement(By.XPath("//input[@id='Name']"));
         public IWebElement AddressLine1 => _driver.WaitForElement(By.XPath("//input[@id='address-line-1']"));
@@ -29,6 +30,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement BackLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Back']"));
         private IWebElement SaveLater => _driver.WaitForElement(By.XPath("(//a[normalize-space()='Save and continue later'])[1]"));
         private IWebElement BusinessStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-details']"));
+        private IWebElement SelectedBusinessName => _driver.WaitForElement(By.XPath("//strong[@id='selected-business']"));
         private IWebElement CountryName => _driver.WaitForElement(By.XPath("//label[normalize-space()='England']"));
         private IWebElement CountryError => _driver.WaitForElement(By.XPath("//p[@id='Country_Error']"));
         private IWebElement Address => _driver.WaitForElement(By.XPath(" //a[normalize-space()='Registered address']"));
@@ -44,6 +46,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #endregion Page Objects
 
         #region Page Methods
+
+        public void ClickOnSelectedBusinessNameTask()
+        {
+            BusinessDeatailSelectBusiness.Click();
+        }
+
+        public void ClickOnSignUpNewRequest()
+        {
+            StartupNewSignupRequest.Click();
+        }
 
         public string SelectWithoutCountryAndVerifyMessage()
         {
@@ -126,9 +138,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditBusinessNameTask(string businessName)
         {
             EnterBusinessName(businessName);
-            ClickOnSaveAndContinue();
+            //ClickOnSaveAndContinue();
             //businessAddressPage.ClickOnSaveAndContinue();
             applicationPage.ClickSaveAndReturnToDashboard();
+        }
+
+        public bool VerifyBusinessName(string businessName)
+        {
+            return SelectedBusinessName.Text.Contains(businessName);
         }
 
         #endregion Page Methods

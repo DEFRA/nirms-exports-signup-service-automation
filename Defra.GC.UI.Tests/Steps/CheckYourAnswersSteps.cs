@@ -73,5 +73,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         }
 
 
+        [Then(@"verify '([^']*)' selected displayed on Check your answer page")]
+        public void ThenVerifySelectedDisplayedOnCheckYourAnswerPage(string tescoman)
+        {
+            Assert.AreEqual(checkYourAnswersPage.VerifyBusinessNameAdded(), tescoman);
+        }
+
+        [Then(@"click on Signup another business link")]
+        public void ThenClickOnSignupAnotherBusinessLink()
+        {
+            checkYourAnswersPage.VerifySelectedBusinessNamePage();
+        }
     }
 }

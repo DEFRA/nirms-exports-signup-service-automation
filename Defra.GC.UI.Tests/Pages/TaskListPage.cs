@@ -19,7 +19,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public IWebElement CheckAnswersSubmitSignUpLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check answers and submit sign up')]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
         private IWebElement CheckAnswersStatus => _driver.WaitForElement(By.Id("complete_submit"));
-
+        private IWebElement EligibilityTask => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
         #endregion Page Objects
 
 
@@ -39,6 +39,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyCheckAnswersAndSubmitSignUpLinkStatus()
         {
             return CheckAnswersSubmitSignUpLink.Enabled;
+        }
+
+        public bool ClickOnEligibilityTask()
+        {
+            if (PageHeading.Text.Contains("Sign up"))
+                EligibilityTask.Click();
+            return true;
         }
 
         #endregion Page Methods

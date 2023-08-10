@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Diagnostics.Metrics;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
@@ -26,28 +27,28 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.ClickOnCheckEligibilityTask(), "Select Coutry page not loaded");
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWith(string country, string FBONumber, string businessname)
+        [When(@"complete eligibility task with '([^']*)', '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWith(string country, string FBONumber)
         {
-            eligibilityPage.SelectCountryToCompleteEligibility(country, FBONumber, businessname);
+            eligibilityPage.CompleteEligibility(country, FBONumber);
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)', '([^']*)' without Regulations")]
-        public void WhenCompleteEligibilityTaskWithWithoutRegulations(string businessSelection,string country, string FBONumber)
+        [When(@"complete eligibility task with '([^']*)', '([^']*)' without Regulations")]
+        public void WhenCompleteEligibilityTaskWithWithoutRegulations(string country, string FBONumber)
         {
-            eligibilityPage.SelectCountryToCompleteEligibilitywithoutRegulations(businessSelection, country, FBONumber);
+            eligibilityPage.SelectCountryToCompleteEligibilitywithoutRegulations(country, FBONumber);
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)', '([^']*)' and navigate to Regulations page")]
-        public void WhenCompleteEligibilityTaskWithAndNavigateToRegulationsPage(string businessSelection, string country, string FBONumber)
+        [When(@"complete eligibility task with '([^']*)', '([^']*)' and navigate to Regulations page")]
+        public void WhenCompleteEligibilityTaskWithAndNavigateToRegulationsPage(string country, string FBONumber)
         {
-            eligibilityPage.NavigateToRegulations(businessSelection, country, FBONumber);
+            eligibilityPage.NavigateToRegulations(country, FBONumber);
         }
 
-        [When(@"complete eligibility task with invalid data '([^']*)', '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWithInvalidData(string country, string FBONumber,string BusinessSelection)
+        [When(@"complete eligibility task with invalid data '([^']*)', '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWithInvalidData(string country, string FBONumber)
         {
-            eligibilityPage.InvaildFBOdata(country, FBONumber, BusinessSelection);
+            eligibilityPage.InvaildFBOdata(country, FBONumber);
         }
 
         [Then(@"verify eligibility task status as '([^']*)'")]
@@ -56,10 +57,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.VerifyEligibilityTaskStatus(status), "Eligibility not completed");
         }
 
-        [When(@"complete eligibility task without '([^']*)', '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWithout(string BusinessSelection,string country, string FBONumber)
+        [When(@"complete eligibility task without FBONumber")]
+        public void WhenCompleteEligibilityTaskWithoutFBO()
         {
-            eligibilityPage.AssuranceCompleteWithNoSelection(BusinessSelection,country, FBONumber);
+            eligibilityPage.AssuranceCompleteWithNoFBO();
         }
 
         [Then(@"verify no signp page appears")]
@@ -84,10 +85,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.VerifyErrorMessageOnRegulationsPage(errorMessage), "Regulations invalid error not matching");
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWith(string businessSelection,string country)
+        [When(@"complete eligibility task with '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWith(string country)
         {
-            eligibilityPage.AssurancePagWithCountry(businessSelection,country);
+            eligibilityPage.AssurancePagWithCountry(country);
+        }
+
+        [When(@"select business to sign up '([^']*)'")]
+        public void WhenSelectBusinessToSignUpACMELtd(string businessSelection)
+        {
+            eligibilityPage.SelectBusinessToSignUp(businessSelection);
+        }
+
+        [When(@"verify eligibility task with fields '([^']*)', '([^']*)'")]
+        public void WhenVerifyEligibilityTaskFields(string country, string FBONumber)
+        {
+            eligibilityPage.VerifyEligibilityTaskFields(country, FBONumber);
         }
 
         [Then(@"user  navigates to the Country selection page")]

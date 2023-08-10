@@ -26,7 +26,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Save and continue']"));
         private By save = By.XPath("//button[normalize-space()='Save and continue']");
         private IWebElement InvalidError => _driver.WaitForElement(By.XPath("//p[@id='Name_Error' and  not(self::span)]"));
-        private IWebElement BackLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Back']"));
         private IWebElement Address => _driver.WaitForElement(By.XPath(" //a[normalize-space()='Registered address']"));
         private IWebElement AddressOne => _driver.WaitForElement(By.XPath("//input[@id='LineOne']"));
         private IWebElement AddressTown => _driver.WaitForElement(By.XPath("//input[@id='CityName']"));
@@ -35,7 +34,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ErrorValidationAddress => _driver.WaitForElement(By.XPath("//li//a"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
-        private By Errors = By.XPath("//li//a");
+        private By Errors = By.XPath("//ul[@class='govuk-list govuk-error-summary__list']//li//a");
         private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #endregion Page Objects
@@ -49,6 +48,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterBusinessAddress(string add1, string town, string postcode)
         {
+            AddressOne.Clear();
+            AddressTown.Clear();
+            AddressPostcode.Clear();
             AddressOne.SendKeys(add1);
             AddressTown.SendKeys(town);
             AddressPostcode.SendKeys(postcode);
@@ -65,11 +67,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public string ValidateInvalidErrorMessage()
         {
             return InvalidError.Text;
-        }
-
-        public void ClickonBusinessBacklink()
-        {
-            BackLink.Click();
         }
 
         public string VerifyUserinTaskListPage()
@@ -102,7 +99,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             AddressOne.SendKeys(add1);
             AddressTown.SendKeys(town);
             AddressPostcode.SendKeys(postcode);
-            //ClickOnSaveAndContinue();
             applicationPage.ClickSaveAndReturnToDashboard();
         }
         #endregion Page Methods

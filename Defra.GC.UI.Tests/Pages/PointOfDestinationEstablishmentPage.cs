@@ -54,7 +54,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             //EnterEstablishmentPostcode(establishmentCode);
             //ClickOnCannotFindEstablishmentLink();
             //ClickOnAddTheEstablishmentAddressManuallyLink();
-            AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            //AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
             pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
             applicationPage.ClickSaveAndReturnToDashboard();
@@ -65,7 +66,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             //EnterEstablishmentPostcode(establishmentCode);
             //ClickOnCannotFindEstablishmentLink();
             //ClickOnAddTheEstablishmentAddressManuallyLink();
-            AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
+            pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
             pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
             applicationPage.ClickOnSaveAndContinue();
@@ -80,7 +81,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", PointOfDestination);
-            return PageHeading.Text.Contains("Add a place of destination");
+            return PageHeading.Text.Contains("of destination");
         }
 
         public void EnterEstablishmentPostcode(string postcode)

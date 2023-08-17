@@ -46,6 +46,12 @@ jobs:
         SecretsFilter: 'RemosDbConnectionString' #-'DBConnectionstring'
         RunAsPreJob: false
 
+    - powershell: echo "##vso[task.setvariable variable= RemosDbConnectionString;isOutput=true]$(RemosDbConnectionString)"
+      name: setvarStep
+      
+    - script: echo $(RemosDbConnectionString)
+      name: echovar
+
     - task: DownloadBuildArtifacts@0
       displayName: TestArtifact
       inputs:

@@ -5,8 +5,7 @@ parameters:
     type: string
   - name: targerBrowser
     type: string
-  - name: RemosDbConnectionString
-    type: string
+
 
 variables:
 
@@ -24,8 +23,6 @@ variables:
   value: ReMos_UI_Tests_$(Build.BuildNumber)
 - name: Target
   value: ${{ parameters.targerBrowser }}
-- name: RemosDbConnectionString
-  value: ${{ parameters.RemosDbConnectionString }}
 - name: Where
   ${{ if eq(parameters.jobNameParam, 'EnvironmentCheck') }}:
     value: 'TestCategory=EnvCheck'

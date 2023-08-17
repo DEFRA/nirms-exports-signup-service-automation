@@ -49,7 +49,7 @@ jobs:
     - task: CmdLine@2
       inputs:
         DBConnectionstring: $(RemosDbConnectionString)
-        script: 'echo $(Symantec-ClientId)'
+        script: 'echo $(RemosDbConnectionString)'
 
     - task: DownloadBuildArtifacts@0
       displayName: TestArtifact

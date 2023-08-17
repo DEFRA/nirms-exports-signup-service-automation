@@ -51,11 +51,6 @@ jobs:
      # inputs:
      #   script: 'echo $(Symantec-ClientId)'
 
-- bash: |
-    echo "Secret DB key Found! $DBConnectionstring"        
-  env:
-    DBConnectionstring: $(RemosDbConnectionString)
-
     - task: DownloadBuildArtifacts@0
       displayName: TestArtifact
       inputs:
@@ -67,6 +62,7 @@ jobs:
         downloadType: 'single'
         artifactName: 'drop'
         downloadPath: '$(System.ArtifactsDirectory)'
+        DBConnectionstring: $(RemosDbConnectionString)
 
     - task: CopyFiles@2
       displayName: 'Copy Test Artifacts'
@@ -75,6 +71,7 @@ jobs:
         TargetFolder: $(System.DefaultWorkingDirectory)
         OverWrite: true
         CleanTargetFolder: true
+        DBConnectionstring: $(RemosDbConnectionString)
     
     - task: ExtractFiles@1
       inputs:

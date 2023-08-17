@@ -58,13 +58,14 @@ stages:
         BSOSVersion: ${{parameters.BSOSVersion}}
         targetBrowserName: ${{parameters.Target}}
         dependsOn: ''
+        DBConnectionstring:${{parameters.DBConnectionstring}}
         
   - stage: Regression
     displayName: Regression
     jobs:
     - template: run-test-template.yml
       parameters:
-        jobName: Regression
+        jobName: RunOnlyScenarios
         envConfigParam: ${{ parameters.Environment}}
         apiEndPoint: ${{ parameters.ApiEndpoint}}
         branchName: ${{ parameters.branchName}}
@@ -72,4 +73,5 @@ stages:
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
         targetBrowserName: ${{parameters.Target}}
+        DBConnectionstring:${{parameters.DBConnectionstring}}
         dependsOn: 'EnvironmentCheck'

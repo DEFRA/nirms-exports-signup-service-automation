@@ -94,6 +94,7 @@ jobs:
         tokenSuffix: '}}'
         useLegacyPattern: false
         enableTelemetry: false
+        DBConnectionstring: $(RemosDbConnectionString)
 
     - powershell: |
         $jsonString = Get-Content "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/appsettings.json" | Out-String

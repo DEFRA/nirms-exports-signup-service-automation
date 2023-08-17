@@ -3,8 +3,9 @@ Feature: AddBusinessEligibility
 
 Complete Eligibility task
 
-@CrossBrowser
+@CrossBrowser @RunOnly
 Scenario Outline: Complete eligibility task
+	Given Clear Database
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

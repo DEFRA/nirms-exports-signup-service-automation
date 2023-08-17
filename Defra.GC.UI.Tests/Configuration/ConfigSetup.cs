@@ -18,7 +18,7 @@ namespace Defra.GC.UI.Tests.Configuration
             BaseConfiguration = LoadConfigurationFromAppSettings();
             UiFrameworkConfigurationBinding();
             DataSetupConfigurationBinding();
-            //DBSetupConfigurationBinding();
+            DBSetupConfigurationBinding();
         }
 
         private static BaseConfiguration LoadConfigurationFromAppSettings()
@@ -50,10 +50,8 @@ namespace Defra.GC.UI.Tests.Configuration
 
         private static void DBSetupConfigurationBinding()
         {
-
-            string connectString = @"Data Source=TSTTRSDBSSQ1001;Initial Catalog=trade-remos-signup;Integrated Security=true;User ID=;Password=;";
-            var dataDB = BaseConfiguration.AppConnectionString;
-            BaseConfiguration.ApplicationCon = BaseConfiguration.ApplicationCon.DBConnect(connectString);
+            var dataDB = BaseConfiguration.AppConnectionString.DBConnectionstring;
+            BaseConfiguration.ApplicationCon = BaseConfiguration.ApplicationCon.DBConnect(BaseConfiguration.AppConnectionString.DBConnectionstring);
         }
     }
 

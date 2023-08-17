@@ -34,7 +34,6 @@ jobs:
         env: ${{parameters.envConfigParam}}
         jobNameParam: ${{parameters.jobName}}
         targerBrowser: ${{parameters.targetBrowserName}}
-        DBConnectionstring: $(RemosDbConnectionString)
 
   steps:
     
@@ -47,9 +46,11 @@ jobs:
         keyvaultName: 'TSTTRDINFKV1001'
         SecretsFilter: 'RemosDbConnectionString' #-'DBConnectionstring'
         RunAsPreJob: false
-    #- task: CmdLine@2
-     # inputs:
-     #   script: 'echo $(Symantec-ClientId)'
+    
+    - task: CmdLine@2
+      inputs:
+        DBConnectionstring: $(RemosDbConnectionString)
+        script: 'echo $(Symantec-ClientId)'
 
     - task: DownloadBuildArtifacts@0
       displayName: TestArtifact

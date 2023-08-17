@@ -50,8 +50,9 @@ namespace Defra.GC.UI.Tests.Configuration
 
         private static void DBSetupConfigurationBinding()
         {
-            var dataDB = BaseConfiguration.AppConnectionString.DBConnectionstring;
-            BaseConfiguration.ApplicationCon = BaseConfiguration.ApplicationCon.DBConnect(BaseConfiguration.AppConnectionString.DBConnectionstring);
+            string dataDB = BaseConfiguration.AppConnectionString.DBConnectionstring;
+            //BaseConfiguration.ApplicationCon = BaseConfiguration.ApplicationCon.DBConnect(BaseConfiguration.AppConnectionString.DBConnectionstring);
+            //BaseConfiguration.ApplicationCon.DBConnect(BaseConfiguration.AppConnectionString.DBConnectionstring);
         }
     }
 

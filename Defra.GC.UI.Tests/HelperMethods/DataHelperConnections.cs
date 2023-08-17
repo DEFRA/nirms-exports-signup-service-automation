@@ -4,35 +4,42 @@ using System.Data.SqlClient;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
 {
-    public static class DataHelperConnections
+    public interface IDataHelperConnections
     {
-        public static SqlConnection DBConnect (this SqlConnection sqlConn, string connString )
+        public DataTable ExecuteQuery(string connString, string queryString);
+    }
+
+    public class DataHelperConnections : IDataHelperConnections
+    {
+        public void DBConnect (string connString )
         {
             try 
             {
-                sqlConn = new SqlConnection(connString);
+                SqlConnection sqlConn = new SqlConnection(connString);
                 sqlConn.Open();
-                return sqlConn;
+                //return sqlConn;
             }
             catch ( Exception ex ) 
             { 
             }
 
-            return null;
+            //return null;
         }
 
-        public static void DBClose(this SqlConnection sqlConn)
+        public void DBClose()
         {
             try 
             {
-                sqlConn.Close();
+                //sqlConn.Close();
             }
             catch ( Exception ex ) { }
         }
 
-        public static DataTable ExecuteQuery(this SqlConnection sqlConn, string queryString)
+        public DataTable ExecuteQuery(string connString,string queryString)
         {
             DataSet dataSet;
+
+            SqlConnection sqlConn = new SqlConnection(connString);
 
             try
             {

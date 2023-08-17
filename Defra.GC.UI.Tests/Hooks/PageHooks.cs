@@ -5,6 +5,7 @@ using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Steps;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 
 namespace Defra.GC.UI.Tests.Hooks
 {
@@ -47,6 +48,7 @@ namespace Defra.GC.UI.Tests.Hooks
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryEmailAddressPage, IAuthorisedSignatoryEmailAddressPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<TermsAndConditionsPage, ITermsAndConditionsPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ReceiveNotificationPage, IReceiveNotificationPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<DataHelperConnections, IDataHelperConnections>());
         }
 
         private TU GetBaseWithContainer<T, TU>() where T : TU =>

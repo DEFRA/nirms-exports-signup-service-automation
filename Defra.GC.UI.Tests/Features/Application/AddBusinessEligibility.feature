@@ -26,8 +26,9 @@ Scenario Outline: Verify error message for not selecting the country name
     | logininfo | nextPage                           |
     | test      | Which business do you want to sign |
 
-
+@RunOnly
 Scenario Outline: Verify back button on country page is going task list page
+	Given Clear Database
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

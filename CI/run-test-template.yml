@@ -28,6 +28,13 @@ jobs:
   pool:
     name: 'DEFRA-TRD'
 
+  variables:
+    - template: test-variables_CI.yml
+      parameters:
+        env: ${{parameters.envConfigParam}}
+        jobNameParam: ${{parameters.jobName}}
+        targerBrowser: ${{parameters.targetBrowserName}}
+        #DBConnectionstring: $(RemosDbConnectionString)
 
   steps:
     
@@ -44,13 +51,10 @@ jobs:
      # inputs:
      #   script: 'echo $(Symantec-ClientId)'
 
-  variables:
-    - template: test-variables_CI.yml
-      parameters:
-        env: ${{parameters.envConfigParam}}
-        jobNameParam: ${{parameters.jobName}}
-        targerBrowser: ${{parameters.targetBrowserName}}
-        DBConnectionstring: $(RemosDbConnectionString)
+- bash: |
+    echo "Secret DB key Found! $DBConnectionstring"        
+  env:
+    DBConnectionstring: $(RemosDbConnectionString)
 
     - task: DownloadBuildArtifacts@0
       displayName: TestArtifact

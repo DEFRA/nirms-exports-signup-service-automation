@@ -48,7 +48,7 @@ jobs:
     
     - task: CmdLine@2
       inputs:
-        DBConnectionstring: $(RemosDbConnectionString)
+        RemosDbConnectionString: $(RemosDbConnectionString)
         script: 'echo $(RemosDbConnectionString)'
 
     - task: DownloadBuildArtifacts@0
@@ -62,7 +62,7 @@ jobs:
         downloadType: 'single'
         artifactName: 'drop'
         downloadPath: '$(System.ArtifactsDirectory)'
-        DBConnectionstring: $(RemosDbConnectionString)
+        RemosDbConnectionString: $(RemosDbConnectionString)
 
     - task: CopyFiles@2
       displayName: 'Copy Test Artifacts'
@@ -71,7 +71,7 @@ jobs:
         TargetFolder: $(System.DefaultWorkingDirectory)
         OverWrite: true
         CleanTargetFolder: true
-        DBConnectionstring: $(RemosDbConnectionString)
+        RemosDbConnectionString: $(RemosDbConnectionString)
     
     - task: ExtractFiles@1
       inputs:
@@ -94,7 +94,7 @@ jobs:
         tokenSuffix: '}}'
         useLegacyPattern: false
         enableTelemetry: false
-        DBConnectionstring: $(RemosDbConnectionString)
+        RemosDbConnectionString: $(RemosDbConnectionString)
 
     - powershell: |
         $jsonString = Get-Content "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/appsettings.json" | Out-String

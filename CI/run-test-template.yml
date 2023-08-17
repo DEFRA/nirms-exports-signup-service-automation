@@ -17,8 +17,7 @@ parameters:
     type: string
   - name: targetBrowserName
     type: string
-  - name: DBConnectionstring
-    type: string
+
 jobs: 
 
 - job: ${{ parameters.jobName }}

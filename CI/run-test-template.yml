@@ -34,7 +34,7 @@ jobs:
         env: ${{parameters.envConfigParam}}
         jobNameParam: ${{parameters.jobName}}
         targerBrowser: ${{parameters.targetBrowserName}}
-        #DBConnectionstring: $(RemosDbConnectionString)
+        DBConnectionstring: $(RemosDbConnectionString)
 
   steps:
     

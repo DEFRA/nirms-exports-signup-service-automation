@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoDi;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,28 +12,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
 
     public class DataHelperConnections : IDataHelperConnections
     {
-        public void DBConnect (string connString )
+        private IObjectContainer _objectContainer;
+        public DataHelperConnections(IObjectContainer objectContainer)
         {
-            try 
-            {
-                SqlConnection sqlConn = new SqlConnection(connString);
-                sqlConn.Open();
-                //return sqlConn;
-            }
-            catch ( Exception ex ) 
-            { 
-            }
-
-            //return null;
-        }
-
-        public void DBClose()
-        {
-            try 
-            {
-                //sqlConn.Close();
-            }
-            catch ( Exception ex ) { }
+            _objectContainer = objectContainer;
         }
 
         public DataTable ExecuteQuery(string connString,string queryString)

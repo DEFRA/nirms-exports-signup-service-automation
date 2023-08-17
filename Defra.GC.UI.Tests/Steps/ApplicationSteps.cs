@@ -29,7 +29,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenClearDatabase()
         {
             string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
-            string query = "DELETE FROM AuthorisedSignatory";
+            string query = "DELETE FROM AuthorisedSignatory;DELETE FROM LogisticsLocation;DELETE FROM TradeContacts;DELETE FROM TradeParties;DELETE FROM TradeAddresses;";
             if(ConfigSetup.BaseConfiguration != null)
             {
                 dataHelperConnections.ExecuteQuery(connectionString, query);

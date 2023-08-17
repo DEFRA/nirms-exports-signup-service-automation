@@ -25,6 +25,7 @@ namespace Defra.GC.UI.Tests.Hooks
         private void BindAllPages()
         {
             // Objects
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<DataHelperConnections, IDataHelperConnections>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<UserObject, IUserObject>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<UrlBuilder, IUrlBuilder>());
 
@@ -48,7 +49,6 @@ namespace Defra.GC.UI.Tests.Hooks
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryEmailAddressPage, IAuthorisedSignatoryEmailAddressPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<TermsAndConditionsPage, ITermsAndConditionsPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ReceiveNotificationPage, IReceiveNotificationPage>());
-            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<DataHelperConnections, IDataHelperConnections>());
         }
 
         private TU GetBaseWithContainer<T, TU>() where T : TU =>

@@ -58,7 +58,7 @@ stages:
         BSOSVersion: ${{parameters.BSOSVersion}}
         targetBrowserName: ${{parameters.Target}}
         dependsOn: ''
-        DBConnectionstring:${{parameters.DBConnectionstring}}
+        DBConnectionstring: ${{parameters.DBConnectionstring}}
         
   - stage: Regression
     displayName: Regression
@@ -73,5 +73,5 @@ stages:
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
         targetBrowserName: ${{parameters.Target}}
-        DBConnectionstring:${{parameters.DBConnectionstring}}
+        DBConnectionstring: ${{parameters.DBConnectionstring}}
         dependsOn: 'EnvironmentCheck'

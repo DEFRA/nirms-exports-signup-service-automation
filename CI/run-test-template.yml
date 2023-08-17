@@ -91,7 +91,7 @@ jobs:
     - powershell: |
         $jsonString = Get-Content "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/appsettings.json" | Out-String
         $tr = $jsonString.replace("`"DBConnectionstring`": `"`"", "`"DBConnectionstring`": `"$(RemosDbConnectionString)`"");
-        $tr | Out-file --Filepath "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/appsettings.json"
+        $tr | Out-file -Filepath "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/appsettings.json"
         Write-Host $tr
       displayName: 'Display appsettings.json'
     

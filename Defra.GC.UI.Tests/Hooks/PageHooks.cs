@@ -5,6 +5,7 @@ using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Steps;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 
 namespace Defra.GC.UI.Tests.Hooks
 {
@@ -24,6 +25,7 @@ namespace Defra.GC.UI.Tests.Hooks
         private void BindAllPages()
         {
             // Objects
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<DataHelperConnections, IDataHelperConnections>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<UserObject, IUserObject>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<UrlBuilder, IUrlBuilder>());
 

@@ -1,7 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Test.Data.Configuration;
 using Defra.GC.UI.Tests.Configuration;
-
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using TechTalk.SpecFlow;
 
 namespace Defra.GC.UI.Tests.Hooks
@@ -18,6 +18,7 @@ namespace Defra.GC.UI.Tests.Hooks
         public void BeforeScenario()
         {
             BindAllPages();
+            //ConfigSetup.BaseConfiguration.ApplicationCon = ConfigSetup.BaseConfiguration.ApplicationCon.DBConnect(ConfigSetup.BaseConfiguration.AppConnectionString);
         }
 
         private void BindAllPages()

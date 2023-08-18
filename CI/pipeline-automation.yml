@@ -64,7 +64,7 @@ stages:
     jobs:
     - template: run-test-template.yml
       parameters:
-        jobName: Regression
+        jobName: RunOnlyScenarios
         envConfigParam: ${{ parameters.Environment}}
         apiEndPoint: ${{ parameters.ApiEndpoint}}
         branchName: ${{ parameters.branchName}}

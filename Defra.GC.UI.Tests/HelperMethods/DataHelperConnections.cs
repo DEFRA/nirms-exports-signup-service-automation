@@ -18,36 +18,41 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
             _objectContainer = objectContainer;
         }
 
+        private readonly object _lock = new object();
+
         public DataTable ExecuteQuery(string connString,string queryString)
         {
-            DataSet dataSet;
-
-            SqlConnection sqlConn = new SqlConnection(connString);
-
-            try
+            lock (_lock)
             {
-                if (sqlConn == null || ((sqlConn != null && (sqlConn.State == ConnectionState.Closed || sqlConn.State == ConnectionState.Broken))))
-                    sqlConn.Open();
+                DataSet dataSet;
 
-                SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = new SqlCommand(queryString,sqlConn);
-                dataAdapter.SelectCommand.CommandType = CommandType.Text;
+                SqlConnection sqlConn = new SqlConnection(connString);
 
-                dataSet = new DataSet();
-                dataAdapter.Fill(dataSet,"table");
-                sqlConn.Close();
-                return dataSet.Tables["table"];
-            }
-            catch( Exception ex ) 
-            {
-                dataSet = null;
-                sqlConn.Close();
-                return null;
-            }
-            finally 
-            {
-                sqlConn.Close();
-                dataSet = null; 
+                try
+                {
+                    if (sqlConn == null || ((sqlConn != null && (sqlConn.State == ConnectionState.Closed || sqlConn.State == ConnectionState.Broken))))
+                        sqlConn.Open();
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.SelectCommand = new SqlCommand(queryString, sqlConn);
+                    dataAdapter.SelectCommand.CommandType = CommandType.Text;
+
+                    dataSet = new DataSet();
+                    dataAdapter.Fill(dataSet, "table");
+                    sqlConn.Close();
+                    return dataSet.Tables["table"];
+                }
+                catch (Exception ex)
+                {
+                    dataSet = null;
+                    sqlConn.Close();
+                    return null;
+                }
+                finally
+                {
+                    sqlConn.Close();
+                    dataSet = null;
+                }
             }
         }
     }

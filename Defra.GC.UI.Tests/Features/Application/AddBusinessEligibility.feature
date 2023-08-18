@@ -21,7 +21,7 @@ Scenario Outline: Complete eligibility task
 	@RunOnly
 Scenario Outline: Verify error message for not selecting the country name
 	Given Clear Database
-	And that I navigate to the NI GC application
+	And  that I navigate to the NI GC application
 	When sign in with valid credentials with logininfo '<logininfo>'
 	Then verify next page '<nextPage>' is loaded 
 
@@ -40,8 +40,8 @@ Scenario Outline: Verify back button on country page is going task list page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-    | logininfo | Business selection                        | nextPage   |
-    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Sign up    |
+    | logininfo | Business selection                        | nextPage                                 |
+    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Which business do you want to sign up    |
 
 	@RunOnly
 Scenario Outline: Verify No sign up page appears when no FBO number
@@ -50,7 +50,7 @@ Scenario Outline: Verify No sign up page appears when no FBO number
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
-	And   complete eligibility task without FBONumber
+	And   complete eligibility task with '<Business selection>' and without FBONumber
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
@@ -83,8 +83,8 @@ Scenario Outline: Verify error message for invalid FBO with Assurance
 	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
 	Examples: 
-    | logininfo | Country | FBONumber       | errorMessage                                                 | Business selection                        |
-    | test      | England | *************** | Enter FBO number using only letters, numbers and hyphens (-) | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
+    | logininfo | Country | FBONumber       | errorMessage                                                    | Business selection                        |
+    | test      | England | *************** | Enter an FBO number containing only letters, numbers or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
 
 	@RunOnly
 Scenario Outline: Verify confirmation error message for Regulations page

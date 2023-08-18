@@ -3,7 +3,7 @@ Feature: AddBusinessEligibility
 
 Complete Eligibility task
 
-@CrossBrowser @RunOnly
+@CrossBrowser @RunOnly @SmokeTest
 Scenario Outline: Complete eligibility task
 	Given Clear Database
 	And   that I navigate to the NI GC application
@@ -29,8 +29,8 @@ Scenario Outline: Verify error message for not selecting the country name
     | logininfo | nextPage                           |
     | test      | Which business do you want to sign |
 
-@RunOnly
-Scenario Outline: Verify back button on country page is going task list page
+	@RunOnly
+Scenario Outline: Verify back button on country page is going to select business page
 	Given Clear Database
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -50,7 +50,7 @@ Scenario Outline: Verify No sign up page appears when no FBO number
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
-	And   complete eligibility task with '<Business selection>' and without FBONumber
+	And   complete eligibility task with '<Country>' and without FBONumber
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 

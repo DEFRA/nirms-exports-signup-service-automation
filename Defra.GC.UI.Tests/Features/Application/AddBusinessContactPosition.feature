@@ -3,9 +3,10 @@ Feature: AddBusinessContactPosition
 
 Add Business Contact contactPosition
 
-@CrossBrowser
+	@CrossBrowser @RunOnly @SmokeTest
 Scenario: Add business contact position
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -23,9 +24,10 @@ Scenario: Add business contact position
 	| logininfo | Business selection                                   | Country | FBONumber | contactName     | contactPosition | nextPage      |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.            | England | testFBO   | testContactName | testPosition    | email address |
 
-	
+	@RunOnly
 Scenario: Verify error message for invalid business contact position
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -43,8 +45,10 @@ Scenario: Verify error message for invalid business contact position
 	| logininfo | Business selection                        | Country | FBONumber | contactName     | contactPosition | errorMessage |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition%   |  Enter the position of the contact person using only letters, numbers, brackets, full stops, hyphens (-), underscores (_), slashes (/) or ampersands (&)            |
 
+	@RunOnly
 Scenario: Verify error message for blank business contact position
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -62,9 +66,10 @@ Scenario: Verify error message for blank business contact position
 	| logininfo |     Business selection                             | Country | FBONumber | contactName     | contactPosition | errorMessage                             |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName |                 | Enter the position of the contact person |
 
-
+	@RunOnly
 Scenario: Verify back to dashboard link on business contact position page
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -81,9 +86,10 @@ Scenario: Verify back to dashboard link on business contact position page
 	| logininfo |         Business selection                         | Country | FBONumber | contactName     | nextPage  |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.         | England | testFBO   | testContactName | Sign up |
 
-
+	@RunOnly
 Scenario: Verify save and return to dashboard on business contact position page
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task

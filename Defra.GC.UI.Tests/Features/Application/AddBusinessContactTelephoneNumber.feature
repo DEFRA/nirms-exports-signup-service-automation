@@ -3,9 +3,10 @@ Feature: AddBusinessContactTelephoneNumber
 
 Add Contact telephone number
 
-@CrossBrowser
+	@CrossBrowser @RunOnly @SmokeTest
 Scenario: Add contact Telephone Number
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -27,8 +28,10 @@ Scenario: Add contact Telephone Number
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | 01632 960 001   | Sign up  |
 
 
+	@RunOnly
 Scenario: Verify error message for invalid contact Telephone Number
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
      And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -50,8 +53,10 @@ Scenario: Verify error message for invalid contact Telephone Number
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | abc123          | Enter a telephone number in the correct format, like 01632 960 001, 07700 900 982 or +44 808 157 019 |
 
 
+	@RunOnly
 Scenario: Verify error message for blank contact telephone number
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -73,8 +78,10 @@ Scenario: Verify error message for blank contact telephone number
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. 		  | England | testFBO   | testContactName | testPosition    | test@test.com |                 | Enter the phone number of the contact person |
 
 
+	@RunOnly
 Scenario: Verify back to dashboard link contact telephone number page
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -94,8 +101,10 @@ Scenario: Verify back to dashboard link contact telephone number page
 	| logininfo |           Business selection                           | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage      |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. 			 | England | testFBO   | testContactName | testPosition    | test@test.com | Sign up       |
 
+	@RunOnly
 Scenario: Verify save and return to dashboard on contact telephone number page
-	Given that I navigate to the NI GC application
+	Given Clear Database
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task

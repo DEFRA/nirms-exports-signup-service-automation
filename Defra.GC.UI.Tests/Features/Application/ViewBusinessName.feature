@@ -5,7 +5,7 @@ View Business Name in Dashboard & Static Page
 
 	@CrossBrowser @RunOnly @SmokeTest
 Scenario: Verify user can click on the Selected Business Name and navigate to static page
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -18,7 +18,7 @@ Scenario: Verify user can click on the Selected Business Name and navigate to st
    
    @RunOnly @SmokeTest
 Scenario: Verify user can click on the start a new sign up request
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -33,7 +33,7 @@ Scenario: Verify user can click on the start a new sign up request
    
    @RunOnly
 Scenario: Verify user can click on the back to dashboard
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -48,7 +48,7 @@ Scenario: Verify user can click on the back to dashboard
    
    @RunOnly
 Scenario: Verify user can click Check eligibility'
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -56,6 +56,6 @@ Scenario: Verify user can click Check eligibility'
 	Then  verify next page '<nextPage1>' is loaded 
 
 	Examples:
-    | logininfo | Country | FBONumber | Business selection                        | nextPage1 |
-    | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |  What will your business          |
+    | logininfo | Country | FBONumber | Business selection  | nextPage1                         |
+    | test7     | England | testFBO   | Tescoman            | What will your business           |
 

@@ -193,8 +193,8 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName24     | testAddress1 | Belfast | Northern Ireland | Contact email address                      | change@test.com     |
 	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName25     | testAddress1 | Belfast | Northern Ireland | Contact telephone number                   | 01632 960 999       |
 	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName26     | testAddress1 | Belfast | Northern Ireland | Address                                    | ChangedAddress      |
-	| test6     | Tesco Carlisle           | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName27     | testAddress1 | Belfast | Northern Ireland | Email address                                   | Changed@Address.com |
-	| test6     | Tesco Carlisle           | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName28     | testAddress1 | Belfast | Northern Ireland | Contact person is the authorised representative | No                  |
+	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName27     | testAddress1 | Belfast | Northern Ireland | Email address                                   | Changed@Address.com |
+	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName28     | testAddress1 | Belfast | Northern Ireland | Contact person is the authorised representative | No                  |
 
 	Scenario: Edit Authorised Signatory on Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given that I navigate to the NI GC application
@@ -283,7 +283,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | EstablishmentName1 | AddressLine2 | estCity | estCountry       | nextPage           | nextPage1                  |
-	| test6     | Tesco Carlisle  	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName34     | testAddress1 | SecondEstName      | EastAddr1    | Belfast | Northern Ireland | Check your answers | Add a place of destination |
+	| test5     | SND NON UK User  	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName34     | testAddress1 | SecondEstName      | EastAddr1    | Belfast | Northern Ireland | Check your answers | Add a place of destination |
 
 Scenario: Remove GB establishment on check your answers page
 	Given that I navigate to the NI GC application
@@ -342,7 +342,7 @@ Scenario: Remove GB establishment on check your answers page
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | EstablishmentName1 | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1                  |
-	| test6     | Tesco Carlisle	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | RemoveEstAddress  | testEstRemove      | testAddress1 | Belfast | Northern Ireland | Check your answers | Add a place of destination |
+	| test5     | SND NON UK User	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | RemoveEstAddress  | testEstRemove      | testAddress1 | Belfast | Northern Ireland | Check your answers | Add a place of destination |
 
 
 	Scenario: Verify back to dashboard link on Check answers page

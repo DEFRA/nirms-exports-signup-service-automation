@@ -5,7 +5,7 @@ Add Contact Email address
 
 	@CrossBrowser @RunOnly @SmokeTest
 Scenario: Add contact email address
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -28,7 +28,7 @@ Scenario: Add contact email address
 
 	@RunOnly
 Scenario: Verify error message for invalid contact email address
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -51,7 +51,7 @@ Scenario: Verify error message for invalid contact email address
 
 	@RunOnly
 Scenario: Verify error message for blank contact email address
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -69,12 +69,12 @@ Scenario: Verify error message for blank contact email address
 	Then  verify error message '<errorMessage>' on contact email address page
 
 	Examples: 
-	| logininfo | Business selection                                 | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage                                  |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    |              | Enter the email address of the contact person |
+	| logininfo | Business selection                                 | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage           |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    |              | Enter an email address |
 
 	@RunOnly
 Scenario: Verify back to dashboard link on contact email address page
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -96,7 +96,7 @@ Scenario: Verify back to dashboard link on contact email address page
 
 	@RunOnly
 Scenario: Verify save and return to dashboard on contact email address page
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'

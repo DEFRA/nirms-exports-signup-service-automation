@@ -5,7 +5,7 @@ Complete Eligibility task
 
 @CrossBrowser @RunOnly @SmokeTest
 Scenario Outline: Complete eligibility task
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -20,7 +20,7 @@ Scenario Outline: Complete eligibility task
 
 	@RunOnly
 Scenario Outline: Verify error message for not selecting the country name
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And  that I navigate to the NI GC application
 	When sign in with valid credentials with logininfo '<logininfo>'
 	Then verify next page '<nextPage>' is loaded 
@@ -31,7 +31,7 @@ Scenario Outline: Verify error message for not selecting the country name
 
 	@RunOnly
 Scenario Outline: Verify back button on country page is going to select business page
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -45,7 +45,7 @@ Scenario Outline: Verify back button on country page is going to select business
 
 	@RunOnly
 Scenario Outline: Verify No sign up page appears when no FBO number
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -59,7 +59,7 @@ Scenario Outline: Verify No sign up page appears when no FBO number
 
 	@RunOnly
 Scenario Outline: Verify back link on Assurance FBO page is going country selection page
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -74,7 +74,7 @@ Scenario Outline: Verify back link on Assurance FBO page is going country select
 
 	@RunOnly
 Scenario Outline: Verify error message for invalid FBO with Assurance
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -88,7 +88,7 @@ Scenario Outline: Verify error message for invalid FBO with Assurance
 
 	@RunOnly
 Scenario Outline: Verify confirmation error message for Regulations page
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -102,7 +102,7 @@ Scenario Outline: Verify confirmation error message for Regulations page
 
 	@RunOnly
 Scenario Outline: Verify back link on Regulations page is navigating to SPO page
-	Given Clear Database
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

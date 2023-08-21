@@ -3,7 +3,7 @@ Feature: Adddion Point Of Destination Establishment
 
 Add Point of Destination Establishment
 
-@CrossBrowser
+
 Scenario: Check Add the Destination establishment address manually link
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -21,7 +21,7 @@ Scenario: Check Add the Destination establishment address manually link
 
 	Examples: 
 	| logininfo |Business selection   | Country          | FBONumber | postcode | nextPage       |
-	| test1     | Kaka                | Northern Ireland | testFBO   | BT52 2AJ | of destination |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | BT52 2AJ | of destination |
 
 Scenario: Add point of Destination establishment address manually
 	Given that I navigate to the NI GC application
@@ -40,7 +40,7 @@ Scenario: Add point of Destination establishment address manually
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | EstablishmentName | AddressLine1    | estCity  | estCountry      | AddrPostcode |
-	| test1     | Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |
 
 
 Scenario: Verify back t0 dashboard link on enter Destination establishment postcode page
@@ -56,7 +56,7 @@ Scenario: Verify back t0 dashboard link on enter Destination establishment postc
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | nextPage |
-	| test1     | Kaka                | Northern Ireland | testFBO   | Sign up  |
+	| test1A     | Kaka                | Northern Ireland | testFBO   | Sign up  |
 
 Scenario: Verify back to dashboard link on select Destination establishment address page
 	Given that I navigate to the NI GC application
@@ -73,7 +73,7 @@ Scenario: Verify back to dashboard link on select Destination establishment addr
 
 	Examples: 
 	| logininfo | Business selection     | Country          | FBONumber | postcode | nextPage       |
-	| test1     | Kaka                   | Northern Ireland | testFBO   | BT52 2AJ | of destination |
+	| test1A    | Kaka                   | Northern Ireland | testFBO   | BT52 2AJ | of destination |
 
 Scenario: Verify back to dashboard link on add Destination  establishment address page
 	Given that I navigate to the NI GC application
@@ -92,7 +92,7 @@ Scenario: Verify back to dashboard link on add Destination  establishment addres
 
 	Examples: 
 	| logininfo |  Business selection | Country          | FBONumber | postcode | nextPage       |
-	| test1     |  Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination |
+	| test1A    |  Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination |
 
 	Scenario: Verify back to dashboard link on the  Do you want to add another point of destination Page ?
 	Given that I navigate to the NI GC application
@@ -111,7 +111,7 @@ Scenario: Verify back to dashboard link on add Destination  establishment addres
 
 	Examples: 
 	| logininfo |  Business selection  | Country          | FBONumber | postcode | nextPage       |
-	| test1     |  Kaka                | Northern Ireland | testFBO   | BT52 2AJ | of destination |
+	| test1A    |  Kaka                | Northern Ireland | testFBO   | BT52 2AJ | of destination |
 
 	
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
@@ -130,7 +130,7 @@ Scenario: Verify back to dashboard link on add Destination  establishment addres
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       |
-	| test1     | Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination |
 
 Scenario: Modify point of destination establishment email address
 	Given that I navigate to the NI GC application
@@ -152,7 +152,7 @@ Scenario: Modify point of destination establishment email address
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity  | estCountry      | AddrPostcode |
-	| test1     | Kaka                | Northern Ireland | testFBO   | testName1         | testAddress1 | Millburn | Northen Ireland | BT52 2AJ     |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | testName1         | testAddress1 | Millburn | Northen Ireland | BT52 2AJ     |
 	
 Scenario: Add Another point of Destination establishment address
 	Given that I navigate to the NI GC application
@@ -176,9 +176,9 @@ Scenario: Add Another point of Destination establishment address
 	Then  verify more than 1 establishment addresses added
 	Examples: 
 	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
-	| test1     | Kaka                 | Northern Ireland | testFBO   | testName2         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street      | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
+	| test1A    | Kaka                 | Northern Ireland | testFBO   | testName2         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street      | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
-
+	@SmokeTest
 Scenario: Finish adding  point of Destination  establishment address
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -197,7 +197,7 @@ Scenario: Finish adding  point of Destination  establishment address
 	#Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage    |
-	| test1     | Kaka                 | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up     |
+	| test1A     | Kaka                 | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up     |
 
 	
 Scenario: Verify no point of destination  establishment address listed after removing last address
@@ -219,7 +219,7 @@ Scenario: Verify no point of destination  establishment address listed after rem
 
 	Examples: 
 	| logininfo |  Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode |
-	| test1     |  Kaka               | Northern Ireland | testFBO   | Coleraine3        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     |
+	| test1A    |  Kaka               | Northern Ireland | testFBO   | Coleraine3        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     |
 
 	
 Scenario: Verify remaining  point of destination  establishment address listed after removing one address
@@ -246,7 +246,7 @@ Scenario: Verify remaining  point of destination  establishment address listed a
 	#Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
-	| test1     | Kaka                | Northern Ireland | testFBO   | testName3         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street3     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | testName3         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street3     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
 Scenario: Change manually added  destination establishment address
 	Given that I navigate to the NI GC application
@@ -269,7 +269,7 @@ Scenario: Change manually added  destination establishment address
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
-	| test1     | Kaka               | Northern Ireland | testFBO   | testName4         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street4     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | testName4         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street4     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
 	
 Scenario: Change destination establishment address postcode
@@ -288,7 +288,7 @@ Scenario: Change destination establishment address postcode
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode | AddrPostcode1 |
-	| test1     | Kaka                | Northern Ireland | testFBO   | BT30 6LZ     | BT52 2AJ      |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | BT30 6LZ     | BT52 2AJ      |
 
 
 
@@ -312,7 +312,7 @@ Scenario: Change destination establishment email address
 
 	Examples:  
 	| logininfo |  Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1    | estCity | estCountry       | AddrPostcode |
-	| test1     |  Kaka                | Northern Ireland | testFBO   | Coleraine4        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |
+	| test1A    |  Kaka                | Northern Ireland | testFBO   | Coleraine4        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |
 
 	Scenario:Verify different post code link is navigated to Add a point of deastination page
 	Given that I navigate to the NI GC application
@@ -328,7 +328,7 @@ Scenario: Change destination establishment email address
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1     | Kaka                | Northern Ireland | testFBO   | N3 3NA       | of destination |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | N3 3NA       | of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of destination page
 	Given that I navigate to the NI GC application
@@ -344,7 +344,7 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of des
 
 	Examples: 
 	| logininfo |  Business selection | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1     |  Kaka               | Northern Ireland | testFBO   | N3 3NA       | of destination |
+	| test1A    |  Kaka               | Northern Ireland | testFBO   | N3 3NA       | of destination |
 
 
 Scenario:Verify save and return to dashboard on Add a place of destination page
@@ -363,4 +363,4 @@ Scenario:Verify save and return to dashboard on Add a place of destination page
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | nextPage  |EstablishmentName | AddressLine1    | estCity | estCountry       | AddrPostcode |
-	| test1     | Kaka                | Northern Ireland | testFBO   | Sign up   |Coleraine5        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | Sign up   |Coleraine5        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |

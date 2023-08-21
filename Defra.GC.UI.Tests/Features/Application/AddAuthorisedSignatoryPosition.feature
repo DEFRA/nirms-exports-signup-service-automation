@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatoryPosition
 
 Add Authorised Signatory Position
 
-@CrossBrowser   @RunOnly @SmokeTest
+   @RunOnly @SmokeTest
 Scenario: Add Authorised Signatory position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

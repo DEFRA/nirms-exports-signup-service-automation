@@ -3,7 +3,7 @@ Feature: View Business Name in Dashboard & Static Page
 
 View Business Name in Dashboard & Static Page
 
-	@CrossBrowser @RunOnly @SmokeTest
+	 @RunOnly @SmokeTest
 Scenario: Verify user can click on the Selected Business Name and navigate to static page
 	#Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
@@ -19,7 +19,7 @@ Scenario: Verify user can click on the Selected Business Name and navigate to st
 	| logininfo | Business selection |  nextPage1         |Country | FBONumber |
 	| test7     | Tescoman           |  Selected business |England | testFBO   |
    
-   @RunOnly @SmokeTest
+   @RunOnly
 Scenario: Verify user can click on the start a new sign up request
 	#Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application

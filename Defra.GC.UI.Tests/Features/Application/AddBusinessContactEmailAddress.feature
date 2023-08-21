@@ -3,7 +3,7 @@ Feature: AddBusinessContactEmailAddress
 
 Add Contact Email address
 
-	@CrossBrowser @RunOnly @SmokeTest
+	@RunOnly @SmokeTest
 Scenario: Add contact email address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

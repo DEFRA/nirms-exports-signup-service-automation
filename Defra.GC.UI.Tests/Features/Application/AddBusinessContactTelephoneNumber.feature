@@ -3,7 +3,7 @@ Feature: AddBusinessContactTelephoneNumber
 
 Add Contact telephone number
 
-	@CrossBrowser @RunOnly @SmokeTest
+	 @RunOnly @SmokeTest
 Scenario: Add contact Telephone Number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

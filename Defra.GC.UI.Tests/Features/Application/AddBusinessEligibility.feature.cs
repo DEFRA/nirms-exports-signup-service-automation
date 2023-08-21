@@ -77,14 +77,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Complete eligibility task")]
-        [NUnit.Framework.CategoryAttribute("CrossBrowser")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
         [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", null)]
         public void CompleteEligibilityTask(string logininfo, string country, string fBONumber, string businessSelection, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "CrossBrowser",
                     "RunOnly",
                     "SmokeTest"};
             if ((exampleTags != null))
@@ -347,7 +345,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for invalid FBO with Assurance")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "***************", "Enter an FBO number containing only letters, numbers or hyphens", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "***************", "Enter an FBO number using only letters, numbers or hyphens", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", null)]
         public void VerifyErrorMessageForInvalidFBOWithAssurance(string logininfo, string country, string fBONumber, string errorMessage, string businessSelection, string[] exampleTags)
         {
             string[] @__tags = new string[] {

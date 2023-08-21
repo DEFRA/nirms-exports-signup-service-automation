@@ -3,6 +3,7 @@ Feature: CheckAnswers
 
 Check Answers and Submit the application
 
+	@CrossBrowser @SmokeTest
 Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -27,6 +28,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | contact person the authorised | of dispatch | Check your answers | Terms and conditions |
 
 
+	@CrossBrowser @SmokeTest
 Scenario: Check answers and submit sign up link verification on NI points of establishment with save and continue
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -48,7 +50,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage1                 | nextPage2                     | nextPage3      | nextPage4          | nextPage5            |
-	| test1     | Kaka                | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | contact person the authorised | of destination | Check your answers | Terms and conditions |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | contact person the authorised | of destination | Check your answers | Terms and conditions |
 
 
 Scenario: Check answers and submit sign up link verification on GB points of establishment
@@ -99,7 +101,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1            |
-	| test1     | Kaka                | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName4      | testAddress1 | Belfast | Northern Ireland | Check your answers | Terms and conditions |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName4      | testAddress1 | Belfast | Northern Ireland | Check your answers | Terms and conditions |
 
 
 	Scenario: Edit Check answers for GB Retail Movement Scheme sign up

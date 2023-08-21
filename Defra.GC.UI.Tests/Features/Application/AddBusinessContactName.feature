@@ -3,7 +3,7 @@ Feature: AddBusinessContactName
 
 Add Business Contact Name
 
-	@CrossBrowser @RunOnly @SmokeTest
+	@RunOnly @SmokeTest
 Scenario: Add business contact name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

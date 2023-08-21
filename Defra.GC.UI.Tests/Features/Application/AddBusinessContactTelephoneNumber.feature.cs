@@ -77,14 +77,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add contact Telephone Number")]
-        [NUnit.Framework.CategoryAttribute("CrossBrowser")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
         [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "01632 960 001", "Sign up", null)]
         public void AddContactTelephoneNumber(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "CrossBrowser",
                     "RunOnly",
                     "SmokeTest"};
             if ((exampleTags != null))

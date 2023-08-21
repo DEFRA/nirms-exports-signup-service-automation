@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Receive Notice of after completion of Signup Request")]
-        [NUnit.Framework.TestCaseAttribute("test1", "Org New", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test1C", "Org New", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", "We will review your sign-up request and email you", "Your business has already submitted", null)]
         public void ReceiveNoticeOfAfterCompletionOfSignupRequest(
                     string logininfo, 

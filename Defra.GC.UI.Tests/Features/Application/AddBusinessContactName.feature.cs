@@ -77,14 +77,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add business contact name")]
-        [NUnit.Framework.CategoryAttribute("CrossBrowser")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
         [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testFBO", "testName", "position", null)]
         public void AddBusinessContactName(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "CrossBrowser",
                     "RunOnly",
                     "SmokeTest"};
             if ((exampleTags != null))

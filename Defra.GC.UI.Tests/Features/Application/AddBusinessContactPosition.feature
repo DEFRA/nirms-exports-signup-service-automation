@@ -3,7 +3,7 @@ Feature: AddBusinessContactPosition
 
 Add Business Contact contactPosition
 
-	@CrossBrowser @RunOnly @SmokeTest
+	 @RunOnly @SmokeTest
 Scenario: Add business contact position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

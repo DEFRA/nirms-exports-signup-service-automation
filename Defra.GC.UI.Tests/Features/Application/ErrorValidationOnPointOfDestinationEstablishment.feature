@@ -17,7 +17,7 @@ Scenario: Verify validation error message for blank Destination Establishment po
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage      |
-	| test1     | Kaka               | Northern Ireland | testFBO   |          | Enter a postcode  |
+	| test1A    | Kaka               | Northern Ireland | testFBO   |          | Enter a postcode  |
 
 
 Scenario: Verify valid error messages for point of Destination mandatory fields
@@ -37,14 +37,14 @@ Scenario: Verify valid error messages for point of Destination mandatory fields
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | EstablishmentName | AddressLine1 | estCity    | estCountry  | AddrPostcode | errorMessage                                     |
-	| test1     |  Kaka              | Northern Ireland | testFBO   | EC4R 9HA |                   | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter an establishment name                      |
-	| test1     |  Kaka              | Northern Ireland | testFBO   | EC4R 9HA | testErrorName1    |              | testCity   | testCountry | SE10 9NF     | Enter address line 1                             |
-	| test1     |  Kaka              | Northern Ireland | testFBO   | EC4R 9HA | testErrorName2    | testAddress1 |            | testCountry | SE10 9NF     | Enter a town or city                             |
-	| test1     |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName3    | testAddress1 | testCity   | testCountry |              | Enter a postcode                                 |
-	| test1     |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName4%   | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter establishment name using only letters, numbers, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
-	| test1     |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName5    | testAddr%$   | testCity   | testCountry | SE10 9NF     | Enter address line 1 using only letters, numbers, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
-	| test1     |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName6    | testAddress1 | testCity%$ | testCountry | SE10 9NF     | Enter a town or city using only letters, numbers, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
-	| test1     |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName7    | testAddress1 | testCity   | testCountry | SE10 9NF$%   | Enter a postcode using only letters and numbers  |
+	| test1A    |  Kaka              | Northern Ireland | testFBO   | EC4R 9HA |                   | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter an establishment name                      |
+	| test1A    |  Kaka              | Northern Ireland | testFBO   | EC4R 9HA | testErrorName1    |              | testCity   | testCountry | SE10 9NF     | Enter address line 1                             |
+	| test1A    |  Kaka              | Northern Ireland | testFBO   | EC4R 9HA | testErrorName2    | testAddress1 |            | testCountry | SE10 9NF     | Enter a town or city                             |
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName3    | testAddress1 | testCity   | testCountry |              | Enter a postcode                                 |
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName4%   | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter establishment name using only letters, numbers, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName5    | testAddr%$   | testCity   | testCountry | SE10 9NF     | Enter address line 1 using only letters, numbers, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName6    | testAddress1 | testCity%$ | testCountry | SE10 9NF     | Enter a town or city using only letters, numbers, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | EC4R 9HA | testErrorName7    | testAddress1 | testCity   | testCountry | SE10 9NF$%   | Enter a postcode using only letters and numbers  |
 
 
 Scenario: Verify error message on add another point of Destination page
@@ -65,7 +65,7 @@ Scenario: Verify error message on add another point of Destination page
 	Then  verify error message '<errorMessage>' on establishment page
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                            |
-	| test1     | Kaka		         | Northern Ireland | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | EC4R 9HA     | Select if you have added all your places of destination |
+	| test1A    | Kaka		         | Northern Ireland | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | EC4R 9HA     | Select if you have added all your places of destination |
 
 Scenario: Verify duplicate point of destination establishment not allowed
 	Given Clear Database for user '<logininfo>'
@@ -89,5 +89,5 @@ Scenario: Verify duplicate point of destination establishment not allowed
     Then  verify duplicate establishment error message '<errorMessage>'
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | errorMessage                                                            |
-	| test1     | Kaka   			 | Northern Ireland | testFBO   | testErrorName9    | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | This address has already been added as a place of destination - enter a different address |
+	| test1A    | Kaka   			 | Northern Ireland | testFBO   | testErrorName9    | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | This address has already been added as a place of destination - enter a different address |
 

@@ -77,14 +77,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add Authorised Signatory position")]
-        [NUnit.Framework.CategoryAttribute("CrossBrowser")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
         [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testContactName", "testPosition", "test Name", "administrator", "email address", "test@gmail.com", "01632 960 001", null)]
         public void AddAuthorisedSignatoryPosition(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string fullName, string authposition, string nextPage, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "CrossBrowser",
                     "RunOnly",
                     "SmokeTest"};
             if ((exampleTags != null))

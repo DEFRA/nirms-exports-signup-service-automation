@@ -77,14 +77,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify user can click on the Selected Business Name and navigate to static page")]
-        [NUnit.Framework.CategoryAttribute("CrossBrowser")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
         [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "Selected business", "England", "testFBO", null)]
         public void VerifyUserCanClickOnTheSelectedBusinessNameAndNavigateToStaticPage(string logininfo, string businessSelection, string nextPage1, string country, string fBONumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "CrossBrowser",
                     "RunOnly",
                     "SmokeTest"};
             if ((exampleTags != null))

@@ -24,7 +24,7 @@ Scenario Outline: Verify status of Business Details task
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | nextPage                                                | Business name    | AddressLine1 | Town     | AddrPostcode |
-	| test1     | AM                 | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme | testBusinessname | testAddress1 | testCity | wd19 7pf     |
+	| test1B    | AM                 | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme | testBusinessname | testAddress1 | testCity | wd19 7pf     |
 
 
 	Scenario: Verify status of all tasks
@@ -92,7 +92,7 @@ Scenario Outline: Verify status of Business Details task
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1     | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 
 Scenario: Verify status of Authorised Signatory task with Yes Authorisation
@@ -113,7 +113,7 @@ Scenario: Verify status of Authorised Signatory task with Yes Authorisation
 
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1     | AM                   | England | testFBO   |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test1B    | AM                   | England | testFBO   |testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
 
 Scenario: Verify status of Authorised Signatory task with No Authorisation
@@ -154,7 +154,7 @@ Scenario: Verify status of Authorised Signatory task with No Authorisation
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | fullName  | Authposition |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1     | AM                 | England | testFBO   | test name | administrator|testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test1B    | AM                 | England | testFBO   | test name | administrator|testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 
 Scenario: Verify the status of Check answers and submit sign task
@@ -194,4 +194,4 @@ Scenario: Verify the status of Check answers and submit sign task
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1     | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |

@@ -20,7 +20,7 @@ Scenario: Verify Point of Departure link for GB countries
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Wales    | testFBO   | SE10 9NF | of dispatch |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Scotland | testFBO   | SE10 9NF | of dispatch |
 
-@CrossBrowser
+
 Scenario: Check Add the establishment address manually link
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -161,7 +161,7 @@ Scenario: Verify back to dashboard link on add establishment address page
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Sign up   |testName4         | testAddress1 | London  | England    | SE10 9NF     |
 
 
-
+	@SmokeTest
 Scenario: Add Another GB point of Departure establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -208,7 +208,7 @@ Scenario: Finish adding GB point of Departure establishment address
 	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |
 
-
+	@SmokeTest
 Scenario: Verify no establishment address listed after removing last address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

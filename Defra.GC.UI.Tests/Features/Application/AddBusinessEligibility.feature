@@ -3,7 +3,7 @@ Feature: AddBusinessEligibility
 
 Complete Eligibility task
 
-@CrossBrowser @RunOnly @SmokeTest
+ @RunOnly @SmokeTest
 Scenario Outline: Complete eligibility task
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

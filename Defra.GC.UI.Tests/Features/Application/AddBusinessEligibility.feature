@@ -83,8 +83,8 @@ Scenario Outline: Verify error message for invalid FBO with Assurance
 	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
 	Examples: 
-    | logininfo | Country | FBONumber       | errorMessage                                                    | Business selection                        |
-    | test      | England | *************** | Enter an FBO number containing only letters, numbers or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
+    | logininfo | Country | FBONumber       | errorMessage                                               | Business selection                        |
+    | test      | England | *************** | Enter an FBO number using only letters, numbers or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
 
 	@RunOnly
 Scenario Outline: Verify confirmation error message for Regulations page

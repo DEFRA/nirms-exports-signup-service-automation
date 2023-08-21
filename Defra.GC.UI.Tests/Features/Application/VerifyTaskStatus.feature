@@ -4,7 +4,8 @@ Feature: VerifyTaskStatus
 Verify the status of each task on Signup page
 
 Scenario Outline: Verify status of Business Details task
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -27,7 +28,8 @@ Scenario Outline: Verify status of Business Details task
 
 
 	Scenario: Verify status of all tasks
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -93,9 +95,9 @@ Scenario Outline: Verify status of Business Details task
 	| test1     | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 
-@ignore
 Scenario: Verify status of Authorised Signatory task with Yes Authorisation
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -114,9 +116,9 @@ Scenario: Verify status of Authorised Signatory task with Yes Authorisation
 	| test1     | AM                   | England | testFBO   |testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
 
-@ignore
 Scenario: Verify status of Authorised Signatory task with No Authorisation
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -154,9 +156,10 @@ Scenario: Verify status of Authorised Signatory task with No Authorisation
 	| logininfo | Business selection | Country | FBONumber | fullName  | Authposition |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test1     | AM                 | England | testFBO   | test name | administrator|testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-@ignore
+
 Scenario: Verify the status of Check answers and submit sign task
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

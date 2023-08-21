@@ -4,14 +4,13 @@ Feature: CheckAnswers
 Check Answers and Submit the application
 
 Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>' with save and continue
-	#Then  verify next page '<nextPage1>' is loaded 
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>' with save and continue
 	Then  verify next page '<nextPage2>' is loaded 
 	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
@@ -21,7 +20,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	When  click on continue button
 	Then  verify next page '<nextPage5>' is loaded
     Then  click on the confirm check box on Terms and conditions page
-	#Then  click on submit sign up
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                     | nextPage3   | nextPage4          | nextPage5            |
@@ -29,14 +28,13 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 
 
 Scenario: Check answers and submit sign up link verification on NI points of establishment with save and continue
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>' with save and continue
-	#Then  verify next page '<nextPage1>' is loaded 
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>' with save and continue
 	Then  verify next page '<nextPage2>' is loaded 
 	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
@@ -46,7 +44,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  click on continue button
 	Then  verify next page '<nextPage5>' is loaded
 	Then  click on the confirm check box on Terms and conditions page
-	#Then  click on submit sign up
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage1                 | nextPage2                     | nextPage3      | nextPage4          | nextPage5            |
@@ -54,14 +52,13 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 
 Scenario: Check answers and submit sign up link verification on GB points of establishment
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -73,21 +70,20 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
     Then  click on the confirm check box on Terms and conditions page
-	#Then  click on submit sign up
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo |  Business selection                        | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName3      | testAddress1 | London  | England    | Check your answers | Terms and conditions |
 
 Scenario: Check answers and submit sign up link verification on NI points of establishment
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -99,7 +95,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
 	Then  click on the confirm check box on Terms and conditions page
-	#Then  click on submit sign up
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1            |
@@ -107,14 +103,13 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 
 	Scenario: Edit Check answers for GB Retail Movement Scheme sign up
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -139,14 +134,13 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 
 	Scenario: Edit Authorised Signatory on Check answers for GB Retail Movement Scheme sign up
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with No option
@@ -165,14 +159,13 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 
 	Scenario: Edit Check answers for Northern Ireland Retail Movement Scheme sign up
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -197,14 +190,13 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName28     | testAddress1 | Belfast | Northern Ireland | Contact person is the authorised representative | No                  |
 
 	Scenario: Edit Authorised Signatory on Check answers for Northern Ireland Retail Movement Scheme sign up
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with No option
@@ -225,14 +217,13 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	
 	
 	Scenario: Verify place of dispatch link on check your answers page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -248,7 +239,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Then  verify more than 1 establishment addresses added on Check your answers page
 	When  click on continue button
 	Then  click on the confirm check box on Terms and conditions page
-	#Then  click on submit sign up
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Business selection     | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | EstablishmentName1 | AddressLine2 | estCity | estCountry | nextPage           | nextPage1               |
@@ -256,14 +247,13 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 
 	Scenario: Verify place of destination link on check your answers page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -279,21 +269,20 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Then  verify more than 1 establishment addresses added on Check your answers page
 	When  click on continue button
     Then  click on the confirm check box on Terms and conditions page
-	#Then  click on submit sign up
+	Then  click on submit sign up
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | EstablishmentName1 | AddressLine2 | estCity | estCountry       | nextPage           | nextPage1                  |
 	| test5     | SND NON UK User  	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName34     | testAddress1 | SecondEstName      | EastAddr1    | Belfast | Northern Ireland | Check your answers | Add a place of destination |
 
 Scenario: Remove GB establishment on check your answers page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -306,9 +295,9 @@ Scenario: Remove GB establishment on check your answers page
 	Then  verify next page '<nextPage1>' is loaded
 	When  complete Points of departure with '<EstablishmentName1>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   click on Check answers and submit sign up
-	#Then  verify total '2' establishment addresses added
+	Then  verify total '2' establishment addresses added
 	When  click on remove link on estblishment '<EstablishmentName1>' on check answers page
-	#Then  verify total '1' establishment addresses added
+	Then  verify total '1' establishment addresses added
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | EstablishmentName1 | AddressLine1 | estCity | estCountry | nextPage           | nextPage1               |
@@ -316,14 +305,13 @@ Scenario: Remove GB establishment on check your answers page
 
 
 	Scenario: Remove NI establishment on check your answers page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -336,9 +324,9 @@ Scenario: Remove GB establishment on check your answers page
 	Then  verify next page '<nextPage1>' is loaded
 	When  complete Points of destination with '<EstablishmentName1>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   click on Check answers and submit sign up
-	#Then  verify total '2' establishment addresses added
+	Then  verify total '2' establishment addresses added
 	When  click on remove link on estblishment '<EstablishmentName1>' on check answers page
-	#Then  verify total '1' establishment addresses added
+	Then  verify total '1' establishment addresses added
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | EstablishmentName1 | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1                  |
@@ -346,14 +334,13 @@ Scenario: Remove GB establishment on check your answers page
 
 
 	Scenario: Verify back to dashboard link on Check answers page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -371,7 +358,8 @@ Scenario: Remove GB establishment on check your answers page
 
 	
 	Scenario: Navigated to 'Selected business' page through the Signup link on check your answer page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

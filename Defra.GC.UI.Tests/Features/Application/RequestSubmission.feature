@@ -4,19 +4,17 @@ Feature: Receive Notice after RequestSubmission
 Receive Notice of Signup Request
 
 Scenario: Receive Notice of after completion of Signup Request 
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
-	#And   user verify the business name status 'NOT STARTED'
 	And   user verify the business contact details status 'NOT STARTED'
     And   user verify the Authorised Signatory status 'CANNOT START YET'
     And   user verify the Points of departure status 'NOT STARTED'
 	And   verify Check answers and submit sign up status 'CANNOT START YET'
-	#When  complete Business name task with '<Business name>', '<AddressLine>', '<Town>', '<AddrPostcode>'
-	#Then  user verify the business name status 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
     And   user verify the Authorised Signatory status 'NOT STARTED'

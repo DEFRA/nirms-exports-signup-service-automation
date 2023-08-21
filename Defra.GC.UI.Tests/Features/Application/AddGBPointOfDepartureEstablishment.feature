@@ -4,7 +4,8 @@ Feature: AddGBPointOfDepartureEstablishment
 Add GB point of Departure Establishment
 
 Scenario: Verify Point of Departure link for GB countries
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -21,7 +22,8 @@ Scenario: Verify Point of Departure link for GB countries
 
 @CrossBrowser
 Scenario: Check Add the establishment address manually link
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -39,7 +41,8 @@ Scenario: Check Add the establishment address manually link
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | SE10 9NF | of dispatch |
 
 Scenario: Add GB point of Departure establishment address manually
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -61,7 +64,8 @@ Scenario: Add GB point of Departure establishment address manually
 
 
 Scenario: Verify back to dashboard link on enter establishment postcode page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -76,7 +80,8 @@ Scenario: Verify back to dashboard link on enter establishment postcode page
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up  |
 
 Scenario: Verify back to dashboard link on select establishment address page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -93,7 +98,8 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE10 9NF | Sign up   |
 
 Scenario: Verify back to dashboard link on add establishment address page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -114,7 +120,8 @@ Scenario: Verify back to dashboard link on add establishment address page
 
 
 	Scenario: Verify back to dashboard link on then Do you want to add another point of departure Page ?
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -134,7 +141,8 @@ Scenario: Verify back to dashboard link on add establishment address page
 
 	
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -155,7 +163,8 @@ Scenario: Verify back to dashboard link on add establishment address page
 
 
 Scenario: Add Another GB point of Departure establishment address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -179,7 +188,8 @@ Scenario: Add Another GB point of Departure establishment address
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        |
 
 Scenario: Finish adding GB point of Departure establishment address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -200,7 +210,8 @@ Scenario: Finish adding GB point of Departure establishment address
 
 
 Scenario: Verify no establishment address listed after removing last address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -222,7 +233,8 @@ Scenario: Verify no establishment address listed after removing last address
 
 
 Scenario: Verify remaining establishment address listed after removing one address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -248,7 +260,8 @@ Scenario: Verify remaining establishment address listed after removing one addre
 
 	
 Scenario: Change manually added establishment address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -272,7 +285,8 @@ Scenario: Change manually added establishment address
 
 
 Scenario: Change establishment address postcode
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -291,7 +305,8 @@ Scenario: Change establishment address postcode
 
 
 Scenario: Change establishment email address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -313,7 +328,8 @@ Scenario: Change establishment email address
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName13        | testAddress1 | London  | England    | SE10 9NF     |
 
 Scenario:Verify back to dashboard link from address page navigated to Add a place of dispatch  page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -333,7 +349,8 @@ Scenario:Verify back to dashboard link from address page navigated to Add a plac
 
 	
 Scenario:Verify different post code link is navigated to Add a place of dispatch page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -349,7 +366,8 @@ Scenario:Verify different post code link is navigated to Add a place of dispatch
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | N3 3NA       | of dispatch |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of dispatch page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -366,7 +384,8 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of dis
 
 
 Scenario:Verify save and return to dashboard on Add a place of dispatch page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

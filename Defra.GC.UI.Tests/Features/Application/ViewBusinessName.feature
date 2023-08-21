@@ -5,8 +5,8 @@ View Business Name in Dashboard & Static Page
 
 	 @RunOnly @SmokeTest
 Scenario: Verify user can click on the Selected Business Name and navigate to static page
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -21,8 +21,8 @@ Scenario: Verify user can click on the Selected Business Name and navigate to st
    
    @RunOnly
 Scenario: Verify user can click on the start a new sign up request
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	When  click on eligibility task
@@ -39,8 +39,8 @@ Scenario: Verify user can click on the start a new sign up request
    
    @RunOnly
 Scenario: Verify user can click on the back to dashboard
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	When  click on eligibility task
@@ -58,8 +58,8 @@ Scenario: Verify user can click on the back to dashboard
    
    @RunOnly
 Scenario: Verify user can click Check eligibility
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

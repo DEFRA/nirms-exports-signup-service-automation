@@ -64,6 +64,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             EnvPassword.SendKeys(ConfigSetup.BaseConfiguration.TestConfiguration.EnvPassword);
             applicationPage.ClickOnContinue();
+            Thread.Sleep(1000);
         }
     }
 }

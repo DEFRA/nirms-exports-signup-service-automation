@@ -63,8 +63,8 @@ Scenario: Verify error message for blank business contact position
 	Then  verify error message '<errorMessage>' on business contact position page
 
 	Examples: 
-	| logininfo | Business selection         | Country | FBONumber | contactName     | contactPosition | errorMessage             |
-	| test4     | NORTH WEST TELUGU SANGAM   | England | testFBO   | testContactName |                 | Enter the contact person |
+	| logininfo | Business selection         | Country | FBONumber | contactName     | contactPosition | errorMessage     |
+	| test4     | NORTH WEST TELUGU SANGAM   | England | testFBO   | testContactName |                 | Enter a position |
 
 	@RunOnly
 Scenario: Verify back to dashboard link on business contact position page

@@ -39,13 +39,13 @@ Scenario: Verify error message for invalid business contact name
 	Then  verify error message '<errorMessage>' on business contact name page  
 	 
 	Examples: 
-	| logininfo | Business selection               | Country | FBONumber | contactName  | errorMessage                                             |
-	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   | invalidTest% | Enter a name using only letters, apostrophes and hyphens |
+	| logininfo | Business selection               | Country | FBONumber | contactName  | errorMessage                                            |
+	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   | invalidTest% | Enter a name using only letters, hyphens or apostrophes |
 
 	@RunOnly
 Scenario: Verify error message for blank business contact name
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	#Given Clear Database for user '<logininfo>'
+	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task

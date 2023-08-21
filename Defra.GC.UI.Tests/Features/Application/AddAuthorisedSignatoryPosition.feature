@@ -3,9 +3,10 @@ Feature: AddAuthorisedSignatoryPosition
 
 Add Authorised Signatory Position
 
-@CrossBrowser
+@CrossBrowser   @RunOnly @SmokeTest
 Scenario: Add Authorised Signatory position
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -33,9 +34,10 @@ Scenario: Add Authorised Signatory position
 	| logininfo | Business selection						| Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage      | emailAddress   | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name | administrator | email address | test@gmail.com | 01632 960 001   |
 
-	
+	   @RunOnly
 Scenario: Verify error message for invalid authorised signatory position
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -60,12 +62,13 @@ Scenario: Verify error message for invalid authorised signatory position
 	Then  verify error message '<errorMessage>' on Authorised signatory position page
 
 	Examples: 
-| logininfo | Business selection						| Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage																																				         |
-| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name | test%        | test@gmail.com | 01632 960 001   | Enter the position of the authorised representative using only letters, numbers, brackets, full stops, hyphens (-), underscores (_), slashes (/) or ampersands (&) |
+| logininfo | Business selection						| Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage																			   							              |
+| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name | test%        | test@gmail.com | 01632 960 001   | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands |
 
-
+   @RunOnly
 Scenario: Verify error message for blank authorised signatory position
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -90,12 +93,13 @@ Scenario: Verify error message for blank authorised signatory position
 	Then  verify error message '<errorMessage>' on business contact position page
 
 	Examples: 
-	| logininfo | Business selection						 | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage										   |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | testContactName | testPosition    | test Name |              | test@gmail.com | 01632 960 001   | Enter the position of the authorised representative |
+	| logininfo | Business selection                        | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage     |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name |              | test@gmail.com | 01632 960 001   | Enter a position |
 
-
+	   @RunOnly
 Scenario Outline:Verify user clicks on back to dashboard button and navigates to tasklist page 
-Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -123,9 +127,10 @@ Examples:
 	| logininfo |Business selection						   | Country | FBONumber | previousPage  | contactName | contactPosition | emailAddress   | telephoneNumber |Authposition |fullName|
 	| test      |ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up		 | test Name   | test            | test@gmail.com | 01632 960 001   |admin        |testname|
 
-
+	   @RunOnly
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory position Page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

@@ -153,7 +153,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for invalid business contact name")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
-        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testFBO", "invalidTest%", "Enter a name using only letters, apostrophes and hyphens", null)]
+        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testFBO", "invalidTest%", "Enter a name using only letters, hyphens or apostrophes", null)]
         public void VerifyErrorMessageForInvalidBusinessContactName(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string errorMessage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -252,11 +252,8 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 47
- testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 48
- testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 49
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

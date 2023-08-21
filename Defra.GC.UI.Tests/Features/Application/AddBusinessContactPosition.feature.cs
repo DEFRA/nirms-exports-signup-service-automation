@@ -239,7 +239,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for blank business contact position")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
-        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "England", "testFBO", "testContactName", "", "Enter the contact person", null)]
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "England", "testFBO", "testContactName", "", "Enter a position", null)]
         public void VerifyErrorMessageForBlankBusinessContactPosition(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string errorMessage, string[] exampleTags)
         {
             string[] @__tags = new string[] {

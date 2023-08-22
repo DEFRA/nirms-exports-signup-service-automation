@@ -116,7 +116,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ConfirmReMosRegulationToCompleteEligibility()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2500)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,3500)", "");
             IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
             if (_driver.FindElements(RegulationCheckedboxBy).Count() > 0)
             {

@@ -629,7 +629,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Finish adding point of Destination establishment address")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "Coleraine1", "testAddress1", "Crown Buildings", "Northern Ireland", "BT52 2AJ", "Check Your Answers", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "Coleraine1", "testAddress1", "Crown Buildings", "Northern Ireland", "BT52 2AJ", "Sign up", null)]
         public void FinishAddingPointOfDestinationEstablishmentAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {

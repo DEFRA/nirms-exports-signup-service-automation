@@ -205,8 +205,8 @@ Scenario: Finish adding point of Destination establishment address
 	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage           |
-	| test1A     | Kaka                | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Check Your Answers |
+	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage |
+	| test1A     | Kaka                | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up  |
 
 	
 Scenario: Verify no point of destination establishment address listed after removing last address

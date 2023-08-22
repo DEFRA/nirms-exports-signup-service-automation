@@ -4,7 +4,8 @@ Feature: VerifyTaskStatus
 Verify the status of each task on Signup page
 
 Scenario Outline: Verify status of Business Details task
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -23,11 +24,12 @@ Scenario Outline: Verify status of Business Details task
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | nextPage                                                | Business name    | AddressLine1 | Town     | AddrPostcode |
-	| test1     | AM                 | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme | testBusinessname | testAddress1 | testCity | wd19 7pf     |
+	| test1B    | AM                 | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme | testBusinessname | testAddress1 | testCity | wd19 7pf     |
 
 
 	Scenario: Verify status of all tasks
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -80,22 +82,23 @@ Scenario Outline: Verify status of Business Details task
     And   user enters manually '<emailAddress>' in email address page
 	And   click Save and return to dashboard
 	Then  user verify the Authorised Signatory status 'COMPLETED'
+	And   verify Check answers and submit sign up status 'CANNOT START YET'
 	When  click on points of departure link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
 	And   click Save and return to dashboard
 	Then  user verify the Points of departure status 'COMPLETED'
-	And   verify Check answers and submit sign up status 'CANNOT START YET'
+	And   verify Check answers and submit sign up status 'NOT STARTED'
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1     | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |fullName       | Authposition |
+	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |test Auth name | administrator|
 
 
-@ignore
 Scenario: Verify status of Authorised Signatory task with Yes Authorisation
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -111,12 +114,12 @@ Scenario: Verify status of Authorised Signatory task with Yes Authorisation
 
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1     | AM                   | England | testFBO   |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test1B    | AM                   | England | testFBO   |testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
 
-@ignore
 Scenario: Verify status of Authorised Signatory task with No Authorisation
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -152,11 +155,12 @@ Scenario: Verify status of Authorised Signatory task with No Authorisation
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | fullName  | Authposition |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1     | AM                 | England | testFBO   | test name | administrator|testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test1B    | AM                 | England | testFBO   | test name | administrator|testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-@ignore
+
 Scenario: Verify the status of Check answers and submit sign task
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -191,4 +195,4 @@ Scenario: Verify the status of Check answers and submit sign task
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1     | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |

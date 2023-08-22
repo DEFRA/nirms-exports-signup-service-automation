@@ -160,15 +160,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
 
-            if (_driver.FindElements(ErrorMessage).Count > 0)
-            {
-                if (_driver.FindElement(ErrorMessage).Text.Contains("This address has already been added as a place of"))
-                { 
-                    EstablishmentAddr1.SendKeys("123");
-                    IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-                    jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue); 
-                }
-            }
+            //if (_driver.FindElements(ErrorMessage).Count > 0)
+            //{
+            //    if (_driver.FindElement(ErrorMessage).Text.Contains("This address has already been added as a place of"))
+            //    { 
+            //        EstablishmentAddr1.SendKeys("123");
+            //        IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+            //        jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue); 
+            //    }
+            //}
         }
 
         public bool VerifyErrorMessageOnAddAPointOfDeparture(string errorMessage)
@@ -210,8 +210,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void RemoveEstablishmentAddress(string establishmentAddress)
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
-            Thread.Sleep(1000);
+            //((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2000)", "");
+            //Thread.Sleep(1000);
             string RemoveEstablishment = "//h2[contains(text(),'" + establishmentAddress + "')]/..//a";
             _driver.WaitForElement(By.XPath(RemoveEstablishment)).Click();
         }

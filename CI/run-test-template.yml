@@ -17,6 +17,7 @@ parameters:
     type: string
   - name: targetBrowserName
     type: string
+
 jobs: 
 
 - job: ${{ parameters.jobName }}
@@ -35,6 +36,22 @@ jobs:
 
   steps:
     
+    - task: AzureKeyVault@2
+      displayName: Get Secrets from TST Keyvault 
+      inputs:
+        #azureSubscription: ${{ parameters.envConfigParam}}
+        #azureSubscription: 'AZD-TRD-TST1'
+        connectedServiceName: 'AZD-TRD-TST1'
+        keyvaultName: 'TSTTRDINFKV1001'
+        SecretsFilter: 'RemosDbConnectionString' #-'DBConnectionstring'
+        RunAsPreJob: false
+
+    - powershell: echo "##vso[task.setvariable variable= RemosDbConnectionString;isOutput=true]$(RemosDbConnectionString)"
+      name: setvarStep
+      
+    - script: echo $(RemosDbConnectionString)
+      name: echovar
+
     - task: DownloadBuildArtifacts@0
       displayName: TestArtifact
       inputs:
@@ -79,7 +96,9 @@ jobs:
 
     - powershell: |
         $jsonString = Get-Content "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/appsettings.json" | Out-String
-        Write-Host $jsonString
+        $tr = $jsonString.replace("`"DBConnectionstring`": `"`"", "`"DBConnectionstring`": `"$(RemosDbConnectionString)`"");
+        $tr | Out-file -Filepath "$(System.DefaultWorkingDirectory)/Defra.GC.UI.Tests/appsettings.json"
+        Write-Host $tr
       displayName: 'Display appsettings.json'
     
     - powershell: |

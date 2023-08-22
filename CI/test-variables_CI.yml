@@ -6,6 +6,7 @@ parameters:
   - name: targerBrowser
     type: string
 
+
 variables:
 
 - name: SeleniumGrid
@@ -32,7 +33,7 @@ variables:
   ${{ if eq(parameters.jobNameParam, 'RunOnlyScenarios') }}:
     value: 'TestCategory=RunOnly'
   ${{ if eq(parameters.jobNameParam, 'SmokeTest') }}:
-    value: 'TestCategory=SmokeOnly'
+    value: 'TestCategory=SmokeTest'
   ${{ if eq(parameters.jobNameParam, 'FirefoxBrowserRun') }}:
     value: 'TestCategory=CrossBrowser'
   ${{ if eq(parameters.jobNameParam, 'ChromeBrowserRun') }}:

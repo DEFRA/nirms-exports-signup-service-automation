@@ -79,6 +79,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.AreEqual(checkYourAnswersPage.VerifyBusinessNameAdded(), tescoman);
         }
 
+        [When(@"click on Signup another business link")]
         [Then(@"click on Signup another business link")]
         public void ThenClickOnSignupAnotherBusinessLink()
         {

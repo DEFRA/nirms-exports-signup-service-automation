@@ -3,9 +3,10 @@ Feature: AddBusinessContactName
 
 Add Business Contact Name
 
-@CrossBrowser
+	@SmokeTest
 Scenario: Add business contact name
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -18,12 +19,13 @@ Scenario: Add business contact name
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo |          Business selection                          | Country | FBONumber | contactName | nextPage |
-	| test      |   ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testName    | position |
+	| logininfo | Business selection        | Country | FBONumber | contactName | nextPage |
+	| test2     | AMSAK PROPERTY LIMITED    | England | testFBO   | testName    | position |
 
 
 Scenario: Verify error message for invalid business contact name
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -36,11 +38,13 @@ Scenario: Verify error message for invalid business contact name
 	Then  verify error message '<errorMessage>' on business contact name page  
 	 
 	Examples: 
-	| logininfo | Business selection                                   | Country | FBONumber | contactName  | errorMessage                                                    |
-	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.           | England | testFBO   | invalidTest% | Enter the full name of the contact person using only letters, numbers, brackets, full stops, hyphens (-), underscores (_), slashes (/) or ampersands (&) |
+	| logininfo | Business selection               | Country | FBONumber | contactName  | errorMessage                                            |
+	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   | invalidTest% | Enter a name using only letters, hyphens or apostrophes |
+
 
 Scenario: Verify error message for blank business contact name
-	Given that I navigate to the NI GC application
+	#Given Clear Database for user '<logininfo>'
+	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -53,12 +57,13 @@ Scenario: Verify error message for blank business contact name
     Then verify error message '<errorMessage>' on business contact name page
 
 	Examples: 
-	| logininfo | Business selection                                   | Country | FBONumber | contactName | errorMessage  |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.            | England | testFBO   |             | Enter the name of your business |
+	| logininfo | Business selection               | Country | FBONumber | contactName | errorMessage  |
+	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   |             | Enter a name  |
 
 
 Scenario: Verify back to dashboard link on business contact name page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -70,11 +75,13 @@ Scenario: Verify back to dashboard link on business contact name page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection                                   | Country | FBONumber | nextPage |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.            | England | testFBO   | Sign up  |
+	| logininfo | Business selection                | Country | FBONumber | nextPage |
+	| test2     | AMSAK PROPERTY LIMITED            | England | testFBO   | Sign up  |
 
+	@SmokeTest
 Scenario: Verify save and return to dashboard on business contact name page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -87,5 +94,5 @@ Scenario: Verify save and return to dashboard on business contact name page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection                                 | Country | FBONumber | nextPage | contactName     |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | Sign up  | testcontactName |
+	| logininfo | Business selection              | Country | FBONumber | nextPage | contactName     |
+	| test2     | AMSAK PROPERTY LIMITED          | England | testFBO   | Sign up  | testcontactName |

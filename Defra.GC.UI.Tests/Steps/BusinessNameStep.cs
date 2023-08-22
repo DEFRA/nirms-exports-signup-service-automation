@@ -110,12 +110,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         }
 
 
+        [When(@"user clicks on Selected business")]
         [Then(@"user clicks on Selected business")]
         public void ThenUserClicksOnSelectedBusiness()
         {
             BusinessNamePagetest.ClickOnSelectedBusinessNameTask();
         }
 
+        [When(@"user clicks on the start a new sign up request link")]
         [Then(@"user clicks on the start a new sign up request link")]
         public void ThenUserClicksOnTheStartANewSignUpRequestLink()
         {

@@ -3,9 +3,10 @@ Feature: AddBusinessContactTelephoneNumber
 
 Add Contact telephone number
 
-@CrossBrowser
+	 @SmokeTest
 Scenario: Add contact Telephone Number
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -28,7 +29,8 @@ Scenario: Add contact Telephone Number
 
 
 Scenario: Verify error message for invalid contact Telephone Number
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
      And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -46,12 +48,13 @@ Scenario: Verify error message for invalid contact Telephone Number
 	Then  verify error message '<errorMessage>' on contact telephone number page
 
 	Examples: 
-	| logininfo |     Business selection                             | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | errorMessage                                   |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | abc123          | Enter a telephone number in the correct format, like 01632 960 001, 07700 900 982 or +44 808 157 019 |
+	| logininfo |     Business selection                             | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | errorMessage                                                                    |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | abc123          | Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192 |
 
 
 Scenario: Verify error message for blank contact telephone number
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -69,12 +72,13 @@ Scenario: Verify error message for blank contact telephone number
 	Then  verify error message '<errorMessage>' on contact telephone number page
 
 	Examples: 
-	| logininfo |             Business selection                      | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | errorMessage                                 |
-	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. 		  | England | testFBO   | testContactName | testPosition    | test@test.com |                 | Enter the phone number of the contact person |
+	| logininfo |             Business selection                      | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | errorMessage             |
+	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. 		  | England | testFBO   | testContactName | testPosition    | test@test.com |                 | Enter a telephone number |
 
 
 Scenario: Verify back to dashboard link contact telephone number page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -94,8 +98,10 @@ Scenario: Verify back to dashboard link contact telephone number page
 	| logininfo |           Business selection                           | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage      |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. 			 | England | testFBO   | testContactName | testPosition    | test@test.com | Sign up       |
 
+
 Scenario: Verify save and return to dashboard on contact telephone number page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task

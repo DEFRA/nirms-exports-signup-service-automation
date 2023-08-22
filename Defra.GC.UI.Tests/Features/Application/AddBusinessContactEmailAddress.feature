@@ -3,9 +3,10 @@ Feature: AddBusinessContactEmailAddress
 
 Add Contact Email address
 
-@CrossBrowser
+	@SmokeTest
 Scenario: Add contact email address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -27,7 +28,8 @@ Scenario: Add contact email address
 
 
 Scenario: Verify error message for invalid contact email address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -49,7 +51,8 @@ Scenario: Verify error message for invalid contact email address
 
 
 Scenario: Verify error message for blank contact email address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -66,12 +69,13 @@ Scenario: Verify error message for blank contact email address
 	Then  verify error message '<errorMessage>' on contact email address page
 
 	Examples: 
-	| logininfo | Business selection                                 | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage                                  |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    |              | Enter the email address of the contact person |
+	| logininfo | Business selection                                 | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage           |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    |              | Enter an email address |
 
 
 Scenario: Verify back to dashboard link on contact email address page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -90,8 +94,10 @@ Scenario: Verify back to dashboard link on contact email address page
 	| logininfo | Business selection                                  | Country | FBONumber | contactName     | contactPosition | nextPage |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.           | England | testFBO   | testContactName | testPosition    | Sign up for the Northern Ireland Retail Movement Scheme |
 
+
 Scenario: Verify save and return to dashboard on contact email address page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
 	And   click on eligibility task

@@ -10,6 +10,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Data.Users
     {
         public string UserName { get; set; }
         public string password { get; set; }
+        public string OrgID { get; set; }
         public string LoginInfo { get; set; }
         public string Environment { get; set; }
         public bool HomePage { get; set; }

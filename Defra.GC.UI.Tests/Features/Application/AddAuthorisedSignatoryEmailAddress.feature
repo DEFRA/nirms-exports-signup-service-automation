@@ -3,8 +3,10 @@ Feature: AddAuthorisedSignatoryEmailAddress
 
 Add Authorised Signatory Email Address
 
+   @SmokeTest
 Scenario: Add Authorised Signatory Email Address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -37,9 +39,9 @@ Scenario: Add Authorised Signatory Email Address
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Sign up   | test name | test name   | test            | test@gmail.com  | 01632 960 001 | administrator|
 
 
-
 Scenario: Verify error message for invalid Authorised Signatory Email Address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -70,9 +72,9 @@ Scenario: Verify error message for invalid Authorised Signatory Email Address
 	| logininfo | Business selection						 | fullName  | Country | FBONumber | errorMsg                                                            | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | test name | England | testFBO   | Enter an email address in the correct format, like name@example.com | test Name   | test            | test@gmail.com | 01632 960 001   | test%gmail.com   | COO          |
 
-
 Scenario Outline:  Verify error message for blank Authorised Signatory Email Address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -100,13 +102,13 @@ Scenario Outline:  Verify error message for blank Authorised Signatory Email Add
 	Then  verify error message '<errorMsg>' on authorised signatory email address page
 
     Examples:    
-	| logininfo | Business selection						| fullName  | Country | FBONumber | errorMsg                                                 | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | test name | England | testFBO   | Enter the email address of the authorised representative | test Name   | test            | test@gmail.com | 01632 960 001   |                  | COO          |
-
+	| logininfo | Business selection						| fullName  | Country | FBONumber | errorMsg               | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | test name | England | testFBO   | Enter an email address | test Name   | test            | test@gmail.com | 01632 960 001   |                  | COO          |
 
 
 Scenario Outline:Verify user clicks on back to dashboard link and navigates to tasklist page 
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -138,7 +140,8 @@ Examples:
 
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory Email address Page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

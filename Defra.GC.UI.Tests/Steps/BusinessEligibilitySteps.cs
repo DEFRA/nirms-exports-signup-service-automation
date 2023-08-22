@@ -57,10 +57,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.VerifyEligibilityTaskStatus(status), "Eligibility not completed");
         }
 
-        [When(@"complete eligibility task without FBONumber")]
-        public void WhenCompleteEligibilityTaskWithoutFBO()
+        [When(@"complete eligibility task with '([^']*)' and without FBONumber")]
+        public void WhenCompleteEligibilityTaskWithoutFBO(string country)
         {
-            eligibilityPage.AssuranceCompleteWithNoFBO();
+            eligibilityPage.AssuranceCompleteWithNoFBO(country);
         }
 
         [Then(@"verify no signp page appears")]

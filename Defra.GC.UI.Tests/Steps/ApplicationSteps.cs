@@ -93,12 +93,5 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             applicationPage.ClickSaveAndReturnToDashboard();
         }
-
-        [When(@"click on back to dashboard link")]
-        [Then(@"click on back to dashboard link")]
-        public void ThenClickOnBackToDashboardLink()
-        {
-            applicationPage.ClickOnBackToDashboardLink();
-        }
     }
 }

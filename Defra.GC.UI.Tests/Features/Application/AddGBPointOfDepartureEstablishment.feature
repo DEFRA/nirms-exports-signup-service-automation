@@ -224,12 +224,12 @@ Scenario: Verify no establishment address listed after removing last address
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   remove establishment address '<EstablishmentName>'
-	#Then  verify establishment address count '0'
-	#And   verify search for establishment address page loaded
+	Then  verify next page '<nextPage>' is loaded 
+
 
 	Examples: 
-	| logininfo |  Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
-	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     |
+	| logininfo | Business selection                        | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     | Sign up  |
 
 
 Scenario: Verify remaining establishment address listed after removing one address
@@ -253,7 +253,7 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   add establishment email address 'test2@test.com'
 	And   remove establishment address '<EstablishmentName>'
-	#Then  verify establishment address count '1'
+	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Business selection                          | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.   | England | testFBO   | testName9         | testAddress1 | London  | England    | SE10 9NF     | testName10         | testAddress2 | Liverpool | England     | L1 0AN        |

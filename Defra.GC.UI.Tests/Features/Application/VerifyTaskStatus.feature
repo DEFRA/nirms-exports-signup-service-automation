@@ -82,17 +82,18 @@ Scenario Outline: Verify status of Business Details task
     And   user enters manually '<emailAddress>' in email address page
 	And   click Save and return to dashboard
 	Then  user verify the Authorised Signatory status 'COMPLETED'
+	And   verify Check answers and submit sign up status 'CANNOT START YET'
 	When  click on points of departure link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
 	And   click Save and return to dashboard
 	Then  user verify the Points of departure status 'COMPLETED'
-	And   verify Check answers and submit sign up status 'CANNOT START YET'
+	And   verify Check answers and submit sign up status 'NOT STARTED'
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |fullName       | Authposition |
+	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |test Auth name | administrator|
 
 
 Scenario: Verify status of Authorised Signatory task with Yes Authorisation

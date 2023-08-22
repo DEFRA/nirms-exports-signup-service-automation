@@ -24,7 +24,8 @@ Scenario: Check Add the Destination establishment address manually link
 	| test1A    | Kaka                | Northern Ireland | testFBO   | BT52 2AJ | of destination |
 
 Scenario: Add point of Destination establishment address manually
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -43,8 +44,9 @@ Scenario: Add point of Destination establishment address manually
 	| test1A    | Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |
 
 
-Scenario: Verify back t0 dashboard link on enter Destination establishment postcode page
-	Given that I navigate to the NI GC application
+Scenario: Verify back to dashboard link on enter Destination establishment postcode page
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -56,10 +58,11 @@ Scenario: Verify back t0 dashboard link on enter Destination establishment postc
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | nextPage |
-	| test1A     | Kaka                | Northern Ireland | testFBO   | Sign up  |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | Sign up  |
 
 Scenario: Verify back to dashboard link on select Destination establishment address page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -69,14 +72,15 @@ Scenario: Verify back to dashboard link on select Destination establishment addr
 	#And   enter Establishment postcode '<postcode>'
 	#Then  verify next page '<nextPage>' is loaded 
 	When  click on back to dashboard link
-	#Then  verify next page '<nextPage>' is loaded 
+	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection     | Country          | FBONumber | postcode | nextPage       |
-	| test1A    | Kaka                   | Northern Ireland | testFBO   | BT52 2AJ | of destination |
+	| logininfo | Business selection     | Country          | FBONumber | postcode | nextPage |
+	| test1A    | Kaka                   | Northern Ireland | testFBO   | BT52 2AJ | Sign up  |
 
-Scenario: Verify back to dashboard link on add Destination  establishment address page
-	Given that I navigate to the NI GC application
+Scenario: Verify back to dashboard link on add Destination establishment address page
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -87,15 +91,16 @@ Scenario: Verify back to dashboard link on add Destination  establishment addres
 	#Then  verify next page '<nextPage>' is loaded 
 	#When  click on cannot find establishment link 
 	#And   click on the add establishment address manually link
-	And  click on back to dashboard link
+	And   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo |  Business selection | Country          | FBONumber | postcode | nextPage       |
 	| test1A    |  Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination |
 
-	Scenario: Verify back to dashboard link on the  Do you want to add another point of destination Page ?
-	Given that I navigate to the NI GC application
+	Scenario: Verify back to dashboard link on the Do you want to add another point of destination Page ?
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -115,7 +120,8 @@ Scenario: Verify back to dashboard link on add Destination  establishment addres
 
 	
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -133,7 +139,8 @@ Scenario: Verify back to dashboard link on add Destination  establishment addres
 	| test1A    | Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination |
 
 Scenario: Modify point of destination establishment email address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -155,7 +162,8 @@ Scenario: Modify point of destination establishment email address
 	| test1A    | Kaka                | Northern Ireland | testFBO   | testName1         | testAddress1 | Millburn | Northen Ireland | BT52 2AJ     |
 	
 Scenario: Add Another point of Destination establishment address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -179,8 +187,9 @@ Scenario: Add Another point of Destination establishment address
 	| test1A    | Kaka                 | Northern Ireland | testFBO   | testName2         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street      | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
 	@SmokeTest
-Scenario: Finish adding  point of Destination  establishment address
-	Given that I navigate to the NI GC application
+Scenario: Finish adding point of Destination establishment address
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -194,14 +203,15 @@ Scenario: Finish adding  point of Destination  establishment address
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
 	And   click on save and continue
-	#Then  verify next page '<nextPage>' is loaded 
+	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
-	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage    |
-	| test1A     | Kaka                 | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up     |
+	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage           |
+	| test1A     | Kaka                | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Check Your Answers |
 
 	
-Scenario: Verify no point of destination  establishment address listed after removing last address
-	Given that I navigate to the NI GC application
+Scenario: Verify no point of destination establishment address listed after removing last address
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -214,16 +224,17 @@ Scenario: Verify no point of destination  establishment address listed after rem
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   remove establishment address '<EstablishmentName>'
-	#Then  verify establishment address count '0'
-	#And   verify search for establishment address page loaded
+	Then  verify next page '<nextPage>' is loaded 
+
 
 	Examples: 
-	| logininfo |  Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode |
-	| test1A    |  Kaka               | Northern Ireland | testFBO   | Coleraine3        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     |
+	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | Coleraine3        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up  |
 
 	
-Scenario: Verify remaining  point of destination  establishment address listed after removing one address
-    Given that I navigate to the NI GC application
+Scenario: Verify remaining point of destination establishment address listed after removing one address
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -243,13 +254,14 @@ Scenario: Verify remaining  point of destination  establishment address listed a
 	And   add establishment email address 'test2@test.com'
 	And   remove establishment address '<EstablishmentName>'
 	#And   click on back link
-	#Then  verify establishment address count '1'
+	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
 	| test1A    | Kaka                | Northern Ireland | testFBO   | testName3         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street3     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
-Scenario: Change manually added  destination establishment address
-	Given that I navigate to the NI GC application
+Scenario: Change manually added destination establishment address
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -273,7 +285,8 @@ Scenario: Change manually added  destination establishment address
 
 	
 Scenario: Change destination establishment address postcode
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -293,7 +306,8 @@ Scenario: Change destination establishment address postcode
 
 
 Scenario: Change destination establishment email address
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -315,7 +329,8 @@ Scenario: Change destination establishment email address
 	| test1A    |  Kaka                | Northern Ireland | testFBO   | Coleraine4        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |
 
 	Scenario:Verify different post code link is navigated to Add a point of deastination page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -331,7 +346,8 @@ Scenario: Change destination establishment email address
 	| test1A    | Kaka                | Northern Ireland | testFBO   | N3 3NA       | of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of destination page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -348,7 +364,8 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of des
 
 
 Scenario:Verify save and return to dashboard on Add a place of destination page
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

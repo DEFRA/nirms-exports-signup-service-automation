@@ -3,7 +3,7 @@ Feature: View Business Name in Dashboard & Static Page
 
 View Business Name in Dashboard & Static Page
 
-	 @RunOnly @SmokeTest
+	 @SmokeTest
 Scenario: Verify user can click on the Selected Business Name and navigate to static page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -19,7 +19,7 @@ Scenario: Verify user can click on the Selected Business Name and navigate to st
 	| logininfo | Business selection |  nextPage1         |Country | FBONumber |
 	| test7     | Tescoman           |  Selected business |England | testFBO   |
    
-   @RunOnly
+
 Scenario: Verify user can click on the start a new sign up request
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -37,7 +37,7 @@ Scenario: Verify user can click on the start a new sign up request
 	| logininfo | Business selection |  nextPage1         | nextPage2 |Country | FBONumber |
 	| test7     | Tescoman           |  Selected business | sign up   |England | testFBO   |
    
-   @RunOnly
+
 Scenario: Verify user can click on the back to dashboard
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -56,7 +56,7 @@ Scenario: Verify user can click on the back to dashboard
 	| logininfo | Business selection |  nextPage1         | nextPage2  |Country | FBONumber |
 	| test7     | Tescoman           |  Selected business | Sign up    |England | testFBO   |
    
-   @RunOnly
+
 Scenario: Verify user can click Check eligibility
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

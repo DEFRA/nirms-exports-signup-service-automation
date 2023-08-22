@@ -3,7 +3,7 @@ Feature: AddBusinessContactTelephoneNumber
 
 Add Contact telephone number
 
-	 @RunOnly @SmokeTest
+	 @SmokeTest
 Scenario: Add contact Telephone Number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -28,7 +28,6 @@ Scenario: Add contact Telephone Number
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | 01632 960 001   | Sign up  |
 
 
-	@RunOnly
 Scenario: Verify error message for invalid contact Telephone Number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -53,7 +52,6 @@ Scenario: Verify error message for invalid contact Telephone Number
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | abc123          | Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192 |
 
 
-	@RunOnly
 Scenario: Verify error message for blank contact telephone number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -78,7 +76,6 @@ Scenario: Verify error message for blank contact telephone number
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. 		  | England | testFBO   | testContactName | testPosition    | test@test.com |                 | Enter a telephone number |
 
 
-	@RunOnly
 Scenario: Verify back to dashboard link contact telephone number page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -101,7 +98,7 @@ Scenario: Verify back to dashboard link contact telephone number page
 	| logininfo |           Business selection                           | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage      |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. 			 | England | testFBO   | testContactName | testPosition    | test@test.com | Sign up       |
 
-	@RunOnly
+
 Scenario: Verify save and return to dashboard on contact telephone number page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

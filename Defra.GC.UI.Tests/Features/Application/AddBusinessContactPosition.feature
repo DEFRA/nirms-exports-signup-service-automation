@@ -3,7 +3,7 @@ Feature: AddBusinessContactPosition
 
 Add Business Contact contactPosition
 
-	 @RunOnly @SmokeTest
+	 @SmokeTest
 Scenario: Add business contact position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -24,7 +24,7 @@ Scenario: Add business contact position
 	| logininfo | Business selection                  | Country | FBONumber | contactName     | contactPosition | nextPage      |
 	| test4     | NORTH WEST TELUGU SANGAM            | England | testFBO   | testContactName | testPosition    | email address |
 
-	@RunOnly
+
 Scenario: Verify error message for invalid business contact position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -45,7 +45,7 @@ Scenario: Verify error message for invalid business contact position
 	| logininfo | Business selection       | Country | FBONumber | contactName     | contactPosition | errorMessage |
 	| test4     | NORTH WEST TELUGU SANGAM | England | testFBO   | testContactName | testPosition%   | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands       |
 
-	@RunOnly
+
 Scenario: Verify error message for blank business contact position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -66,7 +66,7 @@ Scenario: Verify error message for blank business contact position
 	| logininfo | Business selection         | Country | FBONumber | contactName     | contactPosition | errorMessage     |
 	| test4     | NORTH WEST TELUGU SANGAM   | England | testFBO   | testContactName |                 | Enter a position |
 
-	@RunOnly
+
 Scenario: Verify back to dashboard link on business contact position page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -86,7 +86,7 @@ Scenario: Verify back to dashboard link on business contact position page
 	| logininfo |  Business selection               | Country | FBONumber | contactName     | nextPage  |
 	| test4     |  NORTH WEST TELUGU SANGAM         | England | testFBO   | testContactName | Sign up |
 
-	@RunOnly
+
 Scenario: Verify save and return to dashboard on business contact position page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

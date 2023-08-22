@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatory
 
 Add Authorised Signatory
 
-   @RunOnly @SmokeTest
+   @SmokeTest
 Scenario: Add Authorised Signatory and navigated to tasklist page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -24,7 +24,6 @@ Scenario: Add Authorised Signatory and navigated to tasklist page
 	| logininfo | Business selection                        | Country | FBONumber | nextPage                | contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Add a place of dispatch | testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
-	   @RunOnly
 Scenario: No to the contact person of the Authorised Signatory and navigted to full name Authorised page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -45,7 +44,6 @@ Scenario: No to the contact person of the Authorised Signatory and navigted to f
 	| logininfo | Business selection						| Country | FBONumber | nextPage											   | contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Who is the authorised representative at your business? | testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
-	   @RunOnly
 Scenario: Verify error messages if user do not select Authorised Signatory 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -65,7 +63,6 @@ Scenario: Verify error messages if user do not select Authorised Signatory
 	| logininfo | Business selection						 | Country | FBONumber | errorMessage											        |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Select if the contact person is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-	   @RunOnly
 Scenario: Verify back to dashboard link navigated to tasklist page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -85,7 +82,6 @@ Scenario: Verify back to dashboard link navigated to tasklist page
 	| logininfo | Business selection						| Country | FBONumber | nextPage                                                |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-	   @RunOnly
 Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -106,7 +102,6 @@ Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	| logininfo |  Business selection						|Country | FBONumber |                        nextPage                                  |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.|England | testFBO   |   Sign up for the Northern Ireland Retail Movement Scheme        |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-	   @RunOnly
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory page after completing Contact person
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

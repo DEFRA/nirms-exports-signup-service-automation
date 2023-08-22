@@ -3,7 +3,7 @@ Feature: AddBusinessContactName
 
 Add Business Contact Name
 
-	@RunOnly @SmokeTest
+	@SmokeTest
 Scenario: Add business contact name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -23,7 +23,6 @@ Scenario: Add business contact name
 	| test2     | AMSAK PROPERTY LIMITED    | England | testFBO   | testName    | position |
 
 
-	@RunOnly
 Scenario: Verify error message for invalid business contact name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -42,7 +41,7 @@ Scenario: Verify error message for invalid business contact name
 	| logininfo | Business selection               | Country | FBONumber | contactName  | errorMessage                                            |
 	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   | invalidTest% | Enter a name using only letters, hyphens or apostrophes |
 
-	@RunOnly
+
 Scenario: Verify error message for blank business contact name
 	#Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
@@ -61,7 +60,7 @@ Scenario: Verify error message for blank business contact name
 	| logininfo | Business selection               | Country | FBONumber | contactName | errorMessage  |
 	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   |             | Enter a name  |
 
-	@RunOnly
+
 Scenario: Verify back to dashboard link on business contact name page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -79,7 +78,7 @@ Scenario: Verify back to dashboard link on business contact name page
 	| logininfo | Business selection                | Country | FBONumber | nextPage |
 	| test2     | AMSAK PROPERTY LIMITED            | England | testFBO   | Sign up  |
 
-	@RunOnly @SmokeTest
+	@SmokeTest
 Scenario: Verify save and return to dashboard on business contact name page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

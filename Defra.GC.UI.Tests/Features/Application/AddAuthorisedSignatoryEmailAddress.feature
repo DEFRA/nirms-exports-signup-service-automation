@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatoryEmailAddress
 
 Add Authorised Signatory Email Address
 
-   @RunOnly @SmokeTest
+   @SmokeTest
 Scenario: Add Authorised Signatory Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -39,7 +39,6 @@ Scenario: Add Authorised Signatory Email Address
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Sign up   | test name | test name   | test            | test@gmail.com  | 01632 960 001 | administrator|
 
 
-	   @RunOnly
 Scenario: Verify error message for invalid Authorised Signatory Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -73,7 +72,6 @@ Scenario: Verify error message for invalid Authorised Signatory Email Address
 	| logininfo | Business selection						 | fullName  | Country | FBONumber | errorMsg                                                            | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | test name | England | testFBO   | Enter an email address in the correct format, like name@example.com | test Name   | test            | test@gmail.com | 01632 960 001   | test%gmail.com   | COO          |
 
-	   @RunOnly
 Scenario Outline:  Verify error message for blank Authorised Signatory Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -108,7 +106,6 @@ Scenario Outline:  Verify error message for blank Authorised Signatory Email Add
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | test name | England | testFBO   | Enter an email address | test Name   | test            | test@gmail.com | 01632 960 001   |                  | COO          |
 
 
-	   @RunOnly
 Scenario Outline:Verify user clicks on back to dashboard link and navigates to tasklist page 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -142,7 +139,6 @@ Examples:
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Sign up      | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator |
 
 
-	   @RunOnly
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory Email address Page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

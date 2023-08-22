@@ -3,7 +3,7 @@ Feature: AddBusinessContactEmailAddress
 
 Add Contact Email address
 
-	@RunOnly @SmokeTest
+	@SmokeTest
 Scenario: Add contact email address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -26,7 +26,7 @@ Scenario: Add contact email address
 	| logininfo | Business selection                                 | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage         |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test@test.com | telephone number |
 
-	@RunOnly
+
 Scenario: Verify error message for invalid contact email address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -49,7 +49,7 @@ Scenario: Verify error message for invalid contact email address
 	| logininfo | Business selection                                 | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage                                 |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    | test£$@£     | Enter an email address in the correct format |
 
-	@RunOnly
+
 Scenario: Verify error message for blank contact email address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -72,7 +72,7 @@ Scenario: Verify error message for blank contact email address
 	| logininfo | Business selection                                 | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage           |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.          | England | testFBO   | testContactName | testPosition    |              | Enter an email address |
 
-	@RunOnly
+
 Scenario: Verify back to dashboard link on contact email address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -94,7 +94,7 @@ Scenario: Verify back to dashboard link on contact email address page
 	| logininfo | Business selection                                  | Country | FBONumber | contactName     | contactPosition | nextPage |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.           | England | testFBO   | testContactName | testPosition    | Sign up for the Northern Ireland Retail Movement Scheme |
 
-	@RunOnly
+
 Scenario: Verify save and return to dashboard on contact email address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

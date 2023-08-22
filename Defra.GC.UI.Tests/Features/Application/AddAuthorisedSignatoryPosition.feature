@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatoryPosition
 
 Add Authorised Signatory Position
 
-   @RunOnly @SmokeTest
+   @SmokeTest
 Scenario: Add Authorised Signatory position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -34,7 +34,7 @@ Scenario: Add Authorised Signatory position
 	| logininfo | Business selection						| Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage      | emailAddress   | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name | administrator | email address | test@gmail.com | 01632 960 001   |
 
-	   @RunOnly
+
 Scenario: Verify error message for invalid authorised signatory position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -65,7 +65,7 @@ Scenario: Verify error message for invalid authorised signatory position
 | logininfo | Business selection						| Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage																			   							              |
 | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name | test%        | test@gmail.com | 01632 960 001   | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands |
 
-   @RunOnly
+
 Scenario: Verify error message for blank authorised signatory position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -96,7 +96,7 @@ Scenario: Verify error message for blank authorised signatory position
 	| logininfo | Business selection                        | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage     |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name |              | test@gmail.com | 01632 960 001   | Enter a position |
 
-	   @RunOnly
+
 Scenario Outline:Verify user clicks on back to dashboard button and navigates to tasklist page 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -127,7 +127,7 @@ Examples:
 	| logininfo |Business selection						   | Country | FBONumber | previousPage  | contactName | contactPosition | emailAddress   | telephoneNumber |Authposition |fullName|
 	| test      |ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up		 | test Name   | test            | test@gmail.com | 01632 960 001   |admin        |testname|
 
-	   @RunOnly
+
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory position Page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

@@ -23,18 +23,7 @@ parameters:
     type: string
     default: 'Edge'
 
-schedules:
-- cron: "0 0 * * Mon,Tue,Wed,Thu,Fri"
-  displayName: Daily midnight build
-  branches:
-    include:
-    - dev
-    exclude:
-    - feature/*
-    - task/*
-    - master
-    
-
+ 
 resources:
   repositories:
     - repository: clientautomationreponew

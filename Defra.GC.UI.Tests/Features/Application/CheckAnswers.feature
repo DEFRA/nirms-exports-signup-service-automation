@@ -55,9 +55,10 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | contact person the authorised | of destination | Check your answers | Terms and conditions | Your business has already submitted |
 
 
-Scenario: Check answers and submit sign up link verification on GB points of establishment
+@RunOnly
+Scenario: Check answers and submit sign up link verification on GB points of establishment 
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -68,7 +69,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	Then  verify next page '<nextPage>' is loaded 
 	When  click on continue button

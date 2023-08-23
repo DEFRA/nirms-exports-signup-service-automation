@@ -26,7 +26,7 @@ Scenario Outline: Verify status of Business Details task
 	| logininfo | Business selection | Country | FBONumber | nextPage                                                | Business name    | AddressLine1 | Town     | AddrPostcode |
 	| test1B    | AM                 | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme | testBusinessname | testAddress1 | testCity | wd19 7pf     |
 
-	@RunOnly
+	
 	Scenario: Verify status of all tasks
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -157,7 +157,7 @@ Scenario: Verify status of Authorised Signatory task with No Authorisation
 	| logininfo | Business selection | Country | FBONumber | fullName  | Authposition |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test1B    | AM                 | England | testFBO   | test name | administrator|testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-@RunOnly
+
 Scenario: Verify the status of Check answers and submit sign task
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

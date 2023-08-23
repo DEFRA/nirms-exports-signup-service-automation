@@ -3,9 +3,10 @@ Feature: Receive Notice after RequestSubmission
 
 Receive Notice of Signup Request
 
+
 Scenario: Receive Notice of after completion of Signup Request 
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -20,7 +21,7 @@ Scenario: Receive Notice of after completion of Signup Request
     And   user verify the Authorised Signatory status 'NOT STARTED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button

@@ -26,7 +26,7 @@ Scenario Outline: Verify status of Business Details task
 	| logininfo | Business selection | Country | FBONumber | nextPage                                                | Business name    | AddressLine1 | Town     | AddrPostcode |
 	| test1B    | AM                 | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme | testBusinessname | testAddress1 | testCity | wd19 7pf     |
 
-
+	
 	Scenario: Verify status of all tasks
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -88,7 +88,7 @@ Scenario Outline: Verify status of Business Details task
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
 	And   click Save and return to dashboard
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   verify Check answers and submit sign up status 'NOT STARTED'
 
 	Examples: 
@@ -190,7 +190,7 @@ Scenario: Verify the status of Check answers and submit sign task
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
 	And   click Save and return to dashboard
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   verify Check answers and submit sign up status 'CANNOT START YET'
 
 	Examples: 

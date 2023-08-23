@@ -55,9 +55,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | contact person the authorised | of destination | Check your answers | Terms and conditions | Your business has already submitted |
 
 
-Scenario: Check answers and submit sign up link verification on GB points of establishment
+Scenario: Check answers and submit sign up link verification on GB points of establishment 
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -68,7 +68,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	Then  verify next page '<nextPage>' is loaded 
 	When  click on continue button
@@ -83,7 +83,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 
 Scenario: Check answers and submit sign up link verification on NI points of establishment
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -94,7 +94,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of destination status 'COMPLETED'
+	Then  user verify the Points of destination status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button
@@ -106,10 +106,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| logininfo | Business selection  | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1            |
 	| test1A    | Kaka                | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName4      | testAddress1 | Belfast | Northern Ireland | Check your answers | Terms and conditions |
 
-
 	Scenario: Edit Check answers for GB Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -120,25 +119,24 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	When  edit value of '<FieldName>' to '<FieldValue>' on Check answers page
 	Then  verify edited value of '<FieldName>' to '<FieldValue>' on Check answers page   
 	Examples: 
-	| logininfo | Business selection                                  | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | FieldName                                  | FieldValue          |
-	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    | FBO number                                 | ChangeFBO           |
-	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName8      | testAddress1 | London  | England    | Contact name                               | ChangedName         |
-	| test2     | AMSAK PROPERTY LIMITED           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName9      | testAddress1 | London  | England    | Contact position                           | ChangedPosition     |
-	| test3     | EASYJET UK LIMITED           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName10     | testAddress1 | London  | England    | Contact email address                      | change@test.com     |
-	| test3     | EASYJET UK LIMITED           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName11     | testAddress1 | London  | England    | Contact telephone number                   | 01632 960 999       |
-	| test3     | EASYJET UK LIMITED           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName12     | testAddress1 | London  | England    | Address                                    | ChangedAddress      |
-	| test7     | Tescoman                     | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName13     | testAddress1 | London  | England    | Email address                              | Changed@address.com |
-	| test7     | Tescoman                     | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName14     | testAddress1 | London  | England    | Contact person is the authorised representative | No                  |
-
+	| logininfo | Business selection          | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | FieldName                                  | FieldValue          |
+	| test2     | AMSAK PROPERTY LIMITED      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    | FBO number                                 | ChangeFBO           |
+	| test2     | AMSAK PROPERTY LIMITED      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName8      | testAddress1 | London  | England    | Contact name                               | ChangedName         |
+	| test2     | AMSAK PROPERTY LIMITED      | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName9      | testAddress1 | London  | England    | Contact position                           | ChangedPosition     |
+	| test3     | EASYJET UK LIMITED          | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName10     | testAddress1 | London  | England    | Contact email address                      | change@test.com     |
+	| test3     | EASYJET UK LIMITED          | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName11     | testAddress1 | London  | England    | Contact telephone number                   | 01632 960 999       |
+	| test3     | EASYJET UK LIMITED          | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName12     | testAddress1 | London  | England    | Address                                    | ChangedAddress      |
+	| test7     | Tescoman                    | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName13     | testAddress1 | London  | England    | Email address                              | Changed@address.com |
+	| test7     | Tescoman                    | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName14     | testAddress1 | London  | England    | Contact person is the authorised representative | No                  |
 
 	Scenario: Edit Authorised Signatory on Check answers for GB Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -149,7 +147,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete contact person Authorised Signatory with No option
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	When  edit value of '<FieldName>' to '<FieldValue>' on Check answers page
 	Then  verify edited value of '<FieldName>' to '<FieldValue>' on Check answers page   
@@ -163,7 +161,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Scenario: Edit Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -174,7 +172,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of destination status 'COMPLETED'
+	Then  user verify the Points of destination status '1 ADDED'
 	And   click on Check answers and submit sign up
 	When  edit value of '<FieldName>' to '<FieldValue>' on Check answers page
 	Then  verify edited value of '<FieldName>' to '<FieldValue>' on Check answers page
@@ -192,7 +190,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Scenario: Edit Authorised Signatory on Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -203,7 +201,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete contact person Authorised Signatory with No option
 	Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of destination status 'COMPLETED'
+	Then  user verify the Points of destination status '1 ADDED'
 	And   click on Check answers and submit sign up
 	When  edit value of '<FieldName>' to '<FieldValue>' on Check answers page
 	Then  verify edited value of '<FieldName>' to '<FieldValue>' on Check answers page
@@ -214,12 +212,10 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName30     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory name                  | Changed Authorised Signatory name     |
 	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName31     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory position              | Changed Authorised Signatory position |
 	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName32     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory email address         | Changed@AuthorisedSignatoryname.com   |
-
-	
 	
 	Scenario: Verify place of dispatch link on check your answers page
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -230,7 +226,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page '<nextPage>' is loaded 
 	When  click on Add another point of departure link
@@ -246,10 +242,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| logininfo | Business selection     | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | EstablishmentName1 | AddressLine2 | estCity | estCountry | nextPage           | nextPage1               |
 	| test7     | Tescoman               | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName33     | testAddress1 | SecondEstName      | EstAddress2  | London  | England    | Check your answers | Add a place of dispatch |
 
-
 	Scenario: Verify place of destination link on check your answers page
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -260,7 +255,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of destination status 'COMPLETED'
+	Then  user verify the Points of destination status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page '<nextPage>' is loaded 
 	When  click on Add another point of destination link
@@ -276,9 +271,10 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | EstablishmentName1 | AddressLine2 | estCity | estCountry       | nextPage           | nextPage1                  |
 	| test5     | SND NON UK User  	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName34     | testAddress1 | SecondEstName      | EastAddr1    | Belfast | Northern Ireland | Check your answers | Add a place of destination |
 
+
 Scenario: Remove GB establishment on check your answers page
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -289,7 +285,7 @@ Scenario: Remove GB establishment on check your answers page
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page '<nextPage>' is loaded 
 	When  click on Add another point of departure link
@@ -304,10 +300,9 @@ Scenario: Remove GB establishment on check your answers page
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | EstablishmentName1 | AddressLine1 | estCity | estCountry | nextPage           | nextPage1               |
 	| test7     | Tescoman      	 | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | RemoveEstName35   | testEstNameRemove  | testAddress1 | London  | England    | Check your answers | Add a place of dispatch |
 
-
-	Scenario: Remove NI establishment on check your answers page
+Scenario: Remove NI establishment on check your answers page
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -318,7 +313,7 @@ Scenario: Remove GB establishment on check your answers page
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of destination status 'COMPLETED'
+	Then  user verify the Points of destination status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page '<nextPage>' is loaded 
 	When  click on Add another point of destination link
@@ -333,10 +328,9 @@ Scenario: Remove GB establishment on check your answers page
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | EstablishmentName1 | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1                  |
 	| test5     | SND NON UK User	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | RemoveEstAddress  | testEstRemove      | testAddress1 | Belfast | Northern Ireland | Check your answers | Add a place of destination |
 
-
-	Scenario: Verify back to dashboard link on Check answers page
+Scenario: Verify back to dashboard link on Check answers page
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -347,7 +341,7 @@ Scenario: Remove GB establishment on check your answers page
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page '<nextPage>' is loaded 
 	When  click on back to dashboard link
@@ -356,11 +350,11 @@ Scenario: Remove GB establishment on check your answers page
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1 |
 	| test7     |  Tescoman            | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName37     | testAddress1 | London  | England    | Check your answers | Sign up   |
-
 	
-	Scenario: Navigated to 'Selected business' page through the Signup link on check your answer page
+
+Scenario: Navigated to 'Selected business' page through the Signup link on check your answer page
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -371,7 +365,7 @@ Scenario: Remove GB establishment on check your answers page
 	When  complete contact person Authorised Signatory with Yes Authorisation
     Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	Then  user verify the Points of departure status 'COMPLETED'
+	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page '<nextPage>' is loaded 
 	And   verify '<Business selection>' selected displayed on Check your answer page

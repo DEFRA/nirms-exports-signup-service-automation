@@ -4,7 +4,7 @@ Feature: Terms and Conditions
 Check Terms and conditions and clicking on the Submit signup button
 @RunOnly
 Scenario: Verify Terms and conditions page loaded 
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -28,7 +28,7 @@ Scenario: Verify Terms and conditions page loaded
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstNameT1     | testAddress1 | London  | England    | Check your answers | Terms and conditions |
 @RunOnly
 Scenario: Verify clicking on back link on Submit ReMoS Terms and Conditions Declaration page navigated to Check your answer page 
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -53,7 +53,7 @@ Scenario: Verify clicking on back link on Submit ReMoS Terms and Conditions Decl
 
 @RunOnly
 Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -78,7 +78,7 @@ Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 
 @RunOnly
 Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Conditions Declaration page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

@@ -57,7 +57,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 @RunOnly
 Scenario: Check answers and submit sign up link verification on GB points of establishment 
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -84,7 +84,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 
 @RunOnly
 Scenario: Check answers and submit sign up link verification on NI points of establishment
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -110,7 +110,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 @RunOnly
 	Scenario: Edit Check answers for GB Retail Movement Scheme sign up
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -139,7 +139,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 @RunOnly
 	Scenario: Edit Authorised Signatory on Check answers for GB Retail Movement Scheme sign up
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -164,7 +164,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 @RunOnly
 	Scenario: Edit Check answers for Northern Ireland Retail Movement Scheme sign up
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -194,7 +194,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 @RunOnly
 	Scenario: Edit Authorised Signatory on Check answers for Northern Ireland Retail Movement Scheme sign up
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -221,7 +221,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	
 @RunOnly	
 	Scenario: Verify place of dispatch link on check your answers page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -251,7 +251,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 @RunOnly
 	Scenario: Verify place of destination link on check your answers page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -281,7 +281,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 @RunOnly
 Scenario: Remove GB establishment on check your answers page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -310,7 +310,7 @@ Scenario: Remove GB establishment on check your answers page
 
 @RunOnly
 	Scenario: Remove NI establishment on check your answers page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -339,7 +339,7 @@ Scenario: Remove GB establishment on check your answers page
 
 @RunOnly
 	Scenario: Verify back to dashboard link on Check answers page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -363,7 +363,7 @@ Scenario: Remove GB establishment on check your answers page
 
 @RunOnly	
 	Scenario: Navigated to 'Selected business' page through the Signup link on check your answer page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

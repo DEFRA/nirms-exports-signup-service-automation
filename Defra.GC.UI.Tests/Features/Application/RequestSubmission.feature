@@ -4,7 +4,7 @@ Feature: Receive Notice after RequestSubmission
 Receive Notice of Signup Request
 @RunOnly
 Scenario: Receive Notice of after completion of Signup Request 
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

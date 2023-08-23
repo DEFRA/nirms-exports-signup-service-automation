@@ -55,10 +55,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | contact person the authorised | of destination | Check your answers | Terms and conditions | Your business has already submitted |
 
 
-@RunOnly
 Scenario: Check answers and submit sign up link verification on GB points of establishment 
 	Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -82,10 +81,9 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	| logininfo | Business selection                        | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | nextPage6                           |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName3      | testAddress1 | London  | England    | Check your answers | Terms and conditions | Your business has already submitted |
 
-@RunOnly
 Scenario: Check answers and submit sign up link verification on NI points of establishment
 	Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -108,10 +106,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| logininfo | Business selection  | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1            |
 	| test1A    | Kaka                | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName4      | testAddress1 | Belfast | Northern Ireland | Check your answers | Terms and conditions |
 
-@RunOnly
 	Scenario: Edit Check answers for GB Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -137,10 +134,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test7     | Tescoman                    | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName13     | testAddress1 | London  | England    | Email address                              | Changed@address.com |
 	| test7     | Tescoman                    | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName14     | testAddress1 | London  | England    | Contact person is the authorised representative | No                  |
 
-@RunOnly
 	Scenario: Edit Authorised Signatory on Check answers for GB Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -162,10 +158,10 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test3      | EASYJET UK LIMITED  | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName17     | testAddress1 | London  | England    | Authorised Signatory position              | ChangedAuthorisedPosition           |
 	| test3      | EASYJET UK LIMITED  | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName18     | testAddress1 | London  | England    | Authorised Signatory email address         | Changed@AuthorisedSignatoryname.com |
 
-@RunOnly
+
 	Scenario: Edit Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -192,10 +188,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName27     | testAddress1 | Belfast | Northern Ireland | Email address                                   | Changed@Address.com |
 	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName28     | testAddress1 | Belfast | Northern Ireland | Contact person is the authorised representative | No                  |
 
-@RunOnly
 	Scenario: Edit Authorised Signatory on Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
-	Given  that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -217,12 +212,10 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName30     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory name                  | Changed Authorised Signatory name     |
 	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName31     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory position              | Changed Authorised Signatory position |
 	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName32     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory email address         | Changed@AuthorisedSignatoryname.com   |
-
 	
-@RunOnly	
 	Scenario: Verify place of dispatch link on check your answers page
 	Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -249,10 +242,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| logininfo | Business selection     | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | EstablishmentName1 | AddressLine2 | estCity | estCountry | nextPage           | nextPage1               |
 	| test7     | Tescoman               | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName33     | testAddress1 | SecondEstName      | EstAddress2  | London  | England    | Check your answers | Add a place of dispatch |
 
-@RunOnly
 	Scenario: Verify place of destination link on check your answers page
 	Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	When   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -279,10 +271,10 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | EstablishmentName1 | AddressLine2 | estCity | estCountry       | nextPage           | nextPage1                  |
 	| test5     | SND NON UK User  	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName34     | testAddress1 | SecondEstName      | EastAddr1    | Belfast | Northern Ireland | Check your answers | Add a place of destination |
 
-@RunOnly
+
 Scenario: Remove GB establishment on check your answers page
 	Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -308,10 +300,9 @@ Scenario: Remove GB establishment on check your answers page
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | EstablishmentName1 | AddressLine1 | estCity | estCountry | nextPage           | nextPage1               |
 	| test7     | Tescoman      	 | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | RemoveEstName35   | testEstNameRemove  | testAddress1 | London  | England    | Check your answers | Add a place of dispatch |
 
-@RunOnly
-	Scenario: Remove NI establishment on check your answers page
+Scenario: Remove NI establishment on check your answers page
 	Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -337,10 +328,9 @@ Scenario: Remove GB establishment on check your answers page
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | EstablishmentName1 | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1                  |
 	| test5     | SND NON UK User	 | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | RemoveEstAddress  | testEstRemove      | testAddress1 | Belfast | Northern Ireland | Check your answers | Add a place of destination |
 
-@RunOnly
-	Scenario: Verify back to dashboard link on Check answers page
+Scenario: Verify back to dashboard link on Check answers page
 	Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -360,11 +350,11 @@ Scenario: Remove GB establishment on check your answers page
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1 |
 	| test7     |  Tescoman            | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName37     | testAddress1 | London  | England    | Check your answers | Sign up   |
+	
 
-@RunOnly	
-	Scenario: Navigated to 'Selected business' page through the Signup link on check your answer page
+Scenario: Navigated to 'Selected business' page through the Signup link on check your answer page
 	Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

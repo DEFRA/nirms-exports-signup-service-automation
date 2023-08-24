@@ -43,7 +43,7 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName4$%  | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter establishment name using only letters, numbers, brackets, full stops, commas, undescores, forward slashes, hyphens, apostrophes or ampersands      |
 	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.		  | England | testFBO   | SE10 9NF | testErrorName5    | testAddr%$   | testCity   | testCountry | SE10 9NF     | Enter address line 1 using only letters, numbers, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
 	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName6    | testAddress1 | testCity%$ | testCountry | SE10 9NF     | Enter a town or city using only letters, numbers, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
-	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName7    | testAddress1 | testCity   | testCountry | testCode$%   | Enter a postcode using only letters and numbers                           |
+	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName7    | testAddress1 | testCity   | testCountry | testCode$%   | Enter a real postcode                            |
 
 Scenario:Verify the error GB Point of Departure Establishment Contact Email Address
 	Given Clear Database for user '<logininfo>'

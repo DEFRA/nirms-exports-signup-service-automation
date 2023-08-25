@@ -19,7 +19,7 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage      |
 	| test1A    | Kaka               | Northern Ireland | testFBO   |          | Enter a postcode  |
 
-@RunOnly
+
 Scenario: Verify valid error messages for point of Destination mandatory fields
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

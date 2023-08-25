@@ -19,7 +19,7 @@ Scenario: Verify error message for blank Establishment postcode field
 	| logininfo | Business selection                         | Country | FBONumber | postcode | errorMessage      |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   |          | Enter a postcode  |
 
-@RunOnly
+
 Scenario: Verify error messages for GB point of Departure mandatory fields
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

@@ -23,8 +23,8 @@ Scenario: Verify Point of Departure link for GB countries
 
 @RunOnly
 Scenario: Check Add the establishment address manually link
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -43,8 +43,8 @@ Scenario: Check Add the establishment address manually link
 
 @RunOnly
 Scenario: Add GB point of Departure establishment address manually
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -66,8 +66,8 @@ Scenario: Add GB point of Departure establishment address manually
 
 @RunOnly
 Scenario: Verify back to dashboard link on enter establishment postcode page
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -83,8 +83,8 @@ Scenario: Verify back to dashboard link on enter establishment postcode page
 
 @RunOnly
 Scenario: Verify back to dashboard link on select establishment address page
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -102,8 +102,8 @@ Scenario: Verify back to dashboard link on select establishment address page
 
 @RunOnly
 Scenario: Verify back to dashboard link on add establishment address page
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -167,8 +167,8 @@ Scenario: Verify back to dashboard link on add establishment address page
 
 	@SmokeTest @RunOnly
 Scenario: Add Another GB point of Departure establishment address
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -194,8 +194,8 @@ Scenario: Add Another GB point of Departure establishment address
 
 @RunOnly
 Scenario: Finish adding GB point of Departure establishment address
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -267,8 +267,8 @@ Scenario: Verify remaining establishment address listed after removing one addre
 
 @RunOnly
 Scenario: Change manually added establishment address
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -336,8 +336,8 @@ Scenario: Change establishment email address
 
 @RunOnly
 Scenario:Verify back to dashboard link from address page navigated to Add a place of dispatch  page
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -355,7 +355,7 @@ Scenario:Verify back to dashboard link from address page navigated to Add a plac
 	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Add a place of dispatch |
 
-@RunOnly
+
 Scenario:Verify different post code link is navigated to Add a place of dispatch page /* Need to check */
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -400,6 +400,9 @@ Scenario:Verify save and return to dashboard on Add a place of dispatch page
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure

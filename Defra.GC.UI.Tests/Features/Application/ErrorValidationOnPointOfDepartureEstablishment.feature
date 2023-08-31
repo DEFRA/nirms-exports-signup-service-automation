@@ -85,7 +85,7 @@ Scenario: Verify duplicate point of dispatch establishment not allowed
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on add another establishment address
-	And   enter Establishment postcode '<AddrPostcode2>'
+	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'

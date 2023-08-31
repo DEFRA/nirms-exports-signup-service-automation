@@ -3,7 +3,7 @@ Feature: CheckAnswers
 
 Check Answers and Submit the application
 
-	@CrossBrowser @SmokeTest
+	@CrossBrowser @SmokeTest @RunOnly
 Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -29,7 +29,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName      | testAddress | London | SE10 9NZ     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | contact person the authorised | of dispatch | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
 
-	@CrossBrowser @SmokeTest
+	@CrossBrowser @SmokeTest @RunOnly
 Scenario: Check answers and submit sign up link verification on NI points of establishment with save and continue
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

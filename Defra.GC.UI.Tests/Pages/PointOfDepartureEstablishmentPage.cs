@@ -23,7 +23,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
         private IWebElement SelectAddresButton => _driver.WaitForElement(By.XPath("//button[contains(text(),'Select address')]"));
         private IWebElement CannotFindEstablishment => _driver.WaitForElement(By.XPath("//span[contains(text(),'Cannot find establishment')]"));
-        private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add the establishment address manually')]"));
+        private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'enter the full establishment address')]"));
         private IWebElement EstablishmentName => _driver.WaitForElement(By.Id("EstablishmentName"));
         private IWebElement EstablishmentAddr1 => _driver.WaitForElement(By.Id("LineOne"));
         private IWebElement EstablishmentAddr2 => _driver.WaitForElement(By.Id("LineTwo"));

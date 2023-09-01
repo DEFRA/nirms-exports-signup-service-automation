@@ -22,8 +22,8 @@ Scenario: Verify error message for blank Establishment postcode field
 
 
 Scenario: Verify error messages for GB point of Departure mandatory fields
-	#Given Clear Database for user '<logininfo>'
-	Given that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

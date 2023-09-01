@@ -112,9 +112,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             if (_driver.FindElements(CannotFindEstablishment).Count > 0)
             {
                 IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-                jsExecutor.ExecuteScript("arguments[0].click();", _driver.FindElements(CannotFindEstablishment));
+                jsExecutor.ExecuteScript("arguments[0].click();", _driver.FindElement(CannotFindEstablishment));
             }
-          
         }
 
         public void ClickOndifferentPostCodeLink()
@@ -167,10 +166,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             //if (_driver.FindElements(ErrorMessage).Count > 0)
             //{
             //    if (_driver.FindElement(ErrorMessage).Text.Contains("This address has already been added as a place of"))
-            //    { 
+            //    {
             //        EstablishmentAddr1.SendKeys("123");
             //        IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-            //        jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue); 
+            //        jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
             //    }
             //}
         }

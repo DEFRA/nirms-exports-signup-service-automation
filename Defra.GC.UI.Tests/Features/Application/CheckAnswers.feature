@@ -42,6 +42,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Then  verify next page '<nextPage2>' is loaded 
 	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
 	Then  verify next page '<nextPage3>' is loaded 
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#When  click on cannot find establishment link
+	#And   click on the add establishment address manually link
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>' with save and continue
 	Then  verify next page '<nextPage4>' is loaded 
 	When  click on continue button
@@ -83,7 +86,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 
 Scenario: Check answers and submit sign up link verification on NI points of establishment
 	Given Clear Database for user '<logininfo>'
-	When that I navigate to the NI GC application
+	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task

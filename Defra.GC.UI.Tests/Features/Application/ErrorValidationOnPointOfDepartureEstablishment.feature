@@ -1,9 +1,9 @@
-﻿@Regression 
+﻿@Regression @RunOnly
 Feature: ErrorValidationOnPointOfDepartureEstablishment
 
 Error Validation on GB point of Departure Establishment
 
-@RunOnly
+
 Scenario: Verify error message for blank Establishment postcode field
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -30,9 +30,9 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link	
-	#And   enter Establishment postcode '<postcode>'
-	#And   click on cannot find establishment link 
-	#And   click on the add establishment address manually link
+	And   enter Establishment postcode '<postcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  verify error message '<errorMessage>' on establishment page
 
@@ -48,7 +48,7 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName7    | testAddress1 | testCity   | testCountry | testCode$%   | Enter a real postcode                            |
 
 
-	@RunOnly
+	
 	Scenario:Verify the error GB Point of Departure Establishment Contact Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -69,7 +69,7 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	| logininfo | Business selection                          | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                                        |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Enter an email address in the correct format, like name@example.com |
 
-@RunOnly
+
 Scenario: Verify duplicate point of dispatch establishment not allowed 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

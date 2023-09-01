@@ -180,7 +180,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             EstablishmentEmailAddress.Clear();
             EstablishmentEmailAddress.SendKeys(emailAddress);
-            Continue.Click();
+            // Continue.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", Continue);
         }
 
         public void ClickOnAddAnotherEstablishmentAddress()

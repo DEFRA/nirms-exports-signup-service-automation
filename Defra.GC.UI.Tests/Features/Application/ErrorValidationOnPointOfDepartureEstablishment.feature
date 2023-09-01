@@ -68,8 +68,6 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	Examples: 
 	| logininfo | Business selection                          | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                                        |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Enter an email address in the correct format, like name@example.com |
-
-
 Scenario: Verify duplicate point of dispatch establishment not allowed 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

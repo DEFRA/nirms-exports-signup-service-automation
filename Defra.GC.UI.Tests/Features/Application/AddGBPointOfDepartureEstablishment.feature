@@ -100,7 +100,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| logininfo |  Business selection                       | Country | FBONumber | postcode | nextPage  |nextPage1               |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE10 9NF | Sign up   |Add a place of dispatch |
 
-
+	
 Scenario: Verify back to dashboard link on add establishment address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -136,14 +136,14 @@ Scenario: Verify back to dashboard link on add establishment address page
 	Then  verify next page '<nextPage>' is loaded 
 	#Then  click on select address button
 	#Then  click on continue button
-	And   click on back to dashboard link
+	When   click on back to dashboard link
 	#Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo |  Business selection                        | Country | FBONumber | postcode | nextPage                |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Sign up                 |
 
-	
+
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -155,14 +155,14 @@ Scenario: Verify back to dashboard link on add establishment address page
 	When  click on points of departure link	
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
-	#Then  click on select address button
+	Then  click on select address button
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   click on back to dashboard link
-	Then  verify next page '<nextPage>' is loaded 
+	When   click on back to dashboard link
+	Then  verify next page '<nextPage1>' is loaded 
 
 	Examples: 
-	| logininfo |  Business selection                        | Country | FBONumber | postcode | nextPage  |EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
-	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Sign up   |testName4         | testAddress1 | London  | England    | SE10 9NF     |
+	| logininfo | Business selection                        | Country | FBONumber | postcode | nextPage1 | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
 
 
 	@SmokeTest 
@@ -334,7 +334,7 @@ Scenario: Change establishment email address
 	| logininfo | Business selection                        | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName13        | testAddress1 | London  | England    | SE10 9NF     |
 
-
+	
 Scenario:Verify back to dashboard link from address page navigated to Add a place of dispatch  page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -353,7 +353,7 @@ Scenario:Verify back to dashboard link from address page navigated to Add a plac
 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Add a place of dispatch |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Sign up |
 
 
 Scenario:Verify different post code link is navigated to Add a place of dispatch page /* Need to check */

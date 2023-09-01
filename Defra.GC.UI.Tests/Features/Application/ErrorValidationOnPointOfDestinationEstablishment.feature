@@ -66,7 +66,7 @@ Scenario: Verify error message on add another point of Destination page
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                            |
 	| test1A    | Kaka		         | Northern Ireland | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | EC4R 9HA     | Select if you have added all your places of destination |
-
+	
 Scenario: Verify duplicate point of destination establishment not allowed
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -82,9 +82,9 @@ Scenario: Verify duplicate point of destination establishment not allowed
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on add another establishment address
-	#And   enter Establishment postcode '<AddrPostcode2>'
-	#And   click on cannot find establishment link 
-	#And   click on the add establishment address manually link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
     Then  verify duplicate establishment error message '<errorMessage>'
 	Examples: 

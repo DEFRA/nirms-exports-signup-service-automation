@@ -22,8 +22,8 @@ Scenario: Verify error message for blank Establishment postcode field
 
 
 Scenario: Verify error messages for GB point of Departure mandatory fields
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	#Given Clear Database for user '<logininfo>'
+	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -42,9 +42,9 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.		  | England | testFBO   | SE10 9NF | testErrorName1    |              | testCity   | testCountry | SE10 9NF     | Enter address line 1                             |
 	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName2    | testAddress1 |            | testCountry | SE10 9NF     | Enter a town or city                             |
 	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.		  | England | testFBO   | SE10 9NF | testErrorName3    | testAddress1 | testCity   | testCountry |              | Enter a postcode                                 |
-	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName4$%  | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter establishment name using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophe or ampersands   |
-	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.		  | England | testFBO   | SE10 9NF | testErrorName5    | testAddr%$   | testCity   | testCountry | SE10 9NF     | Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophe or ampersands |
-	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName6    | testAddress1 | testCity%$ | testCountry | SE10 9NF     | Enter a town or city using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophe or ampersands |
+	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName4$%  | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter establishment name using only letters, numbers, commas, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands |
+	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.		  | England | testFBO   | SE10 9NF | testErrorName5    | testAddr%$   | testCity   | testCountry | SE10 9NF     | Enter address line 1 using only letters, numbers, commas, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands     |
+	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName6    | testAddress1 | testCity%$ | testCountry | SE10 9NF     | Enter a town or city using only letters, numbers, commas, brackets, full stops, underscores, forward slashes, hyphens, apostrophes or ampersands     |
 	| test      |    ABC ACCOUNTANCY & MARKETING SERVICES LTD.        | England | testFBO   | SE10 9NF | testErrorName7    | testAddress1 | testCity   | testCountry | testCode$%   | Enter a real postcode                            |
 
 

@@ -338,13 +338,13 @@ Scenario: Change destination establishment email address
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
-	#And   enter Establishment postcode '<AddrPostcode>'
-	#And   click on a different postcode error link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on a different postcode error link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1A    | Kaka                | Northern Ireland | testFBO   | N3 3NA       | of destination |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | test         | of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of destination page
 	Given Clear Database for user '<logininfo>'

@@ -137,6 +137,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test7     | Tescoman                    | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName13     | testAddress1 | London  | England    | Email address                              | Changed@address.com |
 	| test7     | Tescoman                    | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName14     | testAddress1 | London  | England    | Contact person is the authorised representative | No                  |
 
+
 	Scenario: Edit Authorised Signatory on Check answers for GB Retail Movement Scheme sign upGiven Clear Database for user '<logininfo>'
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application

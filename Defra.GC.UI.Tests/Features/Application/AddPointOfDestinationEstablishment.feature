@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression
 Feature: Adddion Point Of Destination Establishment
 
 Add Point of Destination Establishment

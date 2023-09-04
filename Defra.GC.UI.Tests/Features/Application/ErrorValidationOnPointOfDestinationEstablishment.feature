@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression
 Feature: Error Validation Point Of Destination Establishment
 
 Error Validation Point Of Destination Establishment

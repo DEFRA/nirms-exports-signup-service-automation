@@ -12,15 +12,6 @@ Scenario Outline: Verify status of Business Details task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
-	#When  user is in Business name page
- #   And   user enters Business name  '<Business name>'
-	#And   click Save and return to dashboard
-	#Then  user verify the business name status 'IN PROGRESS'
-	#When  user is in Business name page
-	#And   click on save and continue
-	#And   user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	#And   click Save and return to dashboard
-	#Then  user verify the business name status 'COMPLETED'
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | nextPage                                                | Business name    | AddressLine1 | Town     | AddrPostcode |
@@ -84,6 +75,9 @@ Scenario Outline: Verify status of Business Details task
 	Then  user verify the Authorised Signatory status 'COMPLETED'
 	And   verify Check answers and submit sign up status 'CANNOT START YET'
 	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
@@ -169,14 +163,6 @@ Scenario: Verify the status of Check answers and submit sign task
 	And   user verify the selected business name '<Business selection>'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
-	#When  user is in Business name page
- #   And   user enters Business name  '<Business name>'
-	#And   click Save and return to dashboard
-	#When  user is in Business name page
-	#And   click on save and continue
-	#And   user enters manually all address fields  '<AddressLine1>', '<Town>',  '<AddrPostcode>'
-	#And   click Save and return to dashboard
-	#Then  user verify the business name status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   select 'Yes' to the contact person is the Authorised Signatory without save
 	And   click Save and return to dashboard
@@ -186,6 +172,9 @@ Scenario: Verify the status of Check answers and submit sign task
 	And   click Save and return to dashboard
 	Then  user verify the Authorised Signatory status 'IN PROGRESS'
 	When  click on points of departure link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure

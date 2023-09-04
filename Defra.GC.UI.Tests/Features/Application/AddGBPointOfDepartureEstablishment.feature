@@ -100,7 +100,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| logininfo |  Business selection                       | Country | FBONumber | postcode | nextPage  |nextPage1               |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE10 9NF | Sign up   |Add a place of dispatch |
 
-	@RunOnly
+
 Scenario: Verify back to dashboard link on add establishment address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -165,7 +165,7 @@ Scenario: Verify back to dashboard link on add establishment address page
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
 
 
-	@SmokeTest  @RunOnly
+	@SmokeTest
 Scenario: Add Another GB point of Departure establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -209,7 +209,7 @@ Scenario: Finish adding GB point of Departure establishment address
 	And   add establishment email address 'test1@test.com'
 	And   click on I have finished adding points of departure
 	And   click on save and continue
-	#Then  verify next page '<nextPage>' is loaded 
+	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |
@@ -383,12 +383,13 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of dis
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | AddrPostcode | nextPage    |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | TTTT       | of dispatch |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | TTTT         | of dispatch |
 
 
 Scenario:Verify save and return to dashboard on Add a place of dispatch page

@@ -192,7 +192,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName27     | testAddress1 | Belfast | Northern Ireland | Email address                                   | Changed@Address.com |
 	| test5     | SND NON UK User          | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName28     | testAddress1 | Belfast | Northern Ireland | Contact person is the authorised representative | No                  |
 
-	@RunOnly
+
 	Scenario: Edit Authorised Signatory on Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
 	When  that I navigate to the NI GC application

@@ -15,7 +15,7 @@ Scenario: Check Add the Destination establishment address manually link
 	When  click on points of destination link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
-	#When  click on cannot find establishment link 
+	When  click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	Then  verify next page '<nextPage>' is loaded 
 
@@ -34,7 +34,7 @@ Scenario: Add point of Destination establishment address manually
 	When  click on points of destination link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
-	#When  click on cannot find establishment link 
+	When  click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  verify next page '<nextPage>' is loaded 
@@ -89,7 +89,7 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 	When  click on points of destination link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
-	#When  click on cannot find establishment link 
+	When  click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	When  click on back to dashboard link
 	Then  verify next page '<nextPage1>' is loaded 
@@ -149,7 +149,7 @@ Scenario: Modify point of destination establishment email address
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
 	And   enter Establishment postcode '<AddrPostcode>'
-	#And   click on cannot find establishment link 
+	And   click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
@@ -178,7 +178,7 @@ Scenario: Add Another point of Destination establishment address
 	And   add establishment email address 'test1@test.com'
 	And   click on add another establishment address
 	And   enter Establishment postcode '<AddrPostcode2>'
-	#And   click on cannot find establishment link 
+	And   click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   add establishment email address 'test2@test.com'
@@ -198,7 +198,7 @@ Scenario: Finish adding point of Destination establishment address
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
 	And   enter Establishment postcode '<AddrPostcode>'
-	#And   click on cannot find establishment link 
+	And   click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
@@ -220,7 +220,7 @@ Scenario: Verify no point of destination establishment address listed after remo
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
 	And   enter Establishment postcode '<AddrPostcode>'
-	#And   click on cannot find establishment link 
+	And   click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
@@ -249,12 +249,11 @@ Scenario: Verify remaining point of destination establishment address listed aft
 	And   add establishment email address 'test1@test.com'
 	And   click on add another establishment address
 	And   enter Establishment postcode '<AddrPostcode2>'
-	#And   click on cannot find establishment link 
+	And   click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   add establishment email address 'test2@test.com'
 	And   remove establishment address '<EstablishmentName>'
-	#And   click on back link
 	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
@@ -355,8 +354,9 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of des
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
     When  click on points of destination link
-	#And   enter Establishment postcode '<AddrPostcode>'
-	#And   click on a enter an address manually error link
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 

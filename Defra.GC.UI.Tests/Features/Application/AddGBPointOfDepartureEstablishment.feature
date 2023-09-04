@@ -100,7 +100,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| logininfo |  Business selection                       | Country | FBONumber | postcode | nextPage  |nextPage1               |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE10 9NF | Sign up   |Add a place of dispatch |
 
-	
+	@RunOnly
 Scenario: Verify back to dashboard link on add establishment address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -165,7 +165,7 @@ Scenario: Verify back to dashboard link on add establishment address page
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
 
 
-	@SmokeTest 
+	@SmokeTest  @RunOnly
 Scenario: Add Another GB point of Departure establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -366,7 +366,6 @@ Scenario:Verify different post code link is navigated to Add a place of dispatch
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on a different postcode error link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 

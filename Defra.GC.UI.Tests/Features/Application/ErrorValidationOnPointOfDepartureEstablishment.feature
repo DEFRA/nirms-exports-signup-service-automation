@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression
 Feature: ErrorValidationOnPointOfDepartureEstablishment
 
 Error Validation on GB point of Departure Establishment

@@ -355,7 +355,6 @@ Scenario:Verify back to dashboard link from address page navigated to Add a plac
 	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Sign up |
 
-
 Scenario:Verify different post code link is navigated to Add a place of dispatch page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

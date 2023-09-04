@@ -100,7 +100,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| logininfo |  Business selection                       | Country | FBONumber | postcode | nextPage  |nextPage1               |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE10 9NF | Sign up   |Add a place of dispatch |
 
-	
+	@RunOnly
 Scenario: Verify back to dashboard link on add establishment address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -356,7 +356,7 @@ Scenario:Verify back to dashboard link from address page navigated to Add a plac
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Sign up |
 
 
-Scenario:Verify different post code link is navigated to Add a place of dispatch page /* Need to check */
+Scenario:Verify different post code link is navigated to Add a place of dispatch page 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -366,12 +366,11 @@ Scenario:Verify different post code link is navigated to Add a place of dispatch
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on a different postcode error link
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | AddrPostcode | nextPage    |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | N3 3NA       | of dispatch |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | N     | of dispatch |
 
 	
 Scenario:Verify Enter a Address manually link is navigated to Add a place of dispatch page

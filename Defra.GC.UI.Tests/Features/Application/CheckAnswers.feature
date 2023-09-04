@@ -1,9 +1,9 @@
-﻿@Regression
+﻿@Regression 
 Feature: CheckAnswers
 
 Check Answers and Submit the application
 
-	@CrossBrowser @SmokeTest
+	@CrossBrowser @SmokeTest 
 Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -29,7 +29,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName      | testAddress | London | SE10 9NZ     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | contact person the authorised | of dispatch | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
 
-	@CrossBrowser @SmokeTest
+	@CrossBrowser @SmokeTest 
 Scenario: Check answers and submit sign up link verification on NI points of establishment with save and continue
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -42,6 +42,9 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Then  verify next page '<nextPage2>' is loaded 
 	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
 	Then  verify next page '<nextPage3>' is loaded 
+	#And   enter Establishment postcode '<AddrPostcode>'
+	#When  click on cannot find establishment link
+	#And   click on the add establishment address manually link
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>' with save and continue
 	Then  verify next page '<nextPage4>' is loaded 
 	When  click on continue button
@@ -83,7 +86,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 
 Scenario: Check answers and submit sign up link verification on NI points of establishment
 	Given Clear Database for user '<logininfo>'
-	When that I navigate to the NI GC application
+	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -134,7 +137,8 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test7     | Tescoman                    | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName13     | testAddress1 | London  | England    | Email address                              | Changed@address.com |
 	| test7     | Tescoman                    | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName14     | testAddress1 | London  | England    | Contact person is the authorised representative | No                  |
 
-	Scenario: Edit Authorised Signatory on Check answers for GB Retail Movement Scheme sign up
+
+	Scenario: Edit Authorised Signatory on Check answers for GB Retail Movement Scheme sign upGiven Clear Database for user '<logininfo>'
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -158,7 +162,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test3      | EASYJET UK LIMITED  | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName17     | testAddress1 | London  | England    | Authorised Signatory position              | ChangedAuthorisedPosition           |
 	| test3      | EASYJET UK LIMITED  | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName18     | testAddress1 | London  | England    | Authorised Signatory email address         | Changed@AuthorisedSignatoryname.com |
 
-
+	
 	Scenario: Edit Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application

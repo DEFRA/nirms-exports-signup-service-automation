@@ -22,8 +22,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
         private IWebElement SelectAddresButton => _driver.WaitForElement(By.XPath("//button[contains(text(),'Select address')]"));
-        private IWebElement CannotFindEstablishment => _driver.WaitForElement(By.XPath("//span[contains(text(),'Cannot find establishment')]"));
-        private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add the establishment address manually')]"));
+        private By CannotFindEstablishment => By.XPath("//span[contains(text(),'Cannot find establishment')]");
+        private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'enter the full establishment address')]"));
         private IWebElement EstablishmentName => _driver.WaitForElement(By.Id("EstablishmentName"));
         private IWebElement EstablishmentAddr1 => _driver.WaitForElement(By.Id("LineOne"));
         private IWebElement EstablishmentAddr2 => _driver.WaitForElement(By.Id("LineTwo"));
@@ -43,7 +43,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ChangedEmailAdress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//dd"));
         private IWebElement InvalidEmailAdressPage => _driver.WaitForElement(By.XPath("//p[@id='Email_Error']"));
         private By AddAnotherPlaceOfDispatchMessage => By.XPath("//h3[contains(text(),'Have you added all your business’ places of')]");
-        private IWebElement DifferentPostcode => _driver.WaitForElement(By.XPath("//a[normalize-space()='a different postcode']"));
+        private IWebElement DifferentPostcode => _driver.WaitForElement(By.XPath("//a[normalize-space()='entered the postcode correctly']"));
         private IWebElement AddressMnualLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='enter an address manually.']"));
 
         #endregion Page Objects
@@ -63,9 +63,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             {
                 ClickOnPointsOfDepartureLink();
             }
-            //EnterEstablishmentPostcode(establishmentCode);
-            //ClickOnCannotFindEstablishmentLink();
-            //ClickOnAddTheEstablishmentAddressManuallyLink();
+            EnterEstablishmentPostcode(establishmentCode);
+            ClickOnCannotFindEstablishmentLink();
+            ClickOnAddTheEstablishmentAddressManuallyLink();
             AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             AddEstablishmentEmailAddress("test@test.com");
             ClickOnIHaveFinishedAddingPointsOfDeparture();
@@ -74,9 +74,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CompletePointsOfDepartureWithSave(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
-            //EnterEstablishmentPostcode(establishmentCode);
-            //ClickOnCannotFindEstablishmentLink();
-            //ClickOnAddTheEstablishmentAddressManuallyLink();
+            EnterEstablishmentPostcode(establishmentCode);
+            ClickOnCannotFindEstablishmentLink();
+            ClickOnAddTheEstablishmentAddressManuallyLink();
             AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             AddEstablishmentEmailAddress("test@test.com");
             ClickOnIHaveFinishedAddingPointsOfDeparture();
@@ -109,8 +109,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnCannotFindEstablishmentLink()
         {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", CannotFindEstablishment);
+            if (_driver.FindElements(CannotFindEstablishment).Count > 0)
+            {
+                IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+                jsExecutor.ExecuteScript("arguments[0].click();", _driver.FindElement(CannotFindEstablishment));
+            }
         }
 
         public void ClickOndifferentPostCodeLink()
@@ -163,10 +166,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             //if (_driver.FindElements(ErrorMessage).Count > 0)
             //{
             //    if (_driver.FindElement(ErrorMessage).Text.Contains("This address has already been added as a place of"))
-            //    { 
+            //    {
             //        EstablishmentAddr1.SendKeys("123");
             //        IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-            //        jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue); 
+            //        jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
             //    }
             //}
         }
@@ -180,7 +183,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             EstablishmentEmailAddress.Clear();
             EstablishmentEmailAddress.SendKeys(emailAddress);
-            Continue.Click();
+            // Continue.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", Continue);
         }
 
         public void ClickOnAddAnotherEstablishmentAddress()

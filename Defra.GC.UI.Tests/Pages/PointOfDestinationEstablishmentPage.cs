@@ -18,12 +18,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement PageHeading1 => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
         private IWebElement PointOfDestination => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Places of destination')]"));
         private IWebElement PointOfDestinationStatus => _driver.WaitForElement(By.Id("establistment-destination"));
-        private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='search-points-of-departure']"));
+        private IWebElement EstablishmentPostcode => _driver.WaitForElement(By.XPath("//input[@id='Postcode']"));
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
         private IWebElement SelectAddresButton => _driver.WaitForElement(By.XPath("//button[contains(text(),'Select address')]"));
         private IWebElement CannotFindEstablishment => _driver.WaitForElement(By.XPath("//span[contains(text(),'Cannot find establishment')]"));
-        private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add the establishment address manually')]"));
+        private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'enter the full establishment address')]"));
         private IWebElement EstablishmentName => _driver.WaitForElement(By.Id("EstablishmentName"));
         private IWebElement EstablishmentAddr1 => _driver.WaitForElement(By.Id("LineOne"));
         private IWebElement EstablishmentAddr2 => _driver.WaitForElement(By.Id("LineTwo"));
@@ -51,9 +51,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             {
                 ClickOnPointsOfDestinationLink();
             }
-            //EnterEstablishmentPostcode(establishmentCode);
-            //ClickOnCannotFindEstablishmentLink();
-            //ClickOnAddTheEstablishmentAddressManuallyLink();
+            EnterEstablishmentPostcode(establishmentCode);
+            ClickOnCannotFindEstablishmentLink();
+            ClickOnAddTheEstablishmentAddressManuallyLink();
             //AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
@@ -63,9 +63,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CompletePointsOfDestinationWithSave(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
-            //EnterEstablishmentPostcode(establishmentCode);
-            //ClickOnCannotFindEstablishmentLink();
-            //ClickOnAddTheEstablishmentAddressManuallyLink();
+            EnterEstablishmentPostcode(establishmentCode);
+            ClickOnCannotFindEstablishmentLink();
+            ClickOnAddTheEstablishmentAddressManuallyLink();
             pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
             pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
@@ -103,8 +103,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool ClickOnAddTheEstablishmentAddressManuallyLink()
         {
-            AddEstablishmentManually.Click();
-            return PageHeading.Text.Contains("Add a point of departure");
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", AddEstablishmentManually);
+            return PageHeading.Text.Contains("Add a place of destination");
         }
 
         public void AddGBPointOfDepartureEstablishmentAddress(string testName, string testAddress, string testCity, string testCountry, string testCode)

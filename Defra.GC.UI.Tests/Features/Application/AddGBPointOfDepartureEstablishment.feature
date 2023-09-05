@@ -121,7 +121,6 @@ Scenario: Verify back to dashboard link on add establishment address page
 	| logininfo | Business selection                       | Country | FBONumber | postcode | nextPage |nextPage1               |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE10 9NF | Sign up  |Add a place of dispatch |
 
-
 	@RunOnly
 	Scenario: Verify back to dashboard link on then Do you want to add another point of departure Page ?
 	Given Clear Database for user '<logininfo>'

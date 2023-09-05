@@ -99,7 +99,7 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 	| logininfo |  Business selection | Country          | FBONumber | postcode | nextPage       |nextPage1  |
 	| test1A    |  Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination |Sign up    |
 
-	@RunOnly
+
 	Scenario: Verify back to dashboard link on the Do you want to add another point of destination Page ?
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

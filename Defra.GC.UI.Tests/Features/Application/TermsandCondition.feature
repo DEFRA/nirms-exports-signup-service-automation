@@ -75,9 +75,9 @@ Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 	Examples: 
 	| logininfo | Business selection                         | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | errorMessage                                                                                |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstNameT3     | testAddress1 | London  | England    | Check your answers | Terms and conditions | Confirm that the authorised representative has read and understood the terms and conditions |
-
+@RunOnly
 Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Conditions Declaration page
-	Given Clear Database for user '<logininfo>'
+	#Given Clear Database for user '<logininfo>'
 	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

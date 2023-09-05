@@ -199,7 +199,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnIHaveFinishedAddingPointsOfDeparture()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,400)", "");
             Thread.Sleep(1000);
             _driver.ClickRadioButton("Yes");
         }

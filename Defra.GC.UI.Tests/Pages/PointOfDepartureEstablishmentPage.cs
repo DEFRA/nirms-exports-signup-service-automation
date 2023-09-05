@@ -2,6 +2,7 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -22,6 +23,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement FindEstablishment => _driver.WaitForElement(By.XPath("//button[contains(text(),'Find establishment')]"));
         private IWebElement SelectAddres => _driver.WaitForElement(By.Id("points-of-departure-address-select"));
         private IWebElement SelectAddresButton => _driver.WaitForElement(By.XPath("//button[contains(text(),'Select address')]"));
+        private IWebElement SelectDropdown => _driver.WaitForElement(By.XPath("//select[@id='places-of-dispatch-address-select']"));
         private By CannotFindEstablishment => By.XPath("//span[contains(text(),'Cannot find establishment')]");
         private IWebElement AddEstablishmentManually => _driver.WaitForElement(By.XPath("//a[contains(text(),'enter the full establishment address')]"));
         private IWebElement EstablishmentName => _driver.WaitForElement(By.Id("EstablishmentName"));
@@ -123,7 +125,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSelectAddressButton()
         {
+            SelectElement s = new SelectElement(SelectDropdown);
+            s.SelectByIndex(2);
             SelectAddresButton.Click();
+            EstablishmentAddr1.Clear();
+            EstablishmentAddr1.SendKeys("1");
         }
 
         public void ClickOnAdressManuallyLink()
@@ -199,7 +205,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnIHaveFinishedAddingPointsOfDeparture()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,400)", "");
             Thread.Sleep(1000);
             _driver.ClickRadioButton("Yes");
         }

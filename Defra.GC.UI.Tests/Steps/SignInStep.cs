@@ -20,12 +20,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private ISignInPage? Signin => _objectContainer.IsRegistered<ISignInPage>() ? _objectContainer.Resolve<ISignInPage>() : null;
         private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
+
         public SigninSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
             _objectContainer = container;
-
         }
+
         [Given(@"that I navigate to the NI GC application")]
         [When(@"that I navigate to the NI GC application")]
         public void GivenThatINavigateToTheGCApplication()

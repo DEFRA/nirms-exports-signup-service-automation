@@ -13,7 +13,6 @@ Scenario: Navigate to General Certificate Page
 	| logininfo |
 	| test      |
 
-
 Scenario: SignOut
 	Then sign in with valid credentials with logininfo '<logininfo>'
 	And  click on signout button and verify the signout message

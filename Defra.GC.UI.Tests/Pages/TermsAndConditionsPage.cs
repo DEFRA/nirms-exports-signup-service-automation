@@ -38,7 +38,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyTandCDate()
         {
-            string sDate = DateTime.Now.ToString("dd MMMM yyyy");
+            string sDate = DateTime.Now.ToString("d MMMM yyyy");
             return Cdate.Text.Contains(sDate);
         }
 

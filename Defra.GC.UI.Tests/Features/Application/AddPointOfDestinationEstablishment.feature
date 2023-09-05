@@ -73,7 +73,8 @@ Scenario: Verify back to dashboard link on select Destination establishment addr
 	Then  verify next page '<nextPage>' is loaded 
 	When  click on back to dashboard link
 	Then  verify next page '<nextPage1>' is loaded 
-
+	
+	 
 	Examples: 
 	| logininfo | Business selection     | Country          | FBONumber | postcode | nextPage        | nextPage1  |
 	| test1A    | Kaka                   | Northern Ireland | testFBO   | BT52 2AJ | of destination  | Sign up    |
@@ -98,7 +99,7 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 	| logininfo |  Business selection | Country          | FBONumber | postcode | nextPage       |nextPage1  |
 	| test1A    |  Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination |Sign up    |
 
-	
+	@RunOnly
 	Scenario: Verify back to dashboard link on the Do you want to add another point of destination Page ?
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -108,16 +109,17 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
-	#And   enter Establishment postcode '<postcode>'
-	#Then  verify next page '<nextPage>' is loaded 
-	#Then  click on select address button
-	#Then  click on continue button
-	And   click on back to dashboard link
-	#Then  verify next page '<nextPage>' is loaded 
-
+	And   enter Establishment postcode '<postcode>'
+	Then  click on select address button
+	Then  click on save and continue
+	Then  click on continue button
+	When  click on back to dashboard link
+	Then  verify next page '<nextPage1>' is loaded
+	Then  user verify the Points of destination status '1 ADDED'
+	
 	Examples: 
-	| logininfo |  Business selection  | Country          | FBONumber | postcode | nextPage       |
-	| test1A    |  Kaka                | Northern Ireland | testFBO   | BT52 2AJ | of destination |
+	| logininfo | Business selection                        | Country          | FBONumber | postcode | nextPage       | nextPage1 |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Northern Ireland | testFBO   | WD19 7PF | of destination | Sign up         |
 
 	
 	Scenario: Verify back to dashboard link on the Establishment email address optional page

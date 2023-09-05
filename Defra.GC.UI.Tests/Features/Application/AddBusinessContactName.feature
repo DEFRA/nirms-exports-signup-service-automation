@@ -43,7 +43,7 @@ Scenario: Verify error message for invalid business contact name
 
 
 Scenario: Verify error message for blank business contact name
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'

@@ -59,7 +59,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 
 Scenario: Check answers and submit sign up link verification on GB points of establishment 
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

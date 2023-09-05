@@ -214,7 +214,7 @@ Scenario: Finish adding GB point of Departure establishment address
 	| logininfo | Business selection                       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |
 
-	@SmokeTest @Runonly
+	@SmokeTest 
 Scenario: Verify no establishment address listed after removing last address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

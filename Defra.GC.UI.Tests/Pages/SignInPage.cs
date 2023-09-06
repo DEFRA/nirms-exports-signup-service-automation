@@ -25,7 +25,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SignOut => _driver.WaitForElement(By.XPath("//a[text()='Sign out']"));
         private IWebElement SignInConfirm => _driver.WaitForElement(By.Id("Link-SignOut"));
         private By SignInConfirmBy => By.Id("Link-SignOut");
-        private IWebElement SignOutConfirmMessage => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l"));
+        private IWebElement SignOutConfirmMessage => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
+
         private IWebElement EnvPassword => _driver.WaitForElement(By.Id("password"));
 
         #endregion Page Objects

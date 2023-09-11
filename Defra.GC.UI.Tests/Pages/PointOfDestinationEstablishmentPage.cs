@@ -32,8 +32,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Postcode => _driver.WaitForElement(By.Id("PostCode"));
         private IWebElement SaveAndContinue => _driver.WaitForElementClickable(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
+        private By ZeroResult => By.XPath("//p[@class='govuk-!-margin-top-8']");
         private IWebElement DuplicateEstErrorMessage => _driver.WaitForElement(By.Id("EstablishmentName_Error"));
- 
+
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -75,6 +76,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyThePointsOfDestinationStatus(string status)
         {
             return PointOfDestinationStatus.Text.Contains(status);
+        }
+
+        public bool VerifyErrorMessageOnAddAPointOfDestinationForNoResults(string errorMessage)
+        {
+            return _driver.FindElement(ZeroResult).Text.Contains(errorMessage);
         }
 
         public bool ClickOnPointsOfDestinationLink()
@@ -126,7 +132,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         }
 
         public bool VerifyDuplicateEstablishmentErrorMessage(string errorMessage)
-        { 
+        {
             return DuplicateEstErrorMessage.Text.Contains(errorMessage);
         }
 

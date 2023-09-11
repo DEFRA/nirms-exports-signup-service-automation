@@ -20,7 +20,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
         }
 
-
         [When(@"complete Points of destination with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
         public void ThenCompletePointsOfDestination(string establishmentName, string establishmentAddress, string establishmentCity, string establishmentCountry, string establishmentCode)
         {
@@ -39,6 +38,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(pointOfDestinationEstablishmentPage.VerifyThePointsOfDestinationStatus(status), "Point Of Destination Status not matching");
         }
 
+        [Then(@"verify error message '([^']*)' on Add a place of destination page")]
+        public void ThenVerifyErrorMessageOnAddAPlaceOfDestinationPage(string errorMessage)
+        {
+            Assert.True(pointOfDestinationEstablishmentPage.VerifyErrorMessageOnAddAPointOfDestinationForNoResults(errorMessage), "Invalid error on Establishment address page");
+        }
 
         [When(@"click on points of destination link")]
         public void WhenClickOnPointsOfDestinationLink()
@@ -57,6 +61,5 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(pointOfDestinationEstablishmentPage.VerifyDuplicateEstablishmentErrorMessage(errorMessage), "Duplicate error message not matching");
         }
-
     }
 }

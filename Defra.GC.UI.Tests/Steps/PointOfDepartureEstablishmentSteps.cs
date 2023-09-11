@@ -104,6 +104,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(pointOfDepartureEstablishmentPage.VerifyErrorMessageOnAddAPointOfDeparture(errorMessage), "Invalid error on Establishment address page");
         }
 
+        [Then(@"verify error message '([^']*)' on Add a place of departure page")]
+        public void ThenVerifyErrorMessageOnAddAPlaceOfDeparturePage(string errorMessage)
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyErrorMessageOnAddAPointOfDepartureForNoResults(errorMessage), "Invalid error on Establishment address page");
+        }
+
         [When(@"add establishment email address '([^']*)'")]
         [Then(@"add establishment email address '([^']*)'")]
         public void WhenAddEstablishmentEmailAddress(string emailAddress)

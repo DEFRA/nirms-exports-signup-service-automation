@@ -37,6 +37,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Continue')]"));
         private By NumberOfEstablishments => By.XPath("//div[@class='govuk-summary-card']");
         private By ErrorMessage => By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a");
+        private By ZeroResult => By.XPath("//p[@class='govuk-!-margin-top-8']");
         private IWebElement ChangedEstablishmentName => _driver.WaitForElement(By.XPath("//h2[contains(@class,'govuk-summary-card__title')]"));
         private IWebElement ChangedEstablishmentAddr => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Address')]/..//dd[@class='govuk-summary-list__value']"));
         private IWebElement ChangeEstablishmentEmail => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//a"));
@@ -102,6 +103,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + postcode + "')", EstablishmentPostcode);
             FindEstablishment.Click();
+            Thread.Sleep(10000);
         }
 
         public bool VerifyAddAPointOfDeparturePage()
@@ -183,6 +185,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyErrorMessageOnAddAPointOfDeparture(string errorMessage)
         {
             return _driver.FindElement(ErrorMessage).Text.Contains(errorMessage);
+        }
+
+        public bool VerifyErrorMessageOnAddAPointOfDepartureForNoResults(string errorMessage)
+        {
+            return _driver.FindElement(ZeroResult).Text.Contains(errorMessage);
         }
 
         public void AddEstablishmentEmailAddress(string emailAddress)

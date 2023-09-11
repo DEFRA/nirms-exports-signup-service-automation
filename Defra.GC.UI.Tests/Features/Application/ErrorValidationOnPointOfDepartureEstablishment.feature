@@ -21,6 +21,27 @@ Scenario: Verify error message for blank Establishment postcode field & non GB p
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   |          | Enter a postcode  |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | BT93 8AD | Enter a postcode in England, Scotland or Wales  |
 
+
+	
+Scenario: Verify zero address  error message for GB postcode
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of departure link
+	And   enter Establishment postcode '<postcode>'
+	Then  verify error message '<errorMessage>' on Add a place of departure page
+	When  click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded
+
+	Examples: 
+	| logininfo | Business selection                        | Country | FBONumber | postcode | errorMessage | nextPage |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | TE1 3DS  | 0 results    |  Sign up        |
+
+
 Scenario: Verify error messages for GB point of Departure mandatory fields
 	Given Clear Database for user '<logininfo>'
 	And that I navigate to the NI GC application

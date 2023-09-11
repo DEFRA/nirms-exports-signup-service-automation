@@ -3,7 +3,7 @@ Feature: Error Validation Point Of Destination Establishment
 
 Error Validation Point Of Destination Establishment
 
-Scenario: Verify validation error message for blank Destination Establishment postcode field
+Scenario: Verify validation error message for blank Destination Establishment postcode field and non NI postcode
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -16,9 +16,9 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	Then  verify error message '<errorMessage>' on establishment page
 
 	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage      |
-	| test1A    | Kaka               | Northern Ireland | testFBO   |          | Enter a postcode. |
-
+	| logininfo | Business selection | Country          | FBONumber | postcode  | errorMessage      |
+	| test1A    | Kaka               | Northern Ireland | testFBO   |           | Enter a postcode. |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | wd19 7pf  | Enter a postcode in Northern Ireland |
 
 Scenario: Verify valid error messages for point of Destination mandatory fields
 	Given Clear Database for user '<logininfo>'

@@ -77,9 +77,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify validation error message for blank Destination Establishment postcode fiel" +
-            "d")]
+            "d and non NI postcode")]
         [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "", "Enter a postcode.", null)]
-        public void VerifyValidationErrorMessageForBlankDestinationEstablishmentPostcodeField(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string errorMessage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "wd19 7pf", "Enter a postcode in Northern Ireland", null)]
+        public void VerifyValidationErrorMessageForBlankDestinationEstablishmentPostcodeFieldAndNonNIPostcode(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -90,7 +91,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             argumentsOfScenario.Add("postcode", postcode);
             argumentsOfScenario.Add("errorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify validation error message for blank Destination Establishment postcode fiel" +
-                    "d", null, tagsOfScenario, argumentsOfScenario, featureTags);
+                    "d and non NI postcode", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -101,9 +102,6 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
- testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 8
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

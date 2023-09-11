@@ -22,6 +22,8 @@
 
         public bool VerifyThePointsOfDestinationStatus(string status);
 
+        public bool VerifyErrorMessageOnAddAPointOfDestinationForNoResults(string status);
+
         public bool VerifyDuplicateEstablishmentErrorMessage(string errorMessage);
     }
 }

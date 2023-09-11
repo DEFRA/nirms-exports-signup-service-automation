@@ -3,7 +3,7 @@ Feature: Error Validation Point Of Destination Establishment
 
 Error Validation Point Of Destination Establishment
 
-Scenario: Verify validation error message for blank Destination Establishment postcode field
+Scenario: Verify validation error message for blank Destination Establishment postcode field and non NI postcode
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -16,9 +16,27 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	Then  verify error message '<errorMessage>' on establishment page
 
 	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage      |
-	| test1A    | Kaka               | Northern Ireland | testFBO   |          | Enter a postcode. |
+	| logininfo | Business selection | Country          | FBONumber | postcode  | errorMessage      |
+	| test1A    | Kaka               | Northern Ireland | testFBO   |           | Enter a postcode. |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | wd19 7pf  | Enter a postcode in Northern Ireland |
 
+	Scenario: Verify zero  address results  error message for postcode NI
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<FBONumber>'
+	Then  verify eligibility task status as 'COMPLETED'
+	When  click on points of destination link
+	And   enter Establishment postcode '<postcode>'
+	Then  verify error message '<errorMessage>' on Add a place of destination page
+	When  click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded
+
+	Examples: 
+	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage | nextPage |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | BT11 A11 | 0 results    |   Sign up       |
 
 Scenario: Verify valid error messages for point of Destination mandatory fields
 	Given Clear Database for user '<logininfo>'

@@ -33,7 +33,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             string url = UrlBuilder.Default().Build();
             _driver.Navigate().GoToUrl(url);
-            //Signin.EnterPAssword();
+            Signin.EnterPAssword();
             Assert.True(Signin.IsPageLoaded(), "We are not in the home Page");
         }
 

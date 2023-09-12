@@ -422,7 +422,6 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify user checks current day month and year on Submit ReMoS Terms&Conditions De" +
             "claration page")]
-        [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstNameT4", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", null)]
         public void VerifyUserChecksCurrentDayMonthAndYearOnSubmitReMoSTermsConditionsDeclarationPage(
                     string logininfo, 
@@ -445,13 +444,7 @@ this.ScenarioInitialize(scenarioInfo);
                     string nextPage1, 
                     string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "RunOnly"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
@@ -483,6 +476,9 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 80
+ testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 81
  testRunner.When("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden

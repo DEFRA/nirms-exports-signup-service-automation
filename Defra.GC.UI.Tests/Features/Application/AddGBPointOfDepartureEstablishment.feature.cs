@@ -474,17 +474,10 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link on then Do you want to add another point of departu" +
             "re Page ?")]
-        [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "WD19 7PF", "Add a place of dispatch", "Sign up", null)]
         public void VerifyBackToDashboardLinkOnThenDoYouWantToAddAnotherPointOfDeparturePage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string nextPage1, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "RunOnly"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
@@ -505,6 +498,9 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 126
+ testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 127
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -813,13 +809,11 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify no establishment address listed after removing last address")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.CategoryAttribute("Runonly")]
         [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName8", "testAddress1", "London", "England", "EC4R 9HA", "Add a place of dispatch", null)]
         public void VerifyNoEstablishmentAddressListedAfterRemovingLastAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "SmokeTest",
-                    "Runonly"};
+                    "SmokeTest"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));

@@ -66,8 +66,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterPAssword()
         {
-            EnvPassword.SendKeys(ConfigSetup.BaseConfiguration.TestConfiguration.EnvPassword);
-            applicationPage.ClickOnContinue();
+            if (PageHeading.Text.Contains("This is for testing use only"))
+            {
+                EnvPassword.SendKeys(ConfigSetup.BaseConfiguration.TestConfiguration.EnvPassword);
+                applicationPage.ClickOnContinue();
+            }
         }
     }
 }

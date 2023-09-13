@@ -119,7 +119,7 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 	
 	Examples: 
 	| logininfo | Business selection                        | Country          | FBONumber | postcode | nextPage       | nextPage1 |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Northern Ireland | testFBO   | WD19 7PF | of destination | Sign up         |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Northern Ireland | testFBO   | BT7 2JB | of destination | Sign up         |
 
 	
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
@@ -364,7 +364,7 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of des
 
 	Examples: 
 	| logininfo |  Business selection | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1A    |  Kaka               | Northern Ireland | testFBO   | N3 3NA       | of destination |
+	| test1A    |  Kaka               | Northern Ireland | testFBO   | BT52 2AJ       | of destination |
 
 
 Scenario:Verify save and return to dashboard on Add a place of destination page

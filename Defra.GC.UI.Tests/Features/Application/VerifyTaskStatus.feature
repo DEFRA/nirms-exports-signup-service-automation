@@ -14,8 +14,8 @@ Scenario Outline: Verify status of Business Details task
 	And   user verify the selected business name '<Business selection>'
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | nextPage                                                | Business name    | AddressLine1 | Town     | AddrPostcode |
-	| test1B    | AM                 | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme | testBusinessname | testAddress1 | testCity | wd19 7pf     |
+	| logininfo | Business selection | Country | FBONumber | 
+	| test1B    | AM                 | England | testFBO   |
 
 	
 	Scenario: Verify status of all tasks
@@ -87,7 +87,7 @@ Scenario Outline: Verify status of Business Details task
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |fullName       | Authposition |
-	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |test Auth name | administrator|
+	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE10 9NF     |testContactName | testPosition    | test@test.com | 01632 960 001   |test Auth name | administrator|
 
 
 Scenario: Verify status of Authorised Signatory task with Yes Authorisation
@@ -184,4 +184,4 @@ Scenario: Verify the status of Check answers and submit sign task
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE9 0AW      |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test1B    | AM                 | England | testFBO   | EstName1          | testAddress1 | London  | England    | SE10 9NF     |testContactName | testPosition    | test@test.com | 01632 960 001   |

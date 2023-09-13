@@ -119,7 +119,7 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 	
 	Examples: 
 	| logininfo | Business selection                        | Country          | FBONumber | postcode | nextPage       | nextPage1 |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Northern Ireland | testFBO   | WD19 7PF | of destination | Sign up         |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Northern Ireland | testFBO   | BT7 2JB | of destination | Sign up         |
 
 	
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
@@ -139,7 +139,7 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       |nextPage1|
-	| test1A    | Kaka               | Northern Ireland | testFBO   | CV31 2EE | of destination |Sign up  |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | BT93 8AD | of destination |Sign up  |
 
 Scenario: Modify point of destination establishment email address
 	Given Clear Database for user '<logininfo>'
@@ -330,6 +330,7 @@ Scenario: Change destination establishment email address
 	| logininfo |  Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1    | estCity | estCountry       | AddrPostcode |
 	| test1A    |  Kaka                | Northern Ireland | testFBO   | Coleraine4        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |
 
+
 	Scenario:Verify different post code link is navigated to Add a point of deastination page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -345,7 +346,7 @@ Scenario: Change destination establishment email address
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1A    | Kaka                | Northern Ireland | testFBO   | test         | of destination |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | BT           | of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of destination page
 	Given Clear Database for user '<logininfo>'
@@ -363,7 +364,7 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of des
 
 	Examples: 
 	| logininfo |  Business selection | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1A    |  Kaka               | Northern Ireland | testFBO   | N3 3NA       | of destination |
+	| test1A    |  Kaka               | Northern Ireland | testFBO   | BT52 2AJ       | of destination |
 
 
 Scenario:Verify save and return to dashboard on Add a place of destination page

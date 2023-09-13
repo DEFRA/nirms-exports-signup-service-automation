@@ -128,7 +128,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnSelectAddressButton()
         {
             SelectElement s = new SelectElement(SelectDropdown);
-            s.SelectByIndex(2);
+            s.SelectByIndex(0);
             SelectAddresButton.Click();
             EstablishmentAddr1.Clear();
             EstablishmentAddr1.SendKeys("1");

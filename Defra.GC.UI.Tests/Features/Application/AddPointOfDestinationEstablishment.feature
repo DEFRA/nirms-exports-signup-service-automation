@@ -123,7 +123,7 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 
 	
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -346,7 +346,7 @@ Scenario: Change destination establishment email address
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1A    | Kaka                | Northern Ireland | testFBO   | test         | of destination |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | BT           | of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of destination page
 	Given Clear Database for user '<logininfo>'

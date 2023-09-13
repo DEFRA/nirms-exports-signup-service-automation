@@ -141,7 +141,7 @@ Scenario: Verify back to dashboard link on add establishment address page
 
 	Examples: 
 	| logininfo | Business selection                        | Country | FBONumber | postcode | nextPage                | nextPage1 |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | WD19 7PF | Add a place of dispatch |  Sign up    |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | SE10 9NF | Add a place of dispatch |  Sign up    |
 
 
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
@@ -370,7 +370,7 @@ Scenario:Verify different post code link is navigated to Add a place of dispatch
 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | AddrPostcode | nextPage    |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | Test         | of dispatch |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | SE           | of dispatch |
 
 	
 Scenario:Verify Enter a Address manually link is navigated to Add a place of dispatch page

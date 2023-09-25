@@ -511,6 +511,9 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 126
+ testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 127
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -1237,7 +1240,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify different post code link is navigated to Add a point of deastination page")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT", "of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT43 4TT", "of destination", null)]
         public void VerifyDifferentPostCodeLinkIsNavigatedToAddAPointOfDeastinationPage(string logininfo, string businessSelection, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

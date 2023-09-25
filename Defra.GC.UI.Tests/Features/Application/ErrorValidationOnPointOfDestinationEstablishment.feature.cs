@@ -138,7 +138,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify zero  address results  error message for postcode NI")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT11 A11", "0 results", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT43 4TT", "0 results", "Sign up", null)]
         public void VerifyZeroAddressResultsErrorMessageForPostcodeNI(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string errorMessage, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

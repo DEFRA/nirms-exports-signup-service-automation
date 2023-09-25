@@ -343,10 +343,10 @@ Scenario: Change destination establishment email address
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on a different postcode error link
 	Then  verify next page '<nextPage>' is loaded 
-
+	 
 	Examples: 
-	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1A    | Kaka                | Northern Ireland | testFBO   | BT           | of destination |
+	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode      | nextPage       |
+	| test1A    | Kaka                | Northern Ireland | testFBO   | BT43 4TT          | of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of destination page
 	Given Clear Database for user '<logininfo>'

@@ -474,7 +474,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link on then Do you want to add another point of departu" +
             "re Page ?")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "WD19 7PF", "Add a place of dispatch", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", "Sign up", null)]
         public void VerifyBackToDashboardLinkOnThenDoYouWantToAddAnotherPointOfDeparturePage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string nextPage1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -1306,7 +1306,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify different post code link is navigated to Add a place of dispatch page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "Test", "of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE", "of dispatch", null)]
         public void VerifyDifferentPostCodeLinkIsNavigatedToAddAPlaceOfDispatchPage(string logininfo, string businessSelection, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -1365,7 +1365,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Enter a Address manually link is navigated to Add a place of dispatch page" +
             "")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "TTTT", "of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "wd17 7TF", "of dispatch", null)]
         public void VerifyEnterAAddressManuallyLinkIsNavigatedToAddAPlaceOfDispatchPage(string logininfo, string businessSelection, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

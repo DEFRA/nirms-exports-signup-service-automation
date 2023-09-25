@@ -389,7 +389,7 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of dis
 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | AddrPostcode | nextPage    |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | TTTT         | of dispatch |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | wd17 7TF     | of dispatch |
 
 
 Scenario:Verify save and return to dashboard on Add a place of dispatch page

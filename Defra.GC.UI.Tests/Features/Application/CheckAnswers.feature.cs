@@ -80,7 +80,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             "with save and continue")]
         [NUnit.Framework.CategoryAttribute("CrossBrowser")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName1", "testAddress1", "London", "England", "Who is the contact person", "contact person the authorised", "of dispatch", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName1", "testAddress1", "London", "England", "Who is the contact person", "contact person the authorised", "of dispatch", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", null)]
         public void CheckAnswersAndSubmitSignUpLinkVerificationOnGBPointsOfEstablishmentWithSaveAndContinue(
                     string logininfo, 
@@ -349,7 +349,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check answers and submit sign up link verification on GB points of establishment")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NT", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName3", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName3", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", null)]
         public void CheckAnswersAndSubmitSignUpLinkVerificationOnGBPointsOfEstablishment(
                     string logininfo, 
@@ -1668,7 +1668,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Navigated to \'Selected business\' page through the Signup link on check your answe" +
             "r page")]
-        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "England", "testFBO", "testName", "testAddress", "London", "SE11 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName40", "testAddress1", "London", "England", "Check your answers", "Selected business", null)]
+        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName40", "testAddress1", "London", "England", "Check your answers", "Selected business", null)]
         public void NavigatedToSelectedBusinessPageThroughTheSignupLinkOnCheckYourAnswerPage(
                     string logininfo, 
                     string businessSelection, 

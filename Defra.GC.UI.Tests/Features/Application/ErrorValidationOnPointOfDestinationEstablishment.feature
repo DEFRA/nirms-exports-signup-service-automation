@@ -36,7 +36,7 @@ Scenario: Verify validation error message for blank Destination Establishment po
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage | nextPage |
-	| test1A    | Kaka               | Northern Ireland | testFBO   | BT11 A11 | 0 results    |   Sign up       |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | BT43 4TT | 0 results    |   Sign up       |
 
 Scenario: Verify valid error messages for point of Destination mandatory fields
 	Given Clear Database for user '<logininfo>'

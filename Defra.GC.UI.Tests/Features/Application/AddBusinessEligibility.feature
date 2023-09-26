@@ -137,6 +137,7 @@ Scenario: Verify select business page is displayed for user with rejected signup
 	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
 	Then  verify  '<Message>' on completed sign up page
+	Then  click on signout button and verify the signout message
 	When  Reject signup request in Database for user '<logininfo>'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

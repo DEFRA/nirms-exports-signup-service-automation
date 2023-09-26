@@ -117,7 +117,6 @@ Scenario Outline: Verify back link on Regulations page is navigating to SPO page
     | test      | England | testFBO   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |
 
 
-@RunOnly
 Scenario: Verify select business page is displayed for user with rejected signup status
 	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application

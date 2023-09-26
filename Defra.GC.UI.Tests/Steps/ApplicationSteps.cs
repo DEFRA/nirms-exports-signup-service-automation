@@ -42,6 +42,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             }
         }
 
+        [When(@"Reject signup request in Database for user '([^']*)'")]
+        [Given(@"Reject signup request in Database for user '([^']*)'")]
+        public void ThenRejectSignUpRequest(string userType)
+        {
+            var user = UserObject.GetUser(userType);
+            string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
+
+            string query = "EXEC sp_RejectTradeParty '" + user.OrgID + "' ";
+
+            if (ConfigSetup.BaseConfiguration != null)
+            {
+                dataHelperConnections.ExecuteQuery(connectionString, query);
+            }
+        }
+
         [When(@"click on save and continue")]
         [Then(@"click on save and continue")]
         public void ThenClickOnSaveAndContinue()

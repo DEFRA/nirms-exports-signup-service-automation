@@ -7,5 +7,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyCheckAnswersAndSubmitSignUpLinkStatus();
         public bool VerifyCheckAnswersAndSubmitSignUpStatus(string status);
         public bool ClickOnEligibilityTask();
+        public void RightClickOnCheckAnswersAndSubmitSignUp();
     }
 }

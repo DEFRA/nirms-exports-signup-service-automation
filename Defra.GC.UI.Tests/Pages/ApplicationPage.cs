@@ -85,6 +85,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             BackToDashboardlink.Click();
         }
 
+        public void SwitchToNextTab()
+        {
+            _driver.SwitchTo().Window(_driver.WindowHandles.LastOrDefault());
+            Thread.Sleep(1000);
+        }
+
+        public void SwitchToPreviousOpenTab()
+        {
+            _driver.SwitchTo().Window(_driver.WindowHandles.First());
+        }
+
         #endregion Page Methods
     }
 }

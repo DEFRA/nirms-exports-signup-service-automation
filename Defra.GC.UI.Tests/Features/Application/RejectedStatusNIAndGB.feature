@@ -1,7 +1,6 @@
 ﻿@Regression
 Feature: RejectedStatus for NI & GB Establishment
 
-@RunOnly
 Scenario: Verify select business page is displayed for user with rejected signup status
 	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
@@ -34,7 +33,7 @@ Scenario: Verify select business page is displayed for user with rejected signup
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              | OutcomeMessage                                    | nextPage2                           |nextPage3                                                                      |
 	| test1C    | Org New            | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you | Your business has already submitted |What will your business do under the Northern Ireland Retail Movement Scheme?  |
 
-	@RunOnly
+	
 Scenario: Verify Add departure displayed for user with rejected signup status
 	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
@@ -106,4 +105,4 @@ Scenario: Verify Add departure displayed for user with rejected signup status
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity     | estCountry           | nextPage           | nextPage1            | Message                                                                                              | OutcomeMessage                                    | nextPage2                           |nextPage3                                                                      |
-	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT43 4TT     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | Belfast  | Northern Ireland     | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you | Your business has already submitted |What will your business do under the Northern Ireland Retail Movement Scheme?  |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT30 6LZ      | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | Belfast  | Northern Ireland     | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you | Your business has already submitted |What will your business do under the Northern Ireland Retail Movement Scheme?  |

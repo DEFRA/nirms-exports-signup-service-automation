@@ -2,6 +2,7 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -46,6 +47,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             if (PageHeading.Text.Contains("Sign up"))
                 EligibilityTask.Click();
             return true;
+        }
+        public void RightClickOnCheckAnswersAndSubmitSignUp()
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].scrollIntoView(true);", CheckAnswersSubmitSignUpLink);
+            Thread.Sleep(1000);
+            Actions action = new Actions(_driver);
+            action.KeyDown(Keys.Control).MoveToElement(CheckAnswersSubmitSignUpLink).Click().Perform();
         }
 
         #endregion Page Methods

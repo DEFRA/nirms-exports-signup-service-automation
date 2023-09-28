@@ -108,5 +108,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             applicationPage.ClickSaveAndReturnToDashboard();
         }
+
+        [When(@"switch to next opened tab")]
+        [Then(@"switch to next opened tab")]
+        public void SwitchToTab()
+        {
+            applicationPage.SwitchToNextTab();
+            _driver.ElementImplicitWait();
+        }
+
+        [When(@"switch to previous tab")]
+        [Then(@"switch to previous tab")]
+        public void SwitchToPreviousTab()
+        {
+            applicationPage.SwitchToPreviousOpenTab();
+        }
     }
 }

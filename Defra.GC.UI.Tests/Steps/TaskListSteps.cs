@@ -47,6 +47,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(taskListPage.ClickOnEligibilityTask(), "Eligibility Task Page not loaded");
         }
-
+        [When(@"open check your answers in different tab")]
+        [Then(@"open check your answers in different tab")]
+        public void RightClickOnCheckAnswersAndSubmitSignUp()
+        {
+            taskListPage.RightClickOnCheckAnswersAndSubmitSignUp();
+        }
     }
 }

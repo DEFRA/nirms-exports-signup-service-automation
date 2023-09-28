@@ -76,6 +76,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnContinue()
         {
+            Console.WriteLine("Switched to tab");
+            Thread.Sleep(1000);
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", Continue);
         }
@@ -83,6 +85,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnBackToDashboardLink()
         {
             BackToDashboardlink.Click();
+        }
+
+        public void SwitchToNextTab()
+        {
+            _driver.SwitchTo().Window(_driver.WindowHandles.LastOrDefault());
+            Thread.Sleep(1000);
+        }
+
+        public void SwitchToPreviousOpenTab()
+        {
+            _driver.SwitchTo().Window(_driver.WindowHandles.First());
         }
 
         #endregion Page Methods

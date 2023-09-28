@@ -17,5 +17,8 @@
         public void ClickOnContinue();
 
         public void ClickonBackToDashboardlink();
+
+        public void SwitchToNextTab();
+        public void SwitchToPreviousOpenTab();
     }
 }

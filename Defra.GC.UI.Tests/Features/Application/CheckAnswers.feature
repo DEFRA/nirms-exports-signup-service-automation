@@ -162,7 +162,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| test3      | EASYJET UK LIMITED  | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName17     | testAddress1 | London  | England    | Authorised Signatory position              | ChangedAuthorisedPosition           |
 	| test3      | EASYJET UK LIMITED  | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName18     | testAddress1 | London  | England    | Authorised Signatory email address         | Changed@AuthorisedSignatoryname.com |
 
-	
+	@RunOnly
 	Scenario: Edit Check answers for Northern Ireland Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application

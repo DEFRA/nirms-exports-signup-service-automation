@@ -41,7 +41,7 @@ Scenario: Verify zero address  error message for GB postcode
 	| logininfo | Business selection                        | Country | FBONumber | postcode | errorMessage | nextPage |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | TE1 3DS  | 0 results    |  Sign up        |
 
-
+@RunOnly
 Scenario: Verify error messages for GB point of Departure mandatory fields
 	Given Clear Database for user '<logininfo>'
 	And that I navigate to the NI GC application

@@ -81,7 +81,7 @@ Scenario: Verify back to dashboard link navigated to tasklist page
 	Examples: 
 	| logininfo | Business selection						| Country | FBONumber | nextPage                                                |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |testContactName | testPosition    | test@test.com | 01632 960 001   |
-
+@RunOnly
 Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

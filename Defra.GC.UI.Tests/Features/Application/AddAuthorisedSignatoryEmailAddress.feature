@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatoryEmailAddress
 
 Add Authorised Signatory Email Address
 
-   @SmokeTest
+   @SmokeTest 
 Scenario: Add Authorised Signatory Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

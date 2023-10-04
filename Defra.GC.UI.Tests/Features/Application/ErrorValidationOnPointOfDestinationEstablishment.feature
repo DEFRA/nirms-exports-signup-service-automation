@@ -20,6 +20,8 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	| test1A    | Kaka               | Northern Ireland | testFBO   |           | Enter a postcode. |
 	| test1A    | Kaka               | Northern Ireland | testFBO   | wd19 7pf  | Enter a postcode in Northern Ireland |
 
+
+	
 	Scenario: Verify zero  address results  error message for postcode NI
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -31,12 +33,12 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	When  click on points of destination link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify error message '<errorMessage>' on Add a place of destination page
-	When  click on back to dashboard link
+	When  click on back link
 	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage | nextPage |
-	| test1A    | Kaka               | Northern Ireland | testFBO   | BT43 4TT | 0 results    |   Sign up       |
+	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage								   | nextPage       |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | BT43 4TT | 0 results for BT43 4TT in Northern Ireland    | of destination |  
 
 
 Scenario: Verify valid error messages for point of Destination mandatory fields

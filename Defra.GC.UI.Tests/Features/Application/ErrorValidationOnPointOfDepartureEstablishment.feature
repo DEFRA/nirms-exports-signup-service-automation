@@ -34,12 +34,12 @@ Scenario: Verify zero address  error message for GB postcode
 	When  click on points of departure link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify error message '<errorMessage>' on Add a place of departure page
-	When  click on back to dashboard link
+	When  click on back link
 	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-	| logininfo | Business selection                        | Country | FBONumber | postcode | errorMessage | nextPage |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | TE1 3DS  | 0 results    |  Sign up        |
+	| logininfo | Business selection                        | Country | FBONumber | postcode | errorMessage											   | nextPage    |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | TE1 3DS  | 0 results for TE1 3DS in England, Scotland and Wales    | of dispatch |
 
 
 Scenario: Verify error messages for GB point of Departure mandatory fields

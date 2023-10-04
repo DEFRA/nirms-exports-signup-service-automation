@@ -73,6 +73,7 @@ Scenario: Verify Add departure displayed for user with rejected signup status
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              | OutcomeMessage                                    | nextPage2                           | nextPage3                                                                     | nextPage4    |
 	| test1C    | Org New            | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you | Your business has already submitted | What will your business do under the Northern Ireland Retail Movement Scheme? | of dispatch  |
 
+
 	@RunOnly
 	Scenario: Verify Add destination displayed for user with rejected signup status
 	Given Clear Database for user '<logininfo>'
@@ -104,7 +105,6 @@ Scenario: Verify Add departure displayed for user with rejected signup status
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	When  complete contact person Authorised Signatory with Yes Authorisation
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   add establishment email address 'test2@test.com'
 	Then  user verify the Points of destination status '1 ADDED'
 	
 

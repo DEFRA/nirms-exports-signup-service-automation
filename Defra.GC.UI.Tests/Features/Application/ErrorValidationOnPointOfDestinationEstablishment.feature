@@ -20,6 +20,8 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	| test1A    | Kaka               | Northern Ireland | testFBO   |           | Enter a postcode. |
 	| test1A    | Kaka               | Northern Ireland | testFBO   | wd19 7pf  | Enter a postcode in Northern Ireland |
 
+
+	@RunOnly
 	Scenario: Verify zero  address results  error message for postcode NI
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

@@ -22,7 +22,7 @@ Scenario: Verify error message for blank Establishment postcode field & non GB p
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | BT93 8AD | Enter a postcode in England, Scotland or Wales  |
 
 
-	
+@RunOnly
 Scenario: Verify zero address  error message for GB postcode
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

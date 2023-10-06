@@ -77,7 +77,7 @@ Scenario: Verify back to dashboard link on select Destination establishment addr
 	 
 	Examples: 
 	| logininfo | Business selection     | Country          | FBONumber | postcode | nextPage        | nextPage1  |
-	| test1A    | Kaka                   | Northern Ireland | testFBO   | BT52 2AJ | of destination  | Sign up    |
+	| test1A    | Kaka                   | Northern Ireland | testFBO   | BT7 2JB  | of destination  | Sign up    |
 
 Scenario: Verify back to dashboard link on add Destination establishment address page
 	Given Clear Database for user '<logininfo>'

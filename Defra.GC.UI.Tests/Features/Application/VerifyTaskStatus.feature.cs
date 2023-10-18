@@ -77,8 +77,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify status of Business Details task")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "Sign up for the Northern Ireland Retail Movement Scheme", "testBusinessname", "testAddress1", "testCity", "wd19 7pf", null)]
-        public void VerifyStatusOfBusinessDetailsTask(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string businessName, string addressLine1, string town, string addrPostcode, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", null)]
+        public void VerifyStatusOfBusinessDetailsTask(string logininfo, string businessSelection, string country, string fBONumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -86,11 +86,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("Country", country);
             argumentsOfScenario.Add("FBONumber", fBONumber);
-            argumentsOfScenario.Add("nextPage", nextPage);
-            argumentsOfScenario.Add("Business name", businessName);
-            argumentsOfScenario.Add("AddressLine1", addressLine1);
-            argumentsOfScenario.Add("Town", town);
-            argumentsOfScenario.Add("AddrPostcode", addrPostcode);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify status of Business Details task", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
@@ -132,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify status of all tasks")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "EstName1", "testAddress1", "London", "England", "SE9 0AW", "testContactName", "testPosition", "test@test.com", "01632 960 001", "test Auth name", "administrator", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "EstName1", "testAddress1", "London", "England", "SE10 9NF", "testContactName", "testPosition", "test@test.com", "01632 960 001", "test Auth name", "administrator", null)]
         public void VerifyStatusOfAllTasks(
                     string logininfo, 
                     string businessSelection, 
@@ -586,7 +581,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the status of Check answers and submit sign task")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "EstName1", "testAddress1", "London", "England", "SE9 0AW", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "EstName1", "testAddress1", "London", "England", "SE10 9NF", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void VerifyTheStatusOfCheckAnswersAndSubmitSignTask(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

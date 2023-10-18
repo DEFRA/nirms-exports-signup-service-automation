@@ -55,7 +55,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 if (PageHeading.Text.Contains("Food Business Operator (FBO)"))
                 {
                     _driver.ElementImplicitWait();
-                    _driver.ClickRadioButton("Yes");
+                    _driver.ClickRadioButton("My business has an FBO");
                     if (!FBONumberValue.GetAttribute("value").Contains(FBONumber))
                     {
                         FBONumberEle.SendKeys(FBONumber);

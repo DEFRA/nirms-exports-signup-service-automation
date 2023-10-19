@@ -85,7 +85,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             }
             else if (fieldName.Contains("Address"))
             {
-                pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(fieldValue, fieldValue, fieldValue, fieldValue, "SE9 0AW");
+                pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(fieldValue, fieldValue, fieldValue, fieldValue, "SE9 0AA");
                 pointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
                 pointOfDepartureEstablishmentPage.ClickOnIHaveFinishedAddingPointsOfDeparture();
                 applicationPage.ClickSaveAndReturnToDashboard();

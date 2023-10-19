@@ -112,7 +112,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         [Then(@"user navigates to the SPO_Assurance page")]
         public void ThenUserNavigatesToTheSPO_AssurancePage()
         {
-            Assert.AreEqual(eligibilityPage.VerifySPOPageloaded(), "Does your business have a Food Business Operator (FBO) number?");
+            Assert.AreEqual(eligibilityPage.VerifySPOPageloaded(), "Does your business have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?");
         }
     }
 }

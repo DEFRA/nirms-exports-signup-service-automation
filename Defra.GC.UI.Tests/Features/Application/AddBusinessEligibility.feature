@@ -54,8 +54,8 @@ Scenario Outline: Verify No sign up page appears when no FBO number
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-    | logininfo | Business selection                        | Country | FBONumber  | nextPage                         |
-    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England |            | You cannot sign up your business |
+    | logininfo | Business selection                        | Country | FBONumber  | nextPage                                   |
+    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England |            | You can still submit a sign-up request now |
 
 
 Scenario Outline: Verify back link on Assurance FBO page is going country selection page

@@ -109,8 +109,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectFBONumberToCompleteEligibility(string FBONumber)
         {
-            _driver.ClickRadioButton("Yes");
+            _driver.ClickRadioButton("My business has an FBO");
+            FBONumberEle.Clear();
             FBONumberEle.SendKeys(FBONumber);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
+            Thread.Sleep(1000);
             FBOContinue.Click();
         }
 
@@ -136,16 +139,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2500)", "");
             IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-            //if (_driver.FindElements(RegulationCheckedboxBy).Count() > 0)
-            //{
-            //    string checkedValue = jsExecutor1.ExecuteScript("return document.getElementById('Confirmed').checked").ToString();
-            //    if (checkedValue.Contains("True"))
-            //    {
-            //        IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            //        jsExecutor.ExecuteScript("arguments[0].click();", RegulationCheckbox);
-            //    }
-            //    ClickContinue();
-            //}
             ClickContinue();
         }
 
@@ -163,7 +156,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void NoFBONumberToCompleteEligibility()
         {
-            _driver.ClickRadioButton("No");
+            _driver.ClickRadioButton("My business does not have either of these numbers");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
             FBOContinue.Click();
         }
 

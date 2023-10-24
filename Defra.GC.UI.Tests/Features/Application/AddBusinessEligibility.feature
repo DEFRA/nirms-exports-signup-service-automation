@@ -118,10 +118,10 @@ Scenario Outline: Verify back link on Regulations page is navigating to SPO page
     | logininfo | Country | FBONumber |Business selection                         |
     | test      | England | testFBO   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |
 
-
+@RunOnly
 Scenario: Verify error message for invalid PHR with Assurance
-	#Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -131,10 +131,11 @@ Scenario: Verify error message for invalid PHR with Assurance
 	Examples: 
     | logininfo | Country | PHRNumber       | errorMessage                                                      | Business selection                        |
     | test      | England | *************** | Enter a PHR number using only letters, numbers, spaces or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
-	
+
+@RunOnly	
 Scenario Outline: Complete eligibility with PHR number option
-    #Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
+    Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -145,7 +146,7 @@ Examples:
     | logininfo | Country | PHRNumber |Business selection                         |nextPage | 
     | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |
 
-
+@RunOnly
 Scenario Outline: Complete eligibility with no FBO or PHR number option 
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -162,7 +163,7 @@ Examples:
     | logininfo | Business selection                        | Country | nextPage                                   |nextPage1|
     | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now |Sign up  |
 
-
+@RunOnly
 Scenario Outline: Verify back on You can still submit sign up page navigates to FBO or PHR page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -178,7 +179,7 @@ Examples:
     | logininfo | Business selection                        | Country | nextPage                                   |nextPage1                                                                                           |
     | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now |Does your business have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |
 
-
+@RunOnly
 Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -196,7 +197,7 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
     | test      | England | *************** | Select if your business has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |Does your business have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
 
 
-
+@RunOnly
 Scenario Outline: Verify hint text on FBO PHR page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

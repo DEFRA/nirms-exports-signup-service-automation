@@ -12,6 +12,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void InvaildFBOdata(string country, string FBONumber);
 
+        public void InvaildPHRdata(string country, string PHRNumber);
+
         public bool VerifyEligibilityTaskStatus(string status);
 
         public void SelectFBONumberToCompleteEligibility(string FBONumber);
@@ -39,5 +41,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditFBONumberToCompleteEligibility(string FBONumber);
 
         public void SelectBusinessToSignUp(string businessSelection);
+        public void CompleteEligibilityWithCountryAndPHR(string country, string PHRNumber);
+        public bool VerifyHintTextMessage(string hintText);
+        public void EditPHRNumberToCompleteEligibility(string PHRNumber);
+        public void ConfirmReMosRegulationToCompleteEligibility();
     }
 }

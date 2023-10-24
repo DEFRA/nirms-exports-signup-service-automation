@@ -380,3 +380,49 @@ Scenario: Navigated to 'Selected business' page through the Signup link on check
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1         |
 	| test7     | Tescoman           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName40     | testAddress1 | London  | England    | Check your answers | Selected business |
    
+
+Scenario: Edit and verify Check answers for PHR number eligibility flow
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
+	Then  verify eligibility task status as 'COMPLETED'
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
+	Then  user verify the business contact details status 'COMPLETED'
+	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
+	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	Then  user verify the Points of departure status '1 ADDED'
+	And   click on Check answers and submit sign up
+	When  edit value of '<FieldName>' to '<FieldValue>' on Check answers page
+	Then  verify edited value of '<FieldName>' to '<FieldValue>' on Check answers page   
+	Examples: 
+	| logininfo | Business selection          | Country | PHRNumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | FieldName    | FieldValue          |
+	| test2     | AMSAK PROPERTY LIMITED      | England | testPHR   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    | PHR number   | ChangePHR           |
+
+
+
+Scenario: Verify Check answers for No PHR and No FBO number option eligibility flow
+	#Given Clear Database for user '<logininfo>'
+	Given   that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	And   complete eligibility task with '<Country>' and without FBONumber 
+	Then  click on continue button 
+	Then  confirm regulation assurance checkbox
+	Then  verify eligibility task status as 'COMPLETED'
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
+	Then  user verify the business contact details status 'COMPLETED'
+	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
+	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	Then  user verify the Points of departure status '1 ADDED'
+	And   click on Check answers and submit sign up
+	Then  verify value '<FBOPHROption>' of No FBO and no PHR on check your answers page
+	
+	Examples: 
+	| logininfo | Business selection          | Country |Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |FBOPHROption |
+	| test2     | AMSAK PROPERTY LIMITED      | England |testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    |Not provided |

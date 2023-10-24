@@ -29,7 +29,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSaveAndContinue()
         {
-            SaveAndContinue.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
+            //SaveAndContinue.Click();
         }
 
         public void ClickOnContactEmailAddressLink()

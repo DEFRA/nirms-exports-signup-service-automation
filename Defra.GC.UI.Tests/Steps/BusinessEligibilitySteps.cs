@@ -33,6 +33,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             eligibilityPage.CompleteEligibility(country, FBONumber);
         }
 
+        [When(@"complete eligibility task with '([^']*)', '([^']*)' country and PHR no")]
+        public void WhenCompleteEligibilityTaskWithCountryAndPHR(string country, string PHRNumber)
+        {
+            eligibilityPage.CompleteEligibilityWithCountryAndPHR(country, PHRNumber);
+        }
+
         [When(@"complete eligibility task with '([^']*)', '([^']*)' without Regulations")]
         public void WhenCompleteEligibilityTaskWithWithoutRegulations(string country, string FBONumber)
         {
@@ -51,6 +57,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             eligibilityPage.InvaildFBOdata(country, FBONumber);
         }
 
+        [When(@"complete eligibility task with invalid PHR data '([^']*)', '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWithInvalidPHRData(string country, string PHRNumber)
+        {
+            eligibilityPage.InvaildPHRdata(country, PHRNumber);
+        }
+
         [Then(@"verify eligibility task status as '([^']*)'")]
         public void ThenVerifyEligibilityTaskStatus(String status)
         {
@@ -62,6 +74,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             eligibilityPage.AssuranceCompleteWithNoFBO(country);
         }
+
+       
 
         [Then(@"verify no signp page appears")]
         [When(@"verify no signp page appears")]
@@ -113,6 +127,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenUserNavigatesToTheSPO_AssurancePage()
         {
             Assert.AreEqual(eligibilityPage.VerifySPOPageloaded(), "Does your business have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?");
+        }
+
+        [Then(@"verify hint text '([^']*)' on FBO PHR page")]
+        public void ThenVerifyOnCompletedSignUpPage(string hintText)
+        {
+            Assert.True(eligibilityPage.VerifyHintTextMessage(hintText), "Mismatching the hint text on FBO PHR page");
+        }
+
+        [Then(@"confirm regulation assurance checkbox")]
+        public void SelectAssuranceRegulations()
+        {
+            eligibilityPage.ConfirmReMosRegulationToCompleteEligibility();
         }
     }
 }

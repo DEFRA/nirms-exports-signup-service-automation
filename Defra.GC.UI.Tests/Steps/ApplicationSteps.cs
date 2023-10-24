@@ -84,6 +84,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             applicationPage.ClickOnBackLink();
         }
 
+        [Then(@"click on the feedback link")]
+        public void ThenClickOnTheFeedbackLink()
+        {
+            applicationPage.ClickOnBackLink();
+        }
+
+        [Then(@"verify feedback page is loaded")]
+        public void ThenVerifyFeedbackPageIsLoaded()
+        {
+            Assert.True(applicationPage.VerifyFeedbackPageLoaded(), "Feed back page not loaded");
+        }
+
         [When(@"click on back to dashboard link")]
         public void WhenClickOnBackToDashboardLink()
         {

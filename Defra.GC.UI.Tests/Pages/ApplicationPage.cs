@@ -16,11 +16,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
         private IWebElement Backlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back')]"));
+        private IWebElement feedbacklink => _driver.WaitForElement(By.XPath("//a[normalize-space()='feedback']"));
         private IWebElement BackToDashboardlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back to dashboard')]"));
         private IWebElement SaveAndReturnToDashboard => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and return to dashboard')]"));
         private IWebElement SignUPTaskPage => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Continue']"));
+        private IWebElement Feedbacktext => _driver.WaitForElement(By.XPath("//div[@class='QuestionText BorderColor']"));
 
         #endregion Page Objects
 
@@ -44,6 +46,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             Backlink.Click();
         }
 
+        public void ClickOnFeedBackLink()
+        {
+            feedbacklink.Click();
+        }
+
         public void ClickonBackToDashboardlink()
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,-4000)", "");
@@ -60,6 +67,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifySignUpTaskListPageIsLoaded()
         {
             return SignUPTaskPage.Text.Contains("Sign up for the Northern Ireland Retail Movement Scheme");
+        }
+
+        public bool VerifyFeedbackPageLoaded()
+        {
+            return Feedbacktext.Text.Contains("Overall");
         }
 
         public void ClickSaveAndReturnToDashboard()

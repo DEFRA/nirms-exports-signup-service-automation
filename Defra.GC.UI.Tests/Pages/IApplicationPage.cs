@@ -8,7 +8,11 @@
 
         public void ClickOnBackLink();
 
+        public void ClickOnFeedBackLink();
+
         public bool VerifySignUpTaskListPageIsLoaded();
+
+        public bool VerifyFeedbackPageLoaded();
 
         public void ClickSaveAndReturnToDashboard();
 
@@ -19,6 +23,7 @@
         public void ClickonBackToDashboardlink();
 
         public void SwitchToNextTab();
+
         public void SwitchToPreviousOpenTab();
     }
 }

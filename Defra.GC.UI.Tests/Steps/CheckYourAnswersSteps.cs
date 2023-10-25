@@ -79,6 +79,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.AreEqual(checkYourAnswersPage.VerifyBusinessNameAdded(), tescoman);
         }
 
+        [Then(@"verify value '([^']*)' of No FBO and no PHR on check your answers page")]
+        public void ThenVerifySelectedNoFBOPHRDisplayedOnCheckYourAnswerPage(string FBOOptionMsg)
+        {
+            Assert.True(checkYourAnswersPage.VerifyNoFBONoPHROption(FBOOptionMsg), "FBO PHR Option mismatch");
+        }
+
         [When(@"click on Signup another business link")]
         [Then(@"click on Signup another business link")]
         public void ThenClickOnSignupAnotherBusinessLink()

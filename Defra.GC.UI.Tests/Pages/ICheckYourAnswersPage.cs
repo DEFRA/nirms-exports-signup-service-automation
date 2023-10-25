@@ -13,5 +13,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyTotalEstablishmentAddressesAdded(string TotalNum);
         public string VerifyBusinessNameAdded();
         public void VerifySelectedBusinessNamePage();
+        public bool VerifyNoFBONoPHROption(string FBOOptionMsg);
     }
 }

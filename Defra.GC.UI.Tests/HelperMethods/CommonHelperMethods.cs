@@ -14,7 +14,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
         public static void ClickRadioButton(this IWebDriver driver, string code)
         {
             IWebElement commLabel = driver.WaitForElement(By.XPath($"//label[contains(.,'{code}')]"));
-            commLabel.Click();
+            //commLabel.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", commLabel);
         }
 
         public static void ClickFristRadioButton(this IWebDriver driver, string code)

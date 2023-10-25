@@ -79,7 +79,7 @@ Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 
 
 Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Conditions Declaration page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

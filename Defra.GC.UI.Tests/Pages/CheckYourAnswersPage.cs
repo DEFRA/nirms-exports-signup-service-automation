@@ -34,7 +34,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private By NumberOfEstablishments => By.XPath("//div[@class='govuk-summary-card']");
         private IWebElement Businessname => _driver.WaitForElement(By.Id("business-details-name"));
         private IWebElement AnotherBusinessname => _driver.WaitForElement(By.XPath("//a[normalize-space()='Sign up another business']"));
-
+        private IWebElement NoFBOPHRNumberValue => _driver.WaitForElement(By.Id("business-details-fbo"));
         #endregion Page Objects
 
         #region Page Methods
@@ -66,6 +66,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             else if (fieldName.Contains("FBO number"))
             {
                 eligibilityPage.EditFBONumberToCompleteEligibility(fieldValue);
+            }
+            else if (fieldName.Contains("PHR number"))
+            {   
+                eligibilityPage.EditPHRNumberToCompleteEligibility(fieldValue);
             }
             else if (fieldName.Contains("Contact name"))
             {
@@ -183,7 +187,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             AnotherBusinessname.Click();
         }
 
-        #endregion Page Methods
 
-    }
+        public bool VerifyNoFBONoPHROption(string FBOOptionMsg)
+        {
+            return NoFBOPHRNumberValue.Text.Contains(FBOOptionMsg);
+        }
+
+    #endregion Page Methods
+
+}
 }

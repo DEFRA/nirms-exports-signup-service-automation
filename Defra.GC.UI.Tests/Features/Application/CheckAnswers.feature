@@ -380,7 +380,7 @@ Scenario: Navigated to 'Selected business' page through the Signup link on check
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1         |
 	| test7     | Tescoman           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName40     | testAddress1 | London  | England    | Check your answers | Selected business |
    
-
+@RunOnly
 Scenario: Edit and verify Check answers for PHR number eligibility flow
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -403,7 +403,7 @@ Scenario: Edit and verify Check answers for PHR number eligibility flow
 	| test2     | AMSAK PROPERTY LIMITED      | England | testPHR   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    | PHR number   | ChangePHR           |
 
 
-
+@RunOnly
 Scenario: Verify Check answers for No PHR and No FBO number option eligibility flow
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

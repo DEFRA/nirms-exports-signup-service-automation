@@ -1781,9 +1781,9 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit Check answers for PHR number eligibility flow")]
+        [NUnit.Framework.DescriptionAttribute("Edit and verify Check answers for PHR number eligibility flow")]
         [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testPHR", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName7", "testAddress1", "London", "England", "PHR number", "ChangePHR", null)]
-        public void EditCheckAnswersForPHRNumberEligibilityFlow(
+        public void EditAndVerifyCheckAnswersForPHRNumberEligibilityFlow(
                     string logininfo, 
                     string businessSelection, 
                     string country, 
@@ -1824,7 +1824,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("estCountry", estCountry);
             argumentsOfScenario.Add("FieldName", fieldName);
             argumentsOfScenario.Add("FieldValue", fieldValue);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Check answers for PHR number eligibility flow", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and verify Check answers for PHR number eligibility flow", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 384
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -1889,12 +1889,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Check answers for No PHR and No FBO number option eligibility flow")]
-        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testPHR", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName7", "testAddress1", "London", "England", "PHR number", "ChangePHR", "Not provided", null)]
+        [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName7", "testAddress1", "London", "England", "Not provided", null)]
         public void VerifyCheckAnswersForNoPHRAndNoFBONumberOptionEligibilityFlow(
                     string logininfo, 
                     string businessSelection, 
                     string country, 
-                    string pHRNumber, 
                     string businessName, 
                     string addressLine, 
                     string town, 
@@ -1907,8 +1906,6 @@ this.ScenarioInitialize(scenarioInfo);
                     string addressLine1, 
                     string estCity, 
                     string estCountry, 
-                    string fieldName, 
-                    string fieldValue, 
                     string fBOPHROption, 
                     string[] exampleTags)
         {
@@ -1917,7 +1914,6 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("Country", country);
-            argumentsOfScenario.Add("PHRNumber", pHRNumber);
             argumentsOfScenario.Add("Business name", businessName);
             argumentsOfScenario.Add("AddressLine", addressLine);
             argumentsOfScenario.Add("Town", town);
@@ -1930,8 +1926,6 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("AddressLine1", addressLine1);
             argumentsOfScenario.Add("estCity", estCity);
             argumentsOfScenario.Add("estCountry", estCountry);
-            argumentsOfScenario.Add("FieldName", fieldName);
-            argumentsOfScenario.Add("FieldValue", fieldValue);
             argumentsOfScenario.Add("FBOPHROption", fBOPHROption);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Check answers for No PHR and No FBO number option eligibility flow", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 407
@@ -1944,8 +1938,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 408
+ testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 409
- testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 410
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -1959,37 +1956,37 @@ this.ScenarioInitialize(scenarioInfo);
 #line 413
  testRunner.And(string.Format("complete eligibility task with \'{0}\' and without FBONumber", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 415
+#line 414
  testRunner.Then("click on continue button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 416
+#line 415
  testRunner.Then("confirm regulation assurance checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 417
+#line 416
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 418
+#line 417
  testRunner.When(string.Format("complete Business contact details task with \'{0}\', \'{1}\', \'{2}\', \'{3}\'", contactName, contactPosition, emailAddress, telephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 419
+#line 418
  testRunner.Then("user verify the business contact details status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 420
+#line 419
  testRunner.When("complete contact person Authorised Signatory with Yes Authorisation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 421
+#line 420
     testRunner.Then("user verify the Authorised Signatory status \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 422
+#line 421
  testRunner.When(string.Format("complete Points of departure with \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\'", establishmentName, addressLine1, estCity, estCountry, addrPostcode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 423
+#line 422
  testRunner.Then("user verify the Points of departure status \'1 ADDED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 424
+#line 423
  testRunner.And("click on Check answers and submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 426
+#line 424
  testRunner.Then(string.Format("verify value \'{0}\' of No FBO and no PHR on check your answers page", fBOPHROption), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

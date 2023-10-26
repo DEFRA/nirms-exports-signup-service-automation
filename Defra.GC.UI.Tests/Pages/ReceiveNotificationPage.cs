@@ -33,6 +33,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyNotificationOutcomeMessage(string NotifyoutcomeMessage)
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             return PageHeadingOutcomeNotification.Text.Contains(NotifyoutcomeMessage);
         }
 

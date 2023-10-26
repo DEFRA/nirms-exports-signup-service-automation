@@ -53,7 +53,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 ClickOnPointsOfDestinationLink();
             }
             EnterEstablishmentPostcode(establishmentCode);
-            ClickOnCannotFindEstablishmentLink();
+            // ClickOnCannotFindEstablishmentLink();
             ClickOnAddTheEstablishmentAddressManuallyLink();
             //AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
             pointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, establishmentAddress, establishmentCity, establishmentCountry, establishmentCode);
@@ -85,6 +85,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool ClickOnPointsOfDestinationLink()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", PointOfDestination);
             return PageHeading.Text.Contains("of destination");
@@ -94,7 +95,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + postcode + "')", EstablishmentPostcode);
-            FindEstablishment.Click();
+
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
+
+            jsExecutor.ExecuteScript("arguments[0].click();", FindEstablishment);
+            // FindEstablishment.Click();
         }
 
         public bool VerifyAddAPointOfDeparturePage()

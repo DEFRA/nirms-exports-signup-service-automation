@@ -54,8 +54,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickonBackToDashboardlink()
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,-4000)", "");
-            Thread.Sleep(1000);
-            BackToDashboardlink.Click();
+            Thread.Sleep(3000);
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", BackToDashboardlink);
         }
 
         public void NavigateToTaskListPage()

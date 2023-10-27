@@ -203,17 +203,17 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify valid error messages for point of Destination mandatory fields")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter an establishment name", null)]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName1", "", "testCity", "testCountry", "SE10 9NF", "Enter address line 1", null)]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName2", "testAddress1", "", "testCountry", "SE10 9NF", "Enter a town or city", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "", "testAddress1", "testCity", "testCountry", "BT93 8AD", "Enter an establishment name", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName1", "", "testCity", "testCountry", "BT93 8AD", "Enter address line 1", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName2", "testAddress1", "", "testCountry", "BT93 8AD", "Enter a town or city", null)]
         [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName3", "testAddress1", "testCity", "testCountry", "", "Enter a postcode", null)]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName4%", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter an establishment name using only letters, numbers, brackets, full stops, hy" +
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName4%", "testAddress1", "testCity", "testCountry", "BT93 8AD", "Enter an establishment name using only letters, numbers, brackets, full stops, hy" +
             "phens, underscores, forward slashes, apostrophes or ampersands", null)]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName5", "testAddr%$", "testCity", "testCountry", "SE10 9NF", "Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, " +
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName5", "testAddr%$", "testCity", "testCountry", "BT93 8AD", "Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, " +
             "underscores, forward slashes, apostrophes or ampersands", null)]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName6", "testAddress1", "testCity%$", "testCountry", "SE10 9NF", "Enter a town or city using only letters, numbers, brackets, full stops, hyphens, " +
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName6", "testAddress1", "testCity%$", "testCountry", "BT93 8AD", "Enter a town or city using only letters, numbers, brackets, full stops, hyphens, " +
             "underscores, forward slashes, apostrophes or ampersands", null)]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName7", "testAddress1", "testCity", "testCountry", "SE10 9NF$%", "Enter a real postcode", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland", "testFBO", "BT93 8AD", "testErrorName7", "testAddress1", "testCity", "testCountry", "BT93 8AD$%", "Enter a real postcode", null)]
         public void VerifyValidErrorMessagesForPointOfDestinationMandatoryFields(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -240,9 +240,6 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 44
- testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 45
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

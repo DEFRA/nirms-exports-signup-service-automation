@@ -57,14 +57,14 @@ Scenario: Verify valid error messages for point of Destination mandatory fields
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | EstablishmentName | AddressLine1 | estCity    | estCountry  | AddrPostcode | errorMessage                                     |
-	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD |                   | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter an establishment name                      |
-	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD | testErrorName1    |              | testCity   | testCountry | SE10 9NF     | Enter address line 1                             |
-	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD | testErrorName2    | testAddress1 |            | testCountry | SE10 9NF     | Enter a town or city                             |
+	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD |                   | testAddress1 | testCity   | testCountry | BT93 8AD     | Enter an establishment name                      |
+	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD | testErrorName1    |              | testCity   | testCountry | BT93 8AD     | Enter address line 1                             |
+	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD | testErrorName2    | testAddress1 |            | testCountry | BT93 8AD     | Enter a town or city                             |
 	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName3    | testAddress1 | testCity   | testCountry |              | Enter a postcode                                 |
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName4%   | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter an establishment name using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands|
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName5    | testAddr%$   | testCity   | testCountry | SE10 9NF     | Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands    |
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName6    | testAddress1 | testCity%$ | testCountry | SE10 9NF     | Enter a town or city using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands    |
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName7    | testAddress1 | testCity   | testCountry | SE10 9NF$%   | Enter a real postcode                            |
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName4%   | testAddress1 | testCity   | testCountry | BT93 8AD     | Enter an establishment name using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands|
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName5    | testAddr%$   | testCity   | testCountry | BT93 8AD     | Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands    |
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName6    | testAddress1 | testCity%$ | testCountry | BT93 8AD     | Enter a town or city using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands    |
+	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName7    | testAddress1 | testCity   | testCountry | BT93 8AD$%   | Enter a real postcode                            |
 
 
 Scenario: Verify error message on add another point of Destination page

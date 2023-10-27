@@ -129,6 +129,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSelectAddressButton()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             SelectElement s = new SelectElement(SelectDropdown);
             s.SelectByIndex(0);
             SelectAddresButton.Click();

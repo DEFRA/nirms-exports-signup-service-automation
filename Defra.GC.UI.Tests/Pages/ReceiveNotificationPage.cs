@@ -20,7 +20,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement PageHeadingNotification => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-panel__title')]"));
 
-        private IWebElement PageHeadingOutcomeNotification => _driver.WaitForElement(By.XPath("//div[@class='govuk-grid-column-two-thirds']"));
+        private IWebElement PageHeadingOutcomeNotification => _driver.WaitForElement(By.XPath("(//div[@class='govuk-grid-column-two-thirds']/p)[2]"));
 
         #endregion Page Objects
 

@@ -17,6 +17,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
 
         private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
+        private IWebElement ManageAccessLink => _driver.WaitForElement(By.XPath("((//div[contains(@class,'govuk-grid-column-two-thirds')])//a)[1]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("eligibility"));
@@ -127,6 +128,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectBusinessToSignUp(string businessSelection)
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
+             Thread.Sleep(1000);
             _driver.FindElement(By.XPath("//label[contains(text(),'" +businessSelection + "')]/../input")).Click();
             ClickSaveAndContinue();
         }
@@ -299,6 +302,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ConfirmReMosRegulationToCompleteEligibility();
         }
 
+        public void ClickOnManageAccessLinkOnAnotherbusinessPage()
+        {
+            if (PageHeading.Text.Contains("You do not have access to any other businesses"))
+            ManageAccessLink.Click();
+            //return PageHeading.Text.Contains("What will your business do");
+        }
         #endregion Page Methods
     }
 }

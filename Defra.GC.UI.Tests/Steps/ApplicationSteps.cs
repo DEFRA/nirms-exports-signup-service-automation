@@ -96,6 +96,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(applicationPage.VerifyFeedbackPageLoaded(), "Feed back page not loaded");
         }
 
+        [Then(@"verify generic GOV page is loaded")]
+        public void ThenVerifygenericGOVPageIsLoaded()
+        {
+            Assert.True(applicationPage.VerifyGenericGOVPageLoaded(), "Generic GOV page not loaded");
+        }
+
         [When(@"click on back to dashboard link")]
         public void WhenClickOnBackToDashboardLink()
         {

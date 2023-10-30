@@ -25,5 +25,7 @@
         public void SwitchToNextTab();
 
         public void SwitchToPreviousOpenTab();
+
+        public bool VerifyGenericGOVPageLoaded();
     }
 }

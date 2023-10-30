@@ -140,5 +140,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             eligibilityPage.ConfirmReMosRegulationToCompleteEligibility();
         }
+
+        [Then(@"click on manage access link on Another business page")]
+        public void ClickManageAccessLink()
+        {
+            eligibilityPage.ClickOnManageAccessLinkOnAnotherbusinessPage();
+        }
     }
 }

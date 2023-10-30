@@ -23,6 +23,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Continue']"));
         private IWebElement Feedbacktext => _driver.WaitForElement(By.XPath("//div[@class='QuestionText BorderColor']"));
+        private IWebElement GenericGOVPage => _driver.WaitForElement(By.XPath("//span[contains(@class,'govuk-header__logotype-text')]"));
+
+
+
 
         #endregion Page Objects
 
@@ -73,6 +77,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyFeedbackPageLoaded()
         {
             return Feedbacktext.Text.Contains("Overall");
+        }
+        public bool VerifyGenericGOVPageLoaded()
+        {
+            return GenericGOVPage.Text.Contains("GOV.UK");
         }
 
         public void ClickSaveAndReturnToDashboard()

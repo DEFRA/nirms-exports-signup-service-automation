@@ -45,5 +45,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyHintTextMessage(string hintText);
         public void EditPHRNumberToCompleteEligibility(string PHRNumber);
         public void ConfirmReMosRegulationToCompleteEligibility();
+        public void ClickOnManageAccessLinkOnAnotherbusinessPage();
     }
 }

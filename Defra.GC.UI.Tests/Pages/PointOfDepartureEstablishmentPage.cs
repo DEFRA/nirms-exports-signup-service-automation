@@ -174,15 +174,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
 
-            //if (_driver.FindElements(ErrorMessage).Count > 0)
-            //{
-            //    if (_driver.FindElement(ErrorMessage).Text.Contains("This address has already been added as a place of"))
-            //    {
-            //        EstablishmentAddr1.SendKeys("123");
-            //        IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
-            //        jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
-            //    }
-            //}
+            if (_driver.FindElements(ErrorMessage).Count > 0)
+            {
+                if (_driver.FindElement(ErrorMessage).Text.Contains("Enter a postcode in Northern Ireland"))
+                {
+                    Postcode.Clear();
+                    Postcode.SendKeys("BT30 6LT");
+                    IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+                    jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
+                }
+            }
         }
 
         public bool VerifyErrorMessageOnAddAPointOfDeparture(string errorMessage)

@@ -56,7 +56,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             // _driver.WaitForElements(SignInConfirmBy).SingleOrDefault(d => d.Text.Trim().Equals("Sign out")).Click();
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
-            _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SignOut)).Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SignOut);
+            //   _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SignOut)).Click();
         }
 
         public bool IsSignedOut()

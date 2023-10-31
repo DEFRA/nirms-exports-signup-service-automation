@@ -263,7 +263,7 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Business selection                          | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.   | England | testFBO   | testName9         | testAddress1 | London  | England    | SE10 9NF     | testName10         | testAddress2 | Liverpool | England     | L1 0AN        |
+	| test4     | NORTH WEST TELUGU SANGAM                    | England | testFBO   | testName9         | testAddress1 | London  | England    | SE10 9NF     | testName10         | testAddress2 | Liverpool | England     | L1 0AN        |
 
 
 Scenario: Change manually added establishment address

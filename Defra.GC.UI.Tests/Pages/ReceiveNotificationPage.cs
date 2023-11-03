@@ -40,7 +40,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyNiConfirmationMessage(string ConfirmationMessage)
         {
-            return GBConfirmationNotification.Text.Contains(ConfirmationMessage);
+            return NIConfirmationNotification.Text.Contains(ConfirmationMessage);
         }
 
         public bool VerifyNotificationOutcomeMessage(string NotifyoutcomeMessage)

@@ -6,6 +6,7 @@
 
         public bool VerifyNotificationOutcomeMessage(string NotifyoutcomeMessage);
 
-        public bool VerifyGbNiConfirmationMessage(string ConfirmationMessage);
+        public bool VerifyGbConfirmationMessage(string ConfirmationMessage);
+        public bool VerifyNiConfirmationMessage(string ConfirmationMessage);
     }
 }

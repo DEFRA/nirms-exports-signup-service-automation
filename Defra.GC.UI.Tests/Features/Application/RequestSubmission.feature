@@ -45,7 +45,7 @@ Scenario: Receive Notice of after completion of Signup Request
 @RunOnly
 Scenario: Verify message on signup confirmation for GB establishment
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
@@ -54,6 +54,7 @@ Scenario: Verify message on signup confirmation for GB establishment
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
+    Then  user verify the Authorised Signatory status 'COMPLETED'
 	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
@@ -70,5 +71,5 @@ Scenario: Verify message on signup confirmation for GB establishment
 
 
 	Examples: 
-	| logininfo | Business selection						| Country | FBONumber| Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              | OutcomeMessage                                                                           | GBNIConfirmationMessage                                                                                                                                                                                                                                                   |                
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO  | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you with the outcome within 5 working days.| Your consignee - and any business that owns the places of destination for your consignment - will also need to sign up for the scheme. If their sign-up request is approved, you will be able to apply for General Certificates to send goods to them in Northern Ireland.|
+	| logininfo | Business selection	| Country | FBONumber| Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              | OutcomeMessage                                                                           | GBNIConfirmationMessage                                                                                                                                                                                                                                                   |                
+	| test1A    | Kaka					| England | testFBO  | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName3      | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you with the outcome within 5 working days.| Your consignee - and any business that owns the places of destination for your consignment - will also need to sign up for the scheme. If their sign-up request is approved, you will be able to apply for General Certificates to send goods to them in Northern Ireland.|

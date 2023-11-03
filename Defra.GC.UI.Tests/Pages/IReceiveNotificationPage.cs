@@ -5,5 +5,7 @@
         public bool VerifyNotificationMessage(string NotifyMessage);
 
         public bool VerifyNotificationOutcomeMessage(string NotifyoutcomeMessage);
+
+        public bool VerifyGbNiConfirmationMessage(string ConfirmationMessage);
     }
 }

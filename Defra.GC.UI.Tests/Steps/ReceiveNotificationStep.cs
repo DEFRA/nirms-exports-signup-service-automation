@@ -34,5 +34,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(CompletionPage.VerifyNotificationOutcomeMessage(message), "Mismatching the content on the completion page");
         }
+
+        [Then(@"verify  '<GBNIConfirmationMessage>' GB_NI text on request submission page")]
+        public void ThenVerifyGBNIConfirmationOfMyRequestSubmissionPage(string message)
+        {
+            Assert.True(CompletionPage.VerifyGbNiConfirmationMessage(message), "Mismatching the GB_NI content on the completion page");
+        }
     }
 }

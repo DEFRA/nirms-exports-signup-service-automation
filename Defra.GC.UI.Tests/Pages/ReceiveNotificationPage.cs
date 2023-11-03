@@ -21,6 +21,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement PageHeadingNotification => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-panel__title')]"));
 
         private IWebElement PageHeadingOutcomeNotification => _driver.WaitForElement(By.XPath("(//div[@class='govuk-grid-column-two-thirds']/p)[2]"));
+        private IWebElement ConfirmationNotification => _driver.WaitForElement(By.XPath("(//div[@class='govuk-grid-column-two-thirds']/p)[4]"));
 
         #endregion Page Objects
 
@@ -29,6 +30,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyNotificationMessage(string NotifyMessage)
         {
             return PageHeadingNotification.Text.Contains(NotifyMessage);
+        }
+
+        public bool VerifyGbNiConfirmationMessage(string ConfirmationMessage)
+        {
+            return ConfirmationNotification.Text.Contains(ConfirmationMessage);
         }
 
         public bool VerifyNotificationOutcomeMessage(string NotifyoutcomeMessage)

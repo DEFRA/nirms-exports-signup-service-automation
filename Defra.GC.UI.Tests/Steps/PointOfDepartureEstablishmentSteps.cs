@@ -213,5 +213,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyPointsOfDestinationLinkOnTasklistPage(), "Points Of Destination Link Visible On Tasklist Page");
         }
+
+        [Then(@"verify message for '([^']*)' on establishment page")]
+        [When(@"verify message for '([^']*)' on establishment page")]
+        public void WhenVerifyMessageForUserOnEstablishmentPage(string user)
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyMessageForUserOnEstablishmentPage(user), "Establishment not added successfully for user");
+        }
+
     }
 }

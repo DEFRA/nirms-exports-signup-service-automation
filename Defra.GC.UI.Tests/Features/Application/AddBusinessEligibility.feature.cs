@@ -834,9 +834,9 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify page on selecting Another business from select business page")]
+        [NUnit.Framework.DescriptionAttribute("Verify manage access link opens a new page on Another business page")]
         [NUnit.Framework.TestCaseAttribute("test", "England", "Another business", "You do not have access to any other businesses", null)]
-        public void VerifyPageOnSelectingAnotherBusinessFromSelectBusinessPage(string logininfo, string country, string businessSelection, string nextPage, string[] exampleTags)
+        public void VerifyManageAccessLinkOpensANewPageOnAnotherBusinessPage(string logininfo, string country, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -844,7 +844,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Country", country);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify page on selecting Another business from select business page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify manage access link opens a new page on Another business page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 230
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -855,8 +855,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 231
+ testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 232
- testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 233
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

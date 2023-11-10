@@ -63,5 +63,6 @@
         public bool VerifyInvalidEstablishmentEmailAddress(string invalidEmail);
 
         public void ClickOnSelectAddressButton();
+        public bool VerifyMessageForUserOnEstablishmentPage(string user);
     }
 }

@@ -204,12 +204,13 @@ Scenario: Finish adding point of Destination establishment address
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
+	And   verify message for '<Business selection>' on establishment page
 	And   click on I have finished adding points of departure
 	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage |
-	| test1A     | Kaka                | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up  |
+	| test1A    | Kaka                 | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up  |
 
 	
 Scenario: Verify no point of destination establishment address listed after removing last address

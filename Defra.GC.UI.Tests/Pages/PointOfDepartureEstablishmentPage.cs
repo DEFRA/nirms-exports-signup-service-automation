@@ -48,6 +48,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private By AddAnotherPlaceOfDispatchMessage => By.XPath("//h3[contains(text(),'Have you added all your business’ places of')]");
         private IWebElement DifferentPostcode => _driver.WaitForElement(By.XPath("//a[normalize-space()='entered the postcode correctly']"));
         private IWebElement AddressMnualLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='enter an address manually.']"));
+        private IWebElement TextMessage => _driver.WaitForElement(By.XPath("//h3[contains(@class,'govuk-fieldset__heading')]"));
 
         #endregion Page Objects
 
@@ -304,6 +305,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyInvalidEstablishmentEmailAddress(string invalidEmail)
         {
             return InvalidEmailAdressPage.Text.Contains(invalidEmail);
+        }
+
+        public bool VerifyMessageForUserOnEstablishmentPage(string user)
+        {
+            if (TextMessage.Text.Contains("Have you added all") && TextMessage.Text.Contains(user))
+                return true;
+            else
+                return false;
         }
 
         #endregion Page Methods

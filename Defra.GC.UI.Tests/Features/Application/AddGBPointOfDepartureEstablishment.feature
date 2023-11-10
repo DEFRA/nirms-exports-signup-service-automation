@@ -192,7 +192,6 @@ Scenario: Add Another GB point of Departure establishment address
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        |
 
 
-@RunOnly
 Scenario: Finish adding GB point of Departure establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

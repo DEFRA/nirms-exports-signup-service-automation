@@ -189,7 +189,7 @@ Scenario: Add Another point of Destination establishment address
 	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
 	| test1A    | Kaka                 | Northern Ireland | testFBO   | testName2         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street      | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
-	@SmokeTest @RunOnly
+	@SmokeTest
 Scenario: Finish adding point of Destination establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

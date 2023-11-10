@@ -309,7 +309,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyMessageForUserOnEstablishmentPage(string user)
         {
-            if (InvalidEmailAdressPage.Text.Contains("Have you added all") && InvalidEmailAdressPage.Text.Contains(user))
+            if (TextMessage.Text.Contains("Have you added all") && TextMessage.Text.Contains(user))
                 return true;
             else
                 return false;

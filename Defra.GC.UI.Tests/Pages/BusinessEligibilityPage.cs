@@ -63,7 +63,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 if (PageHeading.Text.Contains("Food Business Operator (FBO)"))
                 {
                     _driver.ElementImplicitWait();
-                    _driver.ClickRadioButton("My business has an FBO");
+                    _driver.ClickRadioButton("has an FBO");
                     if (!FBONumberValue.GetAttribute("value").Contains(FBONumber))
                     {
                         FBONumberEle.SendKeys(FBONumber);
@@ -87,7 +87,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 {
                     ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
                     Thread.Sleep(1000);
-                    _driver.ClickRadioButton("My business has a PHR");
+                    _driver.ClickRadioButton("has a PHR");
                     if (!PHRNumberValue.GetAttribute("value").Contains(PHRNumber))
                     {
                         PHRNumberEle.SendKeys(PHRNumber);
@@ -150,7 +150,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             Thread.Sleep(2000);
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
             Thread.Sleep(2000);
-            _driver.ClickRadioButton("My business has a PHR");
+            _driver.ClickRadioButton("has a PHR");
             PHRNumberEle.Clear();
             PHRNumberEle.SendKeys(PHRNumber);
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
@@ -166,7 +166,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectFBONumberToCompleteEligibility(string FBONumber)
         {
-            _driver.ClickRadioButton("My business has an FBO");
+            _driver.ClickRadioButton("has an FBO");
             FBONumberEle.Clear();
             FBONumberEle.SendKeys(FBONumber);
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");

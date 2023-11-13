@@ -176,8 +176,8 @@ Scenario Outline: Verify back on You can still submit sign up page navigates to 
 	Then  verify next page '<nextPage1>' is loaded 
 
 Examples: 
-    | logininfo | Business selection                        | Country | nextPage                                   |nextPage1                                                                                           |
-    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now |Does your business have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |
+    | logininfo | Business selection                        | Country | nextPage                                   |nextPage1                                                                        |
+    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |
 
 
 Scenario: Verify error message for no radiobutton selected on FBO PHR page
@@ -192,8 +192,8 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
 	Examples: 
-    | logininfo | Country | PHRNumber       | errorMessage                                       | Business selection                        |nextPage                                                                                           |
-    | test      | England | *************** | Select if your business has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |Does your business have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
+    | logininfo | Country | PHRNumber       | errorMessage               | Business selection                        |nextPage                                                                        |
+    | test      | England | *************** | has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
 
 
 
@@ -209,8 +209,8 @@ Scenario Outline: Verify hint text on FBO PHR page
 	
 
 	Examples: 
-    | logininfo | Country |Business selection                         |nextPage																							   |hintText																								|
-    | test      | England |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Does your business have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |You will have an FBO number if you’ve registered with your local authority for a food business licence. |
+    | logininfo | Country |Business selection                         |nextPage														                    |hintText								   															     |
+    | test      | England |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |You will have an FBO number if you’ve registered with your local authority for a food business licence. |
 
 
 Scenario: Verify back link from Another business page is navigated to Select your business page

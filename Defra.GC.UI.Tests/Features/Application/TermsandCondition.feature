@@ -30,7 +30,7 @@ Scenario: Verify Terms and conditions page loaded
 
 
 Scenario: Verify clicking on back link on Submit ReMoS Terms and Conditions Declaration page navigated to Check your answer page 
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
@@ -53,12 +53,15 @@ Scenario: Verify clicking on back link on Submit ReMoS Terms and Conditions Decl
 	| logininfo | Business selection                        | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstNameT2     | testAddress1 | London  | England    | Check your answers | Terms and conditions |
 
+
+
+	@RunOnly
 Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	#And   click on eligibility task
+	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
@@ -101,9 +104,9 @@ Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Co
 	| logininfo | Business selection                        | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstNameT4     | testAddress1 | London  | England    | Check your answers | Terms and conditions |
 
-
+	@RunOnly
 	Scenario: Verify text on Terms and conditions page 
-	#Given Clear Database for user '<logininfo>'
+	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

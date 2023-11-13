@@ -215,7 +215,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
             Thread.Sleep(1000);
-            _driver.ClickRadioButton("My business does not have either of these numbers");
+            _driver.ClickRadioButton("does not have either of these numbers");
             FBOContinue.Click();
         }
 

@@ -71,8 +71,8 @@ Scenario Outline: Verify back link on Assurance FBO page is going country select
 	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-    | logininfo | Country | nextPage                      | Business selection                         |
-    | test      | England | What will your business do    | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |
+    | logininfo | Country | nextPage                                                 | Business selection                         |
+    | test      | England | do under the Northern Ireland Retail Movement Scheme?    | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |
 
 
 Scenario Outline: Verify error message for invalid FBO with Assurance

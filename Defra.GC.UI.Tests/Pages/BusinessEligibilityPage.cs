@@ -51,7 +51,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             if(PageHeading.Text.Contains("Sign up"))
             CheckEligibility.Click();
-            return PageHeading.Text.Contains("What will your business do");
+             return PageHeading.Text.Contains("do under the Northern Ireland Retail Movement Scheme?");
+            
         }
 
         public void CompleteEligibility(string country, string FBONumber)
@@ -226,7 +227,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectBusinessCountry(string country)
         {
-            if (PageHeading.Text.Contains("What will your business do"))
+            // if (PageHeading.Text.Contains("What will your business do"))
+            if (PageHeading.Text.Contains("do under the Northern Ireland Retail Movement Scheme?"))
             {
                 if (_driver.FindElements(ErrorSummaryBy).Count > 0)
                 {

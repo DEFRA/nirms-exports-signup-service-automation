@@ -2,6 +2,7 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.UI.Framework.Driver;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -339,7 +340,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyDynamicBusinessErrorMessageOnSPS_AssurancePage(string businessName, string errorMessage)
         {
-            string errorHeading = businessName + errorMessage;
+            string errorHeading = "Select if " + businessName + " " + errorMessage;
             return ErrorMessage.Text.Contains(errorHeading);
         }
 

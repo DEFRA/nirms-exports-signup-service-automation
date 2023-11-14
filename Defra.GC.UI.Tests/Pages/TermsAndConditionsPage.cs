@@ -26,7 +26,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement Cdate => _driver.WaitForElement(By.XPath("//p[contains(text(),'Date of declaration')]"));
         private IWebElement SubmitSignUpButton => _driver.WaitForElement(By.XPath("//button[@id='button-assuranceSubmit']"));
-
+        private IWebElement TCsTextMessage => _driver.WaitForElement(By.XPath("//label[contains(@class,'govuk-label govuk-checkboxes__label govuk-!-font-weight-bold')]"));
         #endregion Page Objects
 
         #region Page Methods
@@ -34,6 +34,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyTandCsErrorsMessage(string errorMessage)
         {
             return ErrorMessage.Text.Contains(errorMessage);
+        }
+
+        public bool VerifyTandCsText(string TCsText)
+        {
+            return TCsTextMessage.Text.Contains(TCsText);
         }
 
         public bool VerifyTandCDate()

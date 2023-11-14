@@ -271,7 +271,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on Assurance FBO page is going country selection page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "What will your business do", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "do under the Northern Ireland Retail Movement Scheme?", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", null)]
         public void VerifyBackLinkOnAssuranceFBOPageIsGoingCountrySelectionPage(string logininfo, string country, string nextPage, string businessSelection, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -620,8 +620,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back on You can still submit sign up page navigates to FBO or PHR page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "You can still submit a sign-up request now", "Does your business have a Food Business Operator (FBO) or Plant Health Registrati" +
-            "on (PHR) number?", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "You can still submit a sign-up request now", "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?", null)]
         public void VerifyBackOnYouCanStillSubmitSignUpPageNavigatesToFBOOrPHRPage(string logininfo, string businessSelection, string country, string nextPage, string nextPage1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -675,8 +674,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for no radiobutton selected on FBO PHR page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "***************", "Select if your business has an FBO or PHR number", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Does your business have a Food Business Operator (FBO) or Plant Health Registrati" +
-            "on (PHR) number?", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "***************", "has an FBO or PHR number", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?", null)]
         public void VerifyErrorMessageForNoRadiobuttonSelectedOnFBOPHRPage(string logininfo, string country, string pHRNumber, string errorMessage, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -731,8 +729,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify hint text on FBO PHR page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Does your business have a Food Business Operator (FBO) or Plant Health Registrati" +
-            "on (PHR) number?", "You will have an FBO number if you’ve registered with your local authority for a " +
+        [NUnit.Framework.TestCaseAttribute("test", "England", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?", "You will have an FBO number if you’ve registered with your local authority for a " +
             "food business licence.", null)]
         public void VerifyHintTextOnFBOPHRPage(string logininfo, string country, string businessSelection, string nextPage, string hintText, string[] exampleTags)
         {

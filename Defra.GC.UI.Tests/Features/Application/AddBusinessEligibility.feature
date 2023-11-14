@@ -241,7 +241,7 @@ Scenario: Verify manage access link opens a new page on Another business page
     | logininfo | Country | Business selection |nextPage                                        |
     | test      | England | Another business   |You do not have access to any other businesses  |
 	
-	 @SmokeTest @RunOnly
+	 @SmokeTest
 Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

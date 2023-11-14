@@ -45,7 +45,6 @@ Scenario: No to the contact person of the Authorised Signatory and navigted to f
 	| logininfo | Business selection						| Country | FBONumber | nextPage								| contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Who is the authorised representative at | testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
-		@RunOnly
 Scenario: Verify error messages if user do not select Authorised Signatory 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

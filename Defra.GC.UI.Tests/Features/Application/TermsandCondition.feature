@@ -55,7 +55,7 @@ Scenario: Verify clicking on back link on Submit ReMoS Terms and Conditions Decl
 
 
 
-	@RunOnly
+	
 Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 	Given Clear Database for user '<logininfo>'
 	When  that I navigate to the NI GC application
@@ -104,7 +104,7 @@ Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Co
 	| logininfo | Business selection                        | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstNameT4     | testAddress1 | London  | England    | Check your answers | Terms and conditions |
 
-	@RunOnly
+	
 	Scenario: Verify text on Terms and conditions page 
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application

@@ -5,7 +5,6 @@ using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System.Data;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
@@ -140,6 +139,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void SwitchToPreviousTab()
         {
             applicationPage.SwitchToPreviousOpenTab();
+        }
+
+        [Then(@"verify dynamic name '([^']*)' in title '([^']*)' of page")]
+        public void ThenVerifyDynamicNameInTitleOfPage(string Name, string title)
+        {
+            Assert.True(applicationPage.VerifyDynamicNameInTitleOfPage(Name, title), "Signup task list page not loaded");
+        }
+
+        [Then(@"verify dynamic name '([^']*)' in error message '([^']*)'")]
+        public void ThenVerifyDynamicNameErrorMessage(string Name, string errorMessage)
+        {
+            Assert.True(applicationPage.VerifyDynamicNameErrorMessage(Name, errorMessage), "Dynamic name not matching error message");
         }
     }
 }

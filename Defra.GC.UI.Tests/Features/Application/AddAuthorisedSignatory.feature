@@ -23,7 +23,8 @@ Scenario: Add Authorised Signatory and navigated to tasklist page
 	Examples: 
 	| logininfo | Business selection                        | Country | FBONumber | nextPage                | contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Add a place of dispatch | testContactName | testPosition    | test@test.com | 01632 960 001   |
-	
+
+
 Scenario: No to the contact person of the Authorised Signatory and navigted to full name Authorised page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -38,11 +39,11 @@ Scenario: No to the contact person of the Authorised Signatory and navigted to f
 	When  click on Authorised Signatory link
 	And   select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
-	Then  verify next page '<nextPage>' is loaded 
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 
 	Examples: 
-	| logininfo | Business selection						| Country | FBONumber | nextPage											   | contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Who is the authorised representative at your business? | testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| logininfo | Business selection						| Country | FBONumber | nextPage								| contactName     | contactPosition | emailAddress  | telephoneNumber |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Who is the authorised representative at | testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
 Scenario: Verify error messages if user do not select Authorised Signatory 
 	Given Clear Database for user '<logininfo>'
@@ -57,11 +58,11 @@ Scenario: Verify error messages if user do not select Authorised Signatory
 	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   click on save and continue
-	Then  verify error message '<errorMessage>' on Authorised Signatory page
+	Then  verify dynamic name '<contactName>' in error message '<errorMessage>'
 
 	Examples: 
-	| logininfo | Business selection						 | Country | FBONumber | errorMessage											        |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Select if the contact person is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| logininfo | Business selection						 | Country | FBONumber | errorMessage				       |contactName     | contactPosition | emailAddress  | telephoneNumber |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 Scenario: Verify back to dashboard link navigated to tasklist page
 	Given Clear Database for user '<logininfo>'
@@ -102,6 +103,7 @@ Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	| logininfo |  Business selection						|Country | FBONumber |                        nextPage                                  |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.|England | testFBO   |   Sign up for the Northern Ireland Retail Movement Scheme        |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
+
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory page after completing Contact person
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -119,7 +121,7 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory pag
 	And   click on save and continue
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
-	Then  verify next page '<nextPage>' is loaded 
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 	When  select 'Yes' to the contact person is the Authorised Signatory without save
 	And   click Save and return to dashboard
 	Then  verify next page '<nextPage1>' is loaded 

@@ -27,11 +27,13 @@ Scenario: Add Authorised Signatory name
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
 	And   verify next page '<nextPage>' is loaded 
+	#Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
+	#Then  verify dynamic name '<contactName>' in title '<nextPage>' of page 
 
 	
 	Examples: 
 	| logininfo | Business selection						| Country | FBONumber | nextPage  | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   |  position | test name | test name   | test            | test@gmail.com | 01632 960 001   |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | position  | test name | test name   | test            | test@gmail.com | 01632 960 001   |
 
 
 Scenario: Verify error message for invalid Authorised Signatory name

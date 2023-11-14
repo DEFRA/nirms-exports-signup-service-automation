@@ -24,7 +24,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Continue']"));
         private IWebElement Feedbacktext => _driver.WaitForElement(By.XPath("//div[@class='QuestionText BorderColor']"));
         private IWebElement GenericGOVPage => _driver.WaitForElement(By.XPath("//span[contains(@class,'govuk-header__logotype-text')]"));
-
+        private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
 
 
 
@@ -120,6 +120,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.SwitchTo().Window(_driver.WindowHandles.First());
         }
 
+        public bool VerifyDynamicNameInTitleOfPage(string Name, string title)
+        {
+            if (PageHeading.Text.Contains(Name) && PageHeading.Text.Contains(title))
+                return true;
+            else
+                return false;
+        }
+
+        public bool VerifyDynamicNameErrorMessage(string Name, string errorMessage)
+        {
+            if (ErrorMessage.Text.Contains(Name) && ErrorMessage.Text.Contains(errorMessage))
+                return true;
+            else
+                return false;
+        }
         #endregion Page Methods
     }
 }

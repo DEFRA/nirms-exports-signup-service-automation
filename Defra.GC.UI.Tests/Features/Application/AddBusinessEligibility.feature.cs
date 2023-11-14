@@ -721,7 +721,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("click on continue button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 192
- testRunner.Then(string.Format("verify dynamic business \'{0}\' error message \'{1}\' on SPS_Assurance page", businessSelection, errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' in error message \'{1}\'", businessSelection, errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -925,8 +925,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("click on eligibility task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 251
- testRunner.Then(string.Format("verify dynamic business \'{0}\' on eligibility task on SPS Assurance page with \'{1}" +
-                            "\'", businessSelection, country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' on eligibility task on SPS Assurance page with \'{1}\'", businessSelection, country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

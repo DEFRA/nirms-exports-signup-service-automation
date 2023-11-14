@@ -3,7 +3,7 @@ Feature: AddBusinessContactName
 
 Add Business Contact Name
 
-	@SmokeTest
+	@SmokeTest @RunOnly
 Scenario: Add business contact name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -16,7 +16,8 @@ Scenario: Add business contact name
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
-	Then  verify next page '<nextPage>' is loaded 
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
+	Then  verify dynamic name '<contactName>' in title '<nextPage>' of page 
 
 	Examples: 
 	| logininfo | Business selection        | Country | FBONumber | contactName | nextPage |

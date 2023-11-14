@@ -179,7 +179,7 @@ Examples:
     | logininfo | Business selection                        | Country | nextPage                                   |nextPage1                                                                        |
     | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |
 
-	@RunOnly
+
 Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -242,7 +242,6 @@ Scenario: Verify manage access link opens a new page on Another business page
     | test      | England | Another business   |You do not have access to any other businesses  |
 	
 	 @SmokeTest 
-	 @RunOnly 
 Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

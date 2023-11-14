@@ -24,7 +24,7 @@ Scenario: Add Authorised Signatory and navigated to tasklist page
 	| logininfo | Business selection                        | Country | FBONumber | nextPage                | contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Add a place of dispatch | testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-		@RunOnly	
+
 Scenario: No to the contact person of the Authorised Signatory and navigted to full name Authorised page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -59,7 +59,7 @@ Scenario: Verify error messages if user do not select Authorised Signatory
 	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
 	And   click on save and continue
-	Then  verify dynamic name '<Business selection>' in error message '<errorMessage>'
+	Then  verify dynamic name '<contactName>' in error message '<errorMessage>'
 
 	Examples: 
 	| logininfo | Business selection						 | Country | FBONumber | errorMessage				       |contactName     | contactPosition | emailAddress  | telephoneNumber |
@@ -104,7 +104,7 @@ Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	| logininfo |  Business selection						|Country | FBONumber |                        nextPage                                  |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD.|England | testFBO   |   Sign up for the Northern Ireland Retail Movement Scheme        |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
-	@RunOnly
+
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory page after completing Contact person
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

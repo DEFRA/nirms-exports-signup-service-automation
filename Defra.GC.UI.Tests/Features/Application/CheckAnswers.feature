@@ -26,7 +26,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 
 	Examples: 
 	| logininfo | Business selection                       | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                     | nextPage3   | nextPage4          | nextPage5            | nextPage6                                                                                            |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | contact person the authorised | of dispatch | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | the authorised representative | of dispatch | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
 
 	@CrossBrowser @SmokeTest 
@@ -42,9 +42,6 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	Then  verify next page '<nextPage2>' is loaded 
 	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
 	Then  verify next page '<nextPage3>' is loaded 
-	#And   enter Establishment postcode '<AddrPostcode>'
-	#When  click on cannot find establishment link
-	#And   click on the add establishment address manually link
 	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>' with save and continue
 	Then  verify next page '<nextPage4>' is loaded 
 	When  click on continue button
@@ -55,11 +52,11 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage1                 | nextPage2                     | nextPage3      | nextPage4          | nextPage5            | nextPage6                                                                                            |
-	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | contact person the authorised | of destination | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
+	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | the authorised representative | of destination | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
 
 Scenario: Check answers and submit sign up link verification on GB points of establishment 
-	Given Clear Database for user '<logininfo>'
+    Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'

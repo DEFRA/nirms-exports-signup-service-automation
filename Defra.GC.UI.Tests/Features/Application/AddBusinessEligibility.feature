@@ -189,7 +189,7 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	And   complete eligibility task with '<Country>'
 	Then  verify next page '<nextPage>' is loaded 
 	Then  click on continue button
-	Then  verify error message '<errorMessage>' on  SPS_Assurance page
+	Then  verify dynamic business '<Business selection>' error message '<errorMessage>' on SPS_Assurance page
 
 	Examples: 
     | logininfo | Country | PHRNumber       | errorMessage               | Business selection                        |nextPage                                                                        |
@@ -241,3 +241,15 @@ Scenario: Verify manage access link opens a new page on Another business page
     | logininfo | Country | Business selection |nextPage                                        |
     | test      | England | Another business   |You do not have access to any other businesses  |
 	
+	 @SmokeTest
+Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR number
+	Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on eligibility task
+	Then  verify dynamic business '<Business selection>' on eligibility task on SPS Assurance page with '<Country>'
+
+	Examples:
+    | logininfo | Country | FBONumber | Business selection                             |
+    | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD.      |

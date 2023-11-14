@@ -146,5 +146,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             eligibilityPage.ClickOnManageAccessLinkOnAnotherbusinessPage();
         }
+
+        [Then(@"verify dynamic business '([^']*)' on eligibility task on SPS Assurance page with '([^']*)'")]
+        public void ThenVerifyDynamicBusinessOnEligibilityTaskOnSPSAssurancePageWith(string businessName, string country)
+        {
+            Assert.True(eligibilityPage.VerifyDynamicBusinessOnSPSAssurancePage(businessName, country), "Dynamic business not matching on SPS Assurance Page");
+        }
+
+        [Then(@"verify dynamic business '([^']*)' error message '([^']*)' on SPS_Assurance page")]
+        public void ThenVerifyDynamicBusinessErrorMessageOnSPS_AssurancePage(string businessName, string errorMessage)
+        {
+            Assert.True(eligibilityPage.VerifyDynamicBusinessErrorMessageOnSPS_AssurancePage(businessName, errorMessage), "Dynamic business not matching error message on SPS Assurance Page");
+        }
+
     }
 }

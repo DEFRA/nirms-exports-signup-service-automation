@@ -312,20 +312,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ManageAccessLink.Click();
         }
 
-        public bool VerifyDynamicBusinessOnSPSAssurancePage(string businessName, string country)
+        public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country)
         {
             bool status = true;
             if (!PageHeading.Text.Contains("Sign up"))
             {
                 SelectBusinessCountry(country);
 
-                string SPSPageHeading = "Does" + businessName + "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?";
+                string SPSPageHeading = "Does" + Name + "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?";
 
                 if (PageHeading.Text.Contains(SPSPageHeading))
                 {
-                    string FBOHeading = businessName + "has an FBO";
-                    string PHRHeading = businessName + "has a PHR";
-                    string NOFBOPHRHeading = businessName + "does not have either of these numbers";
+                    string FBOHeading = Name + "has an FBO";
+                    string PHRHeading = Name + "has a PHR";
+                    string NOFBOPHRHeading = Name + "does not have either of these numbers";
 
                     if (!FBORadio.Text.Contains(FBOHeading))
                         status = false;
@@ -336,12 +336,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 }
             }
             return status;
-        }
-
-        public bool VerifyDynamicBusinessErrorMessageOnSPS_AssurancePage(string businessName, string errorMessage)
-        {
-            string errorHeading = "Select if " + businessName + " " + errorMessage;
-            return ErrorMessage.Text.Contains(errorHeading);
         }
 
         #endregion Page Methods

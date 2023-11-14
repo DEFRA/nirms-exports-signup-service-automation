@@ -27,5 +27,10 @@
         public void SwitchToPreviousOpenTab();
 
         public bool VerifyGenericGOVPageLoaded();
+
+        public bool VerifyDynamicNameInTitleOfPage(string Name, string title);
+
+        public bool VerifyDynamicNameErrorMessage(string Name, string errorMessage);
+
     }
 }

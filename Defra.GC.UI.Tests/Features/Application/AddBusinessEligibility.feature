@@ -179,7 +179,7 @@ Examples:
     | logininfo | Business selection                        | Country | nextPage                                   |nextPage1                                                                        |
     | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |
 
-
+	@RunOnly
 Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -189,7 +189,7 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	And   complete eligibility task with '<Country>'
 	Then  verify next page '<nextPage>' is loaded 
 	Then  click on continue button
-	Then  verify dynamic business '<Business selection>' error message '<errorMessage>' on SPS_Assurance page
+	Then  verify dynamic name '<Business selection>' in error message '<errorMessage>'
 
 	Examples: 
     | logininfo | Country | PHRNumber       | errorMessage               | Business selection                        |nextPage                                                                        |
@@ -241,14 +241,15 @@ Scenario: Verify manage access link opens a new page on Another business page
     | logininfo | Country | Business selection |nextPage                                        |
     | test      | England | Another business   |You do not have access to any other businesses  |
 	
-	 @SmokeTest
+	 @SmokeTest 
+	 @RunOnly 
 Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   click on eligibility task
-	Then  verify dynamic business '<Business selection>' on eligibility task on SPS Assurance page with '<Country>'
+	Then  verify dynamic name '<Business selection>' on eligibility task on SPS Assurance page with '<Country>'
 
 	Examples:
     | logininfo | Country | FBONumber | Business selection                             |

@@ -12,8 +12,6 @@
 
         public void SelectAuthorisedSignatory(string authorisation);
 
-        public bool VerifyErrorMessageOnAuthorisedPage(string erromessage);
-
         public bool VerifyTheAuthorisedSignatoryStatus(string status);
 
         public void CompleteContactPersonAuthorisedSignatoryWithNo();

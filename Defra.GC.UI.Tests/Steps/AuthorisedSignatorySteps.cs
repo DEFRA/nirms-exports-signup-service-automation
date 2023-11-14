@@ -50,12 +50,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             authorisedSignatoryPage.CompleteContactPersonAuthorisedSignatoryWithYesSave();
         }
 
-        [Then(@"verify error message '([^']*)' on Authorised Signatory page")]
-        public void ThenVerifyErrorMessageOnAuthorisedSignatoryPage(string errorMessage)
-        {
-            Assert.True(authorisedSignatoryPage.VerifyErrorMessageOnAuthorisedPage(errorMessage), "Invalid error on Authorised  page");
-        }
-
         [Then(@"user verify the Authorised Signatory status '([^']*)'")]
         public void ThenUserVerifyTheAuthorisedSignatoryStatus(string status)
         {

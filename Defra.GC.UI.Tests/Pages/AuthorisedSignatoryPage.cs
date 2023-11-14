@@ -69,11 +69,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             SelectAuthorisedSignatoryWithSave("Yes");
         }
 
-        public bool VerifyErrorMessageOnAuthorisedPage(string errorMessage)
-        {
-            return ErrorMessage.Text.Contains(errorMessage);
-        }
-
         public void CompleteContactPersonAuthorisedSignatoryWithNo()
         {
             ClickOnAuthorisedSignatoryLink();

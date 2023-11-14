@@ -25,7 +25,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement PHRNumberEle => _driver.WaitForElement(By.Id("PhrNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
         private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
-        //private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//a[@href='#FboNumber']"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
         private IWebElement RegulationsErrorMessage => _driver.WaitForElement(By.XPath("//p[@id='RegulationConfirmed_Error']"));
         private IWebElement RegulationCheckbox => _driver.WaitForElementClickable(By.XPath("//label[contains(text(),'I confirm that I have understood the guidance and ')]"));
@@ -35,7 +34,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement FBONumberValue => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement PHRNumberValue => _driver.WaitForElement(By.Id("PhrNumber"));
         private IWebElement HintText => _driver.WaitForElement(By.XPath("(//p[contains(@class,'govuk-hint')])[1]"));
-       
+        private IWebElement FBORadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedFbo']/..//label"));
+        private IWebElement PHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedPhr']/..//label"));
+        private IWebElement NoFBOPHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedNone']/..//label"));
+
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -227,7 +229,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectBusinessCountry(string country)
         {
-            // if (PageHeading.Text.Contains("What will your business do"))
             if (PageHeading.Text.Contains("do under the Northern Ireland Retail Movement Scheme?"))
             {
                 if (_driver.FindElements(ErrorSummaryBy).Count > 0)
@@ -308,8 +309,40 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             if (PageHeading.Text.Contains("You do not have access to any other businesses"))
             ManageAccessLink.Click();
-            //return PageHeading.Text.Contains("What will your business do");
         }
+
+        public bool VerifyDynamicBusinessOnSPSAssurancePage(string businessName, string country)
+        {
+            bool status = true;
+            if (!PageHeading.Text.Contains("Sign up"))
+            {
+                SelectBusinessCountry(country);
+
+                string SPSPageHeading = "Does" + businessName + "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?";
+
+                if (PageHeading.Text.Contains(SPSPageHeading))
+                {
+                    string FBOHeading = businessName + "has an FBO";
+                    string PHRHeading = businessName + "has a PHR";
+                    string NOFBOPHRHeading = businessName + "does not have either of these numbers";
+
+                    if (!FBORadio.Text.Contains(FBOHeading))
+                        status = false;
+                    if (!PHRRadio.Text.Contains(PHRHeading))
+                        status = false;
+                    if (!NoFBOPHRRadio.Text.Contains(NOFBOPHRHeading))
+                        status = false;
+                }
+            }
+            return status;
+        }
+
+        public bool VerifyDynamicBusinessErrorMessageOnSPS_AssurancePage(string businessName, string errorMessage)
+        {
+            string errorHeading = businessName + errorMessage;
+            return ErrorMessage.Text.Contains(errorHeading);
+        }
+
         #endregion Page Methods
     }
 }

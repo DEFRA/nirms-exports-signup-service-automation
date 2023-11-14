@@ -37,7 +37,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", AuthorisedSignatoryLink);
-            return PageHeading.Text.Contains("contact person the authorised");
+            //return PageHeading.Text.Contains("contact person the authorised");
+            return PageHeading.Text.Contains("authorised representative");
         }
 
         public void SelectAuthorisedSignatory(string authorisation)

@@ -26,13 +26,15 @@ Scenario: Add Authorised Signatory position
 	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
+	Then  verify dynamic name '<Business selection>' in title '<nextPage1>' of page 
+	Then  verify dynamic name '<fullName>' in title '<nextPage1>' of page 
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue
 	And   verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection						| Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage      | emailAddress   | telephoneNumber |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name | administrator | email address | test@gmail.com | 01632 960 001   |
+	| logininfo | Business selection						| Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage      | emailAddress   | telephoneNumber | nextPage1 |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testContactName | testPosition    | test Name | administrator | email address | test@gmail.com | 01632 960 001   | position  |
 
 
 Scenario: Verify error message for invalid authorised signatory position

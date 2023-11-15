@@ -29,6 +29,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Methods
         public void ClickonFullName()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
+            Thread.Sleep(1000);
+            _driver.ElementImplicitWait();
             Fullname.Click();
         }
 

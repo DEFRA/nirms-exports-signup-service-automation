@@ -29,14 +29,15 @@ Scenario: Add Authorised Signatory Email Address
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue
 	When  user is on Authorised Signatory Email address page
+	Then  verify dynamic name '<fullName>' in title '<nextPage1>' of page 
     Then  user enters manually '<emailAddress>' in email address page
     And   click Save and return to dashboard
 	And   verify next page '<nextPage>' is loaded 
 
 	
 	Examples: 
-	| logininfo | Business selection						 | Country | FBONumber | nextPage  | fullName  | contactName | contactPosition | emailAddress  | telephoneNumber | Authposition |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Sign up   | test name | test name   | test            | test@gmail.com  | 01632 960 001 | administrator|
+	| logininfo | Business selection						 | Country | FBONumber | nextPage  | fullName  | contactName | contactPosition | emailAddress  | telephoneNumber | Authposition |nextPage1     |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  | England | testFBO   | Sign up   | test name | test name   | test            | test@gmail.com  | 01632 960 001 | administrator|email address |
 
 
 Scenario: Verify error message for invalid Authorised Signatory Email Address

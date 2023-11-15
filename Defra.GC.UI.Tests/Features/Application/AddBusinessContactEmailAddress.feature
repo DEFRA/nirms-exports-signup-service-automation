@@ -20,7 +20,7 @@ Scenario: Add contact email address
 	And   click on save and continue
 	And   enter email address '<emailAddress>'
 	When  click on save and continue
-	Then  verify next page '<nextPage>' is loaded 
+	Then  verify dynamic name '<contactName>' in title '<nextPage>' of page 
 
 	Examples: 
 	| logininfo | Business selection                                 | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage         |

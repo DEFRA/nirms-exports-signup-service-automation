@@ -21,13 +21,16 @@ Scenario Outline: Complete eligibility task
 
 Scenario Outline: Verify error message for not selecting the country name
 	Given Clear Database for user '<logininfo>'
-	And  that I navigate to the NI GC application
-	When sign in with valid credentials with logininfo '<logininfo>'
-	Then verify next page '<nextPage>' is loaded 
-
+	And   that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<businessName>'
+	Then  verify next page '<nextPage1>' is loaded
+	Then  click on continue button
+	Then  verify dynamic name '<businessName>' in title '<nextPage1>' of page
+	Then  verify dynamic name '<businessName>' in error message '<errorMessage>'
 	Examples: 
-    | logininfo | nextPage                           |
-    | test      | Which business do you want to sign |
+    | logininfo | nextPage                           |businessName                              |nextPage1                                             |errorMessage             |
+    | test      | Which business do you want to sign |ABC ACCOUNTANCY & MARKETING SERVICES LTD. |do under the Northern Ireland Retail Movement Scheme? |will do under the scheme |
 
 
 Scenario Outline: Verify back button on country page is going to select business page

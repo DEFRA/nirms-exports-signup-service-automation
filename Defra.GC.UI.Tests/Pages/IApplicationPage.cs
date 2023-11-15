@@ -31,6 +31,7 @@
         public bool VerifyDynamicNameInTitleOfPage(string Name, string title);
 
         public bool VerifyDynamicNameErrorMessage(string Name, string errorMessage);
+        public bool VerifyDynamicHintTextMessage(string BusinessName);
 
     }
 }

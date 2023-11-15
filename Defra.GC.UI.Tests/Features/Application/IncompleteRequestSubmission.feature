@@ -1,7 +1,7 @@
 @Regression
 Feature: Incomplete Request submission feature
 
-
+@RunOnly
 Scenario: Verify tasklist page is displayed with missing info from check your answers page 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -28,10 +28,10 @@ Scenario: Verify tasklist page is displayed with missing info from check your an
 	Then  verify next page '<nextPage4>' is loaded
 
 	Examples: 
-	| logininfo | Business selection                       | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                     | nextPage3   | nextPage4 |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | contact person the authorised | of dispatch | Sign up   |
+	| logininfo | Business selection                       | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                  | nextPage3   | nextPage4 |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | contactName the authorised | of dispatch | Sign up   |
 
-
+@RunOnly
 Scenario: Verify tasklist page is displayed with with missing info from Terms & Conditions page 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -63,5 +63,5 @@ Scenario: Verify tasklist page is displayed with with missing info from Terms & 
 	Then  verify next page '<nextPage4>' is loaded
 
 	Examples: 
-	| logininfo | Business selection                       | Country           | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                     | nextPage3   | nextPage4 |
-	| test1A    |  Kaka                                    |  Northern Ireland | testFBO   | testName      | testAddress | London | BT93 8AD     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | contact person the authorised | destination | Sign up   |
+	| logininfo | Business selection  | Country           | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                  | nextPage3   | nextPage4 |
+	| test1A    |  Kaka               |  Northern Ireland | testFBO   | testName      | testAddress | London | BT93 8AD     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | contactName the authorised | destination | Sign up   |

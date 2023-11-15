@@ -26,9 +26,8 @@ Scenario: Add Authorised Signatory name
 	And   user is on Authorised Signatory Enter name page
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
-	And   verify next page '<nextPage>' is loaded 
-	#Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
-	#Then  verify dynamic name '<contactName>' in title '<nextPage>' of page 
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
+	Then  verify dynamic name '<contactName>' in title '<nextPage>' of page 
 
 	
 	Examples: 

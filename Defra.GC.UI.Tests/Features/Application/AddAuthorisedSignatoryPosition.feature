@@ -30,7 +30,7 @@ Scenario: Add Authorised Signatory position
 	Then  verify dynamic name '<fullName>' in title '<nextPage1>' of page 
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue
-	And   verify next page '<nextPage>' is loaded 
+	Then  verify dynamic name '<fullName>' in title '<nextPage>' of page 
 
 	Examples: 
 	| logininfo | Business selection						| Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage      | emailAddress   | telephoneNumber | nextPage1 |

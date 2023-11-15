@@ -9,6 +9,6 @@
         public void CheckBoxSelected();
 
         public void ClickOnSubmitSignUp();
-        public bool VerifyTandCsText(string TCsText);
+        public bool VerifyTandCsText(string Name, string TCsText);
     }
 }

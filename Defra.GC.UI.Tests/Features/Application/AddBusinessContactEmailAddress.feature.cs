@@ -153,9 +153,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 22
  testRunner.When("click on save and continue", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
- testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", contactName, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
             }
             this.ScenarioCleanup();
         }

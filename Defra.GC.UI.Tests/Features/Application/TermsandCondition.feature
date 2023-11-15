@@ -104,7 +104,6 @@ Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Co
 	| logininfo | Business selection                        | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |
 	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstNameT4     | testAddress1 | London  | England    | Check your answers | Terms and conditions |
 
-	
 	Scenario: Verify text on Terms and conditions page 
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application
@@ -122,8 +121,7 @@ Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Co
 	And   verify next page '<nextPage>' is loaded 
 	When  click on continue button
 	Then  verify next page '<nextPage1>' is loaded
-	Then  verify the text '<T&Cstext>'on T&Cs page
-
+	Then  verify dynamic name '<Business selection>' and the text '<TCstext>' on Terms and conditions page
 Examples: 
-	| logininfo | Business selection                        | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |T&Cstext                                                                                                                                                                                                                                                                                                |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstNameT1     | testAddress1 | London  | England    | Check your answers | Terms and conditions |I confirm that ABC ACCOUNTANCY & MARKETING SERVICES LTD.'s authorised representative - contactName has read and understood the terms and conditions of the Northern Ireland Retail Movement Scheme. contactName is responsible for ensuring the requirements of the scheme are followed by the business.|
+	| logininfo | Business selection                        | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            |TCstext                                                                                                                                                                                                                                      |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstNameT1     | testAddress1 | London  | England    | Check your answers | Terms and conditions |authorised representative - contactName has read and understood the terms and conditions of the Northern Ireland Retail Movement Scheme. contactName is responsible for ensuring the requirements of the scheme are followed by the business.|

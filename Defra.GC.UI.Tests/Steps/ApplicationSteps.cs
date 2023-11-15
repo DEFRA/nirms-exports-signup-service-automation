@@ -152,5 +152,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(applicationPage.VerifyDynamicNameErrorMessage(Name, errorMessage), "Dynamic name not matching error message");
         }
+
+        [Then(@"verify dynamic name '([^']*)' in hint text")]
+        public void ThenVerifyDynamicNameInHintTextMessage(string BusinessName)
+        {
+            Assert.True(applicationPage.VerifyDynamicHintTextMessage(BusinessName), "Dynamic name not matching in hint text");
+        }
     }
 }

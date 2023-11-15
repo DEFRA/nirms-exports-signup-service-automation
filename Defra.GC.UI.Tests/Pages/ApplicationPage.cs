@@ -26,7 +26,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement GenericGOVPage => _driver.WaitForElement(By.XPath("//span[contains(@class,'govuk-header__logotype-text')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
 
-
+        private IWebElement HintText => _driver.WaitForElement(By.XPath("//p[contains(@id,'name-hint')]"));
 
         #endregion Page Objects
 
@@ -131,6 +131,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyDynamicNameErrorMessage(string Name, string errorMessage)
         {
             if (ErrorMessage.Text.Contains(Name) && ErrorMessage.Text.Contains(errorMessage))
+                return true;
+            else
+                return false;
+        }
+
+        public bool VerifyDynamicHintTextMessage(string BusinessName)
+        {
+            if (HintText.Text.Contains(BusinessName))
+              
                 return true;
             else
                 return false;

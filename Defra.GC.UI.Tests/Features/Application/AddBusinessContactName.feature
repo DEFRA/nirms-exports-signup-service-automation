@@ -14,14 +14,16 @@ Scenario: Add business contact name
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on business contact details link
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
+	Then  verify dynamic name '<Business selection>' in hint text
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
-	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
-	Then  verify dynamic name '<contactName>' in title '<nextPage>' of page 
+	Then  verify dynamic name '<Business selection>' in title '<nextPage1>' of page 
+	Then  verify dynamic name '<contactName>' in title '<nextPage1>' of page 
 
 	Examples: 
-	| logininfo | Business selection        | Country | FBONumber | contactName | nextPage |
-	| test2     | AMSAK PROPERTY LIMITED    | England | testFBO   | testName    | position |
+	| logininfo | Business selection        | Country | FBONumber | contactName | nextPage1| nextPage | 
+	| test2     | AMSAK PROPERTY LIMITED    | England | testFBO   | testName    | position | contact  |
 
 
 Scenario: Verify error message for invalid business contact name

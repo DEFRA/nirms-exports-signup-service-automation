@@ -45,10 +45,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(TandCsPage.VerifyTandCDate(), "T and C's date not matching ");
         }
-        [Then(@"verify the text '([^']*)' on Terms and conditions page")]
-        public void ThenVerifyMessageOnReMoSTermsConditionsDeclarationPage(string TCsText)
+
+        [Then(@"verify dynamic name '([^']*)' and the text '([^']*)' on Terms and conditions page")]
+        public void ThenVerifyDynamicNameAndTheTextOnTermsAndConditionsPage(string Name, string TCsText)
         {
-            Assert.True(TandCsPage.VerifyTandCsText(TCsText), "T and C's text not matching");
+            Assert.True(TandCsPage.VerifyTandCsText(Name, TCsText), "T and C's text not matching");
         }
     }
 }

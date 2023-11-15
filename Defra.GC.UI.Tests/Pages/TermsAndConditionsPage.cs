@@ -36,9 +36,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ErrorMessage.Text.Contains(errorMessage);
         }
 
-        public bool VerifyTandCsText(string TCsText)
+        public bool VerifyTandCsText(string Name, string TCsText)
         {
-            return TCsTextMessage.Text.Contains(TCsText);
+            if(TCsTextMessage.Text.Contains(Name) && TCsTextMessage.Text.Contains(TCsText))
+                return true;
+            else
+                return false;
         }
 
         public bool VerifyTandCDate()

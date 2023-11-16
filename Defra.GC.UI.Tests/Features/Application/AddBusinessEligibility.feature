@@ -114,13 +114,12 @@ Scenario Outline: Verify back link on Regulations page is navigating to SPO page
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>' and navigate to Regulations page
     And   click on back link
-	Then  user navigates to the SPO_Assurance page
+	Then  verify dynamic name '<businessName>' in title '<nextPage>' of page
 	
 	
 	Examples: 
-    | logininfo | Country | FBONumber |Business selection                         |
-    | test      | England | testFBO   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |
-
+    | logininfo | Country | FBONumber | Business selection                        | nextPage                                                                       |
+    | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? |
 
 Scenario: Verify error message for invalid PHR with Assurance
 	Given Clear Database for user '<logininfo>'

@@ -66,9 +66,9 @@ Scenario: Verify user can click Check eligibility
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on eligibility task
-	Then  verify next page '<nextPage1>' is loaded 
+	Then  verify dynamic name '<Business selection>' in title '<nextPage1>' of page
 
 	Examples:
-    | logininfo | Country | FBONumber | Business selection  | nextPage1                |
-    | test7     | England | testFBO   | Tescoman            | What will your business  |
+    | logininfo | Country | FBONumber | Business selection  | nextPage1                                              |
+    | test7     | England | testFBO   | Tescoman            | do under the Northern Ireland Retail Movement Scheme?  |
 

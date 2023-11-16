@@ -260,7 +260,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify user can click Check eligibility")]
-        [NUnit.Framework.TestCaseAttribute("test7", "England", "testFBO", "Tescoman", "What will your business", null)]
+        [NUnit.Framework.TestCaseAttribute("test7", "England", "testFBO", "Tescoman", "do under the Northern Ireland Retail Movement Scheme?", null)]
         public void VerifyUserCanClickCheckEligibility(string logininfo, string country, string fBONumber, string businessSelection, string nextPage1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -306,7 +306,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("click on eligibility task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 69
- testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

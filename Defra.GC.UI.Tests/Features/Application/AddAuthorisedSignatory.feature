@@ -122,6 +122,7 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory pag
 	And   enter telephone number '<telephoneNumber>'
 	And   click on save and continue
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
+	And   verify dynamic name '<contactName>' in title '<nextPage>' of page
 	When  select 'Yes' to the contact person is the Authorised Signatory without save
 	And   click Save and return to dashboard
 	Then  verify next page '<nextPage1>' is loaded 

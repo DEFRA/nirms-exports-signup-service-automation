@@ -1,5 +1,6 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
+using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -49,6 +50,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement DifferentPostcode => _driver.WaitForElement(By.XPath("//a[normalize-space()='entered the postcode correctly']"));
         private IWebElement AddressMnualLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='enter an address manually.']"));
         private IWebElement TextMessage => _driver.WaitForElement(By.XPath("//h3[contains(@class,'govuk-fieldset__heading')]"));
+        private IWebElement WarningMessage => _driver.WaitForElement(By.XPath("//span[@class='govuk-warning-text__assistive']/.."));
 
         #endregion Page Objects
 
@@ -310,6 +312,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyMessageForUserOnEstablishmentPage(string user)
         {
             if (TextMessage.Text.Contains("Have you added all") && TextMessage.Text.Contains(user))
+                return true;
+            else
+                return false;
+        }
+
+        public bool VerifyDynamicNameInWarningTextOnEstablishmentPage(string name, string text)
+        {
+            if (WarningMessage.Text.Contains(name) && WarningMessage.Text.Contains(text))
                 return true;
             else
                 return false;

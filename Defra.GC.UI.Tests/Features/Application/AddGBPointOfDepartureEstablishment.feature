@@ -15,11 +15,12 @@ Scenario: Verify Point of Departure link for GB countries
 	And   verify points of destination link not visible on tasklist page
 	When  click on points of departure link
 	Then  verify next page '<nextPage>' is loaded 
+	And   verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page 
 
 	Examples: 
-	| logininfo |  Business selection                        | Country  | FBONumber | postcode | nextPage    |
-	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Wales    | testFBO   | SE10 9NF | of dispatch |
-	| test      |  ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Scotland | testFBO   | SE10 9NF | of dispatch |
+	| logininfo | Business selection                        | Country  | FBONumber | postcode | nextPage    | warningText                                                   |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Wales    | testFBO   | SE10 9NF | of dispatch | You do not need to enter establishments that do not belong to |
+	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Scotland | testFBO   | SE10 9NF | of dispatch | You do not need to enter establishments that do not belong to |
 
 
 Scenario: Check Add the establishment address manually link

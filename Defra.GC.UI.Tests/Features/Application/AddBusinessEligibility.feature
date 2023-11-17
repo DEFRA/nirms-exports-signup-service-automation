@@ -114,7 +114,7 @@ Scenario Outline: Verify back link on Regulations page is navigating to SPO page
 	And   click on eligibility task
 	And   complete eligibility task with '<Country>', '<FBONumber>' and navigate to Regulations page
     And   click on back link
-	Then  verify dynamic name '<businessName>' in title '<nextPage>' of page
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 	
 	
 	Examples: 

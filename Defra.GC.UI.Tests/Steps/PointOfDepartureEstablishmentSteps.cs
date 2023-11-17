@@ -1,4 +1,5 @@
 ﻿using BoDi;
+using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -219,6 +220,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void WhenVerifyMessageForUserOnEstablishmentPage(string user)
         {
             Assert.True(pointOfDepartureEstablishmentPage.VerifyMessageForUserOnEstablishmentPage(user), "Establishment not added successfully for user");
+        }
+
+        [Then(@"verify dynamic name '([^']*)' in warning text '([^']*)' on establishment page")]
+        public void ThenVerifyDynamicNameInWarningTextOnEstablishmentPage(string Name, string Text)
+        {
+            Assert.True(pointOfDepartureEstablishmentPage.VerifyDynamicNameInWarningTextOnEstablishmentPage(Name, Text), "Establishment warning text not matching");
         }
 
     }

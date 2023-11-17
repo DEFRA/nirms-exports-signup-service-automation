@@ -23,11 +23,12 @@ Scenario: Add Authorised Signatory name
 	And   click on save and continue
 	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
-	And   user is on Authorised Signatory Enter name page
-	Then  user enters manually '<fullName>' in the full name feild
-	Then  click on save and continue
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
-	Then  verify dynamic name '<contactName>' in title '<nextPage>' of page 
+	When  user is on Authorised Signatory Enter name page
+	And   user enters manually '<fullName>' in the full name feild
+	And   click on save and continue
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
+	And   verify dynamic name '<contactName>' in title '<nextPage>' of page 
 
 	
 	Examples: 

@@ -54,7 +54,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage1                 | nextPage2                     | nextPage3      | nextPage4          | nextPage5            | nextPage6                                                                                            |
 	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | the authorised representative | of destination | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
-@RunOnly
+
 Scenario: Check answers and submit sign up link verification on GB points of establishment 
     Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application

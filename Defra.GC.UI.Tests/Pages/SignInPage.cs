@@ -23,6 +23,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Password => _driver.FindElement(By.Id("password"));
         private IWebElement SignIn => _driver.WaitForElement(By.Id("continue"));
         private IWebElement SignOut => _driver.WaitForElement(By.XPath("//a[text()='Sign out']"));
+        private IWebElement Accept_Cookies => _driver.WaitForElement(By.Id("accept-cookies"));
+
         private IWebElement SignInConfirm => _driver.WaitForElement(By.Id("Link-SignOut"));
         private By SignInConfirmBy => By.Id("Link-SignOut");
         private IWebElement SignOutConfirmMessage => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
@@ -48,7 +50,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             Password.SendKeys(password);
             _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SignIn)).Click();
             int count = _driver.WaitForElements(SignInConfirmBy).Count(d => d.Text.Trim().Equals("Sign out"));
-
+            try
+            {
+                Accept_Cookies.Click();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return count > 0;
         }
 

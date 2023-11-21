@@ -1,6 +1,7 @@
 @Regression
 Feature:  Feedback link  on the Signup Page
 
+@RunOnly
 Scenario: Verify Provide Feedback link opens iin new tab
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

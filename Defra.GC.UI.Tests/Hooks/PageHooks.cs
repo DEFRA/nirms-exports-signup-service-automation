@@ -50,6 +50,7 @@ namespace Defra.GC.UI.Tests.Hooks
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<TermsAndConditionsPage, ITermsAndConditionsPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ReceiveNotificationPage, IReceiveNotificationPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ManageAccountPage, IManageAccountPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<FooterPage, IFooterPage>());
         }
 
         private TU GetBaseWithContainer<T, TU>() where T : TU =>

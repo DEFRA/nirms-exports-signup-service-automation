@@ -13,13 +13,13 @@ Scenario: Check Add the Destination establishment address manually link
 	And   complete eligibility task with '<Country>', '<FBONumber>'
 	Then  verify eligibility task status as 'COMPLETED'
 	When  click on points of destination link
+	Then  verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
 	When  click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	Then  verify next page '<nextPage>' is loaded 
-	And   verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page 
-
+	
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | warningText                                                   |
 	| test1A    | Kaka               | Northern Ireland | testFBO   | BT52 2AJ | of destination | You do not need to enter establishments that do not belong to |

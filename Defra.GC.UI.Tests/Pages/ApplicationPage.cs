@@ -3,6 +3,7 @@ using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
+using Defra.UI.Framework.Driver;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -25,9 +26,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Feedbacktext => _driver.WaitForElement(By.XPath("//div[@class='QuestionText BorderColor']"));
         private IWebElement GenericGOVPage => _driver.WaitForElement(By.XPath("//span[contains(@class,'govuk-header__logotype-text')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
-
         private IWebElement HintText => _driver.WaitForElement(By.XPath("//p[contains(@id,'name-hint')]"));
-
+      
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -98,7 +98,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnContinue()
         {
-            Console.WriteLine("Switched to tab");
             Thread.Sleep(1000);
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", Continue);
@@ -107,6 +106,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnBackToDashboardLink()
         {
             BackToDashboardlink.Click();
+        }
+
+        public void CloseCurrentTab()
+        {
+            _driver.Close();
         }
 
         public void SwitchToNextTab()

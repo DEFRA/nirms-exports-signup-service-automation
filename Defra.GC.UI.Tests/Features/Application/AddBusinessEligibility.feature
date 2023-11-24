@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression
 
 Feature: AddBusinessEligibility
 
@@ -135,13 +135,14 @@ Scenario: Verify error message for invalid PHR with Assurance
     | logininfo | Country | PHRNumber       | errorMessage                                                      | Business selection                        |
     | test      | England | *************** | Enter a PHR number using only letters, numbers, spaces or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
 
-
+		@RunOnly
 Scenario Outline: Complete FBO or PHR number task with PHR number option
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
     And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
 	And   complete FBO or PHR number task with PHR '<PHRNumber>'
 	Then  verify next page '<nextPage>' is loaded
 
@@ -149,7 +150,7 @@ Examples:
     | logininfo | Country | PHRNumber |Business selection                         |nextPage | 
     | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |
 
-
+	@RunOnly
 Scenario Outline: Complete FBO or PHR number task with no FBO or PHR number option 
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

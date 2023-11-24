@@ -1,4 +1,4 @@
-﻿@Regression
+﻿@Regression @RunOnly
 
 Feature: AddBusinessEligibility
 
@@ -18,7 +18,6 @@ Scenario Outline: Complete eligibility task
     | logininfo | Country | Business selection                             |
     | test      | England | ABC ACCOUNTANCY & MARKETING SERVICES LTD.      |
 
-
 Scenario Outline: Verify error message for not selecting the country
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -29,7 +28,7 @@ Scenario Outline: Verify error message for not selecting the country
 	When  Navigate To Regulations Page and confirm Regulations
 	Then  verify next page '<nextPage2>' is loaded
 	And   click on continue button
-	Then  verify dynamic name '<businessName>' in title '<nextPage1>' of page
+	Then  verify dynamic name '<businessName>' in title '<nextPage2>' of page
 	Then  verify dynamic name '<businessName>' in error message '<errorMessage>'
 	Examples: 
     | logininfo | nextPage                           | businessName                              | nextPage1					        | nextPage2                                             | errorMessage             |
@@ -72,6 +71,7 @@ Scenario Outline: Verify back link on Assurance FBO page is going back to Task l
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded
 
@@ -80,12 +80,13 @@ Scenario Outline: Verify back link on Assurance FBO page is going back to Task l
     | test      | England | Sign up for the Northern Ireland Retail Movement Scheme  | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |
 
 
-Scenario Outline: Verify error message for invalid FBO with Assurance
+Scenario Outline: Verify error message for invalid FBO Number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
 	And   enter invalid FBO '<FBONumber>'
 	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
@@ -106,7 +107,6 @@ Scenario Outline: Verify confirmation error message for Regulations page
     | logininfo | Country | FBONumber | errorMessage                                                  | Business selection                       |
     | test      | England | testFBO   | Confirm that you have understood the guidance and regulations | ABC ACCOUNTANCY & MARKETING SERVICES LTD |
 
-	@RunOnly
 Scenario Outline: Verify back link on Regulations page is navigating to business sign up page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -120,12 +120,13 @@ Scenario Outline: Verify back link on Regulations page is navigating to business
     | logininfo | Country | FBONumber | Business selection                        | nextPage                                                                               |
     | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Which business do you want to sign up for the Northern Ireland Retail Movement Scheme? |
 
-Scenario: Verify error message for invalid PHR with Assurance
+Scenario: Verify error message for invalid PHR number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
 	And   enter invalid PHR '<PHRNumber>'
 	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
@@ -133,7 +134,6 @@ Scenario: Verify error message for invalid PHR with Assurance
     | logininfo | Country | PHRNumber       | errorMessage                                                      | Business selection                        |
     | test      | England | *************** | Enter a PHR number using only letters, numbers, spaces or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
 
-		@RunOnly
 Scenario Outline: Complete FBO or PHR number task with PHR number option
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -148,7 +148,6 @@ Examples:
     | logininfo | Country | PHRNumber |Business selection                         |nextPage                           | 
     | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Who is the contact person for the  |
 
-	@RunOnly
 Scenario Outline: Complete FBO or PHR number task with no FBO or PHR number option 
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -165,7 +164,6 @@ Examples:
     | logininfo | Business selection                        | Country | nextPage                                                                       | nextPage1                                  | nextPage2 |
     | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? | You can still submit a sign-up request now | Sign up   |
 
-	@RunOnly
 Scenario Outline: Verify back on You can still submit sign up page navigates to FBO or PHR page
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -183,13 +181,13 @@ Examples:
     | logininfo | Business selection                        | Country | nextPage1                                  | nextPage                                                                       | nextPage2 |
     | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now | have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? | Sign up   |
 
-
 Scenario: Verify error message for no radiobutton selected on FBO PHR page
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded 
 	Then  click on continue button
 	Then  verify dynamic name '<Business selection>' in error message '<errorMessage>'
@@ -199,13 +197,13 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
     | test      | England | *************** | has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
 
 
-
 Scenario Outline: Verify hint text on FBO PHR page
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded
 	Then  verify hint text '<hintText>' on FBO PHR page
 	

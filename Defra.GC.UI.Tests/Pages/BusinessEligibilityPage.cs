@@ -22,7 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ManageAccessLink => _driver.WaitForElement(By.XPath("((//div[contains(@class,'govuk-grid-column-two-thirds')])//a)[1]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
-        private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("eligibility"));
+        private IWebElement EligibilityStatus => _driver.WaitForElement(By.XPath("//a[contains(text(),'Purpose of business')]"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement PHRNumberEle => _driver.WaitForElement(By.Id("PhrNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));

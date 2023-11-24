@@ -82,7 +82,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             eligibilityPage.CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
         }
 
-        [When(@"enter FBO number '([^']*)' for FBO or PHR number task ")]
+        [When(@"enter FBO number '([^']*)' for FBO or PHR number task")]
         public void WhenCompleteFBOOrPHRNumberTaskWithFBO(string FBONumber)
         {
             eligibilityPage.CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);

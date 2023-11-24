@@ -13,9 +13,8 @@ Scenario: Add business contact name
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on FBOorPHRNumber task
-	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
 	And   click Save and return to dashboard
-	And   click on back link
 	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on business contact details link
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
@@ -39,7 +38,7 @@ Scenario: Verify error message for invalid business contact name
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on FBOorPHRNumber task
-	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
 	And   click Save and return to dashboard
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -60,7 +59,7 @@ Scenario: Verify error message for blank business contact name
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on FBOorPHRNumber task
-	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
 	And   click Save and return to dashboard
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -81,7 +80,7 @@ Scenario: Verify back to dashboard link on business contact name page
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on FBOorPHRNumber task
-	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
 	And   click Save and return to dashboard
 	When  click on business contact details link
 	And   click on back to dashboard link
@@ -101,7 +100,7 @@ Scenario: Verify save and return to dashboard on business contact name page
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on FBOorPHRNumber task
-	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
 	And   click Save and return to dashboard
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'

@@ -16,7 +16,6 @@ Scenario: Add business contact name
 	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
 	And   click Save and return to dashboard
 	And   click on back link
-	And   click on back to dashboard link
 	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on business contact details link
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 

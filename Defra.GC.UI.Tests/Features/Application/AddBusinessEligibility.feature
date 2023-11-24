@@ -120,7 +120,6 @@ Scenario Outline: Verify back link on Regulations page is navigating to business
     | logininfo | Country | FBONumber | Business selection                        | nextPage                                                                               |
     | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Which business do you want to sign up for the Northern Ireland Retail Movement Scheme? |
 
-	@RunOnly
 Scenario: Verify error message for invalid PHR number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -135,7 +134,6 @@ Scenario: Verify error message for invalid PHR number
     | logininfo | Country | PHRNumber       | errorMessage                                                      | Business selection                        |
     | test      | England | *************** | Enter a PHR number using only letters, numbers, spaces or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
 
-	@RunOnly
 Scenario Outline: Complete FBO or PHR number task with PHR number option
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -151,7 +149,6 @@ Examples:
     | logininfo | Country | PHRNumber |Business selection                         |nextPage                           | 
     | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Who is the contact person for the  |
 
-	@RunOnly
 Scenario Outline: Complete FBO or PHR number task with no FBO or PHR number option 
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

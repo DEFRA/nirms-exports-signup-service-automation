@@ -4,25 +4,27 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
     public interface IBusinessEligibilityPage
     {
-        public bool ClickOnCheckEligibilityTask();
+        public bool ClickOnPurposeOfBusinessTask();
 
-        public void CompleteEligibility(string country, string FBONumber);
+        public bool ClickOnFBOorPHRNumberTask();
 
-        public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber);
+        public void CompleteEligibility(string country);
 
-        public void InvaildFBOdata(string country, string FBONumber);
+        public void ContinueEligibilityTaskWithWithoutRegulations();
 
-        public void InvaildPHRdata(string country, string PHRNumber);
+        public void InvaildFBOdata(string FBONumber);
+
+        public void InvaildPHRdata(string PHRNumber);
 
         public bool VerifyEligibilityTaskStatus(string status);
 
-        public void SelectFBONumberToCompleteEligibility(string FBONumber);
+        public void CompleteFBOorPHRNumberTaskWithFBONumber(string FBONumber);
 
-        public void AssuranceCompleteWithNoFBO(string country);
+        public void CompleteFBOorPHRNumberTaskWithPHRNumber(string PHRNumber);
 
-        public void NavigateToRegulations(string country, string FBONumber);
+        public void NavigateToRegulationsAndConfirmRegulation();
 
-        public void NoFBONumberToCompleteEligibility();
+        public void ContinueFBOorPHRNumberTaskWithoutFBOorPHRNumber();
 
         public bool VerifyNoSignUpTaskListPageIsLoaded();
 
@@ -30,22 +32,26 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyErrorMessageOnRegulationsPage(string errorMessage);
 
-        public void AssurancePagWithCountry(string country);
-
         public bool VerifyEligibilityTaskFields(string country, string FBONumber);
 
         public string VerifyCountryPageloaded();
 
         public string VerifySPOPageloaded();
 
-        public void EditFBONumberToCompleteEligibility(string FBONumber);
+        public void EditFBONumberToCompleteFBOorPHRNumberTask(string FBONumber);
 
         public void SelectBusinessToSignUp(string businessSelection);
-        public void CompleteEligibilityWithCountryAndPHR(string country, string PHRNumber);
+
         public bool VerifyHintTextMessage(string hintText);
+
         public void EditPHRNumberToCompleteEligibility(string PHRNumber);
+
         public void ConfirmReMosRegulationToCompleteEligibility();
+
         public void ClickOnManageAccessLinkOnAnotherbusinessPage();
+
         public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country);
+
+        public bool VerifyFBOorPHRNumberTaskStatus(string status);
     }
 }

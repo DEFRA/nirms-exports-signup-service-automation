@@ -9,9 +9,13 @@ Scenario: Verify Point of Departure link for GB countries
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	And   verify points of destination link not visible on tasklist page
 	When  click on points of departure link
 	Then  verify next page '<nextPage>' is loaded 
@@ -28,9 +32,13 @@ Scenario: Check Add the establishment address manually link
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
@@ -48,9 +56,13 @@ Scenario: Add GB point of Departure establishment address manually
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
@@ -71,9 +83,13 @@ Scenario: Verify back to dashboard link on enter establishment postcode page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
@@ -88,9 +104,13 @@ Scenario: Verify back to dashboard link on select establishment address page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link	
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage1>' is loaded 
@@ -107,9 +127,13 @@ Scenario: Verify back to dashboard link on add establishment address page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link	
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage1>' is loaded 
@@ -128,9 +152,13 @@ Scenario: Verify back to dashboard link on add establishment address page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link	
 	And   enter Establishment postcode '<postcode>'
 	Then  click on select address button
@@ -150,9 +178,13 @@ Scenario: Verify back to dashboard link on add establishment address page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link	
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
@@ -172,9 +204,13 @@ Scenario: Add Another GB point of Departure establishment address
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -198,9 +234,13 @@ Scenario: Finish adding GB point of Departure establishment address
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -221,9 +261,13 @@ Scenario: Verify no establishment address listed after removing last address
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -245,9 +289,13 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -272,9 +320,13 @@ Scenario: Change manually added establishment address
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -297,9 +349,13 @@ Scenario: Change establishment address postcode
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on change link next to Establishment postcode
@@ -317,9 +373,13 @@ Scenario: Change establishment email address
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -341,9 +401,13 @@ Scenario:Verify back to dashboard link from address page navigated to Add a plac
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -362,9 +426,13 @@ Scenario:Verify different post code link is navigated to Add a place of dispatch
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	Then  verify next page '<nextPage>' is loaded 
@@ -379,9 +447,13 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of dis
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -398,9 +470,13 @@ Scenario:Verify save and return to dashboard on Add a place of dispatch page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 

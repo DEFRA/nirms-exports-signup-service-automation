@@ -8,9 +8,13 @@ Scenario Outline: Verify status of Business Details task
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 
 	Examples: 
@@ -23,9 +27,13 @@ Scenario Outline: Verify status of Business Details task
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
@@ -95,9 +103,13 @@ Scenario: Verify status of Authorised Signatory task with Yes Authorisation
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
@@ -116,9 +128,13 @@ Scenario: Verify status of Authorised Signatory task with No Authorisation
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
@@ -157,9 +173,13 @@ Scenario: Verify the status of Check answers and submit sign task
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'

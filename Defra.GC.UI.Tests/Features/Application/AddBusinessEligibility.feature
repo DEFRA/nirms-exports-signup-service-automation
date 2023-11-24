@@ -1,4 +1,5 @@
 ﻿@Regression
+
 Feature: AddBusinessEligibility
 
 Complete Eligibility task
@@ -9,28 +10,29 @@ Scenario Outline: Complete eligibility task
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 
 	Examples:
-    | logininfo | Country | FBONumber | Business selection                             |
-    | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD.      |
+    | logininfo | Country | Business selection                             |
+    | test      | England | ABC ACCOUNTANCY & MARKETING SERVICES LTD.      |
 
-
-Scenario Outline: Verify error message for not selecting the country name
+Scenario Outline: Verify error message for not selecting the country
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<businessName>'
+	Then  verify next page '<nextPage>' is loaded
+	When  select business to sign up '<businessName>'
 	Then  verify next page '<nextPage1>' is loaded
-	Then  click on continue button
-	Then  verify dynamic name '<businessName>' in title '<nextPage1>' of page
+	When  Navigate To Regulations Page and confirm Regulations
+	Then  verify next page '<nextPage2>' is loaded
+	And   click on continue button
+	Then  verify dynamic name '<businessName>' in title '<nextPage2>' of page
 	Then  verify dynamic name '<businessName>' in error message '<errorMessage>'
 	Examples: 
-    | logininfo | nextPage                           |businessName                              |nextPage1                                             |errorMessage             |
-    | test      | Which business do you want to sign |ABC ACCOUNTANCY & MARKETING SERVICES LTD. |do under the Northern Ireland Retail Movement Scheme? |will do under the scheme |
+    | logininfo | nextPage                           | businessName                              | nextPage1					        | nextPage2                                             | errorMessage             |
+    | test      | Which business do you want to sign | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Requirements of the Northern Ireland | do under the Northern Ireland Retail Movement Scheme? | will do under the scheme |
 
 
 Scenario Outline: Verify back button on country page is going to select business page
@@ -38,13 +40,13 @@ Scenario Outline: Verify back button on country page is going to select business
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
+	And   Navigate To Regulations Page and confirm Regulations
 	And   user clicks back button
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-    | logininfo | Business selection                        | nextPage                                 |
-    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Which business do you want to sign up    |
+    | logininfo | Business selection                        | nextPage                                |
+    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Requirements of the Northern Ireland    |
 
 
 Scenario Outline: Verify No sign up page appears when no FBO number
@@ -52,39 +54,40 @@ Scenario Outline: Verify No sign up page appears when no FBO number
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>' and without FBONumber
+	And   complete eligibility task with '<Country>'
+	And   click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded 
-	Then  click on continue button
+	When  complete FBO or PHR number task without FBO or PHR Number
 	Then  verify next page '<nextPage1>' is loaded
 
 	Examples: 
-    | logininfo | Business selection                        | Country | FBONumber  | nextPage                                   |nextPage1                                                    |
-    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England |            | You can still submit a sign-up request now |Requirements of the Northern Ireland Retail Movement Scheme  |
+    | logininfo | Business selection                        | Country | FBONumber  | nextPage                                                                |nextPage1                                   |
+    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England |            | Food Business Operator (FBO) or Plant Health Registration (PHR) number? |You can still submit a sign-up request now  |
 
 
-Scenario Outline: Verify back link on Assurance FBO page is going country selection page
+Scenario Outline: Verify back link on Assurance FBO page is going back to Task list page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
 	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
     | logininfo | Country | nextPage                                                 | Business selection                         |
-    | test      | England | do under the Northern Ireland Retail Movement Scheme?    | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |
+    | test      | England | Sign up for the Northern Ireland Retail Movement Scheme  | ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |
 
 
-Scenario Outline: Verify error message for invalid FBO with Assurance
+Scenario Outline: Verify error message for invalid FBO Number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with invalid data '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
+	And   enter invalid FBO '<FBONumber>'
 	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
 	Examples: 
@@ -97,100 +100,97 @@ Scenario Outline: Verify confirmation error message for Regulations page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>' without Regulations
+	And   continue eligibility task without Regulations
 	Then  verify error message '<errorMessage>' on  Regulations page
 	
 	Examples: 
     | logininfo | Country | FBONumber | errorMessage                                                  | Business selection                       |
     | test      | England | testFBO   | Confirm that you have understood the guidance and regulations | ABC ACCOUNTANCY & MARKETING SERVICES LTD |
 
-
-Scenario Outline: Verify back link on Regulations page is navigating to SPO page
+Scenario Outline: Verify back link on Regulations page is navigating to business sign up page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>' and navigate to Regulations page
     And   click on back link
-	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
+	Then  verify next page '<nextPage>' is loaded
 	
 	
 	Examples: 
-    | logininfo | Country | FBONumber | Business selection                        | nextPage                                                                       |
-    | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? |
+    | logininfo | Country | FBONumber | Business selection                        | nextPage                                                                               |
+    | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Which business do you want to sign up for the Northern Ireland Retail Movement Scheme? |
 
-Scenario: Verify error message for invalid PHR with Assurance
+Scenario: Verify error message for invalid PHR number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with invalid PHR data '<Country>', '<PHRNumber>'
+	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
+	And   enter invalid PHR '<PHRNumber>'
 	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
 	Examples: 
     | logininfo | Country | PHRNumber       | errorMessage                                                      | Business selection                        |
     | test      | England | *************** | Enter a PHR number using only letters, numbers, spaces or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
 
-
-Scenario Outline: Complete eligibility with PHR number option
+Scenario Outline: Complete FBO or PHR number task with PHR number option
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-    And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
+    And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
+	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded
 
 Examples: 
-    | logininfo | Country | PHRNumber |Business selection                         |nextPage | 
-    | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |
+    | logininfo | Country | PHRNumber |Business selection                         |nextPage                           | 
+    | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Who is the contact person for the  |
 
-
-Scenario Outline: Complete eligibility with no FBO or PHR number option 
+Scenario Outline: Complete FBO or PHR number task with no FBO or PHR number option 
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>' and without FBONumber
-	Then  verify next page '<nextPage>' is loaded 
-	Then  click on continue button 
-	Then  confirm regulation assurance checkbox
+	And   complete eligibility task with '<Country>'
+	Then  verify next page '<nextPage2>' is loaded
+	When  click on FBOorPHRNumber task
+	Then  verify next page '<nextPage>' is loaded
+    When  complete FBO or PHR number task without FBO or PHR Number
 	Then  verify next page '<nextPage1>' is loaded
 
 Examples: 
-    | logininfo | Business selection                        | Country | nextPage                                   |nextPage1|
-    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now |Sign up  |
-
+    | logininfo | Business selection                        | Country | nextPage                                                                       | nextPage1                                  | nextPage2 |
+    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? | You can still submit a sign-up request now | Sign up   |
 
 Scenario Outline: Verify back on You can still submit sign up page navigates to FBO or PHR page
-	Given Clear Database for user '<logininfo>'
+    Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>' and without FBONumber
-	Then  verify next page '<nextPage>' is loaded 
+	And   complete eligibility task with '<Country>'
+	Then  verify next page '<nextPage2>' is loaded
+	When  click on FBOorPHRNumber task
+	Then  verify next page '<nextPage>' is loaded
+    When  complete FBO or PHR number task without FBO or PHR Number
 	And   click on back link
-	Then  verify next page '<nextPage1>' is loaded 
+	Then  verify next page '<nextPage>' is loaded 
 
 Examples: 
-    | logininfo | Business selection                        | Country | nextPage                                   |nextPage1                                                                        |
-    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |
-
+    | logininfo | Business selection                        | Country | nextPage1                                  | nextPage                                                                       | nextPage2 |
+    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now | have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? | Sign up   |
 
 Scenario: Verify error message for no radiobutton selected on FBO PHR page
-	Given Clear Database for user '<logininfo>'
+    Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
 	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded 
-	Then  click on continue button
+	Then  click on save and continue
 	Then  verify dynamic name '<Business selection>' in error message '<errorMessage>'
 
 	Examples: 
@@ -198,15 +198,14 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
     | test      | England | *************** | has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
 
 
-
 Scenario Outline: Verify hint text on FBO PHR page
-	Given Clear Database for user '<logininfo>'
+    Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
 	And   complete eligibility task with '<Country>'
-	Then  verify next page '<nextPage>' is loaded 
+	When  click on FBOorPHRNumber task
+	Then  verify next page '<nextPage>' is loaded
 	Then  verify hint text '<hintText>' on FBO PHR page
 	
 
@@ -245,11 +244,11 @@ Scenario: Verify manage access link opens a new page on Another business page
 	
 	 @SmokeTest 
 Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR number
-	Given Clear Database for user '<logininfo>'
+    Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
+	And   complete eligibility task with '<Country>'
 	Then  verify dynamic name '<Business selection>' on eligibility task on SPS Assurance page with '<Country>'
 
 	Examples:

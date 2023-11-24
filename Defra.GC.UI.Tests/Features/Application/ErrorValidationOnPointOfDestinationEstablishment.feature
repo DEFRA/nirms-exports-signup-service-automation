@@ -8,9 +8,13 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
     When  click on points of destination link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify error message '<errorMessage>' on establishment page
@@ -27,9 +31,13 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of destination link
 	And   enter Establishment postcode '<postcode>'
 	Then  verify error message '<errorMessage>' on Add a place of destination page
@@ -45,9 +53,13 @@ Scenario: Verify valid error messages for point of Destination mandatory fields
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of destination link
 	And   enter Establishment postcode '<postcode>'
 	And   click on cannot find establishment link 
@@ -72,9 +84,13 @@ Scenario: Verify error message on add another point of Destination page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of destination link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 
@@ -92,9 +108,13 @@ Scenario: Verify duplicate point of destination establishment not allowed
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of destination link
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on cannot find establishment link 

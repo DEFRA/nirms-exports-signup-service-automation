@@ -9,9 +9,13 @@ Scenario: Verify Terms and conditions page loaded
 	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -34,9 +38,13 @@ Scenario: Verify clicking on back link on Submit ReMoS Terms and Conditions Decl
 	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -61,9 +69,13 @@ Scenario: Verify error message on Submit ReMoS Terms&Conditions Declaration page
 	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -86,9 +98,13 @@ Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Co
 	When  that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -109,9 +125,13 @@ Scenario: Verify user checks current day month and year on Submit ReMoS Terms&Co
 	When that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation

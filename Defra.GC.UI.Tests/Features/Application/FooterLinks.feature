@@ -9,8 +9,13 @@ Scenario Outline: Verify Footer links and pages on Sign up page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-    And   click on eligibility task
-    And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
+	And   complete eligibility task with '<Country>'
+	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	Then  verify next page '<nextPage>' is loaded
 	Then  click privacy link on footer page
 	Then  switch to next opened tab
@@ -58,8 +63,13 @@ Scenario Outline: Verify text and Logo on the footer of Sign up page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-    And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
+	And   complete eligibility task with '<Country>'
+	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	Then  verify next page '<nextPage>' is loaded
 	Then  verify text '<FooterText>' on the page footer
 	Then  verify the link in Footer page details '<FooterPageLink>'

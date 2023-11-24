@@ -76,13 +76,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             eligibilityPage.ContinueFBOorPHRNumberTaskWithoutFBOorPHRNumber();
         }
 
-        [When(@"complete FBO or PHR number task with PHR '([^']*)'")]
+        [When(@"enter PHR number '([^']*)' for FBO or PHR number task")]
         public void WhenCompleteFBOOrPHRNumberTaskWithPHR(string PHRNumber)
         {
             eligibilityPage.CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
         }
 
-        [When(@"complete FBO or PHR number task with FBO '([^']*)'")]
+        [When(@"enter FBO number '([^']*)' for FBO or PHR number task ")]
         public void WhenCompleteFBOOrPHRNumberTaskWithFBO(string FBONumber)
         {
             eligibilityPage.CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
@@ -157,6 +157,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenVerifyDynamicNameOnEligibilityTaskOnSPSAssurancePageWith(string Name, string country)
         {
             Assert.True(eligibilityPage.VerifyDynamicNameOnSPSAssurancePage(Name, country), "Dynamic business not matching on SPS Assurance Page");
+        }
+
+        [Then(@"verify FBOorPHRNumber task status as '([^']*)'")]
+        public void ThenVerifyFBOorPHRNumberTaskStatus(String status)
+        {
+            Assert.True(eligibilityPage.VerifyFBOorPHRNumberTaskStatus(status), "FBOorPHRNumber not completed");
         }
 
     }

@@ -22,7 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ManageAccessLink => _driver.WaitForElement(By.XPath("((//div[contains(@class,'govuk-grid-column-two-thirds')])//a)[1]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
-        private IWebElement EligibilityStatus => _driver.WaitForElement(By.XPath("//a[contains(text(),'Purpose of business')]"));
+        private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("purposeofbusiness"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement PHRNumberEle => _driver.WaitForElement(By.Id("PhrNumber"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
@@ -39,6 +39,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement FBORadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedFbo']/..//label"));
         private IWebElement PHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedPhr']/..//label"));
         private IWebElement NoFBOPHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedNone']/..//label"));
+        private IWebElement FBOorPHRTaskStatus => _driver.WaitForElement(By.Id("fbophr"));
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #endregion Page Objects
 
@@ -262,16 +264,19 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void EditFBONumberToCompleteFBOorPHRNumberTask(string FBONumber)
         {
             CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public void EditPHRNumberToCompleteEligibility(string PHRNumber)
         {
             CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
+            applicationPage.ClickSaveAndReturnToDashboard();
         }
 
         public void InvaildFBOdata(string FBONumber)
         {
             CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
+            applicationPage.ClickOnSaveAndContinue();
         }
 
         public void CompleteFBOorPHRNumberTaskWithFBONumber(string FBONumber)
@@ -281,12 +286,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             FBONumberEle.SendKeys(FBONumber);
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             Thread.Sleep(1000);
-            FBOContinue.Click();
+            //FBOContinue.Click();
         }
 
         public void InvaildPHRdata(string PHRNumber)
         {
             CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
+            applicationPage.ClickOnSaveAndContinue();
         }
 
         public void CompleteFBOorPHRNumberTaskWithPHRNumber(string PHRNumber)
@@ -299,7 +305,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             PHRNumberEle.SendKeys(PHRNumber);
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             Thread.Sleep(1000);
-            FBOContinue.Click();
+            //FBOContinue.Click();
+        }
+
+        public bool VerifyFBOorPHRNumberTaskStatus(string status)
+        {
+            string text = FBOorPHRTaskStatus.Text;
+            return FBOorPHRTaskStatus.Text.Contains(status);
         }
         #endregion Page Methods
     }

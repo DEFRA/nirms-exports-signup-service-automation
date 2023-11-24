@@ -51,5 +51,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnManageAccessLinkOnAnotherbusinessPage();
 
         public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country);
+
+        public bool VerifyFBOorPHRNumberTaskStatus(string status);
     }
 }

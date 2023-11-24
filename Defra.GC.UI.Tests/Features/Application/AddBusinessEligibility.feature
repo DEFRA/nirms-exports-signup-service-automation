@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression
 
 Feature: AddBusinessEligibility
 
@@ -120,6 +120,7 @@ Scenario Outline: Verify back link on Regulations page is navigating to business
     | logininfo | Country | FBONumber | Business selection                        | nextPage                                                                               |
     | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Which business do you want to sign up for the Northern Ireland Retail Movement Scheme? |
 
+	@RunOnly
 Scenario: Verify error message for invalid PHR number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -134,6 +135,7 @@ Scenario: Verify error message for invalid PHR number
     | logininfo | Country | PHRNumber       | errorMessage                                                      | Business selection                        |
     | test      | England | *************** | Enter a PHR number using only letters, numbers, spaces or hyphens | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |
 
+	@RunOnly
 Scenario Outline: Complete FBO or PHR number task with PHR number option
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -141,13 +143,15 @@ Scenario Outline: Complete FBO or PHR number task with PHR number option
 	And   select business to sign up '<Business selection>'
     And   complete eligibility task with '<Country>'
 	When  click on FBOorPHRNumber task
-	And   complete FBO or PHR number task with PHR '<PHRNumber>'
+	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   click on save and continue
 	Then  verify next page '<nextPage>' is loaded
 
 Examples: 
     | logininfo | Country | PHRNumber |Business selection                         |nextPage                           | 
     | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Who is the contact person for the  |
 
+	@RunOnly
 Scenario Outline: Complete FBO or PHR number task with no FBO or PHR number option 
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -189,7 +193,7 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	And   complete eligibility task with '<Country>'
 	When  click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded 
-	Then  click on continue button
+	Then  click on save and continue
 	Then  verify dynamic name '<Business selection>' in error message '<errorMessage>'
 
 	Examples: 

@@ -3,16 +3,21 @@ Feature: AddBusinessContactName
 
 Add Business Contact Name
 
-	@SmokeTest
+	@SmokeTest @RunOnly
 Scenario: Add business contact name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	And   click on back link
+	And   click on back to dashboard link
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on business contact details link
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
 	Then  verify dynamic name '<Business selection>' in hint text
@@ -31,10 +36,12 @@ Scenario: Verify error message for invalid business contact name
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
@@ -50,10 +57,12 @@ Scenario: Verify error message for blank business contact name
 	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
@@ -69,10 +78,12 @@ Scenario: Verify back to dashboard link on business contact name page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
 	When  click on business contact details link
 	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
@@ -87,10 +98,12 @@ Scenario: Verify save and return to dashboard on business contact name page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
     And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>', '<FBONumber>'
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
 	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click Save and return to dashboard

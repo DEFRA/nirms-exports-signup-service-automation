@@ -52,7 +52,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyLinkText(string LinkText)
         {
             bool status = false;
-            IList<IWebElement> LinkTextEle = _driver.FindElements(By.XPath("//p//a"));
+            IList<IWebElement> LinkTextEle = _driver.FindElements(By.XPath("//a"));
             foreach (IWebElement ele in LinkTextEle)
             {
                 if (ele.Text.Contains(LinkText))

@@ -76,9 +76,29 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify Footer links on Sign up page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testPHR", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "website for the Information Commissioner Office", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Northern Ireland Retail Movement Scheme guidance notes", "Find out about call charges", "customs requirements", "SPS Regulation EU 2023/1231", null)]
-        public void VerifyFooterLinksOnSignUpPage(string logininfo, string country, string pHRNumber, string businessSelection, string nextPage, string privacyLink1, string privacyLink2, string cookiesLink1, string accessbilityLink1, string accessbilityLink2, string contactLink1, string contactLink2, string tCsLink1, string tCsLink2, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify Footer links and pages on Sign up page")]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testPHR", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "Northern Ireland Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
+        public void VerifyFooterLinksAndPagesOnSignUpPage(
+                    string logininfo, 
+                    string country, 
+                    string pHRNumber, 
+                    string businessSelection, 
+                    string nextPage, 
+                    string privacyPageTitle, 
+                    string privacyLink1, 
+                    string privacyLink2, 
+                    string cookiesPageTitle, 
+                    string cookiesLink1, 
+                    string accessibilityPageTitle, 
+                    string accessibilityLink1, 
+                    string accessibilityLink2, 
+                    string contactPageTitle, 
+                    string contactLink1, 
+                    string contactLink2, 
+                    string tCsPageTitle, 
+                    string tCsLink1, 
+                    string tCsLink2, 
+                    string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -87,16 +107,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             argumentsOfScenario.Add("PHRNumber", pHRNumber);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
+            argumentsOfScenario.Add("Privacy page title", privacyPageTitle);
             argumentsOfScenario.Add("Privacy Link 1", privacyLink1);
             argumentsOfScenario.Add("Privacy Link 2", privacyLink2);
+            argumentsOfScenario.Add("Cookies page Title", cookiesPageTitle);
             argumentsOfScenario.Add("Cookies Link 1", cookiesLink1);
-            argumentsOfScenario.Add("Accessbility Link 1", accessbilityLink1);
-            argumentsOfScenario.Add("Accessbility Link 2", accessbilityLink2);
+            argumentsOfScenario.Add("Accessibility page title", accessibilityPageTitle);
+            argumentsOfScenario.Add("Accessibility Link 1", accessibilityLink1);
+            argumentsOfScenario.Add("Accessibility Link 2", accessibilityLink2);
+            argumentsOfScenario.Add("Contact page title", contactPageTitle);
             argumentsOfScenario.Add("Contact Link 1", contactLink1);
             argumentsOfScenario.Add("Contact Link 2", contactLink2);
+            argumentsOfScenario.Add("TCs page title", tCsPageTitle);
             argumentsOfScenario.Add("TCs Link 1", tCsLink1);
             argumentsOfScenario.Add("TCs Link 2", tCsLink2);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Footer links on Sign up page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Footer links and pages on Sign up page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -116,58 +141,109 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  testRunner.And(string.Format("select business to sign up \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 12
- testRunner.And("click on eligibility task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 13
-    testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\' country and PHR no", country, pHRNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
 #line 14
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 15
- testRunner.Then(string.Format("verify privacy link \'{0}\' \'{1}\' in the page footer", privacyLink1, privacyLink2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("click privacy link on footer page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 16
- testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("switch to next opened tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 17
- testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify the page title in Footer page \'{0}\'", privacyPageTitle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 18
- testRunner.Then(string.Format("verify cookies \'{0}\' \'<\"\">\' link in the page footer", cookiesLink1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", privacyLink1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 19
- testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", privacyLink2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 20
- testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 21
- testRunner.Then(string.Format("verify accessibility \'{0}\' \'<Acessibility Link 2>\' link in the footer page", accessbilityLink1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 22
- testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("click cookies link on footer page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 23
- testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("switch to next opened tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 24
- testRunner.Then(string.Format("verify contact link \'{0}\' \'{1}\' in the footer page", contactLink1, contactLink2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify the page title in Footer page \'{0}\'", cookiesPageTitle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 25
- testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", cookiesLink1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 26
- testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 27
- testRunner.Then(string.Format("verify TCs link \'{0}\' \'{1}\' in the footer page", tCsLink1, tCsLink2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 28
  testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 27
+ testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 28
+ testRunner.Then("click accessibility link on footer page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
 #line 29
+ testRunner.Then("switch to next opened tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 30
+ testRunner.Then(string.Format("verify the page title in Footer page \'{0}\'", accessibilityPageTitle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 31
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", accessibilityLink1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 32
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", accessibilityLink2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 33
+ testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 34
+ testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 35
+ testRunner.Then("click contact link on footer page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 36
+ testRunner.Then("switch to next opened tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 37
+ testRunner.Then(string.Format("verify the page title in Footer page \'{0}\'", contactPageTitle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 38
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", contactLink1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 39
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", contactLink2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 40
+ testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 41
+ testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 42
+ testRunner.Then("click TCs link on footer page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 43
+ testRunner.Then("switch to next opened tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 44
+ testRunner.Then(string.Format("verify the page title in Footer page \'{0}\'", tCsPageTitle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 45
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", tCsLink1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 46
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", tCsLink2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 47
+ testRunner.Then("Close Current tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 48
  testRunner.Then("switch to previous tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -176,8 +252,8 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify text and Logo on the footer of Sign up page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testPHR", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", null)]
-        public void VerifyTextAndLogoOnTheFooterOfSignUpPage(string logininfo, string country, string pHRNumber, string businessSelection, string nextPage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testPHR", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "All content is available under the", "Open Government Licence v3.0", "Crown copyright", null)]
+        public void VerifyTextAndLogoOnTheFooterOfSignUpPage(string logininfo, string country, string pHRNumber, string businessSelection, string nextPage, string footerText, string footerPageLink, string footerLogoLink, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -186,8 +262,11 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("PHRNumber", pHRNumber);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
+            argumentsOfScenario.Add("FooterText", footerText);
+            argumentsOfScenario.Add("FooterPageLink", footerPageLink);
+            argumentsOfScenario.Add("FooterLogoLink", footerLogoLink);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify text and Logo on the footer of Sign up page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 37
+#line 56
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -197,32 +276,26 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 38
-    testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 39
+#line 58
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 40
+#line 59
  testRunner.When(string.Format("sign in with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 41
+#line 60
  testRunner.And(string.Format("select business to sign up \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 42
- testRunner.And("click on eligibility task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 43
-    testRunner.And(string.Format("complete eligibility task with \'{0}\', \'{1}\' country and PHR no", country, pHRNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 44
+#line 63
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 45
- testRunner.Then("verify text and link in the footer page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 64
+ testRunner.Then(string.Format("verify text \'{0}\' on the page footer", footerText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 46
- testRunner.Then("verify the logo in the page footer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 65
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", footerPageLink), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 66
+ testRunner.Then(string.Format("verify the link in Footer page details \'{0}\'", footerLogoLink), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

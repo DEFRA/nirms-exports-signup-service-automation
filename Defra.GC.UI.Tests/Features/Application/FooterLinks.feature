@@ -9,8 +9,8 @@ Scenario Outline: Verify Footer links and pages on Sign up page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-    #And   click on eligibility task
-    #And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
+    And   click on eligibility task
+    And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
 	Then  verify next page '<nextPage>' is loaded
 	Then  click privacy link on footer page
 	Then  switch to next opened tab
@@ -58,8 +58,8 @@ Scenario Outline: Verify text and Logo on the footer of Sign up page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	#And   click on eligibility task
-    #And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
+	And   click on eligibility task
+    And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
 	Then  verify next page '<nextPage>' is loaded
 	Then  verify text '<FooterText>' on the page footer
 	Then  verify the link in Footer page details '<FooterPageLink>'
@@ -67,5 +67,5 @@ Scenario Outline: Verify text and Logo on the footer of Sign up page
 
 
 Examples: 
-    | logininfo | Country | PHRNumber |Business selection                         |nextPage | FooterText                        |FooterPageLink         |FooterLogoLink |
-    | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |All content is available under the |Open Government Licence|Crown copyright|
+    | logininfo | Country | PHRNumber |Business selection                         |nextPage | FooterText                        |FooterPageLink              |FooterLogoLink |
+    | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |All content is available under the |Open Government Licence v3.0|Crown copyright|

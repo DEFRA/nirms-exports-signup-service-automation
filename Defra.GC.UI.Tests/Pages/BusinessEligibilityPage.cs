@@ -17,7 +17,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Objects
 
-        private IWebElement CheckEligibility => _driver.WaitForElement(By.XPath("//a[contains(text(),'Check eligibility')]"));
+        private IWebElement PurposeOfBusiness => _driver.WaitForElement(By.XPath("//a[contains(text(),'Purpose of business')]"));
+        private IWebElement FBOorPHRNumber => _driver.WaitForElement(By.XPath("//a[contains(text(),'FBO or PHR number')]"));
         private IWebElement ManageAccessLink => _driver.WaitForElement(By.XPath("((//div[contains(@class,'govuk-grid-column-two-thirds')])//a)[1]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
@@ -50,58 +51,25 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Methods
 
-        public bool ClickOnCheckEligibilityTask()
+        public bool ClickOnPurposeOfBusinessTask()
         {
-            if(PageHeading.Text.Contains("Sign up"))
-            CheckEligibility.Click();
-             return PageHeading.Text.Contains("do under the Northern Ireland Retail Movement Scheme?");
-            
-        }
-
-        public void CompleteEligibility(string country, string FBONumber)
-        {
-            if (!PageHeading.Text.Contains("Sign up"))
+            if (PageHeading.Text.Contains("Sign up"))
             {
-                SelectBusinessCountry(country);
-
-                if (PageHeading.Text.Contains("Food Business Operator (FBO)"))
-                {
-                    _driver.ElementImplicitWait();
-                    _driver.ClickRadioButton("has an FBO");
-                    if (!FBONumberValue.GetAttribute("value").Contains(FBONumber))
-                    {
-                        FBONumberEle.SendKeys(FBONumber);
-                    }
-                    ClickContinue();
-                }
-                if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))
-                {
-                    ConfirmReMosRegulationToCompleteEligibility();
-                }
+                PurposeOfBusiness.Click();
             }
+            return PageHeading.Text.Contains("Business purpose");
         }
 
-        public void CompleteEligibilityWithCountryAndPHR(string country, string PHRNumber)
+        public void CompleteEligibility(string country)
         {
             if (!PageHeading.Text.Contains("Sign up"))
             {
-                SelectBusinessCountry(country);
-
-                if (PageHeading.Text.Contains("Food Business Operator (FBO)"))
-                {
-                    ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
-                    Thread.Sleep(1000);
-                    _driver.ClickRadioButton("has a PHR");
-                    if (!PHRNumberValue.GetAttribute("value").Contains(PHRNumber))
-                    {
-                        PHRNumberEle.SendKeys(PHRNumber);
-                    }
-                    ClickContinue();
-                }
                 if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))
                 {
                     ConfirmReMosRegulationToCompleteEligibility();
                 }
+
+                SelectBusinessCountry(country);
             }
         }
 
@@ -122,11 +90,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor1.ExecuteScript("arguments[0].click();", Continue);
         }
 
-        public void SelectCountryToCompleteEligibilitywithoutRegulations(string country, string FBONumber)
+        public void ContinueEligibilityTaskWithWithoutRegulations()
         {
-            SelectBusinessCountry(country);
-            SelectFBONumberToCompleteEligibility(FBONumber);
-            _driver.ElementImplicitWait();
             DoNotConfirmReMosRegulationToCompleteEligibility();
         }
 
@@ -138,44 +103,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ClickSaveAndContinue();
         }
 
-        public void InvaildFBOdata(string country, string FBONumber)
-        {
-            SelectBusinessCountry(country);
-            SelectFBONumberToCompleteEligibility(FBONumber);
-        }
 
-        public void InvaildPHRdata(string country, string PHRNumber)
+        public void NavigateToRegulationsAndConfirmRegulation()
         {
-            SelectBusinessCountry(country);
-            SelectPHRNumberToCompleteEligibility(PHRNumber);
-        }
-        public void SelectPHRNumberToCompleteEligibility(string PHRNumber)
-        {
-            Thread.Sleep(2000);
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
-            Thread.Sleep(2000);
-            _driver.ClickRadioButton("has a PHR");
-            PHRNumberEle.Clear();
-            PHRNumberEle.SendKeys(PHRNumber);
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
-            Thread.Sleep(1000);
-            FBOContinue.Click();
-        }
-
-        public void NavigateToRegulations(string country, string FBONumber)
-        {
-            SelectBusinessCountry(country);
-            SelectFBONumberToCompleteEligibility(FBONumber);
-        }
-
-        public void SelectFBONumberToCompleteEligibility(string FBONumber)
-        {
-            _driver.ClickRadioButton("has an FBO");
-            FBONumberEle.Clear();
-            FBONumberEle.SendKeys(FBONumber);
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
-            Thread.Sleep(1000);
-            FBOContinue.Click();
+            if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))
+            {
+                ConfirmReMosRegulationToCompleteEligibility();
+            }
         }
 
         public void ConfirmReMosRegulationToCompleteEligibility()
@@ -209,27 +143,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return EligibilityStatus.Text.Contains(status);
         }
 
-        public void AssuranceCompleteWithNoFBO(string country)
-        {
-            SelectBusinessCountry(country);
-            NoFBONumberToCompleteEligibility();
-        }
-
-        public void NoFBONumberToCompleteEligibility()
-        {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
-            Thread.Sleep(1000);
-            _driver.ClickRadioButton("does not have either of these numbers");
-            FBOContinue.Click();
-        }
-
-        public void AssurancePagWithCountry(string country)
-        {
-            SelectBusinessCountry(country);
-        }
-
         public void SelectBusinessCountry(string country)
         {
+            if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))
+            {
+                ConfirmReMosRegulationToCompleteEligibility();
+            }
+
             if (PageHeading.Text.Contains("do under the Northern Ireland Retail Movement Scheme?"))
             {
                 if (_driver.FindElements(ErrorSummaryBy).Count > 0)
@@ -294,18 +214,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return PageHeading.Text;
         }
 
-        public void EditFBONumberToCompleteEligibility(string FBONumber)
-        {
-            SelectFBONumberToCompleteEligibility(FBONumber);
-            ConfirmReMosRegulationToCompleteEligibility();
-        }
-
-        public void EditPHRNumberToCompleteEligibility(string PHRNumber)
-        {
-            SelectPHRNumberToCompleteEligibility(PHRNumber);
-            ConfirmReMosRegulationToCompleteEligibility();
-        }
-
         public void ClickOnManageAccessLinkOnAnotherbusinessPage()
         {
             if (PageHeading.Text.Contains("You do not have access to any other businesses"))
@@ -315,29 +223,84 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country)
         {
             bool status = true;
-            if (!PageHeading.Text.Contains("Sign up"))
+
+            string SPSPageHeading = "Does" + Name + "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?";
+
+            if (PageHeading.Text.Contains(SPSPageHeading))
             {
-                SelectBusinessCountry(country);
+                string FBOHeading = Name + "has an FBO";
+                string PHRHeading = Name + "has a PHR";
+                string NOFBOPHRHeading = Name + "does not have either of these numbers";
 
-                string SPSPageHeading = "Does" + Name + "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?";
-
-                if (PageHeading.Text.Contains(SPSPageHeading))
-                {
-                    string FBOHeading = Name + "has an FBO";
-                    string PHRHeading = Name + "has a PHR";
-                    string NOFBOPHRHeading = Name + "does not have either of these numbers";
-
-                    if (!FBORadio.Text.Contains(FBOHeading))
-                        status = false;
-                    if (!PHRRadio.Text.Contains(PHRHeading))
-                        status = false;
-                    if (!NoFBOPHRRadio.Text.Contains(NOFBOPHRHeading))
-                        status = false;
-                }
+                if (!FBORadio.Text.Contains(FBOHeading))
+                    status = false;
+                if (!PHRRadio.Text.Contains(PHRHeading))
+                    status = false;
+                if (!NoFBOPHRRadio.Text.Contains(NOFBOPHRHeading))
+                    status = false;
             }
             return status;
         }
 
+        public bool ClickOnFBOorPHRNumberTask()
+        {
+            if (PageHeading.Text.Contains("Sign up"))
+            {
+                FBOorPHRNumber.Click();
+            }
+            return PageHeading.Text.Contains("have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?");
+        }
+
+        public void ContinueFBOorPHRNumberTaskWithoutFBOorPHRNumber()
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
+            Thread.Sleep(1000);
+            _driver.ClickRadioButton("does not have either of these numbers");
+            FBOContinue.Click();
+        }
+
+        public void EditFBONumberToCompleteFBOorPHRNumberTask(string FBONumber)
+        {
+            CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
+        }
+
+        public void EditPHRNumberToCompleteEligibility(string PHRNumber)
+        {
+            CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
+        }
+
+        public void InvaildFBOdata(string FBONumber)
+        {
+            CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
+        }
+
+        public void CompleteFBOorPHRNumberTaskWithFBONumber(string FBONumber)
+        {
+            _driver.ClickRadioButton("has an FBO");
+            FBONumberEle.Clear();
+            FBONumberEle.SendKeys(FBONumber);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
+            Thread.Sleep(1000);
+            FBOContinue.Click();
+        }
+
+        public void InvaildPHRdata(string PHRNumber)
+        {
+            CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
+        }
+
+        public void CompleteFBOorPHRNumberTaskWithPHRNumber(string PHRNumber)
+        {
+            Thread.Sleep(2000);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
+            Thread.Sleep(2000);
+            _driver.ClickRadioButton("has a PHR");
+            PHRNumberEle.Clear();
+            PHRNumberEle.SendKeys(PHRNumber);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
+            Thread.Sleep(1000);
+            FBOContinue.Click();
+        }
         #endregion Page Methods
     }
 }

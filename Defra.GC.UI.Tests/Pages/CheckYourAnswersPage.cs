@@ -65,7 +65,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             }
             else if (fieldName.Contains("FBO number"))
             {
-                eligibilityPage.EditFBONumberToCompleteEligibility(fieldValue);
+                eligibilityPage.EditFBONumberToCompleteFBOorPHRNumberTask(fieldValue);
             }
             else if (fieldName.Contains("PHR number"))
             {   

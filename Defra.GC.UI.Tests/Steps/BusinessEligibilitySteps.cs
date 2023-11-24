@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
@@ -20,46 +21,47 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
         }
 
-        [When(@"click on check eligibilty task")]
-        public void WhenClickOnCheckEligibiltyTask()
+        [When(@"click on Purpose Of Business task")]
+        public void WhenClickOnPurposeOfBusinessTask()
         {
-            Assert.True(eligibilityPage.ClickOnCheckEligibilityTask(), "Select Coutry page not loaded");
+            Assert.True(eligibilityPage.ClickOnPurposeOfBusinessTask(), "Select Coutry page not loaded");
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWith(string country, string FBONumber)
+        [When(@"click on FBOorPHRNumber task")]
+        public void WhenClickOnFBOorPHRNumberTask()
         {
-            eligibilityPage.CompleteEligibility(country, FBONumber);
+            eligibilityPage.ClickOnFBOorPHRNumberTask();
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)' country and PHR no")]
-        public void WhenCompleteEligibilityTaskWithCountryAndPHR(string country, string PHRNumber)
+
+        [When(@"complete eligibility task with '([^']*)'")]
+        public void WhenCompleteEligibilityTaskWith(string country)
         {
-            eligibilityPage.CompleteEligibilityWithCountryAndPHR(country, PHRNumber);
+            eligibilityPage.CompleteEligibility(country);
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)' without Regulations")]
-        public void WhenCompleteEligibilityTaskWithWithoutRegulations(string country, string FBONumber)
+        [When(@"continue eligibility task without Regulations")]
+        public void WhenContinueEligibilityTaskWithWithoutRegulations()
         {
-            eligibilityPage.SelectCountryToCompleteEligibilitywithoutRegulations(country, FBONumber);
+            eligibilityPage.ContinueEligibilityTaskWithWithoutRegulations();
         }
 
-        [When(@"complete eligibility task with '([^']*)', '([^']*)' and navigate to Regulations page")]
-        public void WhenCompleteEligibilityTaskWithAndNavigateToRegulationsPage(string country, string FBONumber)
+        [When(@"Navigate To Regulations Page and confirm Regulations")]
+        public void WhenNavigateToRegulationsPageAndconfirmRegulations()
         {
-            eligibilityPage.NavigateToRegulations(country, FBONumber);
+            eligibilityPage.NavigateToRegulationsAndConfirmRegulation();
         }
 
-        [When(@"complete eligibility task with invalid data '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWithInvalidData(string country, string FBONumber)
+        [When(@"enter invalid FBO '([^']*)'")]
+        public void WhenEnterInvalidFBO(string FBONumber)
         {
-            eligibilityPage.InvaildFBOdata(country, FBONumber);
+            eligibilityPage.InvaildFBOdata(FBONumber);
         }
 
-        [When(@"complete eligibility task with invalid PHR data '([^']*)', '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWithInvalidPHRData(string country, string PHRNumber)
+        [When(@"enter invalid PHR '([^']*)'")]
+        public void WhenEnterInvalidPHR(string PHRNumber)
         {
-            eligibilityPage.InvaildPHRdata(country, PHRNumber);
+            eligibilityPage.InvaildPHRdata(PHRNumber);
         }
 
         [Then(@"verify eligibility task status as '([^']*)'")]
@@ -68,13 +70,24 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.VerifyEligibilityTaskStatus(status), "Eligibility not completed");
         }
 
-        [When(@"complete eligibility task with '([^']*)' and without FBONumber")]
-        public void WhenCompleteEligibilityTaskWithoutFBO(string country)
+        [When(@"complete FBO or PHR number task without FBO or PHR Number")]
+        public void WhencompleteFBOorPHRnumbertaskwithoutFBOorPHRNumber()
         {
-            eligibilityPage.AssuranceCompleteWithNoFBO(country);
+            eligibilityPage.ContinueFBOorPHRNumberTaskWithoutFBOorPHRNumber();
         }
 
-       
+        [When(@"complete FBO or PHR number task with PHR '([^']*)'")]
+        public void WhenCompleteFBOOrPHRNumberTaskWithPHR(string PHRNumber)
+        {
+            eligibilityPage.CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
+        }
+
+        [When(@"complete FBO or PHR number task with FBO '([^']*)'")]
+        public void WhenCompleteFBOOrPHRNumberTaskWithFBO(string FBONumber)
+        {
+            eligibilityPage.CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
+        }
+
 
         [Then(@"verify no signp page appears")]
         [When(@"verify no signp page appears")]
@@ -96,12 +109,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         public void ThenVerifyErrorMessageOnRegulationsPage(string errorMessage)
         {
             Assert.True(eligibilityPage.VerifyErrorMessageOnRegulationsPage(errorMessage), "Regulations invalid error not matching");
-        }
-
-        [When(@"complete eligibility task with '([^']*)'")]
-        public void WhenCompleteEligibilityTaskWith(string country)
-        {
-            eligibilityPage.AssurancePagWithCountry(country);
         }
 
         [When(@"select business to sign up '([^']*)'")]
@@ -151,5 +158,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(eligibilityPage.VerifyDynamicNameOnSPSAssurancePage(Name, country), "Dynamic business not matching on SPS Assurance Page");
         }
+
     }
 }

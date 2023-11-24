@@ -158,5 +158,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(applicationPage.VerifyDynamicHintTextMessage(BusinessName), "Dynamic name not matching in hint text");
         }
+
+
+        [Then(@"Close Current tab")]
+        public void CloseCurrentTab()
+        {
+            applicationPage.CloseCurrentTab();
+        }
+
+
     }
 }

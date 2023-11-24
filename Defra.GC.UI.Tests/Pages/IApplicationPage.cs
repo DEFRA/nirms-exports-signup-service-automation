@@ -32,6 +32,7 @@
 
         public bool VerifyDynamicNameErrorMessage(string Name, string errorMessage);
         public bool VerifyDynamicHintTextMessage(string BusinessName);
+        public void CloseCurrentTab();
 
     }
 }

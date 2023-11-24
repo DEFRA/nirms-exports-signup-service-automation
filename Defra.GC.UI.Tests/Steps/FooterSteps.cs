@@ -25,57 +25,59 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _scenarioContext = context;
             _objectContainer = container;
         }
+    
 
-      
-        [Then(@"verify privacy link '([^']*)' '([^']*)' in the page footer")]
-        public void ThenVerifyPrivacyLinkInFooterPage(string privacyLink1, string privacyLink2)
+        [Then(@"verify text '([^']*)' on the page footer")]
+        public void ThenVerifyTextLinkInFooterPage(string FooterHintText)
+        {
+            Assert.True(footerPage.VerifyFooterText(FooterHintText), "Text on Page footer not matching");
+        }
+
+        [When(@"click privacy link on footer page")]
+        [Then(@"click privacy link on footer page")]
+        public void ClickPrivacyLinkFooterPage()
         {
             footerPage.ClickOnPrivacyFooterLink();
-            Assert.True(footerPage.VerifyPrivacyFooterLink(privacyLink1, privacyLink2), "Privacy Link in Page footer not loaded");
         }
 
-
-        [Then(@"verify cookies '([^']*)' '([^']*)' link in the page footer")]
-        public void ThenVerifyCookiesLinkInFooterPage(string cookiesLink1, string cookiesLink2)
+        [When(@"click cookies link on footer page")]
+        [Then(@"click cookies link on footer page")]
+        public void ClickCookiesLinkFooterPage()
         {
             footerPage.ClickOnCookiesFooterLink();
-            Assert.True(footerPage.VerifyCookiesFooterLink(cookiesLink1, cookiesLink2), "Cookies Link in Page footer not loaded");
         }
 
-
-        [Then(@"verify accessibility '([^']*)' '([^']*)' link in the footer page")]
-        public void ThenVerifyAccessibilityLinkInFooterPage(string accessibilityLink1, string accessibilityLink2)
+        [When(@"click accessibility link on footer page")]
+        [Then(@"click accessibility link on footer page")]
+        public void ClickAccessibilityLinkFooterPage()
         {
             footerPage.ClickOnAccessibilityFooterLink();
-            Assert.True(footerPage.VerifyAccessibilityFooterLink(accessibilityLink1, accessibilityLink2), "Accessibility Link in Page footer not loaded");
         }
 
-
-        [Then(@"verify contact link '([^']*)' '([^']*)' in the footer page")]
-        public void ThenVerifyContactLinkInFooterPage(string contactLink1, string contactLink2)
+        [When(@"click contact link on footer page")]
+        [Then(@"click contact link on footer page")]
+        public void ClickContactLinkFooterPage()
         {
             footerPage.ClickOnContactFooterLink();
-            Assert.True(footerPage.VerifyContactFooterLink(contactLink1, contactLink2), "Contact Link in Page footer not loaded");
         }
 
-
-        [Then(@"verify TCs link '([^']*)' '([^']*)' in the footer page")]
-        public void ThenVerifyTCsLinkInFooterPage(string TCsLink1, string TCsLink2)
+        [When(@"click TCs link on footer page")]
+        [Then(@"click TCs link on footer page")]
+        public void ClickTCsLinkFooterPage()
         {
             footerPage.ClickOnTCsFooterLink();
-            Assert.True(footerPage.VerifyTCsFooterLink(TCsLink1, TCsLink2), "TCs Link in Page footer not loaded");
         }
 
-        [Then(@"verify text and link in the footer page")]
-        public void ThenVerifyTextLinkInFooterPage()
+        [Then(@"verify the page title in Footer page '([^']*)'")]
+        public void ThenVerifyPageTitleInFooterPage(string pageTitle)
         {
-            Assert.True(footerPage.VerifyFooterText(), "Text and  Link in Page footer not matching");
-        }
-        [Then(@"verify the logo in the page footer")]
-        public void ThenVerifyLogoInFooterPage()
-        {
-            Assert.True(footerPage.VerifyLogoInThePageFooter(), "Logo in Page footer not matching");
+            Assert.True(footerPage.VerifyPageTitle(pageTitle), "Page title not matching");
         }
 
+        [Then(@"verify the link in Footer page details '([^']*)'")]
+        public void VerifyLinkOnTheFooterPage(string Link)
+        {
+            Assert.True(footerPage.VerifyLinkText(Link), "Link not matching on Footer Page details");
+        }
     }
 }

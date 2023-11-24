@@ -3,8 +3,7 @@ using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-
-
+using OpenQA.Selenium.DevTools.V110.CSS;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
@@ -23,7 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             private IWebElement ContactLink => _driver.WaitForElement(By.XPath("(//a[contains(@class,'govuk-footer__link')])[4]"));
             private IWebElement TermsAndConditionsLink => _driver.WaitForElement(By.XPath("(//a[contains(@class,'govuk-footer__link')])[5]"));
             private IWebElement FooterText => _driver.WaitForElement(By.XPath("//span[contains(@class,'govuk-footer__licence-description')]"));
-            //private IWebElement FooterLogo => _driver.WaitForElement(By.XPath("(//div[contains(@class,'govuk-footer__meta-item')]/a)"));
+            
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -38,41 +37,41 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
            
 
-            public void ClickOnPrivacyFooterLink()
-            {
-                IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-                jsExecutor.ExecuteScript("arguments[0].click();", PrivacyLink);
-            }
+        public void ClickOnPrivacyFooterLink()
+        {
+           IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+           jsExecutor.ExecuteScript("arguments[0].click();", PrivacyLink);
+        }
 
-            public bool VerifyLinksOnFooterPage(string Link1, string Link2)
-            {
-            return (_driver.FindElement(By.LinkText(Link1)).Displayed && _driver.FindElement(By.LinkText(Link2)).Displayed) ;
-            }
+       
+        public bool VerifyPageTitle(string PageTitle)
+        {
+            return PageHeading.Text.Contains(PageTitle);
+        }
 
-            public bool VerifyPrivacyFooterLink(string privacyLink1, string privacyLink2)
+        public bool VerifyLinkText(string LinkText)
+        {
+            bool status = false;
+            IList<IWebElement> LinkTextEle = _driver.FindElements(By.XPath("//p//a"));
+            foreach (IWebElement ele in LinkTextEle)
             {
-                if (PageHeading.Text.Contains("Northern Ireland Retail Movement Scheme privacy notice"))
+                if (ele.Text.Contains(LinkText))
                 {
-                 VerifyLinksOnFooterPage(privacyLink1, privacyLink2);
+                    status = true;
+                    break;
                 }
-                return true;
             }
+            return status;
+        }
 
-            public void ClickOnCookiesFooterLink()
+
+        public void ClickOnCookiesFooterLink()
             {
                 ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,4000)", "");
                 IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
                 jsExecutor.ExecuteScript("arguments[0].click();", CookiesLink);
             }
 
-            public bool VerifyCookiesFooterLink(string cookiesLink1, string cookiesLink2)
-            {
-                if (PageHeading.Text.Contains("Cookies"))
-                {
-                VerifyLinksOnFooterPage(cookiesLink1, cookiesLink2);
-                }
-                return true;
-            }
 
         public void ClickOnAccessibilityFooterLink()
         {
@@ -81,14 +80,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor.ExecuteScript("arguments[0].click();", AccessibilityLink);
         }
 
-        public bool VerifyAccessibilityFooterLink(string accessibilityLink1, string accessibilityLink2)
-        {
-            if (PageHeading.Text.Contains("Accessibility statement for Move goods under the NI Retail Movement Scheme"))
-            {
-                VerifyLinksOnFooterPage(accessibilityLink1, accessibilityLink2);
-            }
-            return true;
-        }
 
         public void ClickOnContactFooterLink()
         {
@@ -97,14 +88,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor.ExecuteScript("arguments[0].click();", ContactLink);
         }
 
-        public bool VerifyContactFooterLink(string contactLink1 , string contactLink2)
-        {
-            if (PageHeading.Text.Contains("Contact"))
-            {
-                VerifyLinksOnFooterPage(contactLink1, contactLink2);
-            }
-            return true;
-        }
         public void ClickOnTCsFooterLink()
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,4000)", "");
@@ -112,27 +95,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             jsExecutor.ExecuteScript("arguments[0].click();", TermsAndConditionsLink);
         }
 
-        public bool VerifyTCsFooterLink(string TCsLink1, string TCsLink2)
-        {
-            if (PageHeading.Text.Contains("Northern Ireland Retail Movement Scheme Terms & Conditions"))
-            {
-                VerifyLinksOnFooterPage(TCsLink1, TCsLink2);
-            }
-            return true;
-        }
-
-        public bool VerifyFooterText()
+        public bool VerifyFooterText(string FooterHintText)
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,4000)", "");
-            if (FooterText.Text.Contains("All content is available under the"))
-            {
-                if (_driver.FindElement(By.LinkText("Open Government Licence v3.0")).Displayed);
-            }
-            return true;
-        }
-        public bool VerifyLogoInThePageFooter()
-        {
-            return (_driver.FindElement(By.LinkText("© Crown copyright")).Displayed);
+            return FooterText.Text.Contains(FooterHintText);
         }
 
         #endregion Page Methods

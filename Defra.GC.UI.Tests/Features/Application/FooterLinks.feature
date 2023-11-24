@@ -9,28 +9,47 @@ Scenario Outline: Verify Footer links and pages on Sign up page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-    And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
+    #And   click on eligibility task
+    #And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
 	Then  verify next page '<nextPage>' is loaded
-	Then  verify privacy link '<Privacy Link 1>' '<Privacy Link 2>' in the page footer
+	Then  click privacy link on footer page
+	Then  switch to next opened tab
+	Then  verify the page title in Footer page '<Privacy page title>'
+	Then  verify the link in Footer page details '<Privacy Link 1>'
+	Then  verify the link in Footer page details '<Privacy Link 2>'
 	Then  Close Current tab
 	Then  switch to previous tab
-	Then  verify cookies '<Cookies Link 1>' '<"">' link in the page footer
+	Then  click cookies link on footer page
+	Then  switch to next opened tab
+	Then  verify the page title in Footer page '<Cookies page Title>'
+	Then  verify the link in Footer page details '<Cookies Link 1>'
 	Then  Close Current tab
 	Then  switch to previous tab
-	Then  verify accessibility '<Accessbility Link 1>' '<Acessibility Link 2>' link in the footer page
+	Then  click accessibility link on footer page
+	Then  switch to next opened tab
+	Then  verify the page title in Footer page '<Accessibility page title>'
+	Then  verify the link in Footer page details '<Accessibility Link 1>'
+	Then  verify the link in Footer page details '<Accessibility Link 2>'
 	Then  Close Current tab
 	Then  switch to previous tab
-	Then  verify contact link '<Contact Link 1>' '<Contact Link 2>' in the footer page
+	Then  click contact link on footer page
+	Then  switch to next opened tab
+	Then  verify the page title in Footer page '<Contact page title>'
+	Then  verify the link in Footer page details '<Contact Link 1>'
+	Then  verify the link in Footer page details '<Contact Link 2>'
 	Then  Close Current tab
 	Then  switch to previous tab
-	Then  verify TCs link '<TCs Link 1>' '<TCs Link 2>' in the footer page
+	Then  click TCs link on footer page
+	Then  switch to next opened tab
+	Then  verify the page title in Footer page '<TCs page title>'
+	Then  verify the link in Footer page details '<TCs Link 1>'
+	Then  verify the link in Footer page details '<TCs Link 2>'
 	Then  Close Current tab
 	Then  switch to previous tab
 
 Examples: 
-    | logininfo | Country | PHRNumber |Business selection                         |nextPage | Privacy Link 1              | Privacy Link 2                               |Cookies Link 1									|Accessbility Link 1							|Accessbility Link 2                       |Contact Link 1											| Contact Link 2            |TCs Link 1           |TCs Link 2                 |
-    | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |data.protection@defra.gov.uk | DefraGroupDataProtectionOfficer@defra.gov.uk |website for the Information Commissioner Office   |Department for Environment Food & Rural Affairs|advice on making your device easier to use|Northern Ireland Retail Movement Scheme guidance notes  |Find out about call charges|customs requirements |SPS Regulation EU 2023/1231|
+    | logininfo | Country | PHRNumber |Business selection                         |nextPage |Privacy page title|Privacy Link 1				  |Privacy Link 2                              |Cookies page Title |Cookies Link 1             |Accessibility page title              |Accessibility Link 1                           |Accessibility Link 2                      |Contact page title|Contact Link 1                                       |Contact Link 2             |TCs page title    |TCs Link 1          |TCs Link 2                 |
+	| test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |privacy notice    |data.protection@defra.gov.uk  |DefraGroupDataProtectionOfficer@defra.gov.uk|Cookies            |website for the Information|Accessibility statement for Move goods|Department for Environment Food & Rural Affairs|advice on making your device easier to use|Contact           |Northern Ireland Retail Movement Scheme guidance note|Find out about call charges|Terms & Conditions|customs requirements|SPS Regulation EU 2023/1231|
 
 
 
@@ -39,13 +58,14 @@ Scenario Outline: Verify text and Logo on the footer of Sign up page
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-    And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
+	#And   click on eligibility task
+    #And   complete eligibility task with '<Country>', '<PHRNumber>' country and PHR no
 	Then  verify next page '<nextPage>' is loaded
-	Then  verify text and link in the footer page
-	Then  verify the logo in the page footer
+	Then  verify text '<FooterText>' on the page footer
+	Then  verify the link in Footer page details '<FooterPageLink>'
+	Then  verify the link in Footer page details '<FooterLogoLink>'
 
 
 Examples: 
-    | logininfo | Country | PHRNumber |Business selection                         |nextPage | 
-    | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |
+    | logininfo | Country | PHRNumber |Business selection                         |nextPage | FooterText                        |FooterPageLink         |FooterLogoLink |
+    | test      | England | testPHR   |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |Sign up  |All content is available under the |Open Government Licence|Crown copyright|

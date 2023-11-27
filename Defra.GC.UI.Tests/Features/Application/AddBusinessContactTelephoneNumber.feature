@@ -16,6 +16,7 @@ Scenario: Add contact Telephone Number
 	And   enter FBO number '<FBONumber>' for FBO or PHR number task
 	And   click Save and return to dashboard
 	Then  verify FBOorPHRNumber task status as 'COMPLETED'
+	When  click on business contact details link
 	And   enter business contact person '<contactName>'
 	And   click on save and continue
 	And   enter business contact position '<contactPosition>'

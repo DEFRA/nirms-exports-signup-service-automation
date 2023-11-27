@@ -145,7 +145,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyBusinessName(string businessName)
         {
-            return SelectedBusinessName.Text.Contains(businessName);
+            return SelectedBusinessName.Text.Contains(businessName.ToUpper());
         }
 
         #endregion Page Methods

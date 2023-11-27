@@ -443,7 +443,7 @@ Scenario: Edit and verify Check answers for PHR number eligibility flow
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   enter PHR number '<PHRNumber>' for FBO or PHR number task
 	And   click Save and return to dashboard
 	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'

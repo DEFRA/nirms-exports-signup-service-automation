@@ -77,11 +77,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Footer links and pages on Sign up page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testPHR", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "Northern Ireland Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "Northern Ireland Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
         public void VerifyFooterLinksAndPagesOnSignUpPage(
                     string logininfo, 
                     string country, 
-                    string pHRNumber, 
+                    string fBONumber, 
                     string businessSelection, 
                     string nextPage, 
                     string privacyPageTitle, 
@@ -104,7 +104,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.Application
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Country", country);
-            argumentsOfScenario.Add("PHRNumber", pHRNumber);
+            argumentsOfScenario.Add("FBONumber", fBONumber);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
             argumentsOfScenario.Add("Privacy page title", privacyPageTitle);
@@ -157,7 +157,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("click on FBOorPHRNumber task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
- testRunner.And("enter FBO number \'<FBONumber>\' for FBO or PHR number task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("enter FBO number \'{0}\' for FBO or PHR number task", fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 17
  testRunner.And("click Save and return to dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -276,14 +276,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify text and Logo on the footer of Sign up page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testPHR", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "All content is available under the", "Open Government Licence v3.0", "Crown copyright", null)]
-        public void VerifyTextAndLogoOnTheFooterOfSignUpPage(string logininfo, string country, string pHRNumber, string businessSelection, string nextPage, string footerText, string footerPageLink, string footerLogoLink, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "All content is available under the", "Open Government Licence v3.0", "Crown copyright", null)]
+        public void VerifyTextAndLogoOnTheFooterOfSignUpPage(string logininfo, string country, string fBONumber, string businessSelection, string nextPage, string footerText, string footerPageLink, string footerLogoLink, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Country", country);
-            argumentsOfScenario.Add("PHRNumber", pHRNumber);
+            argumentsOfScenario.Add("FBONumber", fBONumber);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
             argumentsOfScenario.Add("FooterText", footerText);
@@ -325,7 +325,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("click on FBOorPHRNumber task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 70
- testRunner.And("enter FBO number \'<FBONumber>\' for FBO or PHR number task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("enter FBO number \'{0}\' for FBO or PHR number task", fBONumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 71
  testRunner.And("click Save and return to dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -220,12 +220,13 @@ Scenario: Verify back link from Another business page is navigated to Select you
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	Then  verify next page '<nextPage>' is loaded 
+	Then  verify the APHA email support '<link>' is appears bottom of the page
     And   click on back link
 	Then  verify next page '<nextPage1>' is loaded 
 
 	Examples: 
-    | logininfo | Country | Business selection |nextPage                                        |nextPage1                                                                               |
-    | test      | England | Another business   |You do not have access to any other businesses  |Which business do you want to sign up for the Northern Ireland Retail Movement Scheme?  |
+    | logininfo | Country | Business selection | nextPage                                       | nextPage1                                                                              | link |
+    | test      | England | Another business   | You do not have access to any other businesses | Which business do you want to sign up for the Northern Ireland Retail Movement Scheme? | NIRetailMovementEnquiries@apha.gov.uk |
 	
 
 Scenario: Verify manage access link opens a new page on Another business page

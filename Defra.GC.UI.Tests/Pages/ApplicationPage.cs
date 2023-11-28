@@ -17,6 +17,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
         private IWebElement Backlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back')]"));
+        private IWebElement Aphalink => _driver.WaitForElement(By.XPath("//a[normalize-space()='NIRetailMovementEnquiries@apha.gov.uk']"));
         private IWebElement feedbacklink => _driver.WaitForElement(By.XPath("//a[normalize-space()='feedback']"));
         private IWebElement BackToDashboardlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back to dashboard')]"));
         private IWebElement SaveAndReturnToDashboard => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and return to dashboard')]"));
@@ -27,7 +28,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement GenericGOVPage => _driver.WaitForElement(By.XPath("//span[contains(@class,'govuk-header__logotype-text')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
         private IWebElement HintText => _driver.WaitForElement(By.XPath("//p[contains(@id,'name-hint')]"));
-      
+
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -43,6 +44,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             string text = PageHeading.Text;
             return PageHeading.Text.Contains(pageName);
+        }
+
+        public bool VerifyAPHAEmail(string link)
+        {
+            return Aphalink.Text.Contains(link);
         }
 
         public void ClickOnBackLink()
@@ -78,6 +84,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             return Feedbacktext.Text.Contains("Overall");
         }
+
         public bool VerifyGenericGOVPageLoaded()
         {
             return GenericGOVPage.Text.Contains("GOV.UK");
@@ -143,11 +150,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyDynamicHintTextMessage(string BusinessName)
         {
             if (HintText.Text.Contains(BusinessName))
-              
+
                 return true;
             else
                 return false;
         }
+
         #endregion Page Methods
     }
 }

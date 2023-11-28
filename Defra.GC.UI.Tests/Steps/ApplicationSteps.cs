@@ -76,6 +76,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(applicationPage.VerifyNextPageIsLoaded(pageName), "Expected page not loaded");
         }
 
+        [Then(@"verify the APHA email support '([^']*)' is appears bottom of the page")]
+        public void ThenVerifyTheAPHAEmailSupportIsAppearsBottomOfThePage(string link)
+        {
+            Assert.True(applicationPage.VerifyAPHAEmail(link), "Link is not loaded");
+        }
+
         [When(@"click on back link")]
         [Then(@"click on back link")]
         public void ThenClickOnBackLink()
@@ -159,13 +165,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(applicationPage.VerifyDynamicHintTextMessage(BusinessName), "Dynamic name not matching in hint text");
         }
 
-
         [Then(@"Close Current tab")]
         public void CloseCurrentTab()
         {
             applicationPage.CloseCurrentTab();
         }
-
-
     }
 }

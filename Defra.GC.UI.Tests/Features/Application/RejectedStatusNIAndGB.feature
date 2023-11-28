@@ -87,7 +87,7 @@ Scenario: Verify Add departure displayed for user with rejected signup status
 	| test1C    | Org New            | England | testFBO   | testName      | testAddress | London | Wv1 3EB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you | Your business has already submitted  | do under the Northern Ireland Retail Movement Scheme? | of dispatch  |
 
 
-@RunOnly
+
 Scenario: Verify Add destination displayed for user with rejected signup status
 	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application

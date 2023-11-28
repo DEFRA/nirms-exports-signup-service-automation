@@ -26,7 +26,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IAuthorisedSignatoryPositionPage? authorisedSignatoryPositionPage => _objectContainer.IsRegistered<IAuthorisedSignatoryPositionPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryPositionPage>() : null;
         private IAuthorisedSignatoryEmailAddressPage? authorisedSignatoryEmailPage => _objectContainer.IsRegistered<IAuthorisedSignatoryEmailAddressPage>() ? _objectContainer.Resolve<IAuthorisedSignatoryEmailAddressPage>() : null;
         private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
-
+        private IFBOorPHRNumberPage? fboPhrPage => _objectContainer.IsRegistered<IFBOorPHRNumberPage>() ? _objectContainer.Resolve<IFBOorPHRNumberPage>() : null;
         #region Page Objects
         private IWebElement ConfirmSanitaryAndPhytosanitaryBox => _driver.WaitForElementExists(By.Id("AssuranceCommitment"));
         private IWebElement AddPointOfDepartureLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add another place of dispatch')]"));
@@ -65,11 +65,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             }
             else if (fieldName.Contains("FBO number"))
             {
-                eligibilityPage.EditFBONumberToCompleteFBOorPHRNumberTask(fieldValue);
+                fboPhrPage.EditFBONumberToCompleteFBOorPHRNumberTask(fieldValue);
             }
             else if (fieldName.Contains("PHR number"))
-            {   
-                eligibilityPage.EditPHRNumberToCompleteEligibility(fieldValue);
+            {
+                fboPhrPage.EditPHRNumberToCompleteEligibility(fieldValue);
             }
             else if (fieldName.Contains("Contact name"))
             {

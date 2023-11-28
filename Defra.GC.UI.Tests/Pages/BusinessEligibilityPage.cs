@@ -35,7 +35,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private By RegulationCheckedboxBy => By.XPath("//input[@checked='checked']");
         private IWebElement FBONumberValue => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement PHRNumberValue => _driver.WaitForElement(By.Id("PhrNumber"));
-        private IWebElement HintText => _driver.WaitForElement(By.XPath("(//p[contains(@class,'govuk-hint')])[1]"));
+        
         private IWebElement FBORadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedFbo']/..//label"));
         private IWebElement PHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedPhr']/..//label"));
         private IWebElement NoFBOPHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedNone']/..//label"));
@@ -75,10 +75,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             }
         }
 
-        public bool VerifyHintTextMessage(string hintText)
-        {
-            return HintText.Text.Contains(hintText);
-        }
 
         public void ClickSaveAndContinue()
         {
@@ -244,75 +240,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return status;
         }
 
-        public bool ClickOnFBOorPHRNumberTask()
-        {
-            if (PageHeading.Text.Contains("Sign up"))
-            {
-                FBOorPHRNumber.Click();
-            }
-            return PageHeading.Text.Contains("have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?");
-        }
-
-        public void ContinueFBOorPHRNumberTaskWithoutFBOorPHRNumber()
-        {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
-            Thread.Sleep(1000);
-            _driver.ClickRadioButton("does not have either of these numbers");
-            FBOContinue.Click();
-        }
-
-        public void EditFBONumberToCompleteFBOorPHRNumberTask(string FBONumber)
-        {
-            CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
-            applicationPage.ClickSaveAndReturnToDashboard();
-        }
-
-        public void EditPHRNumberToCompleteEligibility(string PHRNumber)
-        {
-            CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
-            applicationPage.ClickSaveAndReturnToDashboard();
-        }
-
-        public void InvaildFBOdata(string FBONumber)
-        {
-            CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
-            applicationPage.ClickOnSaveAndContinue();
-        }
-
-        public void CompleteFBOorPHRNumberTaskWithFBONumber(string FBONumber)
-        {
-            _driver.ClickRadioButton("has an FBO");
-            FBONumberEle.Clear();
-            FBONumberEle.SendKeys(FBONumber);
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
-            Thread.Sleep(1000);
-            //FBOContinue.Click();
-        }
-
-        public void InvaildPHRdata(string PHRNumber)
-        {
-            CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
-            applicationPage.ClickOnSaveAndContinue();
-        }
-
-        public void CompleteFBOorPHRNumberTaskWithPHRNumber(string PHRNumber)
-        {
-            Thread.Sleep(2000);
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
-            Thread.Sleep(2000);
-            _driver.ClickRadioButton("has a PHR");
-            PHRNumberEle.Clear();
-            PHRNumberEle.SendKeys(PHRNumber);
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
-            Thread.Sleep(1000);
-            //FBOContinue.Click();
-        }
-
-        public bool VerifyFBOorPHRNumberTaskStatus(string status)
-        {
-            string text = FBOorPHRTaskStatus.Text;
-            return FBOorPHRTaskStatus.Text.Contains(status);
-        }
+       
         #endregion Page Methods
     }
 }

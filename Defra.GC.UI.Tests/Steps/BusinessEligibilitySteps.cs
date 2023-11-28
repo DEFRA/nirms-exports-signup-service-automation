@@ -27,12 +27,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.ClickOnPurposeOfBusinessTask(), "Select Coutry page not loaded");
         }
 
-        [When(@"click on FBOorPHRNumber task")]
-        public void WhenClickOnFBOorPHRNumberTask()
-        {
-            eligibilityPage.ClickOnFBOorPHRNumberTask();
-        }
-
 
         [When(@"complete eligibility task with '([^']*)'")]
         public void WhenCompleteEligibilityTaskWith(string country)
@@ -52,40 +46,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             eligibilityPage.NavigateToRegulationsAndConfirmRegulation();
         }
 
-        [When(@"enter invalid FBO '([^']*)'")]
-        public void WhenEnterInvalidFBO(string FBONumber)
-        {
-            eligibilityPage.InvaildFBOdata(FBONumber);
-        }
-
-        [When(@"enter invalid PHR '([^']*)'")]
-        public void WhenEnterInvalidPHR(string PHRNumber)
-        {
-            eligibilityPage.InvaildPHRdata(PHRNumber);
-        }
 
         [Then(@"verify eligibility task status as '([^']*)'")]
         public void ThenVerifyEligibilityTaskStatus(String status)
         {
             Assert.True(eligibilityPage.VerifyEligibilityTaskStatus(status), "Eligibility not completed");
-        }
-
-        [When(@"complete FBO or PHR number task without FBO or PHR Number")]
-        public void WhencompleteFBOorPHRnumbertaskwithoutFBOorPHRNumber()
-        {
-            eligibilityPage.ContinueFBOorPHRNumberTaskWithoutFBOorPHRNumber();
-        }
-
-        [When(@"enter PHR number '([^']*)' for FBO or PHR number task")]
-        public void WhenCompleteFBOOrPHRNumberTaskWithPHR(string PHRNumber)
-        {
-            eligibilityPage.CompleteFBOorPHRNumberTaskWithPHRNumber(PHRNumber);
-        }
-
-        [When(@"enter FBO number '([^']*)' for FBO or PHR number task")]
-        public void WhenCompleteFBOOrPHRNumberTaskWithFBO(string FBONumber)
-        {
-            eligibilityPage.CompleteFBOorPHRNumberTaskWithFBONumber(FBONumber);
         }
 
 
@@ -135,12 +100,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.AreEqual(eligibilityPage.VerifySPOPageloaded(), "Does your business have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?");
         }
 
-        [Then(@"verify hint text '([^']*)' on FBO PHR page")]
-        public void ThenVerifyOnCompletedSignUpPage(string hintText)
-        {
-            Assert.True(eligibilityPage.VerifyHintTextMessage(hintText), "Mismatching the hint text on FBO PHR page");
-        }
-
         [Then(@"confirm regulation assurance checkbox")]
         public void SelectAssuranceRegulations()
         {
@@ -159,11 +118,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(eligibilityPage.VerifyDynamicNameOnSPSAssurancePage(Name, country), "Dynamic business not matching on SPS Assurance Page");
         }
 
-        [Then(@"verify FBOorPHRNumber task status as '([^']*)'")]
-        public void ThenVerifyFBOorPHRNumberTaskStatus(String status)
-        {
-            Assert.True(eligibilityPage.VerifyFBOorPHRNumberTaskStatus(status), "FBOorPHRNumber not completed");
-        }
+       
 
     }
 }

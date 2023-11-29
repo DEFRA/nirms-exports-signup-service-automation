@@ -112,13 +112,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             eligibilityPage.ClickOnManageAccessLinkOnAnotherbusinessPage();
         }
 
-        [Then(@"verify dynamic name '([^']*)' on eligibility task on SPS Assurance page with '([^']*)'")]
-        public void ThenVerifyDynamicNameOnEligibilityTaskOnSPSAssurancePageWith(string Name, string country)
+        [Then(@"verify '([^']*)' on purpose of business page")]
+        public void ThenVerifyOnPurposeOfBusinessPage(string message)
         {
-            Assert.True(eligibilityPage.VerifyDynamicNameOnSPSAssurancePage(Name, country), "Dynamic business not matching on SPS Assurance Page");
+            Assert.True(eligibilityPage.VerifyTextOnPurposeOfBusinessPage(message), "Mismatching the content on the completion page");
         }
 
-       
-
+        [Then(@"click on Start a new SignUp Request on Purpose Of Business page")]
+        public void ClickStartNewSignUpRequestLink()
+        {
+            eligibilityPage.ClickOnStartNewSignUpRequestOnPurposeOfBusiness();
+        }
     }
 }

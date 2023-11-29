@@ -24,7 +24,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement FBOorPHRTaskStatus => _driver.WaitForElement(By.Id("fbophr"));
         private IWebElement HintText => _driver.WaitForElement(By.XPath("(//p[contains(@class,'govuk-hint')])[1]"));
         private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
-
+        private IWebElement FBORadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedFbo']/..//label"));
+        private IWebElement PHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedPhr']/..//label"));
+        private IWebElement NoFBOPHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedNone']/..//label"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -109,6 +111,29 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             string text = FBOorPHRTaskStatus.Text;
             return FBOorPHRTaskStatus.Text.Contains(status);
         }
+
+        public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country)
+        {
+            bool status = true;
+
+            string SPSPageHeading = "Does" + Name + "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?";
+
+            if (PageHeading.Text.Contains(SPSPageHeading))
+            {
+                string FBOHeading = Name + "has an FBO";
+                string PHRHeading = Name + "has a PHR";
+                string NOFBOPHRHeading = Name + "does not have either of these numbers";
+
+                if (!FBORadio.Text.Contains(FBOHeading))
+                    status = false;
+                if (!PHRRadio.Text.Contains(PHRHeading))
+                    status = false;
+                if (!NoFBOPHRRadio.Text.Contains(NOFBOPHRHeading))
+                    status = false;
+            }
+            return status;
+        }
+
         #endregion Page Methods
 
 

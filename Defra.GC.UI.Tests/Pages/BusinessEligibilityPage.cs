@@ -21,11 +21,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement FBOorPHRNumber => _driver.WaitForElement(By.XPath("//a[contains(text(),'FBO or PHR number')]"));
         private IWebElement ManageAccessLink => _driver.WaitForElement(By.XPath("((//div[contains(@class,'govuk-grid-column-two-thirds')])//a)[1]"));
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
+        private IWebElement SignNewSignUpRequest => _driver.WaitForElement(By.XPath("(//div[contains(@class,'govuk-grid-column-two-thirds')]//a)[1]"));
+        private IWebElement PurposeOfBusinessText => _driver.WaitForElement(By.XPath("(//div[@class='govuk-grid-column-two-thirds']/p)[1]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement EligibilityStatus => _driver.WaitForElement(By.Id("purposeofbusiness"));
-        private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
-        private IWebElement PHRNumberEle => _driver.WaitForElement(By.Id("PhrNumber"));
-        private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
         private IWebElement NoSignUPTaskPage => _driver.WaitForElement(By.ClassName("govuk-heading-l"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
         private IWebElement RegulationsErrorMessage => _driver.WaitForElement(By.XPath("//p[@id='RegulationConfirmed_Error']"));
@@ -34,12 +33,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private By ErrorSummaryBy => By.XPath("//h2[contains(@class,'govuk-error-summary__title')]");
         private By RegulationCheckedboxBy => By.XPath("//input[@checked='checked']");
         private IWebElement FBONumberValue => _driver.WaitForElement(By.Id("FboNumber"));
-        private IWebElement PHRNumberValue => _driver.WaitForElement(By.Id("PhrNumber"));
         
-        private IWebElement FBORadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedFbo']/..//label"));
-        private IWebElement PHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedPhr']/..//label"));
-        private IWebElement NoFBOPHRRadio => _driver.WaitForElement(By.XPath("//input[@id='OptionSelectedNone']/..//label"));
-        private IWebElement FBOorPHRTaskStatus => _driver.WaitForElement(By.Id("fbophr"));
         private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #endregion Page Objects
@@ -80,6 +74,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
             jsExecutor1.ExecuteScript("arguments[0].click();", SaveAndContinue);
+        }
+        public void ClickOnStartNewSignUpRequestOnPurposeOfBusiness()
+        {
+                SignNewSignUpRequest.Click();
         }
 
         public void ClickContinue()
@@ -218,29 +216,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ManageAccessLink.Click();
         }
 
-        public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country)
+        public bool VerifyTextOnPurposeOfBusinessPage(string Message)
         {
-            bool status = true;
-
-            string SPSPageHeading = "Does" + Name + "have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?";
-
-            if (PageHeading.Text.Contains(SPSPageHeading))
-            {
-                string FBOHeading = Name + "has an FBO";
-                string PHRHeading = Name + "has a PHR";
-                string NOFBOPHRHeading = Name + "does not have either of these numbers";
-
-                if (!FBORadio.Text.Contains(FBOHeading))
-                    status = false;
-                if (!PHRRadio.Text.Contains(PHRHeading))
-                    status = false;
-                if (!NoFBOPHRRadio.Text.Contains(NOFBOPHRHeading))
-                    status = false;
-            }
-            return status;
+            return PurposeOfBusinessText.Text.Contains(Message);
         }
-
-       
         #endregion Page Methods
     }
 }

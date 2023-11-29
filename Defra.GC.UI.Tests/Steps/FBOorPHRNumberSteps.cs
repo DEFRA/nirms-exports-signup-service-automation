@@ -69,5 +69,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(fboPhrPage.VerifyFBOorPHRNumberTaskStatus(status), "FBOorPHRNumber not completed");
         }
+
+        [Then(@"verify dynamic name '([^']*)' on eligibility task on SPS Assurance page with '([^']*)'")]
+        public void ThenVerifyDynamicNameOnEligibilityTaskOnSPSAssurancePageWith(string Name, string country)
+        {
+            Assert.True(fboPhrPage.VerifyDynamicNameOnSPSAssurancePage(Name, country), "Dynamic business not matching on SPS Assurance Page");
+        }
     }
 }

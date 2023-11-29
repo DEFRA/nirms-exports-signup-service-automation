@@ -18,6 +18,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void SelectBusinessToSignUp(string businessSelection);
         public void ConfirmReMosRegulationToCompleteEligibility();
         public void ClickOnManageAccessLinkOnAnotherbusinessPage();
-        public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country);
+        public bool VerifyTextOnPurposeOfBusinessPage(string Message);
+        public void ClickOnStartNewSignUpRequestOnPurposeOfBusiness();
     }
 }

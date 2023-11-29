@@ -104,7 +104,7 @@ Scenario: Verify manage access link opens a new page on Another business page
     | logininfo | Country | Business selection |nextPage                                        |
     | test      | England | Another business   |You do not have access to any other businesses  |
 	
-
+@RunOnly
 Scenario: Verify text on Purpose of Business page  
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -121,7 +121,7 @@ Scenario: Verify text on Purpose of Business page
     | test      | England		   | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |Your business will be sending consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.  |
     | test1A    | Northern Ireland | testFBO   | Kaka                                      |Your business will be receiving consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.|
 
-
+@RunOnly
 Scenario: Verify back to dashboard link on Purpose of Business page  
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -138,7 +138,7 @@ Scenario: Verify back to dashboard link on Purpose of Business page
     | logininfo | Country		   | FBONumber | Business selection                        |nextPage |                                                                                             
 	| test      | England		   | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |Sign up  | 
 
-
+@RunOnly
 Scenario: Verify Start new SignUp request link on Purpose of Business page navigates to select business page  
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

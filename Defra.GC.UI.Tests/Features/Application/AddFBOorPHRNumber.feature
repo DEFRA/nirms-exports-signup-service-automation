@@ -147,7 +147,7 @@ Scenario Outline: Verify hint text on FBO PHR page
     | logininfo | Country |Business selection                         |nextPage														                    |hintText								   															     |
     | test      | England |ABC ACCOUNTANCY & MARKETING SERVICES LTD.  |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |You will have an FBO number if you’ve registered with your local authority for a food business licence. |
 
- @SmokeTest 
+ @SmokeTest @RunOnly
 Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR number
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

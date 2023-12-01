@@ -19,7 +19,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement PHRNumberEle => _driver.WaitForElement(By.Id("PhrNumber"));
-        private IWebElement FBOContinue => _driver.WaitForElement(By.Id("button-rbFboSubmit"));
+        private IWebElement FBOContinue => _driver.WaitForElement(By.Id("btnFboSubmit"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
         private IWebElement FBOorPHRTaskStatus => _driver.WaitForElement(By.Id("fbophr"));
         private IWebElement HintText => _driver.WaitForElement(By.XPath("(//p[contains(@class,'govuk-hint')])[1]"));

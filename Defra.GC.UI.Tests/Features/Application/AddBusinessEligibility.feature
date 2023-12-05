@@ -154,3 +154,35 @@ Scenario: Verify Start new SignUp request link on Purpose of Business page navig
 	Examples:
     | logininfo | Country		   | FBONumber | Business selection                        |nextPage																				|                                                                                             
 	| test      | England		   | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |Which business do you want to sign up for the Northern Ireland Retail Movement Scheme?  | 
+
+
+
+Scenario: Verify requirements of Northern Ireland Retail Movement scheme page is diplayed on selecting business for rejected status
+	Given Clear Database for user '<logininfo>'
+	Given  that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   complete eligibility task with '<Country>'
+	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   enter FBO number '<FBONumber>' for FBO or PHR number task
+	And   click Save and return to dashboard
+	Then  verify FBOorPHRNumber task status as 'COMPLETED'
+	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
+	When  complete contact person Authorised Signatory with Yes Authorisation
+	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	Then  user verify the Points of departure status '1 ADDED'
+	And   click on Check answers and submit sign up
+	When  click on continue button
+	Then  click on the confirm check box on Terms and conditions page
+	Then  click on submit sign up
+	Then  click on signout button and verify the signout message
+	When  Reject signup request in Database for user '<logininfo>'
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>' 
+	Then  verify next page '<nextPage>' is loaded
+	Examples: 
+	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |nextPage                                                   |
+	| test1C    | Org New            | England | testFBO   | testName      | testAddress | London | Wv1 3EB      | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |Requirements of the Northern Ireland Retail Movement Scheme|

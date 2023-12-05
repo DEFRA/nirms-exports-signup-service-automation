@@ -125,11 +125,11 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	When  click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded 
 	Then  click on save and continue
-	Then  verify dynamic name '<Business selection>' in error message '<errorMessage>'
+	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
 	Examples: 
-    | logininfo | Country | PHRNumber       | errorMessage               | Business selection                        |nextPage                                                                        |
-    | test      | England | *************** | has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
+    | logininfo | Country | PHRNumber       | errorMessage										 | Business selection                        |nextPage                                                                        |
+    | test      | England | *************** | Select if your business has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
 
 
 Scenario Outline: Verify hint text on FBO PHR page

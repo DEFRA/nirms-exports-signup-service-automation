@@ -13,6 +13,7 @@ Scenario: Verify No sign up page appears when no FBO number
 	And   click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded 
 	When  complete FBO or PHR number task without FBO or PHR Number
+	And   click on save and continue
 	Then  verify next page '<nextPage1>' is loaded
 
 Examples: 
@@ -92,6 +93,7 @@ Scenario Outline: Complete FBO or PHR number task with no FBO or PHR number opti
 	When  click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded
     When  complete FBO or PHR number task without FBO or PHR Number
+	And   click on save and continue  
 	Then  verify next page '<nextPage1>' is loaded
 
 Examples: 
@@ -109,12 +111,14 @@ Scenario Outline: Verify back on You can still submit sign up page navigates to 
 	When  click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded
     When  complete FBO or PHR number task without FBO or PHR Number
+	And   click on save and continue
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded 
 
 Examples: 
     | logininfo | Business selection                        | Country | nextPage1                                  | nextPage                                                                       | nextPage2 |
     | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | You can still submit a sign-up request now | have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? | Sign up   |
+
 
 Scenario: Verify error message for no radiobutton selected on FBO PHR page
     Given Clear Database for user '<logininfo>'
@@ -125,11 +129,11 @@ Scenario: Verify error message for no radiobutton selected on FBO PHR page
 	When  click on FBOorPHRNumber task
 	Then  verify next page '<nextPage>' is loaded 
 	Then  click on save and continue
-	Then  verify dynamic name '<Business selection>' in error message '<errorMessage>'
+	Then  verify error message '<errorMessage>' on  SPS_Assurance page
 
 	Examples: 
-    | logininfo | Country | PHRNumber       | errorMessage               | Business selection                        |nextPage                                                                        |
-    | test      | England | *************** | has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
+    | logininfo | Country | PHRNumber       | errorMessage									     | Business selection                        |nextPage                                                                        |
+    | test      | England | *************** | Select if your business has an FBO or PHR number   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?  |
 
 
 Scenario Outline: Verify hint text on FBO PHR page
@@ -159,3 +163,23 @@ Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR
 	Examples:
     | logininfo | Country | FBONumber | Business selection                             |
     | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD.      |
+
+
+Scenario Outline: Verify Save and return to dashboard button is displayed on selecting FBO and PHR options
+    Given Clear Database for user '<logininfo>'
+	And   that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   complete eligibility task with '<Country>'
+	When  click on FBOorPHRNumber task
+	Then  verify next page '<nextPage>' is loaded
+	When  enter FBO number '<FBONumber>' for FBO or PHR number task
+	Then  verify Save and return to dashboard button is displayed
+	When  enter PHR number '<PHRNumber>' for FBO or PHR number task
+	Then  verify Save and return to dashboard button is displayed
+	When  complete FBO or PHR number task without FBO or PHR Number
+	Then  verify Save and return to dashboard button is not displayed for No FBO or PHR option
+
+	Examples:
+    | logininfo | Country | FBONumber | Business selection                             |nextPage                                                                       |PHRNumber|
+    | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD.      |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? |testPHR  |

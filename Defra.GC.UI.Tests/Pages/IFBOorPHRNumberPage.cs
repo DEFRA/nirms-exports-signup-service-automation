@@ -14,5 +14,6 @@
         public bool VerifyFBOorPHRNumberTaskStatus(string status);
         public bool VerifyHintTextMessage(string hintText);
         public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country);
+        public bool VerifySaveAndReturnToDashboardButtonOnFBOPHRPage();
     }
 }

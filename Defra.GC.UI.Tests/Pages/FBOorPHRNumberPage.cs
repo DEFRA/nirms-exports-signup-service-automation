@@ -4,6 +4,8 @@ using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
+using System.Runtime.InteropServices.WindowsRuntime;
+using OpenQA.Selenium;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -19,6 +21,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(@id,'button-rbCountrySubmit')]"));
         private IWebElement FBONumberEle => _driver.WaitForElement(By.Id("FboNumber"));
         private IWebElement PHRNumberEle => _driver.WaitForElement(By.Id("PhrNumber"));
+        private IWebElement SaveAndReturnToDashboard => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and return to dashboard')]"));
         private IWebElement FBOContinue => _driver.WaitForElement(By.Id("btnFboSubmit"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
         private IWebElement FBOorPHRTaskStatus => _driver.WaitForElement(By.Id("fbophr"));
@@ -42,6 +45,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             if (PageHeading.Text.Contains("Sign up"))
             {
                 FBOorPHRNumber.Click();
+                Thread.Sleep(3000);
             }
             return PageHeading.Text.Contains("have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?");
         }
@@ -51,7 +55,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
             Thread.Sleep(1000);
             _driver.ClickRadioButton("does not have either of these numbers");
-            FBOContinue.Click();
+            //FBOContinue.Click();
         }
 
         public void EditFBONumberToCompleteFBOorPHRNumberTask(string FBONumber)
@@ -106,6 +110,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return HintText.Text.Contains(hintText);
         }
 
+        public bool VerifySaveAndReturnToDashboardButtonOnFBOPHRPage()
+        {
+           
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
+            try
+            {
+                if (SaveAndReturnToDashboard.Displayed)
+                    return true;
+                else return false;
+            }
+            catch (ElementNotVisibleException) {
+                return false;
+            }
+        }
+
+      
         public bool VerifyFBOorPHRNumberTaskStatus(string status)
         {
             string text = FBOorPHRTaskStatus.Text;

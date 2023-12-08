@@ -39,6 +39,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             fboPhrPage.InvaildPHRdata(PHRNumber);
         }
 
+        [Then(@"verify Save and return to dashboard button is displayed")]
+        public void ThenVerifySaveAndReturnToDashboardOnFBOPHRPage()
+        {
+            Assert.True(fboPhrPage.VerifySaveAndReturnToDashboardButtonOnFBOPHRPage(), "Save and Return To dashboard button is not displayed");
+        }
+
+        [Then(@"verify Save and return to dashboard button is not displayed for No FBO or PHR option")]
+        public void ThenVerifySaveAndReturnToDashboardOnNoFBOPHRPage()
+        {
+            Assert.False(fboPhrPage.VerifySaveAndReturnToDashboardButtonOnFBOPHRPage(), "Save and Return To dashboard button is displayed");
+        }
 
         [When(@"complete FBO or PHR number task without FBO or PHR Number")]
         public void WhencompleteFBOorPHRnumbertaskwithoutFBOorPHRNumber()

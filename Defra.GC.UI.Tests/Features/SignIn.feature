@@ -1,4 +1,4 @@
-﻿@Regression
+﻿@Regression @RunOnly
 Feature: SignIn
 
 Sign in to General Certificate Page

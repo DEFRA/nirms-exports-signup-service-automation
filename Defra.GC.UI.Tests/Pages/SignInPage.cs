@@ -49,6 +49,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             UserId.SendKeys(userName);
             Password.SendKeys(password);
             _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SignIn)).Click();
+            _driver.Navigate().GoToUrl("https://tst-sign-up.trade.azure.defra.cloud/registered-business-picker");
             int count = _driver.WaitForElements(SignInConfirmBy).Count(d => d.Text.Trim().Equals("Sign out"));
             try
             {

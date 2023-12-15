@@ -3,8 +3,6 @@ using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -23,9 +21,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Password => _driver.FindElement(By.Id("password"));
         private IWebElement SignIn => _driver.WaitForElement(By.Id("continue"));
         private IWebElement SignOut => _driver.WaitForElement(By.XPath("//a[text()='Sign out']"));
-        private IWebElement Accept_Cookies => _driver.WaitForElement(By.Id("accept-cookies"));
-
-        private IWebElement SignInConfirm => _driver.WaitForElement(By.Id("Link-SignOut"));
+        private IWebElement Accept_Cookies => _driver.WaitForElement(By.XPath("//button[text()='Accept analytics cookies']"));
+        private IWebElement Hide_Cookies => _driver.WaitForElement(By.XPath("//a[text()='Hide cookie message']"));
         private By SignInConfirmBy => By.Id("Link-SignOut");
         private IWebElement SignOutConfirmMessage => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-l')]"));
         private IWebElement EnvPassword => _driver.WaitForElement(By.Id("password"));
@@ -51,24 +48,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SignIn)).Click();
             _driver.Navigate().GoToUrl("https://tst-sign-up.trade.azure.defra.cloud/registered-business-picker");
             int count = _driver.WaitForElements(SignInConfirmBy).Count(d => d.Text.Trim().Equals("Sign out"));
-            try
-            {
-                Accept_Cookies.Click();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
             return count > 0;
         }
 
         public void ClickSignedOut()
         {
-            // _driver.WaitForElements(SignInConfirmBy).SingleOrDefault(d => d.Text.Trim().Equals("Sign out")).Click();
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", SignOut);
-            //   _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SignOut)).Click();
         }
 
         public bool IsSignedOut()
@@ -79,6 +66,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterPAssword()
         {
+            try
+            {
+                Accept_Cookies.Click();
+                Hide_Cookies.Click();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             if (PageHeading.Text.Contains("This is for testing use only"))
             {
                 EnvPassword.SendKeys(ConfigSetup.BaseConfiguration.TestConfiguration.EnvPassword);

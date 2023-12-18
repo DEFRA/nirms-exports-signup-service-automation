@@ -11,7 +11,7 @@ Scenario: Navigate to General Certificate Page
 
 	Examples: 
 	| logininfo |
-	| test      |
+	| test1A    |
 
 Scenario: SignOut
 	Then sign in with valid credentials with logininfo '<logininfo>'
@@ -19,4 +19,4 @@ Scenario: SignOut
 
 	Examples: 
 	| logininfo |
-	| test      |
+	| test1A    |

@@ -86,7 +86,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Navigate to General Certificate Page")]
-        [NUnit.Framework.TestCaseAttribute("test", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", null)]
         public void NavigateToGeneralCertificatePage(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -115,7 +115,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("SignOut")]
-        [NUnit.Framework.TestCaseAttribute("test", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", null)]
         public void SignOut(string logininfo, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

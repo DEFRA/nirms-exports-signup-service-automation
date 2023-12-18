@@ -7,5 +7,6 @@
         public void ClickSignedOut();
         public bool IsSignedOut();
         public void EnterPAssword();
+        public bool IsSignedInSelfServe(string userName, string password);
     }
 }

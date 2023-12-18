@@ -99,6 +99,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ClickSaveAndContinue();
         }
 
+        public void SelectBusinessOnSelfServe(string businessSelection)
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
+            Thread.Sleep(1000);
+            _driver.FindElement(By.XPath("//span[contains(text(),'" + businessSelection + "')]/..")).Click();
+        }
 
         public void NavigateToRegulationsAndConfirmRegulation()
         {

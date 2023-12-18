@@ -53,6 +53,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return count > 0;
         }
 
+        public bool IsSignedInSelfServe(string userName, string password)
+        {
+            UserId.SendKeys(userName);
+            Password.SendKeys(password);
+            _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(SignIn)).Click();
+            int count = _driver.WaitForElements(SignInConfirmBy).Count(d => d.Text.Trim().Equals("Sign out"));
+            return count > 0;
+        }
+
         public void ClickSignedOut()
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");

@@ -123,11 +123,5 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             eligibilityPage.ClickOnStartNewSignUpRequestOnPurposeOfBusiness();
         }
-
-        [When(@"select business '([^']*)' on self serve dashboard")]
-        public void WhenSelectBusinessToSignUponSelfServe(string businessSelection)
-        {
-            eligibilityPage.SelectBusinessOnSelfServe(businessSelection);
-        }
     }
 }

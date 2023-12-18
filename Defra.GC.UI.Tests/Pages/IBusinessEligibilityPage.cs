@@ -20,6 +20,5 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public void ClickOnManageAccessLinkOnAnotherbusinessPage();
         public bool VerifyTextOnPurposeOfBusinessPage(string Message);
         public void ClickOnStartNewSignUpRequestOnPurposeOfBusiness();
-        public void SelectBusinessOnSelfServe(string businessSelection);
     }
 }

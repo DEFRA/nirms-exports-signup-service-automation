@@ -38,8 +38,12 @@ Background:
 	@RunOnly
 Scenario: Verify business name
 	Given that I navigate to the NI GC application
-	When  sign in to self serve with valid credentials with logininfo 'test1A'
-	And   select business 'Kaka' on self serve dashboard 
+	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	And   select business '<Business selection>' on self serve dashboard 
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 
+	Examples: 
+	| logininfo | Business selection   |
+	| test1A    | Kaka                 |
 
 

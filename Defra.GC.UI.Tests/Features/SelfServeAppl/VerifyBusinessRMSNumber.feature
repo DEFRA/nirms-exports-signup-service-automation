@@ -44,8 +44,8 @@ Scenario: Verify business RMS Number
 	Then  verify Business RMS number '<Business RMS Number>' on self serve dashboard page
 
 	Examples: 
-	| logininfo | Business selection | Business RMS Number |
-	| test1A    | Kaka               | RMS-GB              |
+	| logininfo | Business selection | Business RMS Number | nextPage                                |
+	| test1A    | Kaka               | RMS-GB              | Northern Ireland Retail Movement Scheme |
 
 
 

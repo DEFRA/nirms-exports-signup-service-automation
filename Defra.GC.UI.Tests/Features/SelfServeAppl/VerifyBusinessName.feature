@@ -43,7 +43,7 @@ Scenario: Verify business name
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 
 	Examples: 
-	| logininfo | Business selection   |
-	| test1A    | Kaka                 |
+	| logininfo | Business selection   |nextPage                                |
+	| test1A    | Kaka                 |Northern Ireland Retail Movement Scheme |
 
 

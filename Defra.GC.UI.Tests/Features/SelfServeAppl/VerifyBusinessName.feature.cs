@@ -178,8 +178,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify business name")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", null)]
-        public void VerifyBusinessName(string logininfo, string businessSelection, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "Northern Ireland Retail Movement Scheme", null)]
+        public void VerifyBusinessName(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "RunOnly"};
@@ -191,6 +191,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
+            argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify business name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 39
 this.ScenarioInitialize(scenarioInfo);
@@ -215,7 +216,7 @@ this.FeatureBackground();
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 43
- testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'<nextPage>\' of page", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

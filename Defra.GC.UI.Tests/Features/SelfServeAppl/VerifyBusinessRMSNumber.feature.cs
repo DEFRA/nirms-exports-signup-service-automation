@@ -178,8 +178,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify business RMS Number")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "RMS-GB", null)]
-        public void VerifyBusinessRMSNumber(string logininfo, string businessSelection, string businessRMSNumber, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test1A", "Kaka", "RMS-GB", "Northern Ireland Retail Movement Scheme", null)]
+        public void VerifyBusinessRMSNumber(string logininfo, string businessSelection, string businessRMSNumber, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "RunOnly"};
@@ -192,6 +192,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("Business RMS Number", businessRMSNumber);
+            argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify business RMS Number", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 39
 this.ScenarioInitialize(scenarioInfo);
@@ -216,7 +217,7 @@ this.FeatureBackground();
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 43
- testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'<nextPage>\' of page", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 44
  testRunner.Then(string.Format("verify Business RMS number \'{0}\' on self serve dashboard page", businessRMSNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

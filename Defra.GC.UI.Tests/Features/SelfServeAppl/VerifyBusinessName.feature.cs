@@ -173,14 +173,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("[scenario name]")]
+        [NUnit.Framework.DescriptionAttribute("Verify business name")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
-        public void ScenarioName()
+        public void VerifyBusinessName()
         {
             string[] tagsOfScenario = new string[] {
                     "RunOnly"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[scenario name]", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify business name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 39
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

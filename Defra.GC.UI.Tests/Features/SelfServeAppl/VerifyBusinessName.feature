@@ -36,7 +36,7 @@ Background:
 
 
 	@RunOnly
-Scenario: [scenario name]
+Scenario: Verify business name
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo 'test1A'
 	And   select business 'Kaka' on self serve dashboard 

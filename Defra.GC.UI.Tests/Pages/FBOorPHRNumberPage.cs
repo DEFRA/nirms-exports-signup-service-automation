@@ -44,6 +44,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             if (PageHeading.Text.Contains("Sign up"))
             {
+                Thread.Sleep(2000);
                 FBOorPHRNumber.Click();
                 Thread.Sleep(3000);
             }

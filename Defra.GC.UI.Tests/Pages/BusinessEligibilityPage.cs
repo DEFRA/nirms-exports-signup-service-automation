@@ -99,7 +99,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ClickSaveAndContinue();
         }
 
-
         public void NavigateToRegulationsAndConfirmRegulation()
         {
             if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))

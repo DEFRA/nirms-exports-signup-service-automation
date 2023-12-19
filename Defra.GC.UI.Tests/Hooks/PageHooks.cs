@@ -6,6 +6,7 @@ using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Steps;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
 
 namespace Defra.GC.UI.Tests.Hooks
 {
@@ -52,6 +53,9 @@ namespace Defra.GC.UI.Tests.Hooks
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ManageAccountPage, IManageAccountPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<FooterPage, IFooterPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<FBOorPHRNumberPage, IFBOorPHRNumberPage>());
+
+
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<SelfServeDashboardPage, ISelfServeDashboardPage>());
         }
 
         private TU GetBaseWithContainer<T, TU>() where T : TU =>

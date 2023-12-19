@@ -52,5 +52,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(Signin.IsSignedOut(), "Not able to sign in");
         }
+
+
+        [Given(@"sign in to self serve with valid credentials with logininfo '([^']*)'")]
+        [When(@"sign in to self serve with valid credentials with logininfo '([^']*)'")]
+        [Then(@"sign in to self serve with valid credentials with logininfo '([^']*)'")]
+        public void ThenSignInSelfServeWithValidCredentialsWithLogininfo(string userType)
+        {
+            var user = UserObject.GetUser(userType);
+            _objectContainer.RegisterInstanceAs(user);
+            Assert.True(Signin.IsSignedInSelfServe(user.UserName, user.password), "Not able to sign in");
+        }
     }
 }

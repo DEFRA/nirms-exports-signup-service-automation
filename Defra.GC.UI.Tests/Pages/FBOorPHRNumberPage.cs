@@ -45,7 +45,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             if (PageHeading.Text.Contains("Sign up"))
             {
                 Thread.Sleep(2000);
-                FBOorPHRNumber.Click();
+                //FBOorPHRNumber.Click();
+                IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+                jsExecutor.ExecuteScript("arguments[0].click();", FBOorPHRNumber);
                 Thread.Sleep(3000);
             }
             return PageHeading.Text.Contains("have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?");

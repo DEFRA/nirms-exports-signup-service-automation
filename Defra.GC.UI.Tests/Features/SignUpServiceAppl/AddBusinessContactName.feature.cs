@@ -78,13 +78,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add business contact name")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test2", "AMSAK PROPERTY LIMITED", "England", "testFBO", "testName", "position", "contact", null)]
         public void AddBusinessContactName(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string nextPage1, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "SmokeTest",
-                    "RunOnly"};
+                    "SmokeTest"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));

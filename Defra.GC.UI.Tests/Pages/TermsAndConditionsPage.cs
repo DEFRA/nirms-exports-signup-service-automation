@@ -20,7 +20,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         private IWebElement ConfirmSanitaryAndPhytosanitaryBox => _driver.WaitForElementExists(By.Id("AssuranceCommitment"));
 
-        private By CheckBox = By.CssSelector("#TandCs");
+        private IWebElement CheckBox => _driver.WaitForElement(By.XPath("//input[@id='TandCs']"));
 
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
 
@@ -52,7 +52,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CheckBoxSelected()
         {
-            _driver.FindElement(CheckBox).Click();
+            //_driver.FindElement(CheckBox).Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", CheckBox);
+
         }
 
         public void ClickOnSubmitSignUp()

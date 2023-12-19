@@ -21,8 +21,8 @@ Scenario: Verify validation error message for blank Destination Establishment po
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode  | errorMessage      |
-	| test1A    | Kaka               | Northern Ireland | testFBO   |           | Enter a postcode. |
-	| test1A    | Kaka               | Northern Ireland | testFBO   | wd19 7pf  | Enter a postcode in Northern Ireland |
+	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   |           | Enter a postcode. |
+	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | wd19 7pf  | Enter a postcode in Northern Ireland |
 
 
 	
@@ -46,7 +46,7 @@ Scenario: Verify validation error message for blank Destination Establishment po
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | errorMessage								   | nextPage       |
-	| test1A    | Kaka               | Northern Ireland | testFBO   | BT43 4TT | 0 results for BT43 4TT in Northern Ireland    | of destination |  
+	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT43 4TT | 0 results for BT43 4TT in Northern Ireland    | of destination |  
 
 Scenario: Verify valid error messages for point of Destination mandatory fields
 	Given Clear Database for user '<logininfo>'
@@ -69,14 +69,14 @@ Scenario: Verify valid error messages for point of Destination mandatory fields
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | EstablishmentName | AddressLine1 | estCity    | estCountry  | AddrPostcode | errorMessage                                     |
-	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD |                   | testAddress1 | testCity   | testCountry | BT93 8AD     | Enter an establishment name                      |
-	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD | testErrorName1    |              | testCity   | testCountry | BT93 8AD     | Enter address line 1                             |
-	| test1A    |  Kaka              | Northern Ireland | testFBO   | BT93 8AD | testErrorName2    | testAddress1 |            | testCountry | BT93 8AD     | Enter a town or city                             |
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName3    | testAddress1 | testCity   | testCountry |              | Enter a postcode                                 |
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName4%   | testAddress1 | testCity   | testCountry | BT93 8AD     | Enter an establishment name using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands|
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName5    | testAddr%$   | testCity   | testCountry | BT93 8AD     | Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands    |
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName6    | testAddress1 | testCity%$ | testCountry | BT93 8AD     | Enter a town or city using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands    |
-	| test1A    |  Kaka			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName7    | testAddress1 | testCity   | testCountry | BT93 8AD$%   | Enter a real postcode                            |
+	| test1A    |  Tesco Leeds              | Northern Ireland | testFBO   | BT93 8AD |                   | testAddress1 | testCity   | testCountry | BT93 8AD     | Enter an establishment name                      |
+	| test1A    |  Tesco Leeds              | Northern Ireland | testFBO   | BT93 8AD | testErrorName1    |              | testCity   | testCountry | BT93 8AD     | Enter address line 1                             |
+	| test1A    |  Tesco Leeds              | Northern Ireland | testFBO   | BT93 8AD | testErrorName2    | testAddress1 |            | testCountry | BT93 8AD     | Enter a town or city                             |
+	| test1A    |  Tesco Leeds			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName3    | testAddress1 | testCity   | testCountry |              | Enter a postcode                                 |
+	| test1A    |  Tesco Leeds			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName4%   | testAddress1 | testCity   | testCountry | BT93 8AD     | Enter an establishment name using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands|
+	| test1A    |  Tesco Leeds			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName5    | testAddr%$   | testCity   | testCountry | BT93 8AD     | Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands    |
+	| test1A    |  Tesco Leeds			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName6    | testAddress1 | testCity%$ | testCountry | BT93 8AD     | Enter a town or city using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands    |
+	| test1A    |  Tesco Leeds			     | Northern Ireland | testFBO   | BT93 8AD | testErrorName7    | testAddress1 | testCity   | testCountry | BT93 8AD$%   | Enter a real postcode                            |
 
 
 Scenario: Verify error message on add another point of Destination page
@@ -101,7 +101,7 @@ Scenario: Verify error message on add another point of Destination page
 	Then  verify error message '<errorMessage>' on establishment page
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                            |
-	| test1A    | Kaka		         | Northern Ireland | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | BT93 8AD     | Select if you have added all your places of destination |
+	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | BT93 8AD     | Select if you have added all your places of destination |
 	
 Scenario: Verify duplicate point of destination establishment not allowed
 	Given Clear Database for user '<logininfo>'
@@ -129,5 +129,5 @@ Scenario: Verify duplicate point of destination establishment not allowed
     Then  verify duplicate establishment error message '<errorMessage>'
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | errorMessage                                                            |
-	| test1A    | Kaka   			 | Northern Ireland | testFBO   | testErrorName9    | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | This address has already been added as a place of destination - enter a different address |
+	| test1A    | Tesco Leeds		 | Northern Ireland | testFBO   | testErrorName9    | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | This address has already been added as a place of destination - enter a different address |
 

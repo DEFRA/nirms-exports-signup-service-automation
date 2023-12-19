@@ -36,8 +36,8 @@ Scenario: Add Authorised Signatory name
 
 	
 	Examples: 
-	| logininfo | Business selection						| Country | FBONumber | nextPage1|nextPage					   | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | position |authorised representative      | test name | test name   | test            | test@gmail.com | 01632 960 001   |
+	| logininfo | Business selection  | Country | FBONumber | nextPage1|nextPage					   | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber |
+	| test      | Tesco Carlisle      | England | testFBO   | position |authorised representative      | test name | test name   | test            | test@gmail.com | 01632 960 001   |
 
 
 Scenario: Verify error message for invalid Authorised Signatory name
@@ -69,8 +69,8 @@ Scenario: Verify error message for invalid Authorised Signatory name
 	Then  user verifies the '<errorMsg>' error message for Authorised Signatory name
 
     Examples:    
-	| logininfo |Business selection						   | fullName  | Country | FBONumber | errorMsg		    										 | contactName | contactPosition | emailAddress   | telephoneNumber |
-	| test      |ABC ACCOUNTANCY & MARKETING SERVICES LTD. | test%name | England | testFBO   | Enter a name using only letters, hyphens or apostrophes   | test Name   | test            | test@gmail.com | 01632 960 001   |
+	| logininfo |Business selection	  | fullName  | Country | FBONumber | errorMsg		    										 | contactName | contactPosition | emailAddress   | telephoneNumber |
+	| test      |Tesco Carlisle       | test%name | England | testFBO   | Enter a name using only letters, hyphens or apostrophes   | test Name   | test            | test@gmail.com | 01632 960 001   |
 
 
 Scenario Outline: Verify error message for blank Authorised Signatory name
@@ -102,8 +102,8 @@ Scenario Outline: Verify error message for blank Authorised Signatory name
 	Then  user verifies the '<errorMsg>' error message for Authorised Signatory name
 
     Examples:    
-	| logininfo | Business selection						| fullName | Country | FBONumber | errorMsg		| contactName | contactPosition | emailAddress   | telephoneNumber |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |          | England | testFBO   | Enter a name | test Name   | test            | test@gmail.com | 01632 960 001   |
+	| logininfo | Business selection	| fullName | Country | FBONumber | errorMsg		| contactName | contactPosition | emailAddress   | telephoneNumber |
+	| test      | Tesco Carlisle        |          | England | testFBO   | Enter a name | test Name   | test            | test@gmail.com | 01632 960 001   |
 
 
 Scenario Outline:Verify user clicks on back to dashboard button and navigates to previous page 
@@ -134,8 +134,8 @@ Scenario Outline:Verify user clicks on back to dashboard button and navigates to
 	Then  verify next page '<previousPage>' is loaded 
 
 Examples:
-	| logininfo |Business selection						   | Country | FBONumber | previousPage  | contactName | contactPosition | emailAddress   | telephoneNumber |
-	| test      |ABC ACCOUNTANCY & MARKETING SERVICES LTD. | England | testFBO   | Sign up		 | test Name   | test            | test@gmail.com | 01632 960 001   |
+	| logininfo |Business selection	  | Country | FBONumber | previousPage  | contactName | contactPosition | emailAddress   | telephoneNumber |
+	| test      |Tesco Carlisle       | England | testFBO   | Sign up		 | test Name   | test            | test@gmail.com | 01632 960 001   |
 
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory Name Page
@@ -167,8 +167,8 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory Nam
 	Then  verify next page '<nextPage>' is loaded 
 
 Examples: 
-	| logininfo | Business selection					    |Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |
+	| logininfo | Business selection   |Country | FBONumber | nextPage| fullName |contactName     |contactPosition |emailAddress  |telephoneNumber |
+	| test      | Tesco Carlisle       |England | testFBO   | Sign up | test name|test name       |test            |test@gmail.com|01632 960 001   |
 
 
 

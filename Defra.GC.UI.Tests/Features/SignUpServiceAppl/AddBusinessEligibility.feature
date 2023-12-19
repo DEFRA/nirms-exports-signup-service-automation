@@ -15,8 +15,8 @@ Scenario Outline: Complete eligibility task
 	And   user verify the selected business name '<Business selection>'
 
 	Examples:
-    | logininfo | Country | Business selection                             |
-    | test      | England | ABC ACCOUNTANCY & MARKETING SERVICES LTD.      |
+    | logininfo | Country | Business selection  |
+    | test      | England | Tesco Carlisle      |
 
 Scenario Outline: Verify error message for not selecting the country
 	Given Clear Database for user '<logininfo>'
@@ -31,8 +31,8 @@ Scenario Outline: Verify error message for not selecting the country
 	Then  verify dynamic name '<businessName>' in title '<nextPage2>' of page
 	Then  verify dynamic name '<businessName>' in error message '<errorMessage>'
 	Examples: 
-    | logininfo | nextPage                           | businessName                              | nextPage1					        | nextPage2                                             | errorMessage             |
-    | test      | Which business do you want to sign | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Requirements of the Northern Ireland | do under the Northern Ireland Retail Movement Scheme? | will do under the scheme |
+    | logininfo | nextPage                           | businessName   | nextPage1					        | nextPage2                                             | errorMessage             |
+    | test      | Which business do you want to sign | Tesco Carlisle | Requirements of the Northern Ireland | do under the Northern Ireland Retail Movement Scheme? | will do under the scheme |
 
 
 Scenario Outline: Verify back button on country page is going to select business page
@@ -45,8 +45,8 @@ Scenario Outline: Verify back button on country page is going to select business
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-    | logininfo | Business selection                        | nextPage                                |
-    | test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Requirements of the Northern Ireland    |
+    | logininfo | Business selection     | nextPage                                |
+    | test      | Tesco Carlisle         | Requirements of the Northern Ireland    |
 
 
 Scenario Outline: Verify confirmation error message for Regulations page
@@ -71,8 +71,8 @@ Scenario Outline: Verify back link on Regulations page is navigating to business
 	
 	
 	Examples: 
-    | logininfo | Country | FBONumber | Business selection                        | nextPage                                                                               |
-    | test      | England | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. | Which business do you want to sign up for the Northern Ireland Retail Movement Scheme? |
+    | logininfo | Country | FBONumber | Business selection   | nextPage                                                                               |
+    | test      | England | testFBO   | Tesco Carlisle       | Which business do you want to sign up for the Northern Ireland Retail Movement Scheme? |
 
 
 Scenario: Verify back link from Another business page is navigated to Select your business page
@@ -117,9 +117,9 @@ Scenario: Verify text on Purpose of Business page
 	Then  verify '<PurposeOfBusinessText>' on purpose of business page 
 
 	Examples:
-    | logininfo | Country		   | FBONumber | Business selection                        |PurposeOfBusinessText                                                                                                   |
-    | test      | England		   | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |Your business will be sending consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.  |
-    | test1A    | Northern Ireland | testFBO   | Kaka                                      |Your business will be receiving consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.|
+    | logininfo | Country		   | FBONumber | Business selection  |PurposeOfBusinessText                                                                                                   |
+    | test      | England		   | testFBO   | Tesco Carlisle      |Your business will be sending consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.  |
+    | test1A    | Northern Ireland | testFBO   | Tesco Leeds         |Your business will be receiving consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.|
 
 
 Scenario: Verify back to dashboard link on Purpose of Business page  
@@ -135,8 +135,8 @@ Scenario: Verify back to dashboard link on Purpose of Business page
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples:
-    | logininfo | Country		   | FBONumber | Business selection                        |nextPage |                                                                                             
-	| test      | England		   | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |Sign up  | 
+    | logininfo | Country		   | FBONumber | Business selection  |nextPage |                                                                                             
+	| test      | England		   | testFBO   | Tesco Carlisle      |Sign up  | 
 
 
 Scenario: Verify Start new SignUp request link on Purpose of Business page navigates to select business page  
@@ -152,8 +152,8 @@ Scenario: Verify Start new SignUp request link on Purpose of Business page navig
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples:
-    | logininfo | Country		   | FBONumber | Business selection                        |nextPage																				|                                                                                             
-	| test      | England		   | testFBO   | ABC ACCOUNTANCY & MARKETING SERVICES LTD. |Which business do you want to sign up for the Northern Ireland Retail Movement Scheme?  | 
+    | logininfo | Country		   | FBONumber | Business selection   |nextPage																				|                                                                                             
+	| test      | England		   | testFBO   | Tesco Carlisle       |Which business do you want to sign up for the Northern Ireland Retail Movement Scheme?  | 
 
 
 
@@ -185,4 +185,4 @@ Scenario: Verify requirements of Northern Ireland Retail Movement scheme page is
 	Then  verify next page '<nextPage>' is loaded
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |nextPage                                                   |
-	| test1C    | Org New            | England | testFBO   | testName      | testAddress | London | Wv1 3EB      | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |Requirements of the Northern Ireland Retail Movement Scheme|
+	| test1C    | Tesco York         | England | testFBO   | testName      | testAddress | London | Wv1 3EB      | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |Requirements of the Northern Ireland Retail Movement Scheme|

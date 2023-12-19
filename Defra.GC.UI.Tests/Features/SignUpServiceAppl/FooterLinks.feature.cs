@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Footer links and pages on Sign up page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "Northern Ireland Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "Tesco Carlisle", "Sign up", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "Northern Ireland Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
         public void VerifyFooterLinksAndPagesOnSignUpPage(
                     string logininfo, 
                     string country, 
@@ -276,7 +276,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify text and Logo on the footer of Sign up page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Sign up", "All content is available under the", "Open Government Licence v3.0", "Crown copyright", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "Tesco Carlisle", "Sign up", "All content is available under the", "Open Government Licence v3.0", "Crown copyright", null)]
         public void VerifyTextAndLogoOnTheFooterOfSignUpPage(string logininfo, string country, string fBONumber, string businessSelection, string nextPage, string footerText, string footerPageLink, string footerLogoLink, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

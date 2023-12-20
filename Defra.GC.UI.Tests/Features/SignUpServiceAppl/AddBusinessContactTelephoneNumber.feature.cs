@@ -78,7 +78,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add contact Telephone Number")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "01632 960 001", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "01632 960 001", "Sign up", null)]
         public void AddContactTelephoneNumber(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -178,7 +178,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for invalid contact Telephone Number")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "abc123", "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "abc123", "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192", null)]
         public void VerifyErrorMessageForInvalidContactTelephoneNumber(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -272,7 +272,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for blank contact telephone number")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "", "Enter a telephone number", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "", "Enter a telephone number", null)]
         public void VerifyErrorMessageForBlankContactTelephoneNumber(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -366,7 +366,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link contact telephone number page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "Sign up", null)]
         public void VerifyBackToDashboardLinkContactTelephoneNumberPage(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -456,7 +456,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify save and return to dashboard on contact telephone number page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "Sign up", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "Sign up", "01632 960 001", null)]
         public void VerifySaveAndReturnToDashboardOnContactTelephoneNumberPage(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string nextPage, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

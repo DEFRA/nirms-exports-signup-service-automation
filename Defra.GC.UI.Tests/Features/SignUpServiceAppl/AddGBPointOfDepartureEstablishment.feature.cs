@@ -77,8 +77,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Point of Departure link for GB countries")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Wales", "testFBO", "SE10 9NF", "of dispatch", "You do not need to enter establishments that do not belong to", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Scotland", "testFBO", "SE10 9NF", "of dispatch", "You do not need to enter establishments that do not belong to", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "Wales", "testFBO", "SE10 9NF", "of dispatch", "You do not need to enter establishments that do not belong to", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "Scotland", "testFBO", "SE10 9NF", "of dispatch", "You do not need to enter establishments that do not belong to", null)]
         public void VerifyPointOfDepartureLinkForGBCountries(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string warningText, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -152,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check Add the establishment address manually link")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE10 9NF", "of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "of dispatch", null)]
         public void CheckAddTheEstablishmentAddressManuallyLink(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -231,9 +231,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add GB point of Departure establishment address manually")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", "testName1", "testAddress1", "London", "England", "SE10 9NF", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Wales", "testFBO", "CF10 1AA", "Add a place of dispatch", "testName2", "testAddress2", "Cardiff", "Wales", "CF10 1AA", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "Scotland", "testFBO", "G1 1AB", "Add a place of dispatch", "testName3", "testAddress3", "Glasgow", "Scotland", "G1 1AB", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", "testName1", "testAddress1", "London", "England", "SE10 9NF", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "Wales", "testFBO", "CF10 1AA", "Add a place of dispatch", "testName2", "testAddress2", "Cardiff", "Wales", "CF10 1AA", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "Scotland", "testFBO", "G1 1AB", "Add a place of dispatch", "testName3", "testAddress3", "Glasgow", "Scotland", "G1 1AB", null)]
         public void AddGBPointOfDepartureEstablishmentAddressManually(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -320,7 +320,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link on enter establishment postcode page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "Sign up", null)]
         public void VerifyBackToDashboardLinkOnEnterEstablishmentPostcodePage(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -389,7 +389,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link on select establishment address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE10 9NF", "Sign up", "Add a place of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "Sign up", "Add a place of dispatch", null)]
         public void VerifyBackToDashboardLinkOnSelectEstablishmentAddressPage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string nextPage1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -466,7 +466,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link on add establishment address page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE10 9NF", "Sign up", "Add a place of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "Sign up", "Add a place of dispatch", null)]
         public void VerifyBackToDashboardLinkOnAddEstablishmentAddressPage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string nextPage1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -550,7 +550,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link on then Do you want to add another point of departu" +
             "re Page ?")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "Add a place of dispatch", "Sign up", null)]
         public void VerifyBackToDashboardLinkOnThenDoYouWantToAddAnotherPointOfDeparturePage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage, string nextPage1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -637,7 +637,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link on the Establishment email address optional page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE10 9NF", "Sign up", "testName4", "testAddress1", "London", "England", "SE10 9NF", "Add a place of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "Sign up", "testName4", "testAddress1", "London", "England", "SE10 9NF", "Add a place of dispatch", null)]
         public void VerifyBackToDashboardLinkOnTheEstablishmentEmailAddressOptionalPage(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string nextPage1, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -726,7 +726,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add Another GB point of Departure establishment address")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName1", "testAddress5", "London", "England", "SE10 9NF", "testName6", "testAddress", "Liverpool", "England", "L1 0AN", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName1", "testAddress5", "London", "England", "SE10 9NF", "testName6", "testAddress", "Liverpool", "England", "L1 0AN", null)]
         public void AddAnotherGBPointOfDepartureEstablishmentAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string establishmentName2, string addressLine2, string estCity2, string estCountry2, string addrPostcode2, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -840,7 +840,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Finish adding GB point of Departure establishment address")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName7", "testAddress1", "London", "England", "EC4R 9HA", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName7", "testAddress1", "London", "England", "EC4R 9HA", "Sign up", null)]
         public void FinishAddingGBPointOfDepartureEstablishmentAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -936,7 +936,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify no establishment address listed after removing last address")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName8", "testAddress1", "London", "England", "EC4R 9HA", "Add a place of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName8", "testAddress1", "London", "England", "EC4R 9HA", "Add a place of dispatch", null)]
         public void VerifyNoEstablishmentAddressListedAfterRemovingLastAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -1142,7 +1142,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Change manually added establishment address")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName11", "testAddress1", "London", "England", "SE10 9NF", "testName12", "testAddress2", "Liverpool", "England", "L1 0AN", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName11", "testAddress1", "London", "England", "SE10 9NF", "testName12", "testAddress2", "Liverpool", "England", "L1 0AN", null)]
         public void ChangeManuallyAddedEstablishmentAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string establishmentName2, string addressLine2, string estCity2, string estCountry2, string addrPostcode2, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -1244,7 +1244,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Change establishment address postcode")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "EC4R 9HA", "SE10 9NF", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "EC4R 9HA", "SE10 9NF", null)]
         public void ChangeEstablishmentAddressPostcode(string logininfo, string businessSelection, string country, string fBONumber, string addrPostcode, string addrPostcode1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -1323,7 +1323,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Change establishment email address")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName13", "testAddress1", "London", "England", "SE10 9NF", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName13", "testAddress1", "London", "England", "SE10 9NF", null)]
         public void ChangeEstablishmentEmailAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -1418,7 +1418,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link from address page navigated to Add a place of dispa" +
             "tch  page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "testName14", "testAddress1", "testCity1", "testCountry1", "SE10 9NF", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName14", "testAddress1", "testCity1", "testCountry1", "SE10 9NF", "Sign up", null)]
         public void VerifyBackToDashboardLinkFromAddressPageNavigatedToAddAPlaceOfDispatchPage(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -1505,7 +1505,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify different post code link is navigated to Add a place of dispatch page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "SE", "of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE", "of dispatch", null)]
         public void VerifyDifferentPostCodeLinkIsNavigatedToAddAPlaceOfDispatchPage(string logininfo, string businessSelection, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -1576,7 +1576,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Enter a Address manually link is navigated to Add a place of dispatch page" +
             "")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "wd17 7TF", "of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "wd17 7TF", "of dispatch", null)]
         public void VerifyEnterAAddressManuallyLinkIsNavigatedToAddAPlaceOfDispatchPage(string logininfo, string businessSelection, string country, string fBONumber, string addrPostcode, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -1653,7 +1653,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify save and return to dashboard on Add a place of dispatch page")]
-        [NUnit.Framework.TestCaseAttribute("test", "ABC ACCOUNTANCY & MARKETING SERVICES LTD.", "England", "testFBO", "Sign up", "testName15", "testAddress1", "testCity1", "testCountry1", "SE10 9NF", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "Sign up", "testName15", "testAddress1", "testCity1", "testCountry1", "SE10 9NF", null)]
         public void VerifySaveAndReturnToDashboardOnAddAPlaceOfDispatchPage(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

@@ -52,12 +52,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CheckBoxSelected()
         {
-            //_driver.FindElement(CheckBox).Click();
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
             Thread.Sleep(1000);
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", CheckBox);
-
         }
 
         public void ClickOnSubmitSignUp()

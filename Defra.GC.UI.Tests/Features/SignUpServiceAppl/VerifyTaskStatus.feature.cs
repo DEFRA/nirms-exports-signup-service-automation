@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify status of Business Details task")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "England", "testFBO", null)]
         public void VerifyStatusOfBusinessDetailsTask(string logininfo, string businessSelection, string country, string fBONumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -139,7 +139,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify status of all tasks")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "EstName1", "testAddress1", "London", "England", "SE10 9NF", "testContactName", "testPosition", "test@test.com", "01632 960 001", "test Auth name", "administrator", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "England", "testFBO", "EstName1", "testAddress1", "London", "England", "SE10 9NF", "testContactName", "testPosition", "test@test.com", "01632 960 001", "test Auth name", "administrator", null)]
         public void VerifyStatusOfAllTasks(
                     string logininfo, 
                     string businessSelection, 
@@ -399,7 +399,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify status of Authorised Signatory task with Yes Authorisation")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "England", "testFBO", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void VerifyStatusOfAuthorisedSignatoryTaskWithYesAuthorisation(string logininfo, string businessSelection, string country, string fBONumber, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -483,7 +483,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify status of Authorised Signatory task with No Authorisation")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "test name", "administrator", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "England", "testFBO", "test name", "administrator", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void VerifyStatusOfAuthorisedSignatoryTaskWithNoAuthorisation(string logininfo, string businessSelection, string country, string fBONumber, string fullName, string authposition, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -629,7 +629,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the status of Check answers and submit sign task")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "AM", "England", "testFBO", "EstName1", "testAddress1", "London", "England", "SE10 9NF", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "England", "testFBO", "EstName1", "testAddress1", "London", "England", "SE10 9NF", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void VerifyTheStatusOfCheckAnswersAndSubmitSignTask(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

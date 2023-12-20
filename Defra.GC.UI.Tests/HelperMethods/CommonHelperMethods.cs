@@ -6,10 +6,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
 {
     public static class CommonHelperMethods
     {
-        public static void SelectFromDropdown(this IWebDriver driver, IWebElement Element, string value)
+        public static void SelectFromDropdown(this IWebDriver driver, IWebElement Element, string Text)
         {
             SelectElement dropDown = new SelectElement(Element);
-            dropDown.SelectByValue(value);
+            dropDown.SelectByText(Text);
         }
         public static void ClickRadioButton(this IWebDriver driver, string code)
         {

@@ -7,10 +7,10 @@ Background:
 	Given Clear Database for user 'test1A'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo 'test1A'
-	And   select business to sign up 'Kaka'
+	And   select business to sign up 'Tesco Leeds'
 	And   complete eligibility task with 'England'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name 'Kaka'
+	And   user verify the selected business name 'Tesco Leeds'
 	When  click on FBOorPHRNumber task
 	And   enter FBO number 'testFBO' for FBO or PHR number task
 	And   click Save and return to dashboard
@@ -43,6 +43,6 @@ Scenario: Verify business name
 
 	Examples: 
 	| logininfo | Business selection   |nextPage                                |
-	| test1A    | Kaka                 |Northern Ireland Retail Movement Scheme |
+	| test1A    | Tesco Leeds          |Northern Ireland Retail Movement Scheme |
 
 

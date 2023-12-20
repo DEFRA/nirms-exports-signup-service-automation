@@ -3,7 +3,7 @@ Feature: CheckAnswers
 
 Check Answers and Submit the application
 
-	@CrossBrowser @SmokeTest @RunOnly
+	@CrossBrowser @SmokeTest
 Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -29,8 +29,8 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	Then  verify next page '<nextPage6>' is loaded
 
 	Examples: 
-	| logininfo | Business selection                       | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                     | nextPage3   | nextPage4          | nextPage5            | nextPage6                                                                                            |
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | the authorised representative | of dispatch | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
+	| logininfo | Business selection       | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                     | nextPage3   | nextPage4          | nextPage5            | nextPage6                                                                                            |
+	| test      | Tesco Carlisle           | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | the authorised representative | of dispatch | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
 
 	@CrossBrowser @SmokeTest 
@@ -60,7 +60,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage1                 | nextPage2                     | nextPage3      | nextPage4          | nextPage5            | nextPage6                                                                                            |
-	| test1A    | Kaka               | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | the authorised representative | of destination | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
+	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | the authorised representative | of destination | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
 
 Scenario: Check answers and submit sign up link verification on GB points of establishment 
@@ -91,7 +91,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | nextPage6                                                                                            |
-	| test1A    | Kaka                | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName3      | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
+	| test1A    | Tesco Leeds         | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName3      | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
 Scenario: Check answers and submit sign up link verification on NI points of establishment
 	Given Clear Database for user '<logininfo>'
@@ -120,7 +120,7 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage           | nextPage1            |
-	| test1A    | Kaka                | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName4      | testAddress1 | Belfast | Northern Ireland | Check your answers | Terms and conditions |
+	| test1A    | Tesco Leeds         | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName4      | testAddress1 | Belfast | Northern Ireland | Check your answers | Terms and conditions |
 
 	Scenario: Edit Check answers for GB Retail Movement Scheme sign up
 	Given Clear Database for user '<logininfo>'

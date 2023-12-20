@@ -11,5 +11,5 @@ Scenario: Verify Provide Feedback link opens iin new tab
 	Then  switch to next opened tab
 	Then  verify feedback page is loaded
 	Examples: 
-	| logininfo | Business selection                       | 
-	| test      | ABC ACCOUNTANCY & MARKETING SERVICES LTD.| 
+	| logininfo | Business selection  | 
+	| test      | Tesco Carlisle      | 

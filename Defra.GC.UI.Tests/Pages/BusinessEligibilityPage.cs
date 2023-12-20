@@ -33,7 +33,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private By ErrorSummaryBy => By.XPath("//h2[contains(@class,'govuk-error-summary__title')]");
         private By RegulationCheckedboxBy => By.XPath("//input[@checked='checked']");
         private IWebElement FBONumberValue => _driver.WaitForElement(By.Id("FboNumber"));
-        
+        private IWebElement SelectBusinessDP => _driver.WaitForElement(By.Id("SelectedBusiness"));
+
         private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #endregion Page Objects
@@ -95,7 +96,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
              Thread.Sleep(1000);
-            _driver.FindElement(By.XPath("//label[contains(text(),'" +businessSelection + "')]/../input")).Click();
+
+            if (_driver.FindElements(By.XPath("//input[@name='SelectedBusiness']")).Count > 0)
+            {
+                _driver.FindElement(By.XPath("//label[contains(text(),'" + businessSelection + "')]/../input")).Click();
+            }
+            else if (_driver.FindElements(By.XPath("//select[@name='SelectedBusiness']")).Count > 0)
+            {
+                _driver.SelectFromDropdown(SelectBusinessDP, businessSelection);
+            }
+
             ClickSaveAndContinue();
         }
 

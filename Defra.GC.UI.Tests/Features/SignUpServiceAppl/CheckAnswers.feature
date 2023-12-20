@@ -3,7 +3,7 @@ Feature: CheckAnswers
 
 Check Answers and Submit the application
 
-	@CrossBrowser @SmokeTest @RunOnly
+	@CrossBrowser @SmokeTest
 Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

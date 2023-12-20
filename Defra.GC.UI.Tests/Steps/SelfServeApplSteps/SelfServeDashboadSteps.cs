@@ -38,5 +38,35 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             Assert.True(selfServeDashboardPage.VerifyBusinessRMSNumber(BusinessRMSNumber), "Business RMS Number is not matching");
         }
 
+        [When(@"verify submitted date on self serve dashboard")]
+        public void WhenVerifySubmittedDateOnSelfServeDashboard()
+        {
+
+        }
+
+        [When(@"click on Authorised Representative change link")]
+        public void WhenClickOnAuthorisedRepresentativeChangeLink()
+        {
+
+        }
+
+        [Then(@"verify last updated date on self serve dashboard")]
+        public void ThenVerifyLastUpdatedDateOnSelfServeDashboard()
+        {
+
+        }
+
+        [When(@"click on contact person change link")]
+        public void WhenClickOnContactPersonChangeLink()
+        {
+
+        }
+
+        [When(@"click on cancel link")]
+        public void WhenClickOnCancelLink()
+        {
+
+        }
+
     }
 }

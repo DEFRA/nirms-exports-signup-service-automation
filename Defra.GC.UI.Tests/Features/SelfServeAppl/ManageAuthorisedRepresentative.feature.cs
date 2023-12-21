@@ -22,13 +22,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("ManageAuthorisedRepresentative")]
     [NUnit.Framework.CategoryAttribute("SelfServeRegression")]
+    [NUnit.Framework.CategoryAttribute("RunOnly")]
     public partial class ManageAuthorisedRepresentativeFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "SelfServeRegression"};
+                "SelfServeRegression",
+                "RunOnly"};
         
 #line 1 "ManageAuthorisedRepresentative.feature"
 #line hidden
@@ -208,7 +210,8 @@ this.FeatureBackground();
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 42
-    testRunner.And("verify submitted date on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("verify Authorised Representative date format \'Submitted on\' on self serve dashboa" +
+                        "rd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -268,7 +271,8 @@ this.FeatureBackground();
  testRunner.Then(string.Format("verify Authorised Representative details as \'{0}\', \'{1}\', \'{2}\'", updatedName, updatedPosition, updatedEmailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 57
- testRunner.And("verify last updated date on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("verify Authorised Representative date format \'Last updated\' on self serve dashboa" +
+                        "rd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -2,6 +2,7 @@
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -47,7 +48,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             manageContactPersonPage.enterContactPersonTelephoneNumber(TelephoneNumber);
         }
 
-
         [When(@"click on save contact person details")]
         public void WhenClickOnSaveContactPersonDetails()
         {
@@ -57,7 +57,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         [Then(@"verify contact person details as '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
         public void ThenVerifyContactPersonDetailsAs(string name, string position, string emailAddress, string TelephoneNumber)
         {
-            manageContactPersonPage.verifyContactPersonDetails(name,position,emailAddress,TelephoneNumber);
+            Assert.True(manageContactPersonPage.verifyContactPersonDetails(name,position,emailAddress,TelephoneNumber), "Contact person details not matching");
         }
 
     }

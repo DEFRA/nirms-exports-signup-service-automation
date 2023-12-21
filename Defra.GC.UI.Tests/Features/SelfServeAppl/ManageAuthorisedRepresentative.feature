@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression @RunOnly
 Feature: ManageAuthorisedRepresentative
 
 Manage Authorised Representative
@@ -39,7 +39,7 @@ Background:
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
-    And   verify submitted date on self serve dashboard
+    Then  verify Authorised Representative date format 'Submitted on' on self serve dashboard
 	Examples: 
 	| logininfo | Business selection   |
 	| test1C    | Tesco York           |
@@ -54,7 +54,7 @@ Background:
 	And   enter Authorised Representative Email address '<UpdatedEmailAddress>'
 	And   click on save Authorised Representative details
 	Then  verify Authorised Representative details as '<UpdatedName>', '<UpdatedPosition>', '<UpdatedEmailAddress>'
-	And   verify last updated date on self serve dashboard
+    And   verify Authorised Representative date format 'Last updated' on self serve dashboard
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName | UpdatedPosition       | UpdatedEmailAddress   | 

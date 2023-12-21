@@ -7,6 +7,6 @@
         public void enterContactPersonName(string name);
         public void enterContactPersonposition(string position);
         public void enterContactPersonTelephoneNumber(string telephoneNumber);
-        public void verifyContactPersonDetails(string name, string position, string emailAddress, string telephoneNumber);
+        public bool verifyContactPersonDetails(string name, string position, string emailAddress, string telephoneNumber);
     }
 }

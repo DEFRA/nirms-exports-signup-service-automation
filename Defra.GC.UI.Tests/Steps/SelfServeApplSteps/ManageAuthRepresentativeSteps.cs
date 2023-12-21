@@ -1,11 +1,8 @@
 ﻿using BoDi;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
-using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
+using NUnit.Framework;
 using OpenQA.Selenium;
-using System.Net.Mail;
-using System.Xml.Linq;
 using TechTalk.SpecFlow;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
@@ -53,14 +50,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         [Then(@"verify Authorised Representative details as '([^']*)', '([^']*)', '([^']*)'")]
         public void ThenVerifyAuthorisedRepresentativeDetailsAs(string p0, string p1, string p2)
         {
-            manageAuthRepresentativePage.VerifyAuthorisedRepresentativeDetailsAs(p0, p1, p2);
+            Assert.True(manageAuthRepresentativePage.VerifyAuthorisedRepresentativeDetailsAs(p0, p1, p2), "Auth Representative details not matching");
         }
 
         [When(@"verify error messages '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
         [Then(@"verify error messages '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
         public void WhenVerifyErrorMessages(string p0, string p1, string p2, string p3)
         {
-            manageAuthRepresentativePage.VerifyErrorMessages(p0, p1, p2, p3);
+            Assert.True(manageAuthRepresentativePage.VerifyErrorMessages(p0, p1, p2, p3), "Error Messages not matching");
         }
 
 

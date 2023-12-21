@@ -2,7 +2,6 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.UI.Framework.Driver;
 using OpenQA.Selenium;
 
 
@@ -18,6 +17,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
         private IWebElement BusinessRMSNumberEle => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Business RMS number')]/following-sibling::dd"));
+        private IWebElement ChangeContactPerson => _driver.WaitForElement(By.XPath("//span[contains(text(),'contact person')]/.."));
+        private IWebElement ChangeAuthRepresentative => _driver.WaitForElement(By.XPath("//span[contains(text(),'authorised representative')]/.."));
+        private IWebElement CalcelEle => _driver.WaitForElement(By.XPath("//a[contains(text(),'Cancel')]"));
+        private IWebElement ContactPersonDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Contact person')]/..//div"));
+        private IWebElement AuthRepresentativeDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Authorised representative')]/..//div"));
 
 
         #endregion Page Objects
@@ -43,8 +47,39 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             return BusinessRMSNumberEle.Text.Contains(businessRMSNumber);
         }
 
-        #endregion Page Methods
+        public void ClickOnAuthorisedRepresentativeChangeLink()
+        {
+            ChangeAuthRepresentative.Click();
+        }
 
+        public void ClickOnCancelLink()
+        {
+            CalcelEle.Click();
+        }
+
+        public void ClickOnContactPersonChangeLink()
+        {
+            ChangeContactPerson.Click();
+        }
+
+        public bool VerifyContactPersonDateFormatOnSelfServeDashboard(string text)
+        {
+            DateTime now = DateTime.Now;
+            string todaysDate = now.ToString("dd MMMM yyyy");
+            text = text + todaysDate;
+            return ContactPersonDate.Text.Contains(text);
+        }
+
+        public bool VerifyAuthRepresentativeDateFormatOnSelfServeDashboard(string text)
+        {
+            DateTime now = DateTime.Now;
+            string todaysDate = now.ToString("dd MMMM yyyy");
+            text = text + todaysDate;
+            return AuthRepresentativeDate.Text.Contains(text);
+
+        }
+
+        #endregion Page Methods
 
     }
 

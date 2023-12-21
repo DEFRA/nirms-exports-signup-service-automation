@@ -16,6 +16,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         #region Page Objects
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
+        private IWebElement SaveContactPersonDetailsEle => _driver.WaitForElement(By.Id("buttonSelfServeUpdateContactSubmit"));
+        private IWebElement ContactPersonName => _driver.WaitForElement(By.Id("contact-person-name"));
+        private IWebElement ContactPersonPosition => _driver.WaitForElement(By.Id("contact-person-position"));
+        private IWebElement ContactPersonEmailAddress => _driver.WaitForElement(By.Id("contact-person-email"));
+        private IWebElement ContactPersonTelephoneNum => _driver.WaitForElement(By.Id("contact-person-phone"));
+        private IWebElement ContactPersonDetails => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Contact person')]/..//dd"));
 
 
         #endregion Page Objects
@@ -30,20 +36,33 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         #region Page Methods
 
         public void clickOnSaveContactPersonDetails()
-        { }
+        {
+            SaveContactPersonDetailsEle.Click();
+        }
+
         public void enterContactPersonEmailAddress(string emailAddress)
-        { }
+        {
+            ContactPersonEmailAddress.SendKeys(emailAddress);
+        }
         public void enterContactPersonName(string name)
-        { }
+        {
+            ContactPersonName.SendKeys(name);
+        }
 
         public void enterContactPersonposition(string position)
-        { }
+        {
+            ContactPersonPosition.SendKeys(position);
+        }
 
         public void enterContactPersonTelephoneNumber(string telephoneNumber)
-        { }
+        {
+            ContactPersonTelephoneNum.SendKeys(telephoneNumber);
+        }
 
-        public void verifyContactPersonDetails(string name, string position, string emailAddress, string telephoneNumber)
-        { }
+        public bool verifyContactPersonDetails(string name, string position, string emailAddress, string telephoneNumber)
+        {
+            return ContactPersonDetails.Text.Contains(name) && ContactPersonDetails.Text.Contains(position) && ContactPersonDetails.Text.Contains(emailAddress) && ContactPersonDetails.Text.Contains(telephoneNumber);
+        }
 
         #endregion Page Methods
 

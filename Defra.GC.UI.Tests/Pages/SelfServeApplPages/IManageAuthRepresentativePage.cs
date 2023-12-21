@@ -6,7 +6,7 @@
         public void EnterAuthorisedRepresentativeName(string name);
         public void EnterAuthorisedRepresentativePosition(string position);
         public void SaveAuthorisedRepresentativeDetails();
-        public void VerifyAuthorisedRepresentativeDetailsAs(string p0, string p1, string p2);
-        public void VerifyErrorMessages(string p0, string p1, string p2, string p3);
+        public bool VerifyAuthorisedRepresentativeDetailsAs(string name, string position, string emailAddress);
+        public bool VerifyErrorMessages(string message1, string message2, string message3, string p3message4);
     }
 }

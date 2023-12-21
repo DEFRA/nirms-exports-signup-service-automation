@@ -208,7 +208,7 @@ this.FeatureBackground();
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 42
-    testRunner.And("verify submitted date on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.Then("verify Contact Person date format \'Submitted on\' on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -272,7 +272,7 @@ this.FeatureBackground();
  testRunner.Then(string.Format("verify contact person details as \'{0}\', \'{1}\', \'{2}\', \'{3}\'", updatedName, updatedPosition, updatedEmailAddress, updatedTelephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 58
- testRunner.And("verify last updated date on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("verify Contact Person date format \'Last updated\' on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

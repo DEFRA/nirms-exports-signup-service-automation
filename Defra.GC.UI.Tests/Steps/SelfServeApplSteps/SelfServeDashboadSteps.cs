@@ -1,7 +1,5 @@
 ﻿using BoDi;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
-using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -17,7 +15,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         private readonly ScenarioContext _scenarioContext;
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
         private ISelfServeDashboardPage? selfServeDashboardPage => _objectContainer.IsRegistered<ISelfServeDashboardPage>() ? _objectContainer.Resolve<ISelfServeDashboardPage>() : null;
-        private IDataHelperConnections? dataHelperConnections => _objectContainer.IsRegistered<IDataHelperConnections>() ? _objectContainer.Resolve<IDataHelperConnections>() : null;
         private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
 
         public SelfServeDashboadSteps(ScenarioContext context, IObjectContainer container)
@@ -38,34 +35,35 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             Assert.True(selfServeDashboardPage.VerifyBusinessRMSNumber(BusinessRMSNumber), "Business RMS Number is not matching");
         }
 
-        [When(@"verify submitted date on self serve dashboard")]
-        public void WhenVerifySubmittedDateOnSelfServeDashboard()
+        [When(@"verify Contact Person date format '([^']*)' on self serve dashboard")]
+        [Then(@"verify Contact Person date format '([^']*)' on self serve dashboard")]
+        public void WhenVerifyContactPersonDateFormatOnSelfServeDashboard(string text)
         {
-
+            Assert.True(selfServeDashboardPage.VerifyContactPersonDateFormatOnSelfServeDashboard(text),"Date format not matching");
         }
 
         [When(@"click on Authorised Representative change link")]
         public void WhenClickOnAuthorisedRepresentativeChangeLink()
         {
-
+            selfServeDashboardPage.ClickOnAuthorisedRepresentativeChangeLink();
         }
 
-        [Then(@"verify last updated date on self serve dashboard")]
-        public void ThenVerifyLastUpdatedDateOnSelfServeDashboard()
+        [Then(@"verify Authorised Representative date format '([^']*)' on self serve dashboard")]
+        public void ThenVerifyAuthRepresentativeDateFormatOnSelfServeDashboard(string text)
         {
-
+            Assert.True(selfServeDashboardPage.VerifyAuthRepresentativeDateFormatOnSelfServeDashboard(text), "Date format not matching");
         }
 
         [When(@"click on contact person change link")]
         public void WhenClickOnContactPersonChangeLink()
         {
-
+            selfServeDashboardPage.ClickOnContactPersonChangeLink();
         }
 
         [When(@"click on cancel link")]
         public void WhenClickOnCancelLink()
         {
-
+            selfServeDashboardPage.ClickOnCancelLink();
         }
 
     }

@@ -39,7 +39,7 @@ Background:
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
-    And   verify submitted date on self serve dashboard
+    Then  verify Contact Person date format 'Submitted on' on self serve dashboard
 	Examples: 
 	| logininfo | Business selection   |
 	| test1B    | Tesco London         |
@@ -55,7 +55,7 @@ Background:
 	And   enter contact person Telephone number '<UpdatedTelephoneNumber>'
 	And   click on save contact person details
 	Then  verify contact person details as '<UpdatedName>', '<UpdatedPosition>', '<UpdatedEmailAddress>', '<UpdatedTelephoneNumber>'
-	And   verify last updated date on self serve dashboard
+    And   verify Contact Person date format 'Last updated' on self serve dashboard
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName | UpdatedPosition       | UpdatedEmailAddress   | UpdatedTelephoneNumber |

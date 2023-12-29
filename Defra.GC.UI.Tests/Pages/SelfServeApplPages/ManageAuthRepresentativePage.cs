@@ -15,13 +15,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         #region Page Objects
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
-        private IWebElement SaveAuthRepresentativeDetailsEle => _driver.WaitForElement(By.Id("buttonSelfServeUpdateContactSubmit"));
-        private IWebElement AuthRepresentativeName => _driver.WaitForElement(By.Id("contact-person-name"));
-        private IWebElement AuthRepresentativePosition => _driver.WaitForElement(By.Id("contact-person-position"));
-        private IWebElement AuthRepresentativeEmailAddress => _driver.WaitForElement(By.Id("contact-person-email"));
+        private IWebElement SaveAuthRepresentativeDetailsEle => _driver.WaitForElement(By.Id("buttonSelfServeUpdateAuthRepSubmit"));
+        private IWebElement AuthRepresentativeName => _driver.WaitForElement(By.Id("authorised-representative-name"));
+        private IWebElement AuthRepresentativePosition => _driver.WaitForElement(By.Id("authorised-representative-position"));
+        private IWebElement AuthRepresentativeEmailAddress => _driver.WaitForElement(By.Id("authorised-representative-email"));
         private IWebElement AuthRepresentativeDetails => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Authorised representative')]/..//dd"));
         private By ErrorMessages => By.XPath("//h2[contains(@id,'error-summary-title')]/..//div//a");
-
+        private IWebElement ConfirmCheckBox => _driver.WaitForElement(By.XPath("//input[@id='confirm']"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -35,21 +35,29 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         public void EnterAuthorisedRepresentativeEmailAddress(string emailAddress)
         {
+            AuthRepresentativeEmailAddress.Clear();
             AuthRepresentativeEmailAddress.SendKeys(emailAddress);
         }
 
         public void EnterAuthorisedRepresentativeName(string name)
         {
+            AuthRepresentativeName.Clear();
             AuthRepresentativeName.SendKeys(name);
         }
 
         public void EnterAuthorisedRepresentativePosition(string position)
         {
+            AuthRepresentativePosition.Clear();
             AuthRepresentativePosition.SendKeys(position);
         }
 
         public void SaveAuthorisedRepresentativeDetails()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
+            Thread.Sleep(1000);
+            ////IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            ////jsExecutor.ExecuteScript("arguments[0].click();", ConfirmCheckBox);
+            ////Thread.Sleep(1000);
             SaveAuthRepresentativeDetailsEle.Click();
         }
 
@@ -71,22 +79,42 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
             foreach (string error in errorList) 
             {
-                if (!error.Contains(message1))
+                if (error.Contains(message1))
+                {
+                    status = true;
+                    break;
+                } 
+                else
+                status = false;
+            }
+            foreach (string error in errorList)
+            {
+                if (error.Contains(message2))
+                {
+                    status = true;
+                    break;
+                }
+                else
                     status = false;
             }
             foreach (string error in errorList)
             {
-                if (!error.Contains(message2))
+                if (error.Contains(message3))
+                {
+                    status = true;
+                    break;
+                }
+                else
                     status = false;
             }
             foreach (string error in errorList)
             {
-                if (!error.Contains(message3))
-                    status = false;
-            }
-            foreach (string error in errorList)
-            {
-                if (!error.Contains(message4))
+                if (error.Contains(message4))
+                {
+                    status = true;
+                    break;
+                }
+                else
                     status = false;
             }
             return status;

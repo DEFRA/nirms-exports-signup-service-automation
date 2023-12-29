@@ -37,25 +37,31 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         public void clickOnSaveContactPersonDetails()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
+            Thread.Sleep(1000); 
             SaveContactPersonDetailsEle.Click();
         }
 
         public void enterContactPersonEmailAddress(string emailAddress)
         {
+            ContactPersonEmailAddress.Clear();
             ContactPersonEmailAddress.SendKeys(emailAddress);
         }
         public void enterContactPersonName(string name)
         {
+            ContactPersonName.Clear();
             ContactPersonName.SendKeys(name);
         }
 
         public void enterContactPersonposition(string position)
         {
+            ContactPersonPosition.Clear();
             ContactPersonPosition.SendKeys(position);
         }
 
         public void enterContactPersonTelephoneNumber(string telephoneNumber)
-        {
+        {   
+            ContactPersonTelephoneNum.Clear();
             ContactPersonTelephoneNum.SendKeys(telephoneNumber);
         }
 

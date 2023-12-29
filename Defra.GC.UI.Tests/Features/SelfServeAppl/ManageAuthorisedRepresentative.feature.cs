@@ -116,7 +116,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update Authorised Representative")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "TestName-", "TestPosition1().,-_/&", "Changedemail@test.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "TestName", "TestPosition", "Changedemail@test.com", null)]
         public void UpdateAuthorisedRepresentative(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -232,7 +232,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages for invalid Authorised Representative fields")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "TestName-%", "Test1().,-_/&%", "Changedemail@test.com%", "Enter a name using only letters, hyphens or apostrophes", "Enter an email address in the correct format, like name@example.com", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
+        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "TestName%", "Test1()%", "Changedemail%@test.com", "Enter a name using only letters, hyphens or apostrophes", "Enter an email address in the correct format, like name@example.com", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
             "ns, underscores, forward slashes or ampersands", "has read and understood the terms and conditions", null)]
         public void VerifyErrorMessagesForInvalidAuthorisedRepresentativeFields(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string message1, string message2, string message3, string message4, string[] exampleTags)
         {

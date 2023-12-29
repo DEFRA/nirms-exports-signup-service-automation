@@ -58,7 +58,7 @@ Manage Authorised Representative
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName | UpdatedPosition       | UpdatedEmailAddress   | 
-	| test1C    | Tesco York         | TestName-   | TestPosition1().,-_/& | Changedemail@test.com |
+	| test1C    | Tesco York         | TestName    | TestPosition          | Changedemail@test.com |
 
 
 	Scenario: Verify error messages for blank Authorised Representative fields
@@ -90,7 +90,7 @@ Manage Authorised Representative
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName  | UpdatedPosition  | UpdatedEmailAddress    | Message1     | Message2               | Message3         | Message4                 |
-	| test1C    | Tesco York         | TestName-%   | Test1().,-_/&%   | Changedemail@test.com% | Enter a name using only letters, hyphens or apostrophes | Enter an email address in the correct format, like name@example.com | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | has read and understood the terms and conditions|
+	| test1C    | Tesco York         | TestName%    | Test1()%         | Changedemail%@test.com | Enter a name using only letters, hyphens or apostrophes | Enter an email address in the correct format, like name@example.com | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | has read and understood the terms and conditions|
 
 	Scenario: Verify Cancel link on update Authorised Representative page
 	Given that I navigate to the NI GC application

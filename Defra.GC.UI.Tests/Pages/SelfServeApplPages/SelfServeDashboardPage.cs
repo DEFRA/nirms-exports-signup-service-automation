@@ -37,9 +37,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         public void SelectBusinessOnSelfServe(string businessSelection)
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
             Thread.Sleep(1000);
-            _driver.FindElement(By.XPath("//span[contains(text(),'" + businessSelection + "')]/..")).Click();
+
+            string ManageLink = "//span[contains(text(),'" + businessSelection + "')]/..";
+            IWebElement ManageLinkEle = _driver.WaitForElement(By.XPath(ManageLink));
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", ManageLinkEle);
         }
 
         public bool VerifyBusinessRMSNumber(string businessRMSNumber) 
@@ -49,32 +53,35 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         public void ClickOnAuthorisedRepresentativeChangeLink()
         {
-            ChangeAuthRepresentative.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", ChangeAuthRepresentative);
         }
 
         public void ClickOnCancelLink()
         {
-            CalcelEle.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", CalcelEle);
         }
 
         public void ClickOnContactPersonChangeLink()
         {
-            ChangeContactPerson.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", ChangeContactPerson);
         }
 
         public bool VerifyContactPersonDateFormatOnSelfServeDashboard(string text)
         {
             DateTime now = DateTime.Now;
-            string todaysDate = now.ToString("dd MMMM yyyy");
-            text = text + todaysDate;
+            string todaysDate = now.ToString("dd MMM yyy");
+            text = text + " " + todaysDate;
             return ContactPersonDate.Text.Contains(text);
         }
 
         public bool VerifyAuthRepresentativeDateFormatOnSelfServeDashboard(string text)
         {
             DateTime now = DateTime.Now;
-            string todaysDate = now.ToString("dd MMMM yyyy");
-            text = text + todaysDate;
+            string todaysDate = now.ToString("dd MMM yyy");
+            text = text + " " + todaysDate;
             return AuthRepresentativeDate.Text.Contains(text);
 
         }

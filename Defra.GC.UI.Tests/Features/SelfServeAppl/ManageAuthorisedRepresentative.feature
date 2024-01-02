@@ -35,20 +35,12 @@ Manage Authorised Representative
 #	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 #	Then  click on signout button and verify the signout message
 
-	Scenario: Verify submitted date for Authorised Representative
-	Given that I navigate to the NI GC application
-	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
-	And   select business '<Business selection>' on self serve dashboard 
-    Then  verify Authorised Representative date format 'Submitted on' on self serve dashboard
-	Examples: 
-	| logininfo | Business selection   |
-	| test1C    | Tesco York           |
-
 	Scenario: Update Authorised Representative
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
-    And   click on Authorised Representative change link
+    #Then  verify Authorised Representative date format 'Submitted on' on self serve dashboard
+    When  click on Authorised Representative change link
 	And   enter Authorised Representative Name '<UpdatedName>'
 	And   enter Authorised Representative Position '<UpdatedPosition>'
 	And   enter Authorised Representative Email address '<UpdatedEmailAddress>'

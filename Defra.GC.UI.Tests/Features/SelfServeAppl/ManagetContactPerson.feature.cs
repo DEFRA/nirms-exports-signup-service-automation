@@ -76,15 +76,19 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify submitted date for Contact Person")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", null)]
-        public void VerifySubmittedDateForContactPerson(string logininfo, string businessSelection, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update contact person")]
+        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "TestNameChange", "TestPositionChange", "Changedemail@test.com", "01632 960 001", null)]
+        public void UpdateContactPerson(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string updatedTelephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify submitted date for Contact Person", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("UpdatedName", updatedName);
+            argumentsOfScenario.Add("UpdatedPosition", updatedPosition);
+            argumentsOfScenario.Add("UpdatedEmailAddress", updatedEmailAddress);
+            argumentsOfScenario.Add("UpdatedTelephoneNumber", updatedTelephoneNumber);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update contact person", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 38
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -107,65 +111,28 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
 #line 42
     testRunner.Then("verify Contact Person date format \'Submitted on\' on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Update contact person")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "TestNameChange", "TestPositionChange", "Changedemail@test.com", "01632 960 001", null)]
-        public void UpdateContactPerson(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string updatedTelephoneNumber, string[] exampleTags)
-        {
-            string[] tagsOfScenario = exampleTags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("logininfo", logininfo);
-            argumentsOfScenario.Add("Business selection", businessSelection);
-            argumentsOfScenario.Add("UpdatedName", updatedName);
-            argumentsOfScenario.Add("UpdatedPosition", updatedPosition);
-            argumentsOfScenario.Add("UpdatedEmailAddress", updatedEmailAddress);
-            argumentsOfScenario.Add("UpdatedTelephoneNumber", updatedTelephoneNumber);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update contact person", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 47
- this.ScenarioInitialize(scenarioInfo);
+#line 43
+    testRunner.When("click on contact person change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 48
- testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 49
- testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 50
- testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 51
-    testRunner.And("click on contact person change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 52
+#line 44
  testRunner.And(string.Format("enter contact person Name \'{0}\'", updatedName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 45
  testRunner.And(string.Format("enter contact person Position \'{0}\'", updatedPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 54
+#line 46
  testRunner.And(string.Format("enter contact person Email address \'{0}\'", updatedEmailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 55
+#line 47
  testRunner.And(string.Format("enter contact person Telephone number \'{0}\'", updatedTelephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 48
  testRunner.And("click on save contact person details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 57
+#line 49
  testRunner.Then(string.Format("verify contact person details as \'{0}\', \'{1}\', \'{2}\', \'{3}\'", updatedName, updatedPosition, updatedEmailAddress, updatedTelephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 58
+#line 50
     testRunner.And("verify Contact Person date format \'Last updated\' on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -190,7 +157,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             argumentsOfScenario.Add("Message3", message3);
             argumentsOfScenario.Add("Message4", message4);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error messages for blank contact person fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 65
+#line 57
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -200,34 +167,34 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             else
             {
                 this.ScenarioStart();
-#line 66
+#line 58
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 67
+#line 59
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 68
+#line 60
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 69
+#line 61
     testRunner.And("click on contact person change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 70
+#line 62
  testRunner.And(string.Format("enter contact person Name \'{0}\'", updatedName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 71
+#line 63
  testRunner.And(string.Format("enter contact person Position \'{0}\'", updatedPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 72
+#line 64
  testRunner.And(string.Format("enter contact person Email address \'{0}\'", updatedEmailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 73
+#line 65
  testRunner.And(string.Format("enter contact person Telephone number \'{0}\'", updatedTelephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 74
+#line 66
  testRunner.And("click on save contact person details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 75
+#line 67
  testRunner.Then(string.Format("verify error messages \'{0}\', \'{1}\', \'{2}\', \'{3}\'", message1, message2, message3, message4), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -253,7 +220,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             argumentsOfScenario.Add("Message3", message3);
             argumentsOfScenario.Add("Message4", message4);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error messages for invalid contact person fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 82
+#line 74
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -263,34 +230,34 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             else
             {
                 this.ScenarioStart();
-#line 83
+#line 75
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 84
+#line 76
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 85
+#line 77
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 86
+#line 78
     testRunner.And("click on contact person change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 87
+#line 79
  testRunner.And(string.Format("enter contact person Name \'{0}\'", updatedName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 88
+#line 80
  testRunner.And(string.Format("enter contact person Position \'{0}\'", updatedPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 89
+#line 81
  testRunner.And(string.Format("enter contact person Email address \'{0}\'", updatedEmailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 90
+#line 82
  testRunner.And(string.Format("enter contact person Telephone number \'{0}\'", updatedTelephoneNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 91
+#line 83
  testRunner.And("click on save contact person details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 92
+#line 84
  testRunner.Then(string.Format("verify error messages \'{0}\', \'{1}\', \'{2}\', \'{3}\'", message1, message2, message3, message4), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -308,7 +275,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Cancel link on update contact person page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 98
+#line 90
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -318,22 +285,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             else
             {
                 this.ScenarioStart();
-#line 99
+#line 91
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 100
+#line 92
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 101
+#line 93
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 102
+#line 94
     testRunner.And("click on contact person change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 103
+#line 95
  testRunner.And("click on cancel link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 104
+#line 96
  testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -351,7 +318,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Back link on update contact person page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 111
+#line 103
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -361,22 +328,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             else
             {
                 this.ScenarioStart();
-#line 112
+#line 104
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 113
+#line 105
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 114
+#line 106
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 115
+#line 107
     testRunner.And("click on contact person change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 116
+#line 108
  testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 117
+#line 109
  testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

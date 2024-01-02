@@ -3,6 +3,8 @@ using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using OpenQA.Selenium.Interactions;
+using System.Xml.Linq;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 {
@@ -58,6 +60,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             ////IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             ////jsExecutor.ExecuteScript("arguments[0].click();", ConfirmCheckBox);
             ////Thread.Sleep(1000);
+            //IWebElement checkBox = _driver.WaitForElement(By.XPath("TandCs"));
+            Actions actions = new Actions(_driver);
+            actions.MoveToElement(ConfirmCheckBox).Click().Build().Perform();
             SaveAuthRepresentativeDetailsEle.Click();
         }
 

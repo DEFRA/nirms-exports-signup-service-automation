@@ -35,20 +35,12 @@ Manage Contact Person
 #	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 #	Then  click on signout button and verify the signout message
 
-	Scenario: Verify submitted date for Contact Person
-	Given that I navigate to the NI GC application
-	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
-	And   select business '<Business selection>' on self serve dashboard 
-    Then  verify Contact Person date format 'Submitted on' on self serve dashboard
-	Examples: 
-	| logininfo | Business selection   |
-	| test1B    | Tesco London         |
-
 	Scenario: Update contact person
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
-    And   click on contact person change link
+    Then  verify Contact Person date format 'Submitted on' on self serve dashboard
+    When  click on contact person change link
 	And   enter contact person Name '<UpdatedName>'
 	And   enter contact person Position '<UpdatedPosition>'
 	And   enter contact person Email address '<UpdatedEmailAddress>'

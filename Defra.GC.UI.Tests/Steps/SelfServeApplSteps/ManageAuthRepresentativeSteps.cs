@@ -47,6 +47,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             manageAuthRepresentativePage.SaveAuthorisedRepresentativeDetails();
         }
 
+        [When(@"click on save Authorised Representative details without confirmation")]
+        public void WhenClickOnSaveAuthorisedRepresentativeDetailsWithoutConfirmation()
+        {
+            manageAuthRepresentativePage.SaveAuthorisedRepresentativeDetailsWithoutConfirm();
+        }
+
         [Then(@"verify Authorised Representative details as '([^']*)', '([^']*)', '([^']*)'")]
         public void ThenVerifyAuthorisedRepresentativeDetailsAs(string p0, string p1, string p2)
         {

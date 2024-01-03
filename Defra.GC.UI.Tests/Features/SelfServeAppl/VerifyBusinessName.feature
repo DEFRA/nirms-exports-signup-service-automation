@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression @RunOnly
 Feature: VerifyBusinessName
 
 Verify Business Name
@@ -36,7 +36,8 @@ Background:
 	Then  click on signout button and verify the signout message
 
 Scenario: Verify business name
-	Given that I navigate to the NI GC application
+	Given Approve Sign up request for org '<Business selection>'
+	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page

@@ -2,6 +2,7 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -19,6 +20,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
 
         private IWebElement ConfirmSanitaryAndPhytosanitaryBox => _driver.WaitForElementExists(By.Id("AssuranceCommitment"));
+        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
 
         private IWebElement CheckBox => _driver.WaitForElement(By.XPath("//input[@id='TandCs']"));
 
@@ -52,10 +54,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void CheckBoxSelected()
         {
+            PageHeading.Click();
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
             Thread.Sleep(1000);
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", CheckBox);
+            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            //jsExecutor.ExecuteScript("arguments[0].click();", CheckBox);
+            IWebElement checkBox = _driver.WaitForElementExists(By.XPath("//div[contains(@class,'govuk-checkboxes__item')]/input"));
+            Actions actions = new Actions(_driver);
+            actions.MoveToElement(checkBox).Click().Build().Perform();
         }
 
         public void ClickOnSubmitSignUp()

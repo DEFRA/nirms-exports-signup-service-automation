@@ -1,5 +1,7 @@
 ﻿using BoDi;
+using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -16,11 +18,26 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
         private ISelfServeDashboardPage? selfServeDashboardPage => _objectContainer.IsRegistered<ISelfServeDashboardPage>() ? _objectContainer.Resolve<ISelfServeDashboardPage>() : null;
         private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
+        private IDataHelperConnections? dataHelperConnections => _objectContainer.IsRegistered<IDataHelperConnections>() ? _objectContainer.Resolve<IDataHelperConnections>() : null;
 
         public SelfServeDashboadSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
             _objectContainer = container;
+        }
+
+        [When(@"Approve Sign up request for org '([^']*)'")]
+        [Given(@"Approve Sign up request for org '([^']*)'")]
+        public void ThenApproveSignUpRequest(string Org)
+        {
+            string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
+
+            string query = "UPDATE dbo.TradeParties SET ApprovalStatus = 1 where PracticeName = '" + Org + "' ";
+
+            if (ConfigSetup.BaseConfiguration != null)
+            {
+                dataHelperConnections.ExecuteQuery(connectionString, query);
+            }
         }
 
         [When(@"select business '([^']*)' on self serve dashboard")]

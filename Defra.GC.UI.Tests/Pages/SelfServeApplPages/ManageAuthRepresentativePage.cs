@@ -55,14 +55,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         public void SaveAuthorisedRepresentativeDetails()
         {
+            PageHeading.Click();
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
             Thread.Sleep(1000);
-            ////IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            ////jsExecutor.ExecuteScript("arguments[0].click();", ConfirmCheckBox);
-            ////Thread.Sleep(1000);
-            //IWebElement checkBox = _driver.WaitForElement(By.XPath("TandCs"));
+            IWebElement checkBox = _driver.WaitForElementExists(By.XPath("//div[contains(@class,'govuk-checkboxes__item')]/input"));
             Actions actions = new Actions(_driver);
-            actions.MoveToElement(ConfirmCheckBox).Click().Build().Perform();
+            actions.MoveToElement(checkBox).Click().Build().Perform();
+            SaveAuthRepresentativeDetailsEle.Click();
+        }
+
+        public void SaveAuthorisedRepresentativeDetailsWithoutConfirm()
+        {
+            PageHeading.Click();
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
+            Thread.Sleep(1000);
             SaveAuthRepresentativeDetailsEle.Click();
         }
 

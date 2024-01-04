@@ -1,4 +1,4 @@
-﻿@SelfServeRegression @RunOnly
+﻿@SelfServeRegression
 Feature: HeaderLinks
 
 Self serve header page

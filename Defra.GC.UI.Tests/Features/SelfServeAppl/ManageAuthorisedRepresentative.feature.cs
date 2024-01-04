@@ -22,15 +22,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("ManageAuthorisedRepresentative")]
     [NUnit.Framework.CategoryAttribute("SelfServeRegression")]
-    [NUnit.Framework.CategoryAttribute("RunOnly")]
     public partial class ManageAuthorisedRepresentativeFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "SelfServeRegression",
-                "RunOnly"};
+                "SelfServeRegression"};
         
 #line 1 "ManageAuthorisedRepresentative.feature"
 #line hidden
@@ -141,7 +139,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
 #line hidden
 #line 26
  testRunner.When("complete Points of departure with \'EstablishmentName\', \'AddressLine1\', \'London\', " +
-                    "\'England\', \'SE10 9NF\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+                    "\'England\', \'SW7 5HD\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
  testRunner.Then("user verify the Points of departure status \'1 ADDED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

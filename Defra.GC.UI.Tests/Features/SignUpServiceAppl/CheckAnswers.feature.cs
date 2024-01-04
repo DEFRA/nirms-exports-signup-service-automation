@@ -80,7 +80,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
             "with save and continue")]
         [NUnit.Framework.CategoryAttribute("CrossBrowser")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName1", "testAddress1", "London", "England", "Who is the contact person", "the authorised representative", "of dispatch", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", null)]
         public void CheckAnswersAndSubmitSignUpLinkVerificationOnGBPointsOfEstablishmentWithSaveAndContinue(
@@ -110,8 +109,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         {
             string[] @__tags = new string[] {
                     "CrossBrowser",
-                    "SmokeTest",
-                    "RunOnly"};
+                    "SmokeTest"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));

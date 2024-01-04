@@ -22,15 +22,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("FooterLinks")]
     [NUnit.Framework.CategoryAttribute("SelfServeRegression")]
-    [NUnit.Framework.CategoryAttribute("RunOnly")]
     public partial class FooterLinksFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "SelfServeRegression",
-                "RunOnly"};
+                "SelfServeRegression"};
         
 #line 1 "FooterLinks.feature"
 #line hidden

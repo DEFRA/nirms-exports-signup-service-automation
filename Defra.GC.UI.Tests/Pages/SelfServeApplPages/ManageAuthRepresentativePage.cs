@@ -4,7 +4,6 @@ using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium.Interactions;
-using System.Xml.Linq;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 {

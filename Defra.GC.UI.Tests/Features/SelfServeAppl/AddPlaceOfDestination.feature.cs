@@ -20,24 +20,26 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("VerifyBusinessName")]
+    [NUnit.Framework.DescriptionAttribute("AddPlaceOfDestination")]
     [NUnit.Framework.CategoryAttribute("SelfServeRegression")]
-    public partial class VerifyBusinessNameFeature
+    [NUnit.Framework.CategoryAttribute("RunOnly")]
+    public partial class AddPlaceOfDestinationFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "SelfServeRegression"};
+                "SelfServeRegression",
+                "RunOnly"};
         
-#line 1 "VerifyBusinessName.feature"
+#line 1 "AddPlaceOfDestination.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/SelfServeAppl", "VerifyBusinessName", "Verify Business Name", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/SelfServeAppl", "AddPlaceOfDestination", "Add Place of Destination", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,25 +82,25 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
 #line 6
 #line hidden
 #line 7
- testRunner.Given("Clear Database for user \'test1A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Clear Database for user \'test1C\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.When("sign in with valid credentials with logininfo \'test1A\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("sign in with valid credentials with logininfo \'test1C\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.And("select business to sign up \'Tesco Leeds\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("select business to sign up \'Tesco York\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.And("complete eligibility task with \'England\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("complete eligibility task with \'Northern Ireland\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.And("user verify the selected business name \'Tesco Leeds\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("user verify the selected business name \'Tesco York\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
  testRunner.When("click on FBOorPHRNumber task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -138,11 +140,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.When("complete contact person Authorised Signatory with Yes Authorisation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 26
- testRunner.When("complete Points of departure with \'EstablishmentName\', \'AddressLine1\', \'London\', " +
-                    "\'England\', \'SW1A 0AA\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("complete Points of destination with \'EstablishmentName\', \'AddressLine1\', \'London\'" +
+                    ", \'England\', \'BT1 1HS\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
- testRunner.Then("user verify the Points of departure status \'1 ADDED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("user verify the Points of destination status \'1 ADDED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 28
  testRunner.And("click on Check answers and submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -176,18 +178,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify business name")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Tesco Leeds", "Northern Ireland Retail Movement Scheme", null)]
-        public void VerifyBusinessName(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify Add Place Of Destination link")]
+        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "Northern Ireland Retail Movement Scheme", "03000 200 301", "Find out about call charges", "NIRetailMovementEnquiries@apha.gov.uk", null)]
+        public void VerifyAddPlaceOfDestinationLink(string logininfo, string businessSelection, string nextPage, string linkText1, string linkText2, string linkText3, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify business name", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("linkText1", linkText1);
+            argumentsOfScenario.Add("linkText2", linkText2);
+            argumentsOfScenario.Add("linkText3", linkText3);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Add Place Of Destination link", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 38
-this.ScenarioInitialize(scenarioInfo);
+ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -203,7 +208,7 @@ this.FeatureBackground();
  testRunner.Given(string.Format("Approve Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 40
- testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 41
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -212,6 +217,24 @@ this.FeatureBackground();
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 43
+ testRunner.And("click on link \'Add a place of destination\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 44
+ testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 45
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 46
+ testRunner.When("click on link \'Add a place of destination\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 47
+ testRunner.Then(string.Format("verify links on establishment page \'{0}\', \'{1}\', \'{2}\'", linkText1, linkText2, linkText3), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 48
+ testRunner.When("click on back to dashboard link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 49
  testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

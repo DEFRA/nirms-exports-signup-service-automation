@@ -23,7 +23,7 @@ Background:
 	Then  user verify the business contact details status 'COMPLETED'
     And   user verify the Authorised Signatory status 'NOT STARTED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
-	When  complete Points of departure with 'EstablishmentName', 'AddressLine1', 'London', 'England', 'SE10 9NF'
+	When  complete Points of departure with 'EstablishmentName', 'AddressLine1', 'London', 'England', 'SE2 9BS'
 	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page 'Check your answers' is loaded 
@@ -36,7 +36,8 @@ Background:
 	Then  click on signout button and verify the signout message
 
 Scenario: Verify business RMS Number
-	Given that I navigate to the NI GC application
+	Given Approve Sign up request for org '<Business selection>'
+	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page

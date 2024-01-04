@@ -6,7 +6,7 @@ Check Answers and Submit the application
 	@CrossBrowser @SmokeTest
 Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
 	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
+	Given   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	And   complete eligibility task with '<Country>'

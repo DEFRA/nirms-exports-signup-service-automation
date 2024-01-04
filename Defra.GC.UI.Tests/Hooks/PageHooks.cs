@@ -56,6 +56,9 @@ namespace Defra.GC.UI.Tests.Hooks
 
 
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<SelfServeDashboardPage, ISelfServeDashboardPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ManageAuthRepresentativePage, IManageAuthRepresentativePage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ManageContactPersonPage, IManageContactPersonPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AddEstablishmentPage, IAddEstablishmentPage>());
         }
 
         private TU GetBaseWithContainer<T, TU>() where T : TU =>

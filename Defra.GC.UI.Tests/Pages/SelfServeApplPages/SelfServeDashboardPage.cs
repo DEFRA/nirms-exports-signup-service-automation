@@ -2,7 +2,6 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.UI.Framework.Driver;
 using OpenQA.Selenium;
 
 
@@ -18,6 +17,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
         private IWebElement BusinessRMSNumberEle => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Business RMS number')]/following-sibling::dd"));
+        private IWebElement ChangeContactPerson => _driver.WaitForElement(By.XPath("//span[contains(text(),'contact person')]/.."));
+        private IWebElement ChangeAuthRepresentative => _driver.WaitForElement(By.XPath("//span[contains(text(),'authorised representative')]/.."));
+        private IWebElement CalcelEle => _driver.WaitForElement(By.XPath("//a[contains(text(),'Cancel')]"));
+        private IWebElement ContactPersonDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Contact person')]/..//div"));
+        private IWebElement AuthRepresentativeDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Authorised representative')]/..//div"));
 
 
         #endregion Page Objects
@@ -33,9 +37,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         public void SelectBusinessOnSelfServe(string businessSelection)
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
             Thread.Sleep(1000);
-            _driver.FindElement(By.XPath("//span[contains(text(),'" + businessSelection + "')]/..")).Click();
+
+            string ManageLink = "//span[contains(text(),'" + businessSelection + "')]/..";
+            IWebElement ManageLinkEle = _driver.WaitForElement(By.XPath(ManageLink));
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", ManageLinkEle);
         }
 
         public bool VerifyBusinessRMSNumber(string businessRMSNumber) 
@@ -43,8 +51,42 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             return BusinessRMSNumberEle.Text.Contains(businessRMSNumber);
         }
 
-        #endregion Page Methods
+        public void ClickOnAuthorisedRepresentativeChangeLink()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", ChangeAuthRepresentative);
+        }
 
+        public void ClickOnCancelLink()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", CalcelEle);
+        }
+
+        public void ClickOnContactPersonChangeLink()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", ChangeContactPerson);
+        }
+
+        public bool VerifyContactPersonDateFormatOnSelfServeDashboard(string text)
+        {
+            DateTime now = DateTime.Now;
+            string todaysDate = now.ToString("dd MMM yyy");
+            text = text + " " + todaysDate;
+            return ContactPersonDate.Text.Contains(text);
+        }
+
+        public bool VerifyAuthRepresentativeDateFormatOnSelfServeDashboard(string text)
+        {
+            DateTime now = DateTime.Now;
+            string todaysDate = now.ToString("dd MMM yyy");
+            text = text + " " + todaysDate;
+            return AuthRepresentativeDate.Text.Contains(text);
+
+        }
+
+        #endregion Page Methods
 
     }
 

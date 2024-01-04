@@ -2,8 +2,12 @@
 {
     internal interface ISelfServeDashboardPage
     {
+        void ClickOnAuthorisedRepresentativeChangeLink();
+        void ClickOnCancelLink();
+        void ClickOnContactPersonChangeLink();
         public void SelectBusinessOnSelfServe(string businessSelection);
-
         public bool VerifyBusinessRMSNumber(string businessRMSNumber);
+        public bool VerifyContactPersonDateFormatOnSelfServeDashboard(string text);
+        public bool VerifyAuthRepresentativeDateFormatOnSelfServeDashboard(string text);
     }
 }

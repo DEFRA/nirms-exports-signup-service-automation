@@ -23,7 +23,7 @@ Background:
 	Then  user verify the business contact details status 'COMPLETED'
     And   user verify the Authorised Signatory status 'NOT STARTED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
-	When  complete Points of departure with 'EstablishmentName', 'AddressLine1', 'London', 'England', 'SE10 9NF'
+	When  complete Points of departure with 'EstablishmentName', 'AddressLine1', 'London', 'England', 'SW1A 0AA'
 	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page 'Check your answers' is loaded 

@@ -80,7 +80,7 @@ Background:
 	And   enter Authorised Representative Name '<UpdatedName>'
 	And   enter Authorised Representative Position '<UpdatedPosition>'
 	And   enter Authorised Representative Email address '<UpdatedEmailAddress>'
-	And   click on save Authorised Representative details
+	And   click on save Authorised Representative details without confirmation
 	And   verify error messages '<Message1>', '<Message2>', '<Message3>', '<Message4>'
 
 	Examples: 

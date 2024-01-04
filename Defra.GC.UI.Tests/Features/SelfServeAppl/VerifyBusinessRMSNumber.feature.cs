@@ -141,7 +141,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
 #line hidden
 #line 26
  testRunner.When("complete Points of departure with \'EstablishmentName\', \'AddressLine1\', \'London\', " +
-                    "\'England\', \'SE10 9NF\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+                    "\'England\', \'SE2 9BS\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
  testRunner.Then("user verify the Points of departure status \'1 ADDED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

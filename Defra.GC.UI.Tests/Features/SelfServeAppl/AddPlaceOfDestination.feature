@@ -17,7 +17,7 @@ Background:
 	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	And   user verify the business contact details status 'NOT STARTED'
     And   user verify the Authorised Signatory status 'CANNOT START YET'
-    And   user verify the Points of departure status 'NOT STARTED'
+    And   user verify the Points of destination status 'NOT STARTED'
 	And   verify Check answers and submit sign up status 'CANNOT START YET'
 	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
 	Then  user verify the business contact details status 'COMPLETED'

@@ -116,7 +116,7 @@ Scenario: Verify Add destination displayed for user with rejected signup status
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
 	Then  verify next page '<nextPage3>' is loaded
-	And   complete eligibility task with '<Country>'
+	When  complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on FBOorPHRNumber task

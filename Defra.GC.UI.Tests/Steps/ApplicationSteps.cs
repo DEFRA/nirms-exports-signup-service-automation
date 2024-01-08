@@ -133,6 +133,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             applicationPage.ClickSaveAndReturnToDashboard();
         }
 
+        [When(@"click return to dashboard")]
+        [Then(@"click return to dashboard")]
+        public void ThenClickReturnToDashboard()
+        {
+            applicationPage.ClickReturnToDashboard();
+        }
+
         [When(@"switch to next opened tab")]
         [Then(@"switch to next opened tab")]
         public void SwitchToTab()

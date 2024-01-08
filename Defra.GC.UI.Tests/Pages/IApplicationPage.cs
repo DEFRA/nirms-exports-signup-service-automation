@@ -37,5 +37,7 @@
         public bool VerifyDynamicHintTextMessage(string BusinessName);
 
         public void CloseCurrentTab();
+
+        public void ClickReturnToDashboard();
     }
 }

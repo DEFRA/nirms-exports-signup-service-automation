@@ -470,9 +470,10 @@ Scenario: Verify Check answers for No PHR and No FBO number option eligibility f
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
 	When  click on FBOorPHRNumber task
+	And   complete FBO or PHR number task without FBO or PHR Number
 	Then  click on save and continue
 	Then  verify next page '<nextPage>' is loaded 
-	And   click Save and return to dashboard
+	And   click return to dashboard
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation

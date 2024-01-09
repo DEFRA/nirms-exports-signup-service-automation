@@ -460,17 +460,19 @@ Scenario: Edit and verify Check answers for PHR number eligibility flow
 	| test2     | AMSAK PROPERTY LIMITED      | England | testPHR   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    | PHR number   | ChangePHR           |
 
 
-
 Scenario: Verify Check answers for No PHR and No FBO number option eligibility flow
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
-	And   click on eligibility task
-	And   complete eligibility task with '<Country>' and without FBONumber 
-	Then  click on continue button 
-	Then  confirm regulation assurance checkbox
+	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
+	And   user verify the selected business name '<Business selection>'
+	When  click on FBOorPHRNumber task
+	And   complete FBO or PHR number task without FBO or PHR Number
+	Then  click on save and continue
+	Then  verify next page '<nextPage>' is loaded 
+	And   click return to dashboard
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
@@ -481,5 +483,5 @@ Scenario: Verify Check answers for No PHR and No FBO number option eligibility f
 	Then  verify value '<FBOPHROption>' of No FBO and no PHR on check your answers page
 	
 	Examples: 
-	| logininfo | Business selection          | Country |Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |FBOPHROption |
-	| test2     | AMSAK PROPERTY LIMITED      | England |testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    |Not provided |
+	| logininfo | Business selection     | Country | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | FBOPHROption | nextPage                                   |
+	| test2     | AMSAK PROPERTY LIMITED | England | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    | Not provided | You can still submit a sign-up request now |

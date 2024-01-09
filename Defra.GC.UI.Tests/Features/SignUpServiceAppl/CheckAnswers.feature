@@ -460,7 +460,6 @@ Scenario: Edit and verify Check answers for PHR number eligibility flow
 	| test2     | AMSAK PROPERTY LIMITED      | England | testPHR   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName7      | testAddress1 | London  | England    | PHR number   | ChangePHR           |
 
 
-	@RunOnly
 Scenario: Verify Check answers for No PHR and No FBO number option eligibility flow
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

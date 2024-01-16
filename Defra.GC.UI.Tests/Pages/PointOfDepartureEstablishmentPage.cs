@@ -127,6 +127,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOndifferentPostCodeLink()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
             DifferentPostcode.Click();
         }
 

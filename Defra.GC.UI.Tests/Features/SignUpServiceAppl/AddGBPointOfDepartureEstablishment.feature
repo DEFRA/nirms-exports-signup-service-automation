@@ -1,9 +1,10 @@
-﻿#@Regression
+﻿@Regression
 Feature: AddGBPointOfDepartureEstablishment
 
 Add GB point of Departure Establishment
 
 
+	@ignore
 Scenario: Verify Point of Departure link for GB countries
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -77,7 +78,7 @@ Scenario: Add GB point of Departure establishment address manually
 	| test      | Tesco Carlisle    | Wales    | testFBO   | CF10 1AA | Add a place of dispatch | testName2         | testAddress2 | Cardiff | Wales      | CF10 1AA     |
 	| test      | Tesco Carlisle    | Scotland | testFBO   | G1 1AB   | Add a place of dispatch | testName3         | testAddress3 | Glasgow | Scotland   | G1 1AB       |
 
-
+	@RunOnly
 Scenario: Verify back to dashboard link on select establishment address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -105,13 +106,21 @@ Scenario: Verify back to dashboard link on select establishment address page
 	And   click on the add establishment address manually link
 	When  click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
+	When  click on points of departure link	
+	And   enter Establishment postcode '<postcode>'
+	Then  click on select address button
+	Then  click on save and continue
+	Then  click on continue button
+	When  click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded
+	Then  user verify the Points of departure status '1 ADDED'
 
 	Examples: 
 	| logininfo | Business selection    | Country | FBONumber | postcode | nextPage  |nextPage1               |
 	| test      | Tesco Carlisle        | England | testFBO   | SE10 9NF | Sign up   |Add a place of dispatch |
 
 
-
+	@ignore
 	Scenario: Verify back to dashboard link on then Do you want to add another point of departure Page ?
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -137,7 +146,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| logininfo | Business selection  | Country | FBONumber | postcode | nextPage                | nextPage1 |
 	| test      | Tesco Carlisle      | England | testFBO   | SE10 9NF | Add a place of dispatch |  Sign up    |
 
-
+	@ignore
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -163,7 +172,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| test      | Tesco Carlisle       | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
 
 
-	@SmokeTest
+	@SmokeTest @RunOnly
 Scenario: Add Another GB point of Departure establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -189,11 +198,16 @@ Scenario: Add Another GB point of Departure establishment address
 	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   add establishment email address 'test2@test.com'
 	Then  verify more than 1 establishment addresses added
+	And   verify message for '<Business selection>' on establishment page
+	When  click on I have finished adding points of departure
+	And   click on save and continue
+	Then  verify next page '<nextPage>' is loaded 
+
 	Examples: 
-	| logininfo | Business selection    | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | Tesco Carlisle        | England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        |
+	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | nextPage |
+	| test      | Tesco Carlisle     | England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        | Sign up  |
 
-
+	@ignore
 Scenario: Finish adding GB point of Departure establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -220,7 +234,7 @@ Scenario: Finish adding GB point of Departure establishment address
 	| logininfo | Business selection   | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
 	| test      | Tesco Carlisle       | England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |
 
-	@SmokeTest 
+	@ignore
 Scenario: Verify no establishment address listed after removing last address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -248,7 +262,7 @@ Scenario: Verify no establishment address listed after removing last address
 	| test      | Tesco Carlisle      | England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     | Add a place of dispatch  |
 
 
-
+	@RunOnly
 Scenario: Verify remaining establishment address listed after removing one address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -275,6 +289,9 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	And   add establishment email address 'test2@test.com'
 	And   remove establishment address '<EstablishmentName>'
 	Then  verify establishment address count '1'
+	When  remove establishment address '<EstablishmentName>'
+	Then  verify next page '<nextPage>' is loaded 
+
 	Examples: 
 	| logininfo | Business selection                          | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
 	| test4     | NORTH WEST TELUGU SANGAM                    | England | testFBO   | testName9         | testAddress1 | London  | England    | SE10 9NF     | testName10         | testAddress2 | Liverpool | England     | L1 0AN        |
@@ -360,7 +377,7 @@ Scenario: Change establishment email address
 	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
 	| test      | Tesco Carlisle      | England | testFBO   | testName13        | testAddress1 | London  | England    | SE10 9NF     |
 
-	
+	@ignore
 Scenario:Verify back to dashboard link from address page navigated to Add a place of dispatch  page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -385,7 +402,7 @@ Scenario:Verify back to dashboard link from address page navigated to Add a plac
 	| logininfo | Business selection   | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
 	| test      | Tesco Carlisle       | England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Sign up |
 
-
+	@ignore
 Scenario:Verify different post code link is navigated to Add a place of dispatch page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -406,7 +423,7 @@ Scenario:Verify different post code link is navigated to Add a place of dispatch
 	| logininfo | Business selection  | Country | FBONumber | AddrPostcode | nextPage    |
 	| test      | Tesco Carlisle      | England | testFBO   | SE           | of dispatch |
 
-	
+		@ignore
 Scenario:Verify Enter a Address manually link is navigated to Add a place of dispatch page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

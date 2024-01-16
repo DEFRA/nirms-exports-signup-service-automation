@@ -78,7 +78,7 @@ Scenario: Add GB point of Departure establishment address manually
 	| test      | Tesco Carlisle    | Wales    | testFBO   | CF10 1AA | Add a place of dispatch | testName2         | testAddress2 | Cardiff | Wales      | CF10 1AA     |
 	| test      | Tesco Carlisle    | Scotland | testFBO   | G1 1AB   | Add a place of dispatch | testName3         | testAddress3 | Glasgow | Scotland   | G1 1AB       |
 
-	@RunOnly
+
 Scenario: Verify back to dashboard link on select establishment address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -172,7 +172,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| test      | Tesco Carlisle       | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
 
 
-	@SmokeTest @RunOnly
+	@SmokeTest
 Scenario: Add Another GB point of Departure establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -262,7 +262,6 @@ Scenario: Verify no establishment address listed after removing last address
 	| test      | Tesco Carlisle      | England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     | Add a place of dispatch  |
 
 
-	@RunOnly
 Scenario: Verify remaining establishment address listed after removing one address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

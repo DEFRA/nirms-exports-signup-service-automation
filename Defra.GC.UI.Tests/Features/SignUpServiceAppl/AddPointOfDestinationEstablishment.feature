@@ -51,10 +51,10 @@ Scenario: Add point of Destination establishment address manually
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | EstablishmentName | AddressLine1    | estCity  | estCountry      | AddrPostcode |
-	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |
+	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | EstablishmentName | AddressLine1    | estCity  | estCountry      | AddrPostcode |warningText                                                   |
+	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |You do not need to enter establishments that do not belong to |
 
-	@RunOnly
+
 Scenario: Verify back to dashboard link on enter Destination establishment postcode page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

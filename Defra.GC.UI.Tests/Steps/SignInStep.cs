@@ -5,8 +5,6 @@ using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
-using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.GC.UI.Tests.Configuration;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {

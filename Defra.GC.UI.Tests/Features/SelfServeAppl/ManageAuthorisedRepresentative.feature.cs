@@ -177,10 +177,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update Authorised Representative")]
+        [NUnit.Framework.CategoryAttribute("SmokeTest")]
         [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "TestName", "TestPosition", "Changedemail@test.com", null)]
         public void UpdateAuthorisedRepresentative(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "SmokeTest"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
@@ -188,7 +195,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             argumentsOfScenario.Add("UpdatedPosition", updatedPosition);
             argumentsOfScenario.Add("UpdatedEmailAddress", updatedEmailAddress);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update Authorised Representative", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 38
+#line 39
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -201,41 +208,41 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 39
+#line 40
  testRunner.Given(string.Format("Approve Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 40
+#line 41
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 41
+#line 42
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 42
+#line 43
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 43
+#line 44
     testRunner.Then("verify Authorised Representative date format \'Submitted on\' on self serve dashboa" +
                         "rd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 44
+#line 45
     testRunner.When("click on Authorised Representative change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 45
+#line 46
  testRunner.And(string.Format("enter Authorised Representative Name \'{0}\'", updatedName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 46
+#line 47
  testRunner.And(string.Format("enter Authorised Representative Position \'{0}\'", updatedPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 47
+#line 48
  testRunner.And(string.Format("enter Authorised Representative Email address \'{0}\'", updatedEmailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 48
+#line 49
  testRunner.And("click on save Authorised Representative details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 49
+#line 50
  testRunner.Then(string.Format("verify Authorised Representative details as \'{0}\', \'{1}\', \'{2}\'", updatedName, updatedPosition, updatedEmailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 50
+#line 51
     testRunner.And("verify Authorised Representative date format \'Last updated\' on self serve dashboa" +
                         "rd", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -260,7 +267,7 @@ this.FeatureBackground();
             argumentsOfScenario.Add("Message3", message3);
             argumentsOfScenario.Add("Message4", message4);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error messages for blank Authorised Representative fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 57
+#line 58
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -273,34 +280,34 @@ this.FeatureBackground();
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 58
+#line 59
  testRunner.Given(string.Format("Approve Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 59
+#line 60
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 60
+#line 61
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 61
+#line 62
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 62
+#line 63
     testRunner.And("click on Authorised Representative change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 63
+#line 64
  testRunner.And(string.Format("enter Authorised Representative Name \'{0}\'", updatedName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 64
+#line 65
  testRunner.And(string.Format("enter Authorised Representative Position \'{0}\'", updatedPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 65
+#line 66
  testRunner.And(string.Format("enter Authorised Representative Email address \'{0}\'", updatedEmailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 66
+#line 67
  testRunner.And("click on save Authorised Representative details without confirmation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 67
+#line 68
  testRunner.And(string.Format("verify error messages \'{0}\', \'{1}\', \'{2}\', \'{3}\'", message1, message2, message3, message4), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -325,7 +332,7 @@ this.FeatureBackground();
             argumentsOfScenario.Add("Message3", message3);
             argumentsOfScenario.Add("Message4", message4);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify error messages for invalid Authorised Representative fields", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 74
+#line 75
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -338,34 +345,34 @@ this.FeatureBackground();
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 75
+#line 76
  testRunner.Given(string.Format("Approve Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 76
+#line 77
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 77
+#line 78
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 78
+#line 79
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 79
+#line 80
     testRunner.And("click on Authorised Representative change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 80
+#line 81
  testRunner.And(string.Format("enter Authorised Representative Name \'{0}\'", updatedName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 81
+#line 82
  testRunner.And(string.Format("enter Authorised Representative Position \'{0}\'", updatedPosition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 82
+#line 83
  testRunner.And(string.Format("enter Authorised Representative Email address \'{0}\'", updatedEmailAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 83
+#line 84
  testRunner.And("click on save Authorised Representative details without confirmation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 84
+#line 85
  testRunner.And(string.Format("verify error messages \'{0}\', \'{1}\', \'{2}\', \'{3}\'", message1, message2, message3, message4), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -383,7 +390,7 @@ this.FeatureBackground();
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Cancel link on update Authorised Representative page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 90
+#line 91
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -396,25 +403,25 @@ this.FeatureBackground();
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 91
+#line 92
  testRunner.Given(string.Format("Approve Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 92
+#line 93
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 93
+#line 94
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 94
+#line 95
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 95
+#line 96
     testRunner.And("click on Authorised Representative change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 96
+#line 97
  testRunner.And("click on cancel link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 97
+#line 98
  testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -432,7 +439,7 @@ this.FeatureBackground();
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Back link on update Authorised Representative page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 104
+#line 105
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -445,25 +452,25 @@ this.FeatureBackground();
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 105
+#line 106
  testRunner.Given(string.Format("Approve Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 106
+#line 107
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 107
+#line 108
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 108
+#line 109
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 109
+#line 110
     testRunner.And("click on Authorised Representative change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 110
+#line 111
  testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 111
+#line 112
  testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

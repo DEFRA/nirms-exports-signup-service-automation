@@ -1,11 +1,9 @@
 ﻿using BoDi;
-using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-using static System.Net.Mime.MediaTypeNames;
+
 
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages

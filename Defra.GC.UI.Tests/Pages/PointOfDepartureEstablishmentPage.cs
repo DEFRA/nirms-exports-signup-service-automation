@@ -127,6 +127,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOndifferentPostCodeLink()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
             DifferentPostcode.Click();
         }
 
@@ -319,6 +320,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyDynamicNameInWarningTextOnEstablishmentPage(string name, string text)
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
+
             if (WarningMessage.Text.Contains(name) && WarningMessage.Text.Contains(text))
                 return true;
             else

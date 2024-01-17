@@ -22,7 +22,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         private IWebElement CalcelEle => _driver.WaitForElement(By.XPath("//a[contains(text(),'Cancel')]"));
         private IWebElement ContactPersonDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Contact person')]/..//div"));
         private IWebElement AuthRepresentativeDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Authorised representative')]/..//div"));
-
+        private IWebElement BusinessName => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-summary-list__row')]//dt"));
+        private IWebElement Status => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-tag govuk-tag')]"));
 
         #endregion Page Objects
 
@@ -84,6 +85,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             text = text + " " + todaysDate;
             return AuthRepresentativeDate.Text.Contains(text);
 
+        }
+        public bool VerifyStatusOnSelfServe(string status, string businessSelection)
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,400)", "");
+            string SelfServeStatus = "//dt[contains(text(),'" + businessSelection + "')]/..//div";
+            IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
+            _driver.ElementImplicitWait();
+            return SelfServeStatusEle.Text.Contains(status);
+        }
+
+        public void NavigateToSelfServeURL()
+        {
+            _driver.Navigate().GoToUrl("https://tst-sign-up.trade.azure.defra.cloud/");
+            Thread.Sleep(1000);
         }
 
         #endregion Page Methods

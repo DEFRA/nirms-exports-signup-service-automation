@@ -1,12 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.UI.Framework.Driver;
-using NUnit.Framework.Internal;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
-using System.Diagnostics.Metrics;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -94,19 +89,23 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectBusinessToSignUp(string businessSelection)
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,6000)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,500)", "");
              Thread.Sleep(1000);
 
-            if (_driver.FindElements(By.XPath("//input[@name='SelectedBusiness']")).Count > 0)
-            {
-                _driver.FindElement(By.XPath("//label[contains(text(),'" + businessSelection + "')]/../input")).Click();
-            }
-            else if (_driver.FindElements(By.XPath("//select[@name='SelectedBusiness']")).Count > 0)
-            {
-                _driver.SelectFromDropdown(SelectBusinessDP, businessSelection);
-            }
+            _driver.FindElement(By.XPath("//dt[contains(text(),'" + businessSelection + "')]/..//dd//a")).Click();
 
-            ClickSaveAndContinue();
+
+            //if (_driver.FindElements(By.XPath("//input[@name='SelectedBusiness']")).Count > 0)
+            //{
+            //    _driver.FindElement(By.XPath("//label[contains(text(),'" + businessSelection + "')]/../input")).Click();
+            //}
+            //else if (_driver.FindElements(By.XPath("//select[@name='SelectedBusiness']")).Count > 0)
+            //{
+            //    _driver.SelectFromDropdown(SelectBusinessDP, businessSelection);
+            //}
+
+            //ClickSaveAndContinue();
+
         }
 
         public void NavigateToRegulationsAndConfirmRegulation()

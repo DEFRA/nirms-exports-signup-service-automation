@@ -37,7 +37,7 @@ Background:
 
 	Scenario: Verify Add Place Of Destination link
 	Given Approve Sign up request for org '<Business selection>'
-	Given that I navigate to the NI GC application
+	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
 	And   click on link 'Add a place of destination'

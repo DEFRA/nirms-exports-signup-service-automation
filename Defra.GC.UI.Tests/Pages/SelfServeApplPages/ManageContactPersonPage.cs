@@ -17,10 +17,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
         private IWebElement SaveContactPersonDetailsEle => _driver.WaitForElement(By.Id("buttonSelfServeUpdateContactSubmit"));
-        private IWebElement ContactPersonName => _driver.WaitForElement(By.Id("contact-person-name"));
-        private IWebElement ContactPersonPosition => _driver.WaitForElement(By.Id("contact-person-position"));
-        private IWebElement ContactPersonEmailAddress => _driver.WaitForElement(By.Id("contact-person-email"));
-        private IWebElement ContactPersonTelephoneNum => _driver.WaitForElement(By.Id("contact-person-phone"));
+        private IWebElement ContactPersonName => _driver.WaitForElement(By.Id("Name"));
+        private IWebElement ContactPersonPosition => _driver.WaitForElement(By.Id("Position"));
+        private IWebElement ContactPersonEmailAddress => _driver.WaitForElement(By.Id("Email"));
+        private IWebElement ContactPersonTelephoneNum => _driver.WaitForElement(By.Id("PhoneNumber"));
         private IWebElement ContactPersonDetails => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Contact person')]/..//dd"));
 
 

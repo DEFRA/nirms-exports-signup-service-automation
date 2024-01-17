@@ -35,6 +35,7 @@ Background:
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
 
+	@SmokeTest
 	Scenario: Update contact person
 	Given Approve Sign up request for org '<Business selection>'
 	And   that I navigate to the NI GC application

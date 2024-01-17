@@ -3,7 +3,7 @@ Feature: Adddion Point Of Destination Establishment
 
 Add Point of Destination Establishment
 
-
+	@ignore
 Scenario: Check Add the Destination establishment address manually link
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -41,6 +41,7 @@ Scenario: Add point of Destination establishment address manually
 	And   click Save and return to dashboard
 	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of destination link
+	Then  verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page
 	And   enter Establishment postcode '<postcode>'
 	Then  verify next page '<nextPage>' is loaded 
 	When  click on cannot find establishment link 
@@ -49,8 +50,8 @@ Scenario: Add point of Destination establishment address manually
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | EstablishmentName | AddressLine1    | estCity  | estCountry      | AddrPostcode |
-	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |
+	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | EstablishmentName | AddressLine1    | estCity  | estCountry      | AddrPostcode |warningText                                                   |
+	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |You do not need to enter establishments that do not belong to |
 
 
 Scenario: Verify back to dashboard link on enter Destination establishment postcode page
@@ -68,11 +69,31 @@ Scenario: Verify back to dashboard link on enter Destination establishment postc
 	When  click on points of destination link
 	And   click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
+	When  click on points of destination link
+	And   enter Establishment postcode '<postcode>'
+	Then  verify next page '<nextPage1>' is loaded 
+	When  click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded 
+	When  click on points of destination link
+	And   enter Establishment postcode '<postcode>'
+	When  click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	When  click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded 
+	When  click on points of destination link
+	And   enter Establishment postcode '<postcode>'
+	Then  click on select address button
+	Then  click on save and continue
+	Then  click on continue button
+	When  click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded
+	Then  user verify the Points of destination status '1 ADDED'
 
 	Examples: 
-	| logininfo | Business selection  | Country          | FBONumber | nextPage |
-	| test1A    | Tesco Leeds         | Northern Ireland | testFBO   | Sign up  |
+	| logininfo | Business selection | Country          | FBONumber | nextPage | nextPage1      | postcode |
+	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | Sign up  | of destination | BT7 2JB  |
 
+	@ignore
 Scenario: Verify back to dashboard link on select Destination establishment address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -96,6 +117,7 @@ Scenario: Verify back to dashboard link on select Destination establishment addr
 	| logininfo | Business selection     | Country          | FBONumber | postcode | nextPage        | nextPage1  |
 	| test1A    | Tesco Leeds            | Northern Ireland | testFBO   | BT7 2JB  | of destination  | Sign up    |
 
+	@ignore
 Scenario: Verify back to dashboard link on add Destination establishment address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -120,8 +142,8 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 	| logininfo |  Business selection | Country          | FBONumber | postcode | nextPage       |nextPage1  |
 	| test1A    |  Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination |Sign up    |
 
-
-	Scenario: Verify back to dashboard link on the Do you want to add another point of destination Page ?
+	@ignore
+Scenario: Verify back to dashboard link on the Do you want to add another point of destination Page ?
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -147,7 +169,8 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 	| test      | Tesco Carlisle       | Northern Ireland | testFBO   | BT7 2JB | of destination | Sign up         |
 
 	
-	Scenario: Verify back to dashboard link on the Establishment email address optional page
+	@ignore
+Scenario: Verify back to dashboard link on the Establishment email address optional page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

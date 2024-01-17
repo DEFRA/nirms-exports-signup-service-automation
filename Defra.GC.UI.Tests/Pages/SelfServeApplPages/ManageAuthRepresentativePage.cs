@@ -17,12 +17,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
         private IWebElement SaveAuthRepresentativeDetailsEle => _driver.WaitForElement(By.Id("buttonSelfServeUpdateAuthRepSubmit"));
-        private IWebElement AuthRepresentativeName => _driver.WaitForElement(By.Id("authorised-representative-name"));
-        private IWebElement AuthRepresentativePosition => _driver.WaitForElement(By.Id("authorised-representative-position"));
-        private IWebElement AuthRepresentativeEmailAddress => _driver.WaitForElement(By.Id("authorised-representative-email"));
+        private IWebElement AuthRepresentativeName => _driver.WaitForElement(By.Id("Name"));
+        private IWebElement AuthRepresentativePosition => _driver.WaitForElement(By.Id("Position"));
+        private IWebElement AuthRepresentativeEmailAddress => _driver.WaitForElement(By.Id("Email"));
         private IWebElement AuthRepresentativeDetails => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Authorised representative')]/..//dd"));
         private By ErrorMessages => By.XPath("//h2[contains(@id,'error-summary-title')]/..//div//a");
-        private IWebElement ConfirmCheckBox => _driver.WaitForElement(By.XPath("//input[@id='confirm']"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();

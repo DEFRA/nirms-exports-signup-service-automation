@@ -58,8 +58,8 @@ Scenario Outline: Verify confirmation error message for Regulations page
 	Then  verify error message '<errorMessage>' on  Regulations page
 	
 	Examples: 
-    | logininfo | Country | FBONumber | errorMessage                                                  | Business selection                       |
-    | test      | England | testFBO   | Confirm that you have understood the guidance and regulations | ABC ACCOUNTANCY & MARKETING SERVICES LTD |
+    | logininfo | Country | FBONumber | errorMessage                                                  | Business selection |
+    | test      | England | testFBO   | Confirm that you have understood the guidance and regulations | Tesco Carlisle     |
 
 Scenario Outline: Verify back link on Regulations page is navigating to business sign up page
 	Given Clear Database for user '<logininfo>'

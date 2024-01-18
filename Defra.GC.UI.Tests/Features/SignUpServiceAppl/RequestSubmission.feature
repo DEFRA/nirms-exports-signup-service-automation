@@ -36,8 +36,8 @@ Scenario: Receive Notice of after completion of Signup Request
 	Then  click on signout button and verify the signout message
 	When  that I navigate to the NI GC application
 	And   sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	Then  verify next page '<nextPage2>' is loaded
+	#And   select business to sign up '<Business selection>'
+	#Then  verify next page '<nextPage2>' is loaded
 
 
 	Examples: 

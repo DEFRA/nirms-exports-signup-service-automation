@@ -41,6 +41,7 @@ Scenario: Verify different statuses on self serve dashboard
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   verify status 'NOT SIGNED-UP' is displayed for the '<Business selection>' on self serve dashboard
+	And   select business '<Business selection>' on self serve dashboard
 	And   click on back link
 	And   verify status 'SIGN-UP STARTED' is displayed for the '<Business selection>' on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard 

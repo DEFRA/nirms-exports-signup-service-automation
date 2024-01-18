@@ -95,7 +95,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             return SelfServeStatusEle.Text.Contains(status);
         }
 
-        public void NavigateToSelfServeURL()
+        public void NavigateToSelfServeDashboardURL()
         {
             _driver.Navigate().GoToUrl("https://tst-sign-up.trade.azure.defra.cloud/");
             Thread.Sleep(1000);

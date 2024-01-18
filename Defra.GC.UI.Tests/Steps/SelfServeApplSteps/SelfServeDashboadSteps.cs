@@ -92,7 +92,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         [When(@"navigate to Self Serve Dashboard URL")]
         public void NavigateToSelfServeDashboard()
         {
-            selfServeDashboardPage.NavigateToSelfServeURL();
+            selfServeDashboardPage.NavigateToSelfServeDashboardURL();
+        }
+
+        [When(@"Reject Sign up request for org '([^']*)'")]
+        [Given(@"Reject Sign up request for org '([^']*)'")]
+        public void ThenRejectSignUpRequest(string Org)
+        {
+            string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
+
+            string query = "UPDATE dbo.TradeParties SET ApprovalStatus = 2 where PracticeName = '" + Org + "' ";
+
+            if (ConfigSetup.BaseConfiguration != null)
+            {
+                dataHelperConnections.ExecuteQuery(connectionString, query);
+            }
         }
     }
 }

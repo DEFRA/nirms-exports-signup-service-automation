@@ -88,8 +88,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         }
         public bool VerifyStatusOnSelfServe(string status, string businessSelection, string selfServeLink)
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,400)", "");
-            Thread.Sleep(1000);
+           // ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,400)", "");
+            //Thread.Sleep(1000);
             string SelfServeStatus = "//dt[contains(text(),'" + businessSelection + "')]/..//div";
             IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
             string SelfServeLink = "//span[contains(text(),'" + businessSelection + "')]/..";

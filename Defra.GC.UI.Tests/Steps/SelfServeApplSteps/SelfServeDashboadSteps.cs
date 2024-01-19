@@ -84,6 +84,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         }
 
         [When(@"verify status '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
+        [Then(@"verify status '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
         public void VerifyStatusOnSelfServe(string businessSelection, string Status)
         {
             selfServeDashboardPage.VerifyStatusOnSelfServe(businessSelection, Status);

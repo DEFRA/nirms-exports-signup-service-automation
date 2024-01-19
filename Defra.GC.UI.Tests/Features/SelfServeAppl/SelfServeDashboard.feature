@@ -56,7 +56,7 @@ Scenario: Verify different statuses on self serve dashboard
 	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
-	When  complete Points of departure with 'EstablishmentName', 'AddressLine1', 'London', 'England', 'SE2 9BS'
+	When  complete Points of departure with 'NewEstablishment', 'AddressLine', 'London', 'England', 'SE2 9BS'
 	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page 'Check your answers' is loaded 
@@ -66,11 +66,11 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  click on submit sign up
 	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
 	When  navigate to Self Serve Dashboard URL
-	And   verify status 'PENDING APPROVAL' is displayed for the '<Business selection>' on self serve dashboard
+	Then  verify status 'PENDING APPROVAL' is displayed for the '<Business selection>' on self serve dashboard
 	When  Approve Sign up request for org '<Business selection>'
 	Then  click on refresh link on self serve dashboard
-	And   verify status 'APPROVED FOR NIRMS' is displayed for the '<Business selection>' on self serve dashboard
-	And   select business '<Business selection>' on self serve dashboard
+	Then  verify status 'APPROVED FOR NIRMS' is displayed for the '<Business selection>' on self serve dashboard
+	Then  select business '<Business selection>' on self serve dashboard
 	When  click on contact person change link
 	And   enter contact person Name 'Updated Name'
 	And   click on save contact person details

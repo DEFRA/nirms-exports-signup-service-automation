@@ -11,5 +11,6 @@
         public bool VerifyAuthRepresentativeDateFormatOnSelfServeDashboard(string text);
         public bool VerifyStatusOnSelfServe(string businessSelection, string Status);
         public void NavigateToSelfServeDashboardURL();
+        public void ClickOnRefreshLink();
     }
 }

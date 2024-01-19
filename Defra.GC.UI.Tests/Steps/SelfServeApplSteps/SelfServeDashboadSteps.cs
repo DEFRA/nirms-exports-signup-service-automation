@@ -108,5 +108,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
                 dataHelperConnections.ExecuteQuery(connectionString, query);
             }
         }
+
+        [When(@"click on refresh link on self serve dashboard")]
+        [Then(@"click on refresh link on self serve dashboard")]
+        public void WhenClickOnRefreshLink()
+        {
+            selfServeDashboardPage.ClickOnRefreshLink();
+        }
     }
 }

@@ -68,6 +68,7 @@ Scenario: Verify different statuses on self serve dashboard
 	When  navigate to Self Serve Dashboard URL
 	And   verify status 'PENDING APPROVAL' is displayed for the '<Business selection>' on self serve dashboard
 	When  Approve Sign up request for org '<Business selection>'
+	Then  click on refresh link on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard
 	When  click on contact person change link
 	And   enter contact person Name 'Updated Name'

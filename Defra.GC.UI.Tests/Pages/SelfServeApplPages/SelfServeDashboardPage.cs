@@ -88,7 +88,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         }
         public bool VerifyStatusOnSelfServe(string status, string businessSelection)
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,200)", "");
+            //((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,200)", "");
             string SelfServeStatus = "//dt[contains(text(),'" + businessSelection + "')]/..//div";
             IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
             _driver.ElementImplicitWait();

@@ -56,4 +56,4 @@ Scenario: Verify different statuses on self serve dashboard
 
 	Examples: 
 	| logininfo | Business selection  |
-	| test1A    | Tesco Carlisle      |
+	| test1A    | Tesco Leeds         |

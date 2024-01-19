@@ -83,11 +83,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             selfServeDashboardPage.ClickOnCancelLink();
         }
 
-        [When(@"verify status '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
-        [Then(@"verify status '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
-        public void VerifyStatusOnSelfServe(string businessSelection, string Status)
+        [When(@"verify status '([^']*)' and link '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
+        [Then(@"verify status '([^']*)' and link '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
+        public void VerifyStatusOnSelfServe(string businessSelection, string Status, string selfServeLink)
         {
-            selfServeDashboardPage.VerifyStatusOnSelfServe(businessSelection, Status);
+            selfServeDashboardPage.VerifyStatusOnSelfServe(businessSelection, Status, selfServeLink);
         }
 
         [When(@"navigate to Self Serve Dashboard URL")]

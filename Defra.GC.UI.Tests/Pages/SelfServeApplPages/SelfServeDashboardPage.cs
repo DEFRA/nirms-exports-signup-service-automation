@@ -86,14 +86,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             return AuthRepresentativeDate.Text.Contains(text);
 
         }
-        public bool VerifyStatusOnSelfServe(string status, string businessSelection)
+        public bool VerifyStatusOnSelfServe(string status, string businessSelection, string selfServeLink)
         {
-            //((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,200)", "");
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,400)", "");
+            Thread.Sleep(1000);
             string SelfServeStatus = "//dt[contains(text(),'" + businessSelection + "')]/..//div";
             IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
+            string SelfServeLink = "//span[contains(text(),'" + businessSelection + "')]/..";
+            IWebElement LinkEle = _driver.WaitForElement(By.XPath(SelfServeLink));
             _driver.ElementImplicitWait();
-            return SelfServeStatusEle.Text.Contains(status);
+            return SelfServeStatusEle.Text.Contains(status) && LinkEle.Text.Contains(selfServeLink);
         }
+
 
         public void NavigateToSelfServeDashboardURL()
         {

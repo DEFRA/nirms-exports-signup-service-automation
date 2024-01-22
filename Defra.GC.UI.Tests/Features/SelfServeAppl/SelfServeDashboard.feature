@@ -31,7 +31,7 @@ Scenario: Verify different statuses on self serve dashboard
 	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  complete contact person Authorised Signatory with Yes Authorisation
-	When  complete Points of departure with 'NewEstablishment', 'AddressLine', 'London', 'England', 'SE2 9BS'
+	When  complete Points of departure with 'NewEstablishment1', 'AddressLine', 'London', 'England', 'SE2 9BS'
 	Then  user verify the Points of departure status '1 ADDED'
 	And   click on Check answers and submit sign up
 	And   verify next page 'Check your answers' is loaded 

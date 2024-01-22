@@ -22,8 +22,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         private IWebElement CalcelEle => _driver.WaitForElement(By.XPath("//a[contains(text(),'Cancel')]"));
         private IWebElement ContactPersonDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Contact person')]/..//div"));
         private IWebElement AuthRepresentativeDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Authorised representative')]/..//div"));
-
-
+        private IWebElement BusinessName => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-summary-list__row')]//dt"));
+        private IWebElement Status => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-tag govuk-tag')]"));
+        private IWebElement RefreshLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Refresh list')]"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -85,7 +86,27 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             return AuthRepresentativeDate.Text.Contains(text);
 
         }
+        public bool VerifyStatusOnSelfServe(string status, string businessSelection )
+        {
+           
+            string SelfServeStatus = "//dt[contains(text(),'" + businessSelection + "')]/..//div";
+            IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
+            _driver.ElementImplicitWait();
+            return SelfServeStatusEle.Text.Contains(status);
+        }
+        public bool VerifyLinkOnSelfServe(string selfServeLink, string businessSelection)
+        {
+             string SelfServeLink = "//span[contains(text(),'" + businessSelection + "')]/..";
+             IWebElement LinkEle = _driver.WaitForElement(By.XPath(SelfServeLink));
+             _driver.ElementImplicitWait();
+             return LinkEle.Text.Contains(selfServeLink);
+        }
 
+        public void ClickOnRefreshLink()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", RefreshLink);
+        }
         #endregion Page Methods
 
     }

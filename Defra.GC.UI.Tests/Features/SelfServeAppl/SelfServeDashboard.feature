@@ -11,14 +11,17 @@ Background:
 Scenario: Verify different statuses on self serve dashboard
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
-	And   verify status 'NOT SIGNED-UP' and link 'Sign up' is displayed for the '<Business selection>' on self serve dashboard
+	And   verify status 'NOT SIGNED-UP' is displayed for the '<Business selection>' on self serve dashboard
+	And   verify link 'Sign up' is displayed for the '<Business selection>' on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard
 	And   click on back link
-	And   verify status 'SIGN-UP STARTED' and link 'Continue' is displayed for the '<Business selection>' on self serve dashboard
+	And   verify status 'SIGN-UP STARTED' is displayed for the '<Business selection>' on self serve dashboard
+	And   verify link 'Continue' is displayed for the '<Business selection>' on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard 
 	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
-	And   complete eligibility task with 'England'
+	When  complete eligibility task with 'England'
 	Then  verify eligibility task status as 'COMPLETED'
+	Then  verify next page 'Sign up' is loaded
 	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  click on FBOorPHRNumber task
@@ -38,18 +41,21 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  click on submit sign up
 	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
 	When  navigate to Self Serve Dashboard URL
-	Then  verify status 'PENDING APPROVAL' and link '' is displayed for the '<Business selection>' on self serve dashboard
+	Then  verify status 'PENDING APPROVAL' is displayed for the '<Business selection>' on self serve dashboard
 	When  Approve Sign up request for org '<Business selection>'
 	Then  click on refresh link on self serve dashboard
-	Then  verify status 'APPROVED FOR NIRMS' and link 'Manage' is displayed for the '<Business selection>' on self serve dashboard
-	Then  select business '<Business selection>' on self serve dashboard
+	And   verify status 'APPROVED FOR NIRMS' is displayed for the '<Business selection>' on self serve dashboard
+	And   verify link 'Manage' is displayed for the '<Business selection>' on self serve dashboard
+	And   select business '<Business selection>' on self serve dashboard
+	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 	When  click on contact person change link
 	And   enter contact person Name 'Updated Name'
 	And   click on save contact person details
 	And   verify Contact Person date format 'Last updated' on self serve dashboard
 	When  Reject Sign up request for org '<Business selection>'
 	Then  click on refresh link on self serve dashboard
-	And   verify status 'SIGN-UP REJECTED' and link 'Sign up again' is displayed for the '<Business selection>' on self serve dashboard
+	And   verify status 'SIGN-UP REJECTED' is displayed for the '<Business selection>' on self serve dashboard
+	And   verify link 'Sign up again' is displayed for the '<Business selection>' on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard
 	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
 

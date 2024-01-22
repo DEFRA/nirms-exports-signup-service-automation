@@ -3,6 +3,7 @@ using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
+using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
@@ -19,6 +20,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         private ISelfServeDashboardPage? selfServeDashboardPage => _objectContainer.IsRegistered<ISelfServeDashboardPage>() ? _objectContainer.Resolve<ISelfServeDashboardPage>() : null;
         private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
         private IDataHelperConnections? dataHelperConnections => _objectContainer.IsRegistered<IDataHelperConnections>() ? _objectContainer.Resolve<IDataHelperConnections>() : null;
+        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
+
 
         public SelfServeDashboadSteps(ScenarioContext context, IObjectContainer container)
         {
@@ -83,17 +86,25 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             selfServeDashboardPage.ClickOnCancelLink();
         }
 
-        [When(@"verify status '([^']*)' and link '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
-        [Then(@"verify status '([^']*)' and link '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
-        public void VerifyStatusOnSelfServe(string businessSelection, string Status, string selfServeLink)
+        [When(@"verify status '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
+        [Then(@"verify status '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
+        public void VerifyStatusOnSelfServe(string businessSelection, string Status)
         {
-            selfServeDashboardPage.VerifyStatusOnSelfServe(businessSelection, Status, selfServeLink);
+            selfServeDashboardPage.VerifyStatusOnSelfServe(businessSelection, Status);
+        }
+
+        [When(@"verify link '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
+        [Then(@"verify link '([^']*)' is displayed for the '([^']*)' on self serve dashboard")]
+        public void VerifyLinkOnSelfServe(string businessSelection,string selfServeLink)
+        {
+            selfServeDashboardPage.VerifyLinkOnSelfServe(businessSelection,selfServeLink);
         }
 
         [When(@"navigate to Self Serve Dashboard URL")]
         public void NavigateToSelfServeDashboard()
         {
-            selfServeDashboardPage.NavigateToSelfServeDashboardURL();
+            string url = UrlBuilder.Default().Build();
+            _driver.Navigate().GoToUrl(url);
         }
 
         [When(@"Reject Sign up request for org '([^']*)'")]

@@ -86,24 +86,22 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             return AuthRepresentativeDate.Text.Contains(text);
 
         }
-        public bool VerifyStatusOnSelfServe(string status, string businessSelection, string selfServeLink)
+        public bool VerifyStatusOnSelfServe(string status, string businessSelection )
         {
-           // ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,400)", "");
-            //Thread.Sleep(1000);
+           
             string SelfServeStatus = "//dt[contains(text(),'" + businessSelection + "')]/..//div";
             IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
-            string SelfServeLink = "//span[contains(text(),'" + businessSelection + "')]/..";
-            IWebElement LinkEle = _driver.WaitForElement(By.XPath(SelfServeLink));
             _driver.ElementImplicitWait();
-            return SelfServeStatusEle.Text.Contains(status) && LinkEle.Text.Contains(selfServeLink);
+            return SelfServeStatusEle.Text.Contains(status);
         }
-
-
-        public void NavigateToSelfServeDashboardURL()
+        public bool VerifyLinkOnSelfServe(string selfServeLink, string businessSelection)
         {
-            _driver.Navigate().GoToUrl("https://tst-sign-up.trade.azure.defra.cloud/");
-            Thread.Sleep(1000);
+             string SelfServeLink = "//span[contains(text(),'" + businessSelection + "')]/..";
+             IWebElement LinkEle = _driver.WaitForElement(By.XPath(SelfServeLink));
+             _driver.ElementImplicitWait();
+             return LinkEle.Text.Contains(selfServeLink);
         }
+
         public void ClickOnRefreshLink()
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;

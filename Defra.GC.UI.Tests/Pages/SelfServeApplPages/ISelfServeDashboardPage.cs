@@ -9,8 +9,8 @@
         public bool VerifyBusinessRMSNumber(string businessRMSNumber);
         public bool VerifyContactPersonDateFormatOnSelfServeDashboard(string text);
         public bool VerifyAuthRepresentativeDateFormatOnSelfServeDashboard(string text);
-        public bool VerifyStatusOnSelfServe(string businessSelection, string Status,string selfServeLink);
-        public void NavigateToSelfServeDashboardURL();
+        public bool VerifyStatusOnSelfServe(string businessSelection, string Status);
         public void ClickOnRefreshLink();
+        public bool VerifyLinkOnSelfServe(string selfServeLink, string businessSelection);
     }
 }

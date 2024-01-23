@@ -7,7 +7,7 @@ Background:
 	Given Clear Database for user 'test1A'
 
 
-
+@RunOnly
 Scenario: Verify different statuses on self serve dashboard
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
@@ -46,7 +46,7 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  click on refresh link on self serve dashboard
 	And   verify status 'APPROVED FOR NIRMS' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'Manage' is displayed for the '<Business selection>' on self serve dashboard
-	And   select business '<Business selection>' on self serve dashboard
+	When  select business '<Business selection>' on self serve dashboard
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 	When  click on contact person change link
 	And   enter contact person Name 'Updated Name'
@@ -56,10 +56,23 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  click on refresh link on self serve dashboard
 	And   verify status 'SIGN-UP REJECTED' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'Sign up again' is displayed for the '<Business selection>' on self serve dashboard
-	And   select business '<Business selection>' on self serve dashboard
+	When  select business '<Business selection>' on self serve dashboard
 	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
 
 
 	Examples: 
 	| logininfo | Business selection  |
 	| test1A    | Tesco Leeds         |
+
+@RunOnly
+Scenario: Verify Add business button on self serve dashboard
+	Given that I navigate to the NI GC application
+	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	Then  click on Add Business Button on self serve dashboard
+	Then  verify next page 'Add a business' is loaded
+	And   click on back link
+	Then  verify next page 'Northern Ireland Retail Movement Scheme' is loaded
+
+Examples: 
+	| logininfo | 
+	| test1A    | 

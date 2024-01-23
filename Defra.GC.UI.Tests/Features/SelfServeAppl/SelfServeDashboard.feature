@@ -52,6 +52,7 @@ Scenario: Verify different statuses on self serve dashboard
 	And   enter contact person Name 'Updated Name'
 	And   click on save contact person details
 	And   verify Contact Person date format 'Last updated' on self serve dashboard
+	And   click on back link
 	When  Reject Sign up request for org '<Business selection>'
 	Then  click on refresh link on self serve dashboard
 	And   verify status 'SIGN-UP REJECTED' is displayed for the '<Business selection>' on self serve dashboard

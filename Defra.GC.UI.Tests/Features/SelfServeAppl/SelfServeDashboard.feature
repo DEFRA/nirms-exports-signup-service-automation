@@ -47,7 +47,7 @@ Scenario: Verify different statuses on self serve dashboard
 	And   verify status 'APPROVED FOR NIRMS' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'Manage' is displayed for the '<Business selection>' on self serve dashboard
 	When  select business '<Business selection>' on self serve dashboard
-	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
+	Then  verify dynamic name '<Business selection>' in title 'Northern Ireland Retail Movement Scheme' of page
 	When  click on contact person change link
 	And   enter contact person Name 'Updated Name'
 	And   click on save contact person details

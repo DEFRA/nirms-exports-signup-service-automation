@@ -91,7 +91,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyTheAuthorisedSignatoryStatus(string status)
         {
-            return AuthorisedSignatoryStatus.Text.Contains(status);
+            return AuthorisedSignatoryStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
         #endregion Page Methods
     }

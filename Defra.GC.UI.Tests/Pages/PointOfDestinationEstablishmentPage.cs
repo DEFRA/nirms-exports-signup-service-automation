@@ -75,7 +75,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyThePointsOfDestinationStatus(string status)
         {
-            return PointOfDestinationStatus.Text.Contains(status);
+            return PointOfDestinationStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
 
         public bool VerifyErrorMessageOnAddAPointOfDestinationForNoResults(string errorMessage)

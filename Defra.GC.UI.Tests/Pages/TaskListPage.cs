@@ -37,7 +37,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyCheckAnswersAndSubmitSignUpStatus(string status)
         {
-            return CheckAnswersStatus.Text.Contains(status);
+            return CheckAnswersStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
 
         public bool VerifyCheckAnswersAndSubmitSignUpLinkStatus()

@@ -20,19 +20,19 @@ Scenario: Verify different statuses on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard 
 	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
 	When  complete eligibility task with 'England'
-	Then  verify eligibility task status as 'COMPLETED'
+	Then  verify eligibility task status as 'Completed'
 	Then  verify next page 'Sign up' is loaded
 	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
-	Then  user verify the business contact details status 'COMPLETED'
+	Then  user verify the business contact details status 'Completed'
 	When  click on FBOorPHRNumber task
 	And   enter FBO number 'testFBO' for FBO or PHR number task
 	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
+	Then  verify FBOorPHRNumber task status as 'Completed'
 	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
-	Then  user verify the business contact details status 'COMPLETED'
+	Then  user verify the business contact details status 'Completed'
 	When  complete contact person Authorised Signatory with Yes Authorisation
-	When  complete Points of departure with 'NewEstablishment1', 'AddressLine', 'London', 'England', 'SE2 9BS'
-	Then  user verify the Points of departure status '1 ADDED'
+	When  complete Points of departure with 'NewEstablishment2', 'AddressLine', 'London', 'England', 'SE2 9BS'
+	Then  user verify the Points of departure status '1 added'
 	And   click on Check answers and submit sign up
 	And   verify next page 'Check your answers' is loaded 
 	When  click on continue button
@@ -46,20 +46,34 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  click on refresh link on self serve dashboard
 	And   verify status 'APPROVED FOR NIRMS' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'Manage' is displayed for the '<Business selection>' on self serve dashboard
-	And   select business '<Business selection>' on self serve dashboard
-	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
+	When  select business '<Business selection>' on self serve dashboard
+	Then  verify dynamic name '<Business selection>' in title 'Northern Ireland Retail Movement Scheme' of page
 	When  click on contact person change link
 	And   enter contact person Name 'Updated Name'
 	And   click on save contact person details
 	And   verify Contact Person date format 'Last updated' on self serve dashboard
+	And   click on back link
 	When  Reject Sign up request for org '<Business selection>'
 	Then  click on refresh link on self serve dashboard
 	And   verify status 'SIGN-UP REJECTED' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'Sign up again' is displayed for the '<Business selection>' on self serve dashboard
-	And   select business '<Business selection>' on self serve dashboard
+	When  select business '<Business selection>' on self serve dashboard
 	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
 
 
 	Examples: 
-	| logininfo | Business selection  |
-	| test1A    | Tesco Leeds         |
+	| logininfo | Business selection |
+	| test1A    | Tesco Leeds        |
+
+
+Scenario: Verify Add business button on self serve dashboard
+	Given that I navigate to the NI GC application
+	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	Then  click on Add Business Button on self serve dashboard
+	Then  verify next page 'Add a business' is loaded
+	And   click on back link
+	Then  verify next page 'Northern Ireland Retail Movement Scheme' is loaded
+
+Examples: 
+	| logininfo | 
+	| test1A    | 

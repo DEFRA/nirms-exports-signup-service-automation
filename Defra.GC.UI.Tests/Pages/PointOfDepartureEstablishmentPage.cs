@@ -91,7 +91,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyThePointsOfDepartureStatus(string status)
         {
-            return PointOfDepartureStatus.Text.Contains(status);
+            return PointOfDepartureStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
 
         public bool ClickOnPointsOfDepartureLink()
@@ -236,8 +236,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void RemoveEstablishmentAddress(string establishmentAddress)
         {
-            //((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,2000)", "");
-            //Thread.Sleep(1000);
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
+            Thread.Sleep(1000);
             string RemoveEstablishment = "//h2[contains(text(),'" + establishmentAddress + "')]/..//a";
             _driver.WaitForElement(By.XPath(RemoveEstablishment)).Click();
         }

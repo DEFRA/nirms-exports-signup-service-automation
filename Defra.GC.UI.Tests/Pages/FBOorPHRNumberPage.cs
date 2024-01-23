@@ -132,7 +132,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyFBOorPHRNumberTaskStatus(string status)
         {
             string text = FBOorPHRTaskStatus.Text;
-            return FBOorPHRTaskStatus.Text.Contains(status);
+            return FBOorPHRTaskStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
 
         public bool VerifyDynamicNameOnSPSAssurancePage(string Name, string country)

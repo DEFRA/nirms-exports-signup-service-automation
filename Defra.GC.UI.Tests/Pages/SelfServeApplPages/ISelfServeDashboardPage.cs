@@ -12,5 +12,6 @@
         public bool VerifyStatusOnSelfServe(string businessSelection, string Status);
         public void ClickOnRefreshLink();
         public bool VerifyLinkOnSelfServe(string selfServeLink, string businessSelection);
+        public void ClickOnAddBusinessBtn();
     }
 }

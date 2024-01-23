@@ -144,7 +144,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         public bool VerifyEligibilityTaskStatus(string status)
         {
             string text = EligibilityStatus.Text;
-            return EligibilityStatus.Text.Contains(status);
+            return EligibilityStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
 
         public void SelectBusinessCountry(string country)

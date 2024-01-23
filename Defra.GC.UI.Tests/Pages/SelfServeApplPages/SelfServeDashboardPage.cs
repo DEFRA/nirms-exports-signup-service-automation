@@ -25,6 +25,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         private IWebElement BusinessName => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-summary-list__row')]//dt"));
         private IWebElement Status => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-tag govuk-tag')]"));
         private IWebElement RefreshLink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Refresh list')]"));
+        private IWebElement AddBusinessBtnEle => _driver.WaitForElement(By.XPath("//a[contains(text(),'Add a business')]"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -106,6 +107,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", RefreshLink);
+        }
+
+        public void ClickOnAddBusinessBtn()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", AddBusinessBtnEle);
         }
         #endregion Page Methods
 

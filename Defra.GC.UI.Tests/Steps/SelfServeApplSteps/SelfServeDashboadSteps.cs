@@ -127,5 +127,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         {
             selfServeDashboardPage.ClickOnRefreshLink();
         }
+
+        [When(@"click on Add Business Button on self serve dashboard")]
+        [Then(@"click on Add Business Button on self serve dashboard")]
+        public void WhenClickOnAddBusinessButton()
+        {
+            selfServeDashboardPage.ClickOnAddBusinessBtn();
+        }
     }
 }

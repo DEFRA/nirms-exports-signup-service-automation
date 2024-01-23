@@ -20,19 +20,19 @@ Scenario: Verify different statuses on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard 
 	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
 	When  complete eligibility task with 'England'
-	Then  verify eligibility task status as 'COMPLETED'
+	Then  verify eligibility task status as 'Completed'
 	Then  verify next page 'Sign up' is loaded
 	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
-	Then  user verify the business contact details status 'COMPLETED'
+	Then  user verify the business contact details status 'Completed'
 	When  click on FBOorPHRNumber task
 	And   enter FBO number 'testFBO' for FBO or PHR number task
 	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
+	Then  verify FBOorPHRNumber task status as 'Completed'
 	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
-	Then  user verify the business contact details status 'COMPLETED'
+	Then  user verify the business contact details status 'Completed'
 	When  complete contact person Authorised Signatory with Yes Authorisation
 	When  complete Points of departure with 'NewEstablishment2', 'AddressLine', 'London', 'England', 'SE2 9BS'
-	Then  user verify the Points of departure status '1 ADDED'
+	Then  user verify the Points of departure status '1 added'
 	And   click on Check answers and submit sign up
 	And   verify next page 'Check your answers' is loaded 
 	When  click on continue button

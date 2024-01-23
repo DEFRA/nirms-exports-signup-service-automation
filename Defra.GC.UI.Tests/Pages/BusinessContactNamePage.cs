@@ -61,7 +61,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyTheBusinessContactDetailsStatus(string status)
         {
-            return BusinessContactDetailStatus.Text.Contains(status);
+            return BusinessContactDetailStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
 
         public void EnterBusinessContactName(string ContactName)

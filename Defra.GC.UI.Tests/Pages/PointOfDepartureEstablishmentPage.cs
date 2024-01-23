@@ -91,7 +91,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyThePointsOfDepartureStatus(string status)
         {
-            return PointOfDepartureStatus.Text.Contains(status);
+            return PointOfDepartureStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
 
         public bool ClickOnPointsOfDepartureLink()

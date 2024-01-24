@@ -581,9 +581,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify text on Terms and conditions page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstNameT1", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "authorised representative - contactName has read and understood the terms and con" +
-            "ditions of the Northern Ireland Retail Movement Scheme. contactName is responsib" +
-            "le for ensuring the requirements of the scheme are followed by the business.", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstNameT1", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "authorised representative - contactName - has read and understood the terms and c" +
+            "onditions of the Northern Ireland Retail Movement Scheme. contactName is respons" +
+            "ible for ensuring the requirements of the scheme are followed by the business.", null)]
         public void VerifyTextOnTermsAndConditionsPage(
                     string logininfo, 
                     string businessSelection, 
@@ -638,9 +638,6 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 124
- testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 125
  testRunner.When("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden

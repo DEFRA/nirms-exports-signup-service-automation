@@ -6,7 +6,7 @@ parameters:
     default: 'refs/heads/dev'
   - name: Environment
     type: string
-    default: 'https://tst-sign-up.trade.azure.defra.cloud/'
+    default: 'tst'
   - name: ApiEndpoint
     type: string
     default: 'dev'
@@ -19,9 +19,12 @@ parameters:
   - name: BSOSVersion
     type: string
     default: '11'
-  
+  - name: Target
+    type: string
+    default: 'Edge'
+
 schedules:
-- cron: "0 9-21/18 * * Mon,Tue,Wed,Thu,Fri"
+- cron: "0 0 * * Mon,Tue,Wed,Thu,Fri"
   displayName: Daily midnight build
   branches:
     include:
@@ -50,9 +53,10 @@ stages:
         envConfigParam: ${{ parameters.Environment}}
         apiEndPoint: ${{ parameters.ApiEndpoint}}
         branchName: ${{ parameters.branchName}}
-        SeleniumGrid: ${{parameters.SeleniumGrid}}  
+        SeleniumGrid: ''  
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
+        targetBrowserName: ${{parameters.Target}}
         dependsOn: ''
         
   - stage: Regression
@@ -64,10 +68,8 @@ stages:
         envConfigParam: ${{ parameters.Environment}}
         apiEndPoint: ${{ parameters.ApiEndpoint}}
         branchName: ${{ parameters.branchName}}
-        SeleniumGrid: ${{parameters.SeleniumGrid}}  
+        SeleniumGrid: '' 
         DeviceName: ${{parameters.DeviceName}}
         BSOSVersion: ${{parameters.BSOSVersion}}
+        targetBrowserName: ${{parameters.Target}}
         dependsOn: 'EnvironmentCheck'
-
-        
-

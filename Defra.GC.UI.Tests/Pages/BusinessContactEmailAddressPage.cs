@@ -1,9 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
-using SeleniumExtras.WaitHelpers;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -11,12 +9,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
 
         private IWebElement EmailAddresslink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Email address')]"));
-        private IWebElement EmailAddress => _driver.WaitForElement(By.Id("business-email"));
+        private IWebElement EmailAddress => _driver.WaitForElement(By.Id("Email"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
         #endregion
@@ -32,7 +29,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSaveAndContinue()
         {
-            SaveAndContinue.Click();
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
+            //SaveAndContinue.Click();
         }
 
         public void ClickOnContactEmailAddressLink()
@@ -44,13 +43,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterEmailAddress(string emailAddress)
         {
+            EmailAddress.Clear();
             EmailAddress.SendKeys(emailAddress);
-        }
-
-        public void NavigateToContactEmailAddressPage()
-        {
-            string url = UrlBuilder.Default().Add("registered-business-contact-email").Build();
-            _driver.Navigate().GoToUrl(url);
+            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            //jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + emailAddress + "')", EmailAddress);
         }
 
         public bool VerifyErrorMessageOnContactEmailAddressPage(string errorMessage)

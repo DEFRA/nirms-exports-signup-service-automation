@@ -1,11 +1,7 @@
 ﻿using BoDi;
-using Defra.UI.Framework.Driver;
 using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-using Microsoft.VisualBasic;
-using System.Windows;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -21,11 +17,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         #region Page Objects
 
         public IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
-
-        public IWebElement Businessname => _driver.WaitForElement(By.XPath("//a[normalize-space()='Business name']"));
-        public IWebElement BusinessnameText => _driver.WaitForElement(By.XPath("//input[@id='business-name']"));
+        public IWebElement BusinessDeatailSelectBusiness => _driver.WaitForElement(By.XPath("//a[normalize-space()='Selected business']"));
+        public IWebElement StartupNewSignupRequest => _driver.WaitForElement(By.XPath("//a[normalize-space()='start a new sign up request']"));
+        public IWebElement Businessname => _driver.WaitForElement(By.XPath("//a[normalize-space()='Business details']"));
+        public IWebElement BusinessnameText => _driver.WaitForElement(By.XPath("//input[@id='Name']"));
         public IWebElement AddressLine1 => _driver.WaitForElement(By.XPath("//input[@id='address-line-1']"));
-
         public IWebElement City => _driver.WaitForElement(By.XPath("//input[@id='address-city']"));
         public IWebElement Realpost => _driver.WaitForElement(By.XPath("//input[@id='address-postcode']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Save and continue']"));
@@ -33,8 +29,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement InvalidError => _driver.WaitForElement(By.XPath("//p[@id='Name_Error' and  not(self::span)]"));
         private IWebElement BackLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='Back']"));
         private IWebElement SaveLater => _driver.WaitForElement(By.XPath("(//a[normalize-space()='Save and continue later'])[1]"));
-        private IWebElement Eligiblity => _driver.WaitForElement(By.XPath("//a[normalize-space()='Check eligibility']"));
-        private IWebElement BusinessStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-name']"));
+        private IWebElement BusinessStatus => _driver.WaitForElement(By.XPath("//strong[@id='business-details']"));
+        private IWebElement SelectedBusinessName => _driver.WaitForElement(By.XPath("//strong[@id='selected-business']"));
         private IWebElement CountryName => _driver.WaitForElement(By.XPath("//label[normalize-space()='England']"));
         private IWebElement CountryError => _driver.WaitForElement(By.XPath("//p[@id='Country_Error']"));
         private IWebElement Address => _driver.WaitForElement(By.XPath(" //a[normalize-space()='Registered address']"));
@@ -42,7 +38,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement AddressTown => _driver.WaitForElement(By.XPath("//input[@id='address-city']"));
         private IWebElement AddressPostcode => _driver.WaitForElement(By.XPath("//input[@id='address-postcode']"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
+        private IBusinessAddressPage? businessAddressPage => _objectContainer.IsRegistered<IBusinessAddressPage>() ? _objectContainer.Resolve<IBusinessAddressPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         private By Errors = By.XPath("//li//a");
 
@@ -50,36 +47,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Methods
 
-        public void ClickOnRegisteredAddres()
+        public void ClickOnSelectedBusinessNameTask()
         {
-            Address.Click();
+            BusinessDeatailSelectBusiness.Click();
         }
 
-        public void ClickOnSaveAndContinuebuttonWithoutAddress()
+        public void ClickOnSignUpNewRequest()
         {
-            _driver.ElementImplicitWait();
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
-            _driver.ElementImplicitWait();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
-        }
-
-        public void SelectCountry()
-        {
-            CountryName.Click();
-            SaveAndContinue.Click();
-        }
-
-        public void EntertheAddress()
-        {
-            AddressOne.SendKeys("1");
-            AddressTown.SendKeys("London");
-            AddressPostcode.SendKeys("WV1 3EB");
-
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            _driver.ElementImplicitWait();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
+            StartupNewSignupRequest.Click();
         }
 
         public string SelectWithoutCountryAndVerifyMessage()
@@ -93,13 +68,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ErrorMessage.Text.Contains(errorMessage);
         }
 
-        public void ClickonBusiness()
+        public void ClickonBusinessName()
         {
             Businessname.Click();
         }
 
         public void EnterBusinessName(string businessname)
         {
+            BusinessnameText.Clear();
             BusinessnameText.SendKeys(businessname);
         }
 
@@ -108,32 +84,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             SaveAndContinue.Click();
         }
 
-        public void EnterInvalidBusinessName()
-        {
-            BusinessnameText.SendKeys("£££*****");
-            SaveAndContinue.Click();
-        }
-
-        public void EnterInvalidAddress()
-        {
-            AddressLine1.SendKeys("£££*****");
-            City.SendKeys("****");
-            Realpost.SendKeys("****");
-
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            _driver.ElementImplicitWait();
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
-        }
-
         public string ValidateInvalidErrorMessage()
         {
             return InvalidError.Text;
-        }
-
-        public void WithoutBusinessName()
-        {
-            SaveAndContinue.Click();
         }
 
         public string WithoutBusinessNameValidation()
@@ -164,16 +117,36 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return BusinessStatus.Text.Contains(status);
         }
 
-        public List<string> ErrorValidation()
+        public void CompleteBusinessNameTask(string businessName, string businessAddr, string businessTown, string addrPostcode)
         {
-            IList<IWebElement> errors = _driver.FindElements(Errors);
-            List<string> errorList = new List<string>();
+            ClickonBusinessName();
+            EnterBusinessName(businessName);
+            ClickOnSaveAndContinue();
+            businessAddressPage.EnterBusinessAddress(businessAddr, businessTown, addrPostcode);
+            applicationPage.ClickSaveAndReturnToDashboard();
+        }
 
-            foreach (IWebElement error in errors)
-            {
-                errorList.Add(error.Text);
-            }
-            return errorList;
+        public void CompleteBusinessNameTaskWithSave(string businessName, string businessAddr, string businessTown, string addrPostcode)
+        {
+            ClickonBusinessName();
+            EnterBusinessName(businessName);
+            ClickOnSaveAndContinue();
+            businessAddressPage.EnterBusinessAddress(businessAddr, businessTown, addrPostcode);
+            applicationPage.ClickOnSaveAndContinue();
+        }
+
+        public void EditBusinessNameTask(string businessName)
+        {
+            EnterBusinessName(businessName);
+            //ClickOnSaveAndContinue();
+            //businessAddressPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
+        }
+
+        public bool VerifyBusinessName(string businessName)
+        {
+            return SelectedBusinessName.Text.Contains(businessName, StringComparison.CurrentCultureIgnoreCase);
+           // return SelectedBusinessName.Text.Contains(businessName.ToUpper());
         }
 
         #endregion Page Methods

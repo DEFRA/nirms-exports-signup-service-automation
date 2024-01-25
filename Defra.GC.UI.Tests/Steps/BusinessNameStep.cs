@@ -1,14 +1,8 @@
 ﻿using BoDi;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
-using static System.Net.Mime.MediaTypeNames;
-using Defra.UI.Framework.Driver;
-using System;
-using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
@@ -25,12 +19,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             _objectContainer = container;
         }
 
-        private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
-
-        private ISignInPage? Signin => _objectContainer.IsRegistered<ISignInPage>() ? _objectContainer.Resolve<ISignInPage>() : null;
-
-        private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         private IBusinessNamePage? BusinessNamePagetest => _objectContainer.IsRegistered<IBusinessNamePage>() ? _objectContainer.Resolve<IBusinessNamePage>() : null;
 
         [Then(@"user verifies the ""([^""]*)"" error message")]
@@ -60,10 +48,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(BusinessNamePagetest.VerifyErrorMessageOnBusinessNamePage(errorMessage), "Business name error message not matching");
         }
 
-        [When(@"user is in Business details page")]
-        public void WhenUserIsInBusinessDetailsPage()
+        [When(@"user is in Business name page")]
+        public void WhenUserIsInBusinessNamePage()
         {
-            BusinessNamePagetest.ClickonBusiness();
+            BusinessNamePagetest.ClickonBusinessName();
         }
 
         [When(@"user clicks back button")]
@@ -97,10 +85,43 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             BusinessNamePagetest.ClickOnSaveAndContinue();
         }
 
-        [Then(@"user verify the business status '([^']*)'")]
+        [Then(@"user verify the business name status '([^']*)'")]
         public void ThenUserVerifyTheBusinessStatus(string status)
         {
             Assert.True(BusinessNamePagetest.VerifyBusinessNameStatus(status), "Status is Invalid");
+        }
+
+        [Then(@"user verify the selected business name '([^']*)'")]
+        public void ThenUserVerifyTheSelectedBusinessName(string businessName)
+        {
+            Assert.True(BusinessNamePagetest.VerifyBusinessName(businessName), "Name is Invalid");
+        }
+
+        [When(@"complete Business name task with '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void WhenCompleteBusinessNameTaskWith(string businessName, string businessAddr, string businessTown, string addrPostcode)
+        {
+            BusinessNamePagetest.CompleteBusinessNameTask(businessName, businessAddr, businessTown, addrPostcode);
+        }
+
+        [When(@"complete Business name task with '([^']*)', '([^']*)', '([^']*)', '([^']*)' with save and continue")]
+        public void WhenCompleteBusinessNameTaskWithSave(string businessName, string businessAddr, string businessTown, string addrPostcode)
+        {
+            BusinessNamePagetest.CompleteBusinessNameTaskWithSave(businessName, businessAddr, businessTown, addrPostcode);
+        }
+
+
+        [When(@"user clicks on Selected business")]
+        [Then(@"user clicks on Selected business")]
+        public void ThenUserClicksOnSelectedBusiness()
+        {
+            BusinessNamePagetest.ClickOnSelectedBusinessNameTask();
+        }
+
+        [When(@"user clicks on the start a new sign up request link")]
+        [Then(@"user clicks on the start a new sign up request link")]
+        public void ThenUserClicksOnTheStartANewSignUpRequestLink()
+        {
+            BusinessNamePagetest.ClickOnSignUpNewRequest();
         }
     }
 }

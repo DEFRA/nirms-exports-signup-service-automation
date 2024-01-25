@@ -1,7 +1,5 @@
 ﻿using BoDi;
-using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
@@ -16,8 +14,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
 
         private IBusinessContactTelephoneNumberPage? contactTelephoneNumberPage => _objectContainer.IsRegistered<IBusinessContactTelephoneNumberPage>() ? _objectContainer.Resolve<IBusinessContactTelephoneNumberPage>() : null;
-        private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         public BusinessContactTelephoneNumberSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
@@ -25,18 +21,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
-        [Then(@"navigate to contact telephone number page")]
-        public void ThenNavigateToContactTelephoneNumberPage()
-        {
-            contactTelephoneNumberPage.NavigateToContactTelephoneNumberPage();
-        }
-
+        [When(@"enter telephone number '([^']*)'")]
         [Then(@"enter telephone number '([^']*)'")]
         public void ThenEnterTelephoneNumber(string telephoneNumber)
         {
             contactTelephoneNumberPage.EnterTelephoneNumber(telephoneNumber);
         }
 
+        [When(@"click on save and continue on Contact Number page")]
         [Then(@"click on save and continue on Contact Number page")]
         public void ThenClickOnSaveAndContinue()
         {

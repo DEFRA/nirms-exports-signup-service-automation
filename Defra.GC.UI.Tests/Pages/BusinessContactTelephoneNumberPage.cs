@@ -1,9 +1,7 @@
 ﻿using BoDi;
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
-using SeleniumExtras.WaitHelpers;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -11,15 +9,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
 
         #region Page Objects
 
         private IWebElement TelephoneNumberlink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Telephone number')]"));
-        private IWebElement Telephone => _driver.WaitForElement(By.Id("business-phone"));
+        private IWebElement Telephone => _driver.WaitForElement(By.XPath("//input[@id='PhoneNumber']"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.Id("Phone_Error"));
-        #endregion
+
+        #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
 
@@ -35,7 +33,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             SaveAndContinue.Click();
         }
 
-
         public void ClickOnContactTelephoneNumberLink()
         {
             _driver.ElementImplicitWait();
@@ -45,13 +42,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterTelephoneNumber(string telephoneNumber)
         {
+            Telephone.Clear();
             Telephone.SendKeys(telephoneNumber);
-        }
-
-        public void NavigateToContactTelephoneNumberPage()
-        {
-            string url = UrlBuilder.Default().Add("registered-business-contact-phone").Build();
-            _driver.Navigate().GoToUrl(url);
+            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            //jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + telephoneNumber + "')", Telephone);
         }
 
         public bool VerifyErrorMessageOnContactTelephoneNumberPage(string errorMessage)
@@ -59,7 +53,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             return ErrorMessage.Text.Contains(errorMessage);
         }
 
-        #endregion
-
+        #endregion Page Methods
     }
 }

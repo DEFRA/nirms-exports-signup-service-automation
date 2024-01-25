@@ -1,7 +1,5 @@
 ﻿using BoDi;
-using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
@@ -16,8 +14,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         private IWebDriver? _driver => _objectContainer.IsRegistered<IWebDriver>() ? _objectContainer.Resolve<IWebDriver>() : null;
 
         private IBusinessContactNamePage? contactNamePage => _objectContainer.IsRegistered<IBusinessContactNamePage>() ? _objectContainer.Resolve<IBusinessContactNamePage>() : null;
-        private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
         public BusinessContactNameSteps(ScenarioContext context, IObjectContainer container)
         {
             _scenarioContext = context;
@@ -25,19 +21,27 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
-        [Then(@"navigate to business contact name page")]
-        public void ThenNavigateToBusinessContactNamePage()
+        [When(@"complete Business contact details task with '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void WhenCompleteBusinessContactDetailsTaskWith(string contactName, string contactPosition, string contactEmail, string contactTelephone)
         {
-            contactNamePage.NavigateToBusinessContactNamePage();
+            contactNamePage.CompleteBusinessContactDetailsTask(contactName, contactPosition, contactEmail, contactTelephone);
         }
 
-        [Then(@"enter business contact name '([^']*)'")]
+        [When(@"complete Business contact details task with '([^']*)', '([^']*)', '([^']*)', '([^']*)' with save and continue")]
+        public void WhenCompleteBusinessContactDetailsTaskWithSave(string contactName, string contactPosition, string contactEmail, string contactTelephone)
+        {
+            contactNamePage.CompleteBusinessContactDetailsTaskWithSave(contactName, contactPosition, contactEmail, contactTelephone);
+        }
+
+        [When(@"enter business contact person '([^']*)'")]
+        [Then(@"enter business contact person '([^']*)'")]
         public void ThenEnterBusinessContactName(string ContactName)
         {
             contactNamePage.EnterBusinessContactName(ContactName);
         }
 
-        [Then(@"click on save and continue on contact full name page")]
+        [When(@"click on save and continue on business contact name page")]
+        [Then(@"click on save and continue on business contact name page")]
         public void ThenClickOnSaveAndContinue()
         {
             contactNamePage.ClickOnSaveAndContinue();
@@ -50,10 +54,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 
         }
 
-        [Then(@"click on business contact name link")]
-        public void ThenClickOnBusinessContactNameLink()
+        [When(@"click on business contact details link")]
+        [Then(@"click on business contact details link")]
+        public void ThenClickOnBusinessContactDetailsLink()
         {
-            contactNamePage.ClickOnBusinessContactNameLink();
+            contactNamePage.ClickOnBusinessContactDetailsLink();
         }
+
+        [Then(@"user verify the business contact details status '([^']*)'")]
+        public void ThenUserVerifyTheBusinessContactDetailsStatus(string status)
+        {
+             Assert.True(contactNamePage.VerifyTheBusinessContactDetailsStatus(status), "Status is Invalid");
+        }
+
     }
 }

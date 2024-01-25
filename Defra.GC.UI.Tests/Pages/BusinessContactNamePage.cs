@@ -2,9 +2,6 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
-using SeleniumExtras.WaitHelpers;
-using Defra.UI.Framework.Driver;
-using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -12,17 +9,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
-        private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
+        private IBusinessContactEmailAddressPage? ContactEmailAddressPage => _objectContainer.IsRegistered<IBusinessContactEmailAddressPage>() ? _objectContainer.Resolve<IBusinessContactEmailAddressPage>() : null;
+        private IBusinessContactPositionPage? ContactPositionPage => _objectContainer.IsRegistered<IBusinessContactPositionPage>() ? _objectContainer.Resolve<IBusinessContactPositionPage>() : null;
+        private IBusinessContactTelephoneNumberPage? ContactTelephoneNumberPage => _objectContainer.IsRegistered<IBusinessContactTelephoneNumberPage>() ? _objectContainer.Resolve<IBusinessContactTelephoneNumberPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #region Page Objects
-        
-        private IWebElement BusinessFullName => _driver.WaitForElement(By.Id("business-name"));
-        private IWebElement Fullnamelink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Full name')]"));
-        private IWebElement SaveAndContinue => _driver.WaitForElement(By.Id("button-rbCountrySubmit"));
+
+        private IWebElement BusinessFullName => _driver.WaitForElement(By.XPath("//input[@id='Name']"));
+        private IWebElement ContactPersonLink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Contact person')]"));
+        private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
+        private IWebElement BusinessContactDetailStatus => _driver.WaitForElement(By.XPath("//strong[@id='contact-details']"));
 
-
-        #endregion
+        #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
 
@@ -33,14 +33,40 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         #region Page Methods
 
-        public void NavigateToBusinessContactNamePage()
+        public void CompleteBusinessContactDetailsTask(string contactName, string contactPosition, string contactEmail, string contactTelephone)
         {
-            string url = UrlBuilder.Default().Add("registered-business-contact-name").Build();
-            _driver.Navigate().GoToUrl(url);
+            ClickOnBusinessContactDetailsLink();
+            EnterBusinessContactName(contactName);
+            ClickOnSaveAndContinue();
+            ContactPositionPage.EnterBusinessContactPosition(contactPosition);
+            ContactPositionPage.ClickOnSaveAndContinue();
+            ContactEmailAddressPage.EnterEmailAddress(contactEmail);
+            ContactEmailAddressPage.ClickOnSaveAndContinue();
+            ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
+            applicationPage.ClickSaveAndReturnToDashboard();
+        }
+
+        public void CompleteBusinessContactDetailsTaskWithSave(string contactName, string contactPosition, string contactEmail, string contactTelephone)
+        {
+            ClickOnBusinessContactDetailsLink();
+            EnterBusinessContactName(contactName);
+            ClickOnSaveAndContinue();
+            ContactPositionPage.EnterBusinessContactPosition(contactPosition);
+            ContactPositionPage.ClickOnSaveAndContinue();
+            ContactEmailAddressPage.EnterEmailAddress(contactEmail);
+            ContactEmailAddressPage.ClickOnSaveAndContinue();
+            ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
+            applicationPage.ClickOnSaveAndContinue();
+        }
+
+        public bool VerifyTheBusinessContactDetailsStatus(string status)
+        {
+            return BusinessContactDetailStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
         }
 
         public void EnterBusinessContactName(string ContactName)
         {
+            BusinessFullName.Clear();
             BusinessFullName.SendKeys(ContactName);
         }
 
@@ -51,16 +77,43 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnSaveAndContinue()
         {
-            SaveAndContinue.Click();
+            
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", SaveAndContinue);
         }
 
-        public void ClickOnBusinessContactNameLink()
+        public void ClickOnBusinessContactDetailsLink()
         {
             _driver.ElementImplicitWait();
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
-            jsExecutor.ExecuteScript("arguments[0].click();", Fullnamelink);
+            jsExecutor.ExecuteScript("arguments[0].click();", ContactPersonLink);
         }
-        #endregion
 
+        public void EditBusinessContactName(string contactName)
+        {
+            EnterBusinessContactName(contactName);
+            applicationPage.ClickSaveAndReturnToDashboard();
+        }
+
+        public void EditBusinessContactPosition(string contactPosition)
+        {
+            ContactPositionPage.EnterBusinessContactPosition(contactPosition);
+            //ContactPositionPage.ClickOnSaveAndContinue();
+            applicationPage.ClickSaveAndReturnToDashboard();
+        }
+
+        public void EditBusinessContactEmailAddress(string contactEmail)
+        {
+            ContactEmailAddressPage.EnterEmailAddress(contactEmail);
+            applicationPage.ClickSaveAndReturnToDashboard();
+        }
+
+        public void EditBusinessContactTelephoneNumber(string contactTelephone)
+        {
+            ContactTelephoneNumberPage.EnterTelephoneNumber(contactTelephone);
+            applicationPage.ClickSaveAndReturnToDashboard();
+        }
+
+        #endregion Page Methods
     }
 }

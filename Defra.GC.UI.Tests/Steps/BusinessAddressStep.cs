@@ -5,10 +5,6 @@ using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
-using static System.Net.Mime.MediaTypeNames;
-using Defra.UI.Framework.Driver;
-using System;
-using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
 {
@@ -66,7 +62,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         [When(@"user enters manually all address fields  '([^']*)', '([^']*)',  '([^']*)'")]
         public void WhenUserEntersManuallyAllAddressFields(string p0, string testCity, string testCode)
         {
-            BusinessAddressPagetest.EntertheAddressmanually(p0, testCity, testCode);
+            BusinessAddressPagetest.EnterBusinessAddress(p0, testCity, testCode);
         }
 
         [Then(@"user verifies invalid error message for address data")]
@@ -82,12 +78,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             }
         }
 
-
-        [When(@"user clicks back button Business address page")]
-        public void WhenUserClicksBackButtonBusinessAddressPage()
-        {
-            BusinessAddressPagetest.ClickonBusinessBacklink();
-        }
 
         [Then(@"user  navigates back to task list page from Address page")]
         public void ThenUserNavigatesBackToTaskListPageFromAddressPage()

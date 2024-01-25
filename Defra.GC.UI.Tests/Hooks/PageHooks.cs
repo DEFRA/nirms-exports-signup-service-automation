@@ -4,6 +4,9 @@ using Defra.GC.UI.Tests.Configuration;
 using TechTalk.SpecFlow;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
+using Defra.Trade.ReMos.AssuranceService.Tests.Steps;
+using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
 
 namespace Defra.GC.UI.Tests.Hooks
 {
@@ -23,6 +26,7 @@ namespace Defra.GC.UI.Tests.Hooks
         private void BindAllPages()
         {
             // Objects
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<DataHelperConnections, IDataHelperConnections>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<UserObject, IUserObject>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<UrlBuilder, IUrlBuilder>());
 
@@ -33,10 +37,28 @@ namespace Defra.GC.UI.Tests.Hooks
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessContactPositionPage, IBusinessContactPositionPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessContactTelephoneNumberPage, IBusinessContactTelephoneNumberPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ApplicationPage, IApplicationPage>());
-            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessPage, IBusinessPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessAddressPage, IBusinessAddressPage>());
             _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessNamePage, IBusinessNamePage>());
-            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<EligibilityPage, IEligibilityPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<PointOfDepartureEstablishmentPage, IPointOfDepartureEstablishmentPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<PointOfDestinationEstablishmentPage, IPointOfDestinationEstablishmentPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<BusinessEligibilityPage, IBusinessEligibilityPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<TaskListPage, ITaskListPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryPage, IAuthorisedSignatoryPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<CheckYourAnswersPage, ICheckYourAnswersPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryNamePage, IAuthorisedSignatoryNamePage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryPositionPage, IAuthorisedSignatoryPositionPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AuthorisedSignatoryEmailAddressPage, IAuthorisedSignatoryEmailAddressPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<TermsAndConditionsPage, ITermsAndConditionsPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ReceiveNotificationPage, IReceiveNotificationPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ManageAccountPage, IManageAccountPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<FooterPage, IFooterPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<FBOorPHRNumberPage, IFBOorPHRNumberPage>());
+
+
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<SelfServeDashboardPage, ISelfServeDashboardPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ManageAuthRepresentativePage, IManageAuthRepresentativePage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<ManageContactPersonPage, IManageContactPersonPage>());
+            _objectContainer.RegisterInstanceAs(GetBaseWithContainer<AddEstablishmentPage, IAddEstablishmentPage>());
         }
 
         private TU GetBaseWithContainer<T, TU>() where T : TU =>

@@ -51,7 +51,7 @@ Scenario: Verify different statuses on self serve dashboard
 	When  click on contact person change link
 	And   enter contact person Name 'Updated Name'
 	And   click on save contact person details
-	And   verify Contact Person date format 'Last updated' on self serve dashboard
+	And   verify Contact Person date format 'Updated' on self serve dashboard
 	And   click on back link
 	When  Reject Sign up request for org '<Business selection>'
 	Then  click on refresh link on self serve dashboard

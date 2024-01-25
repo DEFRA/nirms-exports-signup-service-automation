@@ -41,14 +41,14 @@ Background:
 	Given  that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
-    Then  verify Authorised Representative date format 'Submitted on' on self serve dashboard
+    Then  verify Authorised Representative date format 'Added' on self serve dashboard
     When  click on Authorised Representative change link
 	And   enter Authorised Representative Name '<UpdatedName>'
 	And   enter Authorised Representative Position '<UpdatedPosition>'
 	And   enter Authorised Representative Email address '<UpdatedEmailAddress>'
 	And   click on save Authorised Representative details
 	Then  verify Authorised Representative details as '<UpdatedName>', '<UpdatedPosition>', '<UpdatedEmailAddress>'
-    And   verify Authorised Representative date format 'Last updated' on self serve dashboard
+    And   verify Authorised Representative date format 'Updated' on self serve dashboard
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName | UpdatedPosition       | UpdatedEmailAddress   | 

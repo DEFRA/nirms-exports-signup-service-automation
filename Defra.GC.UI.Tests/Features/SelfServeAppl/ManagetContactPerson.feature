@@ -41,7 +41,7 @@ Background:
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
-    Then  verify Contact Person date format 'Submitted on' on self serve dashboard
+    Then  verify Contact Person date format 'Added' on self serve dashboard
     When  click on contact person change link
 	And   enter contact person Name '<UpdatedName>'
 	And   enter contact person Position '<UpdatedPosition>'
@@ -49,7 +49,7 @@ Background:
 	And   enter contact person Telephone number '<UpdatedTelephoneNumber>'
 	And   click on save contact person details
 	Then  verify contact person details as '<UpdatedName>', '<UpdatedPosition>', '<UpdatedEmailAddress>', '<UpdatedTelephoneNumber>'
-    And   verify Contact Person date format 'Last updated' on self serve dashboard
+    And   verify Contact Person date format 'Updated' on self serve dashboard
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName     | UpdatedPosition    | UpdatedEmailAddress   | UpdatedTelephoneNumber |

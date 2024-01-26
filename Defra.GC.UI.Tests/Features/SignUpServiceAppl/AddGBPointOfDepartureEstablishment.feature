@@ -261,7 +261,7 @@ Scenario: Verify no establishment address listed after removing last address
 	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage				  |
 	| test      | Tesco Carlisle      | England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     | Add a place of dispatch  |
 
-
+	@RunOnly
 Scenario: Verify remaining establishment address listed after removing one address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

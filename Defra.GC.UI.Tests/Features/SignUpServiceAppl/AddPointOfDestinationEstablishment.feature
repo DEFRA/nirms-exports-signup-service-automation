@@ -28,6 +28,7 @@ Scenario: Check Add the Destination establishment address manually link
 	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | warningText                                                   |
 	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination | You do not need to enter establishments that do not belong to |
 
+	@RunOnly
 Scenario: Add point of Destination establishment address manually
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

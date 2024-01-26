@@ -998,8 +998,24 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify remaining establishment address listed after removing one address")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
-        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "England", "testFBO", "testName9", "testAddress1", "London", "England", "SE10 9NF", "testName10", "testAddress2", "Liverpool", "England", "L1 0AN", null)]
-        public void VerifyRemainingEstablishmentAddressListedAfterRemovingOneAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string establishmentName2, string addressLine2, string estCity2, string estCountry2, string addrPostcode2, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "England", "testFBO", "testName9", "testAddress1", "London", "England", "SE10 9NF", "testName10", "testAddress2", "Liverpool", "England", "L1 0AN", "Add a place of dispatch", null)]
+        public void VerifyRemainingEstablishmentAddressListedAfterRemovingOneAddress(
+                    string logininfo, 
+                    string businessSelection, 
+                    string country, 
+                    string fBONumber, 
+                    string establishmentName, 
+                    string addressLine1, 
+                    string estCity, 
+                    string estCountry, 
+                    string addrPostcode, 
+                    string establishmentName2, 
+                    string addressLine2, 
+                    string estCity2, 
+                    string estCountry2, 
+                    string addrPostcode2, 
+                    string nextPage, 
+                    string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "RunOnly"};
@@ -1023,6 +1039,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("estCity2", estCity2);
             argumentsOfScenario.Add("estCountry2", estCountry2);
             argumentsOfScenario.Add("AddrPostcode2", addrPostcode2);
+            argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify remaining establishment address listed after removing one address", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 265
 this.ScenarioInitialize(scenarioInfo);
@@ -1110,10 +1127,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("verify establishment address count \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 291
- testRunner.When(string.Format("remove establishment address \'{0}\'", establishmentName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("remove establishment address \'{0}\'", establishmentName2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 292
- testRunner.Then("verify next page \'<nextPage>\' is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

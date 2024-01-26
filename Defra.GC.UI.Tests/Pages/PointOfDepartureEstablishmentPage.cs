@@ -50,7 +50,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement DifferentPostcode => _driver.WaitForElement(By.XPath("//a[normalize-space()='entered the postcode correctly']"));
         private IWebElement AddressMnualLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='enter an address manually.']"));
         private IWebElement TextMessage => _driver.WaitForElement(By.XPath("//h3[contains(@class,'govuk-fieldset__heading')]"));
-        private IWebElement WarningMessage => _driver.WaitForElement(By.XPath("//span[@class='govuk-warning-text__assistive']/.."));
+        private IWebElement WarningMessage => _driver.WaitForElement(By.XPath("//strong[@class='govuk-warning-text__text']"));
 
         #endregion Page Objects
 

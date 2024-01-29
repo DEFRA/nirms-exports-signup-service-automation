@@ -19,7 +19,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Backlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back')]"));
         private IWebElement Aphalink => _driver.WaitForElement(By.XPath("//a[normalize-space()='NIRetailMovementEnquiries@apha.gov.uk']"));
         private IWebElement feedbacklink => _driver.WaitForElement(By.XPath("//a[normalize-space()='feedback']"));
-        private IWebElement BackToDashboardlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back to dashboard')] | //button[contains(text(),'Back to Dashboard')]"));
+        private IWebElement BackToDashboardlink => _driver.WaitForElement(By.XPath("//a[contains(text(),'Back to dashboard')] | //button[contains(text(),'Back to Dashboard')] | //button[contains(text(),'Back to dashboard')]"));
         private IWebElement SaveAndReturnToDashboard => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and return to dashboard')]"));
         private IWebElement ReturnToDashboard => _driver.WaitForElement(By.XPath("//button[contains(text(),'Return to dashboard')]"));
         private IWebElement SignUPTaskPage => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl']"));

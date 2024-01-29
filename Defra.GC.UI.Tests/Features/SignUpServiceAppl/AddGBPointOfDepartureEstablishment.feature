@@ -261,7 +261,6 @@ Scenario: Verify no establishment address listed after removing last address
 	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage				  |
 	| test      | Tesco Carlisle      | England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     | Add a place of dispatch  |
 
-
 Scenario: Verify remaining establishment address listed after removing one address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -288,12 +287,12 @@ Scenario: Verify remaining establishment address listed after removing one addre
 	And   add establishment email address 'test2@test.com'
 	And   remove establishment address '<EstablishmentName>'
 	Then  verify establishment address count '1'
-	When  remove establishment address '<EstablishmentName>'
+	When  remove establishment address '<EstablishmentName2>'
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection                          | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test4     | NORTH WEST TELUGU SANGAM                    | England | testFBO   | testName9         | testAddress1 | London  | England    | SE10 9NF     | testName10         | testAddress2 | Liverpool | England     | L1 0AN        |
+	| logininfo | Business selection       | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | nextPage                 |
+	| test4     | NORTH WEST TELUGU SANGAM | England | testFBO   | testName9         | testAddress1 | London  | England    | SE10 9NF     | testName10         | testAddress2 | Liverpool | England     | L1 0AN        | Add a place of dispatch  |
 
 
 Scenario: Change manually added establishment address

@@ -8,7 +8,6 @@ namespace Defra.GC.UI.Test.Data
 {
     public class BaseClient
     {
-        //Test
         private RestClient client;
         private RestRequest request;
         private X509Certificate2 certificate;

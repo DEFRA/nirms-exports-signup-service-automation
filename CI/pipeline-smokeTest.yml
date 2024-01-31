@@ -42,9 +42,6 @@ resources:
       name: DEFRA/nirms-exports-signup-service-automation
       ref: $(Build.SourceBranch)
       endpoint: pallaviyewaleDefra
-steps:
-- checkout: self
-- checkout: GitHubRepo
 
 stages:
   

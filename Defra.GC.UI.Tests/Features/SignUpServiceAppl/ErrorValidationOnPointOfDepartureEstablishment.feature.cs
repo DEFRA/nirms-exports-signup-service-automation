@@ -77,8 +77,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for blank Establishment postcode field & non GB post code")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "", "Enter a postcode", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "BT93 8AD", "Enter a postcode in England, Scotland or Wales", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "", "Enter a postcode", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "BT93 8AD", "Enter a postcode in England, Scotland or Wales", null)]
         public void VerifyErrorMessageForBlankEstablishmentPostcodeFieldNonGBPostCode(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -148,7 +148,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify zero address  error message for GB postcode")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "TE1 3DS", "0 results for TE1 3DS in England, Scotland and Wales", "of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "TE1 3DS", "0 results for TE1 3DS in England, Scotland and Wales", "of dispatch", null)]
         public void VerifyZeroAddressErrorMessageForGBPostcode(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string errorMessage, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -225,17 +225,17 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages for GB point of Departure mandatory fields")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter an establishment name", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "testErrorName1", "", "testCity", "testCountry", "SE10 9NF", "Enter address line 1", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "testErrorName2", "testAddress1", "", "testCountry", "SE10 9NF", "Enter a town or city", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "testErrorName3", "testAddress1", "testCity", "testCountry", "", "Enter a postcode", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "testErrorName4$%", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter an establishment name using only letters, numbers, brackets, full stops, hy" +
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "SE10 9NF", "", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter an establishment name", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "SE10 9NF", "testErrorName1", "", "testCity", "testCountry", "SE10 9NF", "Enter address line 1", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "SE10 9NF", "testErrorName2", "testAddress1", "", "testCountry", "SE10 9NF", "Enter a town or city", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "SE10 9NF", "testErrorName3", "testAddress1", "testCity", "testCountry", "", "Enter a postcode", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "SE10 9NF", "testErrorName4$%", "testAddress1", "testCity", "testCountry", "SE10 9NF", "Enter an establishment name using only letters, numbers, brackets, full stops, hy" +
             "phens, underscores, forward slashes, apostrophes or ampersands", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "testErrorName5", "testAddr%$", "testCity", "testCountry", "SE10 9NF", "Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, " +
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "SE10 9NF", "testErrorName5", "testAddr%$", "testCity", "testCountry", "SE10 9NF", "Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, " +
             "underscores, forward slashes, apostrophes or ampersands", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "testErrorName6", "testAddress1", "testCity%$", "testCountry", "SE10 9NF", "Enter a town or city using only letters, numbers, brackets, full stops, hyphens, " +
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "SE10 9NF", "testErrorName6", "testAddress1", "testCity%$", "testCountry", "SE10 9NF", "Enter a town or city using only letters, numbers, brackets, full stops, hyphens, " +
             "underscores, forward slashes, apostrophes or ampersands", null)]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "SE10 9NF", "testErrorName7", "testAddress1", "testCity", "testCountry", "testCode$%", "Enter a real postcode", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "SE10 9NF", "testErrorName7", "testAddress1", "testCity", "testCountry", "testCode$%", "Enter a real postcode", null)]
         public void VerifyErrorMessagesForGBPointOfDepartureMandatoryFields(string logininfo, string businessSelection, string country, string fBONumber, string postcode, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -319,7 +319,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the error GB Point of Departure Establishment Contact Email Address")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testErrorName8", "testAddress1", "testCity1", "testCountry1", "SE10 9NF", "Enter an email address in the correct format, like name@example.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "testErrorName8", "testAddress1", "testCity1", "testCountry1", "SE10 9NF", "Enter an email address in the correct format, like name@example.com", null)]
         public void VerifyTheErrorGBPointOfDepartureEstablishmentContactEmailAddress(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -405,7 +405,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify duplicate point of dispatch establishment not allowed")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "testErrorName9", "testAddress1", "London", "England", "SE10 9NF", "This address has already been added as a place of dispatch - enter a different ad" +
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "testErrorName9", "testAddress1", "London", "England", "SE10 9NF", "This address has already been added as a place of dispatch - enter a different ad" +
             "dress", null)]
         public void VerifyDuplicatePointOfDispatchEstablishmentNotAllowed(string logininfo, string businessSelection, string country, string fBONumber, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string errorMessage, string[] exampleTags)
         {

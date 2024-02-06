@@ -16,7 +16,7 @@ Scenario Outline: Complete eligibility task
 
 	Examples:
     | logininfo | Country | Business selection  |
-    | test      | England | Tesco Carlisle      |
+    | test      | England | TestEnv1            |
 
 Scenario Outline: Verify error message for not selecting the country
 	Given Clear Database for user '<logininfo>'
@@ -32,7 +32,7 @@ Scenario Outline: Verify error message for not selecting the country
 	Then  verify dynamic name '<businessName>' in error message '<errorMessage>'
 	Examples: 
     | logininfo | nextPage                                | businessName   | nextPage1					          | nextPage2                                             | errorMessage             |
-    | test      | Northern Ireland Retail Movement Scheme | Tesco Carlisle | Requirements of the Northern Ireland | do under the Northern Ireland Retail Movement Scheme? | will do under the scheme |
+    | test      | Northern Ireland Retail Movement Scheme | TestEnv1       | Requirements of the Northern Ireland | do under the Northern Ireland Retail Movement Scheme? | will do under the scheme |
 
 
 Scenario Outline: Verify back button on country page is going to select business page
@@ -46,7 +46,7 @@ Scenario Outline: Verify back button on country page is going to select business
 
 	Examples: 
     | logininfo | Business selection     | nextPage                                |
-    | test      | Tesco Carlisle         | Requirements of the Northern Ireland    |
+    | test      | TestEnv1               | Requirements of the Northern Ireland    |
 
 
 Scenario Outline: Verify confirmation error message for Regulations page
@@ -59,7 +59,7 @@ Scenario Outline: Verify confirmation error message for Regulations page
 	
 	Examples: 
     | logininfo | Country | FBONumber | errorMessage                                                  | Business selection |
-    | test      | England | testFBO   | Confirm that you have understood the guidance and regulations | Tesco Carlisle     |
+    | test      | England | testFBO   | Confirm that you have understood the guidance and regulations | TestEnv1           |
 
 Scenario Outline: Verify back link on Regulations page is navigating to business sign up page
 	Given Clear Database for user '<logininfo>'
@@ -72,7 +72,7 @@ Scenario Outline: Verify back link on Regulations page is navigating to business
 	
 	Examples: 
     | logininfo | Country | FBONumber | Business selection   | nextPage                                |
-    | test      | England | testFBO   | Tesco Carlisle       | Northern Ireland Retail Movement Scheme |
+    | test      | England | testFBO   | TestEnv1             | Northern Ireland Retail Movement Scheme |
 
 
 #Scenario: Verify back link from Another business page is navigated to Select your business page (not valid anymore)
@@ -118,8 +118,8 @@ Scenario: Verify text on Purpose of Business page
 
 	Examples:
     | logininfo | Country		   | FBONumber | Business selection  |PurposeOfBusinessText                                                                                                   |
-    | test      | England		   | testFBO   | Tesco Carlisle      |Your business will be sending consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.  |
-    | test1A    | Northern Ireland | testFBO   | Tesco Leeds         |Your business will be receiving consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.|
+    | test      | England		   | testFBO   | TestEnv1            |Your business will be sending consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.  |
+    | test1A    | Northern Ireland | testFBO   | TestEnv2            |Your business will be receiving consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.|
 
 
 Scenario: Verify back to dashboard link on Purpose of Business page  
@@ -136,7 +136,7 @@ Scenario: Verify back to dashboard link on Purpose of Business page
 
 	Examples:
     | logininfo | Country		   | FBONumber | Business selection  |nextPage |                                                                                             
-	| test      | England		   | testFBO   | Tesco Carlisle      |Sign up  | 
+	| test      | England		   | testFBO   | TestEnv1            |Sign up  | 
 
 
 Scenario: Verify Start new SignUp request link on Purpose of Business page navigates to select business page  
@@ -153,7 +153,7 @@ Scenario: Verify Start new SignUp request link on Purpose of Business page navig
 
 	Examples:
     | logininfo | Country		   | FBONumber | Business selection   |nextPage																				|                                                                                             
-	| test      | England		   | testFBO   | Tesco Carlisle       |Which business do you want to sign up for the Northern Ireland Retail Movement Scheme?  | 
+	| test      | England		   | testFBO   | TestEnv1             |Which business do you want to sign up for the Northern Ireland Retail Movement Scheme?  | 
 
 
 
@@ -185,4 +185,4 @@ Scenario: Verify requirements of Northern Ireland Retail Movement scheme page is
 	Then  verify next page '<nextPage>' is loaded
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |nextPage                                                   |
-	| test1C    | Tesco York         | England | testFBO   | testName      | testAddress | London | Wv1 3EB      | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |Requirements of the Northern Ireland Retail Movement Scheme|
+	| test1C    | TestEnv3           | England | testFBO   | testName      | testAddress | London | Wv1 3EB      | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |Requirements of the Northern Ireland Retail Movement Scheme|

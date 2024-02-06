@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify select business page is displayed for user with rejected signup status")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", "We will review your sign-up request and email you", "Your business has already submitted", "Requirements of the Northern Ireland Retail Movement Scheme", null)]
         public void VerifySelectBusinessPageIsDisplayedForUserWithRejectedSignupStatus(
                     string logininfo, 
@@ -229,7 +229,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Add departure displayed for user with rejected signup status")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "England", "testFBO", "testName", "testAddress", "London", "Wv1 3EB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "England", "testFBO", "testName", "testAddress", "London", "Wv1 3EB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", "We will review your sign-up request and email you", "Your business has already submitted", "do under the Northern Ireland Retail Movement Scheme?", "of dispatch", null)]
         public void VerifyAddDepartureDisplayedForUserWithRejectedSignupStatus(
                     string logininfo, 
@@ -419,7 +419,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Add destination displayed for user with rejected signup status")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Tesco Leeds", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "Belfast", "Northern Ireland", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "Belfast", "Northern Ireland", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", "We will review your sign-up request and email you", "Your business has already submitted", "Requirements of the Northern Ireland Retail Movement Scheme", "Places of destination", null)]
         public void VerifyAddDestinationDisplayedForUserWithRejectedSignupStatus(
                     string logininfo, 

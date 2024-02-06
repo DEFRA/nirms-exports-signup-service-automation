@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check header page links")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", null)]
         public void CheckHeaderPageLinks(string logininfo, string businessSelection, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

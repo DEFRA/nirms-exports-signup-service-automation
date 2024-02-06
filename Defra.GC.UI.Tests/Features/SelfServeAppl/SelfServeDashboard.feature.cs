@@ -86,7 +86,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify different statuses on self serve dashboard")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Tesco Leeds", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", null)]
         public void VerifyDifferentStatusesOnSelfServeDashboard(string logininfo, string businessSelection, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

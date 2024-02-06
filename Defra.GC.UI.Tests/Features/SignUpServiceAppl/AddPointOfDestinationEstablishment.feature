@@ -26,7 +26,7 @@ Scenario: Check Add the Destination establishment address manually link
 	
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | warningText                                                   |
-	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination | You do not need to enter establishments that do not belong to |
+	| test1A    | TestEnv2           | Northern Ireland | testFBO   | BT52 2AJ | of destination | You do not need to enter establishments that do not belong to |
 
 Scenario: Add point of Destination establishment address manually
 	Given Clear Database for user '<logininfo>'
@@ -51,7 +51,7 @@ Scenario: Add point of Destination establishment address manually
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       | EstablishmentName | AddressLine1    | estCity  | estCountry      | AddrPostcode |warningText                                                   |
-	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |You do not need to enter establishments that do not belong to |
+	| test1A    | TestEnv2           | Northern Ireland | testFBO   | BT52 2AJ | of destination | Coleraine         | Crown Buildings | Millburn | Northen Ireland | BT52 2AJ     |You do not need to enter establishments that do not belong to |
 
 
 Scenario: Verify back to dashboard link on enter Destination establishment postcode page
@@ -91,7 +91,7 @@ Scenario: Verify back to dashboard link on enter Destination establishment postc
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | nextPage | nextPage1      | postcode |
-	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | Sign up  | of destination | BT7 2JB  |
+	| test1A    | TestEnv2           | Northern Ireland | testFBO   | Sign up  | of destination | BT7 2JB  |
 
 	@ignore
 Scenario: Verify back to dashboard link on select Destination establishment address page
@@ -115,7 +115,7 @@ Scenario: Verify back to dashboard link on select Destination establishment addr
 	 
 	Examples: 
 	| logininfo | Business selection     | Country          | FBONumber | postcode | nextPage        | nextPage1  |
-	| test1A    | Tesco Leeds            | Northern Ireland | testFBO   | BT7 2JB  | of destination  | Sign up    |
+	| test1A    | TestEnv2               | Northern Ireland | testFBO   | BT7 2JB  | of destination  | Sign up    |
 
 	@ignore
 Scenario: Verify back to dashboard link on add Destination establishment address page
@@ -140,7 +140,7 @@ Scenario: Verify back to dashboard link on add Destination establishment address
 
 	Examples: 
 	| logininfo |  Business selection | Country          | FBONumber | postcode | nextPage       |nextPage1  |
-	| test1A    |  Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ | of destination |Sign up    |
+	| test1A    |  TestEnv2           | Northern Ireland | testFBO   | BT52 2AJ | of destination |Sign up    |
 
 	@ignore
 Scenario: Verify back to dashboard link on the Do you want to add another point of destination Page ?
@@ -166,7 +166,7 @@ Scenario: Verify back to dashboard link on the Do you want to add another point 
 	
 	Examples: 
 	| logininfo | Business selection   | Country          | FBONumber | postcode | nextPage       | nextPage1 |
-	| test      | Tesco Carlisle       | Northern Ireland | testFBO   | BT7 2JB | of destination | Sign up         |
+	| test      | TestEnv2             | Northern Ireland | testFBO   | BT7 2JB | of destination | Sign up         |
 
 	
 	@ignore
@@ -191,7 +191,7 @@ Scenario: Verify back to dashboard link on the Establishment email address optio
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | postcode | nextPage       |nextPage1|
-	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | BT93 8AD | of destination |Sign up  |
+	| test1A    | TestEnv2           | Northern Ireland | testFBO   | BT93 8AD | of destination |Sign up  |
 
 Scenario: Modify point of destination establishment email address
 	Given Clear Database for user '<logininfo>'
@@ -218,7 +218,7 @@ Scenario: Modify point of destination establishment email address
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity  | estCountry      | AddrPostcode |
-	| test1A    | Tesco Leeds         | Northern Ireland | testFBO   | testName1         | testAddress1 | Millburn | Northen Ireland | BT52 2AJ     |
+	| test1A    | TestEnv2            | Northern Ireland | testFBO   | testName1         | testAddress1 | Millburn | Northen Ireland | BT52 2AJ     |
 	
 Scenario: Add Another point of Destination establishment address
 	Given Clear Database for user '<logininfo>'
@@ -247,7 +247,7 @@ Scenario: Add Another point of Destination establishment address
 	Then  verify more than 1 establishment addresses added
 	Examples: 
 	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
-	| test1A    | Tesco Leeds          | Northern Ireland | testFBO   | testName2         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street      | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
+	| test1A    | TestEnv2             | Northern Ireland | testFBO   | testName2         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street      | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
 	@SmokeTest
 Scenario: Finish adding point of Destination establishment address
@@ -274,7 +274,7 @@ Scenario: Finish adding point of Destination establishment address
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage |
-	| test1A    | Tesco Leeds          | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up  |
+	| test1A    | TestEnv2             | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up  |
 
 	
 Scenario: Verify no point of destination establishment address listed after removing last address
@@ -301,7 +301,7 @@ Scenario: Verify no point of destination establishment address listed after remo
 	
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage        |
-	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | Coleraine3        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | of destination  |
+	| test1A    | TestEnv2           | Northern Ireland | testFBO   | Coleraine3        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | of destination  |
 
 	
 Scenario: Verify remaining point of destination establishment address listed after removing one address
@@ -332,7 +332,7 @@ Scenario: Verify remaining point of destination establishment address listed aft
 	Then  verify establishment address count '1'
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
-	| test1A    | Tesco Leeds         | Northern Ireland | testFBO   | testName3         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street3     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
+	| test1A    | TestEnv2            | Northern Ireland | testFBO   | testName3         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street3     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
 Scenario: Change manually added destination establishment address
 	Given Clear Database for user '<logininfo>'
@@ -360,7 +360,7 @@ Scenario: Change manually added destination establishment address
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
-	| test1A    | Tesco Leeds        | Northern Ireland | testFBO   | testName4         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street4     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
+	| test1A    | TestEnv2           | Northern Ireland | testFBO   | testName4         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street4     | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
 	
 Scenario: Change destination establishment address postcode
@@ -384,7 +384,7 @@ Scenario: Change destination establishment address postcode
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode | AddrPostcode1 |
-	| test1A    | Tesco Leeds         | Northern Ireland | testFBO   | BT30 6LZ     | BT52 2AJ      |
+	| test1A    | TestEnv2            | Northern Ireland | testFBO   | BT30 6LZ     | BT52 2AJ      |
 
 
 
@@ -413,7 +413,7 @@ Scenario: Change destination establishment email address
 
 	Examples:  
 	| logininfo |  Business selection  | Country          | FBONumber | EstablishmentName | AddressLine1    | estCity | estCountry       | AddrPostcode |
-	| test1A    |  Tesco Leeds         | Northern Ireland | testFBO   | Coleraine4        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |
+	| test1A    | TestEnv2             | Northern Ireland | testFBO   | Coleraine4        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |
 
 
 	Scenario:Verify different post code link is navigated to Add a point of deastination page
@@ -435,7 +435,7 @@ Scenario: Change destination establishment email address
 	 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | AddrPostcode      | nextPage       |
-	| test1A    | Tesco Leeds         | Northern Ireland | testFBO   | BT43 4TT          | of destination |
+	| test1A    | TestEnv2            | Northern Ireland | testFBO   | BT43 4TT          | of destination |
 
 Scenario:Verify Enter a Address manually link is navigated to Add a place of destination page
 	Given Clear Database for user '<logininfo>'
@@ -457,7 +457,7 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of des
 
 	Examples: 
 	| logininfo |  Business selection | Country          | FBONumber | AddrPostcode | nextPage       |
-	| test1A    |  Tesco Leeds        | Northern Ireland | testFBO   | BT52 2AJ       | of destination |
+	| test1A    |  TestEnv2           | Northern Ireland | testFBO   | BT52 2AJ       | of destination |
 
 
 Scenario:Verify save and return to dashboard on Add a place of destination page
@@ -484,4 +484,4 @@ Scenario:Verify save and return to dashboard on Add a place of destination page
 
 	Examples: 
 	| logininfo | Business selection  | Country          | FBONumber | nextPage  |EstablishmentName | AddressLine1    | estCity | estCountry       | AddrPostcode |
-	| test1A    | Tesco Leeds         | Northern Ireland | testFBO   | Sign up   |Coleraine5        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |
+	| test1A    | TestEnv2            | Northern Ireland | testFBO   | Sign up   |Coleraine5        | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     |

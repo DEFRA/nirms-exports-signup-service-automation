@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Provide Feedback link opens iin new tab")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", null)]
         public void VerifyProvideFeedbackLinkOpensIinNewTab(string logininfo, string businessSelection, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

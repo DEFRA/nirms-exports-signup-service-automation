@@ -78,7 +78,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add Authorised Signatory and navigated to tasklist page")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "Add a place of dispatch", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "Add a place of dispatch", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void AddAuthorisedSignatoryAndNavigatedToTasklistPage(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -167,7 +167,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("No to the contact person of the Authorised Signatory and navigted to full name Au" +
             "thorised page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "Who is the authorised representative at", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "Who is the authorised representative at", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void NoToTheContactPersonOfTheAuthorisedSignatoryAndNavigtedToFullNameAuthorisedPage(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -238,7 +238,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages if user do not select Authorised Signatory")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "is the authorised representative", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "is the authorised representative", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void VerifyErrorMessagesIfUserDoNotSelectAuthorisedSignatory(string logininfo, string businessSelection, string country, string fBONumber, string errorMessage, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -317,7 +317,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back to dashboard link navigated to tasklist page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "Sign up for the Northern Ireland Retail Movement Scheme", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "Sign up for the Northern Ireland Retail Movement Scheme", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void VerifyBackToDashboardLinkNavigatedToTasklistPage(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -396,7 +396,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Save and return to dashboard on Authorised Signatory page")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "Sign up for the Northern Ireland Retail Movement Scheme", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "Sign up for the Northern Ireland Retail Movement Scheme", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void VerifySaveAndReturnToDashboardOnAuthorisedSignatoryPage(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -479,7 +479,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify save and return to dashboard on Authorised Signatory page after completing" +
             " Contact person")]
-        [NUnit.Framework.TestCaseAttribute("test", "Tesco Carlisle", "England", "testFBO", "authorised representative", "test name", "test name", "test", "test@gmail.com", "01632 960 001", "administrator", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "authorised representative", "test name", "test name", "test", "test@gmail.com", "01632 960 001", "administrator", "Sign up", null)]
         public void VerifySaveAndReturnToDashboardOnAuthorisedSignatoryPageAfterCompletingContactPerson(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string fullName, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string authposition, string nextPage1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

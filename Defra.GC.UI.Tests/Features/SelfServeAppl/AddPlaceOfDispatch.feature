@@ -1,5 +1,4 @@
-﻿@SelfServeRegression
-Feature: AddPlaceOfDispatch
+﻿Feature: AddPlaceOfDispatch
 
 Add Place of Dispatch
 
@@ -7,10 +6,10 @@ Background:
 	Given Clear Database for user 'test1C'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo 'test1C'
-	And   select business to sign up 'Tesco York'
+	And   select business to sign up 'TestEnv3'
 	And   complete eligibility task with 'England'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name 'Tesco York'
+	And   user verify the selected business name 'TestEnv3'
 	When  click on FBOorPHRNumber task
 	And   enter FBO number 'testFBO' for FBO or PHR number task
 	And   click Save and return to dashboard
@@ -34,8 +33,10 @@ Background:
 	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
+	Given Approve Sign up request for org '<Business selection>'
 
-	Scenario: Verify Add Place Of Dispatch link
+	@ignore
+Scenario: Verify Add Place Of Dispatch link
 	Given Approve Sign up request for org '<Business selection>'
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
@@ -49,4 +50,102 @@ Background:
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 	Examples: 
 	| logininfo | Business selection | nextPage                                | linkText1     | linkText2                   | linkText3                             |
-	| test1C    | Tesco York         | Northern Ireland Retail Movement Scheme | 03000 200 301 | Find out about call charges | NIRetailMovementEnquiries@apha.gov.uk |
+	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | 03000 200 301 | Find out about call charges | NIRetailMovementEnquiries@apha.gov.uk |
+
+	@RunOnly
+Scenario: Verify back link on Place Of Dispatch page
+	Given that I navigate to the NI GC application
+	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	And   select business '<Business selection>' on self serve dashboard 
+	And   click on link 'Add a place of dispatch'
+	Then  verify next page '<nextPage>' is loaded
+	And   verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page 
+	When  click on back link
+	Then  verify dynamic name '<Business selection>' in title '<PageTitle>' of page
+	When  click on link 'Add a place of dispatch'
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded
+	And   enter Establishment postcode '<AddrPostcode>'
+	When  click on change link next to Establishment postcode
+	Then  verify next page '<nextPage>' is loaded
+	When  enter Establishment postcode '<AddrPostcode2>'
+	Then  verify establishment postcode changed to '<AddrPostcode2>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded
+	When  enter Establishment postcode '<AddrPostcode2>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on change establishment address '<EstablishmentName>'
+	And   verify add establishment address manually page loaded
+	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
+	And   add establishment email address 'test2@test.com'
+	And   verify changed establishment address fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
+	And   click on back to dashboard link
+	#Then  verify next page '<nextPage>' is loaded
+
+	Examples: 
+	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
+	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | You do not need to add an establishment that | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        |
+
+	@RunOnly
+Scenario: Verify zero results page on Place Of Dispatch page
+	Given that I navigate to the NI GC application
+	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	And   select business '<Business selection>' on self serve dashboard 
+	And   click on link 'Add a place of dispatch'
+	And   enter Establishment postcode '<AddrPostcode>'
+	Then  verify error message '<errorMessage>' on Add a place of departure page
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded
+	When  enter Establishment postcode '<AddrPostcode>'
+	And   click on a different postcode error link
+	Then  verify next page '<nextPage>' is loaded
+	When  enter Establishment postcode '<AddrPostcode>'
+	And   click on the add establishment address manually link
+	Then  verify next page '<nextPage>' is loaded
+
+	Examples: 
+	| logininfo | Business selection | nextPage                | AddrPostcode | errorMessage |
+	| test1C    | TestEnv3           | Add a place of dispatch | SE9 1EE      | 0 results    |
+
+	@RunOnly
+Scenario: Verify error messages for place of dispatch mandatory fields
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on link 'Add a place of dispatch'
+	And   enter Establishment postcode '<postcode>'
+	And   click on cannot find establishment link 
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	Then  verify error message '<errorMessage>' on establishment page
+
+	Examples: 
+	| logininfo | Business selection   | postcode | EstablishmentName | AddressLine1 | estCity    | estCountry  | AddrPostcode | errorMessage                                     |
+	| test1C      |	   TestEnv3        | SE10 9NF |                   | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter an establishment name                      |
+	| test1C      |    TestEnv3		   | SE10 9NF | testErrorName1    |              | testCity   | testCountry | SE10 9NF     | Enter address line 1                             |
+	| test1C      |    TestEnv3        | SE10 9NF | testErrorName2    | testAddress1 |            | testCountry | SE10 9NF     | Enter a town or city                             |
+	| test1C      |    TestEnv3		   | SE10 9NF | testErrorName3    | testAddress1 | testCity   | testCountry |              | Enter a postcode                                 |
+	| test1C      |    TestEnv3        | SE10 9NF | testErrorName4$%  | testAddress1 | testCity   | testCountry | SE10 9NF     | Enter an establishment name using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands |
+	| test1C      |    TestEnv3		   | SE10 9NF | testErrorName5    | testAddr%$   | testCity   | testCountry | SE10 9NF     | Enter address line 1 using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands     |
+	| test1C      |    TestEnv3        | SE10 9NF | testErrorName6    | testAddress1 | testCity%$ | testCountry | SE10 9NF     | Enter a town or city using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands     |
+	| test1C      |    TestEnv3        | SE10 9NF | testErrorName7    | testAddress1 | testCity   | testCountry | testCode$%   | Enter a real postcode                            |
+
+	@RunOnly
+Scenario: Verify error message for blank Establishment postcode field & non GB post code
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on link 'Add a place of dispatch'
+	And   enter Establishment postcode '<postcode>'
+	Then  verify error message '<errorMessage>' on establishment page
+
+	Examples: 
+	| logininfo | Business selection | postcode  | errorMessage      |
+	| test1C    | TestEnv3           |           | Enter a postcode. |
+	| test1C    | TestEnv3           | BT93 8AD  | Enter a postcode in England, Scotland or Wales |

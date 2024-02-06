@@ -7,10 +7,10 @@ Background:
 	Given Clear Database for user 'test1C'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo 'test1C'
-	And   select business to sign up 'Tesco York'
+	And   select business to sign up 'TestEnv3'
 	And   complete eligibility task with 'England'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name 'Tesco York'
+	And   user verify the selected business name 'TestEnv3'
 	When  click on FBOorPHRNumber task
 	And   enter FBO number 'testFBO' for FBO or PHR number task
 	And   click Save and return to dashboard
@@ -52,7 +52,7 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName | UpdatedPosition       | UpdatedEmailAddress   | 
-	| test1C    | Tesco York         | TestName    | TestPosition          | Changedemail@test.com |
+	| test1C    | TestEnv3           | TestName    | TestPosition          | Changedemail@test.com |
 
 
 	Scenario: Verify error messages for blank Authorised Representative fields
@@ -69,7 +69,7 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName | UpdatedPosition | UpdatedEmailAddress   | Message1     | Message2               | Message3         | Message4                 |
-	| test1C    | Tesco York         |             |                 |                       | Enter a name | Enter an email address | Enter a position | Confirm that has read and understood the terms and conditions |
+	| test1C    | TestEnv3           |             |                 |                       | Enter a name | Enter an email address | Enter a position | Confirm that has read and understood the terms and conditions |
 
 
 	Scenario: Verify error messages for invalid Authorised Representative fields
@@ -86,7 +86,7 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName  | UpdatedPosition  | UpdatedEmailAddress    | Message1     | Message2               | Message3         | Message4                 |
-	| test1C    | Tesco York         | TestName%    | Test1()%         | Changedemail%@test.com | Enter a name using only letters, hyphens or apostrophes | Enter an email address in the correct format, like name@example.com | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | has read and understood the terms and conditions|
+	| test1C    | TestEnv3           | TestName%    | Test1()%         | Changedemail%@test.com | Enter a name using only letters, hyphens or apostrophes | Enter an email address in the correct format, like name@example.com | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | has read and understood the terms and conditions|
 
 	Scenario: Verify Cancel link on update Authorised Representative page
 	Given Approve Sign up request for org '<Business selection>'
@@ -99,7 +99,7 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection   |nextPage                                |
-	| test1C    | Tesco York           |Northern Ireland Retail Movement Scheme |
+	| test1C    | TestEnv3             |Northern Ireland Retail Movement Scheme |
 
 
 	Scenario: Verify Back link on update Authorised Representative page
@@ -113,4 +113,4 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection   |nextPage                                |
-	| test1C    | Tesco York           |Northern Ireland Retail Movement Scheme |
+	| test1C    | TestEnv3             |Northern Ireland Retail Movement Scheme |

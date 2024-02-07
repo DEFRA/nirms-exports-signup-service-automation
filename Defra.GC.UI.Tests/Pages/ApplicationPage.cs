@@ -54,6 +54,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnBackLink()
         {
+            Thread.Sleep(1000);
             Backlink.Click();
         }
 

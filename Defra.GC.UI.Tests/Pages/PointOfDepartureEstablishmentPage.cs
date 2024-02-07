@@ -35,7 +35,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement Postcode => _driver.WaitForElement(By.Id("PostCode"));
         private IWebElement SaveAndContinue => _driver.WaitForElementClickable(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement EstablishmentEmailAddress => _driver.WaitForElement(By.Id("Email"));
-        private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Continue')]"));
+        private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Continue')] | //button[contains(text(),'Save and continue')]"));
         private By NumberOfEstablishments => By.XPath("//div[@class='govuk-summary-card']");
         private By ErrorMessage => By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a");
         private By ZeroResult => By.XPath("//p[@class='govuk-!-margin-top-8']");

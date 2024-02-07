@@ -1,4 +1,5 @@
-﻿Feature: AddPlaceOfDestination
+﻿@SelfServeRegression
+Feature: AddPlaceOfDestination
 
 Add Place of Destination
 
@@ -91,7 +92,7 @@ Scenario: Verify Add Place Of Destination link
 	| logininfo | Business selection | PageTitle                               | nextPage                   | warningText                                  | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 |
 	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of destination | You do not need to add an establishment that | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      |
 
-	@RunOnly
+
 Scenario: Verify zero results page on Place Of Destination page
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
@@ -112,7 +113,7 @@ Scenario: Verify zero results page on Place Of Destination page
 	| logininfo | Business selection | nextPage                   | AddrPostcode | errorMessage |
 	| test1C    | TestEnv3           | Add a place of destination | BT43 4TT     | 0 results    |
 
-	@RunOnly
+
 Scenario: Verify error messages for place of destination mandatory fields
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -135,7 +136,7 @@ Scenario: Verify error messages for place of destination mandatory fields
 	| test1C    |    TestEnv3       | BT93 8AD | testErrorName6    | testAddress1 | testCity%$ | testCountry | BT93 8AD     | Enter a town or city using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands     |
 	| test1C    |    TestEnv3       | BT93 8AD | testErrorName7    | testAddress1 | testCity   | testCountry | BT93 8AD$%   | Enter a real postcode                            |
 
-	@RunOnly
+
 Scenario: Verify validation error message for blank Destination Establishment postcode field and non NI postcode
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

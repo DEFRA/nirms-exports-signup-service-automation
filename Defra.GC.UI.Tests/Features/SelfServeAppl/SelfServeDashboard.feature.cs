@@ -114,7 +114,7 @@ this.FeatureBackground();
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
- testRunner.And(string.Format("verify status \'NOT SIGNED-UP\' is displayed for the \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("verify status \'Not signed-up\' is displayed for the \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
  testRunner.And(string.Format("verify link \'Sign up\' is displayed for the \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -126,7 +126,7 @@ this.FeatureBackground();
  testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 18
- testRunner.And(string.Format("verify status \'SIGN-UP STARTED\' is displayed for the \'{0}\' on self serve dashboar" +
+ testRunner.And(string.Format("verify status \'Sign-up started\' is displayed for the \'{0}\' on self serve dashboar" +
                             "d", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
@@ -210,7 +210,7 @@ this.FeatureBackground();
  testRunner.When("navigate to Self Serve Dashboard URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 44
- testRunner.Then(string.Format("verify status \'PENDING APPROVAL\' is displayed for the \'{0}\' on self serve dashboa" +
+ testRunner.Then(string.Format("verify status \'Pending approval\' is displayed for the \'{0}\' on self serve dashboa" +
                             "rd", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 45
@@ -220,7 +220,7 @@ this.FeatureBackground();
  testRunner.Then("click on refresh link on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 47
- testRunner.And(string.Format("verify status \'APPROVED FOR NIRMS\' is displayed for the \'{0}\' on self serve dashb" +
+ testRunner.And(string.Format("verify status \'Approved for NIRMS\' is displayed for the \'{0}\' on self serve dashb" +
                             "oard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 48
@@ -255,7 +255,7 @@ this.FeatureBackground();
  testRunner.Then("click on refresh link on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 58
- testRunner.And(string.Format("verify status \'SIGN-UP REJECTED\' is displayed for the \'{0}\' on self serve dashboa" +
+ testRunner.And(string.Format("verify status \'Sign-up rejected\' is displayed for the \'{0}\' on self serve dashboa" +
                             "rd", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 59

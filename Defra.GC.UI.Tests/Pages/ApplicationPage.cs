@@ -54,6 +54,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnBackLink()
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,-1000)", "");
             Thread.Sleep(1000);
             Backlink.Click();
         }

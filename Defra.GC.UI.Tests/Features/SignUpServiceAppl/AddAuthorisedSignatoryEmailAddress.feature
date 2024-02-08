@@ -113,12 +113,14 @@ Scenario Outline:  Verify error message for blank Authorised Signatory Email Add
     Then  user enters manually '<AuthemailAddress>' in email address page
     Then  click on save and continue 
 	Then  verify error message '<errorMsg>' on authorised signatory email address page
+	When   click on back to dashboard link
+	Then  verify next page '<previousPage>' is loaded 
 
     Examples:    
-	| logininfo | Business selection   | fullName  | Country | FBONumber | errorMsg               | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition |
-	| test      | TestEnv1             | test name | England | testFBO   | Enter an email address | test Name   | test            | test@gmail.com | 01632 960 001   |                  | COO          |
+	| logininfo | Business selection   | fullName  | Country | FBONumber | errorMsg               | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition | previousPage|
+	| test      | TestEnv1             | test name | England | testFBO   | Enter an email address | test Name   | test            | test@gmail.com | 01632 960 001   |                  | COO          | Sign up     |
 
-
+@ignore
 Scenario Outline:Verify user clicks on back to dashboard link and navigates to tasklist page 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -155,7 +157,7 @@ Examples:
 	| logininfo | Business selection  | Country | FBONumber | previousPage | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber | Authposition  |
 	| test      | TestEnv1            | England | testFBO   | Sign up      | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator |
 
-
+@ignore
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory Email address Page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

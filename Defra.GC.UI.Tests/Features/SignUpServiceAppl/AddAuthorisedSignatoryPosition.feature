@@ -105,12 +105,14 @@ Scenario: Verify error message for blank authorised signatory position
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue
 	Then  verify error message '<errorMessage>' on business contact position page
+	When   click on back to dashboard link 
+	Then  verify next page '<previousPage>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage     |
-	| test      | TestEnv1            | England | testFBO   | testContactName | testPosition    | test Name |              | test@gmail.com | 01632 960 001   | Enter a position |
+	| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition | emailAddress   | telephoneNumber | errorMessage     | previousPage |
+	| test      | TestEnv1            | England | testFBO   | testContactName | testPosition    | test Name |              | test@gmail.com | 01632 960 001   | Enter a position | Sign up      |
 
-
+	@ignore
 Scenario Outline:Verify user clicks on back to dashboard button and navigates to tasklist page 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -143,7 +145,7 @@ Scenario Outline:Verify user clicks on back to dashboard button and navigates to
 
 Examples:
 	| logininfo |Business selection	 | Country | FBONumber | previousPage  | contactName | contactPosition | emailAddress   | telephoneNumber |Authposition |fullName|
-	| test      |TestEnv1            | England | testFBO   | Sign up		 | test Name   | test            | test@gmail.com | 01632 960 001   |admin        |testname|
+	| test      |TestEnv1            | England | testFBO   | Sign up	   | test Name   | test            | test@gmail.com | 01632 960 001   |admin        |testname|
 
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory position Page

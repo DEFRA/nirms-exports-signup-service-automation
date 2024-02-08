@@ -64,11 +64,15 @@ Scenario: Verify error messages if user do not select Authorised Signatory
 	When  click on Authorised Signatory link
 	And   click on save and continue
 	Then  verify dynamic name '<contactName>' in error message '<errorMessage>'
+	And   click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | errorMessage				       |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      | TestEnv1            | England | testFBO   | is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001   |
-
+	| logininfo | Business selection  | Country | FBONumber | errorMessage				        |contactName     | contactPosition | emailAddress   | telephoneNumber |nextPage                                                |
+	| test      | TestEnv1            | England | testFBO   | is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001    | Sign up for the Northern Ireland Retail Movement Scheme|
+	
+	
+	@ignore
 Scenario: Verify back to dashboard link navigated to tasklist page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

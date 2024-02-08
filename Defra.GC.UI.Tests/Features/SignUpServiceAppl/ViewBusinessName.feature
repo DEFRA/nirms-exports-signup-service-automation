@@ -42,8 +42,8 @@ Scenario: Verify user can click on the start a new sign up request
 	Then  verify next page '<nextPage2>' is loaded 
 
 	Examples: 
-	| logininfo | Business selection |  nextPage1         | nextPage2 |Country | FBONumber |
-	| test7     | Tescoman           |  Selected business | sign up   |England | testFBO   |
+	| logininfo | Business selection |  nextPage1         | nextPage2								  |Country | FBONumber |
+	| test7     | Tescoman           |  Selected business | Northern Ireland Retail Movement Scheme   |England | testFBO   |
    
 
 Scenario: Verify user can click on the back to dashboard

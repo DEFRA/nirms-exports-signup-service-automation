@@ -86,8 +86,8 @@ Scenario: Verify back link on Place Of Dispatch page
 	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   add establishment email address 'test2@test.com'
 	And   verify changed establishment address fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
-	And   click on back to dashboard link
-	#Then  verify next page '<nextPage>' is loaded
+	When  click on back link
+	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
 	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |

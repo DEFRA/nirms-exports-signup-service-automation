@@ -91,7 +91,7 @@ namespace Defra.GC.UI.Tests.Hooks
             var fileTitle = _scenarioContext.ScenarioInfo.Title;
             var fileName = Path.Combine(filePath, $"{fileTitle}_TestFailures_{DateTime.Now:yyyyMMdd_hhss}" + ".png");
 
-            ((ITakesScreenshot)Driver).GetScreenshot().SaveAsFile(fileName, ScreenshotImageFormat.Png);
+            ((ITakesScreenshot)Driver).GetScreenshot().SaveAsFile(fileName);
 
             _specFlowOutputHelper.AddAttachment(fileName);
             Logger.Debug($"SCREENSHOT {fileName} ");

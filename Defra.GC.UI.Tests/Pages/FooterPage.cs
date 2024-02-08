@@ -3,7 +3,6 @@ using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
-using OpenQA.Selenium.DevTools.V110.CSS;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
     {

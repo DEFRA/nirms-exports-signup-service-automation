@@ -40,7 +40,7 @@ resources:
     - repository: clientautomationreponew
       type: github
       name: DEFRA/nirms-exports-signup-service-automation
-      ref: dev
+      ref: refs/heads/dev
 
 stages:
   

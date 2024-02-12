@@ -27,9 +27,10 @@ parameters:
 resources:
   repositories:
     - repository: clientautomationreponew
-      type: git
-      name: DEFRA-NI-GENERAL-CERTIFICATE/Defra.Trade.ReMos.AssuranceService.Automation
-      ref: $(Build.SourceBranch)
+      type: github
+      name: DEFRA/nirms-exports-signup-service-automation
+      ref: refs/heads/dev
+      endpoint: DEFRA
 
 stages:
   

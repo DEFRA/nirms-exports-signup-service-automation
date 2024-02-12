@@ -4,7 +4,7 @@ Feature: AddBusinessEligibility
 
 Complete Eligibility task
 
- @SmokeTest
+ @SmokeTest @RunOnly
 Scenario Outline: Complete eligibility task
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

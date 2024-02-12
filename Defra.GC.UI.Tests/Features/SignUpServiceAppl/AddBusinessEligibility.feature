@@ -4,7 +4,7 @@ Feature: AddBusinessEligibility
 
 Complete Eligibility task
 
- @SmokeTest
+ @SmokeTest @RunOnly
 Scenario Outline: Complete eligibility task
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -16,7 +16,7 @@ Scenario Outline: Complete eligibility task
 
 	Examples:
     | logininfo | Country | Business selection  |
-    | test      | England | Tesco Carlisle      |
+    | test      | England | TestEnv1            |
 
 Scenario Outline: Verify error message for not selecting the country
 	Given Clear Database for user '<logininfo>'

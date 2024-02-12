@@ -41,6 +41,7 @@ resources:
       type: github
       name: DEFRA/nirms-exports-signup-service-automation
       ref: refs/heads/dev
+      endpoint: 
 
 stages:
   

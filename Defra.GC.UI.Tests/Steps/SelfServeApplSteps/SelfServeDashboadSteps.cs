@@ -2,6 +2,7 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.Data.Users;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
@@ -21,6 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         private IUserObject? UserObject => _objectContainer.IsRegistered<IUserObject>() ? _objectContainer.Resolve<IUserObject>() : null;
         private IDataHelperConnections? dataHelperConnections => _objectContainer.IsRegistered<IDataHelperConnections>() ? _objectContainer.Resolve<IDataHelperConnections>() : null;
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
+        private ISignInPage? Signin => _objectContainer.IsRegistered<ISignInPage>() ? _objectContainer.Resolve<ISignInPage>() : null;
 
 
         public SelfServeDashboadSteps(ScenarioContext context, IObjectContainer container)
@@ -105,6 +107,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         {
             string url = UrlBuilder.Default().Build();
             _driver.Navigate().GoToUrl(url);
+            Signin.EnterPAssword();
         }
 
         [When(@"Reject Sign up request for org '([^']*)'")]

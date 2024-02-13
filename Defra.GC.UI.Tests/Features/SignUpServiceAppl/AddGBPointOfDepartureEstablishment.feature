@@ -24,8 +24,8 @@ Scenario: Verify Point of Departure link for GB countries
 
 	Examples: 
 	| logininfo | Business selection  | Country  | FBONumber | postcode | nextPage    | warningText                                                   |
-	| test      | Tesco Carlisle      | Wales    | testFBO   | SE10 9NF | of dispatch | You do not need to enter establishments that do not belong to |
-	| test      | Tesco Carlisle      | Scotland | testFBO   | SE10 9NF | of dispatch | You do not need to enter establishments that do not belong to |
+	| test      | TestEnv1            | Wales    | testFBO   | SE10 9NF | of dispatch | You do not need to enter establishments that do not belong to |
+	| test      | TestEnv1            | Scotland | testFBO   | SE10 9NF | of dispatch | You do not need to enter establishments that do not belong to |
 
 	@ignore
 Scenario: Check Add the establishment address manually link
@@ -49,7 +49,7 @@ Scenario: Check Add the establishment address manually link
 
 	Examples: 
 	| logininfo |  Business selection  | Country | FBONumber | postcode | nextPage    |
-	| test      |  Tesco Carlisle      | England | testFBO   | SE10 9NF | of dispatch |
+	| test      |  TestEnv1            | England | testFBO   | SE10 9NF | of dispatch |
 
 
 Scenario: Add GB point of Departure establishment address manually
@@ -74,9 +74,9 @@ Scenario: Add GB point of Departure establishment address manually
 
 	Examples: 
 	| logininfo | Business selection| Country  | FBONumber | postcode | nextPage                | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
-	| test      | Tesco Carlisle    | England  | testFBO   | SE10 9NF | Add a place of dispatch | testName1         | testAddress1 | London  | England    | SE10 9NF     |
-	| test      | Tesco Carlisle    | Wales    | testFBO   | CF10 1AA | Add a place of dispatch | testName2         | testAddress2 | Cardiff | Wales      | CF10 1AA     |
-	| test      | Tesco Carlisle    | Scotland | testFBO   | G1 1AB   | Add a place of dispatch | testName3         | testAddress3 | Glasgow | Scotland   | G1 1AB       |
+	| test      | TestEnv1          | England  | testFBO   | SE10 9NF | Add a place of dispatch | testName1         | testAddress1 | London  | England    | SE10 9NF     |
+	| test      | TestEnv1          | Wales    | testFBO   | CF10 1AA | Add a place of dispatch | testName2         | testAddress2 | Cardiff | Wales      | CF10 1AA     |
+	| test      | TestEnv1          | Scotland | testFBO   | G1 1AB   | Add a place of dispatch | testName3         | testAddress3 | Glasgow | Scotland   | G1 1AB       |
 
 
 Scenario: Verify back to dashboard link on select establishment address page
@@ -117,7 +117,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 
 	Examples: 
 	| logininfo | Business selection    | Country | FBONumber | postcode | nextPage  |nextPage1               |
-	| test      | Tesco Carlisle        | England | testFBO   | SE10 9NF | Sign up   |Add a place of dispatch |
+	| test      | TestEnv1              | England | testFBO   | SE10 9NF | Sign up   |Add a place of dispatch |
 
 
 	@ignore
@@ -144,7 +144,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | postcode | nextPage                | nextPage1 |
-	| test      | Tesco Carlisle      | England | testFBO   | SE10 9NF | Add a place of dispatch |  Sign up    |
+	| test      | TestEnv1            | England | testFBO   | SE10 9NF | Add a place of dispatch |  Sign up    |
 
 	@ignore
 	Scenario: Verify back to dashboard link on the Establishment email address optional page
@@ -169,7 +169,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber | postcode | nextPage1 | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage |
-	| test      | Tesco Carlisle       | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
+	| test      | TestEnv1             | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
 
 
 	@SmokeTest
@@ -205,7 +205,7 @@ Scenario: Add Another GB point of Departure establishment address
 
 	Examples: 
 	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | nextPage |
-	| test      | Tesco Carlisle     | England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        | Sign up  |
+	| test      | TestEnv1           | England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        | Sign up  |
 
 	@ignore
 Scenario: Finish adding GB point of Departure establishment address
@@ -232,7 +232,7 @@ Scenario: Finish adding GB point of Departure establishment address
 	Then  verify next page '<nextPage>' is loaded 
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
-	| test      | Tesco Carlisle       | England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |
+	| test      | TestEnv1             | England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |
 
 	@ignore
 Scenario: Verify no establishment address listed after removing last address
@@ -259,7 +259,7 @@ Scenario: Verify no establishment address listed after removing last address
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage				  |
-	| test      | Tesco Carlisle      | England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     | Add a place of dispatch  |
+	| test      | TestEnv1            | England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     | Add a place of dispatch  |
 
 Scenario: Verify remaining establishment address listed after removing one address
 	Given Clear Database for user '<logininfo>'
@@ -321,7 +321,7 @@ Scenario: Change manually added establishment address
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test      | Tesco Carlisle      | England | testFBO   | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        |
+	| test      | TestEnv1            | England | testFBO   | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        |
 
 
 Scenario: Change establishment address postcode
@@ -345,7 +345,7 @@ Scenario: Change establishment address postcode
 
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber | AddrPostcode | AddrPostcode1 |
-	| test      | Tesco Carlisle       | England | testFBO   | EC4R 9HA     | SE10 9NF      |
+	| test      | TestEnv1             | England | testFBO   | EC4R 9HA     | SE10 9NF      |
 
 
 Scenario: Change establishment email address
@@ -373,7 +373,7 @@ Scenario: Change establishment email address
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
-	| test      | Tesco Carlisle      | England | testFBO   | testName13        | testAddress1 | London  | England    | SE10 9NF     |
+	| test      | TestEnv1            | England | testFBO   | testName13        | testAddress1 | London  | England    | SE10 9NF     |
 
 	@ignore
 Scenario:Verify back to dashboard link from address page navigated to Add a place of dispatch  page
@@ -398,7 +398,7 @@ Scenario:Verify back to dashboard link from address page navigated to Add a plac
 
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
-	| test      | Tesco Carlisle       | England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Sign up |
+	| test      | TestEnv1             | England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Sign up |
 
 	@ignore
 Scenario:Verify different post code link is navigated to Add a place of dispatch page
@@ -419,7 +419,7 @@ Scenario:Verify different post code link is navigated to Add a place of dispatch
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | AddrPostcode | nextPage    |
-	| test      | Tesco Carlisle      | England | testFBO   | SE           | of dispatch |
+	| test      | TestEnv1            | England | testFBO   | SE           | of dispatch |
 
 		@ignore
 Scenario:Verify Enter a Address manually link is navigated to Add a place of dispatch page
@@ -442,7 +442,7 @@ Scenario:Verify Enter a Address manually link is navigated to Add a place of dis
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | AddrPostcode | nextPage    |
-	| test      | Tesco Carlisle      | England | testFBO   | wd17 7TF     | of dispatch |
+	| test      | TestEnv1            | England | testFBO   | wd17 7TF     | of dispatch |
 
 
 Scenario:Verify save and return to dashboard on Add a place of dispatch page
@@ -469,5 +469,5 @@ Scenario:Verify save and return to dashboard on Add a place of dispatch page
 
 	Examples: 
 	| logininfo | Business selection   | Country | FBONumber | nextPage  |EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode |
-	| test      | Tesco Carlisle       | England | testFBO   | Sign up   |testName15        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     |
+	| test      | TestEnv1             | England | testFBO   | Sign up   |testName15        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     |
 

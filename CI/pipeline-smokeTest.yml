@@ -24,7 +24,7 @@ parameters:
     default: 'Edge'
 
 schedules:
-- cron: "0 5 * * Mon,Tue,Wed,Thu,Fri"
+- cron: "0 23 * * Mon,Tue,Wed,Thu,Fri"
   displayName: Daily midnight build
   branches:
     include:
@@ -38,9 +38,10 @@ schedules:
 resources:
   repositories:
     - repository: clientautomationreponew
-      type: git
-      name: DEFRA-NI-GENERAL-CERTIFICATE/Defra.Trade.ReMos.AssuranceService.Automation
+      type: github
+      name: DEFRA/nirms-exports-signup-service-automation
       ref: $(Build.SourceBranch)
+      endpoint: DEFRA
 
 stages:
   

@@ -27,7 +27,7 @@ Scenario: Add contact email address
 
 	Examples: 
 	| logininfo | Business selection      | Country | FBONumber | contactName     | contactPosition | emailAddress  | nextPage         |
-	| test      | Tesco Carlisle          | England | testFBO   | testContactName | testPosition    | test@test.com | telephone number |
+	| test      | TestEnv1                | England | testFBO   | testContactName | testPosition    | test@test.com | telephone number |
 
 
 Scenario: Verify error message for invalid contact email address
@@ -53,7 +53,7 @@ Scenario: Verify error message for invalid contact email address
 
 	Examples: 
 	| logininfo | Business selection      | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage                                 |
-	| test      | Tesco Carlisle          | England | testFBO   | testContactName | testPosition    | test£$@£     | Enter an email address in the correct format |
+	| test      | TestEnv1                | England | testFBO   | testContactName | testPosition    | test£$@£     | Enter an email address in the correct format |
 
 
 Scenario: Verify error message for blank contact email address
@@ -76,12 +76,14 @@ Scenario: Verify error message for blank contact email address
 	And   enter email address '<emailAddress>'
 	And   click on save and continue
 	Then  verify error message '<errorMessage>' on contact email address page
+	And   click on back link
+	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-	| logininfo | Business selection      | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage           |
-	| test      | Tesco Carlisle          | England | testFBO   | testContactName | testPosition    |              | Enter an email address |
+	| logininfo | Business selection      | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage           | nextPage |
+	| test      | TestEnv1                | England | testFBO   | testContactName | testPosition    |              | Enter an email address |Sign up for the Northern Ireland Retail Movement Scheme |
 
-
+	@ignore
 Scenario: Verify back to dashboard link on contact email address page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -104,7 +106,7 @@ Scenario: Verify back to dashboard link on contact email address page
 
 	Examples: 
 	| logininfo | Business selection       | Country | FBONumber | contactName     | contactPosition | nextPage |
-	| test      | Tesco Carlisle           | England | testFBO   | testContactName | testPosition    | Sign up for the Northern Ireland Retail Movement Scheme |
+	| test      | TestEnv1                 | England | testFBO   | testContactName | testPosition    | Sign up for the Northern Ireland Retail Movement Scheme |
 
 
 Scenario: Verify save and return to dashboard on contact email address page
@@ -130,4 +132,4 @@ Scenario: Verify save and return to dashboard on contact email address page
 
 	Examples: 
 	| logininfo | Business selection     | Country | FBONumber | contactName     | contactPosition | nextPage | emailAddress     |
-	| test      | Tesco Carlisle         | England | testFBO   | testContactName | testPosition    | Sign up  | contact@test.com |
+	| test      | TestEnv1               | England | testFBO   | testContactName | testPosition    | Sign up  | contact@test.com |

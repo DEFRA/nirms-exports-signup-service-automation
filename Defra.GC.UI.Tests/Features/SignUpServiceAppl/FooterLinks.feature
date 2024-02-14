@@ -54,7 +54,7 @@ Scenario Outline: Verify Footer links and pages on Sign up page
 
 Examples: 
     | logininfo | Country | FBONumber |Business selection  |nextPage |Privacy page title|Privacy Link 1				  |Privacy Link 2                              |Cookies page Title |Cookies Link 1             |Accessibility page title              |Accessibility Link 1                           |Accessibility Link 2                      |Contact page title|Contact Link 1                                       |Contact Link 2             |TCs page title    |TCs Link 1          |TCs Link 2                 |
-	| test      | England | testFBO   |Tesco Carlisle      |Sign up  |privacy notice    |data.protection@defra.gov.uk  |DefraGroupDataProtectionOfficer@defra.gov.uk|Cookies            |website for the Information|Accessibility statement for Move goods|Department for Environment Food & Rural Affairs|advice on making your device easier to use|Contact           |Northern Ireland Retail Movement Scheme guidance note|Find out about call charges|Terms & Conditions|customs requirements|SPS Regulation EU 2023/1231|
+	| test      | England | testFBO   |TestEnv1            |Sign up  |privacy notice    |data.protection@defra.gov.uk  |DefraGroupDataProtectionOfficer@defra.gov.uk|Cookies            |website for the Information|Accessibility statement for Move goods|Department for Environment Food & Rural Affairs|advice on making your device easier to use|Contact           |Northern Ireland Retail Movement Scheme guidance note|Find out about call charges|Terms & Conditions|customs requirements|SPS Regulation EU 2023/1231|
 
 
 
@@ -78,4 +78,4 @@ Scenario Outline: Verify text and Logo on the footer of Sign up page
 
 Examples: 
     | logininfo | Country | FBONumber |Business selection |nextPage | FooterText                        |FooterPageLink              |FooterLogoLink |
-    | test      | England | testFBO   |Tesco Carlisle     |Sign up  |All content is available under the |Open Government Licence v3.0|Crown copyright|
+    | test      | England | testFBO   |TestEnv1           |Sign up  |All content is available under the |Open Government Licence v3.0|Crown copyright|

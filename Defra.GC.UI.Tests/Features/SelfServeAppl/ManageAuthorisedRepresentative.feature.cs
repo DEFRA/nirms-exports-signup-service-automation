@@ -89,7 +89,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.When("sign in with valid credentials with logininfo \'test1C\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.And("select business to sign up \'Tesco York\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("select business to sign up \'TestEnv3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
  testRunner.And("complete eligibility task with \'England\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -98,7 +98,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.And("user verify the selected business name \'Tesco York\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("user verify the selected business name \'TestEnv3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
  testRunner.When("click on FBOorPHRNumber task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -178,7 +178,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update Authorised Representative")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "TestName", "TestPosition", "Changedemail@test.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "TestName", "TestPosition", "Changedemail@test.com", null)]
         public void UpdateAuthorisedRepresentative(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -250,7 +250,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages for blank Authorised Representative fields")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "", "", "", "Enter a name", "Enter an email address", "Enter a position", "Confirm that has read and understood the terms and conditions", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "", "", "", "Enter a name", "Enter an email address", "Enter a position", "Confirm that has read and understood the terms and conditions", null)]
         public void VerifyErrorMessagesForBlankAuthorisedRepresentativeFields(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string message1, string message2, string message3, string message4, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -314,7 +314,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages for invalid Authorised Representative fields")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "TestName%", "Test1()%", "Changedemail%@test.com", "Enter a name using only letters, hyphens or apostrophes", "Enter an email address in the correct format, like name@example.com", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "TestName%", "Test1()%", "Changedemail%@test.com", "Enter a name using only letters, hyphens or apostrophes", "Enter an email address in the correct format, like name@example.com", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
             "ns, underscores, forward slashes or ampersands", "has read and understood the terms and conditions", null)]
         public void VerifyErrorMessagesForInvalidAuthorisedRepresentativeFields(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string message1, string message2, string message3, string message4, string[] exampleTags)
         {
@@ -379,7 +379,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Cancel link on update Authorised Representative page")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "Northern Ireland Retail Movement Scheme", null)]
         public void VerifyCancelLinkOnUpdateAuthorisedRepresentativePage(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -428,7 +428,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Back link on update Authorised Representative page")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "Tesco York", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "Northern Ireland Retail Movement Scheme", null)]
         public void VerifyBackLinkOnUpdateAuthorisedRepresentativePage(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

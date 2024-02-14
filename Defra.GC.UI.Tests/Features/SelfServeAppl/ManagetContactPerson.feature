@@ -7,10 +7,10 @@ Background:
 	Given Clear Database for user 'test1B'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo 'test1B'
-	And   select business to sign up 'Tesco London'
+	And   select business to sign up 'TestEnv4'
 	And   complete eligibility task with 'England'
 	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name 'Tesco London'
+	And   user verify the selected business name 'TestEnv4'
 	When  click on FBOorPHRNumber task
 	And   enter FBO number 'testFBO' for FBO or PHR number task
 	And   click Save and return to dashboard
@@ -53,7 +53,7 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName     | UpdatedPosition    | UpdatedEmailAddress   | UpdatedTelephoneNumber |
-	| test1B    | Tesco London       | TestNameChange  | TestPositionChange | Changedemail@test.com | 01632 960 001          |
+	| test1B    | TestEnv4           | TestNameChange  | TestPositionChange | Changedemail@test.com | 01632 960 001          |
 
 
 	Scenario: Verify error messages for blank contact person fields
@@ -71,7 +71,7 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName | UpdatedPosition | UpdatedEmailAddress   | UpdatedTelephoneNumber | Message1     | Message2               | Message3         | Message4                 |
-	| test1B    | Tesco London       |             |                 |                       |                        | Enter a name | Enter an email address | Enter a position | Enter a telephone number |
+	| test1B    | TestEnv4           |             |                 |                       |                        | Enter a name | Enter an email address | Enter a position | Enter a telephone number |
 
 
 	Scenario: Verify error messages for invalid contact person fields
@@ -89,7 +89,7 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection | UpdatedName  | UpdatedPosition  | UpdatedEmailAddress    | UpdatedTelephoneNumber  | Message1     | Message2               | Message3         | Message4                 |
-	| test1B    | Tesco London       | TestName%    | Test1()%         | Changedemail7%@test.com| 01632 960 001%          | Enter a name using only letters, hyphens or apostrophes | Enter an email address in the correct format, like name@example.com | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192 |
+	| test1B    | TestEnv4           | TestName%    | Test1()%         | Changedemail7%@test.com| 01632 960 001%          | Enter a name using only letters, hyphens or apostrophes | Enter an email address in the correct format, like name@example.com | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192 |
 
 	Scenario: Verify Cancel link on update contact person page
 	Given Approve Sign up request for org '<Business selection>'
@@ -102,7 +102,7 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection   |nextPage                                |
-	| test1B    | Tesco London         |Northern Ireland Retail Movement Scheme |
+	| test1B    | TestEnv4             |Northern Ireland Retail Movement Scheme |
 
 
 	Scenario: Verify Back link on update contact person page
@@ -116,4 +116,4 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection   |nextPage                                |
-	| test1B    | Tesco London         |Northern Ireland Retail Movement Scheme |
+	| test1B    | TestEnv4             |Northern Ireland Retail Movement Scheme |

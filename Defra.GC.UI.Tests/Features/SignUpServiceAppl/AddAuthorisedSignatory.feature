@@ -25,7 +25,7 @@ Scenario: Add Authorised Signatory and navigated to tasklist page
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | nextPage                | contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      | Tesco Carlisle      | England | testFBO   | Add a place of dispatch | testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test      | TestEnv1            | England | testFBO   | Add a place of dispatch | testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 
 Scenario: No to the contact person of the Authorised Signatory and navigted to full name Authorised page
@@ -45,7 +45,7 @@ Scenario: No to the contact person of the Authorised Signatory and navigted to f
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | nextPage								| contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      | Tesco Carlisle      | England | testFBO   | Who is the authorised representative at | testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test      | TestEnv1            | England | testFBO   | Who is the authorised representative at | testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
 Scenario: Verify error messages if user do not select Authorised Signatory 
 	Given Clear Database for user '<logininfo>'
@@ -64,11 +64,15 @@ Scenario: Verify error messages if user do not select Authorised Signatory
 	When  click on Authorised Signatory link
 	And   click on save and continue
 	Then  verify dynamic name '<contactName>' in error message '<errorMessage>'
+	And   click on back to dashboard link
+	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | errorMessage				       |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      | Tesco Carlisle      | England | testFBO   | is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001   |
-
+	| logininfo | Business selection  | Country | FBONumber | errorMessage				        |contactName     | contactPosition | emailAddress   | telephoneNumber |nextPage                                                |
+	| test      | TestEnv1            | England | testFBO   | is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001    | Sign up for the Northern Ireland Retail Movement Scheme|
+	
+	
+	@ignore
 Scenario: Verify back to dashboard link navigated to tasklist page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -89,7 +93,7 @@ Scenario: Verify back to dashboard link navigated to tasklist page
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | nextPage                                                |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      | Tesco Carlisle      | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test      | TestEnv1            | England | testFBO   | Sign up for the Northern Ireland Retail Movement Scheme |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	Given Clear Database for user '<logininfo>'
@@ -112,7 +116,7 @@ Scenario: Verify Save and return to dashboard on Authorised Signatory page
 
 	Examples: 
 	| logininfo |  Business selection	|Country | FBONumber |                        nextPage                                  |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      |  Tesco Carlisle       |England | testFBO   |   Sign up for the Northern Ireland Retail Movement Scheme        |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test      |  TestEnv1             |England | testFBO   |   Sign up for the Northern Ireland Retail Movement Scheme        |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory page after completing Contact person
@@ -144,5 +148,5 @@ Scenario Outline:Verify save and return to dashboard on Authorised Signatory pag
 
 Examples: 
 	| logininfo | Business selection  |Country | FBONumber | nextPage                  | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber | Authposition  | nextPage1 |
-	| test      | Tesco Carlisle      |England | testFBO   | authorised representative | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator | Sign up   |
+	| test      | TestEnv1            |England | testFBO   | authorised representative | test name | test name   | test            | test@gmail.com | 01632 960 001   | administrator | Sign up   |
 

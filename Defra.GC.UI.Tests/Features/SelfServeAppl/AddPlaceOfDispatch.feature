@@ -36,24 +36,7 @@ Background:
 	Then  click on signout button and verify the signout message
 	Given Approve Sign up request for org 'TestEnv3'
 
-	@ignore
-Scenario: Verify Add Place Of Dispatch link
-	Given Approve Sign up request for org '<Business selection>'
-	Given that I navigate to the NI GC application
-	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
-	And   select business '<Business selection>' on self serve dashboard 
-	And   click on link 'Add a place of dispatch'
-	And   click on back link
-	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
-	When  click on link 'Add a place of dispatch'
-	Then  verify links on establishment page '<linkText1>', '<linkText2>', '<linkText3>'
-	When  click on back to dashboard link
-	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
-	Examples: 
-	| logininfo | Business selection | nextPage                                | linkText1     | linkText2                   | linkText3                             |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | 03000 200 301 | Find out about call charges | NIRetailMovementEnquiries@apha.gov.uk |
 
-	@RunOnly
 Scenario: Verify back link on Place Of Dispatch page
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'

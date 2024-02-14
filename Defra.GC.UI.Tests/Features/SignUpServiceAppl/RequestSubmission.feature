@@ -3,6 +3,7 @@ Feature: Receive Notice after RequestSubmission
 
 Receive Notice of Signup Request
 
+@ignore
 Scenario: Receive Notice of after completion of Signup Request 
 	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application

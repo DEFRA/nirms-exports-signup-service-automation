@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Receive Notice of after completion of Signup Request")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Tesco Leeds", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", "We will review your sign-up request and email you with the outcome within 5 worki" +
             "ng days.", "Your business has already submitted", null)]
         public void ReceiveNoticeOfAfterCompletionOfSignupRequest(
@@ -240,7 +240,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify message on signup confirmation for GB establishment")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Tesco Leeds", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName3", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName3", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", "We will review your sign-up request and email you with the outcome within 5 worki" +
             "ng days.", @"Your consignee - and any business that owns the places of destination for your consignment - will also need to sign up for the scheme. If their sign-up request is approved, you will be able to apply for General Certificates to send goods to them in Northern Ireland.", null)]
         public void VerifyMessageOnSignupConfirmationForGBEstablishment(
@@ -388,7 +388,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify message on signup confirmation for NI establishment")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "Tesco Leeds", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName4", "testAddress1", "Belfast", "Northern Ireland", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName4", "testAddress1", "Belfast", "Northern Ireland", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
             "ail Movement Scheme", "We will review your sign-up request and email you with the outcome within 5 worki" +
             "ng days.", @"Your consignor – and any business that owns the places of dispatch for your consignments – will also need to sign up for the scheme. If their sign-up request is approved, they will be able to apply for General Certificates to send goods to Northern Ireland.", null)]
         public void VerifyMessageOnSignupConfirmationForNIEstablishment(

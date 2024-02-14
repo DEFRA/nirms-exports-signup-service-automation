@@ -9,4 +9,4 @@ Self serve header page
 
 	Examples: 
 	| logininfo | Business selection |
-	| test1B    | Tesco London       |
+	| test1B    | TestEnv4           |

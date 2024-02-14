@@ -89,7 +89,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.When("sign in with valid credentials with logininfo \'test1B\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.And("select business to sign up \'Tesco London\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("select business to sign up \'TestEnv4\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
  testRunner.And("complete eligibility task with \'England\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -98,7 +98,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.And("user verify the selected business name \'Tesco London\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("user verify the selected business name \'TestEnv4\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
  testRunner.When("click on FBOorPHRNumber task", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -178,7 +178,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update contact person")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "TestNameChange", "TestPositionChange", "Changedemail@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "TestNameChange", "TestPositionChange", "Changedemail@test.com", "01632 960 001", null)]
         public void UpdateContactPerson(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string updatedTelephoneNumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -254,7 +254,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages for blank contact person fields")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "", "", "", "", "Enter a name", "Enter an email address", "Enter a position", "Enter a telephone number", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "", "", "", "", "Enter a name", "Enter an email address", "Enter a position", "Enter a telephone number", null)]
         public void VerifyErrorMessagesForBlankContactPersonFields(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string updatedTelephoneNumber, string message1, string message2, string message3, string message4, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -322,7 +322,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages for invalid contact person fields")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "TestName%", "Test1()%", "Changedemail7%@test.com", "01632 960 001%", "Enter a name using only letters, hyphens or apostrophes", "Enter an email address in the correct format, like name@example.com", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
+        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "TestName%", "Test1()%", "Changedemail7%@test.com", "01632 960 001%", "Enter a name using only letters, hyphens or apostrophes", "Enter an email address in the correct format, like name@example.com", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
             "ns, underscores, forward slashes or ampersands", "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192", null)]
         public void VerifyErrorMessagesForInvalidContactPersonFields(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string updatedTelephoneNumber, string message1, string message2, string message3, string message4, string[] exampleTags)
         {
@@ -391,7 +391,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Cancel link on update contact person page")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "Northern Ireland Retail Movement Scheme", null)]
         public void VerifyCancelLinkOnUpdateContactPersonPage(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -440,7 +440,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Back link on update contact person page")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "Tesco London", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "Northern Ireland Retail Movement Scheme", null)]
         public void VerifyBackLinkOnUpdateContactPersonPage(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

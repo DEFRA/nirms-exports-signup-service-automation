@@ -1,4 +1,5 @@
-﻿Feature: View Business Name in Dashboard & Static Page
+﻿@Regression
+Feature: View Business Name in Dashboard & Static Page
 
 View Business Name in Dashboard & Static Page
 

@@ -1,8 +1,8 @@
+   @SmokeTest
 Feature: SusSmokeTesting 
 
 Sus Smoke Testing 
 
-   @SmokeTest
 Scenario: Add Authorised Signatory and navigated to tasklist page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -27,7 +27,6 @@ Scenario: Add Authorised Signatory and navigated to tasklist page
 	| test      | TestEnv1            | England | testFBO   | Add a place of dispatch | testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 
-	   @SmokeTest 
 Scenario: Add Authorised Signatory Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -68,7 +67,6 @@ Scenario: Add Authorised Signatory Email Address
 	| test      | TestEnv1             | England | testFBO   | Sign up   | test name | test name   | test            | test@gmail.com  | 01632 960 001 | administrator|email address |
 
 
-	    @SmokeTest
 Scenario: Add Authorised Signatory name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -104,7 +102,7 @@ Scenario: Add Authorised Signatory name
 	| logininfo | Business selection  | Country | FBONumber | nextPage1|nextPage					   | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber |
 	| test      | TestEnv1            | England | testFBO   | position |authorised representative      | test name | test name   | test            | test@gmail.com | 01632 960 001   |
 
-	   @SmokeTest
+
 Scenario: Add Authorised Signatory position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -142,7 +140,6 @@ Scenario: Add Authorised Signatory position
 	| test      | TestEnv1            | England | testFBO   | testContactName | testPosition    | test Name | administrator | email address | test@gmail.com | 01632 960 001   | position  |
 
 
-		@SmokeTest
 Scenario: Add contact email address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -169,7 +166,6 @@ Scenario: Add contact email address
 	| test      | TestEnv1                | England | testFBO   | testContactName | testPosition    | test@test.com | telephone number |
 
 
-		@SmokeTest
 Scenario: Add business contact name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -194,7 +190,7 @@ Scenario: Add business contact name
 	| logininfo | Business selection        | Country | FBONumber | contactName | nextPage1| nextPage | 
 	| test2     | AMSAK PROPERTY LIMITED    | England | testFBO   | testName    | position | contact  |
 
-	@SmokeTest
+
 Scenario: Verify save and return to dashboard on business contact name page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -216,7 +212,6 @@ Scenario: Verify save and return to dashboard on business contact name page
 	| test2     | AMSAK PROPERTY LIMITED          | England | testFBO   | Sign up  | testcontactName |
 
 
-		 @SmokeTest
 Scenario: Add business contact position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -240,7 +235,7 @@ Scenario: Add business contact position
 	| logininfo | Business selection                  | Country | FBONumber | contactName     | contactPosition | nextPage      |
 	| test4     | NORTH WEST TELUGU SANGAM            | England | testFBO   | testContactName | testPosition    | email address |
 
-		 @SmokeTest
+
 Scenario: Add contact Telephone Number
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -268,7 +263,7 @@ Scenario: Add contact Telephone Number
 	| logininfo |  Business selection      | Country | FBONumber | contactName     | contactPosition | emailAddress  | telephoneNumber | nextPage |
 	| test      |  TestEnv1                | England | testFBO   | testContactName | testPosition    | test@test.com | 01632 960 001   | Sign up  |
 
- @SmokeTest
+
 Scenario Outline: Complete eligibility task
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -282,7 +277,7 @@ Scenario Outline: Complete eligibility task
     | logininfo | Country | Business selection  |
     | test      | England | TestEnv1            |
 
-	 @SmokeTest 
+
 Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR number
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -295,7 +290,7 @@ Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR
     | logininfo | Country | FBONumber | Business selection     |
     | test      | England | testFBO   | TestEnv1               |
 
-		@SmokeTest
+
 Scenario: Add Another GB point of Departure establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -330,7 +325,7 @@ Scenario: Add Another GB point of Departure establishment address
 	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | nextPage |
 	| test      | TestEnv1           | England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        | Sign up  |
 
-		@SmokeTest
+
 Scenario: Finish adding point of Destination establishment address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -357,7 +352,7 @@ Scenario: Finish adding point of Destination establishment address
 	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage |
 	| test1A    | TestEnv2             | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up  |
 
-		@CrossBrowser @SmokeTest
+		@CrossBrowser
 Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
 	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
@@ -386,7 +381,8 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 	| logininfo | Business selection       | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                     | nextPage3   | nextPage4          | nextPage5            | nextPage6                                                                                            |
 	| test      | TestEnv1                 | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | the authorised representative | of dispatch | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
 
-		@CrossBrowser @SmokeTest 
+
+		@CrossBrowser 
 Scenario: Check answers and submit sign up link verification on NI points of establishment with save and continue
     Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

@@ -85,7 +85,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyFeedbackPageLoaded()
         {
-            return Feedbacktext.Text.Contains("Overall");
+            return Feedbacktext.Text.Contains("What part of the service are you using today?");
         }
 
         public bool VerifyGenericGOVPageLoaded()

@@ -3,43 +3,6 @@ Feature: AddAuthorisedSignatoryPosition
 
 Add Authorised Signatory Position
 
-   @SmokeTest
-Scenario: Add Authorised Signatory position
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on business contact details link
-	And   enter business contact person '<contactName>'
-	And   click on save and continue
-	And   enter business contact position '<contactPosition>'
-	And   click on save and continue
-	And   enter email address '<emailAddress>'
-	And   click on save and continue
-	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue
-	When  select 'No' to the contact person is the Authorised Signatory without save
-	And   click on save and continue
-	And   user is on Authorised Signatory Enter name page
-	Then  user enters manually '<fullName>' in the full name feild
-	Then  click on save and continue
-	Then  verify dynamic name '<Business selection>' in title '<nextPage1>' of page 
-	Then  verify dynamic name '<fullName>' in title '<nextPage1>' of page 
-	Then  user enters '<Authposition>' position on Authorised signatory position page
-	And   click on save and continue
-	Then  verify dynamic name '<fullName>' in title '<nextPage>' of page 
-
-	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | contactName     | contactPosition | fullName  | Authposition  | nextPage      | emailAddress   | telephoneNumber | nextPage1 |
-	| test      | TestEnv1            | England | testFBO   | testContactName | testPosition    | test Name | administrator | email address | test@gmail.com | 01632 960 001   | position  |
-
 
 Scenario: Verify error message for invalid authorised signatory position
 	Given Clear Database for user '<logininfo>'

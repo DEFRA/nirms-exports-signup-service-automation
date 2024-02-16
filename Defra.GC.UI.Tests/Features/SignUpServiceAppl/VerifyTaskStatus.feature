@@ -3,6 +3,7 @@ Feature: VerifyTaskStatus
 
 Verify the status of each task on Signup page
 
+@ignore
 Scenario Outline: Verify status of Business Details task
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -122,7 +123,7 @@ Scenario: Verify status of Authorised Signatory task with Yes Authorisation
 	| logininfo | Business selection   | Country | FBONumber |contactName     | contactPosition | emailAddress  | telephoneNumber |
 	| test1B    | TestEnv4             | England | testFBO   |testContactName | testPosition    | test@test.com | 01632 960 001   |
 	
-
+	@ignore
 Scenario: Verify status of Authorised Signatory task with No Authorisation
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

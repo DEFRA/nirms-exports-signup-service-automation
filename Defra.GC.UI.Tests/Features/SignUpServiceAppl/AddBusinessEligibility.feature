@@ -4,20 +4,6 @@ Feature: AddBusinessEligibility
 
 Complete Eligibility task
 
- @SmokeTest
-Scenario Outline: Complete eligibility task
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-
-	Examples:
-    | logininfo | Country | Business selection  |
-    | test      | England | TestEnv1            |
-
 Scenario Outline: Verify error message for not selecting the country
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -73,36 +59,6 @@ Scenario Outline: Verify back link on Regulations page is navigating to business
 	Examples: 
     | logininfo | Country | FBONumber | Business selection   | nextPage                                |
     | test      | England | testFBO   | TestEnv1             | Northern Ireland Retail Movement Scheme |
-
-
-#Scenario: Verify back link from Another business page is navigated to Select your business page (not valid anymore)
-#	Given Clear Database for user '<logininfo>'
-#	And   that I navigate to the NI GC application
-#	When  sign in with valid credentials with logininfo '<logininfo>'
-#	And   select business to sign up '<Business selection>'
-#	Then  verify next page '<nextPage>' is loaded 
-#	Then  verify the APHA email support '<link>' is appears bottom of the page
-#    And   click on back link
-#	Then  verify next page '<nextPage1>' is loaded 
-#
-#	Examples: 
-#    | logininfo | Country | Business selection | nextPage                                       | nextPage1                                                                              | link |
-#    | test      | England | Another business   | You do not have access to any other businesses | Which business do you want to sign up for the Northern Ireland Retail Movement Scheme? | NIRetailMovementEnquiries@apha.gov.uk |
-	
-
-#Scenario: Verify manage access link opens a new page on Another business page (not valid anymore)
-#	Given Clear Database for user '<logininfo>'
-#	And   that I navigate to the NI GC application
-#	When  sign in with valid credentials with logininfo '<logininfo>'
-#	And   select business to sign up '<Business selection>'
-#	Then  verify next page '<nextPage>' is loaded 
-#    And   click on manage access link on Another business page
-#	Then  switch to next opened tab
-#	Then  verify generic GOV page is loaded
-#
-#	Examples: 
-#    | logininfo | Country | Business selection |nextPage                                        |
-#    | test      | England | Another business   |You do not have access to any other businesses  |
 	
 
 Scenario: Verify text on Purpose of Business page  

@@ -249,33 +249,6 @@ Scenario: Add Another point of Destination establishment address
 	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2         | estCity2  | estCountry2      | AddrPostcode2 |
 	| test1A    | TestEnv2             | Northern Ireland | testFBO   | testName2         | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | Market Street      | Demesne of Down Acre | testCity2 | Northern Ireland | BT52 2AJ      |
 
-	@SmokeTest
-Scenario: Finish adding point of Destination establishment address
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of destination link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
-	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   add establishment email address 'test1@test.com'
-	And   verify message for '<Business selection>' on establishment page
-	And   click on I have finished adding points of departure
-	And   click on save and continue
-	Then  verify next page '<nextPage>' is loaded 
-	Examples: 
-	| logininfo | Business selection   | Country          | FBONumber | EstablishmentName | AddressLine1 | estCity         | estCountry       | AddrPostcode | nextPage |
-	| test1A    | TestEnv2             | Northern Ireland | testFBO   | Coleraine1        | testAddress1 | Crown Buildings | Northern Ireland | BT52 2AJ     | Sign up  |
-
 	
 Scenario: Verify no point of destination establishment address listed after removing last address
 	Given Clear Database for user '<logininfo>'

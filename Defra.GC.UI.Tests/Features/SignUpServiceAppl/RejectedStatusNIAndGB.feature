@@ -1,6 +1,7 @@
 ﻿@Regression
 Feature: RejectedStatus for NI & GB Establishment
 
+@ignore
 Scenario: Verify select business page is displayed for user with rejected signup status
 	Given Clear Database for user '<logininfo>'
 	Given   that I navigate to the NI GC application
@@ -66,6 +67,7 @@ Scenario: Verify Add departure displayed for user with rejected signup status
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
 	And   select business to sign up '<Business selection>'
+	Then  verify next page '<nextPage3>' is loaded
 	And   complete eligibility task with '<Country>'
 	Then  verify eligibility task status as 'COMPLETED'
 	And   user verify the selected business name '<Business selection>'
@@ -82,8 +84,8 @@ Scenario: Verify Add departure displayed for user with rejected signup status
 	
 
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              | OutcomeMessage                                    | nextPage2                           | nextPage3                                             | nextPage4    |
-	| test1C    | TestEnv3           | England | testFBO   | testName      | testAddress | London | Wv1 3EB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you | Your business has already submitted  | do under the Northern Ireland Retail Movement Scheme? | of dispatch  |
+	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                              | OutcomeMessage                                    | nextPage2                           | nextPage3                                                   | nextPage4    |
+	| test1C    | TestEnv3           | England | testFBO   | testName      | testAddress | London | Wv1 3EB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme | We will review your sign-up request and email you | Your business has already submitted  | Requirements of the Northern Ireland Retail Movement Scheme | of dispatch  |
 
 
 

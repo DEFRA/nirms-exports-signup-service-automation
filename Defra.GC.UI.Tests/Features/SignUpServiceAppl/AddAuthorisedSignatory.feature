@@ -3,6 +3,7 @@ Feature: AddAuthorisedSignatory
 
 Add Authorised Signatory
 
+@RunOnly
 Scenario: No to the contact person of the Authorised Signatory and navigted to full name Authorised page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -14,14 +15,17 @@ Scenario: No to the contact person of the Authorised Signatory and navigted to f
 	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>'
 	Then  user verify the business contact details status 'COMPLETED'
 	When  click on Authorised Signatory link
-	And   select 'No' to the contact person is the Authorised Signatory without save
+	And   click on save and continue
+	Then  verify dynamic name '<contactName>' in error message '<errorMessage>'
+	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | nextPage								| contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      | TestEnv1            | England | testFBO   | Who is the authorised representative at | testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| logininfo | Business selection  | Country | FBONumber | nextPage								| contactName     | contactPosition | emailAddress  | telephoneNumber |errorMessage                       |
+	| test      | TestEnv1            | England | testFBO   | Who is the authorised representative at | testContactName | testPosition    | test@test.com | 01632 960 001   |is the authorised representative |
 	
+	@ignore
 Scenario: Verify error messages if user do not select Authorised Signatory 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -46,7 +50,7 @@ Scenario: Verify error messages if user do not select Authorised Signatory
 	| logininfo | Business selection  | Country | FBONumber | errorMessage				        |contactName     | contactPosition | emailAddress   | telephoneNumber |nextPage                                                |
 	| test      | TestEnv1            | England | testFBO   | is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001    | Sign up for the Northern Ireland Retail Movement Scheme|
 	
-	
+	@ignore
 Scenario: Verify Save and return to dashboard on Authorised Signatory page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

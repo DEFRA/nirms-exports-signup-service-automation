@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatoryEmailAddress
 
 Add Authorised Signatory Email Address
 
-@RunOnly
+
 Scenario: Verify error message for invalid Authorised Signatory Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatoryPosition
 
 Add Authorised Signatory Position
 
-@RunOnly
+
 Scenario: Verify error message for invalid authorised signatory position
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

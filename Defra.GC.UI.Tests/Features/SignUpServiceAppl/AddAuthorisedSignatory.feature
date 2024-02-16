@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatory
 
 Add Authorised Signatory
 
-@RunOnly
+
 Scenario: No to the contact person of the Authorised Signatory and navigted to full name Authorised page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

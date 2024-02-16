@@ -3,7 +3,7 @@ Feature: AddAuthorisedSignatoryName
 
 Add Authorised Signatory name
 
-@RunOnly
+
 Scenario: Verify invalid, blank error message and save and return to dashboard for Authorised Signatory name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

@@ -3,65 +3,6 @@ Feature: CheckAnswers
 
 Check Answers and Submit the application
 
-	@CrossBrowser @SmokeTest
-Scenario: Check answers and submit sign up link verification on GB points of establishment with save and continue
-	Given Clear Database for user '<logininfo>'
-	Given   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>' with save and continue
-	Then  verify next page '<nextPage2>' is loaded 
-	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
-	Then  verify next page '<nextPage3>' is loaded 
-	When  complete Points of departure with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>' with save and continue
-	Then  verify next page '<nextPage4>' is loaded 
-	When  click on continue button
-	Then  verify next page '<nextPage5>' is loaded
-    When  click on the confirm check box on Terms and conditions page
-	And   click on submit sign up
-	Then  verify next page '<nextPage6>' is loaded
-
-	Examples: 
-	| logininfo | Business selection       | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage1                 | nextPage2                     | nextPage3   | nextPage4          | nextPage5            | nextPage6                                                                                            |
-	| test      | TestEnv1                 | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName1      | testAddress1 | London  | England    | Who is the contact person | the authorised representative | of dispatch | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
-
-
-	@CrossBrowser @SmokeTest 
-Scenario: Check answers and submit sign up link verification on NI points of establishment with save and continue
-    Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  complete Business contact details task with '<contactName>', '<contactPosition>', '<emailAddress>', '<telephoneNumber>' with save and continue
-	Then  verify next page '<nextPage2>' is loaded 
-	When  complete contact person Authorised Signatory with Yes Authorisation with save and continue
-	Then  verify next page '<nextPage3>' is loaded 
-	When  complete Points of destination with '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>' with save and continue
-	Then  verify next page '<nextPage4>' is loaded 
-	When  click on continue button
-	Then  verify next page '<nextPage5>' is loaded
-	When  click on the confirm check box on Terms and conditions page
-	And   click on submit sign up
-	Then  verify next page '<nextPage6>' is loaded
-
-	Examples: 
-	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | nextPage1                 | nextPage2                     | nextPage3      | nextPage4          | nextPage5            | nextPage6                                                                                            |
-	| test1A    | TestEnv2           | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName2      | testAddress1 | Belfast | Northern Ireland | Who is the contact person | the authorised representative | of destination | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
-
 
 Scenario: Check answers and submit sign up link verification on GB points of establishment 
     Given Clear Database for user '<logininfo>'

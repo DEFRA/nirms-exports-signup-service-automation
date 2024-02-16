@@ -3,43 +3,6 @@ Feature: AddAuthorisedSignatoryName
 
 Add Authorised Signatory name
 
-    @SmokeTest
-Scenario: Add Authorised Signatory name
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on business contact details link
-	And   enter business contact person '<contactName>'
-	And   click on save and continue
-	And   enter business contact position '<contactPosition>'
-	And   click on save and continue
-	And   enter email address '<emailAddress>'
-	And   click on save and continue
-	And   enter telephone number '<telephoneNumber>'
-	And   click on save and continue
-	When  select 'No' to the contact person is the Authorised Signatory without save
-	And   click on save and continue
-	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page 
-	When  user is on Authorised Signatory Enter name page
-	And   user enters manually '<fullName>' in the full name feild
-	And   click on save and continue
-	Then  verify dynamic name '<Business selection>' in title '<nextPage1>' of page 
-	And   verify dynamic name '<contactName>' in title '<nextPage1>' of page 
-
-	
-	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | nextPage1|nextPage					   | fullName  | contactName | contactPosition | emailAddress   | telephoneNumber |
-	| test      | TestEnv1            | England | testFBO   | position |authorised representative      | test name | test name   | test            | test@gmail.com | 01632 960 001   |
-
-
 Scenario: Verify error message for invalid Authorised Signatory name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

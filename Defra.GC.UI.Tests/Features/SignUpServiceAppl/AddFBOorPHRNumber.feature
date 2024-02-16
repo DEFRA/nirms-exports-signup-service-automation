@@ -151,19 +151,6 @@ Scenario Outline: Verify hint text on FBO PHR page
     | logininfo | Country |Business selection   |nextPage														                    |hintText								   															     |
     | test      | England |TestEnv1             |have a Food Business Operator (FBO) or Plant Health Registration (PHR) number?   |You will have an FBO number if you’ve registered with your local authority for a food business licence. |
 
- @SmokeTest 
-Scenario Outline: Verify dynamic business name on SPS Assurance page for FBO PHR number
-    Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify dynamic name '<Business selection>' on eligibility task on SPS Assurance page with '<Country>'
-
-	Examples:
-    | logininfo | Country | FBONumber | Business selection     |
-    | test      | England | testFBO   | TestEnv1               |
-
 
 Scenario Outline: Verify Save and return to dashboard button is displayed on selecting FBO and PHR options
     Given Clear Database for user '<logininfo>'

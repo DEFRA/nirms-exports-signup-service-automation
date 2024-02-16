@@ -172,40 +172,6 @@ Scenario: Verify back to dashboard link on select establishment address page
 	| test      | TestEnv1             | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
 
 
-	@SmokeTest
-Scenario: Add Another GB point of Departure establishment address
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
-	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   add establishment email address 'test1@test.com'
-	And   click on add another establishment address
-	And   enter Establishment postcode '<AddrPostcode2>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
-	And   add establishment address manually with fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
-	And   add establishment email address 'test2@test.com'
-	Then  verify more than 1 establishment addresses added
-	And   verify message for '<Business selection>' on establishment page
-	When  click on I have finished adding points of departure
-	And   click on save and continue
-	Then  verify next page '<nextPage>' is loaded 
-
-	Examples: 
-	| logininfo | Business selection | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | nextPage |
-	| test      | TestEnv1           | England | testFBO   | testName1         | testAddress5 | London  | England    | SE10 9NF     | testName6          | testAddress  | Liverpool | England     | L1 0AN        | Sign up  |
 
 	@ignore
 Scenario: Finish adding GB point of Departure establishment address

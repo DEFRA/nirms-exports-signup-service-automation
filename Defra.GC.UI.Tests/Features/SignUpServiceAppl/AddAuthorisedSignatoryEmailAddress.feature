@@ -3,6 +3,7 @@ Feature: AddAuthorisedSignatoryEmailAddress
 
 Add Authorised Signatory Email Address
 
+
 Scenario: Verify error message for invalid Authorised Signatory Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -32,14 +33,32 @@ Scenario: Verify error message for invalid Authorised Signatory Email Address
 	Then  user enters '<Authposition>' position on Authorised signatory position page
 	And   click on save and continue
 	When  user is on Authorised Signatory Email address page
+	When  click on back to dashboard link
+	Then  verify next page '<nextPage1>' is loaded 
+	When  click on Authorised Signatory link
+	When  select 'No' to the contact person is the Authorised Signatory without save
+	And   click on save and continue
+	When  user is on Authorised Signatory Enter name page
+	Then  user enters manually '<fullName>' in the full name feild
+	Then  click on save and continue
+	Then  user enters '<Authposition>' position on Authorised signatory position page
+	And   click on save and continue
+	When  user is on Authorised Signatory Email address page
     Then  user enters manually '<AuthemailAddress>' in email address page
     Then  click on save and continue 
 	Then  verify error message '<errorMsg>' on authorised signatory email address page
+	Then  user enters manually '<AuthemailAddress2>' in email address page
+    Then  click on save and continue 
+	Then  verify error message '<errorMsg2>' on authorised signatory email address page
+	And   user enters manually '<AuthemailAddress3>' in email address page
+	And   click Save and return to dashboard
+	Then  verify next page '<nextPage1>' is loaded 
 
     Examples:    
-	| logininfo | Business selection   | fullName  | Country | FBONumber | errorMsg                                                            | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition |
-	| test      | TestEnv1             | test name | England | testFBO   | Enter an email address in the correct format, like name@example.com | test Name   | test            | test@gmail.com | 01632 960 001   | test%gmail.com   | COO          |
+	| logininfo | Business selection   | fullName  | Country | FBONumber | errorMsg                                                            | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition |AuthemailAddress2|   errorMsg2          |AuthemailAddress3 |nextPage1|
+	| test      | TestEnv1             | test name | England | testFBO   | Enter an email address in the correct format, like name@example.com | test Name   | test            | test@gmail.com | 01632 960 001   | test%gmail.com   | COO          |                 |Enter an email address|test@gmail.com    |Sign up  |
 
+	@ignore
 Scenario Outline:  Verify error message for blank Authorised Signatory Email Address
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

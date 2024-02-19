@@ -3,7 +3,8 @@ Feature: AddAuthorisedSignatoryName
 
 Add Authorised Signatory name
 
-Scenario: Verify error message for invalid Authorised Signatory name
+
+Scenario: Verify invalid, blank error message and save and return to dashboard for Authorised Signatory name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'
@@ -27,15 +28,27 @@ Scenario: Verify error message for invalid Authorised Signatory name
 	When  select 'No' to the contact person is the Authorised Signatory without save
 	And   click on save and continue
 	And   user is on Authorised Signatory Enter name page
+	When  click on back to dashboard link 
+	Then  verify next page '<previousPage>' is loaded 
+	When  click on Authorised Signatory link
+	When  select 'No' to the contact person is the Authorised Signatory without save
+	And   click on save and continue
 	Then  user enters manually '<fullName>' in the full name feild
 	Then  click on save and continue
 	Then  user verifies the '<errorMsg>' error message for Authorised Signatory name
+	Then  user enters manually '<fullName2>' in the full name feild
+	Then  click on save and continue
+	Then  user verifies the '<errorMsg2>' error message for Authorised Signatory name
+	And   user enters manually '<fullName3>' in the full name feild
+	And   click Save and return to dashboard
+	Then  verify next page '<nextPage>' is loaded 
+
 
     Examples:    
-	| logininfo |Business selection	  | fullName  | Country | FBONumber | errorMsg		    										 | contactName | contactPosition | emailAddress   | telephoneNumber |
-	| test      |TestEnv1             | test%name | England | testFBO   | Enter a name using only letters, hyphens or apostrophes   | test Name   | test            | test@gmail.com | 01632 960 001   |
+	| logininfo |Business selection	  | fullName  | Country | FBONumber | errorMsg		    										 | contactName | contactPosition | emailAddress    | telephoneNumber |fullName2 |errorMsg2    |fullName3  |nextPage|previousPage|
+	| test      |TestEnv1             | test%name | England | testFBO   | Enter a name using only letters, hyphens or apostrophes   | test Name   | test             | test@gmail.com  | 01632 960 001    |          |Enter a name|test name  |Sign up |Sign up     |
 
-
+	@ignore
 Scenario Outline: Verify error message for blank Authorised Signatory name
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -102,7 +115,7 @@ Examples:
 	| logininfo |Business selection	  | Country | FBONumber | previousPage  | contactName | contactPosition | emailAddress   | telephoneNumber |
 	| test      |TestEnv1             | England | testFBO   | Sign up		 | test Name   | test            | test@gmail.com | 01632 960 001   |
 
-
+	@ignore
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory Name Page
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

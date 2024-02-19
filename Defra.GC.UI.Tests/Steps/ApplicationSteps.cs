@@ -178,5 +178,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             applicationPage.CloseCurrentTab();
         }
+        [Then(@"Click on GOV.UK link in the header of the page")]
+        [When(@"Click on GOV.UK link in the header of the page")]
+        public void ClickGOVLink()
+        {
+            applicationPage.ClickGOVHeaderLink();
+        }
     }
 }

@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
     <PackageReference Include="RestSharp" Version="110.2.1-alpha.0.2" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="120.0.6099.7100" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="121.0.6167.8500" />
     <PackageReference Include="SpecFlow" Version="3.9.74" />
   </ItemGroup>
 

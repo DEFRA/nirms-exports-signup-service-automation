@@ -26,10 +26,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement Continue => _driver.WaitForElement(By.XPath("//button[normalize-space()='Continue']"));
         private IWebElement Feedbacktext => _driver.WaitForElement(By.XPath("//div[@class='QuestionText BorderColor']"));
-        private IWebElement GenericGOVPage => _driver.WaitForElement(By.XPath("//span[contains(@class,'govuk-header__logotype-text')]"));
+        private IWebElement GenericGOVPage => _driver.WaitForElement(By.XPath("//span[contains(@class,'govuk-header__logotype-text')] | (//span[contains(@class,'govuk-!-margin-bottom-2 govuk-!-display-block')])[1]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
         private IWebElement HintText => _driver.WaitForElement(By.XPath("//p[contains(@id,'name-hint')]"));
-
+        private IWebElement GOVLink => _driver.WaitForElement(By.XPath("//*[name()='svg' and @class='govuk-header__logotype']"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -164,7 +164,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             else
                 return false;
         }
-
+        public void ClickGOVHeaderLink()
+        {
+            GOVLink.Click();
+        }
         #endregion Page Methods
     }
 }

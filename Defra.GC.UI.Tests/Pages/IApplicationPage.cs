@@ -39,5 +39,6 @@
         public void CloseCurrentTab();
 
         public void ClickReturnToDashboard();
+        public void ClickGOVHeaderLink();
     }
 }

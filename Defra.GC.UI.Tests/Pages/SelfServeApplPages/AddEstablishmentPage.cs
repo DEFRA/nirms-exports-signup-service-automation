@@ -37,6 +37,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             _driver.WaitForElement(By.XPath(linkElement)).Click();
         }
 
+        public void ClickOnButton(string buttonText)
+        {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
+            Thread.Sleep(1000);
+            string buttonElement = "//button[contains(text(),'" + buttonText + "')]";
+            _driver.WaitForElement(By.XPath(buttonElement)).Click();
+        }
+
         public bool VerifyLinksOnEstablishmentPage(string link1, string link2, string link3)
         {
 

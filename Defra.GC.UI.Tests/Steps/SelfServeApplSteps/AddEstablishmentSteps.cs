@@ -31,6 +31,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
 
         }
 
+        [When(@"click on button '([^']*)'")]
+        public void WhenClickOnButton(string buttonText)
+        {
+            addEstablishmentPage.ClickOnButton(buttonText);
+
+        }
+
         [Then(@"verify links on establishment page '([^']*)', '([^']*)', '([^']*)'")]
         public void ThenVerifyLinksOnEstablishmentPage(string link1, string link2, string link3)
         {

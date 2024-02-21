@@ -254,6 +254,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnChangeEstablishmentAddress(string establishmentName)
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
+            Thread.Sleep(1000);
             string RemoveEstablishment = "//h2[contains(text(),'" + establishmentName + "')]/../following-sibling::div//dt[contains(text(),'Address')]/..//a";
             _driver.WaitForElement(By.XPath(RemoveEstablishment)).Click();
         }

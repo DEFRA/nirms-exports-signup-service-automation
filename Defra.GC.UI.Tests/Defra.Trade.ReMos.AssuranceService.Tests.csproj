@@ -42,6 +42,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Update="Features\SignUpServiceAppl\AddBusinessContactTelephoneNumber.feature.cs">
       <DependentUpon>AddBusinessContactTelephoneNumber.feature</DependentUpon>
     </Compile>
@@ -58,6 +61,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="nuget.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="specflow.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestExecution.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="testrun.runsettings">

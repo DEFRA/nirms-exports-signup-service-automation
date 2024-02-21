@@ -70,8 +70,11 @@ Scenario: Verify back link on Place Of Dispatch page
 	And   add establishment email address 'test2@test.com'
 	And   verify changed establishment address fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   click on back link
+	And   click on back link
+	And   click on back link
+	And   click on back link
 	Then  verify next page '<nextPage>' is loaded
-	When  enter Establishment postcode '<AddrPostcode>'
+	When  enter Establishment postcode '<AddrPostcode3>'
 	And   click on select address button
 	Then  verify next page '<nextPage>' is loaded
 	When  click on save and continue
@@ -86,8 +89,8 @@ Scenario: Verify back link on Place Of Dispatch page
 	Then  verify next page '<PageTitle>' is loaded
 
 	Examples: 
-	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | PageTitle2                                                  | PageTitle3                           |EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of dispatch successfully added |testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        |
+	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | PageTitle2                                                  | PageTitle3                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | AddrPostcode3 |
+	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        | SE10 9GB      |
 
 
 Scenario: Verify zero results page on Place Of Dispatch page

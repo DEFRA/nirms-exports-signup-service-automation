@@ -83,7 +83,7 @@ Background:
 	Then  verify next page '<nextPage>' is loaded
 	When  click on continue button
 	Then  verify next page '<PageTitle2>' is loaded
-	When  click on link 'Add place of destination'
+	When  click on button 'Add place of destination'
 	Then  verify next page '<PageTitle3>' is loaded
 	When  click on back to dashboard link
 	Then  verify next page '<PageTitle>' is loaded

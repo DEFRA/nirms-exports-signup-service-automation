@@ -379,7 +379,7 @@ this.FeatureBackground();
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", pageTitle2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 86
- testRunner.When("click on link \'Add place of destination\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("click on button \'Add place of destination\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 87
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", pageTitle3), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

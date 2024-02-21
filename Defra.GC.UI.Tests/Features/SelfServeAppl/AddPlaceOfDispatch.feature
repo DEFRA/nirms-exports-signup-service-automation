@@ -83,7 +83,7 @@ Scenario: Verify back link on Place Of Dispatch page
 	Then  verify next page '<nextPage>' is loaded
 	When  click on continue button
 	Then  verify next page '<PageTitle2>' is loaded
-	When  click on link 'Add place of dispatch'
+	When  click on button 'Add place of dispatch'
 	Then  verify next page '<PageTitle3>' is loaded
 	When  click on back to dashboard link
 	Then  verify next page '<PageTitle>' is loaded

@@ -54,6 +54,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             pointOfDepartureEstablishmentPage.EnterEstablishmentPostcode(postcode);
         }
 
+        [When(@"click on select address button")]
         [Then(@"click on select address button")]
         public void ThenClickOnSelectAddressButton()
         {

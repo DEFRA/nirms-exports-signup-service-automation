@@ -20,7 +20,8 @@ Scenario: Verify user can click on the start a new sign up request
 	Then  verify next page '<nextPage1>' is loaded 
 	When  user clicks on the start a new sign up request link
 	Then  verify next page '<nextPage2>' is loaded 
-	When  user clicks on Selected business
+	When  select business to sign up '<Business selection>'
+	And   user clicks on Selected business
 	And   click on back to dashboard link
 	Then  verify next page '<nextPage3>' is loaded
 

@@ -180,7 +180,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link and search address on Place Of Destination page")]
-        [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "Northern Ireland Retail Movement Scheme", "Add a place of destination", "You do not need to add an establishment that", "Requirements of the Northern Ireland Retail Movement Scheme", "Place of destination successfully added", "testName11", "testAddress1", "testCity1", "Northern Ireland", "BT30 6LZ", "testName12", "testAddress2", "testCity2", "Northern Ireland", "BT52 2AJ", "BT30 6LY", null)]
         public void VerifyBackLinkAndSearchAddressOnPlaceOfDestinationPage(
                     string logininfo, 
@@ -203,13 +202,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
                     string addrPostcode3, 
                     string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "RunOnly"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);

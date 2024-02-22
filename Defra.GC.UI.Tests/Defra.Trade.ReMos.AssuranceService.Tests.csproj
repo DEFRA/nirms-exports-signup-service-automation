@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <SpecFlowFeatureFiles Remove="Features\SelfServeAppl\VerifyNIEstablishmentStatus.feature" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\SignUpServiceAppl\AddBusinessContactName - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\SignUpServiceAppl\AddBusinessEligibility - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\SignUpServiceAppl\AddBusinessEmailAddress - Copy.feature.cs" />
@@ -18,6 +22,14 @@
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Add_Country - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\SignUpServiceAppl\AddGBPointOfDepartureEstablishment - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\SignUpServiceAppl\AddPointOfDestinationEstablishment - Copy.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="features\selfserveappl\VerifyGBEstablishmentStatus.feature" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Features\SelfServeAppl\VerifyNIEstablishmentStatus.feature" />
   </ItemGroup>
 
   <ItemGroup>

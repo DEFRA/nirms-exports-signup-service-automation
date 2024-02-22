@@ -56,6 +56,24 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             }
         }
 
+
+        [When(@"Update establishment status to '([^']*)' of '([^']*)' for business '([^']*)'")]
+        [Given(@"Update establishment status to '([^']*)' of '([^']*)' for business '([^']*)'")]
+        public void WhebUpdateEstablishmentStatus(string Status,string establihsmentName, string userType)
+        {
+            var user = UserObject.GetUser(userType);
+            string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
+
+            string query = "EXEC sp_RejectTradeParty '" + user.OrgID + "' ";
+            string query1 = "select ll.Id from [dbo].[LogisticsLocation] ll inner join [dbo].[TradeParties] tp substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber where tp.OrgId = '" + user.OrgID + "' and  ll.Name = '" + establihsmentName +"' ";
+
+
+            if (ConfigSetup.BaseConfiguration != null)
+            {
+                dataHelperConnections.ExecuteQuery(connectionString, query);
+            }
+        }
+
         [When(@"click on save and continue")]
         [Then(@"click on save and continue")]
         public void ThenClickOnSaveAndContinue()

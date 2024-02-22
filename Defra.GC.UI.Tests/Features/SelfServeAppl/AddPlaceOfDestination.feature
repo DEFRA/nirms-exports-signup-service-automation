@@ -87,7 +87,7 @@ Background:
 	Then  verify next page '<PageTitle3>' is loaded
 	When  click on back to dashboard link
 	Then  verify next page '<PageTitle>' is loaded
-
+	#And   verify establishment status for postcode '<AddrPostcode3>' as '<Status>'
 	Examples: 
 	| logininfo | Business selection | PageTitle                               | nextPage                   | warningText                                  | PageTitle2                                                  | PageTitle3                              | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 | AddrPostcode3 |
 	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of destination | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of destination successfully added | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      | BT30 6LY      |

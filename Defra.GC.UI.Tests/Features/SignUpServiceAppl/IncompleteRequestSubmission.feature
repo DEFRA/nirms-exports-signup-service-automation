@@ -1,7 +1,7 @@
 @Regression
 Feature: Incomplete Request submission feature
 
-@RunOnly
+
 Scenario: Verify tasklist page is displayed with missing info from check your answers page 
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

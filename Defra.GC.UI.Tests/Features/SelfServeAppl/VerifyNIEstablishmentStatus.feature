@@ -3,40 +3,41 @@ Feature: VerifyNIEstablishmentStatus
 
 Verify NI Establishment Status
 
-Background:
-	Given Clear Database for user 'test1C'
-	Given that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo 'test1C'
-	And   select business to sign up 'TestEnv3'
-	And   complete eligibility task with 'England'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name 'TestEnv3'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number 'testFBO' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	And   user verify the business contact details status 'NOT STARTED'
-    And   user verify the Authorised Signatory status 'CANNOT START YET'
-    And   user verify the Points of departure status 'NOT STARTED'
-	And   verify Check answers and submit sign up status 'CANNOT START YET'
-	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
-	Then  user verify the business contact details status 'COMPLETED'
-    And   user verify the Authorised Signatory status 'NOT STARTED'
-	When  complete contact person Authorised Signatory with Yes Authorisation
-	When  complete Points of departure with 'EstablishmentName', 'AddressLine1', 'London', 'England', 'NW1 5LR'
-	Then  user verify the Points of departure status '1 ADDED'
-	And   click on Check answers and submit sign up
-	And   verify next page 'Check your answers' is loaded 
-	When  click on continue button
-	Then  verify next page 'Terms and conditions' is loaded
-	Then  click on the confirm check box on Terms and conditions page
-	Then  click on submit sign up
-	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
-	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
-	Then  click on signout button and verify the signout message
-	Given Approve Sign up request for org 'TestEnv3'
+#Background: 
+#	Given Clear Database for user 'test1C'
+#	Given that I navigate to the NI GC application
+#	When  sign in with valid credentials with logininfo 'test1C'
+#	And   select business to sign up 'TestEnv3'
+#	And   complete eligibility task with 'Northern Ireland'
+#	Then  verify eligibility task status as 'COMPLETED'
+#	And   user verify the selected business name 'TestEnv3'
+#	When  click on FBOorPHRNumber task
+#	And   enter FBO number 'testFBO' for FBO or PHR number task
+#	And   click Save and return to dashboard
+#	Then  verify FBOorPHRNumber task status as 'COMPLETED'
+#	And   user verify the business contact details status 'NOT STARTED'
+#    And   user verify the Authorised Signatory status 'CANNOT START YET'
+#    And   user verify the Points of destination status 'NOT STARTED'
+#	And   verify Check answers and submit sign up status 'CANNOT START YET'
+#	When  complete Business contact details task with 'contactName', 'contactPosition', 'test@test.com', '01234 234 455'
+#	Then  user verify the business contact details status 'COMPLETED'
+#    And   user verify the Authorised Signatory status 'NOT STARTED'
+#	When  complete contact person Authorised Signatory with Yes Authorisation
+#	When  complete Points of destination with 'EstablishmentName', 'AddressLine1', 'BELFAST', 'Northern Ireland', 'BT1 1HS'
+#	Then  user verify the Points of destination status '1 ADDED'
+#	And   click on Check answers and submit sign up
+#	And   verify next page 'Check your answers' is loaded 
+#	When  click on continue button
+#	Then  verify next page 'Terms and conditions' is loaded
+#	Then  click on the confirm check box on Terms and conditions page
+#	Then  click on submit sign up
+#	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
+#	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
+#	Then  click on signout button and verify the signout message
+#	Given Approve Sign up request for org 'TestEnv3'
+#
 
-
+@RunOnly
 Scenario: Verify NI establishment status
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
@@ -51,5 +52,5 @@ Scenario: Verify NI establishment status
 	Then  verify establishment details on table for '<EstablishmentName>' as '<Status4>', '<AddrPostcode1>'
 
 	Examples: 
-	| logininfo | Business selection | EstablishmentName | EstablishmentName2  | AddressLine2 | estCity2  | estCountry2 | AddrPostcode1 | AddrPostcode2 | Status1 | Status2 | Status3 | Status4   |
-	| test1C    | TestEnv3           | EstablishmentName | TestEstablishment12 | testAddress2 | Liverpool | England     | NW1 5LR       | L1 0AN        | Active  | Draft   | Removed | Suspended |
+	| logininfo | Business selection | EstablishmentName | EstablishmentName2  | AddressLine2 | estCity2  | estCountry2      | AddrPostcode1 | AddrPostcode2 | Status1 | Status2 | Status3 | Status4   |
+	| test1C    | TestEnv3           | EstablishmentName | TestEstablishment12 | testAddress2 | BELFAST   | Northern Ireland | BT1 1HS       | BT93 8AP      | Active  | Draft   | Removed | Suspended |

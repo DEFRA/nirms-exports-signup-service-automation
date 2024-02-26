@@ -64,14 +64,29 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             var user = UserObject.GetUser(userType);
             string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
 
-            string query = "EXEC sp_RejectTradeParty '" + user.OrgID + "' ";
-            string query1 = "select ll.Id from [dbo].[LogisticsLocation] ll inner join [dbo].[TradeParties] tp substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber where tp.OrgId = '" + user.OrgID + "' and  ll.Name = '" + establihsmentName +"' ";
+            string Logistics_Id = null ;
+            string query1 = "select ll.Id AS Logistics_Id from [dbo].[LogisticsLocation] ll inner join [dbo].[TradeParties] tp substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber where tp.OrgId = '" + user.OrgID + "' and  ll.Name = '" + establihsmentName +"' ";
 
 
             if (ConfigSetup.BaseConfiguration != null)
             {
-                dataHelperConnections.ExecuteQuery(connectionString, query);
+                dataHelperConnections.ExecuteQuery(connectionString, query1);
             }
+
+            int setStatus = 1;
+
+            if (Status.Equals("Removed"))
+                setStatus = 6; 
+            else if (Status.Equals("Suspended"))
+                setStatus = 5;
+
+            string query2 = "update [dbo].[LogisticsLocation]  set ApprovalStatus = '" + setStatus + "' where Id = '" + Logistics_Id + "'";
+            
+            if (ConfigSetup.BaseConfiguration != null)
+            {
+                dataHelperConnections.ExecuteQuery(connectionString, query2);
+            }
+
         }
 
         [When(@"click on save and continue")]

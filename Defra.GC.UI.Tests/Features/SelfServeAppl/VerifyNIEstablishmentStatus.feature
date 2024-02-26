@@ -3,7 +3,7 @@ Feature: VerifyNIEstablishmentStatus
 
 Verify NI Establishment Status
 
-Background: 
+Background:
 	Given Clear Database for user 'test1C'
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo 'test1C'
@@ -41,14 +41,15 @@ Scenario: Verify NI establishment status
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
-	#Then  verify establishment status for '<EstablishmentName>' as '<Status1>'
-	#When  add establishment as a draft with '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
-	#Then  verify establishment status for '<EstablishmentName2>' as '<Status2>'
-	#When  Update establishment status to '<Status2>' of '<EstablishmentName>' for business '<Business selection>' 
-	#Then  verify establishment status for '<EstablishmentName>' as '<Status3>'
-	#When  Update establishment status to '<Status3>' of '<EstablishmentName>' for business '<Business selection>' 
-	#Then  verify establishment status for '<EstablishmentName>' as '<Status4>'
+	Then  verify establishment details on table for '<EstablishmentName>' as '<Status1>', '<AddrPostcode1>'
+	When  click on link 'Add a place of destination'
+	And   add establishment as a draft with '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
+	Then  verify establishment details on table for '<EstablishmentName2>' as '<Status2>', '<AddrPostcode2>'
+	When  Update establishment status to '<Status3>' of '<EstablishmentName>' for business '<Business selection>' 
+	Then  verify establishment details on table for '<EstablishmentName>' as '<Status3>', '<AddrPostcode1>'
+	When  Update establishment status to '<Status4>' of '<EstablishmentName>' for business '<Business selection>' 
+	Then  verify establishment details on table for '<EstablishmentName>' as '<Status4>', '<AddrPostcode1>'
 
 	Examples: 
-	| logininfo | Business selection | EstablishmentName | EstablishmentName2  | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | Status1 | Status2 | Status3 | Status4   |
-	| test1C    | TestEnv3           | EstablishmentName | TestEstablishment12 | testAddress2 | Liverpool | England     | L1 0AN        | Active  | Draft   | Removed | Suspended |
+	| logininfo | Business selection | EstablishmentName | EstablishmentName2  | AddressLine2 | estCity2  | estCountry2 | AddrPostcode1 | AddrPostcode2 | Status1 | Status2 | Status3 | Status4   |
+	| test1C    | TestEnv3           | EstablishmentName | TestEstablishment12 | testAddress2 | Liverpool | England     | NW1 5LR       | L1 0AN        | Active  | Draft   | Removed | Suspended |

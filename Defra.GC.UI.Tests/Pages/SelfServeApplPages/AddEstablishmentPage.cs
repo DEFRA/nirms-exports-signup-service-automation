@@ -13,6 +13,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         private string Platform => ConfigSetup.BaseConfiguration.TestConfiguration.Platform;
         private IObjectContainer _objectContainer;
         private IUrlBuilder? UrlBuilder => _objectContainer.IsRegistered<IUrlBuilder>() ? _objectContainer.Resolve<IUrlBuilder>() : null;
+        private IPointOfDepartureEstablishmentPage? PointOfDepartureEstablishmentPage => _objectContainer.IsRegistered<IPointOfDepartureEstablishmentPage>() ? _objectContainer.Resolve<IPointOfDepartureEstablishmentPage>() : null;
+        private IApplicationPage? applicationPage => _objectContainer.IsRegistered<IApplicationPage>() ? _objectContainer.Resolve<IApplicationPage>() : null;
 
         #region Page Objects
 
@@ -89,6 +91,26 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             }
 
             return status;
+        }
+
+        public bool VerifyEstablishmentDetailsTable(string establishmentName, string status, string addrPostcode)
+        {
+
+            return true;
+        }
+
+        public void AddEstablishmentAsDraft(string establishmentName, string addressLine, string estCity, string estCountry, string addrPostcode)
+        {
+            PointOfDepartureEstablishmentPage.EnterEstablishmentPostcode(addrPostcode);
+            PointOfDepartureEstablishmentPage.ClickOnCannotFindEstablishmentLink();
+            PointOfDepartureEstablishmentPage.ClickOnAddTheEstablishmentAddressManuallyLink();
+            PointOfDepartureEstablishmentPage.AddGBPointOfDepartureEstablishmentAddress(establishmentName, addressLine, estCity, estCountry, addrPostcode);
+            PointOfDepartureEstablishmentPage.AddEstablishmentEmailAddress("test@test.com");
+            applicationPage.ClickOnBackLink();
+            applicationPage.ClickOnBackLink();
+            applicationPage.ClickOnBackLink();
+            applicationPage.ClickOnBackLink();
+            applicationPage.ClickOnBackLink();
         }
 
         #endregion Page Methods

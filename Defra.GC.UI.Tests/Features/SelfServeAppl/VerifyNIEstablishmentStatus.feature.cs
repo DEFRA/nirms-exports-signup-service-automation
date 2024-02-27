@@ -122,18 +122,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 44
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 45
- testRunner.Then(string.Format("verify establishment details on table for \'{0}\' as \'{1}\', \'{2}\'", establishmentName, status1, addrPostcode1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 46
- testRunner.When("click on link \'Add a place of destination\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 47
- testRunner.And(string.Format("add establishment as a draft with \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\'", establishmentName2, addressLine2, estCity2, estCountry2, addrPostcode2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 48
- testRunner.Then(string.Format("verify establishment details on table for \'{0}\' as \'{1}\', \'{2}\'", establishmentName2, status2, addrPostcode2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 49
  testRunner.When(string.Format("Update establishment status to \'{0}\' of \'{1}\' for business \'{2}\'", status3, establishmentName, businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden

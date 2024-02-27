@@ -65,9 +65,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
 
             string Logistics_Id = null ;
-            string query1 = "select ll.Id AS Logistics_Id \r\n" +
-                "from [dbo].[LogisticsLocation] ll inner join [dbo].[TradeParties] tp \r\n" +
-                "on substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber \r\n" +
+            string query1 = "select ll.Id AS Logistics_Id " +
+                "from [dbo].[LogisticsLocation] ll inner join [dbo].[TradeParties] tp " +
+                "on substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber " +
                 "where tp.OrgId = '" + user.OrgID + "' and  ll.Name = '" + establihsmentName +"' ";
 
             if (ConfigSetup.BaseConfiguration != null)

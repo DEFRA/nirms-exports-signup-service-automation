@@ -57,9 +57,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         }
 
 
-        [When(@"Update establishment status to '([^']*)' of '([^']*)' for business '([^']*)'")]
-        [Given(@"Update establishment status to '([^']*)' of '([^']*)' for business '([^']*)'")]
-        public void WhebUpdateEstablishmentStatus(string Status,string establihsmentName, string userType)
+        [When(@"Update establishment status to '([^']*)' of '([^']*)' for business '([^']*)' and user '([^']*)'")]
+        [Given(@"Update establishment status to '([^']*)' of '([^']*)' for business '([^']*)' and user '([^']*)'")]
+        public void WhebUpdateEstablishmentStatus(string Status,string establihsmentName, string business,string userType)
         {
             var user = UserObject.GetUser(userType);
             string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
@@ -71,19 +71,21 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             else if (Status.Equals("Suspended"))
                 setStatus = 5;
 
+            string query = $"update [dbo].[LogisticsLocation] set ApprovalStatus = '{setStatus}'" +
+                $"where Id = (select ll.Id from [dbo].[LogisticsLocation] ll " +
+                $"inner join [dbo].[TradeParties] tp " +
+                $"on substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber " +
+                $"where tp.OrgId = '{user.OrgID}' and  ll.Name = '{establihsmentName}')";
 
-            string query1 = "update [dbo].[LogisticsLocation] set ApprovalStatus = 6 " +
-                "where Id = (select ll.Id from [dbo].[LogisticsLocation] ll inner join [dbo].[TradeParties] tp " +
-                "on substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber " +
-                "where tp.OrgId = '" + user.OrgID + "' and  ll.Name = '" + establihsmentName +"') ";
+            //string query1 = "update [dbo].[LogisticsLocation] set ApprovalStatus = '" + setStatus + "' " +
+            //    "where Id = (select ll.Id from [dbo].[LogisticsLocation] ll inner join [dbo].[TradeParties] tp " +
+            //    "on substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber " +
+            //    "where tp.OrgId = '" + user.OrgID + "' and  ll.Name = '" + establihsmentName +"') ";
 
             if (ConfigSetup.BaseConfiguration != null)
             {
-                dataHelperConnections.ExecuteQuery(connectionString, query1);
+                dataHelperConnections.ExecuteQuery(connectionString, query);
             }
-
-            //string query2 = "update [dbo].[LogisticsLocation]  set ApprovalStatus = '" + setStatus + "' where Id in (ll.Id)";
-
         }
 
         [When(@"click on save and continue")]

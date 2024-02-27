@@ -5,7 +5,7 @@
         public void ClickOnLink(string linkText);
         public void ClickOnButton(string buttonText);
         public bool VerifyLinksOnEstablishmentPage(string link1, string link2, string link3);
-        public bool VerifyEstablishmentDetailsTable(string establishmentName, string status, string addrPostcode);
+        public bool VerifyEstablishmentDetailsTable(string establishmentName, string Eststatus, string addrPostcode);
         public void AddEstablishmentAsDraft(string establishmentName, string addressLine, string estCity, string estCountry, string addrPostcode);
     }
 }

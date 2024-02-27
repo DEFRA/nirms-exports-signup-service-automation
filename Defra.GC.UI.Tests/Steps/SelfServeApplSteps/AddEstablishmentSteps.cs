@@ -45,9 +45,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         }
 
         [Then(@"verify establishment details on table for '([^']*)' as '([^']*)', '([^']*)'")]
-        public void ThenVerifyEstablishmentDetailsTable(string EstablishmentName, string Status, string AddrPostcode)
+        public void ThenVerifyEstablishmentDetailsTable(string EstablishmentName, string Eststatus, string AddrPostcode)
         {
-            Assert.True(addEstablishmentPage.VerifyEstablishmentDetailsTable(EstablishmentName, Status, AddrPostcode), "Establishment tavle details not matching");
+            Assert.True(addEstablishmentPage.VerifyEstablishmentDetailsTable(EstablishmentName, Eststatus, AddrPostcode), "Establishment tavle details not matching");
         }
 
         [When(@"add establishment as a draft with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]

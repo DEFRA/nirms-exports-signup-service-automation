@@ -93,10 +93,33 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             return status;
         }
 
-        public bool VerifyEstablishmentDetailsTable(string establishmentName, string status, string addrPostcode)
+        public bool VerifyEstablishmentDetailsTable(string establishmentName, string Eststatus, string addrPostcode)
         {
+            string establishmentNameEle = "//a[contains(text(),'" + establishmentName + "')]";
+            string postcodeEle = "//a[contains(text(),'" + establishmentName + "')]/../following-sibling::td[1]";
+            string RMSNumberEle = "//a[contains(text(),'" + establishmentName + "')]/../following-sibling::td[2]";
+            string StatusEle = "//a[contains(text(),'" + establishmentName + "')]/../following-sibling::td[3]/div";
+            string UpdatedDateEle = "//a[contains(text(),'" + establishmentName + "')]/../following-sibling::td[4]";
 
-            return true;
+            bool status = true;
+            string sDate = DateTime.Now.ToString("dd MMM yyy");
+
+
+            if (_driver.WaitForElement(By.XPath(establishmentNameEle)).Text != establishmentName)
+                status = false;
+            string temp1 = _driver.WaitForElement(By.XPath(postcodeEle)).Text;
+            if (_driver.WaitForElement(By.XPath(postcodeEle)).Text != addrPostcode)
+                status = false;
+            string temp2 = _driver.WaitForElement(By.XPath(StatusEle)).Text;
+            if (_driver.WaitForElement(By.XPath(StatusEle)).Text != Eststatus)
+                status = false;
+            string temp3 = _driver.WaitForElement(By.XPath(RMSNumberEle)).Text;
+            if (!_driver.WaitForElement(By.XPath(RMSNumberEle)).Text.Contains("RMS"))
+                status = false;
+            string temp4 = _driver.WaitForElement(By.XPath(UpdatedDateEle)).Text;
+            if (!_driver.WaitForElement(By.XPath(UpdatedDateEle)).Text.Contains(sDate))
+                status = false;
+            return status;
         }
 
         public void AddEstablishmentAsDraft(string establishmentName, string addressLine, string estCity, string estCountry, string addrPostcode)

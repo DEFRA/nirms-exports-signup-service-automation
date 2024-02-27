@@ -72,7 +72,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
                 setStatus = 5;
 
 
-            string query1 = "update [dbo].[LogisticsLocation] set ApprovalStatus = '" + setStatus + "' " +
+            string query1 = "update [dbo].[LogisticsLocation] set ApprovalStatus = 6 " +
                 "where Id = (select ll.Id from [dbo].[LogisticsLocation] ll inner join [dbo].[TradeParties] tp " +
                 "on substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber " +
                 "where tp.OrgId = '" + user.OrgID + "' and  ll.Name = '" + establihsmentName +"') ";

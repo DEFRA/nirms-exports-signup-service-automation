@@ -6,6 +6,7 @@ using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -31,10 +32,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             _objectContainer = container;
         }
 
-        [When(@"Approve Sign up request for org '([^']*)'")]
-        [Given(@"Approve Sign up request for org '([^']*)'")]
-        public void ThenApproveSignUpRequest(string Org)
+        [When(@"Approve Sign up request for org '([^']*)' and user '([^']*)'")]
+        [Given(@"Approve Sign up request for org '([^']*)' and user '([^']*)'")]
+        public void ThenApproveSignUpRequest(string Org, string userType)
         {
+            var user = UserObject.GetUser(userType);
             string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
 
             string query = "UPDATE dbo.TradeParties SET ApprovalStatus = 1 where PracticeName = '" + Org + "' ";
@@ -42,6 +44,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             if (ConfigSetup.BaseConfiguration != null)
             {
                 dataHelperConnections.ExecuteQuery(connectionString, query);
+            }
+
+            string Establishmentquery = $"update [dbo].[LogisticsLocation] set ApprovalStatus = 1 " +
+                $"where Id = (select ll.Id from [dbo].[LogisticsLocation] ll " +
+                $"inner join [dbo].[TradeParties] tp " +
+                $"on substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber " +
+                $"where tp.OrgId = '{user.OrgID}'";
+
+            if (ConfigSetup.BaseConfiguration != null)
+            {
+                dataHelperConnections.ExecuteQuery(connectionString, Establishmentquery);
             }
         }
 

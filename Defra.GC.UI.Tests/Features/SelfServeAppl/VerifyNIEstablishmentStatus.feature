@@ -38,7 +38,7 @@ Background:
 
 
 @RunOnly
-Scenario: Verify NI establishment status
+Scenario: Verify NI establishment details for different statuses
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 

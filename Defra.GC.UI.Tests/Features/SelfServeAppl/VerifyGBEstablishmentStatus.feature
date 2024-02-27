@@ -35,3 +35,21 @@ Background:
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
 	Given Approve Sign up request for org 'TestEnv3'
+
+	@RunOnly
+Scenario: Verify GB establishment details for different statuses
+	Given that I navigate to the NI GC application
+	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	And   select business '<Business selection>' on self serve dashboard 
+	Then  verify establishment details on table for '<EstablishmentName>' as '<Status1>', '<AddrPostcode1>'
+	When  click on link 'Add a place of dispatch'
+	And   add establishment as a draft with '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
+	Then  verify establishment details on table for '<EstablishmentName2>' as '<Status2>', '<AddrPostcode2>'
+	When  Update establishment status to '<Status3>' of '<EstablishmentName>' for business '<Business selection>' and user '<logininfo>'
+	Then  verify establishment details on table for '<EstablishmentName>' as '<Status3>', '<AddrPostcode1>'
+	When  Update establishment status to '<Status4>' of '<EstablishmentName>' for business '<Business selection>' and user '<logininfo>'
+	Then  verify establishment details on table for '<EstablishmentName>' as '<Status4>', '<AddrPostcode1>'
+
+	Examples: 
+	| logininfo | Business selection | EstablishmentName | EstablishmentName2  | AddressLine2 | estCity2  | estCountry2   | AddrPostcode1 | AddrPostcode2 | Status1 | Status2 | Status3 | Status4   |
+	| test1C    | TestEnv3           | EstablishmentName | TestEstablishment13 | testAddress2 | London    | England       | NW1 5LR       | NW1 5LT       | Active  | Draft   | Removed | Suspended |

@@ -179,10 +179,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify NI establishment status")]
+        [NUnit.Framework.DescriptionAttribute("Verify NI establishment details for different statuses")]
         [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "EstablishmentName", "TestEstablishment12", "testAddress2", "BELFAST", "Northern Ireland", "BT1 1HS", "BT93 8AP", "Active", "Draft", "Removed", "Suspended", null)]
-        public void VerifyNIEstablishmentStatus(string logininfo, string businessSelection, string establishmentName, string establishmentName2, string addressLine2, string estCity2, string estCountry2, string addrPostcode1, string addrPostcode2, string status1, string status2, string status3, string status4, string[] exampleTags)
+        public void VerifyNIEstablishmentDetailsForDifferentStatuses(string logininfo, string businessSelection, string establishmentName, string establishmentName2, string addressLine2, string estCity2, string estCountry2, string addrPostcode1, string addrPostcode2, string status1, string status2, string status3, string status4, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "RunOnly"};
@@ -205,7 +205,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
             argumentsOfScenario.Add("Status2", status2);
             argumentsOfScenario.Add("Status3", status3);
             argumentsOfScenario.Add("Status4", status4);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify NI establishment status", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify NI establishment details for different statuses", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 41
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

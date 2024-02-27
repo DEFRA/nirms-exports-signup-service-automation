@@ -177,6 +177,84 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.Given("Approve Sign up request for org \'TestEnv3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify GB establishment details for different statuses")]
+        [NUnit.Framework.CategoryAttribute("RunOnly")]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "EstablishmentName", "TestEstablishment13", "testAddress2", "London", "England", "NW1 5LR", "NW1 5LT", "Active", "Draft", "Removed", "Suspended", null)]
+        public void VerifyGBEstablishmentDetailsForDifferentStatuses(string logininfo, string businessSelection, string establishmentName, string establishmentName2, string addressLine2, string estCity2, string estCountry2, string addrPostcode1, string addrPostcode2, string status1, string status2, string status3, string status4, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "RunOnly"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("logininfo", logininfo);
+            argumentsOfScenario.Add("Business selection", businessSelection);
+            argumentsOfScenario.Add("EstablishmentName", establishmentName);
+            argumentsOfScenario.Add("EstablishmentName2", establishmentName2);
+            argumentsOfScenario.Add("AddressLine2", addressLine2);
+            argumentsOfScenario.Add("estCity2", estCity2);
+            argumentsOfScenario.Add("estCountry2", estCountry2);
+            argumentsOfScenario.Add("AddrPostcode1", addrPostcode1);
+            argumentsOfScenario.Add("AddrPostcode2", addrPostcode2);
+            argumentsOfScenario.Add("Status1", status1);
+            argumentsOfScenario.Add("Status2", status2);
+            argumentsOfScenario.Add("Status3", status3);
+            argumentsOfScenario.Add("Status4", status4);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify GB establishment details for different statuses", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 40
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+#line 41
+ testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 42
+ testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 43
+ testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 44
+ testRunner.Then(string.Format("verify establishment details on table for \'{0}\' as \'{1}\', \'{2}\'", establishmentName, status1, addrPostcode1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 45
+ testRunner.When("click on link \'Add a place of dispatch\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 46
+ testRunner.And(string.Format("add establishment as a draft with \'{0}\', \'{1}\', \'{2}\', \'{3}\', \'{4}\'", establishmentName2, addressLine2, estCity2, estCountry2, addrPostcode2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 47
+ testRunner.Then(string.Format("verify establishment details on table for \'{0}\' as \'{1}\', \'{2}\'", establishmentName2, status2, addrPostcode2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 48
+ testRunner.When(string.Format("Update establishment status to \'{0}\' of \'{1}\' for business \'{2}\' and user \'{3}\'", status3, establishmentName, businessSelection, logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 49
+ testRunner.Then(string.Format("verify establishment details on table for \'{0}\' as \'{1}\', \'{2}\'", establishmentName, status3, addrPostcode1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 50
+ testRunner.When(string.Format("Update establishment status to \'{0}\' of \'{1}\' for business \'{2}\' and user \'{3}\'", status4, establishmentName, businessSelection, logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 51
+ testRunner.Then(string.Format("verify establishment details on table for \'{0}\' as \'{1}\', \'{2}\'", establishmentName, status4, addrPostcode1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

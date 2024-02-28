@@ -113,9 +113,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             string temp2 = _driver.WaitForElement(By.XPath(StatusEle)).Text;
             if (_driver.WaitForElement(By.XPath(StatusEle)).Text != Eststatus)
                 status = false;
-            string temp3 = _driver.WaitForElement(By.XPath(RMSNumberEle)).Text;
-            if (!_driver.WaitForElement(By.XPath(RMSNumberEle)).Text.Contains("RMS"))
-                status = false;
+            if (Eststatus != "Draft")
+            { 
+                string temp3 = _driver.WaitForElement(By.XPath(RMSNumberEle)).Text;
+                if (!_driver.WaitForElement(By.XPath(RMSNumberEle)).Text.Contains("RMS"))
+                    status = false; 
+            }
             string temp4 = _driver.WaitForElement(By.XPath(UpdatedDateEle)).Text;
             if (!_driver.WaitForElement(By.XPath(UpdatedDateEle)).Text.Contains(sDate))
                 status = false;

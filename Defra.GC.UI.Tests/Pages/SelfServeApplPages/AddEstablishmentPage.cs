@@ -104,6 +104,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             bool status = true;
             string sDate = DateTime.Now.ToString("dd MMM yyy");
 
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,3000)", "");
+            Thread.Sleep(1000);
 
             if (_driver.WaitForElement(By.XPath(establishmentNameEle)).Text != establishmentName)
                 status = false;

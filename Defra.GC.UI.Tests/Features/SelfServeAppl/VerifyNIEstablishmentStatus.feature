@@ -48,8 +48,12 @@ Scenario: Verify NI establishment details for different statuses
 	And   add establishment as a draft with '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	Then  verify establishment details on table for '<EstablishmentName2>' as '<Status2>', '<AddrPostcode2>'
 	When  Update establishment status to '<Status3>' of '<EstablishmentName>' for business '<Business selection>' and user '<logininfo>'
+	And   refresh NI GC application
+	And   select business '<Business selection>' on self serve dashboard 
 	Then  verify establishment details on table for '<EstablishmentName>' as '<Status3>', '<AddrPostcode1>'
 	When  Update establishment status to '<Status4>' of '<EstablishmentName>' for business '<Business selection>' and user '<logininfo>'
+	And   refresh NI GC application
+	And   select business '<Business selection>' on self serve dashboard 
 	Then  verify establishment details on table for '<EstablishmentName>' as '<Status4>', '<AddrPostcode1>'
 
 	Examples: 

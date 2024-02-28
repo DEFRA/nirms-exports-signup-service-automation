@@ -45,17 +45,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             {
                 dataHelperConnections.ExecuteQuery(connectionString, query);
             }
-
-            string Establishmentquery = $"update [dbo].[LogisticsLocation] set ApprovalStatus = 1 " +
-                $"where Id = (select ll.Id from [dbo].[LogisticsLocation] ll " +
-                $"inner join [dbo].[TradeParties] tp " +
-                $"on substring(ll.RemosEstablishmentSchemeNumber, 1, len(ll.RemosEstablishmentSchemeNumber)-4) = tp.RemosBusinessSchemeNumber " +
-                $"where tp.OrgId = '{user.OrgID}'";
-
-            if (ConfigSetup.BaseConfiguration != null)
-            {
-                dataHelperConnections.ExecuteQuery(connectionString, Establishmentquery);
-            }
         }
 
 

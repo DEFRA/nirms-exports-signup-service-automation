@@ -18,8 +18,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         #region Page Objects
 
-        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading'] | //h1[contains(text(),'You have successfully submitted a request to sign ')]"));
+        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[contains(@class,'govuk-heading-xl')] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
         private By LinkText => By.XPath("//p[@class='govuk-body']/a");
+        private IWebElement StatusText => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Status')]/..//dd//div"));
+        private IWebElement UpdatedDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Updated')]/following-sibling::dd"));
+        private IWebElement AddedDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Added')]/following-sibling::dd"));
+        private IWebElement EstablishmentRMS => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Establishment RMS number')]/following-sibling::dd"));
+        private IWebElement EstAddress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Address')]/following-sibling::dd"));
+        private IWebElement EstEmailAddress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/following-sibling::dd"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -126,6 +132,64 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
                 status = false;
             return status;
         }
+
+        public bool VerifyEstablishmentDetails(string establishmentName, string Eststatus, string addrPostcode, string emailAddress)
+        {
+            bool status = true;
+            string sDate = DateTime.Now.ToString("dd MMM yyy");
+
+            if (Eststatus == "Draft")
+            {
+                if (PageHeading.Text != "Add a place of")
+                    status = false;
+
+                string temp6 = EstAddress.Text;
+                if (!EstAddress.Text.Contains(addrPostcode))
+                    status = false;
+
+                string temp7 = EstEmailAddress.Text;
+                if (!EstEmailAddress.Text.Contains(emailAddress))
+                    status = false;
+
+                return status;
+            }
+
+            string temp = PageHeading.Text;
+            if (!PageHeading.Text.Contains(establishmentName))
+                status = false;
+
+            string temp1 = StatusText.Text;
+            if (!StatusText.Text.Contains(Eststatus))
+                status = false;
+
+            string temp2 = UpdatedDate.Text;
+            if (!UpdatedDate.Text.Contains(sDate))
+                status = false;
+
+            string temp3 = AddedDate.Text;
+            if (!AddedDate.Text.Contains(sDate))
+                status = false;
+
+            string temp8 = EstablishmentRMS.Text;
+            if (!EstablishmentRMS.Text.Contains("RMS"))
+                status = false;
+
+            string temp4 = EstAddress.Text;
+            if (!EstAddress.Text.Contains(addrPostcode))
+                status = false;
+
+            string temp5 = EstEmailAddress.Text;
+            if (!EstEmailAddress.Text.Contains(emailAddress))
+                status = false;
+            return status;
+        }
+
+        public void ClickOnEstablishment(string establishmentName)
+        {
+            string establishmentNameEle = "//a[contains(text(),'" + establishmentName + "')]";
+            _driver.WaitForElement(By.XPath(establishmentNameEle)).Click();
+        }
+
 
         public void AddEstablishmentAsDraft(string establishmentName, string addressLine, string estCity, string estCountry, string addrPostcode)
         {

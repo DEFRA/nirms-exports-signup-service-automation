@@ -38,7 +38,6 @@ Background:
 	When  Update establishment status to 'Active' of 'EstablishmentName' for business 'TestEnv3' and user 'test1C'
 
 
-@RunOnly
 Scenario: Verify NI establishment details for different statuses
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'

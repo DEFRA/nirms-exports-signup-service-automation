@@ -6,7 +6,6 @@ using Defra.Trade.ReMos.AssuranceService.Tests.Pages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 

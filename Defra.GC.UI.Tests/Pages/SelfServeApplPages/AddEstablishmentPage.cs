@@ -140,7 +140,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
             if (Eststatus == "Draft")
             {
-                if (PageHeading.Text.Contains("Add a place of"))
+                if (!PageHeading.Text.Contains("Add a place of"))
                     status = false;
 
                 string temp6 = EstAddress.Text;

@@ -177,8 +177,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.Given("Approve Sign up request for org \'TestEnv3\' and user \'test1C\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 38
- testRunner.And("Update establishment status to \'Active\' of \'EstablishmentName\' for business \'Test" +
-                    "Env3\' and user \'test1C\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("Update establishment status to \'Active\' of \'EstablishmentName\' for business \'Test" +
+                    "Env3\' and user \'test1C\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
         }
         

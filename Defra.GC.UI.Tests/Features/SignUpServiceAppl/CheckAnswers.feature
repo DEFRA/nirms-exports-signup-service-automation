@@ -1,4 +1,4 @@
-﻿@Regression 
+﻿@Regression @RunOnly
 Feature: CheckAnswers
 
 Check Answers and Submit the application
@@ -182,10 +182,10 @@ Scenario: Check answers and submit sign up link verification on NI points of est
 
 	Examples: 
 	| logininfo | Business selection | Country          | FBONumber | Business name | AddressLine | Town    | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry       | FieldName                                       | FieldValue                            |
-	#| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName29     | testAddress1 | Belfast | Northern Ireland | Contact person is the authorised representative | Yes                                   |
+	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName29     | testAddress1 | Belfast | Northern Ireland | Contact person is the authorised representative | Yes                                   |
 	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName30     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory name                  | Changed Authorised Signatory name     |
-	#| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName31     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory position              | Changed Authorised Signatory position |
-	#| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName32     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory email address         | Changed@AuthorisedSignatoryname.com   |
+	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName31     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory position              | Changed Authorised Signatory position |
+	| test5     | SND NON UK User    | Northern Ireland | testFBO   | testName      | testAddress | Belfast | BT29 4AB     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName32     | testAddress1 | Belfast | Northern Ireland | Authorised Signatory email address         | Changed@AuthorisedSignatoryname.com   |
 	
 	Scenario: Verify place of dispatch link on check your answers page
 	Given Clear Database for user '<logininfo>'

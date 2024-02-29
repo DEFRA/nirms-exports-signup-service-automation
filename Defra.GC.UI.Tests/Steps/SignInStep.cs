@@ -35,6 +35,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(Signin.IsPageLoaded(), "We are not in the home Page");
         }
 
+        [Given(@"refresh NI GC application")]
+        [When(@"refresh NI GC application")]
+        public void GivenThatRefreshGCApplication()
+        {
+            string url = UrlBuilder.Default().Build();
+            _driver.Navigate().GoToUrl(url);
+            Signin.EnterPAssword();
+        }
+
         [Given(@"sign in with valid credentials with logininfo '([^']*)'")]
         [When(@"sign in with valid credentials with logininfo '([^']*)'")]
         [Then(@"sign in with valid credentials with logininfo '([^']*)'")]

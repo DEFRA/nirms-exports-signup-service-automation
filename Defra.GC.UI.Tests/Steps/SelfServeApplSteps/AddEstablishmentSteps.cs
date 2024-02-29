@@ -31,11 +31,43 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
 
         }
 
+        [When(@"click on button '([^']*)'")]
+        public void WhenClickOnButton(string buttonText)
+        {
+            addEstablishmentPage.ClickOnButton(buttonText);
+
+        }
+
         [Then(@"verify links on establishment page '([^']*)', '([^']*)', '([^']*)'")]
         public void ThenVerifyLinksOnEstablishmentPage(string link1, string link2, string link3)
         {
             Assert.True(addEstablishmentPage.VerifyLinksOnEstablishmentPage(link1,link2,link3),"Links are establishment page not matched");
         }
 
+        [Then(@"verify establishment details on table for '([^']*)' as '([^']*)', '([^']*)'")]
+        public void ThenVerifyEstablishmentDetailsTable(string EstablishmentName, string Eststatus, string AddrPostcode)
+        {
+            Assert.True(addEstablishmentPage.VerifyEstablishmentDetailsTable(EstablishmentName, Eststatus, AddrPostcode), "Establishment table details not matching");
+        }
+
+        [Then(@"verify establishment details for '([^']*)' with '([^']*)', '([^']*)', '([^']*)'")]
+        public void ThenVerifyEstablishmentDetails(string EstablishmentName, string Eststatus, string AddrPostcode, string EmailAddress)
+        {
+            Assert.True(addEstablishmentPage.VerifyEstablishmentDetails(EstablishmentName, Eststatus, AddrPostcode, EmailAddress), "Establishment details not matching");
+        }
+
+        [When(@"click on establishment '([^']*)'")]
+        [Then(@"click on establishment '([^']*)'")]
+        public void ThenClickOnEstablishment(string EstablishmentName)
+        {
+            addEstablishmentPage.ClickOnEstablishment(EstablishmentName);
+        }
+
+        [When(@"add establishment as a draft with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        [Then(@"add establishment as a draft with '([^']*)', '([^']*)', '([^']*)', '([^']*)', '([^']*)'")]
+        public void ThenAddEstablishmentAsDraft(string EstablishmentName, string AddressLine, string estCity, string estCountry, string AddrPostcode)
+        {
+            addEstablishmentPage.AddEstablishmentAsDraft(EstablishmentName, AddressLine, estCity, estCountry, AddrPostcode);
+        }
     }
 }

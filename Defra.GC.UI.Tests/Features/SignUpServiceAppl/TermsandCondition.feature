@@ -3,7 +3,7 @@ Feature: Terms and Conditions
 
 Check Terms and conditions and clicking on the Submit signup button
 
-@RunOnly
+
 Scenario: Verify Terms and conditions page loaded 
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application

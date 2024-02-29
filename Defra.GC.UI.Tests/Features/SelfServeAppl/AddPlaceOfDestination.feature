@@ -37,7 +37,7 @@ Background:
 	Given Approve Sign up request for org 'TestEnv3'
 
 
-	Scenario: Verify back link on Place Of Destination page
+	Scenario: Verify back link and search address on Place Of Destination page
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -70,11 +70,26 @@ Background:
 	And   add establishment email address 'test2@test.com'
 	And   verify changed establishment address fields '<EstablishmentName2>', '<AddressLine2>', '<estCity2>', '<estCountry2>', '<AddrPostcode2>'
 	And   click on back link
+	And   click on back link
+	And   click on back link
+	And   click on back link
 	Then  verify next page '<nextPage>' is loaded
-
+	When  enter Establishment postcode '<AddrPostcode3>'
+	And   click on select address button
+	Then  verify next page '<nextPage>' is loaded
+	When  click on save and continue
+	Then  verify next page '<nextPage>' is loaded
+	When  click on save and continue
+	Then  verify next page '<nextPage>' is loaded
+	When  click on continue button
+	Then  verify next page '<PageTitle2>' is loaded
+	When  click on button 'Add place of destination'
+	Then  verify next page '<PageTitle3>' is loaded
+	When  click on back to dashboard link
+	Then  verify next page '<PageTitle>' is loaded
 	Examples: 
-	| logininfo | Business selection | PageTitle                               | nextPage                   | warningText                                  | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of destination | You do not need to add an establishment that | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      |
+	| logininfo | Business selection | PageTitle                               | nextPage                   | warningText                                  | PageTitle2                                                  | PageTitle3                              | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 | AddrPostcode3 |
+	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of destination | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of destination successfully added | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      | BT30 6LY      |
 
 
 Scenario: Verify zero results page on Place Of Destination page

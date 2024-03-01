@@ -22,15 +22,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("CheckAnswers")]
     [NUnit.Framework.CategoryAttribute("Regression")]
-    [NUnit.Framework.CategoryAttribute("RunOnly")]
     public partial class CheckAnswersFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Regression",
-                "RunOnly"};
+                "Regression"};
         
 #line 1 "CheckAnswers.feature"
 #line hidden

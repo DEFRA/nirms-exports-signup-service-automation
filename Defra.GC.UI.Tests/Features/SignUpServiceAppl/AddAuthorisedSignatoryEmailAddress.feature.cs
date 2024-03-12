@@ -77,7 +77,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for invalid Authorised Signatory Email Address")]
-        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "test name", "England", "testFBO", "Enter an email address in the correct format, like name@example.com", "test Name", "test", "test@gmail.com", "01632 960 001", "test%gmail.com", "COO", "", "Enter an email address", "test@gmail.com", "Sign up", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "test name", "England", "testFBO", "The email address cannot be longer than 100 characters", "test Name", "test", "test@gmail.com", "01632 960 001", "test@gmail.com!\"�$%^&*())_+<>?<NBXCVDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaD" +
+            "DDDDDDDDDDDdSGSSSSSSSSSSSSsGGGGGDGERHFGHFGHHFHFGH", "COO", "", "Enter an email address", "test@gmail.com", "Sign up", null)]
         public void VerifyErrorMessageForInvalidAuthorisedSignatoryEmailAddress(
                     string logininfo, 
                     string businessSelection, 

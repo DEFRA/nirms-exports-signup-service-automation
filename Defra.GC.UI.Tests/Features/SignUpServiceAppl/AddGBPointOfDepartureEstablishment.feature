@@ -110,7 +110,7 @@ Scenario: Verify back to dashboard link on select establishment address page
 	And   enter Establishment postcode '<postcode>'
 	Then  click on select address button
 	Then  click on save and continue
-	Then  click on continue button
+	Then  click on save and continue
 	When  click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded
 	Then  user verify the Points of departure status '1 ADDED'

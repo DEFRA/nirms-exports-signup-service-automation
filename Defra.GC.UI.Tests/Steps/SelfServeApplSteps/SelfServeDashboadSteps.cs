@@ -167,5 +167,26 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         {
             selfServeDashboardPage.ClickOnAddBusinessBtn();
         }
+
+        [When(@"Suspend Sign up request for org '([^']*)'")]
+        [Given(@"Suspend Sign up request for org '([^']*)'")]
+        public void ThenSuspendSignUpRequest(string Org)
+        {
+            string connectionString = ConfigSetup.BaseConfiguration.AppConnectionString.DBConnectionstring;
+
+            string query = "UPDATE dbo.TradeParties SET ApprovalStatus = 5 where PracticeName = '" + Org + "' ";
+
+            if (ConfigSetup.BaseConfiguration != null)
+            {
+                dataHelperConnections.ExecuteQuery(connectionString, query);
+            }
+        }
+
+        [When(@"verify status '([^']*)' on self serve business dashboard page")]
+        [Then(@"verify status '([^']*)' on self serve business dashboard page")]
+        public void VerifyStatusOnSelfServeBusinessDashboard(string Status)
+        {
+            selfServeDashboardPage.VerifyStatusOnSelfServeBusinessDashboard(Status);
+        }
     }
 }

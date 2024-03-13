@@ -46,5 +46,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             Assert.True(CompletionPage.VerifyNiConfirmationMessage(message), "Mismatching the NI content on the completion page");
         }
+
+        [When(@"click on return to businesses link")]
+        [Then(@"click on return to businesses link")]
+        public void ThenClickOnReturnToBusinessesLink()
+        {
+            CompletionPage.ClickOnReturnToBusinesses();
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement GBConfirmationNotification => _driver.WaitForElement(By.XPath("(//div[@class='govuk-grid-column-two-thirds']/p)[4]"));
 
         private IWebElement NIConfirmationNotification => _driver.WaitForElement(By.XPath("(//div[@class='govuk-grid-column-two-thirds']/p)[3]"));
+        private IWebElement ReturnToBusinesses => _driver.WaitForElement(By.XPath("//a[contains(text(),'Return to your businesses')]"));
         #endregion Page Objects
 
         #region Page Methods
@@ -48,6 +49,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             return PageHeadingOutcomeNotification.Text.Contains(NotifyoutcomeMessage);
         }
+
+        public void ClickOnReturnToBusinesses()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", ReturnToBusinesses);
+        }
+
 
         #endregion Page Methods
     }

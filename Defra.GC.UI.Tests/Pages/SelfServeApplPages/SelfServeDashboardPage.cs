@@ -121,10 +121,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         public bool VerifyStatusOnSelfServeBusinessDashboard(string status)
         {
 
-            string SelfServeStatus = "//dt[contains(text(),'" + status + "')]/..//div";
+            string SelfServeStatus = "//div[contains(text(),'" + status + "')]/..//div";
             IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
-            Thread.Sleep(2000);
-            //_driver.ElementImplicitWait();
+            _driver.ElementImplicitWait();
             return SelfServeStatusEle.Text.Contains(status);
         }
         #endregion Page Methods

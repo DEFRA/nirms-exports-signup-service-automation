@@ -30,6 +30,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]"));
         private IWebElement HintText => _driver.WaitForElement(By.XPath("//p[contains(@id,'name-hint')]"));
         private IWebElement GOVLink => _driver.WaitForElement(By.XPath("//*[name()='svg' and @class='govuk-header__logotype']"));
+        private IWebElement PageText => _driver.WaitForElement(By.XPath("//p[1]"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -168,6 +169,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             GOVLink.Click();
         }
+
+        public bool VerifyTextOnEstablishmentPage(string message)
+        {
+            if (PageText.Text.Contains(message))
+
+                return true;
+            else
+                return false;
+        }
+
         #endregion Page Methods
     }
 }

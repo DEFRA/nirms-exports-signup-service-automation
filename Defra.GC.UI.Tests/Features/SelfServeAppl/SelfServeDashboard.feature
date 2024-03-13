@@ -6,7 +6,7 @@ Verify Self serve dashboard
 Background: 
 	Given Clear Database for user 'test1A'
 
-	@RunOnly
+	
 Scenario: Verify different statuses on self serve dashboard
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
@@ -59,8 +59,7 @@ Scenario: Verify different statuses on self serve dashboard
 	When  select business '<Business selection>' on self serve dashboard
 	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
 	When  Suspend Sign up request for org '<Business selection>'
-	#And   that I navigate to the NI GC application
-	#When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	And   navigate to Self Serve Dashboard URL
 	And   verify status 'Suspended' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'View' is displayed for the '<Business selection>' on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard 
@@ -70,8 +69,8 @@ Scenario: Verify different statuses on self serve dashboard
 
 
 	Examples: 
-	| logininfo | Business selection |
-	| test1A    | TestEnv2           |
+	| logininfo | Business selection |Business RMS Number    |
+	| test1A    | TestEnv2           |RMS-GB                 |
 
 
 Scenario: Verify Add business button on self serve dashboard

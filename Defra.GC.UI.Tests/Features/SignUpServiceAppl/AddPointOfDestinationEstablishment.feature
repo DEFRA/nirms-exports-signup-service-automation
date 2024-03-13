@@ -3,7 +3,7 @@ Feature: Adddion Point Of Destination Establishment
 
 Add Point of Destination Establishment
 
-	@RunOnly
+
 Scenario: Add point of Destination establishment address manually
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application

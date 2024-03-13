@@ -123,7 +123,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
             string SelfServeStatus = "//dt[contains(text(),'" + status + "')]/..//div";
             IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
-            _driver.ElementImplicitWait();
+            Thread.Sleep(2000);
+            //_driver.ElementImplicitWait();
             return SelfServeStatusEle.Text.Contains(status);
         }
         #endregion Page Methods

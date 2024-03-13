@@ -173,6 +173,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             Assert.True(applicationPage.VerifyDynamicHintTextMessage(BusinessName), "Dynamic name not matching in hint text");
         }
 
+        [Then(@"verify text '([^']*)' on establishment page")]
+        public void ThenVerifyText(string Message)
+        {
+            Assert.True(applicationPage.VerifyTextOnEstablishmentPage(Message), "Text not matching");
+        }
+
         [Then(@"Close Current tab")]
         public void CloseCurrentTab()
         {

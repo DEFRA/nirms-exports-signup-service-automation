@@ -13,5 +13,6 @@
         public void ClickOnRefreshLink();
         public bool VerifyLinkOnSelfServe(string selfServeLink, string businessSelection);
         public void ClickOnAddBusinessBtn();
+        public bool VerifyStatusOnSelfServeBusinessDashboard(string status);
     }
 }

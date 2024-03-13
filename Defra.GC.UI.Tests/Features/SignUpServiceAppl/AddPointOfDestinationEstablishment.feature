@@ -84,7 +84,7 @@ Scenario: Verify back to dashboard link on enter Destination establishment postc
 	And   enter Establishment postcode '<postcode>'
 	Then  click on select address button
 	Then  click on save and continue
-	Then  click on continue button
+	Then  click on save and continue
 	When  click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded
 	Then  user verify the Points of destination status '1 ADDED'

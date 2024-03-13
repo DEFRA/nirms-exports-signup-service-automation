@@ -24,7 +24,7 @@ parameters:
     default: 'Edge'
 
 schedules:
-- cron: "0 15 * * Mon,Tue,Wed,Thu,Fri"
+- cron: "0 18 * * Mon,Tue,Wed,Thu,Fri"
   displayName: Daily midnight build
   branches:
     include:

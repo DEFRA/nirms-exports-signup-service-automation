@@ -55,8 +55,8 @@ Scenario: Verify error message for invalid Authorised Signatory Email Address
 	Then  verify next page '<nextPage1>' is loaded 
 
     Examples:    
-	| logininfo | Business selection   | fullName  | Country | FBONumber | errorMsg                                                            | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress | Authposition |AuthemailAddress2|   errorMsg2          |AuthemailAddress3 |nextPage1|
-	| test      | TestEnv1             | test name | England | testFBO   | Enter an email address in the correct format, like name@example.com | test Name   | test            | test@gmail.com | 01632 960 001   | test%gmail.com   | COO          |                 |Enter an email address|test@gmail.com    |Sign up  |
+	| logininfo | Business selection   | fullName  | Country | FBONumber | errorMsg                                               | contactName | contactPosition | emailAddress   | telephoneNumber | AuthemailAddress                                                                                                                   | Authposition |AuthemailAddress2|   errorMsg2          |AuthemailAddress3 |nextPage1|
+	| test      | TestEnv1             | test name | England | testFBO   | The email address cannot be longer than 100 characters | test Name   | test            | test@gmail.com | 01632 960 001   | test@gmail.com!"£$%^&*())_+<>?<NBXCVDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaDDDDDDDDDDDDdSGSSSSSSSSSSSSsGGGGGDGERHFGHFGHHFHFGH | COO          |                 |Enter an email address|test@gmail.com    |Sign up  |
 
 	@ignore
 Scenario Outline:  Verify error message for blank Authorised Signatory Email Address

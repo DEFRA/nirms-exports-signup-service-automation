@@ -98,12 +98,12 @@ Scenario: Verify error messages for GB point of Departure mandatory fields
 	And   click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   add establishment email address 'testcom'
+	And   add establishment email address 'TestAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa'
 	Then  verify error message '<errorMessage>' on  add a departure page
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                                        |
-	| test      |  TestEnv1           | England | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Enter an email address in the correct format, like name@example.com |
+	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | errorMessage                                           |
+	| test      |  TestEnv1           | England | testFBO   | testErrorName8    | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | The email address cannot be longer than 100 characters |
 
 Scenario: Verify duplicate point of dispatch establishment not allowed 
 	Given Clear Database for user '<logininfo>'

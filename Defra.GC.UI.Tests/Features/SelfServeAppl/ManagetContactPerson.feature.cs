@@ -315,7 +315,8 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages for invalid contact person fields")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "TestName%", "Test1()%", "Changedemail7%@test.com", "01632 960 001%", "Enter a name using only letters, hyphens or apostrophes", "Enter an email address in the correct format, like name@example.com", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
+        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "TestName%", "Test1()%", "test@gmail.com!\"£$%^&*())_+<>?<NBXCVDDDDDDDDDDDDDDDDDdDDDDDDDDDDDDDdSGSSSSSSSSSSS" +
+            "SsGGGGGDGERHFGHFGHHFHFGH", "01632 960 001%", "Enter a name using only letters, hyphens or apostrophes", "The email address cannot be longer than 100 characters", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
             "ns, underscores, forward slashes or ampersands", "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192", null)]
         public void VerifyErrorMessagesForInvalidContactPersonFields(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string updatedTelephoneNumber, string message1, string message2, string message3, string message4, string[] exampleTags)
         {

@@ -26,8 +26,8 @@ Scenario: Verify error message for invalid contact email address
 	Then  verify error message '<errorMessage>' on contact email address page
 
 	Examples: 
-	| logininfo | Business selection      | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage                                 |
-	| test      | TestEnv1                | England | testFBO   | testContactName | testPosition    | test£$@£     | Enter an email address in the correct format |
+	| logininfo | Business selection      | Country | FBONumber | contactName     | contactPosition | emailAddress                                                                                                                                                                  | errorMessage                                           |
+	| test      | TestEnv1                | England | testFBO   | testContactName | testPosition    | TestAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa  | The email address cannot be longer than 100 characters |
 
 
 Scenario: Verify error message for blank contact email address

@@ -3,55 +3,6 @@ Feature: AddGBPointOfDepartureEstablishment
 
 Add GB point of Departure Establishment
 
-
-	@ignore
-Scenario: Verify Point of Departure link for GB countries
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	And   verify points of destination link not visible on tasklist page
-	When  click on points of departure link
-	Then  verify next page '<nextPage>' is loaded 
-	And   verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page 
-
-	Examples: 
-	| logininfo | Business selection  | Country  | FBONumber | postcode | nextPage    | warningText                                                   |
-	| test      | TestEnv1            | Wales    | testFBO   | SE10 9NF | of dispatch | You do not need to enter establishments that do not belong to |
-	| test      | TestEnv1            | Scotland | testFBO   | SE10 9NF | of dispatch | You do not need to enter establishments that do not belong to |
-
-	@ignore
-Scenario: Check Add the establishment address manually link
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link
-	And   enter Establishment postcode '<postcode>'
-	Then  verify next page '<nextPage>' is loaded 
-	When  click on cannot find establishment link 
-	And   click on the add establishment address manually link
-	Then  verify next page '<nextPage>' is loaded 
-
-	Examples: 
-	| logininfo |  Business selection  | Country | FBONumber | postcode | nextPage    |
-	| test      |  TestEnv1            | England | testFBO   | SE10 9NF | of dispatch |
-
-
 Scenario: Add GB point of Departure establishment address manually
 	Given Clear Database for user '<logininfo>'
 	And   that I navigate to the NI GC application
@@ -92,7 +43,8 @@ Scenario: Verify back to dashboard link on select establishment address page
 	And   click Save and return to dashboard
 	Then  verify FBOorPHRNumber task status as 'COMPLETED'
 	When  click on points of departure link	
-	And   click on back to dashboard link
+	Then  verify text '<Text>' on establishment page
+	When  click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded 
 	When  click on points of departure link	
 	And   enter Establishment postcode '<postcode>'
@@ -110,122 +62,15 @@ Scenario: Verify back to dashboard link on select establishment address page
 	And   enter Establishment postcode '<postcode>'
 	Then  click on select address button
 	Then  click on save and continue
-	Then  click on continue button
+	Then  click on save and continue
 	When  click on back to dashboard link
 	Then  verify next page '<nextPage>' is loaded
 	Then  user verify the Points of departure status '1 ADDED'
 
 	Examples: 
-	| logininfo | Business selection    | Country | FBONumber | postcode | nextPage  |nextPage1               |
-	| test      | TestEnv1              | England | testFBO   | SE10 9NF | Sign up   |Add a place of dispatch |
+	| logininfo | Business selection | Country | FBONumber | postcode | nextPage | nextPage1               | Text                                                                                                  |
+	| test      | TestEnv1           | England | testFBO   | SE10 9NF | Sign up  | Add a place of dispatch | These are the establishments that consignments to Northern Ireland will depart from under the scheme. |
 
-
-	@ignore
-	Scenario: Verify back to dashboard link on then Do you want to add another point of departure Page ?
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link	
-	And   enter Establishment postcode '<postcode>'
-	Then  click on select address button
-	Then  click on save and continue
-	Then  click on continue button
-	When  click on back to dashboard link
-	Then  verify next page '<nextPage1>' is loaded
-	Then  user verify the Points of departure status '1 ADDED'
-
-	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | postcode | nextPage                | nextPage1 |
-	| test      | TestEnv1            | England | testFBO   | SE10 9NF | Add a place of dispatch |  Sign up    |
-
-	@ignore
-	Scenario: Verify back to dashboard link on the Establishment email address optional page
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link	
-	And   enter Establishment postcode '<postcode>'
-	Then  verify next page '<nextPage>' is loaded 
-	Then  click on select address button
-	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	When   click on back to dashboard link
-	Then  verify next page '<nextPage1>' is loaded 
-
-	Examples: 
-	| logininfo | Business selection   | Country | FBONumber | postcode | nextPage1 | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage |
-	| test      | TestEnv1             | England | testFBO   | SE10 9NF | Sign up   | testName4         | testAddress1 | London  | England    | SE10 9NF     | Add a place of dispatch        |
-
-
-
-	@ignore
-Scenario: Finish adding GB point of Departure establishment address
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
-	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   add establishment email address 'test1@test.com'
-	And   verify message for '<Business selection>' on establishment page
-	And   click on I have finished adding points of departure
-	And   click on save and continue
-	Then  verify next page '<nextPage>' is loaded 
-	Examples: 
-	| logininfo | Business selection   | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage           |
-	| test      | TestEnv1             | England | testFBO   | testName7         | testAddress1 | London  | England    | EC4R 9HA     | Sign up            |
-
-	@ignore
-Scenario: Verify no establishment address listed after removing last address
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
-	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   add establishment email address 'test1@test.com'
-	And   remove establishment address '<EstablishmentName>'
-	Then  verify next page '<nextPage>' is loaded 
-
-
-	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | nextPage				  |
-	| test      | TestEnv1            | England | testFBO   | testName8         | testAddress1 | London  | England    | EC4R 9HA     | Add a place of dispatch  |
 
 Scenario: Verify remaining establishment address listed after removing one address
 	Given Clear Database for user '<logininfo>'
@@ -340,75 +185,6 @@ Scenario: Change establishment email address
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode |
 	| test      | TestEnv1            | England | testFBO   | testName13        | testAddress1 | London  | England    | SE10 9NF     |
-
-	@ignore
-Scenario:Verify back to dashboard link from address page navigated to Add a place of dispatch  page
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
-	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
-	And   click on back to dashboard link
-	Then  verify next page '<nextPage>' is loaded 
-
-	Examples: 
-	| logininfo | Business selection   | Country | FBONumber | EstablishmentName | AddressLine1 | estCity   | estCountry   | AddrPostcode | nextPage                |
-	| test      | TestEnv1             | England | testFBO   | testName14        | testAddress1 | testCity1 | testCountry1 | SE10 9NF     | Sign up |
-
-	@ignore
-Scenario:Verify different post code link is navigated to Add a place of dispatch page
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	Then  verify next page '<nextPage>' is loaded 
-
-	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | AddrPostcode | nextPage    |
-	| test      | TestEnv1            | England | testFBO   | SE           | of dispatch |
-
-		@ignore
-Scenario:Verify Enter a Address manually link is navigated to Add a place of dispatch page
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on FBOorPHRNumber task
-	And   enter FBO number '<FBONumber>' for FBO or PHR number task
-	And   click Save and return to dashboard
-	Then  verify FBOorPHRNumber task status as 'COMPLETED'
-	When  click on points of departure link
-	And   enter Establishment postcode '<AddrPostcode>'
-	And   click on cannot find establishment link 
-	And   click on the add establishment address manually link
-	Then  verify next page '<nextPage>' is loaded 
-
-	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | AddrPostcode | nextPage    |
-	| test      | TestEnv1            | England | testFBO   | wd17 7TF     | of dispatch |
 
 
 Scenario:Verify save and return to dashboard on Add a place of dispatch page

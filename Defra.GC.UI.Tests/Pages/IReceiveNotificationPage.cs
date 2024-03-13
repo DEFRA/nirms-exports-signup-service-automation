@@ -8,5 +8,7 @@
 
         public bool VerifyGbConfirmationMessage(string ConfirmationMessage);
         public bool VerifyNiConfirmationMessage(string ConfirmationMessage);
+        public void ClickOnReturnToBusinesses();
+
     }
 }

@@ -307,7 +307,8 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages for invalid Authorised Representative fields")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "TestName%", "Test1()%", "Changedemail%@test.com", "Enter a name using only letters, hyphens or apostrophes", "Enter an email address in the correct format, like name@example.com", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "TestName%", "Test1()%", "test@gmail.com!\"£$%^&*())_+<>?<NBXCVDDDDDDDDDDDDDDDDDdDDDDDDDDDDDDDdSGSSSSSSSSSSS" +
+            "SsGGGGGDGERHFGHFGHHFHFGH", "Enter a name using only letters, hyphens or apostrophes", "The email address cannot be longer than 100 characters", "Enter a position using only letters, numbers, brackets, full stops, commas, hyphe" +
             "ns, underscores, forward slashes or ampersands", "has read and understood the terms and conditions", null)]
         public void VerifyErrorMessagesForInvalidAuthorisedRepresentativeFields(string logininfo, string businessSelection, string updatedName, string updatedPosition, string updatedEmailAddress, string message1, string message2, string message3, string message4, string[] exampleTags)
         {

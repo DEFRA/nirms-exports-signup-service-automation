@@ -85,8 +85,8 @@ Background:
 	And   verify error messages '<Message1>', '<Message2>', '<Message3>', '<Message4>'
 
 	Examples: 
-	| logininfo | Business selection | UpdatedName  | UpdatedPosition  | UpdatedEmailAddress    | Message1     | Message2               | Message3         | Message4                 |
-	| test1C    | TestEnv3           | TestName%    | Test1()%         | Changedemail%@test.com | Enter a name using only letters, hyphens or apostrophes | Enter an email address in the correct format, like name@example.com | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | has read and understood the terms and conditions|
+	| logininfo | Business selection | UpdatedName  | UpdatedPosition  | UpdatedEmailAddress                                                                                       | Message1                                                | Message2                                               | Message3                                                                                                                        | Message4                                        |
+	| test1C    | TestEnv3           | TestName%    | Test1()%         | test@gmail.com!"£$%^&*())_+<>?<NBXCVDDDDDDDDDDDDDDDDDdDDDDDDDDDDDDDdSGSSSSSSSSSSSSsGGGGGDGERHFGHFGHHFHFGH | Enter a name using only letters, hyphens or apostrophes | The email address cannot be longer than 100 characters | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | has read and understood the terms and conditions|
 
 	Scenario: Verify Cancel link on update Authorised Representative page
 	Given Approve Sign up request for org '<Business selection>'

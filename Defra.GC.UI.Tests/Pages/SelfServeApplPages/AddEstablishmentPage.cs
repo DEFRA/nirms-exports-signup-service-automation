@@ -22,6 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         private By LinkText => By.XPath("//p[@class='govuk-body']/a");
         private IWebElement StatusText => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Status')]/..//dd//div"));
         private IWebElement UpdatedDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Updated')]/following-sibling::dd"));
+        private IWebElement RemovedDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Removed')]/following-sibling::dd"));
         private IWebElement AddedDate => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Added')]/following-sibling::dd"));
         private IWebElement EstablishmentRMS => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Establishment RMS number')]/following-sibling::dd"));
         private IWebElement EstAddress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Address')]/following-sibling::dd"));
@@ -136,7 +137,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         public bool VerifyEstablishmentDetails(string establishmentName, string Eststatus, string addrPostcode, string emailAddress)
         {
             bool status = true;
-            string sDate = DateTime.Now.ToString("dd MMM yyy");
+            string sDate = DateTime.Now.ToString("dd MMMM yyy");
 
             if (Eststatus == "Draft")
             {
@@ -162,10 +163,18 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             if (!StatusText.Text.Contains(Eststatus))
                 status = false;
 
-            string temp2 = UpdatedDate.Text;
-            if (!UpdatedDate.Text.Contains(sDate))
-                status = false;
-
+            if (Eststatus.Contains("Removed"))
+            {
+                string temp12 = RemovedDate.Text;
+                if (!RemovedDate.Text.Contains(sDate))
+                    status = false;
+            }
+            else
+            {
+                string temp2 = UpdatedDate.Text;
+                if (!UpdatedDate.Text.Contains(sDate))
+                    status = false;
+            }
             string temp3 = AddedDate.Text;
             if (!AddedDate.Text.Contains(sDate))
                 status = false;

@@ -88,8 +88,8 @@ Background:
 	Then  verify error messages '<Message1>', '<Message2>', '<Message3>', '<Message4>'
 
 	Examples: 
-	| logininfo | Business selection | UpdatedName  | UpdatedPosition  | UpdatedEmailAddress    | UpdatedTelephoneNumber  | Message1     | Message2               | Message3         | Message4                 |
-	| test1B    | TestEnv4           | TestName%    | Test1()%         | Changedemail7%@test.com| 01632 960 001%          | Enter a name using only letters, hyphens or apostrophes | Enter an email address in the correct format, like name@example.com | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192 |
+	| logininfo | Business selection | UpdatedName  | UpdatedPosition  | UpdatedEmailAddress                                                                                      | UpdatedTelephoneNumber  | Message1                                                | Message2                                               | Message3                                                                                                                        | Message4                                                                        |
+	| test1B    | TestEnv4           | TestName%    | Test1()%         | test@gmail.com!"£$%^&*())_+<>?<NBXCVDDDDDDDDDDDDDDDDDdDDDDDDDDDDDDDdSGSSSSSSSSSSSSsGGGGGDGERHFGHFGHHFHFGH| 01632 960 001%          | Enter a name using only letters, hyphens or apostrophes | The email address cannot be longer than 100 characters | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192 |
 
 	Scenario: Verify Cancel link on update contact person page
 	Given Approve Sign up request for org '<Business selection>'

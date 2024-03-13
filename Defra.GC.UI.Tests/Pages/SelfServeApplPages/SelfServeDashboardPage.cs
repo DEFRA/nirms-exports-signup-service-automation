@@ -117,6 +117,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].click();", AddBusinessBtnEle);
         }
+
+        public bool VerifyStatusOnSelfServeBusinessDashboard(string status)
+        {
+
+            string SelfServeStatus = "//div[contains(text(),'" + status + "')]/..//div";
+            IWebElement SelfServeStatusEle = _driver.WaitForElement(By.XPath(SelfServeStatus));
+            _driver.ElementImplicitWait();
+            return SelfServeStatusEle.Text.Contains(status);
+        }
         #endregion Page Methods
 
     }

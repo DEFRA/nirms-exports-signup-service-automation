@@ -149,7 +149,7 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	| test1C    | TestEnv3           |           | Enter a postcode. |
 	| test1C    | TestEnv3           | wd19 7pf  | Enter a postcode in Northern Ireland |
 
-	@RunOnly
+
 Scenario: Verify same establishment can be added after removing establishment from Add a place of destination page
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

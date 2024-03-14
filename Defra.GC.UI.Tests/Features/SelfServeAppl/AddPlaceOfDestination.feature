@@ -148,3 +148,30 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	| logininfo | Business selection | postcode  | errorMessage      |
 	| test1C    | TestEnv3           |           | Enter a postcode. |
 	| test1C    | TestEnv3           | wd19 7pf  | Enter a postcode in Northern Ireland |
+
+	@RunOnly
+Scenario: Verify same establishment can be added after removing establishment from Add a place of destination page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on link 'Add a place of destination'
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on select address button
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   remove establishment address '<EstablishmentName>'
+	Then  verify next page '<nextPage>' is loaded
+	And   click on link 'Add a place of destination'
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on select address button
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on continue button
+	And   click on button 'Add place of destination'
+	Then  verify next page '<PageTitle>' is loaded
+	When  click on back to dashboard link
+	Then  verify establishment details on table for '<EstablishmentName>' as '<Status>', '<AddrPostcode>'
+
+	Examples: 
+	| logininfo | Business selection | EstablishmentName   | AddressLine1    | estCity | estCountry       | AddrPostcode | nextPage                                | PageTitle                               | Status |
+	| test1C    | TestEnv3           | RemoveEstablishment | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     | Northern Ireland Retail Movement Scheme | Place of destination successfully added | Active |

@@ -3,6 +3,7 @@ using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
+using Defra.UI.Framework.Driver;
 
 
 
@@ -27,6 +28,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         private IWebElement EstablishmentRMS => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Establishment RMS number')]/following-sibling::dd"));
         private IWebElement EstAddress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Address')]/following-sibling::dd"));
         private IWebElement EstEmailAddress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/following-sibling::dd"));
+        private IWebElement RemoveEstBtnEle => _driver.WaitForElement(By.XPath("//a[contains(text(),'Remove establishment')]"));
+        private IWebElement RemovedLinkText => _driver.WaitForElement(By.XPath("(//div[@class='govuk-grid-row']//p)[1]"));
         #endregion Page Objects
 
         private IWebDriver _driver => _objectContainer.Resolve<IWebDriver>();
@@ -213,7 +216,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             applicationPage.ClickOnBackLink();
             applicationPage.ClickOnBackLink();
         }
+        public void ClickOnRemoveEstButton()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
+            jsExecutor.ExecuteScript("arguments[0].click();", RemoveEstBtnEle);
+        }
 
+        public bool VerifyRemovedEstText(string removedEstMessage)
+        {
+            return RemovedLinkText.Text.Contains(removedEstMessage);
+        }
         #endregion Page Methods
 
     }

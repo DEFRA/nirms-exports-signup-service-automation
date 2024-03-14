@@ -36,8 +36,8 @@ Background:
 	Then  click on signout button and verify the signout message
 	Given Approve Sign up request for org 'TestEnv3'
 
-
-Scenario: Verify back link on Place Of Dispatch page
+	@RunOnly
+Scenario: Verify remove establishment scenario and back link on Place Of Dispatch page
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -87,10 +87,17 @@ Scenario: Verify back link on Place Of Dispatch page
 	Then  verify next page '<PageTitle3>' is loaded
 	When  click on back to dashboard link
 	Then  verify next page '<PageTitle>' is loaded
+	When  click on establishment '<EstablishmentName>'
+	Then  verify next page '<PageTitle4>' is loaded
+	Then  click on remove establishment button on establishment details page
+	Then  verify next page '<PageTitle5>' is loaded
+	When  click on button 'Remove place of dispatch'
+	Then  verify next page '<PageTitle6>' is loaded
+	Then  verify text '<RemovedText>' on removed establishment page
 
 	Examples: 
-	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | PageTitle2                                                  | PageTitle3                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | AddrPostcode3 |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        | SE10 9GB      |
+	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | PageTitle2                                                  | PageTitle3                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | AddrPostcode3 |PageTitle4 |PageTitle5                     |PageTitle6 |RemovedText                                                |
+	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        | SE10 9GB      |testName11 |Are you sure you want to remove|removed    |This establishment will not be available to add as a place |
 
 
 Scenario: Verify zero results page on Place Of Dispatch page

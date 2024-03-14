@@ -69,5 +69,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
         {
             addEstablishmentPage.AddEstablishmentAsDraft(EstablishmentName, AddressLine, estCity, estCountry, AddrPostcode);
         }
+
+        [When(@"click on remove establishment button on establishment details page")]
+        [Then(@"click on remove establishment button on establishment details page")]
+        public void ThenClickOnRemoveEstablishment()
+        {
+            addEstablishmentPage.ClickOnRemoveEstButton();
+        }
+
+
+        [When(@"verify text '([^']*)' on removed establishment page")]
+        [Then(@"verify text '([^']*)' on removed establishment page")]
+        public void VerifyRemovedEstMessage(string removedEstMessage)
+        {
+            addEstablishmentPage.VerifyRemovedEstText(removedEstMessage);
+        }
     }
 }

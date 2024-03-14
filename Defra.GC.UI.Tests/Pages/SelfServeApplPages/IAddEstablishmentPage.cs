@@ -9,5 +9,7 @@
         public void AddEstablishmentAsDraft(string establishmentName, string addressLine, string estCity, string estCountry, string addrPostcode);
         public bool VerifyEstablishmentDetails(string establishmentName, string eststatus, string addrPostcode, string emailAddress);
         public void ClickOnEstablishment(string establishmentName);
+        public void ClickOnRemoveEstButton();
+        public bool VerifyRemovedEstText(string removedEstMessage);
     }
 }

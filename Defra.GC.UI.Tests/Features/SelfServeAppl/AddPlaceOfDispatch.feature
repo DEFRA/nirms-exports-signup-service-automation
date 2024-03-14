@@ -3,6 +3,7 @@ Feature: AddPlaceOfDispatch
 
 Add Place of Dispatch
 
+@RunOnly
 Background: 
 	Given Clear Database for user 'test1C'
 	Given that I navigate to the NI GC application

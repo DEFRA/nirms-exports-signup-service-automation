@@ -36,7 +36,7 @@ Background:
 	Then  click on signout button and verify the signout message
 	Given Approve Sign up request for org 'TestEnv3'
 
-	@RunOnly
+@RunOnly
 Scenario: Verify remove establishment scenario and back link on Place Of Dispatch page
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'

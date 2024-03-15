@@ -275,7 +275,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnChangeEstablishmentPostcode()
         {
-            ChangePostcode.Click();
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
+            IJavaScriptExecutor jsExecute = (IJavaScriptExecutor)_driver;
+            jsExecute.ExecuteScript("arguments[0].click();", ChangePostcode);
         }
 
         public bool VerifyEstablishmentPostcodeChanged(string establishmentCode)

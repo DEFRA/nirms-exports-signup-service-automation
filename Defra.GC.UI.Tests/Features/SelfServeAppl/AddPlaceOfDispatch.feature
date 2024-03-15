@@ -37,7 +37,7 @@ Background:
 	Then  click on signout button and verify the signout message
 	Given Approve Sign up request for org 'TestEnv3'
 
-   @RunOnly
+   
 Scenario: Verify remove establishment scenario and back link on Place Of Dispatch page
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
@@ -100,7 +100,7 @@ Scenario: Verify remove establishment scenario and back link on Place Of Dispatc
 	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | PageTitle2                                                  | PageTitle3                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | AddrPostcode3 |PageTitle4 |PageTitle5                     |PageTitle6 |RemovedText                                                |
 	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        | SE10 9GB      |testName11 |Are you sure you want to remove|removed    |This establishment will not be available to add as a place |
 
-	@ignore
+	
 Scenario: Verify zero results page on Place Of Dispatch page
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
@@ -144,7 +144,7 @@ Scenario: Verify error messages for place of dispatch mandatory fields
 	| test1C      |    TestEnv3        | SE10 9NF | testErrorName6    | testAddress1 | testCity%$ | testCountry | SE10 9NF     | Enter a town or city using only letters, numbers, brackets, full stops, hyphens, underscores, forward slashes, apostrophes or ampersands     |
 	| test1C      |    TestEnv3        | SE10 9NF | testErrorName7    | testAddress1 | testCity   | testCountry | testCode$%   | Enter a real postcode                            |
 
-	@ignore
+	
 Scenario: Verify error message for blank Establishment postcode field & non GB post code
 	Given that I navigate to the NI GC application
 	When  sign in with valid credentials with logininfo '<logininfo>'

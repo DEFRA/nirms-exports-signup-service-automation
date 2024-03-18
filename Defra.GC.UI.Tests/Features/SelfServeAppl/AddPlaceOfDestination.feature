@@ -34,7 +34,7 @@ Background:
 	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
-	Given Approve Sign up request for org 'TestEnv3'
+	Given Approve Sign up request for org 'TestEnv3' and user 'test1C'
 
 
 	Scenario: Verify back link and search address on Place Of Destination page
@@ -161,7 +161,7 @@ Scenario: Verify same establishment can be added after removing establishment fr
 	And   add establishment email address 'test1@test.com'
 	And   remove establishment address '<EstablishmentName>'
 	Then  verify next page '<nextPage>' is loaded
-	And   click on link 'Add a place of destination'
+	When  click on link 'Add a place of destination'
 	And   enter Establishment postcode '<AddrPostcode>'
 	And   click on select address button
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'

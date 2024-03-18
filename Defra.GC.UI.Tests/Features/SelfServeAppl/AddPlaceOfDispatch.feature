@@ -34,7 +34,7 @@ Background:
 	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
-	Given Approve Sign up request for org 'TestEnv3'
+	Given Approve Sign up request for org 'TestEnv3' and user 'test1C'
 
 
 Scenario: Verify back link on Place Of Dispatch page

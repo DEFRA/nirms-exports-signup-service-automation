@@ -41,7 +41,7 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
 	When  navigate to Self Serve Dashboard URL
 	Then  verify status 'Pending approval' is displayed for the '<Business selection>' on self serve dashboard
-	When  Approve Sign up request for org '<Business selection>'
+	When  Approve Sign up request for org '<Business selection>' and user '<logininfo>'
 	Then  click on refresh link on self serve dashboard
 	And   verify status 'Approved for NIRMS' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'Manage' is displayed for the '<Business selection>' on self serve dashboard

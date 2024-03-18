@@ -1,4 +1,4 @@
-@SelfServeRegression
+ @SelfServeRegression
 Feature: VerifyGBEstablishmentStatus
 
 Verify GB Establishment Status

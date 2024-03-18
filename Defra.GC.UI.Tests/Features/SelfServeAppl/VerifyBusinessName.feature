@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿ @SelfServeRegression
 Feature: VerifyBusinessName
 
 Verify Business Name

@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿ @SelfServeRegression
 Feature: FooterLinks
 
 Self serve footer page

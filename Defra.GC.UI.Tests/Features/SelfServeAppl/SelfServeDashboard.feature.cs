@@ -86,14 +86,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify different statuses on self serve dashboard")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "RMS-GB", null)]
-        public void VerifyDifferentStatusesOnSelfServeDashboard(string logininfo, string businessSelection, string businessRMSNumber, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "RMS-GB", "Northern Ireland Retail Movement Scheme", null)]
+        public void VerifyDifferentStatusesOnSelfServeDashboard(string logininfo, string businessSelection, string businessRMSNumber, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
             argumentsOfScenario.Add("Business RMS Number", businessRMSNumber);
+            argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify different statuses on self serve dashboard", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 10
 this.ScenarioInitialize(scenarioInfo);
@@ -215,7 +216,7 @@ this.FeatureBackground();
                             "rd", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 44
- testRunner.When(string.Format("Approve Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("Approve Sign up request for org \'{0}\' and user \'{1}\'", businessSelection, logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 45
  testRunner.Then("click on refresh link on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -288,7 +289,7 @@ this.FeatureBackground();
  testRunner.Then("verify status \'Suspended from NIRMS\' on self serve business dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 67
- testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'<nextPage>\' of page", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 68
  testRunner.Then(string.Format("verify Business RMS number \'{0}\' on self serve dashboard page", businessRMSNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

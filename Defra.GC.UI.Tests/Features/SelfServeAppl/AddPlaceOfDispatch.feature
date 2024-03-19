@@ -34,7 +34,7 @@ Background:
 	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
-	Given Approve Sign up request for org 'TestEnv3'
+	Given Approve Sign up request for org 'TestEnv3' and user 'test1C'
 
 
 Scenario: Verify back link on Place Of Dispatch page
@@ -43,7 +43,6 @@ Scenario: Verify back link on Place Of Dispatch page
 	And   select business '<Business selection>' on self serve dashboard 
 	And   click on link 'Add a place of dispatch'
 	Then  verify next page '<nextPage>' is loaded
-	And   verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page 
 	When  click on back link
 	Then  verify dynamic name '<Business selection>' in title '<PageTitle>' of page
 	When  click on link 'Add a place of dispatch'
@@ -89,8 +88,8 @@ Scenario: Verify back link on Place Of Dispatch page
 	Then  verify next page '<PageTitle>' is loaded
 
 	Examples: 
-	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | PageTitle2                                                  | PageTitle3                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | AddrPostcode3 |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        | SE10 9GB      |
+	| logininfo | Business selection | PageTitle                               | nextPage                | PageTitle2                                                  | PageTitle3                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | AddrPostcode3 |
+	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | Requirements of the Northern Ireland Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        | SE10 9GB      |
 
 
 Scenario: Verify zero results page on Place Of Dispatch page

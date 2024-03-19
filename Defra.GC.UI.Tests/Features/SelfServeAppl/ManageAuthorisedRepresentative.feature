@@ -37,7 +37,7 @@ Background:
 
 
 	Scenario: Update Authorised Representative
-	Given  Approve Sign up request for org '<Business selection>'
+	Given  Approve Sign up request for org '<Business selection>' and user 'test1C'
 	Given  that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -56,7 +56,7 @@ Background:
 
 
 	Scenario: Verify error messages for blank Authorised Representative fields
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1C'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -73,7 +73,7 @@ Background:
 
 
 	Scenario: Verify error messages for invalid Authorised Representative fields
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1C'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -89,7 +89,7 @@ Background:
 	| test1C    | TestEnv3           | TestName%    | Test1()%         | test@gmail.com!"£$%^&*())_+<>?<NBXCVDDDDDDDDDDDDDDDDDdDDDDDDDDDDDDDdSGSSSSSSSSSSSSsGGGGGDGERHFGHFGHHFHFGH | Enter a name using only letters, hyphens or apostrophes | The email address cannot be longer than 100 characters | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | has read and understood the terms and conditions|
 
 	Scenario: Verify Cancel link on update Authorised Representative page
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1C'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -103,7 +103,7 @@ Background:
 
 
 	Scenario: Verify Back link on update Authorised Representative page
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1C'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 

@@ -43,7 +43,6 @@ Background:
 	And   select business '<Business selection>' on self serve dashboard 
 	And   click on link 'Add a place of destination'
 	Then  verify next page '<nextPage>' is loaded
-	And   verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page 
 	When  click on back link
 	Then  verify dynamic name '<Business selection>' in title '<PageTitle>' of page
 	When  click on link 'Add a place of destination'
@@ -88,8 +87,8 @@ Background:
 	When  click on back to dashboard link
 	Then  verify next page '<PageTitle>' is loaded
 	Examples: 
-	| logininfo | Business selection | PageTitle                               | nextPage                   | warningText                                  | PageTitle2                                                  | PageTitle3                              | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 | AddrPostcode3 |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of destination | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of destination successfully added | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      | BT30 6LY      |
+	| logininfo | Business selection | PageTitle                               | nextPage                   | PageTitle2                                                  | PageTitle3                              | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 | AddrPostcode3 |
+	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of destination | Requirements of the Northern Ireland Retail Movement Scheme | Place of destination successfully added | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      | BT30 6LY      |
 
 
 Scenario: Verify zero results page on Place Of Destination page

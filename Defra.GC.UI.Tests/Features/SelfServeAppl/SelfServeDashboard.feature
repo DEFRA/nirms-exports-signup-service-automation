@@ -69,8 +69,8 @@ Scenario: Verify different statuses on self serve dashboard
 
 
 	Examples: 
-	| logininfo | Business selection |Business RMS Number    |
-	| test1A    | TestEnv2           |RMS-GB                 |
+	| logininfo | Business selection | Business RMS Number | nextPage                                |
+	| test1A    | TestEnv2           | RMS-GB              | Northern Ireland Retail Movement Scheme |
 
 
 Scenario: Verify Add business button on self serve dashboard

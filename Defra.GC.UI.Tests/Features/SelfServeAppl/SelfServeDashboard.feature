@@ -60,6 +60,7 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  verify status 'Suspended from NIRMS' on self serve business dashboard page
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 	Then  verify Business RMS number '<Business RMS Number>' on self serve dashboard page
+	And   click on back link
 	When  Reject Sign up request for org '<Business selection>'
 	Then  click on refresh link on self serve dashboard
 	And   verify status 'Sign-up rejected' is displayed for the '<Business selection>' on self serve dashboard

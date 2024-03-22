@@ -52,6 +52,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
 
         public bool VerifyBusinessRMSNumber(string businessRMSNumber) 
         {
+            Thread.Sleep(1000);
             return BusinessRMSNumberEle.Text.Contains(businessRMSNumber);
         }
 

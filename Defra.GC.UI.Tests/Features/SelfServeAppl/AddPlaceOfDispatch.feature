@@ -149,7 +149,7 @@ Scenario: Verify error message for blank Establishment postcode field & non GB p
 	| test1C    | TestEnv3           |           | Enter a postcode. |
 	| test1C    | TestEnv3           | BT93 8AD  | Enter a postcode in England, Scotland or Wales |
 
-	@RunOnly
+	
 Scenario: Verify browser back and error page on Add a place of dispatch
 Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'

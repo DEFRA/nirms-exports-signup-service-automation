@@ -190,5 +190,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
         {
             applicationPage.ClickGOVHeaderLink();
         }
+
+        [When(@"click browser back")]
+        [Then(@"click browser back")]
+        public void ClickBrowserBack()
+        {
+            applicationPage.ClickBrowserBack();
+        }
     }
 }

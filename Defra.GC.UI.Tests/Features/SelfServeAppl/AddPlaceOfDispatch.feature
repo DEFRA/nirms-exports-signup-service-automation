@@ -161,7 +161,6 @@ Given that I navigate to the NI GC application
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'
 	Then  verify next page '<PageTitle4>' is loaded
-	#When  click on save and continue
 	When  click on continue button
 	Then  verify next page '<PageTitle>' is loaded
 	When  click on button 'Add place of dispatch'

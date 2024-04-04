@@ -41,5 +41,6 @@
         public void ClickReturnToDashboard();
         public void ClickGOVHeaderLink();
         public bool VerifyTextOnEstablishmentPage(string message);
+        public void ClickBrowserBack();
     }
 }

@@ -148,3 +148,27 @@ Scenario: Verify error message for blank Establishment postcode field & non GB p
 	| logininfo | Business selection | postcode  | errorMessage      |
 	| test1C    | TestEnv3           |           | Enter a postcode. |
 	| test1C    | TestEnv3           | BT93 8AD  | Enter a postcode in England, Scotland or Wales |
+
+	@RunOnly
+Scenario: Verify browser back and error page on Add a place of dispatch
+Given that I navigate to the NI GC application
+	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	And   select business '<Business selection>' on self serve dashboard 
+	And   click on link 'Add a place of dispatch'
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link  
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	Then  verify next page '<PageTitle4>' is loaded
+	#When  click on save and continue
+	When  click on continue button
+	Then  verify next page '<PageTitle>' is loaded
+	When  click on button 'Add place of dispatch'
+	Then  verify next page '<PageTitle1>' is loaded
+	When  click browser back
+	Then  verify next page '<PageTitle2>' is loaded
+	
+	Examples: 
+	| logininfo | Business selection | PageTitle                               | PageTitle1                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | PageTitle2                                         |PageTitle4             |
+	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | You cannot access this page or perform this action |Add a place of dispatch|

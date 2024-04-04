@@ -179,6 +179,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 return false;
         }
 
+        public void ClickBrowserBack()
+        {
+            _driver.Navigate().Back();
+        }
+
         #endregion Page Methods
     }
 }

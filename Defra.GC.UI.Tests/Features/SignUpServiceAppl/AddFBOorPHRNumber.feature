@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression 
 Feature: Add FBO or PHR Number
 
 Add FBO or PHR Number

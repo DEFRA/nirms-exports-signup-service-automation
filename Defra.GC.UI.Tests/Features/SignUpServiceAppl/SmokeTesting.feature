@@ -1,4 +1,4 @@
-   @SmokeTest @RunOnly
+   @SmokeTest 
 Feature: SusSmokeTesting 
 
 Sus Smoke Testing 

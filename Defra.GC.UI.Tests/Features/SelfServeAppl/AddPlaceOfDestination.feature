@@ -1,4 +1,4 @@
-﻿@SelfServeRegression @RunOnly
+﻿@SelfServeRegression 
 Feature: AddPlaceOfDestination
 
 Add Place of Destination

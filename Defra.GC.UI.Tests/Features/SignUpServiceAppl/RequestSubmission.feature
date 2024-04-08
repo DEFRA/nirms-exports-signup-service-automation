@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression
 Feature: Receive Notice after RequestSubmission
 
 Receive Notice of Signup Request

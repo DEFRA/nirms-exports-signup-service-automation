@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression
 
 Feature: AddBusinessEligibility
 

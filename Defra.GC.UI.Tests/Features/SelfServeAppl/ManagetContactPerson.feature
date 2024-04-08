@@ -1,4 +1,4 @@
-﻿@SelfServeRegression @RunOnly
+﻿@SelfServeRegression 
 Feature: ManageContactPerson
 
 Manage Contact Person

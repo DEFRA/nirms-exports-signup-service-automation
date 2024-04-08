@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression 
 Feature: RejectedStatus for NI & GB Establishment
 
 @ignore

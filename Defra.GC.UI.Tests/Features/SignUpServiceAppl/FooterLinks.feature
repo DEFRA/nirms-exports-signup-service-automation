@@ -1,4 +1,4 @@
-@Regression @RunOnly
+@Regression 
 Feature: FooterLinks
 
 Verify Footer links on SUS

@@ -1,4 +1,4 @@
-﻿@SelfServeRegression @RunOnly
+﻿@SelfServeRegression 
 Feature: VerifyNIEstablishmentStatus
 
 Verify NI Establishment Status

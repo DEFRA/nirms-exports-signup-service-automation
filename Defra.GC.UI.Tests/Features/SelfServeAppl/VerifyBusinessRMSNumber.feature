@@ -1,4 +1,4 @@
-﻿@SelfServeRegression @RunOnly
+﻿@SelfServeRegression 
 Feature: VerifyBusinessRMSNumber
 
 Verify Business RMS Number

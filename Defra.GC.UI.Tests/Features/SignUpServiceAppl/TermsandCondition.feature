@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression 
 Feature: Terms and Conditions
 
 Check Terms and conditions and clicking on the Submit signup button

@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression 
 Feature: AddBusinessContactEmailAddress
 
 Add Contact Email address

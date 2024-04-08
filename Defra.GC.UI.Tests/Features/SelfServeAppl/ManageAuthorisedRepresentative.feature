@@ -1,4 +1,4 @@
-﻿@SelfServeRegression @RunOnly
+﻿@SelfServeRegression 
 Feature: ManageAuthorisedRepresentative
 
 Manage Authorised Representative

@@ -1,4 +1,4 @@
-﻿@Regression
+﻿@Regression @RunOnly
 Feature: AddGBPointOfDepartureEstablishment
 
 Add GB point of Departure Establishment

@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression @RunOnly
 Feature: AddPlaceOfDispatch
 
 Add Place of Dispatch

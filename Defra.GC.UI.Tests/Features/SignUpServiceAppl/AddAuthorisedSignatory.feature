@@ -1,4 +1,4 @@
-﻿@Regression
+﻿@Regression @RunOnly
 Feature: AddAuthorisedSignatory
 
 Add Authorised Signatory

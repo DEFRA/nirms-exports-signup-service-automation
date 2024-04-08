@@ -1,4 +1,4 @@
-@SelfServeRegression
+@SelfServeRegression @RunOnly
 Feature: SelfServeDashboard
 
 Verify Self serve dashboard

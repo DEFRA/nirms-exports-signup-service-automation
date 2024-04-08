@@ -81,7 +81,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifySignUpTaskListPageIsLoaded()
         {
-            return SignUPTaskPage.Text.Contains("Sign up for the Northern Ireland Retail Movement Scheme");
+            return SignUPTaskPage.Text.Contains("Sign up for the NI Retail Movement Scheme");
         }
 
         public bool VerifyFeedbackPageLoaded()

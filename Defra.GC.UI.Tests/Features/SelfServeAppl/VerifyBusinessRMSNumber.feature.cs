@@ -177,7 +177,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify business RMS Number")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "RMS-GB", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "RMS-GB", "NI Retail Movement Scheme", null)]
         public void VerifyBusinessRMSNumber(string logininfo, string businessSelection, string businessRMSNumber, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

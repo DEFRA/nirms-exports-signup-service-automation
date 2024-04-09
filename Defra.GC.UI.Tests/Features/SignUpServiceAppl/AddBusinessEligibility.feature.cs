@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error message for not selecting the country")]
-        [NUnit.Framework.TestCaseAttribute("test", "Northern Ireland Retail Movement Scheme", "TestEnv1", "Requirements of the Northern Ireland", "do under the Northern Ireland Retail Movement Scheme?", "will do under the scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "NI Retail Movement Scheme", "TestEnv1", "Requirements of the NI", "do under the NI Retail Movement Scheme?", "will do under the scheme", null)]
         public void VerifyErrorMessageForNotSelectingTheCountry(string logininfo, string nextPage, string businessName, string nextPage1, string nextPage2, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -138,7 +138,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back button on country page is going to select business page")]
-        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "Requirements of the Northern Ireland", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "Requirements of the NI", null)]
         public void VerifyBackButtonOnCountryPageIsGoingToSelectBusinessPage(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -229,7 +229,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on Regulations page is navigating to business sign up page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "TestEnv1", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "TestEnv1", "NI Retail Movement Scheme", null)]
         public void VerifyBackLinkOnRegulationsPageIsNavigatingToBusinessSignUpPage(string logininfo, string country, string fBONumber, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -396,7 +396,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Start new SignUp request link on Purpose of Business page navigates to sel" +
             "ect business page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "TestEnv1", "Sign up", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "TestEnv1", "Sign up", "NI Retail Movement Scheme", null)]
         public void VerifyStartNewSignUpRequestLinkOnPurposeOfBusinessPageNavigatesToSelectBusinessPage(string logininfo, string country, string fBONumber, string businessSelection, string nextPage, string nextPage1, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -465,7 +465,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify requirements of Northern Ireland Retail Movement scheme page is diplayed o" +
             "n selecting business for rejected status")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "England", "testFBO", "testName", "testAddress", "London", "Wv1 3EB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Requirements of the Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "England", "testFBO", "testName", "testAddress", "London", "Wv1 3EB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Requirements of the NI Retail Movement Scheme", null)]
         public void VerifyRequirementsOfNorthernIrelandRetailMovementSchemePageIsDiplayedOnSelectingBusinessForRejectedStatus(
                     string logininfo, 
                     string businessSelection, 

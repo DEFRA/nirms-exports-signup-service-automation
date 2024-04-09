@@ -1,4 +1,4 @@
-﻿@Regression
+﻿@Regression 
 Feature: Add FBO or PHR Number
 
 Add FBO or PHR Number
@@ -32,8 +32,8 @@ Scenario Outline: Verify back link on Assurance FBO page is going back to Task l
 	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-    | logininfo | Country | nextPage                                                 | Business selection   |
-    | test      | England | Sign up for the Northern Ireland Retail Movement Scheme  | TestEnv1             |
+    | logininfo | Country | nextPage                                   | Business selection   |
+    | test      | England | Sign up for the NI Retail Movement Scheme  | TestEnv1             |
 
 
 Scenario Outline: Verify error message for invalid FBO Number

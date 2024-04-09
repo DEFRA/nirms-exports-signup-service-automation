@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression 
 Feature: AddPlaceOfDestination
 
 Add Place of Destination
@@ -31,7 +31,7 @@ Background:
 	Then  verify next page 'Terms and conditions' is loaded
 	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
-	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
+	Then  verify  'You have successfully submitted a request to sign up for the NI Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
 	Given Approve Sign up request for org 'TestEnv3' and user 'test1C'
@@ -87,8 +87,8 @@ Background:
 	When  click on back to dashboard link
 	Then  verify next page '<PageTitle>' is loaded
 	Examples: 
-	| logininfo | Business selection | PageTitle                               | nextPage                   | PageTitle2                                                  | PageTitle3                              | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 | AddrPostcode3 |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of destination | Requirements of the Northern Ireland Retail Movement Scheme | Place of destination successfully added | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      | BT30 6LY      |
+	| logininfo | Business selection | PageTitle                 | nextPage                   | PageTitle2                                    | PageTitle3                              | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 | AddrPostcode3 |
+	| test1C    | TestEnv3           | NI Retail Movement Scheme | Add a place of destination | Requirements of the NI Retail Movement Scheme | Place of destination successfully added | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      | BT30 6LY      |
 
 
 Scenario: Verify zero results page on Place Of Destination page

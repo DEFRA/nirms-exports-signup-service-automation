@@ -1,4 +1,4 @@
-﻿@Regression
+﻿@Regression 
 Feature: AddAuthorisedSignatory
 
 Add Authorised Signatory
@@ -47,8 +47,8 @@ Scenario: Verify error messages if user do not select Authorised Signatory
 	Then  verify next page '<nextPage>' is loaded
 
 	Examples: 
-	| logininfo | Business selection  | Country | FBONumber | errorMessage				        |contactName     | contactPosition | emailAddress   | telephoneNumber |nextPage                                                |
-	| test      | TestEnv1            | England | testFBO   | is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001    | Sign up for the Northern Ireland Retail Movement Scheme|
+	| logininfo | Business selection  | Country | FBONumber | errorMessage				        |contactName     | contactPosition | emailAddress   | telephoneNumber |nextPage                                  |
+	| test      | TestEnv1            | England | testFBO   | is the authorised representative  |testContactName | testPosition    | test@test.com | 01632 960 001    | Sign up for the NI Retail Movement Scheme|
 	
 	@ignore
 Scenario: Verify Save and return to dashboard on Authorised Signatory page
@@ -72,7 +72,7 @@ Scenario: Verify Save and return to dashboard on Authorised Signatory page
 
 	Examples: 
 	| logininfo |  Business selection	|Country | FBONumber |                        nextPage                                  |contactName     | contactPosition | emailAddress  | telephoneNumber |
-	| test      |  TestEnv1             |England | testFBO   |   Sign up for the Northern Ireland Retail Movement Scheme        |testContactName | testPosition    | test@test.com | 01632 960 001   |
+	| test      |  TestEnv1             |England | testFBO   |   Sign up for the NI Retail Movement Scheme        |testContactName | testPosition    | test@test.com | 01632 960 001   |
 
 
 Scenario Outline:Verify save and return to dashboard on Authorised Signatory page after completing Contact person

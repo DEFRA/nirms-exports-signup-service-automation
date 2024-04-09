@@ -247,11 +247,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify message on signup confirmation for GB establishment")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName3", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Scheme", "We will review your sign-up request and email you with the outcome within 5 worki" +
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName3", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the NI Retail Movement S" +
+            "cheme", "We will review your sign-up request and email you with the outcome within 5 worki" +
             "ng days.", "Your consignee will also need to sign up for the scheme. If their sign-up request" +
             " is approved, you will be able to apply for General Certificates to send goods t" +
-            "o them in Northern Ireland.", "Northern Ireland Retail Movement Scheme", null)]
+            "o them in Northern Ireland.", "NI Retail Movement Scheme", null)]
         public void VerifyMessageOnSignupConfirmationForGBEstablishment(
                     string logininfo, 
                     string businessSelection, 
@@ -312,9 +312,6 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 51
- testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 52
  testRunner.When("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
@@ -467,6 +464,9 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 88
+ testRunner.Given(string.Format("Clear Database for user \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 89
  testRunner.And("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

@@ -1,4 +1,4 @@
-﻿@Regression
+﻿@Regression 
 Feature: AddBusinessContactEmailAddress
 
 Add Contact Email address
@@ -55,7 +55,7 @@ Scenario: Verify error message for blank contact email address
 
 	Examples: 
 	| logininfo | Business selection      | Country | FBONumber | contactName     | contactPosition | emailAddress | errorMessage           | nextPage |
-	| test      | TestEnv1                | England | testFBO   | testContactName | testPosition    |              | Enter an email address |Sign up for the Northern Ireland Retail Movement Scheme |
+	| test      | TestEnv1                | England | testFBO   | testContactName | testPosition    |              | Enter an email address |Sign up for the NI Retail Movement Scheme |
 
 	@ignore
 Scenario: Verify back to dashboard link on contact email address page
@@ -80,7 +80,7 @@ Scenario: Verify back to dashboard link on contact email address page
 
 	Examples: 
 	| logininfo | Business selection       | Country | FBONumber | contactName     | contactPosition | nextPage |
-	| test      | TestEnv1                 | England | testFBO   | testContactName | testPosition    | Sign up for the Northern Ireland Retail Movement Scheme |
+	| test      | TestEnv1                 | England | testFBO   | testContactName | testPosition    | Sign up for the NI Retail Movement Scheme |
 
 
 Scenario: Verify save and return to dashboard on contact email address page

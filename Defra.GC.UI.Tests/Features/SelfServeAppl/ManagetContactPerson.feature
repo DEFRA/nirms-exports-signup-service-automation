@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression 
 Feature: ManageContactPerson
 
 Manage Contact Person
@@ -31,13 +31,13 @@ Background:
 	Then  verify next page 'Terms and conditions' is loaded
 	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
-	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
+	Then  verify  'You have successfully submitted a request to sign up for the NI Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
 
 
 	Scenario: Update contact person
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1B'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -57,7 +57,7 @@ Background:
 
 
 	Scenario: Verify error messages for blank contact person fields
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1B'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -75,7 +75,7 @@ Background:
 
 
 	Scenario: Verify error messages for invalid contact person fields
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1B'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -92,7 +92,7 @@ Background:
 	| test1B    | TestEnv4           | TestName%    | Test1()%         | test@gmail.com!"£$%^&*())_+<>?<NBXCVDDDDDDDDDDDDDDDDDdDDDDDDDDDDDDDdSGSSSSSSSSSSSSsGGGGGDGERHFGHFGHHFHFGH| 01632 960 001%          | Enter a name using only letters, hyphens or apostrophes | The email address cannot be longer than 100 characters | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192 |
 
 	Scenario: Verify Cancel link on update contact person page
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1B'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -101,12 +101,12 @@ Background:
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 
 	Examples: 
-	| logininfo | Business selection   |nextPage                                |
-	| test1B    | TestEnv4             |Northern Ireland Retail Movement Scheme |
+	| logininfo | Business selection   |nextPage                  |
+	| test1B    | TestEnv4             |NI Retail Movement Scheme |
 
 
 	Scenario: Verify Back link on update contact person page
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1B'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -115,5 +115,5 @@ Background:
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 
 	Examples: 
-	| logininfo | Business selection   |nextPage                                |
-	| test1B    | TestEnv4             |Northern Ireland Retail Movement Scheme |
+	| logininfo | Business selection   |nextPage                  |
+	| test1B    | TestEnv4             |NI Retail Movement Scheme |

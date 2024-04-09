@@ -86,13 +86,15 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify different statuses on self serve dashboard")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", null)]
-        public void VerifyDifferentStatusesOnSelfServeDashboard(string logininfo, string businessSelection, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "RMS-GB", "NI Retail Movement Scheme", null)]
+        public void VerifyDifferentStatusesOnSelfServeDashboard(string logininfo, string businessSelection, string businessRMSNumber, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);
+            argumentsOfScenario.Add("Business RMS Number", businessRMSNumber);
+            argumentsOfScenario.Add("nextPage", nextPage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify different statuses on self serve dashboard", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 10
 this.ScenarioInitialize(scenarioInfo);
@@ -136,8 +138,7 @@ this.FeatureBackground();
  testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
- testRunner.Then("verify next page \'Requirements of the Northern Ireland Retail Movement Scheme\' is" +
-                        " loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("verify next page \'Requirements of the NI Retail Movement Scheme\' is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 21
  testRunner.When("complete eligibility task with \'England\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -214,7 +215,7 @@ this.FeatureBackground();
                             "rd", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 44
- testRunner.When(string.Format("Approve Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("Approve Sign up request for org \'{0}\' and user \'{1}\'", businessSelection, logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 45
  testRunner.Then("click on refresh link on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -249,24 +250,50 @@ this.FeatureBackground();
  testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 55
- testRunner.When(string.Format("Reject Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("Suspend Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 56
- testRunner.Then("click on refresh link on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("navigate to Self Serve Dashboard URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 57
+ testRunner.And(string.Format("verify status \'Suspended\' is displayed for the \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 58
+ testRunner.And(string.Format("verify link \'View\' is displayed for the \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 59
+ testRunner.And(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 60
+ testRunner.Then("verify status \'Suspended from NIRMS\' on self serve business dashboard page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 61
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'{1}\' of page", businessSelection, nextPage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 62
+ testRunner.Then(string.Format("verify Business RMS number \'{0}\' on self serve dashboard page", businessRMSNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 63
+ testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 64
+ testRunner.When(string.Format("Reject Sign up request for org \'{0}\'", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 65
+ testRunner.Then("click on refresh link on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 66
  testRunner.And(string.Format("verify status \'Sign-up rejected\' is displayed for the \'{0}\' on self serve dashboa" +
                             "rd", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 58
+#line 67
  testRunner.And(string.Format("verify link \'Sign up again\' is displayed for the \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 59
+#line 68
  testRunner.When(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 60
- testRunner.Then("verify next page \'Requirements of the Northern Ireland Retail Movement Scheme\' is" +
-                        " loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 69
+ testRunner.Then("verify next page \'Requirements of the NI Retail Movement Scheme\' is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -281,7 +308,7 @@ this.FeatureBackground();
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Add business button on self serve dashboard", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 68
+#line 78
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -294,23 +321,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 69
+#line 79
  testRunner.Given("that I navigate to the NI GC application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 70
+#line 80
  testRunner.When(string.Format("sign in to self serve with valid credentials with logininfo \'{0}\'", logininfo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 71
+#line 81
  testRunner.Then("click on Add Business Button on self serve dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 72
+#line 82
  testRunner.Then("verify next page \'Add a business\' is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 73
+#line 83
  testRunner.And("click on back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 74
- testRunner.Then("verify next page \'Northern Ireland Retail Movement Scheme\' is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 84
+ testRunner.Then("verify next page \'NI Retail Movement Scheme\' is loaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

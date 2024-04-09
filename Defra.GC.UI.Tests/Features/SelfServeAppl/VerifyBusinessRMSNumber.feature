@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression 
 Feature: VerifyBusinessRMSNumber
 
 Verify Business RMS Number
@@ -36,7 +36,7 @@ Background:
 	Then  click on signout button and verify the signout message
 
 Scenario: Verify business RMS Number
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user '<logininfo>'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -44,8 +44,8 @@ Scenario: Verify business RMS Number
 	Then  verify Business RMS number '<Business RMS Number>' on self serve dashboard page
 
 	Examples: 
-	| logininfo | Business selection | Business RMS Number | nextPage                                |
-	| test1A    | TestEnv2           | RMS-GB              | Northern Ireland Retail Movement Scheme |
+	| logininfo | Business selection | Business RMS Number | nextPage                  |
+	| test1A    | TestEnv2           | RMS-GB              | NI Retail Movement Scheme |
 
 
 

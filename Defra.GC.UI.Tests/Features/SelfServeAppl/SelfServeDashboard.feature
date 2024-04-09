@@ -1,4 +1,4 @@
-@SelfServeRegression
+@SelfServeRegression @RunOnly
 Feature: SelfServeDashboard
 
 Verify Self serve dashboard
@@ -17,7 +17,7 @@ Scenario: Verify different statuses on self serve dashboard
 	And   verify status 'Sign-up started' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'Continue' is displayed for the '<Business selection>' on self serve dashboard
 	And   select business '<Business selection>' on self serve dashboard 
-	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
+	Then  verify next page 'Requirements of the NI Retail Movement Scheme' is loaded
 	When  complete eligibility task with 'England'
 	Then  verify eligibility task status as 'Completed'
 	Then  verify next page 'Sign up' is loaded
@@ -38,26 +38,20 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  verify next page 'Terms and conditions' is loaded
 	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
-	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
+	Then  verify  'You have successfully submitted a request to sign up for the NI Retail Movement Scheme' on completed sign up page
 	When  navigate to Self Serve Dashboard URL
 	Then  verify status 'Pending approval' is displayed for the '<Business selection>' on self serve dashboard
-	When  Approve Sign up request for org '<Business selection>'
+	When  Approve Sign up request for org '<Business selection>' and user '<logininfo>'
 	Then  click on refresh link on self serve dashboard
 	And   verify status 'Approved for NIRMS' is displayed for the '<Business selection>' on self serve dashboard
 	And   verify link 'Manage' is displayed for the '<Business selection>' on self serve dashboard
 	When  select business '<Business selection>' on self serve dashboard
-	Then  verify dynamic name '<Business selection>' in title 'Northern Ireland Retail Movement Scheme' of page
+	Then  verify dynamic name '<Business selection>' in title 'NI Retail Movement Scheme' of page
 	When  click on contact person change link
 	And   enter contact person Name 'Updated Name'
 	And   click on save contact person details
 	And   verify Contact Person date format 'Updated' on self serve dashboard
 	And   click on back link
-	When  Reject Sign up request for org '<Business selection>'
-	Then  click on refresh link on self serve dashboard
-	And   verify status 'Sign-up rejected' is displayed for the '<Business selection>' on self serve dashboard
-	And   verify link 'Sign up again' is displayed for the '<Business selection>' on self serve dashboard
-	When  select business '<Business selection>' on self serve dashboard
-	Then  verify next page 'Requirements of the Northern Ireland Retail Movement Scheme' is loaded
 	When  Suspend Sign up request for org '<Business selection>'
 	And   navigate to Self Serve Dashboard URL
 	And   verify status 'Suspended' is displayed for the '<Business selection>' on self serve dashboard
@@ -66,11 +60,19 @@ Scenario: Verify different statuses on self serve dashboard
 	Then  verify status 'Suspended from NIRMS' on self serve business dashboard page
 	Then  verify dynamic name '<Business selection>' in title '<nextPage>' of page
 	Then  verify Business RMS number '<Business RMS Number>' on self serve dashboard page
+	And   click on back link
+	When  Reject Sign up request for org '<Business selection>'
+	Then  click on refresh link on self serve dashboard
+	And   verify status 'Sign-up rejected' is displayed for the '<Business selection>' on self serve dashboard
+	And   verify link 'Sign up again' is displayed for the '<Business selection>' on self serve dashboard
+	When  select business '<Business selection>' on self serve dashboard
+	Then  verify next page 'Requirements of the NI Retail Movement Scheme' is loaded
+	
 
 
 	Examples: 
-	| logininfo | Business selection |Business RMS Number    |
-	| test1A    | TestEnv2           |RMS-GB                 |
+	| logininfo | Business selection | Business RMS Number | nextPage                  |
+	| test1A    | TestEnv2           | RMS-GB              | NI Retail Movement Scheme |
 
 
 Scenario: Verify Add business button on self serve dashboard
@@ -79,7 +81,7 @@ Scenario: Verify Add business button on self serve dashboard
 	Then  click on Add Business Button on self serve dashboard
 	Then  verify next page 'Add a business' is loaded
 	And   click on back link
-	Then  verify next page 'Northern Ireland Retail Movement Scheme' is loaded
+	Then  verify next page 'NI Retail Movement Scheme' is loaded
 
 Examples: 
 	| logininfo | 

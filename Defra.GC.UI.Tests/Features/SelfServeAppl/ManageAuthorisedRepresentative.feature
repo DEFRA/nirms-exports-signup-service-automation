@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression 
 Feature: ManageAuthorisedRepresentative
 
 Manage Authorised Representative
@@ -31,13 +31,13 @@ Background:
 	Then  verify next page 'Terms and conditions' is loaded
 	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
-	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
+	Then  verify  'You have successfully submitted a request to sign up for the NI Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
 
 
 	Scenario: Update Authorised Representative
-	Given  Approve Sign up request for org '<Business selection>'
+	Given  Approve Sign up request for org '<Business selection>' and user 'test1C'
 	Given  that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -56,7 +56,7 @@ Background:
 
 
 	Scenario: Verify error messages for blank Authorised Representative fields
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1C'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -73,7 +73,7 @@ Background:
 
 
 	Scenario: Verify error messages for invalid Authorised Representative fields
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1C'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -89,7 +89,7 @@ Background:
 	| test1C    | TestEnv3           | TestName%    | Test1()%         | test@gmail.com!"£$%^&*())_+<>?<NBXCVDDDDDDDDDDDDDDDDDdDDDDDDDDDDDDDdSGSSSSSSSSSSSSsGGGGGDGERHFGHFGHHFHFGH | Enter a name using only letters, hyphens or apostrophes | The email address cannot be longer than 100 characters | Enter a position using only letters, numbers, brackets, full stops, commas, hyphens, underscores, forward slashes or ampersands | has read and understood the terms and conditions|
 
 	Scenario: Verify Cancel link on update Authorised Representative page
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1C'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -99,11 +99,11 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection   |nextPage                                |
-	| test1C    | TestEnv3             |Northern Ireland Retail Movement Scheme |
+	| test1C    | TestEnv3             |NI Retail Movement Scheme |
 
 
 	Scenario: Verify Back link on update Authorised Representative page
-	Given Approve Sign up request for org '<Business selection>'
+	Given Approve Sign up request for org '<Business selection>' and user 'test1C'
 	And   that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
 	And   select business '<Business selection>' on self serve dashboard 
@@ -113,4 +113,4 @@ Background:
 
 	Examples: 
 	| logininfo | Business selection   |nextPage                                |
-	| test1C    | TestEnv3             |Northern Ireland Retail Movement Scheme |
+	| test1C    | TestEnv3             |NI Retail Movement Scheme |

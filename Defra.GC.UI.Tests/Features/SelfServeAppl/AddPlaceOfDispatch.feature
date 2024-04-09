@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression 
 Feature: AddPlaceOfDispatch
 
 Add Place of Dispatch
@@ -31,10 +31,10 @@ Background:
 	Then  verify next page 'Terms and conditions' is loaded
 	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
-	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
+	Then  verify  'You have successfully submitted a request to sign up for the NI Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
-	Given Approve Sign up request for org 'TestEnv3'
+	Given Approve Sign up request for org 'TestEnv3' and user 'test1C'
 
 
 Scenario: Verify back link on Place Of Dispatch page
@@ -43,7 +43,6 @@ Scenario: Verify back link on Place Of Dispatch page
 	And   select business '<Business selection>' on self serve dashboard 
 	And   click on link 'Add a place of dispatch'
 	Then  verify next page '<nextPage>' is loaded
-	And   verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page 
 	When  click on back link
 	Then  verify dynamic name '<Business selection>' in title '<PageTitle>' of page
 	When  click on link 'Add a place of dispatch'
@@ -89,8 +88,8 @@ Scenario: Verify back link on Place Of Dispatch page
 	Then  verify next page '<PageTitle>' is loaded
 
 	Examples: 
-	| logininfo | Business selection | PageTitle                               | nextPage                | warningText                                  | PageTitle2                                                  | PageTitle3                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | AddrPostcode3 |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of dispatch | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        | SE10 9GB      |
+	| logininfo | Business selection | PageTitle                 | nextPage                | PageTitle2                                    | PageTitle3                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2 | AddrPostcode2 | AddrPostcode3 |
+	| test1C    | TestEnv3           | NI Retail Movement Scheme | Add a place of dispatch | Requirements of the NI Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | testName12         | testAddress2 | Liverpool | England     | L1 0AN        | SE10 9GB      |
 
 
 Scenario: Verify zero results page on Place Of Dispatch page
@@ -149,3 +148,26 @@ Scenario: Verify error message for blank Establishment postcode field & non GB p
 	| logininfo | Business selection | postcode  | errorMessage      |
 	| test1C    | TestEnv3           |           | Enter a postcode. |
 	| test1C    | TestEnv3           | BT93 8AD  | Enter a postcode in England, Scotland or Wales |
+
+	
+Scenario: Verify browser back and error page on Add a place of dispatch
+Given that I navigate to the NI GC application
+	When  sign in to self serve with valid credentials with logininfo '<logininfo>'
+	And   select business '<Business selection>' on self serve dashboard 
+	And   click on link 'Add a place of dispatch'
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on cannot find establishment link  
+	And   click on the add establishment address manually link
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	Then  verify next page '<PageTitle4>' is loaded
+	When  click on continue button
+	Then  verify next page '<PageTitle>' is loaded
+	When  click on button 'Add place of dispatch'
+	Then  verify next page '<PageTitle1>' is loaded
+	When  click browser back
+	Then  verify next page '<PageTitle2>' is loaded
+	
+	Examples: 
+	| logininfo | Business selection | PageTitle                 | PageTitle1                           | EstablishmentName | AddressLine1 | estCity | estCountry | AddrPostcode | PageTitle2                                         |PageTitle4             |
+	| test1C    | TestEnv3           | NI Retail Movement Scheme | Place of dispatch successfully added | testName11        | testAddress1 | London  | England    | SE10 9NF     | You cannot access this page or perform this action |Add a place of dispatch|

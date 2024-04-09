@@ -56,7 +56,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         {
             if (!PageHeading.Text.Contains("Sign up"))
             {
-                if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))
+                if (PageHeading.Text.Contains("Requirements of the NI Retail Movement Scheme"))
                 {
                     ConfirmReMosRegulationToCompleteEligibility();
                 }
@@ -110,7 +110,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void NavigateToRegulationsAndConfirmRegulation()
         {
-            if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))
+            if (PageHeading.Text.Contains("Requirements of the NI Retail Movement Scheme"))
             {
                 ConfirmReMosRegulationToCompleteEligibility();
             }
@@ -149,12 +149,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void SelectBusinessCountry(string country)
         {
-            if (PageHeading.Text.Contains("Requirements of the Northern Ireland Retail Movement Scheme"))
+            if (PageHeading.Text.Contains("Requirements of the NI Retail Movement Scheme"))
             {
                 ConfirmReMosRegulationToCompleteEligibility();
             }
 
-            if (PageHeading.Text.Contains("do under the Northern Ireland Retail Movement Scheme?"))
+            if (PageHeading.Text.Contains("do under the NI Retail Movement Scheme?"))
             {
                 if (_driver.FindElements(ErrorSummaryBy).Count > 0)
                 {

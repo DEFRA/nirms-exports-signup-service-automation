@@ -17,8 +17,8 @@ Scenario Outline: Verify error message for not selecting the country
 	Then  verify dynamic name '<businessName>' in title '<nextPage2>' of page
 	Then  verify dynamic name '<businessName>' in error message '<errorMessage>'
 	Examples: 
-    | logininfo | nextPage                                | businessName   | nextPage1					          | nextPage2                                             | errorMessage             |
-    | test      | Northern Ireland Retail Movement Scheme | TestEnv1       | Requirements of the Northern Ireland | do under the Northern Ireland Retail Movement Scheme? | will do under the scheme |
+    | logininfo | nextPage                  | businessName   | nextPage1			  | nextPage2                               | errorMessage             |
+    | test      | NI Retail Movement Scheme | TestEnv1       | Requirements of the NI | do under the NI Retail Movement Scheme? | will do under the scheme |
 
 
 Scenario Outline: Verify back button on country page is going to select business page
@@ -31,8 +31,8 @@ Scenario Outline: Verify back button on country page is going to select business
 	Then  verify next page '<nextPage>' is loaded 
 
 	Examples: 
-    | logininfo | Business selection     | nextPage                                |
-    | test      | TestEnv1               | Requirements of the Northern Ireland    |
+    | logininfo | Business selection     | nextPage                  |
+    | test      | TestEnv1               | Requirements of the NI    |
 
 
 Scenario Outline: Verify confirmation error message for Regulations page
@@ -57,8 +57,8 @@ Scenario Outline: Verify back link on Regulations page is navigating to business
 	
 	
 	Examples: 
-    | logininfo | Country | FBONumber | Business selection   | nextPage                                |
-    | test      | England | testFBO   | TestEnv1             | Northern Ireland Retail Movement Scheme |
+    | logininfo | Country | FBONumber | Business selection   | nextPage                  |
+    | test      | England | testFBO   | TestEnv1             | NI Retail Movement Scheme |
 	
 
 Scenario: Verify text on Purpose of Business page  
@@ -111,8 +111,8 @@ Scenario: Verify Start new SignUp request link on Purpose of Business page navig
 	Then  verify next page '<nextPage1>' is loaded 
 
 	Examples:
-    | logininfo | Country | FBONumber | Business selection | nextPage | nextPage1                               |
-    | test      | England | testFBO   | TestEnv1           | Sign up  | Northern Ireland Retail Movement Scheme |
+    | logininfo | Country | FBONumber | Business selection | nextPage | nextPage1                 |
+    | test      | England | testFBO   | TestEnv1           | Sign up  | NI Retail Movement Scheme |
 
 
 
@@ -143,5 +143,5 @@ Scenario: Verify requirements of Northern Ireland Retail Movement scheme page is
 	And   select business to sign up '<Business selection>' 
 	Then  verify next page '<nextPage>' is loaded
 	Examples: 
-	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |nextPage                                                   |
-	| test1C    | TestEnv3           | England | testFBO   | testName      | testAddress | London | Wv1 3EB      | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |Requirements of the Northern Ireland Retail Movement Scheme|
+	| logininfo | Business selection | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry |nextPage                                     |
+	| test1C    | TestEnv3           | England | testFBO   | testName      | testAddress | London | Wv1 3EB      | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    |Requirements of the NI Retail Movement Scheme|

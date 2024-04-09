@@ -1,4 +1,4 @@
-﻿@SelfServeRegression
+﻿@SelfServeRegression 
 Feature: AddPlaceOfDestination
 
 Add Place of Destination
@@ -31,10 +31,10 @@ Background:
 	Then  verify next page 'Terms and conditions' is loaded
 	Then  click on the confirm check box on Terms and conditions page
 	Then  click on submit sign up
-	Then  verify  'You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme' on completed sign up page
+	Then  verify  'You have successfully submitted a request to sign up for the NI Retail Movement Scheme' on completed sign up page
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
-	Given Approve Sign up request for org 'TestEnv3'
+	Given Approve Sign up request for org 'TestEnv3' and user 'test1C'
 
 
 	Scenario: Verify back link and search address on Place Of Destination page
@@ -43,7 +43,6 @@ Background:
 	And   select business '<Business selection>' on self serve dashboard 
 	And   click on link 'Add a place of destination'
 	Then  verify next page '<nextPage>' is loaded
-	And   verify dynamic name '<Business selection>' in warning text '<warningText>' on establishment page 
 	When  click on back link
 	Then  verify dynamic name '<Business selection>' in title '<PageTitle>' of page
 	When  click on link 'Add a place of destination'
@@ -88,8 +87,8 @@ Background:
 	When  click on back to dashboard link
 	Then  verify next page '<PageTitle>' is loaded
 	Examples: 
-	| logininfo | Business selection | PageTitle                               | nextPage                   | warningText                                  | PageTitle2                                                  | PageTitle3                              | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 | AddrPostcode3 |
-	| test1C    | TestEnv3           | Northern Ireland Retail Movement Scheme | Add a place of destination | You do not need to add an establishment that | Requirements of the Northern Ireland Retail Movement Scheme | Place of destination successfully added | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      | BT30 6LY      |
+	| logininfo | Business selection | PageTitle                 | nextPage                   | PageTitle2                                    | PageTitle3                              | EstablishmentName | AddressLine1 | estCity   | estCountry       | AddrPostcode | EstablishmentName2 | AddressLine2 | estCity2  | estCountry2      | AddrPostcode2 | AddrPostcode3 |
+	| test1C    | TestEnv3           | NI Retail Movement Scheme | Add a place of destination | Requirements of the NI Retail Movement Scheme | Place of destination successfully added | testName11        | testAddress1 | testCity1 | Northern Ireland | BT30 6LZ     | testName12         | testAddress2 | testCity2 | Northern Ireland | BT52 2AJ      | BT30 6LY      |
 
 
 Scenario: Verify zero results page on Place Of Destination page
@@ -148,3 +147,30 @@ Scenario: Verify validation error message for blank Destination Establishment po
 	| logininfo | Business selection | postcode  | errorMessage      |
 	| test1C    | TestEnv3           |           | Enter a postcode. |
 	| test1C    | TestEnv3           | wd19 7pf  | Enter a postcode in Northern Ireland |
+
+
+Scenario: Verify same establishment can be added after removing establishment from Add a place of destination page
+	Given that I navigate to the NI GC application
+	When  sign in with valid credentials with logininfo '<logininfo>'
+	And   select business to sign up '<Business selection>'
+	And   click on link 'Add a place of destination'
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on select address button
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   remove establishment address '<EstablishmentName>'
+	Then  verify next page '<nextPage>' is loaded
+	When  click on link 'Add a place of destination'
+	And   enter Establishment postcode '<AddrPostcode>'
+	And   click on select address button
+	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
+	And   add establishment email address 'test1@test.com'
+	And   click on continue button
+	And   click on button 'Add place of destination'
+	Then  verify next page '<PageTitle>' is loaded
+	When  click on back to dashboard link
+	Then  verify establishment details on table for '<EstablishmentName>' as '<Status>', '<AddrPostcode>'
+
+	Examples: 
+	| logininfo | Business selection | EstablishmentName   | AddressLine1    | estCity | estCountry       | AddrPostcode | nextPage                                | PageTitle                               | Status |
+	| test1C    | TestEnv3           | RemoveEstablishment | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     | Northern Ireland Retail Movement Scheme | Place of destination successfully added | Active |

@@ -1,4 +1,4 @@
-﻿@Regression 
+﻿@Regression  @RunOnly
 Feature: CheckAnswers
 
 Check Answers and Submit the application
@@ -32,7 +32,7 @@ Scenario: Check answers and submit sign up link verification on GB points of est
 
 	Examples: 
 	| logininfo | Business selection  | Country | FBONumber | Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | nextPage6                                                                                            |
-	| test1A    | TestEnv2            | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName3      | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the Northern Ireland Retail Movement Scheme |
+	| test1A    | TestEnv2            | England | testFBO   | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName3      | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the NI Retail Movement Scheme |
 
 Scenario: Check answers and submit sign up link verification on NI points of establishment
 	Given Clear Database for user '<logininfo>'

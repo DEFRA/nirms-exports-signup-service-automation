@@ -24,6 +24,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
             _objectContainer = container;
         }
 
+        [Then(@"click on link '([^']*)'")]
         [When(@"click on link '([^']*)'")]
         public void WhenClickOnLink(string linkText)
         {
@@ -31,6 +32,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps.SelfServeApplSteps
 
         }
 
+        [Then(@"click on button '([^']*)'")]
         [When(@"click on button '([^']*)'")]
         public void WhenClickOnButton(string buttonText)
         {

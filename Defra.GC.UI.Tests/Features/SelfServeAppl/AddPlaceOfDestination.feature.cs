@@ -163,8 +163,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 34
- testRunner.Then("verify  \'You have successfully submitted a request to sign up for the Northern Ir" +
-                    "eland Retail Movement Scheme\' on completed sign up page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("verify  \'You have successfully submitted a request to sign up for the NI Retail M" +
+                    "ovement Scheme\' on completed sign up page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 35
  testRunner.Then("verify  \'We will review your sign-up request and email you with the outcome withi" +
@@ -180,7 +180,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link and search address on Place Of Destination page")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "Northern Ireland Retail Movement Scheme", "Add a place of destination", "Requirements of the Northern Ireland Retail Movement Scheme", "Place of destination successfully added", "testName11", "testAddress1", "testCity1", "Northern Ireland", "BT30 6LZ", "testName12", "testAddress2", "testCity2", "Northern Ireland", "BT52 2AJ", "BT30 6LY", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "NI Retail Movement Scheme", "Add a place of destination", "Requirements of the NI Retail Movement Scheme", "Place of destination successfully added", "testName11", "testAddress1", "testCity1", "Northern Ireland", "BT30 6LZ", "testName12", "testAddress2", "testCity2", "Northern Ireland", "BT52 2AJ", "BT30 6LY", null)]
         public void VerifyBackLinkAndSearchAddressOnPlaceOfDestinationPage(
                     string logininfo, 
                     string businessSelection, 
@@ -578,7 +578,7 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify same establishment can be added after removing establishment from Add a pl" +
             "ace of destination page")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "RemoveEstablishment", "Crown Buildings", "Belfast", "Northern Ireland", "BT30 6LZ", "Northern Ireland Retail Movement Scheme", "Place of destination successfully added", "Active", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "RemoveEstablishment", "Crown Buildings", "Belfast", "Northern Ireland", "BT30 6LZ", "NI Retail Movement Scheme", "Place of destination successfully added", "Active", null)]
         public void VerifySameEstablishmentCanBeAddedAfterRemovingEstablishmentFromAddAPlaceOfDestinationPage(string logininfo, string businessSelection, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string pageTitle, string status, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

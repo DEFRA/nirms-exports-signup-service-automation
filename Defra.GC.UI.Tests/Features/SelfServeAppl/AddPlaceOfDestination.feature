@@ -172,5 +172,5 @@ Scenario: Verify same establishment can be added after removing establishment fr
 	Then  verify establishment details on table for '<EstablishmentName>' as '<Status>', '<AddrPostcode>'
 
 	Examples: 
-	| logininfo | Business selection | EstablishmentName   | AddressLine1    | estCity | estCountry       | AddrPostcode | nextPage                                | PageTitle                               | Status |
-	| test1C    | TestEnv3           | RemoveEstablishment | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     | Northern Ireland Retail Movement Scheme | Place of destination successfully added | Active |
+	| logininfo | Business selection | EstablishmentName   | AddressLine1    | estCity | estCountry       | AddrPostcode | nextPage                  | PageTitle                               | Status |
+	| test1C    | TestEnv3           | RemoveEstablishment | Crown Buildings | Belfast | Northern Ireland | BT30 6LZ     | NI Retail Movement Scheme | Place of destination successfully added | Active |

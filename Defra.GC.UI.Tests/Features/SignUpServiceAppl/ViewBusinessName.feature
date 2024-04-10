@@ -26,6 +26,6 @@ Scenario: Verify user can click on the start a new sign up request
 	Then  verify next page '<nextPage3>' is loaded
 
 	Examples: 
-	| logininfo | Business selection | nextPage1         | nextPage2                               | nextPage3 | Country | FBONumber |
-	| test7     | Tescoman           | Selected business | Northern Ireland Retail Movement Scheme | Sign up   | England | testFBO   |
+	| logininfo | Business selection | nextPage1         | nextPage2                 | nextPage3 | Country | FBONumber |
+	| test7     | Tescoman           | Selected business | NI Retail Movement Scheme | Sign up   | England | testFBO   |
    

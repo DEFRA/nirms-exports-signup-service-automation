@@ -46,7 +46,6 @@ Scenario: Receive Notice of after completion of Signup Request
 	| test1A    | TestEnv2                                   | England | testFBO  | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the NI Retail Movement Scheme  | We will review your sign-up request and email you with the outcome within 5 working days.| Your business has already submitted |
 
 
-		@RunOnly
 Scenario: Verify message on signup confirmation for GB establishment
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application
@@ -83,7 +82,7 @@ Scenario: Verify message on signup confirmation for GB establishment
 	| logininfo | Business selection	| Country | FBONumber| Business name | AddressLine | Town   | AddrPostcode | contactName | contactPosition | emailAddress  | telephoneNumber | EstablishmentName | AddressLine1 | estCity | estCountry | nextPage           | nextPage1            | Message                                                                                | OutcomeMessage                                                                           | GBNIConfirmationMessage                                                                                                                                                                     |               nextPage2   |
 	| test1A    | TestEnv2              | England | testFBO  | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName3      | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the NI Retail Movement Scheme | We will review your sign-up request and email you with the outcome within 5 working days.| Your consignee will also need to sign up for the scheme. If their sign-up request is approved, you will be able to apply for General Certificates to send goods to them in Northern Ireland.|NI Retail Movement Scheme  |
 
-	@RunOnly
+
 Scenario: Verify message on signup confirmation for NI establishment
 	Given Clear Database for user '<logininfo>'
 	And that I navigate to the NI GC application

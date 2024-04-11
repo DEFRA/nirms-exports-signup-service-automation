@@ -1,4 +1,4 @@
-﻿@Regression  @RunOnly
+﻿@Regression
 Feature: CheckAnswers
 
 Check Answers and Submit the application

@@ -46,7 +46,6 @@ Scenario: Receive Notice of after completion of Signup Request
 	| test1A    | TestEnv2                                   | England | testFBO  | testName      | testAddress | London | SE10 9NF     | contactName | contactPosition | test@test.com | 01234 234 455   | testEstName       | testAddress1 | London  | England    | Check your answers | Terms and conditions | You have successfully submitted a request to sign up for the NI Retail Movement Scheme  | We will review your sign-up request and email you with the outcome within 5 working days.| Your business has already submitted |
 
 
-
 Scenario: Verify message on signup confirmation for GB establishment
 	Given Clear Database for user '<logininfo>'
 	When that I navigate to the NI GC application

@@ -136,7 +136,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(500,4000)", "");
             SelectElement s = new SelectElement(SelectDropdown);
             s.SelectByIndex(0);
-            SelectAddresButton.Click();
+            IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
+            jsExecutor1.ExecuteScript("arguments[0].click();", SelectAddresButton);
+           // SelectAddresButton.Click();
             EstablishmentAddr1.Clear();
             EstablishmentAddr1.SendKeys("1");
         }

@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Footer links and pages on Sign up page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "TestEnv1", "Sign up", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "Northern Ireland Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "testFBO", "TestEnv1", "Sign up", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "NI Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
         public void VerifyFooterLinksAndPagesOnSignUpPage(
                     string logininfo, 
                     string country, 

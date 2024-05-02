@@ -79,8 +79,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         [NUnit.Framework.DescriptionAttribute("Verify Terms and conditions page loaded")]
         [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstNameT1", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "Confirm that the authorised representative - contactName has read and understood " +
             "the terms and conditions", "authorised representative - contactName - has read and understood the terms and c" +
-            "onditions of the Northern Ireland Retail Movement Scheme. contactName is respons" +
-            "ible for ensuring the requirements of the scheme are followed by the business.", null)]
+            "onditions of the NI Retail Movement Scheme. contactName is responsible for ensur" +
+            "ing the requirements of the scheme are followed by the business.", null)]
         public void VerifyTermsAndConditionsPageLoaded(
                     string logininfo, 
                     string businessSelection, 
@@ -635,8 +635,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Verify text on Terms and conditions page")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstNameT1", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "authorised representative - contactName - has read and understood the terms and c" +
-            "onditions of the Northern Ireland Retail Movement Scheme. contactName is respons" +
-            "ible for ensuring the requirements of the scheme are followed by the business.", null)]
+            "onditions of the NI Retail Movement Scheme. contactName is responsible for ensur" +
+            "ing the requirements of the scheme are followed by the business.", null)]
         public void VerifyTextOnTermsAndConditionsPage(
                     string logininfo, 
                     string businessSelection, 

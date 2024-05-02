@@ -578,10 +578,17 @@ this.FeatureBackground();
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify same establishment can be added after removing establishment from Add a pl" +
             "ace of destination page")]
+        [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "RemoveEstablishment", "Crown Buildings", "Belfast", "Northern Ireland", "BT30 6LZ", "NI Retail Movement Scheme", "Place of destination successfully added", "Active", null)]
         public void VerifySameEstablishmentCanBeAddedAfterRemovingEstablishmentFromAddAPlaceOfDestinationPage(string logininfo, string businessSelection, string establishmentName, string addressLine1, string estCity, string estCountry, string addrPostcode, string nextPage, string pageTitle, string status, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "RunOnly"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);

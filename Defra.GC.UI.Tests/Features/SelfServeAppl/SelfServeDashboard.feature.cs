@@ -204,8 +204,8 @@ this.FeatureBackground();
  testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 41
- testRunner.Then("verify  \'You have successfully submitted a request to sign up for the Northern Ir" +
-                        "eland Retail Movement Scheme\' on completed sign up page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("verify  \'You have successfully submitted a request to sign up for the NI Retail M" +
+                        "ovement Scheme\' on completed sign up page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 42
  testRunner.When("navigate to Self Serve Dashboard URL", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -231,8 +231,7 @@ this.FeatureBackground();
  testRunner.When(string.Format("select business \'{0}\' on self serve dashboard", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 49
- testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'Northern Ireland Retail Movement Scheme\' of p" +
-                            "age", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("verify dynamic name \'{0}\' in title \'NI Retail Movement Scheme\' of page", businessSelection), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 50
  testRunner.When("click on contact person change link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

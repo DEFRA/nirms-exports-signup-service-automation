@@ -77,7 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check footer page links")]
-        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "Northern Ireland Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
+        [NUnit.Framework.TestCaseAttribute("test1B", "TestEnv4", "privacy notice", "data.protection@defra.gov.uk", "DefraGroupDataProtectionOfficer@defra.gov.uk", "Cookies", "website for the Information", "Accessibility statement for Move goods", "Department for Environment Food & Rural Affairs", "advice on making your device easier to use", "Contact", "NI Retail Movement Scheme guidance note", "Find out about call charges", "Terms & Conditions", "customs requirements", "SPS Regulation EU 2023/1231", null)]
         public void CheckFooterPageLinks(
                     string logininfo, 
                     string businessSelection, 

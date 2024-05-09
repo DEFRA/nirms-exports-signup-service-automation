@@ -77,8 +77,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check answers and submit sign up link verification on GB points of establishment")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName3", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName3", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the NI Retail Movement S" +
+            "cheme", null)]
         public void CheckAnswersAndSubmitSignUpLinkVerificationOnGBPointsOfEstablishment(
                     string logininfo, 
                     string businessSelection, 
@@ -589,7 +589,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit Check answers for Northern Ireland Retail Movement Scheme sign up")]
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName21", "testAddress1", "Belfast", "Northern Ireland", "FBO number", "ChangeFBO", null)]
+        [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName22", "testAddress1", "Belfast", "Northern Ireland", "Contact name", "ChangedName", null)]
         [NUnit.Framework.TestCaseAttribute("test4", "NORTH WEST TELUGU SANGAM", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName23", "testAddress1", "Belfast", "Northern Ireland", "Contact position", "ChangedPosition", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName24", "testAddress1", "Belfast", "Northern Ireland", "Contact email address", "change@test.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName25", "testAddress1", "Belfast", "Northern Ireland", "Contact telephone number", "01632 960 999", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName26", "testAddress1", "Belfast", "Northern Ireland", "Address", "ChangedAddress", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName27", "testAddress1", "Belfast", "Northern Ireland", "Email address", "Changed@Address.com", null)]
+        [NUnit.Framework.TestCaseAttribute("test5", "SND NON UK User", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName28", "testAddress1", "Belfast", "Northern Ireland", "Contact person is the authorised representative", "No", null)]
         public void EditCheckAnswersForNorthernIrelandRetailMovementSchemeSignUp(
                     string logininfo, 
                     string businessSelection, 

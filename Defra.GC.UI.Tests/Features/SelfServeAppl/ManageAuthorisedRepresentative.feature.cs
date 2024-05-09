@@ -163,8 +163,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
  testRunner.Then("click on submit sign up", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 34
- testRunner.Then("verify  \'You have successfully submitted a request to sign up for the Northern Ir" +
-                    "eland Retail Movement Scheme\' on completed sign up page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("verify  \'You have successfully submitted a request to sign up for the NI Retail M" +
+                    "ovement Scheme\' on completed sign up page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 35
  testRunner.Then("verify  \'We will review your sign-up request and email you with the outcome withi" +
@@ -373,7 +373,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Cancel link on update Authorised Representative page")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "NI Retail Movement Scheme", null)]
         public void VerifyCancelLinkOnUpdateAuthorisedRepresentativePage(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -422,7 +422,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Back link on update Authorised Representative page")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "NI Retail Movement Scheme", null)]
         public void VerifyBackLinkOnUpdateAuthorisedRepresentativePage(string logininfo, string businessSelection, string nextPage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

@@ -78,8 +78,8 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify select business page is displayed for user with rejected signup status")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Scheme", "We will review your sign-up request and email you", "Your business has already submitted", "Requirements of the Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the NI Retail Movement S" +
+            "cheme", "We will review your sign-up request and email you", "Your business has already submitted", "Requirements of the NI Retail Movement Scheme", null)]
         public void VerifySelectBusinessPageIsDisplayedForUserWithRejectedSignupStatus(
                     string logininfo, 
                     string businessSelection, 
@@ -236,8 +236,8 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Add departure displayed for user with rejected signup status")]
-        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "England", "testFBO", "testName", "testAddress", "London", "Wv1 3EB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Scheme", "We will review your sign-up request and email you", "Your business has already submitted", "Requirements of the Northern Ireland Retail Movement Scheme", "of dispatch", null)]
+        [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "England", "testFBO", "testName", "testAddress", "London", "Wv1 3EB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "London", "England", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the NI Retail Movement S" +
+            "cheme", "We will review your sign-up request and email you", "Your business has already submitted", "Requirements of the NI Retail Movement Scheme", "of dispatch", null)]
         public void VerifyAddDepartureDisplayedForUserWithRejectedSignupStatus(
                     string logininfo, 
                     string businessSelection, 
@@ -385,7 +385,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then(string.Format("verify next page \'{0}\' is loaded", nextPage3), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 71
- testRunner.And(string.Format("complete eligibility task with \'{0}\'", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When(string.Format("complete eligibility task with \'{0}\'", country), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 72
  testRunner.Then("verify eligibility task status as \'COMPLETED\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -429,8 +429,8 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Add destination displayed for user with rejected signup status")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "Belfast", "Northern Ireland", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Scheme", "We will review your sign-up request and email you", "Your business has already submitted", "Requirements of the Northern Ireland Retail Movement Scheme", "Places of destination", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT30 6LZ", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName", "testAddress1", "Belfast", "Northern Ireland", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the NI Retail Movement S" +
+            "cheme", "We will review your sign-up request and email you", "Your business has already submitted", "Requirements of the NI Retail Movement Scheme", "Places of destination", null)]
         public void VerifyAddDestinationDisplayedForUserWithRejectedSignupStatus(
                     string logininfo, 
                     string businessSelection, 

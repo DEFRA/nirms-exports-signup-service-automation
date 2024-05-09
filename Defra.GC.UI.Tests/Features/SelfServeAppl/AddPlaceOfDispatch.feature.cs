@@ -180,7 +180,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on Place Of Dispatch page")]
-        [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "NI Retail Movement Scheme", "Add a place of dispatch", "Requirements of the NI Retail Movement Scheme", "Place of dispatch successfully added", "testName11", "testAddress1", "London", "England", "SE10 9NF", "testName12", "testAddress2", "Liverpool", "England", "L1 0AN", "SE10 9GB", null)]
         public void VerifyBackLinkOnPlaceOfDispatchPage(
                     string logininfo, 
@@ -202,13 +201,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
                     string addrPostcode3, 
                     string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "RunOnly"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);

@@ -129,7 +129,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
                     status = false; 
             }
             string temp4 = _driver.WaitForElement(By.XPath(UpdatedDateEle)).Text;
-            if (!_driver.WaitForElement(By.XPath(UpdatedDateEle)).Text.Contains(sDate))
+            if (!sDate.Contains(_driver.WaitForElement(By.XPath(UpdatedDateEle)).Text))
                 status = false;
             return status;
         }

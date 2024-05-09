@@ -78,7 +78,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SignUpServiceAppl
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify user can click on the start a new sign up request")]
         [NUnit.Framework.CategoryAttribute("SmokeTest")]
-        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "Selected business", "Northern Ireland Retail Movement Scheme", "Sign up", "England", "testFBO", null)]
+        [NUnit.Framework.TestCaseAttribute("test7", "Tescoman", "Selected business", "NI Retail Movement Scheme", "Sign up", "England", "testFBO", null)]
         public void VerifyUserCanClickOnTheStartANewSignUpRequest(string logininfo, string businessSelection, string nextPage1, string nextPage2, string nextPage3, string country, string fBONumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {

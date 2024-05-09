@@ -157,7 +157,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify error messages if user do not select Authorised Signatory")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "is the authorised representative", "testContactName", "testPosition", "test@test.com", "01632 960 001", "Sign up for the Northern Ireland Retail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "is the authorised representative", "testContactName", "testPosition", "test@test.com", "01632 960 001", "Sign up for the NI Retail Movement Scheme", null)]
         public void VerifyErrorMessagesIfUserDoNotSelectAuthorisedSignatory(string logininfo, string businessSelection, string country, string fBONumber, string errorMessage, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string nextPage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -250,7 +250,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify Save and return to dashboard on Authorised Signatory page")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "Sign up for the Northern Ireland Retail Movement Scheme", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "Sign up for the NI Retail Movement Scheme", "testContactName", "testPosition", "test@test.com", "01632 960 001", null)]
         public void VerifySaveAndReturnToDashboardOnAuthorisedSignatoryPage(string logininfo, string businessSelection, string country, string fBONumber, string nextPage, string contactName, string contactPosition, string emailAddress, string telephoneNumber, string[] exampleTags)
         {
             string[] @__tags = new string[] {

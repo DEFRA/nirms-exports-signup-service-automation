@@ -1268,8 +1268,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Check answers and submit sign up link verification on GB points of establishment " +
             "with save and continue")]
         [NUnit.Framework.CategoryAttribute("CrossBrowser")]
-        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName1", "testAddress1", "London", "England", "Who is the contact person", "the authorised representative", "of dispatch", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "TestEnv1", "England", "testFBO", "testName", "testAddress", "London", "SE10 9NF", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName1", "testAddress1", "London", "England", "Who is the contact person", "the authorised representative", "of dispatch", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the NI Retail Movement S" +
+            "cheme", null)]
         public void CheckAnswersAndSubmitSignUpLinkVerificationOnGBPointsOfEstablishmentWithSaveAndContinue(
                     string logininfo, 
                     string businessSelection, 
@@ -1414,8 +1414,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Check answers and submit sign up link verification on NI points of establishment " +
             "with save and continue")]
         [NUnit.Framework.CategoryAttribute("CrossBrowser")]
-        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName2", "testAddress1", "Belfast", "Northern Ireland", "Who is the contact person", "the authorised representative", "of destination", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the Northern Ireland Ret" +
-            "ail Movement Scheme", null)]
+        [NUnit.Framework.TestCaseAttribute("test1A", "TestEnv2", "Northern Ireland", "testFBO", "testName", "testAddress", "Belfast", "BT29 4AB", "contactName", "contactPosition", "test@test.com", "01234 234 455", "testEstName2", "testAddress1", "Belfast", "Northern Ireland", "Who is the contact person", "the authorised representative", "of destination", "Check your answers", "Terms and conditions", "You have successfully submitted a request to sign up for the NI Retail Movement S" +
+            "cheme", null)]
         public void CheckAnswersAndSubmitSignUpLinkVerificationOnNIPointsOfEstablishmentWithSaveAndContinue(
                     string logininfo, 
                     string businessSelection, 

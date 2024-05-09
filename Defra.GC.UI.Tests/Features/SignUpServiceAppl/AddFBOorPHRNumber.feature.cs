@@ -135,7 +135,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify back link on Assurance FBO page is going back to Task list page")]
-        [NUnit.Framework.TestCaseAttribute("test", "England", "Sign up for the Northern Ireland Retail Movement Scheme", "TestEnv1", null)]
+        [NUnit.Framework.TestCaseAttribute("test", "England", "Sign up for the NI Retail Movement Scheme", "TestEnv1", null)]
         public void VerifyBackLinkOnAssuranceFBOPageIsGoingBackToTaskListPage(string logininfo, string country, string nextPage, string businessSelection, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

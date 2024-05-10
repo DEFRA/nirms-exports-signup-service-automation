@@ -77,6 +77,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         {
             DateTime now = DateTime.Now;
             string todaysDate = now.ToString("dd MMM yyy");
+            todaysDate = todaysDate.TrimStart('0');
             text = text + " " + todaysDate;
             return ContactPersonDate.Text.Contains(text);
         }
@@ -85,6 +86,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
         {
             DateTime now = DateTime.Now;
             string todaysDate = now.ToString("dd MMM yyy");
+            todaysDate = todaysDate.TrimStart('0');
             text = text + " " + todaysDate;
             return AuthRepresentativeDate.Text.Contains(text);
 

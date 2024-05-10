@@ -172,11 +172,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages.SelfServeApplPages
             else
             {
                 string temp2 = UpdatedDate.Text;
-                if (!UpdatedDate.Text.Contains(sDate))
+                if (!sDate.Contains(UpdatedDate.Text))
                     status = false;
             }
             string temp3 = AddedDate.Text;
-            if (!AddedDate.Text.Contains(sDate))
+            if (!sDate.Contains(AddedDate.Text))
                 status = false;
 
             string temp8 = EstablishmentRMS.Text;

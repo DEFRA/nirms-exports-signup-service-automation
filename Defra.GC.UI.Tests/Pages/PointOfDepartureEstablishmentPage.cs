@@ -103,9 +103,10 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void EnterEstablishmentPostcode(string postcode)
         {
+            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,500)", "");
+            Thread.Sleep(1000);
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)_driver;
             jsExecutor.ExecuteScript("arguments[0].setAttribute('value', '" + postcode + "')", EstablishmentPostcode);
-            // FindEstablishment.Click();
             IJavaScriptExecutor jsExecutor1 = (IJavaScriptExecutor)_driver;
             jsExecutor1.ExecuteScript("arguments[0].click();", FindEstablishment);
             Thread.Sleep(10000);

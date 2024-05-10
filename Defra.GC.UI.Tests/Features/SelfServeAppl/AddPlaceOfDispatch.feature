@@ -58,8 +58,7 @@ Scenario: Verify back link on Place Of Dispatch page
 	And   click on the add establishment address manually link
 	And   click on back link
 	Then  verify next page '<nextPage>' is loaded
-	When  enter Establishment postcode '<AddrPostcode2>'
-	And   click on cannot find establishment link 
+	When  click on cannot find establishment link 
 	And   click on the add establishment address manually link
 	And   add establishment address manually with fields '<EstablishmentName>', '<AddressLine1>', '<estCity>', '<estCountry>', '<AddrPostcode>'
 	And   add establishment email address 'test1@test.com'

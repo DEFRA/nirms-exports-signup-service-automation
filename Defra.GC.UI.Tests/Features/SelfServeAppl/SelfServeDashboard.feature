@@ -6,7 +6,7 @@ Verify Self serve dashboard
 Background: 
 	Given Clear Database for user 'test1A'
 
-	
+		@RunOnly
 Scenario: Verify different statuses on self serve dashboard
 	Given that I navigate to the NI GC application
 	When  sign in to self serve with valid credentials with logininfo '<logininfo>'

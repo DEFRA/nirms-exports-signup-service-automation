@@ -35,7 +35,7 @@ Background:
 	Then  verify  'We will review your sign-up request and email you with the outcome within 5 working days.' outcome of my request submission page
 	Then  click on signout button and verify the signout message
 
-
+		@RunOnly
 	Scenario: Update contact person
 	Given Approve Sign up request for org '<Business selection>' and user 'test1B'
 	And   that I navigate to the NI GC application

@@ -184,10 +184,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Features.SelfServeAppl
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify NI establishment details for different statuses")]
+        [NUnit.Framework.CategoryAttribute("RunOnly")]
         [NUnit.Framework.TestCaseAttribute("test1C", "TestEnv3", "EstablishmentName", "TestEstablishment12", "testAddress2", "BELFAST", "Northern Ireland", "BT1 1HS", "BT93 8AP", "test@test.com", "Active", "Draft", "Removed", "Suspended", null)]
         public void VerifyNIEstablishmentDetailsForDifferentStatuses(string logininfo, string businessSelection, string establishmentName, string establishmentName2, string addressLine2, string estCity2, string estCountry2, string addrPostcode1, string addrPostcode2, string emailAddress, string status1, string status2, string status3, string status4, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "RunOnly"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("logininfo", logininfo);
             argumentsOfScenario.Add("Business selection", businessSelection);

@@ -1,4 +1,4 @@
-﻿@Regression @RunOnly
+﻿@Regression
 Feature: Add FBO or PHR Number
 
 Add FBO or PHR Number
@@ -86,23 +86,6 @@ Examples:
     | logininfo | Country | PHRNumber |Business selection   |nextPage                           | 
     | test      | England | testPHR   |TestEnv1             |Who is the contact person for the  |
 
-
-#Scenario Outline: Complete FBO or PHR number task with no FBO or PHR number option 
-#    Given Clear Database for user '<logininfo>'
-#	And   that I navigate to the NI GC application
-#	When  sign in with valid credentials with logininfo '<logininfo>'
-#	And   select business to sign up '<Business selection>'
-#	And   complete eligibility task with '<Country>'
-#	Then  verify next page '<nextPage2>' is loaded
-#	When  click on FBOorPHRNumber task
-#	Then  verify next page '<nextPage>' is loaded
-#    When  complete FBO or PHR number task without FBO or PHR Number
-#	And   click on save and continue  
-#	Then  verify next page '<nextPage1>' is loaded
-#
-#Examples: 
-#    | logininfo | Business selection   | Country | nextPage                                                                       | nextPage1                                  | nextPage2 |
-#    | test      | TestEnv1             | England | have a Food Business Operator (FBO) or Plant Health Registration (PHR) number? | You can still submit a sign-up request now | Sign up   |
 
 
 Scenario Outline: Verify back on Your business must have an FBO or a PHR number to sign up for NIRMS page

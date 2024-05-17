@@ -77,23 +77,6 @@ Scenario: Verify text on Purpose of Business page
     | test      | England		   | testFBO   | TestEnv1            |Your business will be sending consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.  |
     | test1A    | Northern Ireland | testFBO   | TestEnv2            |Your business will be receiving consignments from Great Britain to Northern Ireland under the NI Retail Movement Scheme.|
 
-	@ignore
-Scenario: Verify back to dashboard link on Purpose of Business page  
-	Given Clear Database for user '<logininfo>'
-	And   that I navigate to the NI GC application
-	When  sign in with valid credentials with logininfo '<logininfo>'
-	And   select business to sign up '<Business selection>'
-	And   complete eligibility task with '<Country>'
-	Then  verify eligibility task status as 'COMPLETED'
-	And   user verify the selected business name '<Business selection>'
-	When  click on Purpose Of Business task
-	Then  click on back to dashboard link
-	Then  verify next page '<nextPage>' is loaded 
-
-	Examples:
-    | logininfo | Country		   | FBONumber | Business selection  |nextPage |                                                                                             
-	| test      | England		   | testFBO   | TestEnv1            |Sign up  | 
-
 
 Scenario: Verify Start new SignUp request link on Purpose of Business page navigates to select business page  
 	Given Clear Database for user '<logininfo>'

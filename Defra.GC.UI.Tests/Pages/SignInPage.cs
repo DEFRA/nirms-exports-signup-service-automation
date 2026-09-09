@@ -93,6 +93,47 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
                 EnvPassword.SendKeys(ConfigSetup.BaseConfiguration.TestConfiguration.EnvPassword);
                 applicationPage.ClickOnContinue();
             }
+
+            SelectGovernmentGatewaySignInOption();
+        }
+
+        private void SelectGovernmentGatewaySignInOption()
+        {
+            try
+            {
+                // The service now shows a "How do you want to sign in?" page before the
+                // Government Gateway sign-in page. Wait for either that interstitial (which
+                // exposes the Government Gateway radio, id="scp") or the Government Gateway
+                // sign-in heading to appear.
+                _driver.WaitForElementCondition(d =>
+                    d.FindElements(By.Id("scp")).Count > 0 ||
+                    d.FindElements(By.XPath("//h1[contains(text(),'Sign in using Government Gateway')]")).Count > 0);
+
+                if (_driver.FindElements(By.Id("scp")).Count > 0)
+                {
+                    // Click the visible label (a trusted click) so Azure B2C registers the
+                    // radio selection. The input itself is a hidden govuk radio and a JS
+                    // click is untrusted, so B2C only accepts a real click via the label.
+                    _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(By.XPath("//label[@for='scp']"))).Click();
+
+                    // Wait until the radio is actually checked before submitting.
+                    _driver.WaitForElementCondition(d =>
+                        (bool)((IJavaScriptExecutor)d).ExecuteScript("var e=document.getElementById('scp');return e && e.checked;"));
+
+                    // Click the VISIBLE Continue button (id="continueReplacement"). The
+                    // id="continue" element is a hidden, zero-size native B2C button that is
+                    // never "clickable", so waiting on it just times out.
+                    _driver.WaitForElementCondition(ExpectedConditions.ElementToBeClickable(By.Id("continueReplacement"))).Click();
+
+                    // Block until the Government Gateway sign-in page has actually loaded.
+                    _driver.WaitForElementCondition(d =>
+                        d.FindElements(By.XPath("//h1[contains(text(),'Sign in using Government Gateway')]")).Count > 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

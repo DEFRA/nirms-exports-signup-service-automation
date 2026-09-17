@@ -21,6 +21,9 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--diable-inforbars");
             chromeOptions.AddArgument("--start-maximized");
+            // Force browser-back navigations to hit the server instead of being restored from
+            // bfcache, so server-side "stale task" guards (e.g. access-denied pages) actually run.
+            chromeOptions.AddArgument("--disable-features=BackForwardCache");
 
             if (ConfigSetup.BaseConfiguration.TestConfiguration.Headless)
             {

@@ -4,6 +4,7 @@ using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using Defra.UI.Framework.Driver;
+using SeleniumExtras.WaitHelpers;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -181,7 +182,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickBrowserBack()
         {
+            // Capture the current heading so we can wait for the old page to be replaced,
+            // otherwise VerifyNextPageIsLoaded can read the stale heading before the back
+            // navigation finishes rendering the new page.
+            IWebElement headingBeforeBack = PageHeading;
             _driver.Navigate().Back();
+            _driver.WaitForElementCondition(ExpectedConditions.StalenessOf(headingBeforeBack));
         }
 
         #endregion Page Methods

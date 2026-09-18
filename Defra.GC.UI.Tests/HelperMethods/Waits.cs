@@ -77,6 +77,27 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
         }
 
+        // Polls until the element's text contains expectedText, so status reads don't
+        // grab a transient value before the (re-rendered) page has settled on slow machines.
+        public static bool WaitForElementTextToContain(this IWebDriver driver, By elementBy, string expectedText)
+        {
+            try
+            {
+                WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(GlobalWaits));
+                driverWait.IgnoreExceptionTypes(typeof(StaleElementReferenceException), typeof(NoSuchElementException));
+                return driverWait.Until(d =>
+                {
+                    var element = d.FindElement(elementBy);
+                    return element.Displayed
+                        && element.Text.Contains(expectedText, StringComparison.CurrentCultureIgnoreCase);
+                });
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+
         public static IWebElement WaitForElementClickable(this IWebDriver driver, By elementBy)
         {
             try

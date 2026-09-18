@@ -20,7 +20,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ContactPersonLink => _driver.WaitForElementClickable(By.XPath("//a[contains(text(),'Contact person')]"));
         private IWebElement SaveAndContinue => _driver.WaitForElement(By.XPath("//button[contains(text(),'Save and continue')]"));
         private IWebElement ErrorMessage => _driver.WaitForElement(By.XPath("//div[contains(@class,'govuk-error-summary__body')]//a"));
-        private IWebElement BusinessContactDetailStatus => _driver.WaitForElement(By.XPath("//strong[@id='contact-details']"));
 
         #endregion Page Objects
 
@@ -61,7 +60,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyTheBusinessContactDetailsStatus(string status)
         {
-            return BusinessContactDetailStatus.Text.Contains(status, StringComparison.CurrentCultureIgnoreCase);
+            return _driver.WaitForElementTextToContain(By.XPath("//strong[@id='contact-details']"), status);
         }
 
         public void EnterBusinessContactName(string ContactName)

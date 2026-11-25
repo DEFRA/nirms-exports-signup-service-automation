@@ -87,12 +87,32 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyFeedbackPageLoaded()
         {
-            return Feedbacktext.Text.Contains("What part of the service are you using today?");
+            // The external survey is no longer reliably available, so only confirm the feedback link opened a new tab that navigated somewhere.
+            if (_driver.WindowHandles.Count < 2)
+                return false;
+
+            var url = _driver.Url;
+            return !string.IsNullOrWhiteSpace(url) && !url.Equals("about:blank", StringComparison.OrdinalIgnoreCase);
         }
 
         public bool VerifyGenericGOVPageLoaded()
         {
-            return GenericGOVPage.Text.Contains("GOV.UK");
+            try
+            {
+                return _driver.WaitForElementCondition(d =>
+                {
+                    // The GOV.UK link may open in a new tab; follow it to the latest one.
+                    if (d.WindowHandles.Count > 1 && !d.Url.Contains("gov.uk", StringComparison.OrdinalIgnoreCase))
+                        d.SwitchTo().Window(d.WindowHandles.Last());
+
+                    return d.Url.Contains("gov.uk", StringComparison.OrdinalIgnoreCase)
+                        && d.Title.Contains("GOV.UK", StringComparison.OrdinalIgnoreCase);
+                });
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public void ClickSaveAndReturnToDashboard()

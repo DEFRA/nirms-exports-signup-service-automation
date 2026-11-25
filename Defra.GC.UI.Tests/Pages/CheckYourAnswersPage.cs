@@ -2,6 +2,7 @@
 using Defra.GC.UI.Tests.Configuration;
 using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 {
@@ -184,7 +185,20 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void VerifySelectedBusinessNamePage()
         {
-            AnotherBusinessname.Click();
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(
+                ConfigSetup.BaseConfiguration.TestConfiguration.GlobalWaitsInSeconds));
+            wait.IgnoreExceptionTypes(typeof(ElementClickInterceptedException), typeof(StaleElementReferenceException));
+            wait.Until(d =>
+            {
+                var link = AnotherBusinessname;
+                ((IJavaScriptExecutor)d).ExecuteScript(
+                    "arguments[0].scrollIntoView({block: 'center', inline: 'nearest', behavior: 'instant'});", link);
+                if (!link.Enabled)
+                    return false;
+
+                link.Click();
+                return true;
+            });
         }
 
 

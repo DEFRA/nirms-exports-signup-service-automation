@@ -64,6 +64,8 @@
 
         public void ClickOnSelectAddressButton();
 
+        public void EnterEstablishmentName(string establishmentName);
+
         public bool VerifyMessageForUserOnEstablishmentPage(string user);
 
         public bool VerifyDynamicNameInWarningTextOnEstablishmentPage(string name, string text);

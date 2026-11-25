@@ -61,6 +61,13 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Steps
             pointOfDepartureEstablishmentPage.ClickOnSelectAddressButton();
         }
 
+        [When(@"enter establishment name '([^']*)'")]
+        [Then(@"enter establishment name '([^']*)'")]
+        public void EnterEstablishmentName(string establishmentName)
+        {
+            pointOfDepartureEstablishmentPage.EnterEstablishmentName(establishmentName);
+        }
+
         [Then(@"verify Add a place of dispatch Page loaded")]
         public void ThenVerifyAddAPointOfDeparturePageLoaded()
         {

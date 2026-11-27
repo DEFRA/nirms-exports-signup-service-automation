@@ -4,6 +4,7 @@ using Defra.UI.Framework.Object;
 using Defra.Trade.ReMos.AssuranceService.Tests.Capabilities;
 using Defra.GC.UI.Tests.Configuration;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using System.Reflection;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Infrastructure;
@@ -13,8 +14,7 @@ namespace Defra.GC.UI.Tests.Hooks
     [Binding]
     public class WebDriverHook
     {
-        public IWebDriver Driver { get; set; }
-        private static string Target => ConfigSetup.BaseConfiguration.UiFrameworkConfiguration.Target;
+        public IWebDriver? Driver { get; set; }
         private static string SeleniumGrid => ConfigSetup.BaseConfiguration.UiFrameworkConfiguration.SeleniumGrid;
 
         private readonly ScenarioContext _scenarioContext;
@@ -36,43 +36,63 @@ namespace Defra.GC.UI.Tests.Hooks
 
             Logger.Debug("Starting set Capability");
 
-            var site = new Site();
-            site.With(GetDriverOptions());
-            Driver = site.WebDriver.Driver;
-
+            Driver = CreateDriver(GetDriverOptions(), SeleniumGrid);
 
             _objectContainer.RegisterInstanceAs(Driver);
+        }
+
+        internal static IWebDriver CreateDriver(DriverOptions driverOptions, string seleniumGrid)
+        {
+            if (string.IsNullOrEmpty(seleniumGrid))
+            {
+                var site = new Site();
+                site.With(driverOptions);
+                return site.WebDriver.Driver;
+            }
+
+            // The framework discards the remote session error; retain Selenium's diagnostics.
+            return new RemoteWebDriver(new Uri(seleniumGrid), driverOptions.ToCapabilities(),
+                TimeSpan.FromSeconds(90));
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            bool takeScreenShot = false;
+            var error = _scenarioContext.TestError;
+            if (error != null)
+            {
+                Logger.LogMessage("An error ocurred:" + error.Message);
+                Logger.Debug("It was of type:" + error.GetType().Name);
+            }
+
             try
             {
-                if (_scenarioContext.TestError != null)
+                if (Driver == null)
                 {
-                    takeScreenShot = true;
-                    var error = _scenarioContext.TestError;
-                    Logger.LogMessage("An error ocurred:" + error.Message);
-                    Logger.Debug("It was of type:" + error.GetType().Name);
+                    Logger.Debug("Skipping browser cleanup: WebDriver was not initialized.");
                 }
-            }
-            catch (Exception ex)
-            {
-                Logger.Debug("Not able to take screenshot" + ex.Message);
-            }
-            finally
-            {
-                if (takeScreenShot)
+                else if (error != null)
                 {
                     AttachScreenShotToXmlReport();
                 }
-                Driver.Close();
-                Driver.Quit();
-                if (!ConfigSetup.BaseConfiguration.TestConfiguration.Environment.Contains("pre"))
+            }
+            finally
+            {
+                try
                 {
-                    DeleteApplicationViaBackend();
+                    Driver?.Quit();
+                }
+                finally
+                {
+                    Driver = null;
+                    if (ConfigSetup.BaseConfiguration == null)
+                    {
+                        Logger.Debug("Skipping backend cleanup: configuration was not initialized.");
+                    }
+                    else if (!ConfigSetup.BaseConfiguration.TestConfiguration.Environment.Contains("pre"))
+                    {
+                        DeleteApplicationViaBackend();
+                    }
                 }
             }
         }
@@ -91,7 +111,10 @@ namespace Defra.GC.UI.Tests.Hooks
             var fileTitle = _scenarioContext.ScenarioInfo.Title;
             var fileName = Path.Combine(filePath, $"{fileTitle}_TestFailures_{DateTime.Now:yyyyMMdd_hhss}" + ".png");
 
-            ((ITakesScreenshot)Driver).GetScreenshot().SaveAsFile(fileName);
+            if (Driver is not ITakesScreenshot screenshotDriver)
+                throw new InvalidOperationException("The initialized WebDriver does not support screenshots.");
+
+            screenshotDriver.GetScreenshot().SaveAsFile(fileName);
 
             _specFlowOutputHelper.AddAttachment(fileName);
             Logger.Debug($"SCREENSHOT {fileName} ");

@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Chromium;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Safari;
@@ -14,10 +13,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
     {
 
 
-        private static ScenarioContext _scenarioContext;
-
-        private BaseConfiguration _configuration => ConfigSetup.BaseConfiguration;
-        private Dictionary<string, object> _capDictionary;
+        private readonly BaseConfiguration _configuration;
         private readonly Dictionary<string, object> _browserstackOptions = new();
 
         private readonly string _target;
@@ -26,7 +22,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
 
         public BrowserStackCapability(BaseConfiguration baseConfiguration, ScenarioContext context)
         {
-            _scenarioContext = context;
+            _configuration = baseConfiguration;
             _target = _configuration.UiFrameworkConfiguration.Target;
             _deviceName = _configuration.TestConfiguration.DeviceName;
             _bs_os_version = _configuration.TestConfiguration.BSOSVersion;
@@ -35,21 +31,16 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
 
         public DriverOptions GetDriverOptions(Dictionary<string, string> capDictionary = null)
         {
-            _capDictionary = new Dictionary<string, object>();
+            _browserstackOptions.Clear();
 
             GetBrowserStackConfig();
             GetProjectDriverOptions();
             GetTestNameDriverOptions();
 
-            _capDictionary.Add("browser:", _target);
-            _capDictionary.Add("browser_version:", "latest");
-            _capDictionary.Add("os:", _deviceName);
-            _capDictionary.Add("os_version:", _bs_os_version);
-            _capDictionary.Add("autoGrantPermission:", true);
+            _browserstackOptions.Add("os", _deviceName);
+            _browserstackOptions.Add("osVersion", _bs_os_version);
 
-            _browserstackOptions.Add("acceptInsecureCerts", true);
-
-            DriverOptions driverOptions = null;
+            DriverOptions driverOptions;
             if (_target.Contains("Chrome"))
                 driverOptions = new ChromeOptions();
             else if (_target.Contains("Edge"))
@@ -58,8 +49,11 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
                 driverOptions = new SafariOptions();
             else if (_target.Contains("Firefox"))
                 driverOptions = new FirefoxOptions();
+            else
+                throw new ArgumentException($"Unsupported BrowserStack browser target: {_target}");
 
-            AddDictionaryValuesInDriverOptions(driverOptions, _capDictionary);
+            driverOptions.BrowserVersion = "latest";
+            driverOptions.AcceptInsecureCertificates = true;
             driverOptions.AddAdditionalOption("bstack:options", _browserstackOptions);
 
             return driverOptions;
@@ -77,15 +71,14 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
                 _browserstackOptions.Add("accessKey", _configuration.BrowserStackConfiguration.CloudDeviceUserKey);
                 _browserstackOptions.Add("idleTimeout", 300);
             }
-            _capDictionary.Add("acceptSslCerts", "true");
         }
 
         private void GetProjectDriverOptions()
         {
             if (!_browserstackOptions.ContainsKey("projectName"))
             {
-                _browserstackOptions.Add("projectName", ConfigSetup.BaseConfiguration.TestConfiguration.Project);
-                _browserstackOptions.Add("buildName", ConfigSetup.BaseConfiguration.TestConfiguration.Build);
+                _browserstackOptions.Add("projectName", _configuration.TestConfiguration.Project);
+                _browserstackOptions.Add("buildName", _configuration.TestConfiguration.Build);
             }
         }
 
@@ -94,19 +87,6 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Capabilities
             if (!_browserstackOptions.ContainsKey("sessionName"))
                 _browserstackOptions.Add("sessionName", TestContext.CurrentContext.Test.ClassName);
         }
-
-        private void AddDictionaryValuesInDriverOptions(DriverOptions driverOptions, Dictionary<string, object> capDictionary)
-        {
-            if (capDictionary != null)
-            {
-                foreach (var androidDictionary in capDictionary)
-                {
-                    driverOptions.AddAdditionalOption(androidDictionary.Key.ToString(), androidDictionary.Value);
-                }
-
-            }
-        }
-
 
     }
 }

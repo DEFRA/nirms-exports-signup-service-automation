@@ -59,6 +59,7 @@ Scenario: Verify back to dashboard link on enter Destination establishment postc
 	When  click on points of destination link
 	And   enter Establishment postcode '<postcode>'
 	Then  click on select address button
+	And   enter establishment name 'Test destination'
 	Then  click on save and continue
 	Then  click on save and continue
 	When  click on back to dashboard link

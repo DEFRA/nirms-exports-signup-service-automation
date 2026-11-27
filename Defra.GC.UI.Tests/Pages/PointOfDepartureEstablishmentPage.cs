@@ -47,7 +47,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IWebElement ChangedEmailAdress => _driver.WaitForElement(By.XPath("//dt[contains(text(),'Email address')]/..//dd"));
         private IWebElement InvalidEmailAdressPage => _driver.WaitForElement(By.XPath("//p[@id='Email_Error']"));
         private By AddAnotherPlaceOfDispatchMessage => By.XPath("//h3[contains(text(),'Have you added all your business’ places of')]");
-        private IWebElement DifferentPostcode => _driver.WaitForElement(By.XPath("//a[normalize-space()='entered the postcode correctly']"));
+        private By DifferentPostcode => By.XPath("//a[normalize-space()='entered the postcode correctly']");
         private IWebElement AddressMnualLink => _driver.WaitForElement(By.XPath("//a[normalize-space()='enter an address manually.']"));
         private IWebElement TextMessage => _driver.WaitForElement(By.XPath("//h3[contains(@class,'govuk-fieldset__heading')]"));
         private IWebElement WarningMessage => _driver.WaitForElement(By.XPath("//strong[@class='govuk-warning-text__text']"));
@@ -128,8 +128,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOndifferentPostCodeLink()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,2000)", "");
-            DifferentPostcode.Click();
+            ClickCenteredLink(DifferentPostcode);
         }
 
         public void ClickOnSelectAddressButton()
@@ -141,6 +140,12 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", SelectAddresButton);
             EstablishmentAddr1.Clear();
             EstablishmentAddr1.SendKeys("1");
+        }
+
+        public void EnterEstablishmentName(string establishmentName)
+        {
+            EstablishmentName.Clear();
+            EstablishmentName.SendKeys(establishmentName);
         }
 
         public void ClickOnAdressManuallyLink()
@@ -256,10 +261,26 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public void ClickOnChangeEstablishmentAddress(string establishmentName)
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.scrollBy(0,1000)", "");
-            Thread.Sleep(1000);
-            string RemoveEstablishment = "//h2[contains(text(),'" + establishmentName + "')]/../following-sibling::div//dt[contains(text(),'Address')]/..//a";
-            _driver.WaitForElement(By.XPath(RemoveEstablishment)).Click();
+            string changeAddress = "//h2[contains(text(),'" + establishmentName + "')]/../following-sibling::div//dt[contains(text(),'Address')]/..//a";
+            ClickCenteredLink(By.XPath(changeAddress));
+        }
+
+        private void ClickCenteredLink(By locator)
+        {
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(
+                ConfigSetup.BaseConfiguration.TestConfiguration.GlobalWaitsInSeconds));
+            wait.IgnoreExceptionTypes(typeof(ElementClickInterceptedException), typeof(StaleElementReferenceException));
+            wait.Until(d =>
+            {
+                var link = d.FindElement(locator);
+                if (!link.Displayed || !link.Enabled)
+                    return false;
+
+                ((IJavaScriptExecutor)d).ExecuteScript(
+                    "arguments[0].scrollIntoView({block: 'center', inline: 'nearest', behavior: 'instant'});", link);
+                link.Click();
+                return true;
+            });
         }
 
         public bool VerifyAddEstablishmentAddressManuallyPageLoaded()

@@ -39,8 +39,17 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyAddNewAccountLink()
         {
+            var handlesBeforeClick = _driver.WindowHandles.Count;
             AddNewAccountLink.Click();
-            return PageHeading.Text.Contains("Which type of account do you want to add?");
+
+            // The link may open in a new tab; follow it so the heading is read from the right page.
+            if (_driver.WindowHandles.Count > handlesBeforeClick)
+                _driver.SwitchTo().Window(_driver.WindowHandles.Last());
+
+            // Wait for the destination heading rather than reading the heading of the page we just left.
+            return _driver.WaitForElementTextToContain(
+                By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"),
+                "Are you registering a business or organisation?");
         }
 
         #endregion Page Methods

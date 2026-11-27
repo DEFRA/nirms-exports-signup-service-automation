@@ -4,6 +4,7 @@ using Defra.Trade.ReMos.AssuranceService.Tests.HelperMethods;
 using Defra.Trade.ReMos.AssuranceService.Tests.Tools;
 using Defra.UI.Framework.Driver;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 
 namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
@@ -13,7 +14,7 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
         private IObjectContainer _objectContainer;
 
         #region Page Objects
-        private IWebElement PageHeading => _driver.WaitForElement(By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"));
+        private static readonly By PageHeadingBy = By.CssSelector("h1");
         private IWebElement ManageAccountlink => _driver.WaitForElement(By.XPath("//a[@id='Link-ManageAccount']"));
         private IWebElement AddNewAccountLink => _driver.WaitForElement(By.XPath("//a[@id='link-add-account']"));
 
@@ -30,26 +31,50 @@ namespace Defra.Trade.ReMos.AssuranceService.Tests.Pages
 
         public bool VerifyManageAccountLink()
         {
-            ManageAccountlink.Click();
-
-            var browserTabs = _driver.WindowHandles;
-            _driver.SwitchTo().Window(browserTabs[1]);
-            return PageHeading.Text.Contains("Your Defra account");
+            return VerifyLinkDestination(ManageAccountlink, "Your Defra account");
         }
 
         public bool VerifyAddNewAccountLink()
         {
-            var handlesBeforeClick = _driver.WindowHandles.Count;
-            AddNewAccountLink.Click();
+            return VerifyLinkDestination(AddNewAccountLink, "Are you registering a business or organisation?");
+        }
 
-            // The link may open in a new tab; follow it so the heading is read from the right page.
-            if (_driver.WindowHandles.Count > handlesBeforeClick)
-                _driver.SwitchTo().Window(_driver.WindowHandles.Last());
+        private bool VerifyLinkDestination(IWebElement link, string expectedHeading)
+        {
+            var configuration = ConfigSetup.BaseConfiguration
+                ?? throw new InvalidOperationException("Test configuration has not been initialized.");
+            var handlesBeforeClick = _driver.WindowHandles.ToHashSet();
+            link.Click();
 
-            // Wait for the destination heading rather than reading the heading of the page we just left.
-            return _driver.WaitForElementTextToContain(
-                By.XPath("//h1[@class='govuk-heading-xl'] | //h1[@class='govuk-heading-l'] | //h1[@class='govuk-fieldset__heading']"),
-                "Are you registering a business or organisation?");
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(
+                configuration.TestConfiguration.GlobalWaitsInSeconds));
+            wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException), typeof(NoSuchElementException));
+            var actualHeadings = string.Empty;
+
+            try
+            {
+                return wait.Until(driver =>
+                {
+                    // Check throughout the wait because a new tab can appear after Click returns.
+                    var newHandle = driver.WindowHandles.FirstOrDefault(handle => !handlesBeforeClick.Contains(handle));
+                    if (newHandle != null && driver.CurrentWindowHandle != newHandle)
+                        driver.SwitchTo().Window(newHandle);
+
+                    var headings = driver.FindElements(PageHeadingBy)
+                        .Where(heading => heading.Displayed)
+                        .Select(heading => heading.Text)
+                        .ToArray();
+                    actualHeadings = string.Join(" | ", headings);
+                    return headings.Any(heading => heading.Contains(expectedHeading, StringComparison.CurrentCultureIgnoreCase));
+                });
+            }
+            catch (WebDriverTimeoutException ex)
+            {
+                var pageUrl = new Uri(_driver.Url).GetLeftPart(UriPartial.Path);
+                throw new WebDriverTimeoutException(
+                    $"Account link did not reach heading '{expectedHeading}'. " +
+                    $"Actual headings: '{actualHeadings}'. Page: '{pageUrl}'.", ex);
+            }
         }
 
         #endregion Page Methods
